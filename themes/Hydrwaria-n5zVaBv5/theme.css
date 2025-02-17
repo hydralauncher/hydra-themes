@@ -11,11 +11,10 @@
   */
 
  body{
-    font-weight: 100;
+    font-weight: 200;
     background-color: black;
     border-radius: 40px;
     color: rgb(59, 59, 59);
-    font-weight: 200;
   }
   
 .title-bar h4 {
