@@ -24,7 +24,7 @@
 .title-bar::before {
   content: "Hydrwaria";
   font-size: 13px;
-  border: color(45deg, #baf3a3);
+  border-color: #baf3a3;
 }
 
 .title-bar::after {
