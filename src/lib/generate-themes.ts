@@ -50,6 +50,25 @@ Promise.all(
       return;
     }
 
+    await axios
+      .post(
+        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "hydra-token": hydraHeaderSecret,
+          },
+        },
+      )
+      .catch((err) => {
+        console.error(
+          `could not update user (${authorCode}) badge`,
+          err.message,
+          err.response?.data,
+        );
+      });
+
     const data = response.data as Theme["author"];
 
     fs.cpSync(
