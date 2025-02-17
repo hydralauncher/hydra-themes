@@ -55,14 +55,14 @@ body {
 }
 
 .home__content {
-    background-color: #1b2838;
+  background-color: #1b2838;
 }
 
 .content {
   margin-left: 270px;
   padding: 20px;
 }
-s
+
 .content__title {
   font-size: 20px;
   color: #66c0f4;
@@ -208,7 +208,7 @@ s
 }
 
 .catalogue {
-    background-color: #1b2838;
+  background-color: #1b2838;
 }
 
 .text-field-container__text-field--dark,
@@ -220,7 +220,6 @@ s
 .user-stats__box,
 .recent-games__box {
   background-color: #2a475e;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   border-radius: 5px;
 }
@@ -285,7 +284,6 @@ s
 .profile-avatar {
   width: 50px;
   height: 50px;
-
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
@@ -354,7 +352,6 @@ s
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-
 }
 
 .title-bar h4 {
@@ -393,7 +390,6 @@ s
   background-color: #171a21;
   padding: 10px;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.9);
-
 }
 
 .toast {
@@ -550,7 +546,6 @@ s
 }
 
 .game-details__description-container {
-
   background: #1b2838;
 }
 
@@ -659,11 +654,11 @@ s
 }
 
 .home__icon-wrapper .button {
-  color: white ;
+  color: white;
 }
 
 .button--outline {
-  color: white ;
+  color: white;
 }
 
 .stats__category-title {
@@ -964,7 +959,6 @@ small {
   background-color: #1b2838;
   color: #c7d5e0;
 }
-
 
 .settings__content {
   padding: 20px;
