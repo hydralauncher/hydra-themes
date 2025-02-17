@@ -64,6 +64,11 @@ Promise.all(
       { recursive: true },
     );
 
+    const url = new URL(data.profileImageUrl);
+    url.search = "";
+
+    data.profileImageUrl = url.toString();
+
     const fileExt = path.extname(data.profileImageUrl);
     const authorResponse = await fetch(data.profileImageUrl).then((res) =>
       res.arrayBuffer(),
