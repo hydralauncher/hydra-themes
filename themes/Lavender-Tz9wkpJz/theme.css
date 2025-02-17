@@ -446,7 +446,8 @@ body {
     }
 }
 
-/* Pagination Styles */
+/* Pagination Styles
+-------------------------------------------------- */
 .pagination {
     display: flex;
     align-items: center;
@@ -527,19 +528,6 @@ body {
 .catalogue__result-count {
     color: var(--text-dim);
     font-size: 0.9rem;
-}
-
-.pagination {
-    margin: 0; /* Reset margin since parent container handles spacing */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .catalogue__pagination-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
 }
 
 /* Utilities
