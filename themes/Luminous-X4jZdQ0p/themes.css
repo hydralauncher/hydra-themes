@@ -493,3 +493,281 @@
     opacity: 1;
   }
 }
+
+.download-group__item {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(135deg, #2a1a57, #000000); 
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.download-group__item:hover {
+    transform: scale(1.02);
+}
+
+.download-group__cover {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.download-group__cover-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+}
+
+.download-group__cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.download-group__right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+    width: calc(100% - 150px);
+}
+
+.download-group__title-wrapper {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.download-group__details p {
+    color: #b0b0b0;
+    font-size: 14px;
+    margin: 0px 0;
+}
+
+.download-group__details-with-article {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #c8c8c8;
+}
+
+.download-group__details-with-article svg {
+    margin-left: 5px;
+}
+
+.download-group__menu-button {
+    background: transparent;
+    border: transparent;
+    color: #a55ee5;
+    padding: 8px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.download-group__menu-button:hover {
+    background-color: #a55ee5;
+    color: #fff;
+}
+
+.download-group__menu-button svg {
+    margin-left: 5px;
+}
+
+.game-details__cloud-sync-button {
+  display: flex;
+  align-items: center;
+  background: #4b0082;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.game-details__cloud-sync-button:hover {
+  background: #6a0dad;
+}
+
+.hero-panel__content p {
+  margin: px 0;
+}
+
+.hero-panel-actions__action {
+  background: #6a0dad;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.hero-panel-actions__action:hover {
+  background: #9b30b3;
+}
+
+.game-details__description-container {
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.game-details__description {
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.gallery-slider__media {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.gallery-slider__preview-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.gallery-slider__preview-button:hover .gallery-slider__preview-image {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .game-details__container {
+    top: 5%;
+    bottom: 5%;
+  }
+}
+
+.content-sidebar {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  backdrop-filter: blur(10px); 
+}
+
+.requirement__button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.requirement__button--primary {
+  background-color: rgba(45, 114, 217, 0.8); 
+  color: #fff;
+}
+
+.requirement__button--outline {
+  background-color: transparent;
+  border: 2px solid rgba(45, 114, 217, 0.8);
+  color: rgba(45, 114, 217, 0.8);
+}
+
+.requirement__button:hover {
+  background-color: rgba(31, 86, 161, 0.8);
+}
+
+.bb_ul {
+  padding-left: 20px;
+}
+
+.bb_ul li {
+  margin-bottom: 5px;
+}
+
+.list__item-image--locked {
+  opacity: 0.6;
+}
+
+.list__item p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.subscription-required-button {
+  background-color: rgba(255, 87, 51, 0.8); 
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.subscription-required-button:hover {
+  background-color: rgba(212, 78, 43, 0.8);
+}
+
+.sidebar-section__button {
+  background-color: rgba(50, 50, 50, 0.8); 
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.sidebar-section__button:hover {
+  background-color: rgba(80, 80, 80, 0.8);
+}
+
+.sidebar-section__chevron {
+  transition: transform 0.3s;
+}
+
+.sidebar-section__chevron--open {
+  transform: rotate(180deg);
+}
+
+.content-sidebar {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  backdrop-filter: blur(10px); 
+}
+
+.sidebar-section {
+  margin-bottom: 20px;
+}
