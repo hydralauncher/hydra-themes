@@ -451,7 +451,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 24px 0;
+    margin: 0; /* Reset margin since parent container handles spacing */
 }
 
 .pagination__button {
