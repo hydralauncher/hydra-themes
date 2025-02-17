@@ -1,6 +1,6 @@
 import Github from "@/assets/github.svg";
 import Twitter from "@/assets/twitter.svg";
-
+import Reddit from "@/assets/reddit.svg";
 export function Footer() {
   return (
     <footer className="mt-auto border-t bg-background py-8">
@@ -37,8 +37,23 @@ export function Footer() {
               <img
                 src={Twitter.src}
                 alt="Twitter"
-                width={28}
-                height={28}
+                width={30}
+                height={30}
+                decoding="async"
+                loading="lazy"
+                className="dark:invert"
+              />
+            </a>
+            <a
+              href="https://reddit.com/r/hydralauncher"
+              className="transition-colors hover:text-white"
+            >
+              <span className="sr-only">Reddit</span>
+              <img
+                src={Reddit.src}
+                alt="Reddit"
+                width={34}
+                height={34}
                 decoding="async"
                 loading="lazy"
                 className="dark:invert"
