@@ -1,0 +1,28 @@
+#root {
+    background: url(https://images6.alphacoders.com/135/thumb-1920-1356934.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .title-bar,
+  .sidebar,
+  .container__content,
+  .header,
+  .bottom-panel,
+  .text-field-container__text-field--dark,
+  .settings__content,
+  .header__search,
+  .sidebar-profile__friends-button,
+  .game-item,
+  .catalogue__filters-container,
+  .user-stats__box,
+  .recent-games__box,
+  .friends-box__box {
+    background: #19032151 !important;
+  }
+  
+  .container__content {
+    background: #341f3b2c;
+  }
+  
