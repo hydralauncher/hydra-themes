@@ -7,7 +7,7 @@ body {
 }
 
 #root {
-    background: url(https://media1.tenor.com/m/v9E1MSawA4kAAAAd/monkey-bloons-td6.gif) #6d020200;
+    background: url(https://pbs.twimg.com/media/GR8CGUwXsAANl7v?format=jpg&name=4096x4096) #6d020200;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -19,11 +19,11 @@ body {
 
 .container__content .button--outline {
     backdrop-filter: blur(1px);
-    background-color: transparent//rgba(199, 33, 177, 0.603);
+    background-color: transparent;
 }
 
 .settings-download-sources__item, .download-group__item, .game-item {
-    background-color: transparent(5, 155, 62) !important;
+    background-color: transparent !important;
 }
 
 .title-bar {
@@ -36,7 +36,7 @@ body {
 }
 
 .bottom-panel{
-    background-color: transparent//(4, 172, 27, 0);
+    background-color: transparent;
 }
 
-//SIGNED BY MISNOIA
+/*Feito por Misnoia (Made By Misnoia)*/
