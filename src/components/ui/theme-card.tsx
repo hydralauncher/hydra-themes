@@ -48,19 +48,9 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           </div>
 
           <Button
-            className="hidden sm:block"
             variant="outline"
             size="default"
             onClick={handleClick}
-          >
-            Install theme
-          </Button>
-
-          <Button
-            disabled
-            className="block sm:hidden"
-            variant="outline"
-            size="default"
           >
             Install theme
           </Button>
