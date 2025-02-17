@@ -56,7 +56,7 @@
 }
 
 body {
-  font-family: "JetBrains Mono";
+  font-family: "JetBrains Mono", sans-serif;
 }
 
 .home__content {
