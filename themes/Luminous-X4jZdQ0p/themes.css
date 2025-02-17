@@ -449,7 +449,7 @@
 }
 
 .title-bar::after {
-  content: "theme by: @user";
+  content: "theme by: @sterlarbr";
   font-size: 8px;
   font-weight: 700;
   color: #fff;
