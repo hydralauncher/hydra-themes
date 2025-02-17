@@ -143,7 +143,7 @@ button {
     transform-origin: left;
 }
 
-.sidebar__menu-item sidebar__menu-item--active {
+.sidebar__menu-item.sidebar__menu-item--active {
     background: #ffffff;
 }
 
