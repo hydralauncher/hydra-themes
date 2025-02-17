@@ -372,7 +372,6 @@ body {
     width: 100%;
     -webkit-line-clamp: 1;
     line-clamp: 1;
-    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     height: 1.2em; /* Hardcoded height to prevent layout shifts */
