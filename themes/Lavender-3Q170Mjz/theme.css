@@ -616,12 +616,13 @@ body {
 
 @keyframes glow {
     from {
-        text-shadow: 0 0 5px #8e44ad40, 0 0 10px #9f6fff40;
+        text-shadow: 0 0 1px #8e44ad10, 0 0 2px #9f6fff10;
     }
     to {
-        text-shadow: 0 0 10px #8e44ad80, 0 0 20px #9f6fff80;
+        text-shadow: 0 0 2px #8e44ad20, 0 0 3px #9f6fff20;
     }
 }
+
 
 /* Repack Modal Styles
 -------------------------------------------------- */
