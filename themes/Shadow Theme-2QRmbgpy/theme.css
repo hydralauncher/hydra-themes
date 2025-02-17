@@ -1,81 +1,215 @@
+/* =============================================================
+   SHADOW THE HEDGEHOG THEME (Black & Red) for Hydra Launcher
+   Mantém o mesmo layout, mas foca em preto e vermelho, 
+   usando um wallpaper do Shadow the Hedgehog.
+============================================================= */
 
-  /*
-    Here you can edit CSS for your theme and apply it on Hydra.
-    There are a few classes already in place, you can use them to style the launcher.
+/* Tornamos as seções principais transparentes para exibir o wallpaper */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent !important;
+}
 
-    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
-    or how to publish your theme in the theme store, you can check the docs:
-    https://docs.hydralauncher.gg/
+/* Cor primária do texto e cursor padrão */
+body {
+  color: #f0efef;
+  margin: 0;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23ff1a1a'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(255,26,26,0.5)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, auto;
+}
 
-    Happy hacking!
-  */
+/* Cursores para estados de hover/active */
+body:active,
+button:hover,
+a:hover,
+.clickable:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23ff3333'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(255,51,51,0.8)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, pointer;
+}
 
-  /* Header */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23ff1a1a'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(255,26,26,0.5)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, auto;
+}
 
+/* #root: Define o wallpaper do Shadow + fallback em preto */
+#root {
+  background: #000 url("https://images6.alphacoders.com/137/thumb-1920-1374761.jpg") no-repeat center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
 
-  body {
-    margin: 0;
-    color: #f0efef;
-    font-family: Arial, sans-serif;
-   
-  }
-  
-  
-  #root {
-    background: #000
-      url("https://images6.alphacoders.com/137/thumb-1920-1374761.jpg")
-      no-repeat center center;
-    background-size: cover;
-  }
-  
-  
-  .sidebar,
-  .header,
-  .container__content,
-  .bottom-panel {
-    background: transparent !important; 
-  }
-  
-  
-  .text-field-container__text-field--dark,
-  .text-field-container__text-field--primary,
-  .header__search,
-  .game-item,
-  .settings__content,
-  .catalogue__filters-container,
-  .friends-box__box,
-  .user-stats__box,
-  .recent-games__box,
-  .sidebar {
-  
-    background-color: rgba(150, 19, 19, 0.25) !important;
-    backdrop-filter: blur(8px);
-  }
-  
-  .container__content .button--outline {
-    backdrop-filter: blur(6px);
-    background-color: rgba(150, 19, 19, 0.4);
-  }
-  
-  
-  .settings-download-sources__item,
-  .download-group__item,
-  .game-item {
-    background-color: rgba(150, 19, 19, 0.5) !important;
-  }
-  
-  
-  .title-bar {
-    background-color: #000;
-  }
-  
-  
-  .home__content {
-    background-color: rgba(150, 19, 19, 0.35);
-    backdrop-filter: blur(2px);
-  }
-  
-  .bottom-panel {
-    background-color: rgba(150, 19, 19, 0.3);
-  }
-  
+/* Gradiente sutil por cima do wallpaper */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(150,19,19,0.5) 100%);
+  z-index: -1;
+}
+
+/* Ajuste no tamanho da sidebar */
+.sidebar {
+  width: 120px;
+  background: rgba(150,19,19,0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-right: 2px solid rgba(255,0,0,0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar__menu-item {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: all 0.3s ease-in-out;
+  color: #f0efef;
+}
+
+.sidebar__menu-item:hover {
+  background: rgba(255,0,0,0.4);
+  transform: translateX(3px);
+  box-shadow: 0 3px 8px rgba(255,0,0,0.3);
+}
+
+.sidebar__menu-item--active {
+  background: rgba(255,0,0,0.6);
+  border-left: 3px solid #ff1a1a;
+}
+
+/* Efeito de zoom dinâmico ao passar o mouse sobre user-library-game__overlay */
+.user-library-game__overlay {
+  transition: transform 0.15s ease-in-out;
+  transform-origin: center;
+}
+
+.user-library-game__overlay:hover {
+  transform: scale(1.03) translate(var(--mouse-x), var(--mouse-y));
+}
+
+.user-library-game__overlay:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,0,0,0.15);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Outros estilos mantidos */
+.settings__content,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar,
+.download-group__right-content,
+.button.game.item,
+.hero-panel,
+.hero-panel--stuck,
+.game-details__description-container,
+.description-header,
+.modal__header {
+  background: rgba(150,19,19,0.6) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,0,0,0.3);
+}
+
+.content-sidebar,
+.sidebar-section__button {
+  background: rgba(0,0,0,0.6) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.modal__content {
+  background: rgba(20,20,20,0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Estilos dos botões padrões */
+.button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+.button--primary {
+  background: linear-gradient(45deg, #ff1a1a, #8b0000);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255,0,0,0.3);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,0,0,0.4);
+}
+
+.button--outline {
+  border: 1px solid rgba(255,0,0,0.5);
+  background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(139,0,0,0.1));
+  color: white;
+}
+
+.button--outline:hover {
+  border-color: #ff1a1a;
+  background: linear-gradient(45deg, rgba(255,0,0,0.2), rgba(139,0,0,0.2));
+  transform: translateY(-2px);
+}
+
+/* Barra de rolagem personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: rgba(21,21,21,0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff1a1a, #8b0000);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ff3333, #a30000);
+}
+
+/* Estilo para os botões de jogo com efeito de vidro (glass effect) */
+/* Base: fundo preto com blur; Hover: fundo vermelho */
+.button.game,
+.buttonGameItem {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,0,0,0.4);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.button.game:hover,
+.buttonGameItem:hover {
+  background: rgba(255,0,0,0.6);
+  border: 1px solid rgba(255,0,0,0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+}
