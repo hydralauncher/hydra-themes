@@ -25,12 +25,6 @@ body {
   animation: disappear-reappear 12s infinite, paranoid-color 6s infinite;
 }
 
-.header, .title-bar, .bottom-panel, .toast, .modal__header, .modal__content, 
-.repacks-modal__repacks button, .download-group__item, .game-details__description-container, 
-.content-sidebar, .subscription-required-button, .sidebar-section__button {
-  animation: disappear-reappear 12s infinite, paranoid-color 6s infinite;
-}
-
 .button {
   animation: disappear-reappear 12s infinite, paranoid-color 6s infinite;
 }
