@@ -33,7 +33,7 @@ a:hover,
 
 /* #root: Define o wallpaper do Shadow + fallback em preto */
 #root {
-  background: #000 url("https://images6.alphacoders.com/137/thumb-1920-1374761.jpg") no-repeat center center;
+  background: #000 url("https://images6.alphacoders.com/131/thumb-1920-1310637.png") no-repeat center center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
