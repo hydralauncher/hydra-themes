@@ -6,12 +6,6 @@
   .sidebar {
     background-color: black;
   }
-
-  /* Main content */
-  .container__content{
-    background-color: black;
-  }
-
   /* Bottom panel */
   .bottom-panel {
     background-color: black;
@@ -21,10 +15,6 @@
   .toast {
     background-color: black;
   }
-
-  /* Button */
-  .button {}
-
 .container__content{
   background: black;
 }
