@@ -1,6 +1,6 @@
 /* 
   Tema: Steam Theme
-  Versão: 1.0
+  Versão: 1.1
   Descrição: A simple Steam-inspired theme.
   Autor: Esther Discord: @sterlarbr
   Data de criação: 17/02/2025
@@ -137,7 +137,6 @@ s
   align-items: left;
   transition: opacity 0.3s ease;
   background-color: #1b2838;
-  padding: 20px;
   border-radius: 5px;
   width: 700px;
   margin: 100px auto;
@@ -184,10 +183,11 @@ s
   background-color: #1b2838;
   padding: 20px;
   border-radius: 0 0 10px 10px;
-  max-width: 100%;
-  max-height: 80%;
-  overflow-y: auto;
+  width: 100%; /* Ocupa toda a largura disponível */
+  height: 100%; /* Ocupa toda a altura disponível */
+  overflow-y: auto; /* Habilita rolagem quando necessário */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
 }
 
 .modal__footer {
@@ -215,7 +215,6 @@ s
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
-.header__search,
 .game-item,
 .settings__content,
 .catalogue__filters-container,
@@ -226,6 +225,14 @@ s
 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   border-radius: 5px;
+}
+
+.header__search {
+  background-color: #2a475e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px; 
 }
 
 ::-webkit-scrollbar {
@@ -773,4 +780,150 @@ small {
   border-radius: 5px;
   font-size: 14px;
   text-align: center;
+}
+
+.achievements-content__achievements-list__section__container {
+  background: linear-gradient(0deg, rgb(21, 21, 21) 0%, rgb(90, 74, 11) 100%);
+}
+
+.achievements-content__achievements-list__section__container__hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.achievements-content__achievements-list__section__container__hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievements-content__achievements-list__section__container__hero__content__game-logo {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.achievements-content__achievements-list__section__container__achievements-summary-wrapper {
+  padding: 20px;
+}
+
+.achievements-content__user-summary {
+  display: flex;
+  align-items: center;
+}
+
+.achievements-content__profile-avatar {
+  width: 100px;
+  height: 100px;
+}
+
+.achievements-content__user-summary__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.achievements-content__user-summary__container__stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.achievements-content__user-summary__container__stats__trophy-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.achievements-content__user-summary__container__stats__progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #2a475e;
+}
+
+.achievements__list {
+  background-color: #202c3c;
+}
+
+.achievements__item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #2a475e;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.achievements__item:hover {
+  transform: scale(1.02);
+}
+
+.achievements__item-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.achievements__item-image--locked {
+  opacity: 0.6;
+}
+
+.achievements__item-content {
+  flex-grow: 1;
+}
+
+.achievements__item-title {
+  font-size: 16px;
+  color: #66c0f4;
+  margin: 0;
+}
+
+.achievements__item-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.achievements__item-points {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.achievements__item-points-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.achievements__item-points-value {
+  font-size: 14px;
+  color: #c7d5e0;
+  margin: 0;
+}
+
+.achievement-panel {
+  background-color: #2a475e;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.achievement-panel__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #c7d5e0;
+  font-size: 16px;
+}
+
+.achievement-panel__content-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
 }
