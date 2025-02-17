@@ -39,4 +39,33 @@ body {
     background-color: transparent;
 }
 
-/*Feito por Misnoia (Made By Misnoia)*/
+.title-bar::before {
+  content: "Eco Launcher";
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #000000, #000000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: glow 1.5s infinite alternate;
+  display: block;
+  text-align: left;
+}
+
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #01a70a, 0 0 10px #0b790173, 0 0 15px #000000, 0 0 20px #3498db, 0 0 30px #3498db;
+  }
+  100% {
+    text-shadow: 0 0 10px #00fc0d, 0 0 20px #007e06, 0 0 30px #01f13d, 0 0 40px #33ff00, 0 0 50px #15ff00;
+  }
+}
+
+.title-bar h4 {
+  visibility: hidden;
+}
+
+/*Feito por noiado*/
