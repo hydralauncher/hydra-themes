@@ -41,34 +41,17 @@ body::after {
   backdrop-filter: blur(5px);
 }
 
-.game-card {
-  background: rgba(21, 21, 21, 0.5);
-  backdrop-filter: blur(5px);
-}
-
-.bottom-panel {
-  background: rgba(21, 21, 21, 0.5);
-  backdrop-filter: blur(5px);
-}
-
-.modal {
-  background: rgba(28, 28, 28, 0.8);
-  backdrop-filter: blur(10px);
-}
-
-.toast {
-  background: rgba(21, 21, 21, 0.8);
-  backdrop-filter: blur(10px);
-}
-
 .button,
 .game-card,
 .sidebar__menu-item,
 .header__search,
 .profile-avatar,
 .modal,
-.toast {
+.toast,
+.hero,
+.link {
   position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
@@ -103,17 +86,7 @@ body::after {
   100% { box-shadow: 0 0 5px rgba(62, 98, 192, 0.3); }
 }
 
-.button,
-.game-card,
-.sidebar__menu-item,
-.header__search,
-.profile-avatar {
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .button {
-  position: relative;
   overflow: hidden;
 }
 
@@ -164,6 +137,22 @@ body::after {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
+.toast {
+  transform: translateX(100%);
+  animation: slideIn 0.3s forwards cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(21, 21, 21, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(62, 98, 192, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  backdrop-filter: blur(15px);
+  background: rgba(28, 28, 28, 0.95);
+  border: 1px solid rgba(62, 98, 192, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
 .sidebar__menu-item {
   border-left: 3px solid transparent;
   background: linear-gradient(90deg, transparent 0%, rgba(62, 98, 192, 0) 100%);
@@ -198,22 +187,6 @@ body::after {
   box-shadow: 0 0 15px rgba(62, 98, 192, 0.3);
 }
 
-.toast {
-  transform: translateX(100%);
-  animation: slideIn 0.3s forwards cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(21, 21, 21, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(62, 98, 192, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.modal {
-  backdrop-filter: blur(15px);
-  background: rgba(28, 28, 28, 0.95);
-  border: 1px solid rgba(62, 98, 192, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
 ::-webkit-scrollbar {
   width: 8px;
   background-color: rgba(21, 21, 21, 0.5);
@@ -229,10 +202,8 @@ body::after {
 }
 
 .link {
-  position: relative;
   color: #3e62c0;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 
 .link:hover {
