@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap');
+
+@keyframes brilho {
+  0% { filter: brightness(100%); }
+  50% { filter: brightness(120%); }
+  100% { filter: brightness(100%); }
+}
+
+@keyframes moverNuvens {
+  0% { background-position: center 0px; }
+  100% { background-position: center 50px; }
+}
+
+/* Aplica o background na estrutura correta */
+.app, .container__content {
+  background: url('https://i.imgur.com/OSEmXJa.png') no-repeat center center fixed;
+  background-size: cover;
+  animation: moverNuvens 5s infinite alternate linear, brilho 3s infinite alternate;
+}
+
+/* Fonte */
+body {
+  font-family: 'Cormorant Garamond', serif;
+}

@@ -6,11 +6,11 @@
 }
 
 body {
-  color: #f0efef;
+  color: #d3d3d3;
 }
 
 #root {
-  background: url(https://i.gifer.com/9Sbc.gif) #2c2323;
+  background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWxjN2c3amw3b3FzNnUxNzlzYnZ5NGdkOGJkdGI5NHFrYnQwdXQzeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ng3QSLNj06Y3C/giphy.gif') center center fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -31,24 +31,24 @@ body {
 
 .container__content .button--outline {
   backdrop-filter: blur(8px);
-  background-color: rgba(33, 72, 199, 0.603);
+  background-color: rgba(0, 255, 34, 0);
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-  background-color: rgba(15, 46, 150, 0.705) !important;
+  background-color: rgba(15, 46, 150, 0) !important;
 }
 
 .title-bar {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(255, 0, 0, 0);
 }
 
 .home__content {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(240, 18, 18, 0);
   backdrop-filter: blur(1px);
 }
 
 .bottom-panel {
-  background-color: rgba(9, 36, 185, 0.397);
+  background-color: rgba(9, 35, 185, 0);
 }
