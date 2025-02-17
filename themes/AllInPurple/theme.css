@@ -135,3 +135,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom,  #3c02af, #a41ea8);
 }
+
+.download-group__right-content{
+  background: linear-gradient(to bottom, #29017a, #7c1a7f);
+  color: rgb(185, 185, 185);
+}
+
+.download-group__title {
+  color: rgb(185, 185, 185);
+}
