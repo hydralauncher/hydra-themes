@@ -158,12 +158,6 @@ body {
     border-color: #868686;
 }
 
-.text-field-container__text-field {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #cccccc;
-}
-
 .header__search {
   background-color: #f1f1f1;
   color: #333333;
@@ -271,7 +265,6 @@ body {
 }
 
 .container__content {
-  background-color: #ffffff;
   background: #ffffff;
   color: #000000;
 }
@@ -557,7 +550,7 @@ small {
 }
 
 .achievements__item {
-  background-color: #e0e0e0;;
+  background-color: #e0e0e0;
   color: #000000;
 }
 
