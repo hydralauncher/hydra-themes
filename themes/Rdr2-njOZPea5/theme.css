@@ -25,9 +25,9 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar {
-  background-color: rgba(0, 0, 0, 0.555) !important;
+  -background-color: rgba(0, 0, 0, 0.555) !important;
   -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  -backdrop-filter: blur(5px);
 }
 
 .container__content .button--outline {
