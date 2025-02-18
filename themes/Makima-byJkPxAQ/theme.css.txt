@@ -1,4 +1,4 @@
- body {
+body {
     margin: 0;
     color: #ffffff; /* Dourado suave para combinar com os olhos da Makima */
     font-family: Arial, sans-serif;
