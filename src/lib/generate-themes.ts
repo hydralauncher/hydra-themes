@@ -88,28 +88,33 @@ Promise.all(
       { recursive: true },
     );
 
-    const url = new URL(data.profileImageUrl);
-    url.search = "";
+    let authorImage = null;
+    try {
+      const url = new URL(data.profileImageUrl);
+      url.search = "";
+      data.profileImageUrl = url.toString();
 
-    data.profileImageUrl = url.toString();
+      const fileExt = path.extname(data.profileImageUrl);
+      const authorResponse = await fetch(data.profileImageUrl).then((res) =>
+        res.arrayBuffer(),
+      );
 
-    const fileExt = path.extname(data.profileImageUrl);
-    const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-      res.arrayBuffer(),
-    );
-
-    fs.writeFileSync(
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        `author${fileExt}`,
-      ),
-      Buffer.from(authorResponse),
-    );
+      fs.writeFileSync(
+        path.join(
+          import.meta.dirname,
+          "..",
+          "..",
+          "public",
+          "themes",
+          themeName.toLowerCase(),
+          `author${fileExt}`,
+        ),
+        Buffer.from(authorResponse),
+      );
+      authorImage = `author${fileExt}`;
+    } catch (error) {
+      console.error(`Failed to fetch author image for ${authorCode}`, error);
+    }
 
     return {
       id: `${authorCode}:${themeName}`,
@@ -117,7 +122,7 @@ Promise.all(
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: `author${fileExt}`,
+      authorImage: authorImage,
       downloads: 0,
       favorites: 0,
     } as Theme;
