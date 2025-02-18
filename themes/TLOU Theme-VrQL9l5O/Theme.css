@@ -42,7 +42,7 @@ body {
 
 .home__content,
 .container__content .button--outline {
-  backdrop-filter: transparent(8px);
+  backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0);
 }
 
