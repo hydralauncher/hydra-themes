@@ -33,7 +33,9 @@ Promise.all(
       return;
     }
 
-    const [themeName, authorCode] = folder.split("-");
+    const parts = folder.split("-");
+    const themeName = parts[0];
+    const authorCode = parts.at(-1);
 
     const response = await axios.get(
       `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
@@ -49,6 +51,25 @@ Promise.all(
       console.error(`Failed to fetch author ${authorCode}`);
       return;
     }
+
+    await axios
+      .post(
+        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "hydra-token": hydraHeaderSecret,
+          },
+        },
+      )
+      .catch((err) => {
+        console.error(
+          `could not update user (${authorCode}) badge`,
+          err.message,
+          err.response?.data,
+        );
+      });
 
     const data = response.data as Theme["author"];
 
@@ -89,12 +110,15 @@ Promise.all(
     );
 
     return {
+      id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
       authorImage: `author${fileExt}`,
-    };
+      downloads: 0,
+      favorites: 0,
+    } as Theme;
   }),
 ).then((themes) => {
   console.log(`Generated ${themes.length} themes`);
