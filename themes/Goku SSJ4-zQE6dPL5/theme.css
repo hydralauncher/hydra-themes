@@ -255,14 +255,6 @@ body {
     margin-bottom: 9px;
   }
 
-  .game-item{
-    border-radius: 20px;
-    height: 120px;
-    gap: 50px;
-    border-color: rgba(46, 46, 46, 0);
-    transition: transform 0.2s ease-in-out;
-  }
-
 #root {
     background: url(https://i.imgur.com/FeVFwTO.gif) #750E3E;
     background-size: cover;
@@ -359,9 +351,11 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .how-long-to-beat__categories-list{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     background-size:cover;
     background-repeat: no-repeat;
+    width: 100%;
+    gap: 5px;
 }
 
 .button--primary.requirement__button{
@@ -484,18 +478,12 @@ font-family: Arial, sans-serif;
 backdrop-filter: blur(10px); 
 }
 
-.user-library-game__playtime{
-  border-radius: 100px;
-  background-color:#0000006c ;
-  backdrop-filter: blur(5px);
-}
-
 .profile-hero__hero-panel{
   border-top:none;
   box-shadow: none;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: none;
+  background-color: transparent;
 }
 
 .profile-hero__content-box{
@@ -510,11 +498,6 @@ backdrop-filter: blur(10px);
   min-width: 100px;
   height: 100px;
   min-height: 100px;
-}
-
-.profile-hero__display-name{
-  font-size: 40px;
-  font-weight: 300;
 }
 
 .profile-hero__display-name{
@@ -552,11 +535,6 @@ transform: scale(1.03);
 .requirement__button:hover{
   transform: scale(1.05);
   background-color: #383838;
-}
-
-.how-long-to-beat__categories-list{
-  width: 100%;
-  gap: 5px;
 }
 
 .achievement-panel{
@@ -655,13 +633,14 @@ transform: scale(1.03);
 }
 
 .user-library-game__playtime {
+  border-radius: 100px;
+  backdrop-filter: blur(5px);
   font-size: 14px;
   display: flex;
   align-items: center;
   gap: 5px;
   background-color: transparent;
   padding: 5px 10px;
-  border-radius: 15px;
 }
 
 .user-library-game__playtime svg {
