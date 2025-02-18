@@ -359,9 +359,8 @@ body {
     line-clamp: 1;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    overflow: hidden;
 }
-
-
 
 .catalog-item__footer {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -427,8 +426,9 @@ body {
     box-shadow: var(--shadow-md);
     transform: translateZ(0);
     will-change: transform;
-    min-height: 160px; /* Set a minimum height */
-    max-height: 200px; /* Set a maximum height */
+    min-height: 160px;
+    max-height: 200px;
+    animation: slideInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
 }
 
 .game-item::before {
@@ -536,6 +536,8 @@ body {
     flex-direction: row;
     max-width: 1800px; /* Reduced from 1800px */
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .catalogue__games-container {
@@ -967,13 +969,14 @@ body {
 }
 
 /* Hide scrollbar only for repacks modal */
-.modal__content::-webkit-scrollbar {
-    display: none;
-}
-
 .modal__content {
+    padding: 24px;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;     /* Firefox */
+}
+
+.modal__content::-webkit-scrollbar {
+    display: none;
 }
 
 /* Search input styles - unified */
@@ -1523,7 +1526,7 @@ body {
 /* Hover effects */
 .user-stats__box:hover {
     border-color: var(--purple);
-    box-shadow: var(--shadow-md), var(--glow-sm);
+    box-shadow: var(--shadow-md), var (--glow-sm);
 }
 
 .sidebar-profile__friends-button-badge {
