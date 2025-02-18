@@ -1,10 +1,10 @@
 /* 
   Tema: Steam Theme
-  Versão: 1.1
+  Versão: 1.2
   Descrição: A simple Steam-inspired theme.
   Autor: Esther Discord: @sterlarbr
   Data de criação: 17/02/2025
-  Última modificação: 17/02/2025
+  Última modificação: 18/02/2025
   Se você for usar (copiar) alguma parte do código, por favor, dê os devidos créditos.
 */
 
@@ -51,7 +51,7 @@ body {
 
 .sidebar__menu-item:hover {
   background-color: #4085ad;
-  color: #1b2838;
+  color: #c5c7ca;
 }
 
 .home__content {
@@ -65,7 +65,7 @@ body {
 
 .content__title {
   font-size: 20px;
-  color: #66c0f4;
+  color: #67757e;
 }
 
 .button {
@@ -79,7 +79,7 @@ body {
 }
 
 .button:hover {
-  background-color: #c7d5e0;
+  background-color: #4e6a81;
 }
 
 .button:active {
@@ -368,18 +368,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.title-bar::after {
-  content: "Twitter: @onlysterbr";
-  font-size: 8px;
-  font-weight: 700;
-  color: #66c0f4;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  display: block;
-  text-align: left;
-  margin-right: 11%;
-}
-
 .container__content {
   flex-grow: 1;
   background: #1b2838;
@@ -477,7 +465,7 @@ body {
 .download-group__menu-button {
   background: transparent;
   border: transparent;
-  color: #66c0f4;
+  color: #306b8d;
   padding: 8px 8px;
   border-radius: 8px;
   font-size: 14px;
@@ -499,17 +487,17 @@ body {
 .game-details__cloud-sync-button {
   display: flex;
   align-items: center;
-  background-color: #66c0f4;
+  background-color: #2a475e;
   border: none;
   padding: 10px 20px;
-  color: #1b2838;
-  border-radius: 30px;
+  color: #ffffff;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .game-details__cloud-sync-button:hover {
-  background-color: #c7d5e0;
+  background-color: #213b50;
 }
 
 .hero-panel {
@@ -521,7 +509,7 @@ body {
 }
 
 .hero-panel-actions__action {
-  background-color: #66c0f4;
+  background-color: #2a475e;
   border: none;
   padding: 10px;
   color: #1b2838;
@@ -535,7 +523,7 @@ body {
 }
 
 .hero-panel-actions__action:hover {
-  background-color: #c7d5e0;
+  background-color: #213b50;
 }
 
 .game-details__description {
@@ -632,8 +620,7 @@ body {
 }
 
 .sidebar-section__button:hover {
-  background-color: #66c0f4;
-  color: #1b2838;
+  background-color: #1b2838;
 }
 
 .sidebar-section__chevron {
@@ -1093,6 +1080,89 @@ small {
 .checkbox-field__checkbox .octicon-check {
   display: none;
   fill: #1b2838;
+}
+
+.home__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.game-card {
+    position: relative;
+    width: 300px;
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border: none;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card__backdrop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.game-card__cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 10px;
+}
+
+.game-card__title-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.game-card__shop-icon {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+.game-card__title {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.game-card__download-options {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.game-card__specifics {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: white;
+    font-size: 12px;
+}
+
+.game-card__specifics-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .bottom-panel__version-button small[data-featurebase-changelog="true"] {
