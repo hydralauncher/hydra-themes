@@ -191,13 +191,6 @@ body {
     border-color: #ff6347;
 }
 
-.text-field-container__text-field {
-    background-color: #ffebcd;
-    color: #ff6347;
-    border: 1px solid #ff4500;
-    border-radius: 5px;
-}
-
 .header__search {
     background-color: #ffa07a;
     color: #ff6347;
@@ -327,7 +320,6 @@ body {
 }
 
 .container__content {
-    background-color: #ffebcd;
     background: #ffebcd;
     color: #ff6347;
 }
