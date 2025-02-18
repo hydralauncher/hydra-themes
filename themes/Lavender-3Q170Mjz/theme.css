@@ -359,6 +359,7 @@ body {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+    max-lines: 2;
 }
 
 .catalog-item__footer {
@@ -483,20 +484,15 @@ body {
 /* Edge case: handle super long genre lists */
 .game-item__genres {
     color: var(--text-dim);
-    font-size: 0.8rem; /* Reduced from 0.9rem */
+    font-size: 0.8rem;
     width: 100%;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 1.2em; /* Hardcoded height to prevent layout shifts */
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Show max 2 lines */
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.4;
-    max-height: 2.8em; /* 2 lines x 1.4 line-height */
+    max-height: 2.8em;
 }
 
 .game-item__repackers {
@@ -1521,7 +1517,7 @@ body {
 /* Hover effects */
 .user-stats__box:hover {
     border-color: var(--purple);
-    box-shadow: var(--shadow-md), var(--glow-sm);
+    box-shadow: var(--shadow-md), var (--glow-sm);
 }
 
 .sidebar-profile__friends-button-badge {
