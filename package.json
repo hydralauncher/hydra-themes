@@ -8,9 +8,11 @@
     "preview": "yarn generate-themes && astro preview",
     "astro": "astro",
     "generate-themes": "tsx src/lib/generate-themes.ts",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "start": "node dist/server/entry.mjs"
   },
   "devDependencies": {
+    "@astrojs/node": "^9.1.0",
     "@eslint/js": "^9.20.0",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.5",
@@ -30,7 +32,6 @@
     "typescript-eslint": "^8.24.0"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.2.1",
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.0",
     "@nanostores/react": "^0.8.4",
