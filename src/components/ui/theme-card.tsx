@@ -1,17 +1,75 @@
 import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
+import { DownloadIcon, HeartIcon } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 export interface ThemeCardProps {
   theme: Theme;
 }
 
 export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
-  const handleClick = () => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [favoriteCount, setFavoriteCount] = useState(theme.favorites);
+  const [downloadCount, setDownloadCount] = useState(theme.downloads);
+
+  useEffect(() => {
+    const isFavorite = window.localStorage.getItem(
+      `theme_favorite:${theme.name}`,
+    );
+
+    setIsFavorite(isFavorite === "true");
+  }, []);
+
+  const performThemeAction = useCallback(
+    (action: string) => {
+      fetch("/api/theme", {
+        method: "PUT",
+        body: JSON.stringify({
+          themeId: theme.id,
+          action,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    },
+    [theme],
+  );
+
+  const installTheme = useCallback(() => {
+    const searchParams = new URLSearchParams({
+      theme: theme.name,
+      authorId: theme.author.id,
+      authorName: theme.author.displayName,
+    });
+
     window.open(
-      `hydralauncher://install-theme?theme=${theme.name}&authorId=${theme.author.id}&authorName=${theme.author.displayName}`,
+      `hydralauncher://install-theme?${searchParams.toString()}`,
       "_blank",
     );
-  };
+
+    performThemeAction("install");
+    setDownloadCount(downloadCount + 1);
+  }, [theme]);
+
+  const toggleFavorite = useCallback(() => {
+    const updatedIsFavorite = !isFavorite;
+    setIsFavorite(updatedIsFavorite);
+
+    window.localStorage.setItem(
+      `theme_favorite:${theme.name}`,
+      updatedIsFavorite.toString(),
+    );
+
+    if (isFavorite) {
+      performThemeAction("remove-favorite");
+      setFavoriteCount(favoriteCount - 1);
+      return;
+    }
+
+    performThemeAction("favorite");
+    setFavoriteCount(favoriteCount + 1);
+  }, [isFavorite, favoriteCount, theme]);
 
   return (
     <div className="group w-full rounded-xl border p-2 transition-all">
@@ -30,6 +88,18 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           </h4>
 
           <div className="h-px flex-1 bg-muted/50"></div>
+
+          <div className="flex items-center gap-2">
+            <DownloadIcon className="size-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">
+              {downloadCount}
+            </span>
+
+            <HeartIcon className="size-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">
+              {favoriteCount}
+            </span>
+          </div>
         </div>
 
         <div className="flex items-center justify-between gap-2">
@@ -47,23 +117,18 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
             </a>
           </div>
 
-          <Button
-            className="hidden sm:block"
-            variant="outline"
-            size="default"
-            onClick={handleClick}
-          >
-            Install theme
-          </Button>
+          <div className="flex flex-row gap-2">
+            <Button variant="outline" size="icon" onClick={toggleFavorite}>
+              <HeartIcon
+                fill={isFavorite ? "currentColor" : "none"}
+                className="size-4 text-muted-foreground"
+              />
+            </Button>
 
-          <Button
-            disabled
-            className="block sm:hidden"
-            variant="outline"
-            size="default"
-          >
-            Install theme
-          </Button>
+            <Button variant="outline" size="default" onClick={installTheme}>
+              Install
+            </Button>
+          </div>
         </div>
       </div>
     </div>
