@@ -637,9 +637,3 @@
     background-color: var(--background-light);
     border: 1px solid var(--border);
   }
-  
-  .badge {
-    background-color: var(--primary-dark);
-    color: var(--text-bright);
-    border: none;
-  }
