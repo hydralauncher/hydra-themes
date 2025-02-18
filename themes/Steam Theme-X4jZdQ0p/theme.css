@@ -347,7 +347,7 @@ body {
 
 .title-bar {
   background-color: #171a21;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -363,7 +363,7 @@ body {
   display: inline-block;
   width: 120px;
   height: 35px;
-  background-image: url('https://i.imgur.com/03nrdYd.png');
+  background-image: url('https://i.imgur.com/brJZNqK.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
