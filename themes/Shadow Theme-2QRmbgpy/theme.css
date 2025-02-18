@@ -1,45 +1,93 @@
 /* =============================================================
-   SHADOW THE HEDGEHOG THEME (Black & Red) for Hydra Launcher
-   Mantém o mesmo layout, mas foca em preto e vermelho, 
-   usando um wallpaper do Shadow the Hedgehog.
+   SHADOW THE HEDGEHOG THEME (Com Destaques em Verde - Chaos Emerald)
+   - Tons de vermelho-escuro (maroon) e preto
+   - Inserção de detalhes em verde para remeter ao Chaos Emerald
+   - Adicionado Toast e Title Bar com fundo preto translúcido
 ============================================================= */
 
-/* Tornamos as seções principais transparentes para exibir o wallpaper */
-.sidebar,
-.header,
-.container__content,
-.bottom-panel {
-  background: transparent !important;
+:root {
+ 
+  --shadow-black: #100b0b;
+  --shadow-maroon: #5a1717;     
+  --shadow-red: #aa1e1e;        
+  --shadow-red-dark: #700000;
+  --shadow-red-light: #bd3c3c;
+
+
+  --emerald-green: #00ff00;
+
+
+  --text-color: #f0efef;
+
+
+  --alpha-dark: rgba(0, 0, 0, 0.6);
+  --alpha-maroon: rgba(90, 23, 23, 0.6);
+  --alpha-red: rgba(170, 30, 30, 0.6);
+
+
+  --border-color-soft: rgba(255, 0, 0, 0.3);
+
+
+  --blur-bg: blur(8px);
+  --blur-bg-strong: blur(10px);
+  --blur-modal: blur(12px);
+
+
+  --shadow-hover: 0 5px 15px rgba(170, 30, 30, 0.3);
+  --shadow-active: 0 3px 8px rgba(170, 30, 30, 0.3);
+
+
+  --scrollbar-bg: rgba(21, 21, 21, 0.5);
+  --scrollbar-thumb: linear-gradient(to bottom, #aa1e1e, #700000);
+  --scrollbar-thumb-hover: linear-gradient(to bottom, #d01c1c, #900000);
 }
 
-/* Cor primária do texto e cursor padrão */
-body {
-  color: #f0efef;
+
+* {
   margin: 0;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23ff1a1a'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(255,26,26,0.5)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, auto;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0%200%2012%2012'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23aa1e1e'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(170,30,30,0.5)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, auto;
 }
 
-/* Cursores para estados de hover/active */
-body:active,
+body {
+  color: var(--text-color);
+  background: var(--shadow-black);
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
 button:hover,
 a:hover,
 .clickable:hover {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23ff3333'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(255,51,51,0.8)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0%200%2012%2012'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23d01c1c'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(208,28,28,0.8)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, pointer;
 }
 
-* {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23ff1a1a'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(255,26,26,0.5)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, auto;
-}
 
-/* #root: Define o wallpaper do Shadow + fallback em preto */
 #root {
-  background: #000 url("https://images6.alphacoders.com/131/thumb-1920-1310637.png") no-repeat center center;
+  background: var(--shadow-maroon)
+    url("https://images6.alphacoders.com/131/thumb-1920-1310637.png")
+    no-repeat center center;
   background-size: cover;
-  background-repeat: no-repeat;
   position: relative;
 }
 
-/* Gradiente sutil por cima do wallpaper */
+#bgvideo{
+
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ object-fit: cover;
+ z-index:1;
+
+
+}
+
+
+
+
 body::after {
   content: '';
   position: fixed;
@@ -47,17 +95,22 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(150,19,19,0.5) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(150, 19, 19, 0.5) 100%
+  );
   z-index: -1;
+  pointer-events: none;
 }
 
-/* Ajuste no tamanho da sidebar */
+
 .sidebar {
   width: 120px;
-  background: rgba(150,19,19,0.85) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-right: 2px solid rgba(255,0,0,0.4);
+  background: rgba(150, 19, 19, 0.85) !important;
+  backdrop-filter: var(--blur-bg-strong);
+  -webkit-backdrop-filter: var(--blur-bg-strong);
+  border-right: 2px solid rgba(255, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
 }
 
@@ -69,43 +122,29 @@ body::after {
   border-radius: 6px;
   font-size: 12px;
   transition: all 0.3s ease-in-out;
-  color: #f0efef;
+  color: var(--text-color);
 }
 
 .sidebar__menu-item:hover {
-  background: rgba(255,0,0,0.4);
+  background: rgba(255, 0, 0, 0.4);
   transform: translateX(3px);
-  box-shadow: 0 3px 8px rgba(255,0,0,0.3);
+  box-shadow: var(--shadow-active);
 }
 
 .sidebar__menu-item--active {
-  background: rgba(255,0,0,0.6);
-  border-left: 3px solid #ff1a1a;
+  background: rgba(255, 0, 0, 0.6);
+  border-left: 3px solid var(--shadow-red);
 }
 
-/* Efeito de zoom dinâmico ao passar o mouse sobre user-library-game__overlay */
-.user-library-game__overlay {
-  transition: transform 0.15s ease-in-out;
-  transform-origin: center;
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent !important;
 }
 
-.user-library-game__overlay:hover {
-  transform: scale(1.03) translate(var(--mouse-x), var(--mouse-y));
-}
 
-.user-library-game__overlay:hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,0,0,0.15);
-  border-radius: 8px;
-  pointer-events: none;
-}
-
-/* Outros estilos mantidos */
 .settings__content,
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
@@ -123,93 +162,287 @@ body::after {
 .game-details__description-container,
 .description-header,
 .modal__header {
-  background: rgba(150,19,19,0.6) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,0,0,0.3);
+  background: var(--alpha-maroon) !important;
+  backdrop-filter: var(--blur-bg);
+  -webkit-backdrop-filter: var(--blur-bg);
+  border: 1px solid var(--border-color-soft);
 }
+
 
 .content-sidebar,
 .sidebar-section__button {
-  background: rgba(0,0,0,0.6) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--alpha-dark) !important;
+  backdrop-filter: var(--blur-bg);
+  -webkit-backdrop-filter: var(--blur-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 
 .modal__content {
-  background: rgba(20,20,20,0.8) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,0,0,0.3);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  background: rgba(20, 20, 20, 0.8) !important;
+  backdrop-filter: var(--blur-modal);
+  -webkit-backdrop-filter: var(--blur-modal);
+  border: 1px solid var(--border-color-soft);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilos dos botões padrões */
+
 .button {
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 13px;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
-  color: white;
+  color: var(--text-color);
+  letter-spacing: 0.5px;
 }
+
 
 .button--primary {
-  background: linear-gradient(45deg, #ff1a1a, #8b0000);
+  background: linear-gradient(45deg, var(--shadow-red), var(--shadow-red-dark));
   border: none;
-  color: white;
-  box-shadow: 0 4px 10px rgba(255,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
 }
-
 .button--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255,0,0,0.4);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
 
 .button--outline {
-  border: 1px solid rgba(255,0,0,0.5);
-  background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(139,0,0,0.1));
-  color: white;
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(139, 0, 0, 0.1)
+  );
 }
-
 .button--outline:hover {
-  border-color: #ff1a1a;
-  background: linear-gradient(45deg, rgba(255,0,0,0.2), rgba(139,0,0,0.2));
+  border-color: var(--emerald-green); 
+  box-shadow: 0 0 8px var(--emerald-green);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.2),
+    rgba(139, 0, 0, 0.2)
+  );
   transform: translateY(-2px);
 }
 
-/* Barra de rolagem personalizada */
-::-webkit-scrollbar {
-  width: 6px;
-  background-color: rgba(21,21,21,0.5);
-}
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #ff1a1a, #8b0000);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #ff3333, #a30000);
-}
-
-/* Estilo para os botões de jogo com efeito de vidro (glass effect) */
-/* Base: fundo preto com blur; Hover: fundo vermelho */
 .button.game,
 .buttonGameItem {
-  background: rgba(0,0,0,0.6);
+  background: var(--alpha-dark);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,0,0,0.4);
-  color: white;
+  border: 1px solid rgba(255, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
 }
-
 .button.game:hover,
 .buttonGameItem:hover {
-  background: rgba(255,0,0,0.6);
-  border: 1px solid rgba(255,0,0,0.8);
+  background: var(--alpha-red);
+  border: 1px solid rgba(255, 0, 0, 0.8);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+  box-shadow: 0 0 10px var(--emerald-green); 
 }
+
+
+.user-library-game__overlay {
+  transition: transform 0.15s ease-in-out;
+  transform-origin: center;
+}
+.user-library-game__overlay:hover {
+  transform: scale(1.03) translate(var(--mouse-x), var(--mouse-y));
+}
+.user-library-game__overlay:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.15);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--scrollbar-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+
+.title-bar {
+  position: relative;
+
+  background: rgba(0,0,0,0.4) !important;
+ 
+}
+
+
+.title-bar h4 {
+  visibility: hidden;
+}
+.title-bar::before {
+  content: "";
+ 
+  background-image: url('https://cdn2.steamgriddb.com/logo_thumb/701a41e8e3ae2362bf739e5768569eb2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 110px;
+  height: 40px;
+  margin-left: 10px; 
+  vertical-align: middle;
+}
+
+.title-bar::after {
+  content: "@KayAzir"; 
+  position: absolute;
+  right: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--alpha-maroon);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  margin: 8px; 
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.sidebar-profile:hover {
+  border-color: var(--emerald-green);
+  box-shadow: 0 0 8px var(--emerald-green);
+}
+
+.sidebar-profile__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sidebar-profile__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--emerald-green); 
+  letter-spacing: 1px;
+}
+
+.sidebar-profile__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar-profile__user {
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+.profile-button {
+  background: none;
+  border: 1px solid var(--emerald-green);
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: var(--emerald-green);
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+.profile-button:hover {
+  background: var(--emerald-green);
+  color: #000; 
+}
+
+
+.toast {
+  
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 16px;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: var(--blur-bg);
+  -webkit-backdrop-filter: var(--blur-bg);
+  color: var(--text-color);
+  border: 1px solid var(--emerald-green);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999; 
+  max-width: 300px;
+  font-size: 13px;
+}
+
+.bottom-panel__downloads-button {
+  position: relative;
+  padding: 6px 12px;
+  margin-right: 8px;
+  background: var(--alpha-maroon);
+  border: 1px solid var(--border-color-soft);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 12px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.bottom-panel__downloads-button small {
+  pointer-events: none;
+}
+
+.bottom-panel__downloads-button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--emerald-green);
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+
+.bottom-panel__downloads-button[data-progress="25"]::after {
+  width: 25%;
+}
+.bottom-panel__downloads-button[data-progress="50"]::after {
+  width: 50%;
+}
+.bottom-panel__downloads-button[data-progress="75"]::after {
+  width: 75%;
+}
+.bottom-panel__downloads-button[data-progress="100"]::after {
+  width: 100%;
+}
+
+.bottom-panel__version-button {
+  background: var(--alpha-dark);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text-color);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: auto; 
+}
+.bottom-panel__version-button:hover {
+  border-color: var(--emerald-green);
+  box-shadow: 0 0 8px var(--emerald-green);
+}
+
