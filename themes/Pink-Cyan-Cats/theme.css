@@ -93,7 +93,6 @@
       color: cyan;
     }
     color: pink;
-    :hover {transform: scale(1.05);}
   }
   .button:hover {transform: scale(1.1);}
   .button--primary:nth-child(odd) {
