@@ -20,7 +20,9 @@
 .user-stats__box,
 .recent-games__box,
 .friends-box__box,
-.settings__content {
+.settings__content,
+.profile-hero__content-box,
+.profile-hero__hero-panel {
     background: rgba(0, 0, 0, 0.55) !important;
     backdrop-filter: blur(8px) !important;
 }
