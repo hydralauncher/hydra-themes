@@ -266,10 +266,6 @@ body{
   visibility: hidden;
 }
 
-classe {
-    font-family: "Courier New", Courier, monospace;
-
-}
 
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
