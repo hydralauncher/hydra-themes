@@ -1119,8 +1119,8 @@ small {
 
 .game-card {
     position: relative;
-    width: 300px;
-    height: 160px;
+    width: 320px;
+    height: 170px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #1a1a1a;
