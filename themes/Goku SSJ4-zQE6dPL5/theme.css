@@ -318,7 +318,7 @@ body {
 
 .header__search{
   background-color: rgba(0, 0, 0, 0.61);
-  backdrop-filter: 10px;
+  backdrop-filter: blur(10px);
   width: 200px;
   padding: 10px ;
   border-radius: 20px;
