@@ -1,4 +1,3 @@
-css
 body {
   cursor: url(https://sweezy-cursors.com/wp-content/uploads/cursor/pokemon-gastly-gengar/pokemon-gastly-gengar-cursor-32x32.png) auto !important;
 }
@@ -141,9 +140,5 @@ body {
 }
 
 body > div.backdrop.backdrop--windows > div > div.modal__content > div.repacks-modal__repacks > button {
-  background-color: #000;
-}
-
-body{
   background-color: #000;
 }
