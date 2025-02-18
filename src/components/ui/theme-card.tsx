@@ -2,6 +2,7 @@ import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
 import { DownloadIcon, HeartIcon } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export interface ThemeCardProps {
   theme: Theme;
@@ -105,9 +106,12 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-              src={`/themes/${theme.name.toLowerCase()}/${theme.authorImage}`}
+              src={theme.authorImage ? `/themes/${theme.name.toLowerCase()}/${theme.authorImage}` : "/fallback-avatar.svg"}
               alt={theme.author.displayName}
-              className="size-6 rounded-full"
+              className={cn(
+                "size-6 rounded-full",
+                theme.authorImage ? "" : "bg-muted/50 object-contain p-1",
+              )}
             />
             <a
               href={`hydralauncher://profile?userId=${theme.author.id}`}
