@@ -200,7 +200,7 @@ body {
 .gallery-slider__container{
     background-color: #02000000;
     color: #ffffff;
-    box-shadow: 0px 2px 5px rgb(0, 0, 0.911);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.911);
     border-radius: 3px 0 0 0;
 
 }
