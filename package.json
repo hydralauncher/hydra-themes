@@ -8,9 +8,11 @@
     "preview": "yarn generate-themes && astro preview",
     "astro": "astro",
     "generate-themes": "tsx src/lib/generate-themes.ts",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "start": "node dist/server/entry.mjs"
   },
   "devDependencies": {
+    "@astrojs/node": "^9.1.0",
     "@eslint/js": "^9.20.0",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.5",
@@ -43,6 +45,7 @@
     "nanostores": "^0.11.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "redis": "^4.7.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
