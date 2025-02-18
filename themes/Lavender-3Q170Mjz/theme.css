@@ -164,7 +164,7 @@ body {
 
 .nav-item:hover {
     background-color: var(--bg3);
-    color: var(--purple-light);
+    color: var (--purple-light);
 }
 
 .nav-item.active {
@@ -356,11 +356,12 @@ body {
     -webkit-text-fill-color: transparent;
     max-height: 3.6em;
     display: -webkit-box;
-    -webkit-box-orient: vertical;
+    line-clamp: 1;
     -webkit-line-clamp: 2;
-    line-clamp: 2;
-    max-lines: 2;
+    -webkit-box-orient: vertical;
 }
+
+
 
 .catalog-item__footer {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -484,15 +485,20 @@ body {
 /* Edge case: handle super long genre lists */
 .game-item__genres {
     color: var(--text-dim);
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Reduced from 0.9rem */
     width: 100%;
-    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    overflow: hidden;
+    height: 1.2em; /* Hardcoded height to prevent layout shifts */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Show max 2 lines */
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.4;
-    max-height: 2.8em;
+    max-height: 2.8em; /* 2 lines x 1.4 line-height */
 }
 
 .game-item__repackers {
@@ -1517,7 +1523,7 @@ body {
 /* Hover effects */
 .user-stats__box:hover {
     border-color: var(--purple);
-    box-shadow: var(--shadow-md), var (--glow-sm);
+    box-shadow: var(--shadow-md), var(--glow-sm);
 }
 
 .sidebar-profile__friends-button-badge {
