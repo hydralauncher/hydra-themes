@@ -3,6 +3,7 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
+import axios from "axios";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -34,7 +35,7 @@ Promise.all(
 
     const [themeName, authorCode] = folder.split("-");
 
-    const response = await fetch(
+    const response = await axios.get(
       `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
       {
         headers: {
@@ -44,12 +45,12 @@ Promise.all(
       },
     );
 
-    if (!response.ok) {
+    if (response.status !== 200) {
       console.error(`Failed to fetch author ${authorCode}`);
       return;
     }
 
-    const data = (await response.json()) as Theme["author"];
+    const data = response.data as Theme["author"];
 
     fs.cpSync(
       path.join(folderPath),
@@ -63,6 +64,11 @@ Promise.all(
       ),
       { recursive: true },
     );
+
+    const url = new URL(data.profileImageUrl);
+    url.search = "";
+
+    data.profileImageUrl = url.toString();
 
     const fileExt = path.extname(data.profileImageUrl);
     const authorResponse = await fetch(data.profileImageUrl).then((res) =>
