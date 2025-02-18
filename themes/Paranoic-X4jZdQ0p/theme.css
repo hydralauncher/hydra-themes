@@ -7,15 +7,7 @@
   Última modificação: 17/02/2025
   Se você for usar (copiar) alguma parte do código, por favor, dê os devidos créditos. DUVIDO QUE ALGUEM VÁ QUERER KKKKKKKKKKKKKKKKK
 */
-
-* {
-
-}
-
-body {
-  
-}
-
+s
 .header, .sidebar, .title-bar, .bottom-panel, .toast, .text-field-container__text-field--dark, 
 .text-field-container__text-field--primary, .header__search, .game-item, .settings__content, 
 .catalogue__filters-container, .friends-box__box, .user-stats__box, .recent-games__box, 
@@ -28,14 +20,6 @@ body {
 .button {
   animation: disappear-reappear 12s infinite, paranoid-color 6s infinite;
 }
-
-.button:hover {
-}
-
-.button:active {
-
-}
-
 
 .sidebar-profile, .sidebar-profile__button, .sidebar-profile__button-content, 
 .profile-avatar, .sidebar-profile__button-information, .sidebar-profile__button-title, 
