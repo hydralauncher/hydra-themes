@@ -1052,3 +1052,14 @@ small {
 .theme-card {
     border: 1px solid #ff6347;
 }
+
+.bottom-panel__version-button small[data-featurebase-changelog="true"] {
+    display: none;
+}
+
+.bottom-panel::after {
+    content: "Twitter: @onlysterbr / Discord: sterlarbr";
+    display: block;
+    text-align: center;
+    font-size: 14px;
+}
