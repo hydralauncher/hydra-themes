@@ -184,7 +184,7 @@ body {
 .modal__content{
     background-color: #2401017a;
     color: #ffffff;
-    box-shadow: 0px 2px 5px rgb(20, 0, 0.911);
+    box-shadow: 0px 2px 5px rgba(20, 0, 0, 0.911);
 }
 
 .header__search{
