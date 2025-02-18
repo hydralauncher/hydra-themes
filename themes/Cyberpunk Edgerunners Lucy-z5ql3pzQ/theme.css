@@ -7,7 +7,7 @@
 
 .button--dark,
 .theme-card__actions__left,
-.settings-download-sources__item,
+.settings-download-sources__list .settings-download-sources__item,
 .title-bar,
 .sidebar,
 .container__content,
@@ -27,16 +27,19 @@
   scrollbar-width: thin;
 }
 
+.settings__content,
 .button--dark,
 .button--outline,
 .theme-card__author__name,
 .theme-card__author,
 .theme-card__header,
 .theme-card__header__title,
-small,
-div,
+.bottom-panel__downloads-button,
+.bottom-panel__version-button,
+.sidebar-profile__button-title,
+.sidebar__section-title,
 .header__title,
-span {
+.sidebar__menu-item {
   color: #FAF0CA;
 }
 
