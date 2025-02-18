@@ -243,12 +243,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0c2838;
+  background: transparent;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #c7d5e0;
+  background: transparent;
 }
 
 .sidebar-profile {
