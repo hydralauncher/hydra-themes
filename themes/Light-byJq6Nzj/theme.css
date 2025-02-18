@@ -60,10 +60,6 @@ body,
   color: rgba(var(--theme-surface-2-color), 0.65);
 }
 
-.sidebar-profile__friends-button {
-  background-color: transparent;
-}
-
 .sidebar,
 .header__search,
 .auto-update-sub-header,
@@ -109,6 +105,7 @@ body,
 }
 
 .sidebar-profile__friends-button {
+  background-color: transparent;
   border-width: 1px;
   border-style: solid;
 }
