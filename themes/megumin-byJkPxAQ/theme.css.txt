@@ -1,11 +1,11 @@
 body {
     margin: 0;
-    color: #ffcc00; /* Dourado para combinar com detalhes do chapéu */
+    color: #ffffff;
     font-family: Arial, sans-serif;
   }
 
   #root {
-    background: #800000 /* Vermelho escuro, inspirado no manto */
+    background: #80000033 ,
       url("https://i.imgur.com/KdWZIWj.png")
       no-repeat center center;
     background-size: cover;
@@ -28,7 +28,7 @@ body {
   .user-stats__box,
   .recent-games__box,
   .sidebar {
-    background-color: rgba(128, 0, 0, 0.25) !important; /* Vermelho escuro translúcido */
+    background-color: rgba(128, 0, 0, 0) !important;
     backdrop-filter: blur(8px);
   }
 
@@ -38,13 +38,12 @@ body {
   }
 
   .settings-download-sources__item,
-  .download-group__item,
-  .game-item {
+  .download-group__item,{
     background-color: rgba(128, 0, 0, 0.25) !important;
   }
 
   .title-bar {
-    background-color: #800000; /* Mantendo a coerência com o tema */
+    background-color: #80000000;
   }
 
   .home__content {
