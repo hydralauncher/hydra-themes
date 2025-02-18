@@ -3,6 +3,7 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
+import axios from "axios";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -34,7 +35,7 @@ Promise.all(
 
     const [themeName, authorCode] = folder.split("-");
 
-    const response = await fetch(
+    const response = await axios.get(
       `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
       {
         headers: {
@@ -44,12 +45,31 @@ Promise.all(
       },
     );
 
-    if (!response.ok) {
+    if (response.status !== 200) {
       console.error(`Failed to fetch author ${authorCode}`);
       return;
     }
 
-    const data = (await response.json()) as Theme["author"];
+    await axios
+      .post(
+        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "hydra-token": hydraHeaderSecret,
+          },
+        },
+      )
+      .catch((err) => {
+        console.error(
+          `could not update user (${authorCode}) badge`,
+          err.message,
+          err.response?.data,
+        );
+      });
+
+    const data = response.data as Theme["author"];
 
     fs.cpSync(
       path.join(folderPath),
@@ -88,12 +108,15 @@ Promise.all(
     );
 
     return {
+      id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
       authorImage: `author${fileExt}`,
-    };
+      downloads: 0,
+      favorites: 0,
+    } as Theme;
   }),
 ).then((themes) => {
   console.log(`Generated ${themes.length} themes`);
