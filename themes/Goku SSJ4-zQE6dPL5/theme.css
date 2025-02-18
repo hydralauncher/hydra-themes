@@ -359,7 +359,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .how-long-to-beat__categories-list{
-    background-color: rgba(0, 0, 0,);
+    background-color: rgba(0, 0, 0, 0.5);
     background-size:cover;
     background-repeat: no-repeat;
 }
