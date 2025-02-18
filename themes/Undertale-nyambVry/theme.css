@@ -1,18 +1,16 @@
-.sidebar,
-.header,
-.container__content,
-.bottom-panel {
-    background: transparent;
-}
-
-body {
-    color: #f0efef;
-}
-
 #root {
     background: #150e3a url("https://i.imgur.com/qcYIHYl.png") no-repeat center center;
     background-size: cover;
 }
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: transparent !important;
+}
+
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
@@ -33,8 +31,28 @@ body {
     background-color: rgba(39, 12, 112, 0.25);
 }
 
+
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
     background-color: rgba(37, 11, 107, 0.336) !important;
+}
+
+
+.title-bar {
+    background-color: #000000;
+}
+
+
+.home__content {
+    background-color: rgba(15, 5, 46, 0.322);
+    backdrop-filter: blur(2px);
+}
+
+.bottom-panel {
+    background-color: rgba(39, 12, 112, 0.25);
+}
+
+body {
+    font-family: 'Times, Times New Roman',serif;
 }
