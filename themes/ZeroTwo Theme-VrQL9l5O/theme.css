@@ -173,7 +173,7 @@ body {
 }
 .settings__content {
     background: none;
-    background-image: color(),url("https://images6.alphacoders.com/131/1313754.png");
+    background-image: url("https://images6.alphacoders.com/131/1313754.png");
     background-size: cover;
     background-position: bottom;
 }
