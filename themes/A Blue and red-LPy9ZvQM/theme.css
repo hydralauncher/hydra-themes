@@ -1,19 +1,20 @@
 #root {
-    background: url(https://images.hdqwalls.com/wallpapers/simple-subtle-abstract-dark-minimalism-4k-u9.jpg)
-      #000;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  background: #000; /* Fallback */
+  background-image: url(https://images.hdqwalls.com/wallpapers/simple-subtle-abstract-dark-minimalism-4k-u9.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .sidebar,
 .header,
 .bottom-panel {
-    backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+  -webkit-backdrop-filter: blur(8px); /* Compatibilidade com navegadores baseados em WebKit */
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .home__content,
 .container__content {
-     background: rgba(0, 0, 0, 0.178);
-  }
+  background: rgba(0, 0, 0, 0.178);
+}
