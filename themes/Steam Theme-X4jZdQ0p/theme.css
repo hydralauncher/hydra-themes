@@ -35,23 +35,51 @@ body {
 }
 
 .sidebar {
-  background-color: #1b2838; /* Darker blue */
+  background-color: #1b2838;
   width: 250px;
   height: 100vh;
   padding: 20px;
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.9);
+  text-align: left;
 }
 
 .sidebar__menu-item {
-  padding: 10px;
-  color: #c7d5e0;
+  display: inline-block;
+  position: relative;
+  color: #c5c7ca;
   text-decoration: none;
-  display: block;
+  margin: 0 15px;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.sidebar__menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0095f8;
+  transition: width 0.3s;
 }
 
 .sidebar__menu-item:hover {
-  background-color: #4085ad;
-  color: #c5c7ca;
+  color: #0095f8;
+}
+
+.sidebar__menu-item:hover::after {
+  width: 100%;
+}
+
+.sidebar__menu-item--active {
+  color: #0095f8;
+  font-weight: bold;
+  background-color: #2a475e;
+}
+
+.sidebar__menu-item--active::after {
+  width: 100%;
 }
 
 .home__content {
@@ -1086,7 +1114,7 @@ small {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    justify-content: center;
+    justify-content: left;
 }
 
 .game-card {
