@@ -21,7 +21,9 @@ Promise.all(
     const files = fs.readdirSync(folderPath);
 
     const cssFile = files.find((file) => file.endsWith(".css"));
-    const screenshotFile = files.find((file) => file.startsWith("screenshot"));
+    const screenshotFile = files.find((file) =>
+      file.toLowerCase().startsWith("screenshot"),
+    );
 
     if (!cssFile) {
       console.error(`No css file found for theme ${folder}`);
@@ -34,8 +36,8 @@ Promise.all(
     }
 
     const parts = folder.split("-");
-    const themeName = parts[0];
-    const authorCode = parts.at(-1);
+    const authorCode = parts.pop()?.trim();
+    const themeName = parts.join("-").trim();
 
     const response = await axios.get(
       `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
