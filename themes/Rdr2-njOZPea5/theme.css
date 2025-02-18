@@ -26,8 +26,6 @@ body {
 .recent-games__box,
 .sidebar {
   background-color: rgba(0, 0, 0, 0.555) !important;
-  backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.555) !important;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
