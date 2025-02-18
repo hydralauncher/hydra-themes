@@ -182,9 +182,9 @@ body {
 .toast,
 .dropdown-menu__group,
 .modal__content{
-    background-color: #2401017a;
+    background-color: #0000007a;
     color: #ffffff;
-    box-shadow: 0px 2px 5px rgba(20, 0, 0, 0.911);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.911);
 }
 
 .header__search{
@@ -221,7 +221,7 @@ body {
     background: none;
     background-color: #00000000;
     color: #ffffff;
-    box-shadow: 0px 2px 5px rgb(20, 0, 0.911);
+    box-shadow: 0px 2px 5px rgb(0, 0, 0.911);
     border-radius: 0 0 15px 0;
 }
 .game-details__description-content{
