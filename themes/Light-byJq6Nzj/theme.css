@@ -11,7 +11,6 @@
   --theme-surface-2-color: 25, 25, 25;
   /* #e4e4e4 */
   --theme-text-1-color: 228, 228, 228;
-  --theme-text-2-color: #c0c1c7;
   --theme-border-color: rgba(0, 0, 0, 0.15);
   --theme-background-hover-color: rgba(0, 0, 0, 0.1);
 }
@@ -200,7 +199,7 @@ body,
 
 .container:has(.auto-update-sub-header) .catalogue__filters-container {
   --header-update-height: 26px;
-  height: calc(var(--height) - var(--header-update-height));
+  height: calc(var(--header-height) - var(--header-update-height));
 }
 
 .settings__content {
