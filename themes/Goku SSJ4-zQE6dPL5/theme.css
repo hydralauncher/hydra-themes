@@ -503,11 +503,6 @@ backdrop-filter: blur(10px);
   background-color: none;
 }
 
-.profile-hero__content-box{
-  border-radius: 20px;
-  background-color: none;
-}
-
 .profile-hero__avatar-button{
   border-radius: 100px;
   box-shadow: none;
