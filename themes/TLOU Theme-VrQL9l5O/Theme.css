@@ -189,7 +189,7 @@ body {
 
 .header__search{
     background-color: rgba(0, 0, 0, 0);
-    border: 1.5px solid rgba(0, 0, 0, 0.4911)
+    border: 1.5px solid rgba(0, 0, 0, 0.4911);
 }
 ::-webkit-scrollbar {
   width: 10px;
