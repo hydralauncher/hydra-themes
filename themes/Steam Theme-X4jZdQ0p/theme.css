@@ -649,14 +649,8 @@ body {
   margin-bottom: 20px;
 }
 
-.home__buttons-list .button {
-  color: white;
-}
-
-.home__icon-wrapper .button {
-  color: white;
-}
-
+.home__buttons-list .button,
+.home__icon-wrapper .button,
 .button--outline {
   color: white;
 }
