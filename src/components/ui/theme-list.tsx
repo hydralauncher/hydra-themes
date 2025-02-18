@@ -9,7 +9,7 @@ interface ThemeListProps {
   themes: Theme[];
 }
 
-export function ThemeList({ themes }: ThemeListProps) {
+export function ThemeList({ themes }: Readonly<ThemeListProps>) {
   const query = useStore(searchQuery);
 
   const filteredThemes = themes.filter((theme) => {
@@ -25,7 +25,9 @@ export function ThemeList({ themes }: ThemeListProps) {
   return (
     <div className="relative mt-10 grid h-full grid-cols-1 gap-6 pt-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {filteredThemes.length ? (
-        filteredThemes.map((theme) => <ThemeCard theme={theme} />)
+        filteredThemes.map((theme) => (
+          <ThemeCard key={theme.name} theme={theme} />
+        ))
       ) : (
         <div className="col-span-4 mt-32 flex flex-col items-center justify-center gap-6 text-center">
           <Frown className="size-10 text-muted-foreground" />

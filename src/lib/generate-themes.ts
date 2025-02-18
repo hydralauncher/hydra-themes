@@ -108,12 +108,15 @@ Promise.all(
     );
 
     return {
+      id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
       authorImage: `author${fileExt}`,
-    };
+      downloads: 0,
+      favorites: 0,
+    } as Theme;
   }),
 ).then((themes) => {
   console.log(`Generated ${themes.length} themes`);
