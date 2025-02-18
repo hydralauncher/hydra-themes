@@ -663,7 +663,7 @@ body {
 }
 
 .achievements-content__achievements-list__section__container {
-    background: rgba(77, 0, 0, 0.6); 
+    background: rgba(77, 0, 0, 0.6) !important; 
     padding: 20px;
     border-radius: 0; 
     transition: background 0.3s; 
@@ -847,10 +847,6 @@ body {
     border-radius: 4px;
     background-color: #a3000e; 
     border: 2px solid #9b1c1c; 
-}
-
-.achievements-content__achievements-list__section__container {
-    background: #141414 !important;
 }
 
 .checkbox-field__checkbox.checked {
