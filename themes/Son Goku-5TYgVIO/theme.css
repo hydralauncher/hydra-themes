@@ -21,6 +21,6 @@
 .recent-games__box,
 .friends-box__box,
 .settings__content {
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(8px) !important;
 }
