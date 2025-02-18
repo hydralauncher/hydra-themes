@@ -1,0 +1,42 @@
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #ffffff;
+}
+
+#root {
+  background: url(https://i.postimg.cc/63RmyhVB/649750-final.png)
+    #00000057;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(50, 31, 68, 0.479) !important;
+  backdrop-filter: blur(0px);
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(0px);
+  background-color: rgba(0, 0, 0, 0.425);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(48, 38, 92, 0.336) !important;
+}
