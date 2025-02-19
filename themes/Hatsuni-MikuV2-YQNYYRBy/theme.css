@@ -139,7 +139,7 @@ body {
     background: linear-gradient(135deg, rgba(0,0,139,0.4), rgba(0,139,139,0.4));
 }
 
-.header:not(.container__content):not(.header),
+.header:not(.container__content),
 .sidebar .button,
 .toast {
     background: linear-gradient(135deg, rgba(0,0,139,0.08), rgba(0,139,139,0.08)) !important;
