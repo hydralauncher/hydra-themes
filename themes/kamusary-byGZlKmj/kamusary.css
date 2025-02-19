@@ -100,7 +100,7 @@
 
 .sidebar-profile__button:hover {
   transform: scale(1.05);
-  backdrop-filter: blur 5px;
+  backdrop-filter: blur (5px);
 }
 
 
@@ -162,7 +162,7 @@
 
 
 .sidebar-profile__friends-button svg {
-  fill: #FDEB09
+  fill: #FDEB09;
 }
 
 
