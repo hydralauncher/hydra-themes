@@ -40,7 +40,12 @@ const title = Astro.props.title;
     <title>{title}</title>
   </head>
   <body>
-    <Header client:load />
+    <Header
+      client:load
+      onSearch={() =>
+        window.history.pushState({ ok: "true" }, "", window.location.pathname)}
+      query={Astro.url.searchParams.get("query") || ""}
+    />
     <div
       class="mx-auto min-h-screen w-full max-w-screen-2xl overflow-hidden p-4"
     >

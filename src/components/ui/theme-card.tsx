@@ -79,6 +79,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           src={`/themes/${theme.name.toLowerCase()}/${theme.screenshotFile}`}
           alt={theme.name}
           className="size-full rounded-lg object-cover"
+          loading="lazy"
         />
       </div>
 

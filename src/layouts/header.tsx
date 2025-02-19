@@ -37,7 +37,7 @@ export function Header({ onSearch, query }: Readonly<HeaderProps>) {
 
         <div className="flex items-center">
           <div className="mr-2 items-center gap-2">
-            <div className="relative w-full hidden sm:flex">
+            <div className="relative hidden w-full sm:flex">
               <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={query}

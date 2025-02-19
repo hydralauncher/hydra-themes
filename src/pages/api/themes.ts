@@ -4,6 +4,7 @@ import { orderBy, slice } from "lodash-es";
 
 import themeList from "@/lib/themes.json";
 import type { Theme } from "@/lib/schemas/theme";
+
 export interface ThemeActionBody {
   themeId: string;
   action: "install" | "favorite" | "remove-favorite";
@@ -20,7 +21,7 @@ export const GET: APIRoute = async ({ request }) => {
   const { searchParams } = new URL(request.url);
 
   const page = Number(searchParams.get("page") || "1");
-  const sort = searchParams.get("sort") || "downloads";
+  const sort = searchParams.get("sort") || "favorites";
 
   const themes = await Promise.all(
     themeList.map(async (theme) => {

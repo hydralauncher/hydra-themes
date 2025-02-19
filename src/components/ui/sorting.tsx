@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  Check,
-  ChevronsUpDown,
-  Heart,
-  Flame,
-  CalendarArrowDown,
-  CalendarArrowUp,
-} from "lucide-react";
-import { z } from "zod";
-
+import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,20 +16,21 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const languages = [
-  { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
-  { label: "Oldest", icon: <CalendarArrowDown />, value: "oldest" },
-  { label: "Most Popular", icon: <Flame />, value: "most-popular" },
-  { label: "Most Favorited", icon: <Heart />, value: "most-favorited" },
-] as const;
+export interface ThemeSortingProps {
+  options: {
+    label: string;
+    icon: React.ReactNode;
+    value: string;
+  }[];
+  selectedValue: string;
+  onSelect: (value: string) => void;
+}
 
-const FormSchema = z.object({
-  sort: z
-    .enum(["newest", "oldest", "most-popular", "most-favorited"])
-    .optional(),
-});
-
-export const ThemeSorting = () => {
+export function ThemeSorting({
+  options,
+  selectedValue,
+  onSelect,
+}: ThemeSortingProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -47,11 +39,11 @@ export const ThemeSorting = () => {
           role="combobox"
           className={cn(
             "w-[180px] justify-between",
-            !sortThemes.get() && "text-muted-foreground font-medium",
+            !selectedValue && "text-muted-foreground font-medium",
           )}
         >
-          {sortThemes.get()
-            ? languages.find((sort) => sort.value === sortThemes.get())?.label
+          {selectedValue
+            ? options.find((sort) => sort.value === selectedValue)?.label
             : "Sort by..."}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -61,30 +53,23 @@ export const ThemeSorting = () => {
           <CommandList>
             <CommandEmpty>No sort found.</CommandEmpty>
             <CommandGroup>
-              {languages.map((sort) => (
+              {options.map((sort) => (
                 <CommandItem
                   className={cn(
                     "flex flex-row items-center gap-2",
-                    sort.value === sortThemes.get() &&
+                    sort.value === selectedValue &&
                       "bg-muted/80 transition-all duration-200",
                   )}
                   value={sort.label}
                   key={sort.value}
-                  onSelect={() => {
-                    const currentValue = sortThemes.get();
-                    if (currentValue === sort.value) {
-                      sortThemes.set(undefined);
-                    } else {
-                      sortThemes.set(sort.value);
-                    }
-                  }}
+                  onSelect={() => onSelect(sort.value)}
                 >
                   {sort.icon}
                   {sort.label}
                   <Check
                     className={cn(
                       "ml-auto",
-                      sort.value === sortThemes.get()
+                      sort.value === selectedValue
                         ? "opacity-100"
                         : "opacity-0",
                     )}
@@ -97,4 +82,4 @@ export const ThemeSorting = () => {
       </PopoverContent>
     </Popover>
   );
-};
+}

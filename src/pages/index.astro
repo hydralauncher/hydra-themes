@@ -3,11 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
 import type { ThemeListResponse } from "@/pages/api/themes";
 
-const themes = await fetch("http://localhost:4321/api/themes?page=1").then(
-  (res) => res.json() as Promise<ThemeListResponse>,
-);
+const sort = "downloads";
+
+const themes = await fetch(
+  `${Astro.url.origin}/api/themes?page=1&sort=${sort}`,
+).then((res) => res.json() as Promise<ThemeListResponse>);
 ---
 
 <Layout title="Hydra Themes">
-  <ThemeList client:load themes={themes.edges} themeCount={themes.count} />
+  <ThemeList
+    client:load
+    themes={themes.edges}
+    themeCount={themes.count}
+    sort={sort}
+  />
 </Layout>

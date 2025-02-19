@@ -29,13 +29,15 @@ export function ThemePagination({
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" />
+          <PaginationPrevious
+            onClick={() => onPageChange(pagination.page - 1)}
+          />
         </PaginationItem>
 
         {pagination.page > 3 && (
           <>
             <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
+              <PaginationLink onClick={() => onPageChange(1)}>1</PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
@@ -49,7 +51,6 @@ export function ThemePagination({
             return (
               <PaginationItem key={pageNumber}>
                 <PaginationLink
-                  href="#"
                   isActive={pageNumber === pagination.page}
                   onClick={() => onPageChange(pageNumber)}
                 >
