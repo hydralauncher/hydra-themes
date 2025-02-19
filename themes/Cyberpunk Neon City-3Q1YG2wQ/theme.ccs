@@ -1,0 +1,132 @@
+
+/* ============================================================
+   TEMA PERSONALIZADO POR .·★DASHA★·. COM SUPORTE ♥ DEEPSEEK ♥ 
+   ============================================================ */
+
+body {
+  background-image: url('https://images2.alphacoders.com/128/thumb-1920-1288367.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+/* Camada escura para melhorar visibilidade */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65); /* Controla a escuridão do fundo */
+  z-index: -1;
+}
+
+/* ===== CORES PRINCIPAIS ===== */
+:root {
+  --roxo-batman: #6a1b9a;         /* Roxo intenso */
+  --roxo-light: #9c27b0;          /* Roxo vibrante */
+  --roxo-neon: #d500f9;           /* Roxo fluorescente */
+  --roxo-transparente: rgba(106, 27, 154, 0.85);
+}
+
+/* ===== CABEÇALHO ===== */
+.header {
+  background: rgba(106, 27, 154, 0.2) !important; /* 20% de opacidade */
+  backdrop-filter: blur(15px) brightness(0.9);
+  border-bottom: 2px solid var(--roxo-neon) !important;
+  box-shadow: 0 0 15px rgba(213, 0, 249, 0.1); /* Brilho sutil */
+}
+
+/* ===== MENU LATERAL ===== */
+.sidebar {
+  background: rgba(106, 27, 154, 0.2) !important;
+  backdrop-filter: blur(15px) brightness(0.9);
+  border-right: 2px solid rgba(156, 39, 176, 0.3) !important; /* Borda semi-transparente */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Para melhor legibilidade do texto */
+.sidebar * {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito hover nos itens */
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: brightness(1.2);
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.container__content {
+  background: transparent !important;
+  color: #ffffff !important; /* Texto branco */
+}
+
+/* ===== BOTÕES ===== */
+.button {
+  background: var(--roxo-batman) !important;
+  border: 2px solid var(--roxo-neon) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Efeito hover mágico */
+.button:hover {
+  background: var(--roxo-neon) !important;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--roxo-neon);
+}
+
+/* ===== PAINEL INFERIOR ===== */
+.bottom-panel {
+  background: var(--roxo-transparente) !important;
+  backdrop-filter: blur(8px);
+  border-top: 2px solid var(--roxo-light) !important;
+}
+
+/* ===== NOTIFICAÇÕES ===== */
+.toast {
+  background: var(--roxo-batman) !important;
+  border: 1px solid var(--roxo-neon) !important;
+  color: white !important;
+}
+
+/* ===== EXTRAS ===== */
+/* Efeito nos ícones */
+svg {
+  filter: drop-shadow(0 0 2px var(--roxo-neon));
+}
+
+/* ===== BARRA DE ROLAGEM ===== */
+::-webkit-scrollbar-thumb {
+  background: var(--roxo-escuro) !important;
+  border-radius: 10px;
+  border: 2px solid var(--roxo-neon) !important; /* Borda neon */
+  box-shadow: 0 0 10px rgba(213, 0, 249, 0.5) !important; /* Efeito glow */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(43, 11, 44, 0.767) !important; /* 20% de opacidade */
+}
+
+
+[class*="hydra"],
+[class*="title"] {
+  color: #ff00ff !important; /* Roxo claro neon (#ff00ff = magenta puro) */
+  filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.7)) 
+          drop-shadow(0 0 15px rgba(213, 0, 249, 0.4));
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5); 
+}
+/* ===== PAINEL INFERIOR TRANSPARENTE ===== */
+.bottom-panel {
+  background: rgba(106, 27, 154, 0.15) !important; /* 15% de opacidade */
+  backdrop-filter: blur(12px) brightness(0.8);
+  border-top: 2px solid rgba(156, 39, 176, 0.3) !important; /* Borda semi-transparente */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
+}
