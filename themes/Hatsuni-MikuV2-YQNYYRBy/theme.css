@@ -1,4 +1,4 @@
-```css
+
 /* 
   Theme: Rainy Miku
   Versão: 1
@@ -318,7 +318,6 @@ body {
 }
 
 .modal {
-    animation: scale-fade-in 0.2s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
     background-color: #2f3244cc;
     border-radius: 4px;
     min-width: 400px;
@@ -362,7 +361,7 @@ body {
 }
 
 .sidebar, .header, .bottom-panel, .toast {
-    background: linear-gradient(135deg, rgb(30 30 33 / 38%), rgb(14 59 59));
+    background: linear-gradient(135deg, rgba(0, 0, 139, 0.08), rgba(0, 139, 139, 0.08));
     backdrop-filter: blur(2px);
 }
 
@@ -393,4 +392,3 @@ body {
     align-items: center;
     text-align: left;
 }
-```
