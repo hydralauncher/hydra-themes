@@ -2,20 +2,19 @@
 
 body {
   font-family: 'Noto Serif JP', serif;
-  color: #f8f8f2;
-  background: #121212;
+  color: #f8f8f2; 
+  background: #000000; 
 }
 
 
-/*mudar nome do hydra*/
 .title-bar::before {
-  content: "VAGABOND | 平和";
-  font-size: 15px;
+  content: "Berserk | 闇の力";
+  font-size: 18px;
   font-weight: 700;
   color: #fff;
   letter-spacing: 10px;
   text-transform: uppercase;
-  background: linear-gradient(45deg, #9444ad, #3498db);
+  background: linear-gradient(45deg, #8b0000, #ff0000); 
   -webkit-background-clip: text;
   background-clip: text;
   animation: glow 1.5s infinite alternate;
@@ -28,7 +27,7 @@ body {
 }
 
 #root {
-  background: url(https://images8.alphacoders.com/125/1250406.jpg);
+  background: url(https://images8.alphacoders.com/125/1250406.jpg); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,9 +35,10 @@ body {
   backdrop-filter: blur(8px);
 }
 
+
 .sidebar, .header, .container__content, .bottom-panel {
-  background: rgba(30, 30, 30, 0.85);
-  border: 1px solid rgba(200, 200, 200, 0.2);
+  background: rgba(30, 30, 30, 0);
+  border: 2px solid #8b000000; 
   border-radius: 8px;
   padding: 10px;
 }
@@ -53,16 +53,16 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar {
-  background-color: rgba(50, 50, 50, 0.9) !important;
+  background-color: rgba(40, 40, 40, 0.95) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.3); 
   border-radius: 8px;
 }
 
 .container__content .button--outline {
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.2) !important;
-  border: 2px solid white;
+  border: 2px solid #ff0000; 
   color: white;
   padding: 10px 15px;
   border-radius: 12px;
@@ -70,14 +70,15 @@ body {
 }
 
 .container__content .button--outline:hover {
-  background-color: white !important;
+  background-color: #ff0000 !important; 
   color: black;
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-  background-color: rgba(50, 50, 50, 0.9) !important;
+  background-color: rgba(40, 40, 40, 0.95) !important;
+  border: 1px solid #ff0000; 
   border-radius: 8px;
 }
 
@@ -85,7 +86,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Noto Serif JP', serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); 
 }
 
-
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+}
