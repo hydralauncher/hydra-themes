@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap');
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+  font-family: "Quantico", sans-serif;
+}
+
+body {
+  color: #16667c;
+  font-family: "Quantico", sans-serif; 
+  font-weight: 400;
+}
+
+#root {
+  background-image: url('https://images.unsplash.com/photo-1568615944078-821ced977caa?q=80&w=1939&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.game-details__container,
+.game-details__container,
+.header header--is-windows,
+.game-details__description-container,
+.sidebar {
+  background-color: transparent !important;
+  font-family: "Quantico", sans-serif;
+  backdrop-filter: blur(10px);
+}
+
+.content-sidebar {
+  background-color: transparent !important;
+}
+
+
+.container__content .button--outline {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Quantico", sans-serif;
+  backdrop-filter: blur(20px);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  font-family: "Quantico", sans-serif;
+  border-radius: 5px;
+  backdrop-filter: blur(20px);
+}
+
+.header__title,
+.sidebar__title,
+.game-item__title {
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.home__content {
+  border-radius: 10px;
+}
