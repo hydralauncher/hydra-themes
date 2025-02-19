@@ -20,7 +20,7 @@ html, body {
   background: transparent !important; /* Remove qualquer fundo preto vindo do navegador */
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 .sidebar,
 .container__content,
