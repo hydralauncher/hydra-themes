@@ -94,24 +94,25 @@ Promise.all(
       url.search = "";
       data.profileImageUrl = url.toString();
 
-      const fileExt = path.extname(data.profileImageUrl);
       const authorResponse = await fetch(data.profileImageUrl).then((res) =>
         res.arrayBuffer(),
       );
 
-      fs.writeFileSync(
-        path.join(
-          import.meta.dirname,
-          "..",
-          "..",
-          "public",
-          "themes",
-          themeName.toLowerCase(),
-          `author${fileExt}`,
-        ),
-        Buffer.from(authorResponse),
+      const authorImagePath = path.join(
+        import.meta.dirname,
+        "..",
+        "..",
+        "public",
+        "themes",
+        themeName.toLowerCase(),
+        'author.png'
       );
-      authorImage = `author${fileExt}`;
+
+      fs.writeFileSync(
+        authorImagePath,
+        Buffer.from(authorResponse)
+      );
+      authorImage = 'author.png';
     } catch (error) {
       console.error(`Failed to fetch author image for ${authorCode}`, error);
     }
