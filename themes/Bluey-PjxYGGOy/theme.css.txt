@@ -93,3 +93,20 @@ input[type="submit"]:hover,
   background-color: rgba(0, 255, 255, 0.1);
   cursor: pointer;
 }
+/* Elementos com efeito de vidro */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar,
+.settings-download-sources__item,
+.download-group__item {
+  background-color: rgba(0, 0, 0, 0); /* Fundo transparente */
+  backdrop-filter: blur(10px); /* Efeito de vidro */
+  transition: background-color 0.3s ease-in-out; /* Suaviza mudanças */
+}
