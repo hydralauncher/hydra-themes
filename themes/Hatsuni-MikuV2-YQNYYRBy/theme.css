@@ -168,6 +168,10 @@ body {
     transition: color 0.3s;
 }
 
+.sidebar__content{
+    background-color: #3b32c96b;
+}
+
 .sidebar__menu-item-button {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
     animation: buttonTextPulse 6s ease-in-out infinite;
@@ -244,6 +248,10 @@ body {
 .content-sidebar .button--outline.selected {
     background-color: rgba(0,0,139,0.4) !important;
     transform: translateY(1px);
+}
+
+.sidebar-profile {
+    background-color: #3b32c96b;
 }
 
 .sidebar-profile__friends-button {
