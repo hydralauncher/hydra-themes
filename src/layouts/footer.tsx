@@ -1,12 +1,12 @@
 import Github from "@/assets/github.svg";
 import Twitter from "@/assets/twitter.svg";
-
+import Reddit from "@/assets/reddit.svg";
 export function Footer() {
   return (
     <footer className="mt-auto border-t bg-background py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-between md:flex-row">
-          <div className="mb-4 md:mb-0 text-center">
+          <div className="mb-4 md:mb-0 text-center md:text-left">
             <h3 className="text-2xl font-bold">Hydra Theme Store</h3>
             <p className="mt-2 text-sm">
               {new Date().getFullYear()} &copy; Hydra Launcher.
@@ -37,8 +37,23 @@ export function Footer() {
               <img
                 src={Twitter.src}
                 alt="Twitter"
-                width={28}
-                height={28}
+                width={30}
+                height={30}
+                decoding="async"
+                loading="lazy"
+                className="dark:invert"
+              />
+            </a>
+            <a
+              href="https://reddit.com/r/hydralauncher"
+              className="transition-colors hover:text-white"
+            >
+              <span className="sr-only">Reddit</span>
+              <img
+                src={Reddit.src}
+                alt="Reddit"
+                width={34}
+                height={34}
                 decoding="async"
                 loading="lazy"
                 className="dark:invert"
