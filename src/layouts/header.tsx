@@ -4,7 +4,6 @@ import { ModeToggle } from "@/components/ui/theme-mode";
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Upload } from "lucide-react";
-import { I18nSelector } from "@/components/ui/i18n-selector";
 import { useStore } from "@nanostores/react";
 import { searchQuery } from "@/stores/search";
 import { cn } from "@/lib/utils";
@@ -37,7 +36,7 @@ export function Header() {
 
         <div className="flex items-center">
           <div className="mr-2 items-center gap-2">
-            <div className="relative w-full hidden sm:flex">
+            <div className="relative hidden w-full sm:flex">
               <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={query}

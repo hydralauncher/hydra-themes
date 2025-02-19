@@ -29,14 +29,14 @@ export function ThemeList({ themes }: Readonly<ThemeListProps>) {
   });
 
   return (
-    <div className="flex flex-col gap-4 mt-20">
+    <div className="mt-20 flex flex-col gap-4">
       <div className="flex flex-row justify-between">
         <h2 className="text-2xl font-bold">Community Themes</h2>
         
         <ThemeSorting />
       </div>
 
-      <div className="relative grid h-full mt-1 grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="relative mt-1 grid h-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredThemes.length ? (
           filteredThemes.map((theme) => (
             <ThemeCard key={theme.name} theme={theme} />
@@ -54,10 +54,9 @@ export function ThemeList({ themes }: Readonly<ThemeListProps>) {
           </div>
         )}
       </div>
-      <div className="flex justify-center w-full my-16">
+      <div className="my-16 flex w-full justify-center">
         <ThemePagination pagination={{ page: 1, perPage: 16, total: themes.length }} />
-    </div>
-
+      </div>
     </div>
   );
 }

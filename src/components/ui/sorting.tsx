@@ -1,8 +1,6 @@
 "use client"
 
 import { Check, ChevronsUpDown, Heart, Flame, CalendarArrowDown, CalendarArrowUp } from "lucide-react"
-import { z } from "zod"
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -25,10 +23,6 @@ const languages = [
     { label: "Most Popular", icon: <Flame />, value: "most-popular" },
     { label: "Most Favorited", icon: <Heart />, value: "most-favorited" },
 ] as const
-
-const FormSchema = z.object({
-  sort: z.enum(['newest', 'oldest', 'most-popular', 'most-favorited']).optional(),
-})
 
 export const ThemeSorting = () => {
 
