@@ -122,14 +122,14 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           </div>
 
           <div className="flex flex-row gap-2">
-            <Button variant="outline" size="icon" onClick={toggleFavorite}>
+            <Button variant="outline" size="icon" className="rounded-lg" onClick={toggleFavorite}>
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}
                 className="size-4 text-muted-foreground"
               />
             </Button>
 
-            <Button variant="outline" size="default" onClick={installTheme}>
+            <Button variant="outline" size="default" className="rounded-lg" onClick={installTheme}>
               Install
             </Button>
           </div>
