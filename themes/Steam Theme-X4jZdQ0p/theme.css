@@ -1113,20 +1113,20 @@ small {
 .home__cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    justify-content: left;
+    gap: 15px;
+    justify-content: flex-start;
 }
 
 .game-card {
-    position: relative;
-    width: 320px;
+    flex: 1 1 320px;
+    min-width: 320px;
+    max-width: calc(50% - 15px);
     height: 170px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #1a1a1a;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-    border: none;
 }
 
 .game-card:hover {
