@@ -100,7 +100,7 @@
 
 .sidebar-profile__button:hover {
   transform: scale(1.05);
-  backdrop-filter: blur (5px);
+  backdrop-filter: blur 5px;
 }
 
 
@@ -162,7 +162,7 @@
 
 
 .sidebar-profile__friends-button svg {
-  fill: #FDEB09;
+  fill: #FDEB09
 }
 
 
@@ -170,17 +170,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
+
 
 .theme-card__header__title {
   font-size: 2.0rem; 
   font-weight: 600; 
   background-size: 400% 400%; 
-  background-clip: text; 
   color: transparent; 
-  -webkit-background-clip: text; 
-  animation: gradientText 4s ease infinite, rgbGlow 1.5s alternate infinite; 
   font-family: 'Poppins', sans-serif; 
   letter-spacing: 1px; 
     font-weight: bold;
