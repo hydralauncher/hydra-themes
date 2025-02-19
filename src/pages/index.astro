@@ -1,22 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
-import themeList from "@/lib/themes.json";
+import type { ThemeListResponse } from "@/pages/api/themes";
 
-import { redis } from "@/lib/redis";
-
-const themes = await Promise.all(
-  themeList.map(async (theme) => {
-    const themeData = await redis.get(`theme:${theme.id}`).then((data) => {
-      if (!data) return { downloads: 0, favorites: 0 };
-      return JSON.parse(data);
-    });
-
-    return { ...theme, ...themeData };
-  }),
+const themes = await fetch("http://localhost:4321/api/themes?page=1").then(
+  (res) => res.json() as Promise<ThemeListResponse>,
 );
 ---
 
 <Layout title="Hydra Themes">
-  <ThemeList client:load themes={themes} />
+  <ThemeList client:load themes={themes.edges} themeCount={themes.count} />
 </Layout>

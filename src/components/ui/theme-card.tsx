@@ -23,7 +23,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   const performThemeAction = useCallback(
     (action: string) => {
-      fetch("/api/theme", {
+      fetch("/api/themes", {
         method: "PUT",
         body: JSON.stringify({
           themeId: theme.id,
@@ -91,14 +91,14 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           <div className="h-px flex-1 bg-muted/50"></div>
 
           <div className="flex items-center gap-2">
-            <DownloadIcon className="size-4 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">
-              {downloadCount}
-            </span>
-
             <HeartIcon className="size-4 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">
               {favoriteCount}
+            </span>
+
+            <DownloadIcon className="size-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">
+              {downloadCount}
             </span>
           </div>
         </div>
@@ -106,11 +106,15 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-              src={theme.authorImage ? `/themes/${theme.name.toLowerCase()}/${theme.authorImage}` : "/fallback-avatar.svg"}
+              src={theme.author.profileImageUrl ?? "/fallback-avatar.svg"}
               alt={theme.author.displayName}
+              loading="lazy"
               className={cn(
+                {
+                  "bg-muted/50 object-contain p-1":
+                    theme.author.profileImageUrl,
+                },
                 "size-6 rounded-full",
-                theme.authorImage ? "" : "bg-muted/50 object-contain p-1",
               )}
             />
             <a
@@ -122,14 +126,24 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           </div>
 
           <div className="flex flex-row gap-2">
-            <Button variant="outline" size="icon" className="rounded-lg" onClick={toggleFavorite}>
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-lg"
+              onClick={toggleFavorite}
+            >
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}
                 className="size-4 text-muted-foreground"
               />
             </Button>
 
-            <Button variant="outline" size="default" className="rounded-lg" onClick={installTheme}>
+            <Button
+              variant="outline"
+              size="default"
+              className="rounded-lg"
+              onClick={installTheme}
+            >
               Install
             </Button>
           </div>

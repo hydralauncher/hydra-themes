@@ -10,15 +10,19 @@ import {
 
 import type { PaginationSchema } from "@/lib/schemas/pagination";
 
+export interface ThemePaginationProps {
+  pagination: PaginationSchema;
+  onPageChange: (page: number) => void;
+}
+
 const getTotalPages = (total: number, perPage: number) => {
   return Math.ceil(total / perPage);
 };
 
-export const ThemePagination = ({
+export function ThemePagination({
   pagination,
-}: {
-  pagination: PaginationSchema;
-}) => {
+  onPageChange,
+}: ThemePaginationProps) {
   const totalPages = getTotalPages(pagination.total, pagination.perPage);
 
   return (
@@ -47,6 +51,7 @@ export const ThemePagination = ({
                 <PaginationLink
                   href="#"
                   isActive={pageNumber === pagination.page}
+                  onClick={() => onPageChange(pageNumber)}
                 >
                   {pageNumber}
                 </PaginationLink>
@@ -61,15 +66,17 @@ export const ThemePagination = ({
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">{totalPages}</PaginationLink>
+              <PaginationLink onClick={() => onPageChange(totalPages)}>
+                {totalPages}
+              </PaginationLink>
             </PaginationItem>
           </>
         )}
 
         <PaginationItem>
-          <PaginationNext href="#" />
+          <PaginationNext onClick={() => onPageChange(pagination.page + 1)} />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
   );
-};
+}

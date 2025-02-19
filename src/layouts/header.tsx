@@ -4,17 +4,17 @@ import { ModeToggle } from "@/components/ui/theme-mode";
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Upload } from "lucide-react";
-import { I18nSelector } from "@/components/ui/i18n-selector";
-import { useStore } from "@nanostores/react";
-import { searchQuery } from "@/stores/search";
 import { cn } from "@/lib/utils";
 
-export function Header() {
-  const query = useStore(searchQuery);
+export interface HeaderProps {
+  onSearch: (query: string) => void;
+  query: string;
+}
 
+export function Header({ onSearch, query }: Readonly<HeaderProps>) {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    searchQuery.set(value);
+    onSearch(value);
   };
 
   return (

@@ -1,37 +1,44 @@
-"use client"
+"use client";
 
-import { Check, ChevronsUpDown, Heart, Flame, CalendarArrowDown, CalendarArrowUp } from "lucide-react"
-import { z } from "zod"
+import {
+  Check,
+  ChevronsUpDown,
+  Heart,
+  Flame,
+  CalendarArrowDown,
+  CalendarArrowUp,
+} from "lucide-react";
+import { z } from "zod";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandItem,
   CommandList,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { sortThemes } from "@/stores/sort"
+} from "@/components/ui/popover";
 
 const languages = [
-    { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
-    { label: "Oldest", icon: <CalendarArrowDown />, value: "oldest" },
-    { label: "Most Popular", icon: <Flame />, value: "most-popular" },
-    { label: "Most Favorited", icon: <Heart />, value: "most-favorited" },
-] as const
+  { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
+  { label: "Oldest", icon: <CalendarArrowDown />, value: "oldest" },
+  { label: "Most Popular", icon: <Flame />, value: "most-popular" },
+  { label: "Most Favorited", icon: <Heart />, value: "most-favorited" },
+] as const;
 
 const FormSchema = z.object({
-  sort: z.enum(['newest', 'oldest', 'most-popular', 'most-favorited']).optional(),
-})
+  sort: z
+    .enum(["newest", "oldest", "most-popular", "most-favorited"])
+    .optional(),
+});
 
 export const ThemeSorting = () => {
-
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -40,13 +47,11 @@ export const ThemeSorting = () => {
           role="combobox"
           className={cn(
             "w-[180px] justify-between",
-            !sortThemes.get() && "text-muted-foreground font-medium"
+            !sortThemes.get() && "text-muted-foreground font-medium",
           )}
         >
           {sortThemes.get()
-            ? languages.find(
-                (sort) => sort.value === sortThemes.get()
-              )?.label
+            ? languages.find((sort) => sort.value === sortThemes.get())?.label
             : "Sort by..."}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -60,7 +65,8 @@ export const ThemeSorting = () => {
                 <CommandItem
                   className={cn(
                     "flex flex-row items-center gap-2",
-                    sort.value === sortThemes.get() && "bg-muted/80 transition-all duration-200"
+                    sort.value === sortThemes.get() &&
+                      "bg-muted/80 transition-all duration-200",
                   )}
                   value={sort.label}
                   key={sort.value}
@@ -80,7 +86,7 @@ export const ThemeSorting = () => {
                       "ml-auto",
                       sort.value === sortThemes.get()
                         ? "opacity-100"
-                        : "opacity-0"
+                        : "opacity-0",
                     )}
                   />
                 </CommandItem>
@@ -90,5 +96,5 @@ export const ThemeSorting = () => {
         </Command>
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};
