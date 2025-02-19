@@ -3,8 +3,9 @@
 .container__content,
 .bottom-panel {
   background: transparent;
-  color: #ddedff;
-
+  color: #ffffff;
+  opacity: 0.95;
+  text-shadow: 2px 2px 2px #000000;
 }
 
 body {
@@ -32,11 +33,6 @@ body {
 .sidebar {
   background-color: rgba(1, 43, 68, 0.596) !important;
   backdrop-filter: blur(6px);
-}
-
-.downloads__no-downloads{
-  backdrop-filter: blur(6px);
-  
 }
 
 .container__content .button--outline {
