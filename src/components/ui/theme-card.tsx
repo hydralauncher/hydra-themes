@@ -3,6 +3,7 @@ import { Button } from "./button";
 import { DownloadIcon, HeartIcon } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import axios from "axios";
 
 export interface ThemeCardProps {
   theme: Theme;
@@ -15,7 +16,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   useEffect(() => {
     const isFavorite = window.localStorage.getItem(
-      `theme_favorite:${theme.name}`,
+      `theme_favorite:${theme.id}`,
     );
 
     setIsFavorite(isFavorite === "true");
@@ -23,21 +24,19 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   const performThemeAction = useCallback(
     (action: string) => {
-      fetch("/api/themes", {
-        method: "PUT",
-        body: JSON.stringify({
-          themeId: theme.id,
-          action,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+      axios.put("/api/themes", {
+        themeId: theme.id,
+        action,
       });
     },
     [theme],
   );
 
   const installTheme = useCallback(() => {
+    const hasInstalled = window.localStorage.getItem(
+      `theme_installed:${theme.id}`,
+    );
+
     const searchParams = new URLSearchParams({
       theme: theme.name,
       authorId: theme.author.id,
@@ -49,8 +48,12 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
       "_blank",
     );
 
-    performThemeAction("install");
-    setDownloadCount(downloadCount + 1);
+    if (!hasInstalled) {
+      performThemeAction("install");
+      setDownloadCount(downloadCount + 1);
+
+      window.localStorage.setItem(`theme_installed:${theme.id}`, "true");
+    }
   }, [theme]);
 
   const toggleFavorite = useCallback(() => {
@@ -58,7 +61,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     setIsFavorite(updatedIsFavorite);
 
     window.localStorage.setItem(
-      `theme_favorite:${theme.name}`,
+      `theme_favorite:${theme.id}`,
       updatedIsFavorite.toString(),
     );
 
