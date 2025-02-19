@@ -12,7 +12,10 @@ import { debounce } from "lodash-es";
 export function Header() {
   const debouncedSearch = useRef(
     debounce((value: string) => {
-      searchQuery.set(value);
+      searchQuery.set({
+        value,
+        page: 1,
+      });
     }, 300),
   ).current;
 
