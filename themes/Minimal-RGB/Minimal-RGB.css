@@ -1,0 +1,307 @@
+/*
+   ________  ________  ________  ________  ________  ________  ________  ________
+  |\   __  \|\   __  \|\   __  \|\   __  \|\   __  \|\   __  \|\   __  \|\   __  \
+  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \
+   \ \   ____\ \  \\\  \ \   __  \ \   __  \ \   __  \ \  \\\  \ \   __  \ \  \\\  \
+    \ \  \___|\ \  \\\  \ \  \ \  \ \  \ \  \ \  \ \  \ \  \\\  \ \  \ \  \ \  \\\  \
+     \ \__\    \ \_______\ \__\ \__\ \__\ \__\ \__\ \__\ \_______\ \__\ \__\ \_______\
+      \|__|     \|_______|\|__|\|__|\|__|\|__|\|__|\|__|\|_______|\|__|\|__|\|_______|
+                                                                                
+    _______  _______  ________  ________  _______  _______  _______  ________
+   |\  ___  \|\  ___  \|\   __  \|\   __  \|\  ___  \|\  ___  \|\  ___  \|\   __  \
+   \ \   __  \ \   __  \ \  \|\  \ \  \|\  \ \   __  \ \  \|\  \ \   __  \ \  \|\  \
+    \ \  \|\  \ \  \ \  \ \   __  \ \   __  \ \  \ \  \ \   ____\ \  \ \  \ \   ____\
+     \ \_______\ \__\ \__\ \  \ \  \ \  \ \  \ \__\ \__\ \__\____\ \  \ \  \ \  \___|
+      \|_______|\|__|\|__|\|__|\|__|\|__|\|__|\|_______|\|_______|\|__|\|__|\|_______|
+                                                                                   
+   ________  _______  ________  ________  ________  ________  _______  _______  _______
+  |\   __  \|\  ___  \|\   __  \|\   __  \|\   __  \|\   __  \|\   __  \|\   __  \|\   __  \
+  \ \  \|\  \ \   __  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \
+   \ \   ____\ \  \\\  \ \   __  \ \   __  \ \   __  \ \  \\\  \ \   ____\ \   ____\ \   __  \
+    \ \  \___|\ \  \\\  \ \  \ \  \ \  \ \  \ \  \ \  \ \  \\\  \ \  \ \  \ \  \___|\ \  \|\  \
+     \ \__\    \ \_______\ \__\ \__\ \__\ \__\ \__\ \__\ \_______\ \__\ \__\ \_______\ \_______\
+      \|__|     \|_______|\|__|\|__|\|__|\|__|\|__|\|__|\|_______|\|__|\|__|\|_______|
+                                                                    
+                      "Esse código é propriedade do Arcanjo."
+                      "Roubar código é como roubar chocolate... pode até parecer bom, mas vai deixar você com um gosto amargo no final!" Brincadeira, se divirta com ele.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  padding: 15px;
+  color: white;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  background: #ff0080;
+  overflow: hidden;
+  animation: particleBurst 3s ease-in-out infinite, sidebarSlideIn 0.5s ease-out;
+}
+
+@keyframes particleBurst {
+  0% {
+    background-color: #ff0080;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(255, 0, 128, 0.3);
+  }
+  50% {
+    background-color: #ff00ff;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6), 0 0 40px rgba(255, 0, 255, 0.4);
+  }
+  100% {
+    background-color: #ff0080;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(255, 0, 128, 0.3);
+  }
+}
+
+@keyframes sidebarSlideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #f1f1f1;
+  text-shadow: 1px 1px 2px black;
+  text-transform: capitalize;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 0;
+  color: #f1f1f1;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 1px 1px 2px black;
+  text-transform: capitalize;
+}
+
+.sidebar a:hover {
+  color: #ffffff;
+  transform: translateX(10px);
+}
+
+.sidebar .button {
+  display: block;
+  padding: 12px 20px;
+  background-color: rgba(52, 73, 94, 0.8);
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 12px;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 1px 1px 2px black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  animation: bounce 1s infinite, buttonFadeIn 1s forwards;
+}
+
+@keyframes buttonFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.sidebar .button:hover {
+  background-color: rgba(52, 73, 94, 0.9);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  outline: 4px solid #ff0080;
+  outline-offset: 4px;
+}
+
+.sidebar .button:active {
+  transform: translateY(1px);
+  background-color: rgba(52, 73, 94, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animações de ícones */
+.icon, .emoji {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover, .emoji:hover {
+  transform: scale(1.3) rotate(10deg);
+  color: #ff00ff;
+  animation: shake 0.6s ease-in-out;
+}
+
+.icon:active, .emoji:active {
+  transform: scale(0.9) rotate(-5deg);
+  color: #ff0080;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Adicionando animação fluida no conteúdo */
+.container__content {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 14px;
+  margin-left: 250px;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  opacity: 0;
+  animation: fadeInContent 1s forwards 1s;
+}
+
+@keyframes fadeInContent {
+  to {
+    opacity: 1;
+  }
+}
+
+.container__content h1, .container__content h2, .container__content h3 {
+  font-weight: 600;
+  color: #ecf0f1;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.button {
+  padding: 10px 25px;
+  background-color: #34495e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  outline: 2px solid black;
+  animation: buttonFadeIn 1s forwards 2s;
+}
+
+.button:hover {
+  transform: translateY(-4px) scale(1.05);
+  background-color: #2a3036;
+}
+
+.button:active {
+  transform: translateY(1px);
+  background-color: #2c3e50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toast {
+  background-color: #e74c3c;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out, opacity 0.3s ease;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast.hide {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+/* Blur effect for header and bottom panel */
+.header {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 10px 0;
+  width: 100%;
+  animation: fadeIn 1s ease-out 2s;
+}
+
+.bottom-panel {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out 2.5s;
+}
+
+/* Focus effects for inputs and textareas */
+input:focus, textarea:focus {
+  border-color: #f39c12;
+  outline: none;
+  box-shadow: 0 0 5px rgba(241, 196, 15, 0.5);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2c3e50;
+  border-radius: 8px;
+}
+
+a, .button {
+  transition: all 0.3s ease;
+}
