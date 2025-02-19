@@ -1,0 +1,140 @@
+  /* Header */
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+  * {
+    font-family: "Plus Jakarta Sans", serif;
+  }
+
+  p {
+    font-size: 14px;
+    text-shadow: 4px 3px 2px #000;
+    color: #e3e3e3;
+  }
+
+  .header {
+    background-color: #000;
+  }
+
+  .title-bar h4 {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .title-bar__cloud-text {
+    background: linear-gradient(270deg, #a3ffee 50%, #a0bbff 100%);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .theme_title {
+    position: absolute;
+    right: 150px;
+    font-style: italic;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: #000;
+  }
+
+  .sidebar__menu-item--active{
+    background: #1f1f1f;
+  }
+  
+  .sidebar__menu-item {
+    color: #fff;
+  }
+
+  .text-field-container__text-field-input, .header__search-input, .header__action-button {
+    background: #070707;
+  }
+
+  /* Main content */
+  .container {
+    background: #000;
+  }
+
+  .container__content {
+    background: #000;
+  }
+
+  .home__content {
+    background: #000;
+  }
+
+  .downloads__container {
+    background: #000;
+  }
+
+  .download-group__title {
+    color: #fff;
+  }
+
+  .download-group__right-content, .gallery-slider__container,
+  .game-details__description, .description-header,
+  .content-sidebar {
+    background: #070707;
+  }
+
+  .settings-download-sources__item {
+    background-color: #070707;
+  }
+
+  .settings__content {
+    background: #000;
+  }
+
+  .settings-appearance {
+    background-color: #000;
+  }
+
+  .catalogue {
+    background-color: #000;
+  }
+
+  .catalogue__filters-container {
+    background-color: #070707;
+  }
+
+  .game-item {
+    background-color: #070707;
+  }
+
+  .theme-card {
+    background-color: #070707;
+  }
+
+  .user-stats__box, .recent-games__box {
+    background: #070707;
+  }
+
+  .modal {
+    background-color: #070707;
+  }
+
+  /* Bottom panel */
+  .bottom-panel {
+    background-color: #000;
+  }
+
+  /* Toast */
+  .toast {
+    background-color: #000;
+  }
+
+  /* Button */
+  .button--outline {
+    background-color: #1f1f1f;
+    border: none;
+  }
+
+  .button--primary {
+    background-color: rgb(207, 207, 207);
+    font-weight: bold;
+  }
+
+  .sidebar__help-button {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
