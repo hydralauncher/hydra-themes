@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
+import { Note } from "@/components/ui/note";
 import type { ThemeListResponse } from "@/pages/api/themes";
 
 const sort = "downloads";
@@ -17,4 +18,6 @@ const themes = await fetch(
     themeCount={themes.count}
     sort={sort}
   />
+  
+  <Note />
 </Layout>
