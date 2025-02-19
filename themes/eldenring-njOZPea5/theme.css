@@ -32,7 +32,6 @@ body {
   .user-stats__box,
   .recent-games__box,
   .sidebar {
-    background: transparent;
     background-color: rgba(0, 0, 0, 0.521);
     backdrop-filter: blur(2px);
     border: 0.5px solid #05b1f5;
