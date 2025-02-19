@@ -21,7 +21,9 @@ Promise.all(
     const files = fs.readdirSync(folderPath);
 
     const cssFile = files.find((file) => file.endsWith(".css"));
-    const screenshotFile = files.find((file) => file.startsWith("screenshot"));
+    const screenshotFile = files.find((file) =>
+      file.toLowerCase().startsWith("screenshot"),
+    );
 
     if (!cssFile) {
       console.error(`No css file found for theme ${folder}`);
@@ -33,7 +35,9 @@ Promise.all(
       return;
     }
 
-    const [themeName, authorCode] = folder.split("-");
+    const parts = folder.split("-");
+    const authorCode = parts.pop()?.trim();
+    const themeName = parts.join("-").trim();
 
     const response = await axios.get(
       `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
@@ -50,6 +54,25 @@ Promise.all(
       return;
     }
 
+    await axios
+      .post(
+        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "hydra-token": hydraHeaderSecret,
+          },
+        },
+      )
+      .catch((err) => {
+        console.error(
+          `could not update user (${authorCode}) badge`,
+          err.message,
+          err.response?.data,
+        );
+      });
+
     const data = response.data as Theme["author"];
 
     fs.cpSync(
@@ -65,36 +88,45 @@ Promise.all(
       { recursive: true },
     );
 
-    const url = new URL(data.profileImageUrl);
-    url.search = "";
+    let authorImage = null;
+    try {
+      const url = new URL(data.profileImageUrl);
+      url.search = "";
+      data.profileImageUrl = url.toString();
 
-    data.profileImageUrl = url.toString();
+      const authorResponse = await fetch(data.profileImageUrl).then((res) =>
+        res.arrayBuffer(),
+      );
 
-    const fileExt = path.extname(data.profileImageUrl);
-    const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-      res.arrayBuffer(),
-    );
-
-    fs.writeFileSync(
-      path.join(
+      const authorImagePath = path.join(
         import.meta.dirname,
         "..",
         "..",
         "public",
         "themes",
         themeName.toLowerCase(),
-        `author${fileExt}`,
-      ),
-      Buffer.from(authorResponse),
-    );
+        'author.png'
+      );
+
+      fs.writeFileSync(
+        authorImagePath,
+        Buffer.from(authorResponse)
+      );
+      authorImage = 'author.png';
+    } catch (error) {
+      console.error(`Failed to fetch author image for ${authorCode}`, error);
+    }
 
     return {
+      id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: `author${fileExt}`,
-    };
+      authorImage: authorImage,
+      downloads: 0,
+      favorites: 0,
+    } as Theme;
   }),
 ).then((themes) => {
   console.log(`Generated ${themes.length} themes`);
