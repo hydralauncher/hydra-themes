@@ -5,8 +5,10 @@ import { ThemeSorting } from "./sorting";
 import { ThemePagination } from "./theme-pagination";
 import type { Theme } from "@/lib/schemas/theme";
 import { useCallback, useEffect, useState } from "react";
-
+import axios from "axios";
 import { Heart, Flame } from "lucide-react";
+import { searchQuery } from "@/stores/search";
+import { useStore } from "@nanostores/react";
 
 interface ThemeListProps {
   themes: Theme[];
@@ -15,38 +17,36 @@ interface ThemeListProps {
 }
 
 export function ThemeList(props: Readonly<ThemeListProps>) {
-  const [page, setPage] = useState(1);
   const [sort, setSort] = useState(props.sort);
+  const search = useStore(searchQuery);
 
   const [themes, setThemes] = useState<Theme[]>(props.themes);
+  const [themeCount, setThemeCount] = useState(props.themeCount);
 
   useEffect(() => {
-    if (page > 1 || sort !== props.sort) {
-      fetch(`/api/themes?page=${page}&sort=${sort}`).then((res) => {
-        res.json().then((data) => {
-          setThemes(data.edges);
+    if (search.page > 1 || sort !== props.sort || search.value) {
+      axios
+        .get(
+          `/api/themes?page=${search.page}&sort=${sort}&query=${search.value}`,
+        )
+        .then((res) => {
+          setThemes(res.data.edges);
+          setThemeCount(res.data.count);
         });
-      });
     } else {
       setThemes(props.themes);
+      setThemeCount(props.themeCount);
     }
-  }, [page, sort]);
+  }, [search.page, sort, search]);
 
   const handlePageChange = useCallback((page: number) => {
-    setPage(page);
+    searchQuery.set({
+      value: search.value,
+      page,
+    });
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  // const filteredThemes = themes.filter((theme) => {
-  //   if (!query.length) return true;
-
-  //   if (query.length < 3) {
-  //     return theme.name.toLowerCase().startsWith(query.toLowerCase());
-  //   }
-
-  //   return theme.name.toLowerCase().includes(query.toLowerCase());
-  // });
 
   return (
     <div className="mt-20 flex flex-col gap-4">
@@ -87,7 +87,11 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
       </div>
       <div className="my-16 flex w-full justify-center">
         <ThemePagination
-          pagination={{ page, perPage: 12, total: props.themeCount }}
+          pagination={{
+            page: search.page,
+            perPage: 12,
+            total: themeCount,
+          }}
           onPageChange={handlePageChange}
         />
       </div>

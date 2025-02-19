@@ -1,4 +1,4 @@
-```css
+
 /* 
   Theme: Rainy Miku
   Versão: 1
@@ -92,6 +92,7 @@ body {
     border-color: rgba(0, 255, 255, 0.5);
 }
 
+
 .button,
 .sidebar .button {
     background: linear-gradient(135deg, rgba(0, 0, 139, 0.3), rgba(0, 139, 139, 0.3)) !important;
@@ -138,7 +139,7 @@ body {
     background: linear-gradient(135deg, rgba(0,0,139,0.4), rgba(0,139,139,0.4));
 }
 
-.header:not(.container__content):not(.header),
+.header:not(.container__content),
 .sidebar .button,
 .toast {
     background: linear-gradient(135deg, rgba(0,0,139,0.08), rgba(0,139,139,0.08)) !important;
@@ -167,6 +168,10 @@ body {
     transition: color 0.3s;
 }
 
+.sidebar__content{
+    background-color: #3b32c96b;
+}
+
 .sidebar__menu-item-button {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
     animation: buttonTextPulse 6s ease-in-out infinite;
@@ -185,6 +190,11 @@ body {
 .game-details__description-container {
     background: rgba(0,0,139,0.3);
 }
+
+.game-details__description-content {
+    background-color: rgba(98, 191, 191, 0.26);
+}
+
 .hero-panel-actions__action:hover {
     background-color: rgba(0,0,139,0.5);
 }
@@ -238,6 +248,10 @@ body {
 .content-sidebar .button--outline.selected {
     background-color: rgba(0,0,139,0.4) !important;
     transform: translateY(1px);
+}
+
+.sidebar-profile {
+    background-color: #3b32c96b;
 }
 
 .sidebar-profile__friends-button {
@@ -318,7 +332,6 @@ body {
 }
 
 .modal {
-    animation: scale-fade-in 0.2s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
     background-color: #2f3244cc;
     border-radius: 4px;
     min-width: 400px;
@@ -362,7 +375,7 @@ body {
 }
 
 .sidebar, .header, .bottom-panel, .toast {
-    background: linear-gradient(135deg, rgb(30 30 33 / 38%), rgb(14 59 59));
+    background: linear-gradient(135deg, rgba(0, 0, 139, 0.08), rgba(0, 139, 139, 0.08));
     backdrop-filter: blur(2px);
 }
 
@@ -393,4 +406,3 @@ body {
     align-items: center;
     text-align: left;
 }
-```

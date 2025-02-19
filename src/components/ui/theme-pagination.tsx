@@ -25,6 +25,8 @@ export function ThemePagination({
 }: ThemePaginationProps) {
   const totalPages = getTotalPages(pagination.total, pagination.perPage);
 
+  if (totalPages < 2) return null;
+
   return (
     <Pagination>
       <PaginationContent>

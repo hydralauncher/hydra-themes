@@ -22,16 +22,21 @@ export const GET: APIRoute = async ({ request }) => {
 
   const page = Number(searchParams.get("page") || "1");
   const sort = searchParams.get("sort") || "favorites";
+  const query = searchParams.get("query") || "";
 
   const themes = await Promise.all(
-    themeList.map(async (theme) => {
-      const themeData = await redis.get(`theme:${theme.id}`).then((data) => {
-        if (!data) return { downloads: 0, favorites: 0 };
-        return JSON.parse(data);
-      });
+    themeList
+      .filter((theme) => {
+        return theme.name.toLowerCase().includes(query.toLowerCase());
+      })
+      .map(async (theme) => {
+        const themeData = await redis.get(`theme:${theme.id}`).then((data) => {
+          if (!data) return { downloads: 0, favorites: 0 };
+          return JSON.parse(data);
+        });
 
-      return { ...theme, ...themeData };
-    }),
+        return { ...theme, ...themeData };
+      }),
   );
 
   const sortedThemes = orderBy(themes, sort, "desc");
