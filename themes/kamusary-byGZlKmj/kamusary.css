@@ -166,31 +166,6 @@
 }
 
 
-.theme-card__header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-}
-
-
-.theme-card__header__title {
-  font-size: 2.0rem; 
-  font-weight: 600; 
-  background-size: 400% 400%; 
-  color: transparent; 
-  font-family: 'Poppins', sans-serif; 
-  letter-spacing: 1px; 
-    font-weight: bold;
-    text-shadow: 
-        0 0 1px #eec926, 
-        0 0 6px #f28e0c, 
-        0 0 3px #F2CC0C, 
-        0 0 30px #ff0000, 
-        0 0 20px #ff0000, 
-        0 0 30px #ff0000;
-}
-
 .title-bar h4 {
 visibility: hidden;
 }
