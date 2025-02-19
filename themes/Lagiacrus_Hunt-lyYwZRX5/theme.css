@@ -254,9 +254,7 @@ body::after {
   transition: transform 0.15s ease-in-out;
   transform-origin: center;
 }
-.user-library-game__overlay:hover {
-  transform: scale(1.03) translate(var(--mouse-x), var(--mouse-y));
-}
+
 .user-library-game__overlay:hover::before {
   content: '';
   position: absolute;
