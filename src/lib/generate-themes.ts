@@ -89,32 +89,31 @@ Promise.all(
     );
 
     let authorImage = null;
-    try {
-      const url = new URL(data.profileImageUrl);
-      url.search = "";
-      data.profileImageUrl = url.toString();
+    if (data.profileImageUrl) {
+      try {
+        const url = new URL(data.profileImageUrl);
+        url.search = "";
+        data.profileImageUrl = url.toString();
 
-      const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-        res.arrayBuffer(),
-      );
+        const authorResponse = await fetch(data.profileImageUrl).then((res) =>
+          res.arrayBuffer(),
+        );
 
-      const authorImagePath = path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        'author.png'
-      );
+        const authorImagePath = path.join(
+          import.meta.dirname,
+          "..",
+          "..",
+          "public",
+          "themes",
+          themeName.toLowerCase(),
+          "author.png",
+        );
 
-      fs.writeFileSync(
-        authorImagePath,
-        Buffer.from(authorResponse)
-      );
-      authorImage = 'author.png';
-    } catch (error) {
-      console.error(`Failed to fetch author image for ${authorCode}`, error);
+        fs.writeFileSync(authorImagePath, Buffer.from(authorResponse));
+        authorImage = "author.png";
+      } catch (error) {
+        console.error(`Failed to fetch author image for ${authorCode}`, error);
+      }
     }
 
     return {

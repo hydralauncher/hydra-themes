@@ -20,11 +20,11 @@ body {
   background: url(https://preview.redd.it/1920-x-1080-collection-of-my-fav-wallpapers-part-1-v0-xk7ph8t6yza81.png?width=640&crop=smart&auto=webp&s=6f40a66ea2a85fab449542aa5b383e560a171bc5)
     #2f2f2f; /* Cor de fundo em caso de falha na imagem */
   background-size: cover; /* Faz a imagem cobrir toda a tela */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita repetição da imagem */
-  height: 100vh; /* Ocupa toda a altura da tela */
-  width: 100%; /* Ocupa toda a largura da tela */
-  position: fixed; /* Fixação do fundo */
+  background-position: center; /* Centraliza a imagem na tela */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  height: 100vh; /* Garante que o fundo ocupe toda a altura da tela */
+  width: 100%; /* Garante que o fundo ocupe toda a largura da tela */
+  position: fixed; /* Fixação do fundo na tela */
   top: 0;
   left: 0;
 }
