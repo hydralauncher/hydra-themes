@@ -1,31 +1,30 @@
 /* =============================================================
-   SHADOW THE HEDGEHOG THEME (Com Destaques em Verde - Chaos Emerald)
-   - Tons de vermelho-escuro (maroon) e preto
-   - Inserção de detalhes em verde para remeter ao Chaos Emerald
-   - Adicionado Toast e Title Bar com fundo preto translúcido
+   LAGIACRUS THEME    
+  
+   All credits for this template go to my friend @KayAzir
 ============================================================= */
 
 :root {
  
-  --shadow-black: #100b0b;
-  --shadow-maroon: #5a1717;     
-  --shadow-red: #aa1e1e;        
-  --shadow-red-dark: #700000;
-  --shadow-red-light: #bd3c3c;
+  --lagiacrus-black: #100b0b;
+  --lagiacrus-mustard: rgba(148, 156, 112, 0.44); /* 44% de opacidade */
+  --lagiacrus-navy-blue: #7184a1;        
+  --lagiacrus-blue-dark: #2d357770;
+  --lagiacrus-violet: #666192;
 
 
-  --emerald-green: #00ff00;
+  --simple-black: #22221c;
 
 
   --text-color: #f0efef;
 
 
   --alpha-dark: rgba(0, 0, 0, 0.6);
-  --alpha-maroon: rgba(90, 23, 23, 0.6);
-  --alpha-red: rgba(170, 30, 30, 0.6);
+  --alpha-purple: rgba(58, 54, 78, 0.733);
+  --alpha-mustard: rgba(164, 167, 21, 0.6);
 
 
-  --border-color-soft: rgba(255, 0, 0, 0.3);
+  --border-color-soft: rgba(99, 121, 19, 0.3);
 
 
   --blur-bg: blur(8px);
@@ -33,13 +32,13 @@
   --blur-modal: blur(12px);
 
 
-  --shadow-hover: 0 5px 15px rgba(170, 30, 30, 0.3);
-  --shadow-active: 0 3px 8px rgba(170, 30, 30, 0.3);
+  --lagiacrus-hover: 0 5px 15px rgba(102, 81, 81, 0.3);
+  --lagiacrus-active: 0 3px 8px rgba(134, 129, 129, 0.3);
 
 
   --scrollbar-bg: rgba(21, 21, 21, 0.5);
-  --scrollbar-thumb: linear-gradient(to bottom, #aa1e1e, #700000);
-  --scrollbar-thumb-hover: linear-gradient(to bottom, #d01c1c, #900000);
+  --scrollbar-thumb: linear-gradient(to bottom, #945a5a, #4e4d08);
+  --scrollbar-thumb-hover: linear-gradient(to bottom, #44470e, #3f4d10);
 }
 
 
@@ -47,46 +46,41 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0%200%2012%2012'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23aa1e1e'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(170,30,30,0.5)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolygon points='0,0 16,8 8,8 8,16' fill='%23000000'/%3E%3C/svg%3E") 0 0, auto;
+
 }
 
 body {
   color: var(--text-color);
-  background: var(--shadow-black);
-  font-family: sans-serif;
+  background: var(--lagiacrus-black);
+  font-family: monospace;
   line-height: 1.4;
 }
 
 button:hover,
 a:hover,
-.clickable:hover {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0%200%2012%2012'%3E%3Ccircle cx='6' cy='6' r='3' fill='%23d01c1c'/%3E%3Ccircle cx='6' cy='6' r='5' stroke='rgba(208,28,28,0.8)' stroke-width='1' fill='none'/%3E%3C/svg%3E") 6 6, pointer;
+.clickable:hover {  
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolygon points='0,0 16,8 8,8 8,16' fill='%23000000'/%3E%3C/svg%3E") 0 0, auto;
+
+
+
+}
+* {
+ cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolygon points='0,0 16,8 8,8 8,16' fill='%23000000'/%3E%3C/svg%3E") 0 0, auto !important;
+}
+
+*:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolygon points='0,0 16,8 8,8 8,16' fill='%23000000'/%3E%3C/svg%3E") 0 0, auto !important;
 }
 
 
 #root {
-  background: var(--shadow-maroon)
-    url("https://images6.alphacoders.com/131/thumb-1920-1310637.png")
+  background: var(--lagiacrus-mustard)
+    url("https://iili.io/2yeLY0J.gif")
     no-repeat center center;
   background-size: cover;
   position: relative;
 }
-
-#bgvideo{
-
- position: fixed;
- top: 0;
- left: 0;
- width: 100vw;
- height: 100vh;
- object-fit: cover;
- z-index:1;
-
-
-}
-
-
-
 
 body::after {
   content: '';
@@ -98,7 +92,7 @@ body::after {
   background: linear-gradient(
     135deg,
     rgba(0, 0, 0, 0.5) 0%,
-    rgba(150, 19, 19, 0.5) 100%
+    rgba(150, 20, 20, 0.5) 100%
   );
   z-index: -1;
   pointer-events: none;
@@ -107,10 +101,10 @@ body::after {
 
 .sidebar {
   width: 120px;
-  background: rgba(150, 19, 19, 0.85) !important;
+  background: rgba(114, 139, 22, 0.85) !important;
   backdrop-filter: var(--blur-bg-strong);
   -webkit-backdrop-filter: var(--blur-bg-strong);
-  border-right: 2px solid rgba(255, 0, 0, 0.4);
+  border-right: 2px solid rgba(91, 92, 21, 0.4);
   transition: all 0.3s ease-in-out;
 }
 
@@ -126,19 +120,30 @@ body::after {
 }
 
 .sidebar__menu-item:hover {
-  background: rgba(255, 0, 0, 0.4);
+  background: rgba(77, 80, 59, 0.4);
   transform: translateX(3px);
-  box-shadow: var(--shadow-active);
+  box-shadow: var(--lagiacrus-active);
 }
 
 .sidebar__menu-item--active {
-  background: rgba(255, 0, 0, 0.6);
-  border-left: 3px solid var(--shadow-red);
+  background: rgba(94, 95, 83, 0.6);
+  border-left: 3px solid var(--simple-black);
 }
-
-
+.header
+{
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px); 
+  color: var(--lagiacrus-black); 
+  padding: 12px 20px; 
+  border-radius: 8px; 
+  text-align: center;
+  font-size: 18px; 
+  font-weight: bold; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 .sidebar,
-.header,
+
 .container__content,
 .bottom-panel {
   background: transparent !important;
@@ -162,20 +167,14 @@ body::after {
 .game-details__description-container,
 .description-header,
 .modal__header {
-  background: var(--alpha-maroon) !important;
+  background: var(--alpha-purple) !important;
   backdrop-filter: var(--blur-bg);
   -webkit-backdrop-filter: var(--blur-bg);
   border: 1px solid var(--border-color-soft);
 }
 
 
-.content-sidebar{
-  background: var(--alpha-dark) !important;
-  backdrop-filter: var(--blur-bg);
-  -webkit-backdrop-filter: var(--blur-bg);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-}
+.content-sidebar,
 .sidebar-section__button {
   background: var(--alpha-dark) !important;
   backdrop-filter: var(--blur-bg);
@@ -205,9 +204,9 @@ body::after {
 
 
 .button--primary {
-  background: linear-gradient(45deg, var(--shadow-red), var(--shadow-red-dark));
+  background: linear-gradient(45deg, var(--lagiacrus-navy-blue), var(--lagiacrus-blue-dark));
   border: none;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(77, 80, 59, 0.4);
 }
 .button--primary:hover {
   transform: translateY(-2px);
@@ -215,7 +214,7 @@ body::after {
 }
 
 .button--outline {
-  border: 1px solid rgba(255, 0, 0, 0.5);
+  border: 1px solid rgba(29, 22, 22, 0.5);
   background: linear-gradient(
     45deg,
     rgba(255, 0, 0, 0.1),
@@ -223,8 +222,8 @@ body::after {
   );
 }
 .button--outline:hover {
-  border-color: var(--emerald-green); 
-  box-shadow: 0 0 8px var(--emerald-green);
+  border-color: var(--simple-black); 
+  box-shadow: 0 0 8px var(--simple-black);
   background: linear-gradient(
     45deg,
     rgba(255, 0, 0, 0.2),
@@ -244,10 +243,10 @@ body::after {
 }
 .button.game:hover,
 .buttonGameItem:hover {
-  background: var(--alpha-red);
+  background: var(--alpha-mustard);
   border: 1px solid rgba(255, 0, 0, 0.8);
   transform: translateY(-2px);
-  box-shadow: 0 0 10px var(--emerald-green); 
+  box-shadow: 0 0 10px var(--simple-black); 
 }
 
 
@@ -255,9 +254,7 @@ body::after {
   transition: transform 0.15s ease-in-out;
   transform-origin: center;
 }
-.user-library-game__overlay:hover {
-  transform: scale(1.03) translate(var(--mouse-x), var(--mouse-y));
-}
+
 .user-library-game__overlay:hover::before {
   content: '';
   position: absolute;
@@ -295,10 +292,7 @@ body::after {
 .title-bar h4 {
   visibility: hidden;
 }
-.title-bar::before {
-  content: "";
- 
-  background-image: url('https://cdn2.steamgriddb.com/logo_thumb/701a41e8e3ae2362bf739e5768569eb2.png');
+.title-bar::before { 
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
@@ -309,7 +303,7 @@ body::after {
 }
 
 .title-bar::after {
-  content: "@KayAzir"; 
+  content: "@n30"; 
   position: absolute;
   right: 150px;
   top: 50%;
@@ -325,17 +319,17 @@ body::after {
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  background: var(--alpha-maroon);
+  background: var(--alpha-purple);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   margin: 8px; 
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 .sidebar-profile:hover {
-  border-color: var(--emerald-green);
-  box-shadow: 0 0 8px var(--emerald-green);
+  border-color: var(--simple-black);
+  box-shadow: 0 0 8px var(--simple-black);
 }
 
 .sidebar-profile__left {
@@ -347,7 +341,7 @@ body::after {
   margin: 0;
   font-size: 14px;
   font-weight: bold;
-  color: var(--emerald-green); 
+  color: var(--simple-black); 
   letter-spacing: 1px;
 }
 
@@ -363,15 +357,15 @@ body::after {
 
 .profile-button {
   background: none;
-  border: 1px solid var(--emerald-green);
+  border: 1px solid var(--simple-black);
   padding: 4px 6px;
   border-radius: 4px;
-  color: var(--emerald-green);
+  color: var(--simple-black);
   transition: background 0.3s ease, color 0.3s ease;
   cursor: pointer;
 }
 .profile-button:hover {
-  background: var(--emerald-green);
+  background: var(--simple-black);
   color: #000; 
 }
 
@@ -386,7 +380,7 @@ body::after {
   backdrop-filter: var(--blur-bg);
   -webkit-backdrop-filter: var(--blur-bg);
   color: var(--text-color);
-  border: 1px solid var(--emerald-green);
+  border: 1px solid var(--simple-black);
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   z-index: 9999; 
@@ -398,7 +392,7 @@ body::after {
   position: relative;
   padding: 6px 12px;
   margin-right: 8px;
-  background: var(--alpha-maroon);
+  background: var(--alpha-purple);
   border: 1px solid var(--border-color-soft);
   border-radius: 4px;
   color: var(--text-color);
@@ -418,7 +412,7 @@ body::after {
   bottom: 0;
   left: 0;
   height: 3px;
-  background: var(--emerald-green);
+  background: var(--simple-black);
   transition: width 0.3s ease;
   width: 0%;
 }
@@ -448,15 +442,14 @@ body::after {
   margin-left: auto; 
 }
 .bottom-panel__version-button:hover {
-  border-color: var(--emerald-green);
-  box-shadow: 0 0 8px var(--emerald-green);
+  border-color: var(--simple-black);
+  box-shadow: 0 0 8px var(--simple-black);
 }
-
 .achievements__list,
 .achievements-content__user-summary,
 .achievements-content__achievements-list__section__container__hero__content {
-  background: var(--alpha-dark) !important;           /* Semi-transparent black/maroon */
-  border: 1px solid var(--emerald-green) !important; /* Dark gold border */
+  background: var(--alpha-dark) !important;           /* Semi-transparent black/brown-dark */
+  border: 1px solid var(--simple-black) !important; /* Dark gold border */
   color: var(--text-color) !important;
   padding: 12px;
   border-radius: 6px;
@@ -467,12 +460,12 @@ body::after {
 .achievements__list:hover,
 .achievements-content__user-summary:hover,
 .achievements-content__achievements-list__section__container__hero__content:hover {
-  box-shadow: 0 0 12px var(--emerald-green); /* Dark gold glow */
+  box-shadow: 0 0 12px var(--simple-black); /* Dark gold glow */
 }
 
 /* Individual Achievement Items */
 .achievements__list__item {
-  background: var(--alpha-maroon);         /* Slightly more maroon than parent */
+  background: var(--alpha-purple);         /* Slightly more brown-dark than parent */
   border: 1px solid rgba(255, 0, 0, 0.4);  /* Red accent border */
   border-radius: 5px;
   margin-bottom: 10px;
@@ -484,7 +477,7 @@ body::after {
 }
 .achievements__list__item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px var(--emerald-green);
+  box-shadow: 0 0 10px var(--simple-black);
 }
 
 /* Achievement Icon */
@@ -493,19 +486,19 @@ body::after {
   height: 60px;
   flex-shrink: 0;
   background: #000;
-  border: 2px solid var(--emerald-green);
+  border: 2px solid var(--simple-black);
   border-radius: 6px;
   overflow: hidden;
   transition: border-color 0.3s;
 }
 .achievements__list__item .achievements__list__icon:hover {
-  border-color: var(--shadow-red);  /* Optional: red on hover */
+  border-color: var(--lagiacrus-navy-blue);  /* Optional: red on hover */
 }
 
 /* Achievement Title */
 .achievements__list__item .achievements__list__title {
   font-weight: bold;
-  color: var(--emerald-green);      /* Dark gold highlight for titles */
+  color: var(--simple-black);      /* Dark gold highlight for titles */
   font-size: 15px;
 }
 
@@ -528,11 +521,11 @@ body::after {
 }
 
 .achievements__list__item--unlocked {
-  border-color: var(--emerald-green);
+  border-color: var(--simple-black);
   box-shadow: none;
 }
 .achievements__list__item--unlocked:hover {
-  box-shadow: 0 0 10px var(--emerald-green);
+  box-shadow: 0 0 10px var(--simple-black);
 }
 
 .achievements-content__user-summary__container__stats__progress-bar {
@@ -541,8 +534,8 @@ body::after {
   width: 100%;
   height: 10px;
   margin: 10px 0;
-  background: var(--alpha-maroon);
-  border: 1px solid var(--emerald-green);
+  background: var(--alpha-purple);
+  border: 1px solid var(--simple-black);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -553,7 +546,7 @@ body::after {
   left: 0;
   top: 0;
   height: 100%;
-  background: var(--emerald-green);
+  background: var(--simple-black);
   width: 0%;
   transition: width 0.3s ease;
 }
@@ -571,3 +564,4 @@ body::after {
 .achievements-content__user-summary__container__stats__progress-bar[data-progress="100"]::after {
   width: 100%;
 }
+
