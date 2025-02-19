@@ -38,7 +38,8 @@ background: url("https://i.imgur.com/jwGLqeH.png") no-repeat center, #ff0000;
   }
   .title-bar {
     background-color: #ec0c0c00;
-  }.home__content {
+  
+}.home__content {
     background-color: rgba(139, 0, 0, 0.25);
     backdrop-filter: blur(2px);
   }

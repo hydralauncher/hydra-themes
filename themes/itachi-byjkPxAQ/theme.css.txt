@@ -40,7 +40,7 @@ settings-download-sources__item,
     background-color: rgba(58, 2, 2, 0.753) !important;
   }
   .title-bar {
-    background-color: #83070700;
+    background-color: #ec0c0c00;
   }
   .home__content {
     background-color: rgba(88, 7, 7, 0.493);
