@@ -5,6 +5,7 @@ import { Frown } from "lucide-react";
 import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
 import { sortThemes } from "@/stores/sort";
+import { ThemePagination } from "./theme-pagination";
 import type { Theme } from "@/lib/schemas/theme";
 
 interface ThemeListProps {
@@ -53,6 +54,10 @@ export function ThemeList({ themes }: Readonly<ThemeListProps>) {
           </div>
         )}
       </div>
+      <div className="flex justify-center w-full my-16">
+        <ThemePagination pagination={{ page: 1, perPage: 16, total: themes.length }} />
+    </div>
+
     </div>
   );
 }
