@@ -39,11 +39,10 @@ background: url("https://i.imgur.com/mChvdFu.png") no-repeat center, #ff0000;
   .game-item {
     background-color: rgba(26, 13, 71, 0.25) !important;
   }
-
   .title-bar {
     background-color: #8b000000;
-
-  }.home__content {
+  }
+  .home__content {
     background-color: rgba(26, 13, 71, 0.25);
     backdrop-filter: blur(2px);
   }
