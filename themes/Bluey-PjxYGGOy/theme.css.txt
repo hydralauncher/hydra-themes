@@ -51,10 +51,6 @@ body {
 * {
   color: #80FFFF; /* Define o ciano pálido para todo o texto */
 }
-/* Aplica a cor ciano pálido para o texto */
-* {
-  color: #80FFFF;
-}
 
 /* Personaliza a barra de rolagem */
 ::-webkit-scrollbar {
