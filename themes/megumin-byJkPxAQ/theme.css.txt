@@ -5,10 +5,7 @@ body {
   }
 
   #root {
-    background: #80000033 ,
-      url("https://i.imgur.com/KdWZIWj.png")
-      no-repeat center center;
-    background-size: cover;
+background: url("https://i.imgur.com/KdWZIWj.png") no-repeat center, #ff0000;
   }
 
   .sidebar,
