@@ -233,21 +233,6 @@
     background-color: var(--comic-off-white);
   }
   
-  .game-item {
-    background-color: var(--comic-white);
-    border: var(--comic-border);
-    border-radius: 8px;
-    box-shadow: var(--comic-shadow);
-    transform: rotate(-0.5deg);
-    transition: all 0.2s ease;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-  
-  .game-item:hover {
-    transform: rotate(0.5deg) scale(1.01);
-  }
-  
   .game-item__cover {
     width: 200px;
     height: 105px;
@@ -257,14 +242,6 @@
   
   .game-item__details {
     padding: 16px;
-  }
-  
-  .game-item__title {
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--comic-black);
-    margin-bottom: 8px;
   }
   
   /* Header Section */
