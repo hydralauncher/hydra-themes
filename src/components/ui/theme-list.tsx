@@ -48,6 +48,15 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const handleSortChange = useCallback((value: string) => {
+    setSort(value);
+
+    searchQuery.set({
+      value: search.value,
+      page: 1,
+    });
+  }, []);
+
   return (
     <div className="mt-20 flex flex-col gap-4">
       <div className="flex flex-row justify-between">
@@ -65,7 +74,7 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
             },
           ]}
           selectedValue={sort}
-          onSelect={setSort}
+          onSelect={handleSortChange}
         />
       </div>
 
