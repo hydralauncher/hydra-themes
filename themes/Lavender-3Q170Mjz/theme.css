@@ -1036,7 +1036,6 @@ overflow: hidden;
     background: rgba(25, 21, 36, 0.6);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 8px 12px;
     color: var(--text);
     font-size: 0.95rem;
     width: 100%;
