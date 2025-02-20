@@ -15,6 +15,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useState } from "react";
 
 export interface ThemeSortingProps {
   options: {
@@ -31,8 +32,10 @@ export function ThemeSorting({
   selectedValue,
   onSelect,
 }: ThemeSortingProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -62,7 +65,10 @@ export function ThemeSorting({
                   )}
                   value={sort.label}
                   key={sort.value}
-                  onSelect={() => onSelect(sort.value)}
+                  onSelect={() => {
+                    onSelect(sort.value);
+                    setOpen(false);
+                  }}
                 >
                   {sort.icon}
                   {sort.label}
