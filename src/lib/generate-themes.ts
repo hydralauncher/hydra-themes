@@ -4,7 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
 import axios from "axios";
-// import sharp from "sharp";
+import sharp from "sharp";
+import { redis } from "./redis";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -76,25 +77,38 @@ Promise.all(
 
     const data = response.data as Theme["author"];
 
-    // sharp(path.join(folderPath, screenshotFile))
-    //   .resize(340, null, { fit: "inside" })
-    //   .toFormat("webp")
-    //   .toFile(path.join(folderPath, "screenshot.webp"));
-
-    // throw new Error(path.join(folderPath, "screenshot.webp"));
-
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
     );
+
+    if (!fs.existsSync(publicThemePath)) {
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
+
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(340, null, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(path.join(publicThemePath, "screenshot.webp"));
+    }
+
+    const redisKey = `theme:${authorCode}:${themeName}`;
+
+    const themeData = await redis.get(redisKey);
+
+    if (!themeData) {
+      await redis.set(
+        redisKey,
+        JSON.stringify({
+          downloads: 0,
+          favorites: 0,
+          createdAt: new Date(),
+        }),
+      );
+    }
 
     return {
       id: `${authorCode}:${themeName}`,
@@ -106,12 +120,16 @@ Promise.all(
       favorites: 0,
     } as Theme;
   }),
-).then((themes) => {
-  console.log(`Generated ${themes.length} themes`);
+)
+  .then((themes) => themes.filter((theme) => theme))
+  .then((themes) => {
+    console.log(`Generated ${themes.length} themes`);
 
-  fs.writeFileSync(
-    path.join(import.meta.dirname, "themes.json"),
-    // Fix themes returning null
-    JSON.stringify(themes.filter((theme) => theme)),
-  );
-});
+    fs.writeFileSync(
+      path.join(import.meta.dirname, "themes.json"),
+      // Fix themes returning null
+      JSON.stringify(themes.filter((theme) => theme)),
+    );
+
+    redis.disconnect();
+  });
