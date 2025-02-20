@@ -1,13 +1,15 @@
 import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
 import { DownloadIcon, HeartIcon } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import axios from "axios";
 
 export interface ThemeCardProps {
   theme: Theme;
 }
+
+const AVATAR_SIZE = 25;
 
 export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -75,11 +77,19 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     setFavoriteCount(favoriteCount + 1);
   }, [isFavorite, favoriteCount, theme]);
 
+  const profileImageUrl = useMemo(() => {
+    if (!theme.author.profileImageUrl) return null;
+
+    const bucketObject = theme.author.profileImageUrl.split("/");
+
+    return `https://cdn.losbroxas.org/cdn-cgi/image/width=${AVATAR_SIZE},height=${AVATAR_SIZE},format=webp/${bucketObject.join("/")}`;
+  }, [theme.author.profileImageUrl]);
+
   return (
     <div className="group w-full rounded-xl border p-2 transition-all">
       <div className="h-48 w-full rounded-lg bg-muted/20">
         <img
-          src={`/themes/${theme.name.toLowerCase()}/${theme.screenshotFile}`}
+          src={`/themes/${theme.name.toLowerCase()}/screenshot.webp`}
           alt={theme.name}
           className="size-full rounded-lg object-cover"
           loading="lazy"
@@ -110,17 +120,17 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-              src={theme.author.profileImageUrl ?? "/fallback-avatar.svg"}
+              src={profileImageUrl ?? "/fallback-avatar.svg"}
               alt={theme.author.displayName}
               loading="lazy"
               className={cn(
                 {
-                  "bg-muted/50 object-contain p-1":
-                    theme.author.profileImageUrl,
+                  "bg-muted/50 object-contain p-1": profileImageUrl,
                 },
                 "size-6 rounded-full",
               )}
             />
+
             <a
               href={`hydralauncher://profile?userId=${theme.author.id}`}
               className="cursor-pointer text-xs text-muted-foreground hover:underline"
@@ -135,6 +145,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               size="icon"
               className="rounded-lg"
               onClick={toggleFavorite}
+              aria-label="Toggle theme as favorite"
             >
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}

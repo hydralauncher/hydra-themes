@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
 import axios from "axios";
-// import sharp from "sharp";
+import sharp from "sharp";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -76,25 +76,23 @@ Promise.all(
 
     const data = response.data as Theme["author"];
 
-    // sharp(path.join(folderPath, screenshotFile))
-    //   .resize(340, null, { fit: "inside" })
-    //   .toFormat("webp")
-    //   .toFile(path.join(folderPath, "screenshot.webp"));
-
-    // throw new Error(path.join(folderPath, "screenshot.webp"));
-
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
     );
+
+    if (!fs.existsSync(publicThemePath)) {
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(340, null, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(path.join(publicThemePath, "screenshot.webp"));
+
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
+    }
 
     return {
       id: `${authorCode}:${themeName}`,
