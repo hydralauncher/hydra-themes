@@ -270,14 +270,12 @@ sidebar-profile__button-title {
 
 /* User Interface Elements */
 .badge {
-    border: none;
     background: linear-gradient(0deg, rgba(223,223,223,0.1) 0%, rgba(142,142,142,0.05) 100%);
     backdrop-filter: blur(4px);
     border: inset 1px #ffffff05;
 }
 
 .user-library-game__playtime {
-    border: none;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
     backdrop-filter: blur(8px);
     border: inset 1px #ffffff05;
