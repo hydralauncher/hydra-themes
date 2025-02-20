@@ -1,4 +1,4 @@
-export const Note = () => {
+export function Note() {
   return (
     <div className="fixed bottom-4 right-4 rounded-md p-3 flex items-center gap-2 z-[999] backdrop-blur-xl bg-muted/70 mb-2 shadow-lg border border-border/65">
       <div className="flex items-center gap-2">
