@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
 import axios from "axios";
+// import sharp from "sharp";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -75,6 +76,13 @@ Promise.all(
 
     const data = response.data as Theme["author"];
 
+    // sharp(path.join(folderPath, screenshotFile))
+    //   .resize(340, null, { fit: "inside" })
+    //   .toFormat("webp")
+    //   .toFile(path.join(folderPath, "screenshot.webp"));
+
+    // throw new Error(path.join(folderPath, "screenshot.webp"));
+
     fs.cpSync(
       path.join(folderPath),
       path.join(
@@ -88,41 +96,12 @@ Promise.all(
       { recursive: true },
     );
 
-    let authorImage = null;
-    if (data.profileImageUrl) {
-      try {
-        const url = new URL(data.profileImageUrl);
-        url.search = "";
-        data.profileImageUrl = url.toString();
-
-        const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-          res.arrayBuffer(),
-        );
-
-        const authorImagePath = path.join(
-          import.meta.dirname,
-          "..",
-          "..",
-          "public",
-          "themes",
-          themeName.toLowerCase(),
-          "author.png",
-        );
-
-        fs.writeFileSync(authorImagePath, Buffer.from(authorResponse));
-        authorImage = "author.png";
-      } catch (error) {
-        console.error(`Failed to fetch author image for ${authorCode}`, error);
-      }
-    }
-
     return {
       id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: authorImage,
       downloads: 0,
       favorites: 0,
     } as Theme;
@@ -132,6 +111,7 @@ Promise.all(
 
   fs.writeFileSync(
     path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
+    // Fix themes returning null
+    JSON.stringify(themes.filter((theme) => theme)),
   );
 });

@@ -10,7 +10,6 @@ export const themeSchema = z.object({
     displayName: z.string(),
     profileImageUrl: z.string().nullable(),
   }),
-  authorImage: z.string().min(3).max(256),
   downloads: z.number().min(0),
   favorites: z.number().min(0),
 });
