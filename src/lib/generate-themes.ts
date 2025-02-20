@@ -3,6 +3,8 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
+import axios from "axios";
+// import sharp from "sharp";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -20,7 +22,9 @@ Promise.all(
     const files = fs.readdirSync(folderPath);
 
     const cssFile = files.find((file) => file.endsWith(".css"));
-    const screenshotFile = files.find((file) => file.startsWith("screenshot"));
+    const screenshotFile = files.find((file) =>
+      file.toLowerCase().startsWith("screenshot"),
+    );
 
     if (!cssFile) {
       console.error(`No css file found for theme ${folder}`);
@@ -32,9 +36,11 @@ Promise.all(
       return;
     }
 
-    const [themeName, authorCode] = folder.split("-");
+    const parts = folder.split("-");
+    const authorCode = parts.pop()?.trim();
+    const themeName = parts.join("-").trim();
 
-    const response = await fetch(
+    const response = await axios.get(
       `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
       {
         headers: {
@@ -44,12 +50,38 @@ Promise.all(
       },
     );
 
-    if (!response.ok) {
+    if (response.status !== 200) {
       console.error(`Failed to fetch author ${authorCode}`);
       return;
     }
 
-    const data = (await response.json()) as Theme["author"];
+    await axios
+      .post(
+        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "hydra-token": hydraHeaderSecret,
+          },
+        },
+      )
+      .catch((err) => {
+        console.error(
+          `could not update user (${authorCode}) badge`,
+          err.message,
+          err.response?.data,
+        );
+      });
+
+    const data = response.data as Theme["author"];
+
+    // sharp(path.join(folderPath, screenshotFile))
+    //   .resize(340, null, { fit: "inside" })
+    //   .toFormat("webp")
+    //   .toFile(path.join(folderPath, "screenshot.webp"));
+
+    // throw new Error(path.join(folderPath, "screenshot.webp"));
 
     fs.cpSync(
       path.join(folderPath),
@@ -64,42 +96,22 @@ Promise.all(
       { recursive: true },
     );
 
-    const url = new URL(data.profileImageUrl);
-    url.search = "";
-
-    data.profileImageUrl = url.toString();
-
-    const fileExt = path.extname(data.profileImageUrl);
-    const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-      res.arrayBuffer(),
-    );
-
-    fs.writeFileSync(
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        `author${fileExt}`,
-      ),
-      Buffer.from(authorResponse),
-    );
-
     return {
+      id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: `author${fileExt}`,
-    };
+      downloads: 0,
+      favorites: 0,
+    } as Theme;
   }),
 ).then((themes) => {
   console.log(`Generated ${themes.length} themes`);
 
   fs.writeFileSync(
     path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
+    // Fix themes returning null
+    JSON.stringify(themes.filter((theme) => theme)),
   );
 });
