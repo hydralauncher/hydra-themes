@@ -10,10 +10,9 @@ body {
 }
 
 #root {
-  background: url(file:///C:/Users/admin/Downloads/photo_2025-01-08_22-38-06.jpg)
-    #000;
-    background-position: center;
-    background-position-y: bottom;
+  background: url(https://i.imgur.com/rcF90kT.jpeg);
+  background-color: #000000;
+    background-position: center bottom;
   background-repeat: no-repeat;
 }
 
@@ -27,7 +26,7 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar {
-  background-color: rgba(0, 0, 0, 0.8) !important;
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
 }
 
@@ -39,11 +38,11 @@ body {
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-  background-color: rgba(0, 0, 0, 0.6) !important;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .nav {
   background-color: #000000;
 }
 .title-bar {
-  background-color: #000;
+  background-color: #000000;
 }
