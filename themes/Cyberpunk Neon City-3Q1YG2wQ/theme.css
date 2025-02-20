@@ -1,0 +1,178 @@
+/* ============================================================
+   CUSTOM THEME BY .·★DASHA★·. WITH SUPPORT ♥ DEEPSEEK ♥
+   ============================================================ */
+
+/* ===== NEON COLOR VARIABLES ===== */
+:root {
+  --purple-batman: #9a73b549;
+  --purple-light: #9857a8;
+  --purple-neon: #c242ff;
+  --purple-transparent: rgba(154, 115, 181, 0.85);
+  --purple-dark: #9857a8;
+  --purple-border: rgba(177, 156, 217, 0.5);
+  --icon-color: #ff00ff;
+}
+
+/* ===== GENERAL STYLE ===== */
+body {
+  background-image: url('https://i.imgur.com/JfAcnPv.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--purple-neon);
+  font-weight: 200;
+}
+
+/* ===== BACKGROUND OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.39);
+  z-index: -1;
+}
+
+#root {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: transparent;
+  backdrop-filter: blur(15px) brightness(0.9);
+  border-bottom: 2px solid var(--purple-neon);
+  box-shadow: 0 0 15px rgba(177, 156, 217, 0.1);
+  margin-right: 10px;
+  padding: 15px;
+}
+
+.header__search {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  max-width: 900px; 
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--purple-neon);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  background: transparent;
+  backdrop-filter: blur(15px) brightness(0.9);
+  border-right: 2px solid rgba(179, 157, 219, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar * {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__menu-item {
+  padding: 10px;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 15px;
+}
+
+.sidebar__menu-item:hover {
+  transform: scale(0.95);
+}
+
+/* ===== MAIN CONTENT ===== */
+.container__content {
+  background: transparent;
+}
+
+.game-item { 
+  background: rgba(19, 19, 19, 0.616);
+  border: 2px solid var(--purple-neon);
+  box-shadow: 0 0 15px rgba(177, 156, 217, 0.3);
+  border-radius: 5px;
+  height: 100px;
+}
+
+.game-item:hover {
+  transform: scale(1.02);
+}
+
+/* ===== BUTTONS ===== */
+.button {
+  background: var(--purple-batman);
+  border: 2px solid var(--purple-neon);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px; 
+}
+
+.button:hover {
+  background: var(--purple-neon);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--purple-neon);
+}
+
+/* ===== BOTTOM PANEL ===== */
+.bottom-panel {
+  background: transparent;
+  backdrop-filter: blur(12px) brightness(0.8);
+  border-top: 2px solid var(--purple-neon);
+  padding: 0 40px;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple-dark);
+  border-radius: 3px;
+}
+
+/* ===== SPECIFIC COMPONENTS ===== */
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background: rgba(19, 19, 19, 0.616);
+  border: 2px solid var(--purple-neon);
+  border-radius: 5px;
+}
+
+.profile-hero__avatar-button {
+  border-radius: 1px;
+  box-shadow: 0 0 15px var(--purple-neon);
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid var(--purple-neon);
+  border-radius: 10px;
+}
+
+/* ===== TEXT ADJUSTMENTS ===== */
+.game-details__description {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(177, 156, 217, 0.3);
+}
+
+/* ===== EXTRAS ===== */
+/* Icon effects */
+svg {
+  fill: var(--icon-color);
+  filter: drop-shadow(0 0 2px var(--icon-color));
+  pointer-events: none;
+}
+
+/* ===== COLOR CATEGORIES ===== */ 
+[class*="title"] {
+  color: var(--purple-neon);
+}
