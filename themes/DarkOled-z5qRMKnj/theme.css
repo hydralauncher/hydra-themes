@@ -45,17 +45,41 @@
     border-radius: 20px;
   }
 
-  .header__section{
-    
-  }
-
-  .game-item{
+  .game-item, .download-group__item{
     border-radius: 20px;
     background-color: rgb(19, 19, 19);
-    height: 120px;
     gap: 50px;
     border-color: rgba(46, 46, 46, 0);
     transition: transform 0.2s ease-in-out;
+  }
+
+  .game-item{
+    height: 100%;
+    gap: 0px;
+    justify-content: flex-start;
+  }
+
+  .dropdown-menu__group, .dropdown-menu__separator{
+    background-color: #222222;
+    border-radius: 20px;
+    color: rgb(177, 177, 177);
+    padding: 10px;
+  }
+
+  .dropdown-menu__item {
+    border-radius: 20px;
+  }
+
+  .dropdown-menu__content{
+    background-color:#00000000
+  }
+
+  .dropdown-menu__separator{
+    display: none;
+  }
+
+  .download-group__cover{
+    border-right: none;
   }
 
   .game-item:hover{
@@ -273,13 +297,54 @@ h4 {
 }
 
 .game-item__cover{
-  width: 280px;
+  width: 100%;
+  display: flex;
+  align-items: center;
   border-color: rgba(0, 0, 0, 0);
+}
+
+.game-item__details{
+  padding: 20px;
+  text-align: left;
+}
+
+.game-item__repackers{
+  gap: 2px;
 }
 
 .catalogue{
   gap: 0px;
   flex-direction: column;
+}
+
+.filter-item{
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  margin: 5px;
+}
+
+.catalogue__filters-list{
+  gap: 0px;
+}
+
+.catalogue__pagination-container{
+  gap: 10%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.catalogue__result-count{ 
+  flex-direction: row;
+  font-size: 13px;
+  color: rgb(150, 150, 150);
+}
+
+.catalogue__games-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+    row-gap: 5px;
+    grid-template-rows: 300px 300px 300px 300px 300px;
 }
 
 .badge{
@@ -622,4 +687,3 @@ a:hover{
   background-color: #00000010;
   backdrop-filter: blur(10px);
 }
-
