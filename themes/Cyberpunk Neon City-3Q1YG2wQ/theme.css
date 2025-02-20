@@ -1,0 +1,184 @@
+/* ============================================================
+   TEMA PERSONALIZADO POR .·★DASHA★·. COM SUPORTE ♥ DEEPSEEK ♥ 
+   ============================================================ */
+
+/* ===== VARIÁVEIS DE COR NEON ===== */
+:root {
+    --roxo-batman: #9a73b549;
+    --roxo-light: #9857a8;
+    --roxo-neon: #c242ff;
+    --roxo-transparente: rgba(154, 115, 181, 0.85);
+    --roxo-escuro: #9857a8;
+    --roxo-borda: rgba(177, 156, 217, 0.5);
+    --icone-color: #ff00ff;
+  }
+  
+  
+  
+  /* ===== ESTILO GERAL ===== */
+  body {
+    background-image: url('https://images2.alphacoders.com/128/thumb-1920-1288367.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    min-height: 100vh;
+    color: var(--roxo-neon);
+    font-weight: 200;
+    
+  }
+  
+  /* ===== OVERLAY DE FUNDO ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.39);
+    z-index: -1;
+  }
+  
+  #root {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) !important;
+  }
+  
+  /* ===== CABEÇALHO ===== */
+  .header {
+    background: transparent !important;
+    backdrop-filter: blur(15px) brightness(0.9);
+    border-bottom: 2px solid var(--roxo-neon) !important;
+    box-shadow: 0 0 15px rgba(177, 156, 217, 0.1);
+    margin-right: 10px;
+    padding: 15px;
+  }
+  
+  .header__search {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    width: 900px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--roxo-neon) !important;
+  }
+  
+  /* ===== MENU LATERAL ===== */
+  .sidebar {
+    background: transparent !important;
+    backdrop-filter: blur(15px) brightness(0.9);
+    border-right: 2px solid rgba(179, 157, 219, 0.3) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sidebar * {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .sidebar li:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .sidebar__menu-item {
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 15px !important;
+  }
+  
+  .sidebar__menu-item:hover {
+    transform: scale(0.95);
+  }
+  
+  /* ===== CONTEÚDO PRINCIPAL ===== */
+  .container__content {
+    background: transparent !important;
+  }
+  
+  .game-item { 
+    background: rgba(19, 19, 19, 0.616) !important;
+    border: 2px solid var(--roxo-neon) !important;
+    box-shadow: 0 0 15px rgba(177, 156, 217, 0.3);
+    border-radius: 5px;
+    height: 100px;
+  }
+  
+  .game-item:hover {
+    transform: scale(1.02);
+  }
+  
+  /* ===== BOTÕES ===== */
+  .button {
+    background: var(--roxo-batman) !important;
+    border: 2px solid var(--roxo-neon) !important;
+    color: white !important;
+    border-radius: 05px !important;
+    padding: 10px 20px !important; 
+  }
+  
+  .button:hover {
+    background: var(--roxo-neon) !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--roxo-neon);
+  }
+  
+  /* ===== PAINEL INFERIOR ===== */
+  .bottom-panel {
+    background: transparent !important;
+    backdrop-filter: blur(12px) brightness(0.8);
+    border-top: 2px solid var(--roxo-neon) !important;
+    padding: 0 40px;
+  }
+  
+  
+  /* ===== BARRA DE ROLAGEM ===== */
+  ::-webkit-scrollbar {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--roxo-escuro) !important;
+    border: 13px solid var(--roxo-neon) !important;
+    border-radius: 03px;
+  }
+  
+  /* ===== COMPONENTES ESPECÍFICOS ===== */
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box {
+    background: rgba(19, 19, 19, 0.616) !important;
+    border: 2px solid var(--roxo-neon) !important;
+    border-radius: 05px;
+  }
+  
+  .profile-hero__avatar-button {
+    border-radius: 1px;
+    box-shadow: 0 0 15px var(--roxo-neon);
+  }
+  
+  .modal {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border: 2px solid var(--roxo-neon);
+    border-radius: 10px;
+  }
+  
+  /* ===== AJUSTES DE TEXTO ===== */
+  .game-details__description {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(177, 156, 217, 0.3);
+  }
+  
+  /* ===== EXTRAS ===== */
+  /* Efeito nos ícones */
+  svg {
+    fill: var(--icone-color);
+    filter: drop-shadow(0 0 2px var(--icone-color));
+    pointer-events: none;
+  }
+  
+  /* ===== CATEGORIAS CORES ===== */ 
+  [class*="title"] {
+    color: var(--roxo-neon) !important;
+  }
+  
+  
