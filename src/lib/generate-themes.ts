@@ -4,11 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
 import axios from "axios";
-<<<<<<< HEAD
 import sharp from "sharp";
-=======
-// import sharp from "sharp";
->>>>>>> 2b2b88f7dea7ee3bb3cc71880eeebfd5f87d828a
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
