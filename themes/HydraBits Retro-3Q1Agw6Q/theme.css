@@ -51,12 +51,6 @@ body {
   min-height: 40px !important;
 }
 
-.text-field-container__text-field-input {
-  color: #33ff33 !important;
-  font-size: 10px !important;
-  padding: 0 12px !important;
-}
-
 /* Headers */
 h1, h2, h3, h4, h5, h6 {
   color: #33ff33 !important;
@@ -143,11 +137,6 @@ progress::-webkit-progress-value {
   max-width: 800px !important;
 }
 
-/* Download options modal specific styles */
-.repacks-modal__repacks {
-  gap: 16px !important;
-}
-
 .repacks-modal__repack-button {
   background-color: #000000 !important;
   border: 2px solid #33ff33 !important;
@@ -163,23 +152,6 @@ progress::-webkit-progress-value {
   white-space: normal !important;
   word-break: break-word !important;
   overflow: hidden !important;
-}
-
-.repacks-modal__repack-title {
-  font-size: 16px !important;
-  line-height: 1.6 !important;
-  margin-bottom: 12px !important;
-  white-space: normal !important;
-  word-break: break-word !important;
-  display: block !important;
-  width: 100% !important;
-}
-
-.repacks-modal__repack-info {
-  font-size: 14px !important;
-  line-height: 1.4 !important;
-  display: block !important;
-  width: 100% !important;
 }
 
 .repacks-modal__repacks {
