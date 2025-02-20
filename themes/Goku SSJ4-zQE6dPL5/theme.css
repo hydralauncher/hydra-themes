@@ -1,16 +1,6 @@
-.header{
+.sidebar, .header, .container__content {
   background: transparent;
-  background-color: rgba(0, 0, 0, 0.450);
-  color: rgb(255, 255, 255);
-  margin-right: 10px;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 5px;
-}
-
-.sidebar, .container__content {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.450);
+  background-color: rgba(0, 0, 0, 0.575);
 }
 
 .title-bar h4 {
@@ -22,39 +12,11 @@ margin: 10px;
 padding: 10px 15px;
 gap: 20px;
 transition: transform 0.2s ease-in-out;
-color: rgb(0, 0, 0);
-}
-
-.sidebar__menu-item-button{
-color: rgb(255, 255, 255);
-font-style: oblique;
-font-weight: bold;
-background-color: transparent;
-border-radius: 30px;
-box-shadow: none;
 }
 
 .sidebar__section.sidebar__menu-item{
 padding: 5px 15px;
 border-radius: 30px;
-}
-
-.sidebar__menu-item{
-background-color: transparent;
-border-radius: 20px;
-box-shadow: none;
-}
-
-@keyframes fadeInOut {
-  20% {
-      background: rgba(0, 0, 0, 0.2);
-  }
-  40% {
-      background-color: rgba(0, 0, 0, 0.4);
-  }
-  60% {
-      background-color: rgba(0, 0, 0, 0.6);
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -65,13 +27,13 @@ bottom: 5%;
 }
 
 .title-bar::before {
-content: "Super Hydra Rose";
+content: "SUPER HYDRA 4";
 font-size: 15px;
 font-weight: 700;
-color: #ffffffa6;
+color: #fff;
 letter-spacing: 10px;
 text-transform: uppercase;
-background: linear-gradient(45deg, #ff00bf, #ff00bf);
+background: linear-gradient(45deg, #9444ad, #3498db);
 -webkit-background-clip: text;
 background-clip: text;
 animation: glow 1.5s infinite alternate;
@@ -82,10 +44,10 @@ text-align: left;
 /*Parte de Luminosidade do Titulo se removido os hex considera o background*/
 @keyframes glow {
 0% {
-  text-shadow: 0 0 5px #ff00bf, 0 0 10px #ff00bf, 0 0 15px #ff00bf, 0 0 20px #ff00bf, 0 0 30px #ff00bf;
+  text-shadow: 0 0 5px #fc0000, 0 0 10px #fc0000, 0 0 15px #fc0000, 0 0 20px #3498db, 0 0 30px #3498db;
 }
 100% {
-  text-shadow: 0 0 10px #ff00bf, 0 0 20px #ff00bf, 0 0 30px #ff00bf, 0 0 40px #ff00bf, 0 0 50px #ff00bf;
+  text-shadow: 0 0 10px #fc0000, 0 0 20px #fc0000, 0 0 30px #fc0000, 0 0 40px #3498db, 0 0 50px #3498db;
 }
 }
 
@@ -108,10 +70,10 @@ margin-right: 11%;
 /* Animação de brilho */
 @keyframes glow {
 0% {
-  text-shadow: 0 0 5px #ff00bf, 0 0 10px #ff00bf;
+  text-shadow: 0 0 5px #8e44ad, 0 0 10px #8e44ad;
 }
 100% {
-  text-shadow: 0 0 20px #ff00bf, 0 0 30px #ff00bf;
+  text-shadow: 0 0 20px #3498db, 0 0 30px #3498db;
 }
 }
 
@@ -141,7 +103,6 @@ margin-right: 11%;
 ::-webkit-scrollbar {
 width: 10px;
 height: 10px;
-background-color: transparent;
 }
 
 ::-webkit-scrollbar-track {
@@ -150,21 +111,21 @@ border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-background: linear-gradient(100deg, #dd0acb, #000000);
+background: linear-gradient(135deg, #831616, #1a1a2e);
 border-radius: 0px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-background: linear-gradient(100deg, #dd0acb, #000000);
+background: linear-gradient(135deg, #3a0ca3, #1b0527);
 }
 
 ::-webkit-scrollbar-thumb:active {
-background: linear-gradient(100deg, #dd0acb, #000000);
+background: linear-gradient(135deg, #3a0ca3, #1a1a2e);
 }
 
 .bottom-panel{
-  background-color: rgba(0, 0, 0, 0.603);
+  background-color: transparent;
   backdrop-filter: blur(1px);
   display: flex;
   align-items: center;
@@ -173,12 +134,19 @@ background: linear-gradient(100deg, #dd0acb, #000000);
 }
 
 body {
-  color: rgba(255, 255, 255, 0.945);
+  color: rgba(255, 255, 255, 0.781);
   font-family: system-ui;
-  font-style:italic;
+  font-style: oblique;
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=54747) auto !important;
   border-radius: 30px;
   font-weight: 200;
+}
+
+.header {
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 5px;
 }
 
 .sidebar {
@@ -191,13 +159,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start; 
-  background: url(https://imgur.com/j10HSyp.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(135deg, #000000a1, #000000a1);
   border-radius: 5px;
   padding: 12px 15px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.26);
-  margin: 7px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.116);
+  margin: 10px;
+  width: 250px; 
   overflow: hidden; 
 }
 
@@ -284,12 +251,12 @@ body {
 /* faz o L */
 .container__content {
   border-radius: 20px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 9px;
 }
 
 #root {
-  background: url(https://i.imgur.com/QqYOnto.jpeg) #750E3E;
+  background: url(https://imgur.com/YVkApHl.gif) #750E3E;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -318,7 +285,7 @@ body {
 
 .container__content .button--outline {
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0.616);
 }
 
 .settings-download-sources__item, .download-group__item, .game-item {
@@ -326,7 +293,7 @@ body {
 }
 
 .title-bar {
-  background-color: rgba(15, 7, 11, 0.021);
+  background-color: rgba(15, 7, 11, 0.479);
 }
 
 .home__content {
@@ -401,12 +368,12 @@ margin-bottom: 1px;
 }
 
 .button--primary:hover{
-background: rgb(0, 0, 0);
+background: transparent;
 }
 
 .button--outline.requirement__button{
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.450);
+  background-color: transparent;
   margin-right: 5px;
   border: 1px solid #ffffff;
   margin-top: 10px;
@@ -415,7 +382,7 @@ background: rgb(0, 0, 0);
 
 
 .button {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0);
   color: rgb(255, 255, 255);
   border: 1px solid rgba(240, 248, 255, 0.178);
   border-radius: 100px;
@@ -558,7 +525,7 @@ transform: scale(1.03);
 }
 
 .requirement__details{
-color: #ffffff;
+color: #ffffffa2;
 }
 
 .requirement__button{
@@ -717,14 +684,13 @@ text-align: center;
 }
 
 body > div.backdrop.backdrop--windows > div > div.modal__content > div.repacks-modal__repacks > button {
-background-color: rgba(0, 0, 0, 0.650);
+background-color: rgba(29, 15, 15, 0.356);
 }
 
 .modal__content {
-background: url(https://i.imgur.com/a7dH2Aw.gif);
-background-size: cover;
-font-weight: bold;
-color: #ffffff;
+background: linear-gradient(135deg, #000000, #831616, #1a1a2e, #0000ff);
+background-size: 400% 400%;
+animation: gradientAnimation 10s infinite alternate ease-in-out;
 }
 
 @keyframes gradientAnimation {
@@ -743,59 +709,4 @@ color: #ffffff;
 100% {
   background-position: 0% 50%;
 }
-}
-
-.sidebar__content
-{
-background: url(https://i.redd.it/a17ypopgmt681.jpg), #ffffff;
-background-size: cover;
-background-repeat: no-repeat;
-opacity: 1;
-}
-
-.sidebar__menu-item-button-label{
-color: rgb(255, 255, 255);
-font-style: oblique;
-text-shadow: 0px 0px 15px rgb(0, 0, 0);
-animation: Destaque 1.5s infinite alternate;
-display: block;
-text-align: left;
-font-size: 14px;
-font-weight: 700;
--webkit-background-clip: text;
-background-clip: text;
-}
-
-@keyframes Destaque {
-0% {
-  text-shadow: 0 0 5px #000000, 0 0 1px #000000, 0 0 1px #000000, 0 0 2px #000000, 0 0 3px #000000;
-}
-100% {
-  text-shadow: 0 0 1px #000000, 0 0 2px #000000, 0 0 3px #000000, 0 0 4px #000000, 0 0 5px #000000;
-}
-}
-
-.sidebar__section-title{
-color: rgb(255, 255, 255);
-font-style: oblique;
-font-weight: bold;
-}
-
-.settings__container{
-background-color: rgba(0, 0, 0, 0);
-padding: 0;
-}
-
-.header__back-button{
-color: black;
-}
-
-.download-settings-modal__hint-text {
-  font-size: 12px;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.button--primary download-settings-modal__downloader-option{
-background: rgba(0, 0, 0, 0.65);
 }
