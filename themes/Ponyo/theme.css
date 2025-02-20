@@ -11,7 +11,7 @@ body {
   color: var(--color-accent);
   background: url(https://images7.alphacoders.com/335/335857.jpg) no-repeat top;
   background-color: var(--color-dark);
-  background-size: 100%;
+  background-size: cover
 }
 
 #root {
@@ -80,7 +80,7 @@ body {
 }
 
 .title-bar, .header {
-  background-color: transparent!important;
+  background-color: transparent !important;
   border: none !important;
   box-shadow: none;
 }
@@ -97,8 +97,3 @@ body {
 ::-webkit-scrollbar-track {
   background-color: #1b4665;
 }
-
-* {
-  color: #FFFFFF !important;
-}
-
