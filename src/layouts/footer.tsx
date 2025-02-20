@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="mt-auto border-t bg-background py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-between md:flex-row">
-          <div className="mb-4 md:mb-0 text-center md:text-left">
+          <div className="mb-4 text-center md:mb-0 md:text-left">
             <h3 className="text-2xl font-bold">Hydra Theme Store</h3>
             <p className="mt-2 text-sm">
               {new Date().getFullYear()} &copy; Hydra Launcher.
