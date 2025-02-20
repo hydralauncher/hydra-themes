@@ -1,0 +1,200 @@
+body {
+    background: url('https://images6.alphacoders.com/112/1126962.jpg') no-repeat fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: rgba(23, 23, 27, 0.8);
+    color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.title-bar {
+    background-color: rgba(23, 23, 27, 0.8);
+    color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar {
+    background-color: rgba(23, 23, 27, 0.7);
+    border-right: 3px solid rgba(139, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 0px;
+    width: 250px;
+    float: left;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.sidebar__content {
+    padding: 30px;
+}
+
+.container__content {
+    background: none;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.bottom-panel {
+    background-color: rgba(23, 23, 27, 0.8);
+    border-top: 3px solid rgba(139, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    text-align: center;
+}
+
+.toast {
+    background-color: rgba(23, 23, 27, 0.8);
+    color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+    background-color: rgba(82, 24, 24, 0.699);
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(74, 0, 0);
+    opacity: 1;
+}
+
+.select-field__option {
+    background-color: rgba(82, 24, 24, 0.699);
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.select-field__option:hover {
+    background-color: rgb(74, 0, 0);
+    box-shadow: 0px 0px 10px rgb(139, 0, 0);
+    opacity: 1;
+}
+
+.settings__content {
+    background-color: rgba(23, 23, 27, 0.678);
+}
+
+.sidebar-profile__button {
+    background-color: rgba(23, 23, 27, 0.678);
+}
+
+.theme-card, .game-item, .catalogue__filters-container, .modal, .repacks-modal__repack-button, .user-stats__box, .recent-games__box, .settings-download-sources__item, .download-group__item {
+    background-color: rgba(23, 23, 27, 0.8);
+    color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.game-item {
+    width: 182px;
+    height: 250px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    display: block;
+    float: left;
+}
+
+.game-item:hover {
+    background-color: rgba(85, 85, 85, 0.582);
+}
+
+.catalogue__games-container, .catalogue__pagination-container {
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+.game-item__details {
+    display: block;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.game-item__details span {
+    display: block;
+    font-size: 12px;
+}
+
+.game-item img {
+    width: 100%;
+    height: 100px;
+}
+
+.game-item__details .game-item__genres {
+    text-align: center;
+    font-size: 10px;
+}
+
+.checkbox-field__checkbox {
+    background-color: rgba(88, 0, 0, 0.432);
+    color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.repacks-modal__repack-button:hover {
+    background-color: rgba(77, 0, 0, 0.8);
+}
+
+.badge {
+    border-color: rgba(151, 0, 0, 0.568);
+}
+
+.sidebar-profile__friends-button-badge {
+    background-color: rgba(151, 0, 0, 0.568);
+}
+
+.game-item__repackers {
+    display: flex;
+    justify-content: center;
+}
+
+.game-item__repackers .badge {
+    padding: 4px;
+    font-size: 8px;
+}
+
+.requirement__button-container button {
+    margin: 5px;
+}
+
+.bottom-panel__version-button small::after {
+    content: " - Theme by Naitan";
+}
+
+.settings__container {
+    padding: 0px;
+}
+
+@media (min-width: 1500px) {
+    .game-item {
+        width: 250px;
+        height: 250px;
+    }
+    .game-item__repackers {
+        margin-top: 15px;
+    }
+    .game-item__repackers .badge {
+        padding: 5px;
+        font-size: 10px;
+    }
+    .settings__container {
+        padding: 25px;
+    }
+}
