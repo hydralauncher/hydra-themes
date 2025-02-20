@@ -120,21 +120,12 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-<<<<<<< HEAD
               src={profileImageUrl ?? "/fallback-avatar.svg"}
-=======
-              src={theme.author.profileImageUrl ?? "/fallback-avatar.svg"}
->>>>>>> 2b2b88f7dea7ee3bb3cc71880eeebfd5f87d828a
               alt={theme.author.displayName}
               loading="lazy"
               className={cn(
                 {
-<<<<<<< HEAD
                   "bg-muted/50 object-contain p-1": profileImageUrl,
-=======
-                  "bg-muted/50 object-contain p-1":
-                    theme.author.profileImageUrl,
->>>>>>> 2b2b88f7dea7ee3bb3cc71880eeebfd5f87d828a
                 },
                 "size-6 rounded-full",
               )}
@@ -154,10 +145,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               size="icon"
               className="rounded-lg"
               onClick={toggleFavorite}
-<<<<<<< HEAD
               aria-label="Toggle theme as favorite"
-=======
->>>>>>> 2b2b88f7dea7ee3bb3cc71880eeebfd5f87d828a
             >
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}
