@@ -1,0 +1,135 @@
+
+  /*
+    Here you can edit CSS for your theme and apply it on Hydra.
+    There are a few classes already in place, you can use them to style the launcher.
+
+    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+    or how to publish your theme in the theme store, you can check the docs:
+    https://docs.hydralauncher.gg/
+
+    Happy hacking!
+  */
+
+  /* Header */
+  .header {}
+
+  /* Main content */
+  .container__content {}
+
+  /* Bottom panel */
+  .bottom-panel {}
+
+  /* Toast */
+  .toast {}
+
+  /* Button */
+  .button {}
+
+body {
+  font-family: "Press Start 2P", Arial, sans-serif;
+  color: white;
+  text-shadow: 0px 0px 6px rgba(0, 102, 255, 0.8);
+  background-color: black;
+  }
+
+
+  #root {
+  background: url("https://preview.redd.it/vsprmxbhzaj81.png?width=1080&crop=smart&auto=webp&s=9431271841e06893b842be58ef65bc4478b0b4ae");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+    }
+
+
+  .sidebar,
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: transparent !important; 
+  }
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+    background: linear-gradient(
+    to bottom right,
+    rgba(10, 20, 50, 0.8),
+    rgba(25, 50, 100, 0.7)
+  ) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 102, 255, 0.6);
+  box-shadow: 0px 0px 10px rgba(0, 0, 255, 0.4);
+    }
+
+  .container__content .button--outline {
+    backdrop-filter: blur(8px);
+  background: linear-gradient(
+    to bottom,
+    rgba(32, 46, 92, 0.8),
+    rgba(20, 30, 60, 0.6)
+  );
+  border: 1px solid rgba(0, 102, 255, 0.7);
+  box-shadow: 0px 0px 8px rgba(0, 102, 255, 0.6);
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px rgba(0, 102, 255, 0.9);
+  }
+
+
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background: linear-gradient(
+    to right,
+    rgba(10, 20, 60, 0.7),
+    rgba(5, 10, 30, 0.6)
+  ) !important;
+  border: 1px solid rgba(0, 0, 255, 0.5);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 255, 0.3);
+  }
+
+
+  .title-bar {
+  background-color: #02050f;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0px 0px 8px rgba(0, 102, 255, 0.9);
+  border-bottom: 2px solid rgba(0, 102, 255, 0.7);
+  }
+
+
+  .home__content {
+  background: linear-gradient(
+    to bottom right,
+    rgba(32, 46, 92, 0.6),
+    rgba(20, 30, 60, 0.6)
+  );
+  backdrop-filter: blur(5px);
+  }
+
+  .bottom-panel {
+   background: linear-gradient(
+    to top,
+    rgba(255, 0, 0, 0.6),
+    rgba(128, 0, 0, 0.4)
+  );
+  box-shadow: 0px 0px 15px rgba(0, 68, 255, 0.8);
+  }
+
+.button--outline:hover {
+  box-shadow: 0px 0px 12px rgba(0, 102, 255, 1);
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
+}
