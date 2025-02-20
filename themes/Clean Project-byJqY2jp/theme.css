@@ -76,6 +76,7 @@
   }
 
   .sidebar__menu-item {
+    background: #070707;
     color: #fff;
     border-radius: 30px;
     padding: 0.5em;
