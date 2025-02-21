@@ -7,7 +7,7 @@
     "build": "yarn generate-themes && astro build",
     "preview": "yarn generate-themes && astro preview",
     "astro": "astro",
-    "generate-themes": "tsx src/lib/generate-themes.ts",
+    "generate-themes": "npx bun src/lib/generate-themes.ts",
     "lint": "eslint src",
     "start": "node dist/server/entry.mjs"
   },

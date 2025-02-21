@@ -125,7 +125,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               loading="lazy"
               className={cn(
                 {
-                  "bg-muted/50 object-contain p-1": profileImageUrl,
+                  "bg-muted/50 object-cover": profileImageUrl,
                 },
                 "size-6 rounded-full",
               )}

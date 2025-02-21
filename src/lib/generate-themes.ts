@@ -5,24 +5,11 @@ import path from "node:path";
 import type { Theme } from "./schemas/theme";
 import axios from "axios";
 import sharp from "sharp";
+import { redis } from "./redis";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
-const folders = fs
-  .readdirSync(themesPath)
-  .map((folder) => {
-    return {
-      folder,
-      time: fs.statSync(path.join(themesPath, folder)).ctime.getTime(),
-    };
-  })
-  .sort((a, b) => {
-    return a.time - b.time;
-  })
-  .map((folder) => {
-    console.log(folder.folder, new Date(folder.time));
-    return folder.folder;
-  });
+const folders = fs.readdirSync(themesPath);
 
 const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
 
@@ -108,6 +95,21 @@ Promise.all(
         .toFile(path.join(publicThemePath, "screenshot.webp"));
     }
 
+    const redisKey = `theme:${authorCode}:${themeName}`;
+
+    const themeData = await redis.get(redisKey);
+
+    if (!themeData) {
+      await redis.set(
+        redisKey,
+        JSON.stringify({
+          downloads: 0,
+          favorites: 0,
+          createdAt: new Date(),
+        }),
+      );
+    }
+
     return {
       id: `${authorCode}:${themeName}`,
       name: themeName,
@@ -125,6 +127,9 @@ Promise.all(
 
     fs.writeFileSync(
       path.join(import.meta.dirname, "themes.json"),
-      JSON.stringify(themes),
+      // Fix themes returning null
+      JSON.stringify(themes.filter((theme) => theme)),
     );
+
+    redis.disconnect();
   });
