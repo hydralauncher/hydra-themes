@@ -1,0 +1,10 @@
+#root {
+  background: url(https://static.vecteezy.com/system/resources/previews/024/056/763/large_2x/ascension-day-of-jesus-christ-or-resurrection-day-of-son-of-god-good-friday-ascension-day-concept-by-ai-generated-free-photo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main,
+.bottom-panel {
+  display: none;
+}
