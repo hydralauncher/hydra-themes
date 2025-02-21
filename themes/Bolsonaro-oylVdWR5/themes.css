@@ -25,8 +25,8 @@ body {
     background: transparent;
 }
 
-.text-field-container__text-field--dark,
-.text-field-container__text-field--primary,
+/* Seletores unificados para evitar duplicação */
+.text-field-container__text-field,
 .header__search,
 .game-item,
 .settings__content,
@@ -35,7 +35,7 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar {
-    background-color: rgba(29, 53, 87, 0.7) !important; /* Ajuste de transparência */
+    background-color: rgba(29, 53, 87, 0.7); /* Ajuste de transparência */
     backdrop-filter: blur(8px);
     border-radius: 8px; /* Raio de borda consistente */
     padding: 10px; /* Espaçamento interno para melhorar a usabilidade */
@@ -52,7 +52,7 @@ body {
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-    background-color: rgba(34, 138, 173, 0.1) !important; /* Ajuste de transparência */
+    background-color: rgba(34, 138, 173, 0.1); /* Ajuste de transparência */
     border: 2px solid var(--color-text);
     transition: background-color 0.3s ease; /* Transição suave */
 }
@@ -148,20 +148,4 @@ a:focus, button:focus {
 body, .header, .game-item, .sidebar {
     color: var(--color-text);
     background-color: var(--color-dark);
-}
-
-/* Remoção de !important desnecessários */
-.text-field-container__text-field--dark,
-.text-field-container__text-field--primary,
-.header__search,
-.game-item,
-.settings__content,
-.catalogue__filters-container,
-.friends-box__box,
-.user-stats__box,
-.recent-games__box,
-.sidebar {
-    background-color: rgba(29, 53, 87, 0.7);
-    backdrop-filter: blur(8px);
-    border-radius: 8px;
 }
