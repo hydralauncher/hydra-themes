@@ -1,0 +1,132 @@
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+}
+
+#root {
+  background: url(https://w.wallhaven.cc/full/nm/wallhaven-nmjo8y.jpg) #000;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(6px);
+  border: 1px solid #8b6914;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #8b6914;
+  color: #d4af37;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid #8b6914;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.button--outline:hover,
+.game-item:hover,
+.settings-download-sources__item:hover,
+.download-group__item:hover,
+.text-field-container__text-field--dark:hover,
+.text-field-container__text-field--primary:hover,
+.header__search:hover,
+.settings__content:hover,
+.catalogue__filters-container:hover,
+.friends-box__box:hover,
+.user-stats__box:hover,
+.recent-games__box:hover,
+.sidebar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+  color: #ffd700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.text-with-background {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.text-with-stroke {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b6914;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  animation: fadeIn 0.6s ease-in-out;
+}
