@@ -106,11 +106,7 @@ element.style {
 
 .sidebar-profile{
   justify-content: center;
-  gap: 0px;
-}
-
-.sidebar-profile__button-title{
-  color: ;
+  gap: 5px;
 }
 
 #root > main > aside > div > div.sidebar__content > section:nth-child(1) > ul > li.sidebar__menu-item.sidebar__menu-item--active > button > svg, #root > main > aside > div > div.sidebar__content > section:nth-child(1) > ul > li > button > svg {
@@ -127,13 +123,17 @@ element.style {
 }
 
 .sidebar__section{
-  padding-left:40px;
-  padding-right:40px;
-  padding-top:40px;
+  padding-left:10%;
+  padding-right:0%;
+  padding-top:20px;
+}
+
+#root > main > aside > div > div.sidebar__content > section:nth-child(2) > ul{
+  gap: 5px;
 }
 
 #root > main > aside > div > div.sidebar__content > section:nth-child(2) > ul > li{
-  padding: 5px;
+  padding-left: 15px;  
   background-image: url('https://i.imgur.com/yMbdiqE.png');
   background-size: contain;
   background-position: center;
@@ -154,10 +154,6 @@ element.style {
   gap: 0px;
 }
 
-#root > main > aside > div > div.sidebar__content > section:nth-child(2) > ul > li{
-  padding: 0px;
-}
-
 #root > main > article > header > section:nth-child(2){
   width: 50%;
 }
@@ -170,6 +166,7 @@ element.style {
 }
 
 .header__search {
+  width: 100%;
   background-color: #ffe10000;
   color: #e43333;
   border: none;
@@ -206,6 +203,14 @@ element.style {
 
 .sidebar__menu-item-button{
   color: #ffffff;
+}
+
+#root > main > aside > div > div.sidebar__content > section:nth-child(1) > ul > li.sidebar__menu-item.sidebar__menu-item--active{
+  padding-left: 30px;
+}
+
+#root > main > aside > div > div.sidebar__content > section:nth-child(1) > ul > li{
+   padding-left: 40px;
 }
 
 #root > main > aside > div > div.sidebar__content > section:nth-child(3) > ul > li > button:hover{
