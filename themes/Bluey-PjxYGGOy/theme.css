@@ -42,8 +42,9 @@ body {
 .sidebar,
 .settings-download-sources__item,
 .download-group__item {
-  background-color: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0); /* Fundo transparente */
+  backdrop-filter: blur(10px); /* Efeito de vidro */
+  transition: background-color 0.3s ease-in-out; /* Suaviza mudanças */
 }
 
 /* Botões contornados com efeito de vidro */
@@ -68,9 +69,9 @@ body {
   background: #2f2f2f; /* Cor de fundo da barra */
 }
 
-/* Remove a mudança de cor quando o mouse passa por cima */
+/* Mantém a mesma cor ao passar o mouse */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #80FFFF; /* Mantém a mesma cor ao passar o mouse */
+  background-color: #80FFFF;
 }
 
 /* Torna os botões totalmente transparentes */
@@ -92,21 +93,4 @@ input[type="submit"]:hover,
 .btn:hover {
   background-color: rgba(0, 255, 255, 0.1);
   cursor: pointer;
-}
-/* Elementos com efeito de vidro */
-.text-field-container__text-field--dark,
-.text-field-container__text-field--primary,
-.header__search,
-.game-item,
-.settings__content,
-.catalogue__filters-container,
-.friends-box__box,
-.user-stats__box,
-.recent-games__box,
-.sidebar,
-.settings-download-sources__item,
-.download-group__item {
-  background-color: rgba(0, 0, 0, 0); /* Fundo transparente */
-  backdrop-filter: blur(10px); /* Efeito de vidro */
-  transition: background-color 0.3s ease-in-out; /* Suaviza mudanças */
 }
