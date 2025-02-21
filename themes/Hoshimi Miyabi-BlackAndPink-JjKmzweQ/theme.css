@@ -14,8 +14,6 @@
  > Laufey no1 fan
 */
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 
@@ -312,17 +310,6 @@ margin-top: 2px;
 
 
 /* ---- GAME DETAILS ---- */
-
-.game-details__description-content {
-  background-color: rgba(0, 0, 0, 0.5); 
-}
-
-.game-details__description-container {
-    display: flex;
-    width: 100%;
-    flex: 1;
-    /* background: linear-gradient(0deg, #1c1c1c 50%, #151515 100%); */
-}
 
 .game-details__description-container {
     display: flex;
