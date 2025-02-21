@@ -1,6 +1,6 @@
 /* Fundo geral da aplicação */
 body {
-  background: url('https://www.bhmpics.com/downloads/lewd-anime-full-Wallpapers/7.965298-anime-anime-girls-illustration-fan-art-minimalism.png') #00000000;
+  background: url('https://img.goodfon.com/original/1920x1080/0/fe/anime-temnyi-fon-monokhromnyi-anime-dark-background-monoch-1.jpg') #000000;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,7 +14,7 @@ body {
 
 /* Texto no canto superior direito */
 body::after {
-  content: 'Hydra-gustavo07-Eddition'; /* Texto personalizado */
+  content: 'Hydragustavo07-Eddition'; /* Texto personalizado */
   position: fixed;
   top: 10px;
   right: 10px;
@@ -22,18 +22,19 @@ body::after {
   font-family: Arial, sans-serif; /* Fonte simples */
   cursor: pointer; /* Cursor de clique */
   animation: rgbAnimation 3s infinite; /* Animação RGB */
+  color: #00bfff; /* Azul claro */
 }
 
-/* Animação RGB para o texto */
+/* Animação RGB para o texto (ajustada para tons de azul) */
 @keyframes rgbAnimation {
   0% {
-    color: #00ffff; /* Azul ciano */
+    color: #00bfff; /* Azul claro */
   }
   50% {
-    color: #ff00ff; /* Rosa */
+    color: #1e90ff; /* Azul médio */
   }
   100% {
-    color: #00ff00; /* Verde */
+    color: #00bfff; /* Azul claro */
   }
 }
 
@@ -46,29 +47,29 @@ body::after:hover {
 .sidebar {
   background: rgba(0, 0, 0, 0.2) !important; /* Fundo mais transparente */
   backdrop-filter: blur(8px); /* Efeito de borrão */
-  border-right: 2px solid transparent; /* Borda inicialmente transparente */
+  border-right: 2px solid rgba(0, 191, 255, 0.3); /* Borda azul */
   border-radius: 0 12px 12px 0; /* Cantos arredondados apenas no lado direito */
   padding: 10px;
   animation: borderAnimation 6s infinite alternate; /* Animação da borda */
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1); /* Sombra neon sutil */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.1); /* Sombra neon sutil em azul */
 }
 
-/* Animação para a borda da sidebar */
+/* Animação para a borda da sidebar (ajustada para tons de azul) */
 @keyframes borderAnimation {
   0% {
-    border-color: rgba(0, 255, 255, 0.3); /* Azul ciano com mais transparência */
+    border-color: rgba(0, 191, 255, 0.3); /* Azul claro com mais transparência */
   }
   50% {
-    border-color: rgba(255, 0, 255, 0.3); /* Rosa com mais transparência */
+    border-color: rgba(30, 144, 255, 0.3); /* Azul médio com mais transparência */
   }
   100% {
-    border-color: rgba(0, 255, 0, 0.3); /* Verde com mais transparência */
+    border-color: rgba(0, 191, 255, 0.3); /* Azul claro com mais transparência */
   }
 }
 
 /* Efeito de hover na sidebar */
 .sidebar:hover {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra neon mais intensa */
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3); /* Sombra neon mais intensa em azul */
 }
 
 /* Transparência para outros elementos principais */
@@ -90,15 +91,15 @@ body::after:hover {
 .recent-games__box {
   background-color: transparent !important; /* Fundo transparente */
   border-radius: 8px; /* Cantos arredondados */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+  border: 1px solid rgba(0, 191, 255, 0.3); /* Borda azul */
 }
 
-/* Botões com bordas animadas */
+/* Botões pretos meio transparentes */
 .button,
 .button--outline {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Preto meio transparente */
   color: #ffffff; /* Texto branco */
-  border: 2px solid transparent; /* Borda inicialmente transparente */
+  border: 2px solid rgba(0, 191, 255, 0.3); /* Borda azul */
   border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
@@ -107,7 +108,7 @@ body::after:hover {
   overflow: hidden;
 }
 
-/* Efeito de borda animada nos botões */
+/* Efeito de borda animada nos botões (ajustada para tons de azul) */
 .button::before,
 .button--outline::before {
   content: '';
@@ -117,15 +118,16 @@ body::after:hover {
   right: -2px;
   bottom: -2px;
   border-radius: 8px;
-  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00, #00ffff);
+  background: linear-gradient(45deg, #00bfff, #1e90ff, #00bfff);
   background-size: 400% 400%;
   z-index: -1;
   animation: borderAnimation 6s ease infinite;
 }
 
+/* Efeito de hover nos botões (tom azulado bonito) */
 .button:hover,
 .button--outline:hover {
-  background-color: rgba(0, 123, 255, 0.8); /* Azul ao passar o mouse */
+  background-color: rgba(0, 123, 255, 0.5); /* Azul transparente ao passar o mouse */
   transform: scale(1.05); /* Efeito de zoom suave */
 }
 
@@ -140,7 +142,7 @@ body::after:hover {
 .settings-download-sources__item:hover,
 .download-group__item:hover,
 .game-item:hover {
-  background-color: rgba(0, 123, 255, 0) !important; /* Transparente ao passar o mouse */
+  background-color: rgba(0, 123, 255, 0.1) !important; /* Azul escuro transparente ao passar o mouse */
   transform: scale(1.02); /* Efeito de zoom suave */
 }
 
@@ -154,6 +156,19 @@ body::after:hover {
 
 /* Efeito de hover para botões dentro do conteúdo */
 .container__content .button--outline:hover {
-  background-color: rgba(0, 123, 255, 0.8); /* Azul ao passar o mouse */
+  background-color: rgba(0, 123, 255, 0.5); /* Azul transparente ao passar o mouse */
   transform: scale(1.05); /* Efeito de zoom suave */
+}
+
+/* Fundo da aba de perfil transparente */
+.profile-tab {
+  background-color: transparent !important; /* Fundo transparente */
+  border: 1px solid rgba(0, 191, 255, 0.3); /* Borda azul */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px;
+}
+
+/* Efeito de hover na aba de perfil */
+.profile-tab:hover {
+  background-color: rgba(0, 123, 255, 0.1) !important; /* Azul escuro transparente ao passar o mouse */
 }
