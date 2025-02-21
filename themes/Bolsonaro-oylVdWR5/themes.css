@@ -1,7 +1,7 @@
 :root {
     --color-primary: #d1767e;
     --color-secondary: #67d0e8;
-    --color-accent: #ddcab9;
+    --color-accent: #f5f5f5; /* Cor mais clara para melhor contraste */
     --color-text: #FFFFFF;
     --color-dark: #1b4665;
     --color-dark-secondary: #228bad;
@@ -9,9 +9,10 @@
 
 body {
     color: var(--color-accent);
-    background: url(https://jcconcursos.com.br/media/uploads/noticia/bolsonaro-agencia-brasil.jpg) no-repeat top;
+    background: url('https://i.imgur.com/KJrMMjR.jpeg') no-repeat top;
     background-color: var(--color-dark);
     background-size: cover;
+    font-family: Arial, sans-serif; /* Fonte padrão para melhor legibilidade */
 }
 
 #root {
@@ -34,29 +35,33 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar {
-    background-color: rgba(29, 53, 87, 0.589) !important;
+    background-color: rgba(29, 53, 87, 0.7) !important; /* Ajuste de transparência */
     backdrop-filter: blur(8px);
-    border-radius: 8px;
+    border-radius: 8px; /* Raio de borda consistente */
+    padding: 10px; /* Espaçamento interno para melhorar a usabilidade */
 }
 
 .container__content .button--outline {
     backdrop-filter: blur(8px);
-    background-color: rgba(34, 138, 173, 0.582);
+    background-color: rgba(34, 138, 173, 0.6); /* Ajuste de transparência */
     color: var(--color-accent);
     border: 1px solid var(--color-secondary);
+    transition: background-color 0.3s ease; /* Transição suave */
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-    background-color: rgba(34, 138, 173, 0) !important;
+    background-color: rgba(34, 138, 173, 0.1) !important; /* Ajuste de transparência */
     border: 2px solid var(--color-text);
+    transition: background-color 0.3s ease; /* Transição suave */
 }
 
 .button--outline:hover,
 .game-item:hover {
     color: var(--color-text) !important;
     border: 2px solid var(--color-dark-secondary) !important;
+    background-color: rgba(34, 138, 173, 0.8); /* Cor de fundo ao passar o mouse */
 }
 
 .settings-download-sources__item:hover,
@@ -67,11 +72,11 @@ body {
 }
 
 .game-item .category, .game-item span, .game-item p {
-    color: #FFFFFF !important;
+    color: var(--color-text) !important;
 }
 
 .header, .header * {
-    color: #FFFFFF !important;
+    color: var(--color-text) !important;
     background: transparent;
 }
 
@@ -90,30 +95,73 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #67d0e8;
-    border-radius: 10px;
+    background-color: var(--color-secondary);
+    border-radius: 8px; /* Raio de borda consistente */
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #1b4665;
+    background-color: var(--color-dark);
 }
 
-/*mudar nome do hydra*/
+/* Estilo para o nome do Hydra Cloud */
 .title-bar::before {
-  content: "Hydra cloud";
-  font-size: 10px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  background: linear-gradient(45deg, #9444ad, #3498db);
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: glow 1.5s infinite alternate;
-  display: block;
-  text-align: left;
+    content: "Hydra Cloud";
+    font-size: 12px; /* Tamanho de fonte ajustado */
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: 2px; /* Espaçamento reduzido */
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #9444ad, #3498db);
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: block;
+    text-align: left;
+    animation: glow 1.5s infinite alternate;
 }
 
 .title-bar h4 {
-  visibility: hidden;
+    visibility: hidden;
+}
+
+/* Animação de brilho */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(148, 68, 173, 0.7), 0 0 10px rgba(52, 152, 219, 0.7);
+    }
+    to {
+        text-shadow: 0 0 10px rgba(148, 68, 173, 0.9), 0 0 20px rgba(52, 152, 219, 0.9);
+    }
+}
+
+/* Melhorias de acessibilidade */
+a, button {
+    color: var(--color-text);
+    text-decoration: none;
+    outline: none; /* Remove o contorno padrão */
+}
+
+a:focus, button:focus {
+    outline: 2px solid var(--color-secondary); /* Contorno para acessibilidade */
+}
+
+/* Melhorias de contraste */
+body, .header, .game-item, .sidebar {
+    color: var(--color-text);
+    background-color: var(--color-dark);
+}
+
+/* Remoção de !important desnecessários */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+    background-color: rgba(29, 53, 87, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
 }
