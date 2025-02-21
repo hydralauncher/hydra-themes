@@ -1,14 +1,9 @@
 /*
-    Here you can edit CSS for your theme and apply it on Hydra.
-    There are a few classes already in place, you can use them to style the launcher.
+    Custom Hydra Theme CSS
+    Documentation: https://docs.hydralauncher.gg/
+*/
 
-    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
-    or how to publish your theme in the theme store, you can check the docs:
-    https://docs.hydralauncher.gg/
-
-    Happy hacking!
-  */
-
+/* Set transparent background for key elements */
 .sidebar,
 .header,
 .container__content,
@@ -16,10 +11,14 @@
     background: transparent;
 }
 
+/* Set background image for the root element */
 #root {
     background-image: url('https://papers.co/wallpaper/papers.co-ab55-wallpaper-batman-logo-dark-shattered-36-3840x2400-4k-wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
+/* Apply a dark theme with blur effect */
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search,
@@ -30,23 +29,16 @@
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
-.sidebar {
+.sidebar,
+.game-item {
     background-color: #06040f !important;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+/* Apply styling for outline buttons */
 .container__content .button--outline {
     backdrop-filter: blur(10px);
     background-color: #06040f;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.settings-download-sources__item,
-.download-group__item,
-.game-item,
-.settings-download-sources__item,
-.download-group__item {
-    background-color: #06040f !important;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
