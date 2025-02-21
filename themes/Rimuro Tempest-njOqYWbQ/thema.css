@@ -1,0 +1,65 @@
+#root {
+  background: url(https://wallpapers.com/images/hd/rimuru-tempest-dark-lightning-diw5pdkfzl8aga5d.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+#root::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent !important; /* Garante transparência total */
+  z-index: -1;
+}
+/* Ajuste para evitar fundo preto */
+html, body {
+  background: transparent !important; /* Remove qualquer fundo preto vindo do navegador */
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+.sidebar,
+.container__content,
+.header,
+.bottom-panel,
+.text-field-container__text-field--dark,
+.settings__content,
+.header__search,
+.sidebar-profile__friends-button,
+.game-item,
+.catalogue__filters-container,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box {
+  background: rgba(0, 35, 105, 0.2) !important; /* Aumentei a transparência */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.container__content {
+  background: rgba(0, 55, 150, 0.25); /* Deixando ainda mais translúcido */
+  backdrop-filter: blur(5px);
+}
+/* Ajuste para itens clicáveis */
+.sidebar-profile__friends-button,
+.game-item,
+.catalogue__filters-container,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box {
+  background: rgba(0, 45, 130, 0.15) !important;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.1);
+}
+/* Garantindo que o texto continue visível */
+.sidebar,
+.container__content,
+.header,
+.bottom-panel {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
