@@ -802,3 +802,9 @@ body > div.backdrop.backdrop--windows > div > div.modal__content > div.repacks-m
 .button--primary download-settings-modal__downloader-option{
   background: rgba(0, 0, 0, 0.65);
 }
+
+.button--outline:disabled{
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: #000000;
+  }
