@@ -28,6 +28,11 @@ body {
 
 .sidebar {
     background-color: var(--color-background-base); 
+    width: 100%;
+    height: 55px;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    padding: 0px;
 }
 
 .container__content {
@@ -74,7 +79,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
     float: left;
     transition: transform 0.3s ease-in-out;
     background-color: var(--color-background-base);
@@ -341,15 +345,6 @@ main {
     display: block;
     float: left;
 }
-
-.sidebar {
-    width: 100%;
-    height: 55px;
-    min-width: 100% !important;
-    max-width: 100% !important;
-    padding: 0px;
-}
-
 .sidebar__menu-item span, .sidebar__section .sidebar__section-title, .sidebar__section .text-field-container {
     display: none;
 }
