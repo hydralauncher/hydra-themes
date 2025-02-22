@@ -4,7 +4,7 @@
   */
 
   #root {
-    font-family: "JetBrains Mono";
+    font-family: "JetBrains Mono", monospace;
     background: url("https://r4.wallpaperflare.com/wallpaper/620/837/112/anime-girls-anime-genshin-genshin-impact-fischl-genshin-impact-hd-wallpaper-6886ad5890806c48e0dcc12e5812e4ea.jpg") #9933cc;
     background-position: top;
     background-repeat: no-repeat;
@@ -76,7 +76,7 @@
     backdrop-filter: blur(8px);
   }
   
-  hero-panel-actions__action:hover {
+  .hero-panel-actions__action:hover {
     background-color: rgba(153, 51, 204, 0.075);
     backdrop-filter: blur(8px);
   }
@@ -193,7 +193,7 @@
   .modal {
       display: flex;
       flex-direction: column;
-      align-items: left;
+      align-items: flex-start;
       transition: opacity 0.3s ease;
       background-color: #1b2838a2;
       border-radius: 5px;
@@ -205,7 +205,7 @@
     
    .button {
       background-color: rgba(153, 51, 204, 0.075);
-      border: true;
+      border: 1px solid;
       padding: 10px 20px;
       border-radius: 5px;
       transition: all 0.3s ease-in-out;
