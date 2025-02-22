@@ -344,10 +344,6 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   border-radius: 0;
 }
 
-.rc-virtual-list-scrollbar-thumb {
-  border-radius: 0 !important;
-}
-
 .profile-hero__avatar-button,
 .profile-hero__avatar-button:hover,
 .user-library-game__cover,
@@ -395,6 +391,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
     var(--theme-rgb-text-color),
     var(--theme-opacity)
   ) !important;
+  border-radius: 0 !important;
 }
 
 ::-webkit-scrollbar-thumb:hover,
