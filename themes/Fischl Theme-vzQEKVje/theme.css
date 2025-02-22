@@ -173,7 +173,7 @@
     }
   
      .title-bar h4 {
-      visibility: hidden;
+      display: none;
     }
   
     .sidebar-section__button {
