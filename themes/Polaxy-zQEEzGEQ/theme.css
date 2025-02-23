@@ -1,7 +1,7 @@
 /*    Create by @oGotiko   
       Discord: ogotiko
-      Theme: PurpleSoft
-      V1.2
+      Theme: Polaxy
+      V2.1
 */
 
 :root {
@@ -58,7 +58,7 @@
 }
 
 .title-bar::after {
-  content: "V2: theme by: @oGotiko - PURPLESOFT";
+  content: "V2.1: theme by: @oGotiko - PURPLESOFT";
   font-size: 12px;
   font-weight: 700;
   color: #ac6dff;
