@@ -1,12 +1,15 @@
 import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
 import { DownloadIcon, HeartIcon } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
+import axios from "axios";
 
 export interface ThemeCardProps {
   theme: Theme;
 }
+
+const AVATAR_SIZE = 25;
 
 export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -15,7 +18,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   useEffect(() => {
     const isFavorite = window.localStorage.getItem(
-      `theme_favorite:${theme.name}`,
+      `theme_favorite:${theme.id}`,
     );
 
     setIsFavorite(isFavorite === "true");
@@ -23,21 +26,19 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   const performThemeAction = useCallback(
     (action: string) => {
-      fetch("/api/theme", {
-        method: "PUT",
-        body: JSON.stringify({
-          themeId: theme.id,
-          action,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+      axios.put("/api/themes", {
+        themeId: theme.id,
+        action,
       });
     },
     [theme],
   );
 
   const installTheme = useCallback(() => {
+    const hasInstalled = window.localStorage.getItem(
+      `theme_installed:${theme.id}`,
+    );
+
     const searchParams = new URLSearchParams({
       theme: theme.name,
       authorId: theme.author.id,
@@ -49,8 +50,12 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
       "_blank",
     );
 
-    performThemeAction("install");
-    setDownloadCount(downloadCount + 1);
+    if (!hasInstalled) {
+      performThemeAction("install");
+      setDownloadCount(downloadCount + 1);
+
+      window.localStorage.setItem(`theme_installed:${theme.id}`, "true");
+    }
   }, [theme]);
 
   const toggleFavorite = useCallback(() => {
@@ -58,7 +63,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     setIsFavorite(updatedIsFavorite);
 
     window.localStorage.setItem(
-      `theme_favorite:${theme.name}`,
+      `theme_favorite:${theme.id}`,
       updatedIsFavorite.toString(),
     );
 
@@ -72,13 +77,22 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     setFavoriteCount(favoriteCount + 1);
   }, [isFavorite, favoriteCount, theme]);
 
+  const profileImageUrl = useMemo(() => {
+    if (!theme.author.profileImageUrl) return null;
+
+    const bucketObject = theme.author.profileImageUrl.split("/");
+
+    return `https://cdn.losbroxas.org/cdn-cgi/image/width=${AVATAR_SIZE},height=${AVATAR_SIZE},format=webp/${bucketObject.join("/")}`;
+  }, [theme.author.profileImageUrl]);
+
   return (
     <div className="group w-full rounded-xl border p-2 transition-all">
       <div className="h-48 w-full rounded-lg bg-muted/20">
         <img
-          src={`/themes/${theme.name.toLowerCase()}/${theme.screenshotFile}`}
+          src={`/themes/${theme.name.toLowerCase()}/screenshot.webp`}
           alt={theme.name}
           className="size-full rounded-lg object-cover"
+          loading="lazy"
         />
       </div>
 
@@ -91,14 +105,14 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           <div className="h-px flex-1 bg-muted/50"></div>
 
           <div className="flex items-center gap-2">
-            <DownloadIcon className="size-4 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">
-              {downloadCount}
-            </span>
-
             <HeartIcon className="size-4 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">
               {favoriteCount}
+            </span>
+
+            <DownloadIcon className="size-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">
+              {downloadCount}
             </span>
           </div>
         </div>
@@ -106,13 +120,17 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-              src={theme.authorImage ? `/themes/${theme.name.toLowerCase()}/${theme.authorImage}` : "/fallback-avatar.svg"}
+              src={profileImageUrl ?? "/fallback-avatar.svg"}
               alt={theme.author.displayName}
+              loading="lazy"
               className={cn(
+                {
+                  "bg-muted/50 object-cover": profileImageUrl,
+                },
                 "size-6 rounded-full",
-                theme.authorImage ? "" : "bg-muted/50 object-contain p-1",
               )}
             />
+
             <a
               href={`hydralauncher://profile?userId=${theme.author.id}`}
               className="cursor-pointer text-xs text-muted-foreground hover:underline"
@@ -122,14 +140,25 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           </div>
 
           <div className="flex flex-row gap-2">
-            <Button variant="outline" size="icon" onClick={toggleFavorite}>
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-lg"
+              onClick={toggleFavorite}
+              aria-label="Toggle theme as favorite"
+            >
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}
                 className="size-4 text-muted-foreground"
               />
             </Button>
 
-            <Button variant="outline" size="default" onClick={installTheme}>
+            <Button
+              variant="outline"
+              size="default"
+              className="rounded-lg"
+              onClick={installTheme}
+            >
               Install
             </Button>
           </div>
