@@ -4,6 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
 import axios from "axios";
+import sharp from "sharp";
+import { redis } from "./redis";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -75,41 +77,38 @@ Promise.all(
 
     const data = response.data as Theme["author"];
 
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
     );
 
-    const url = new URL(data.profileImageUrl);
-    url.search = "";
+    if (!fs.existsSync(publicThemePath)) {
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
 
-    data.profileImageUrl = url.toString();
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(340, null, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(path.join(publicThemePath, "screenshot.webp"));
+    }
 
-    const fileExt = path.extname(data.profileImageUrl);
-    const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-      res.arrayBuffer(),
-    );
+    const redisKey = `theme:${authorCode}:${themeName}`;
 
-    fs.writeFileSync(
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        `author${fileExt}`,
-      ),
-      Buffer.from(authorResponse),
-    );
+    const themeData = await redis.get(redisKey);
+
+    if (!themeData) {
+      await redis.set(
+        redisKey,
+        JSON.stringify({
+          downloads: 0,
+          favorites: 0,
+          createdAt: new Date(),
+        }),
+      );
+    }
 
     return {
       id: `${authorCode}:${themeName}`,
@@ -117,16 +116,20 @@ Promise.all(
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: `author${fileExt}`,
       downloads: 0,
       favorites: 0,
     } as Theme;
   }),
-).then((themes) => {
-  console.log(`Generated ${themes.length} themes`);
+)
+  .then((themes) => themes.filter((theme) => theme))
+  .then((themes) => {
+    console.log(`Generated ${themes.length} themes`);
 
-  fs.writeFileSync(
-    path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
-  );
-});
+    fs.writeFileSync(
+      path.join(import.meta.dirname, "themes.json"),
+      // Fix themes returning null
+      JSON.stringify(themes.filter((theme) => theme)),
+    );
+
+    redis.disconnect();
+  });
