@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0;
     color: #f0efef;
@@ -6,18 +8,17 @@ body {
 
 
 #root {
-background: #c7c0ee
-    url("https://images4.alphacoders.com/133/1336369.jpeg")
-    no-repeat center center;
-background-size: cover;
+    background: #c7c0ee
+        url("https://images4.alphacoders.com/133/1336369.jpeg")
+        no-repeat center center;
+    background-size: cover;
 }
 
 .sidebar,
-.header,
 .container__content,
 .bottom-panel,
 .title-bar {
-background: transparent !important; 
+    background: transparent !important; 
 }
 
 .title-bar h4 {
@@ -30,6 +31,8 @@ background: transparent !important;
     color: #ffffff;
     visibility: visible;
 }
+  
+
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
@@ -42,17 +45,28 @@ background: transparent !important;
 .user-stats__box,
 .recent-games__box,
 .sidebar,
-.profile-hero__user-information {
+.profile-hero__user-information,
+.game-details__description-container,
+.game-details__description-content,
+.description-header,
+.sidebar-section,
+.content-sidebar,
+.sidebar-section__button,
+.header{
 
-background-color: #bdb2dd1c !important;
-backdrop-filter: blur(8px);
+    background-color: #bdb2dd1c !important;
+    backdrop-filter: blur(8px);
 
 }
+
 profile-hero__hero-panel profile-hero__hero-panel--transparent {
-background-color: #ffffff00;
+    background-color: #ffffff00;
 }
 
 .container__content .button--outline {
-backdrop-filter: blur(6px);
-background-color: #bdb2dd1c;
+    backdrop-filter: blur(6px);
+    background-color: #bdb2dd1c;
+}
+::placeholder {
+    color: #d3c9c9;
 }
