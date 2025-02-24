@@ -213,6 +213,7 @@
 .recent-games__list-item,
 .friends-box__friend-name,
 .report-profile__button,
+.user-library-game__stats-header,
 .sidebar,
 .sidebar-profile__button,
 .sidebar-profile__friends-button,
@@ -258,11 +259,15 @@
   color: rgba(var(--theme-rgb-text-color), var(--theme-opacity));
 }
 
+.user-library-game__stats-item path,
+.user-stats__list-description path,
 .achievement-panel__content-icon path,
 .achievements__item-points-icon path {
   fill: rgba(var(--theme-rgb-text-color), var(--theme-opacity));
 }
 
+.profile-hero__information [aria-live="polite"][aria-busy="true"],
+.locked-profile__lock-icon,
 .user-library-game__wrapper,
 .user-library-game__playtime,
 .user-stats__box,
@@ -284,6 +289,7 @@
 .text-field-container__text-field,
 .checkbox-field__checkbox,
 .button,
+progress.user-library-game__achievements-progress::-webkit-progress-bar,
 progress.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-bar {
   border: 1px solid rgba(var(--theme-rgb-text-color), var(--theme-opacity));
 }
@@ -299,6 +305,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .profile-avatar,
 .profile-avatar__image,
 .profile-hero__avatar-button,
+.profile-hero__information [aria-live="polite"][aria-busy="true"],
+.locked-profile__lock-icon,
 .sidebar-profile__game-running-icon,
 .user-library-game__wrapper,
 .user-library-game__game-image,
@@ -339,6 +347,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .checkbox-field__checkbox,
 .select-field,
 .button,
+progress.user-library-game__achievements-progress::-webkit-progress-bar,
+progress.user-library-game__achievements-progress::-webkit-progress-value,
 progress.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-bar,
 progress.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
   border-radius: 0;
@@ -382,6 +392,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .sidebar-section__button:hover,
 .theme-card--active .button--dark,
 .button--primary,
+progress.user-library-game__achievements-progress::-webkit-progress-value,
 progress.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
   background-color: rgba(var(--theme-rgb-text-color), var(--theme-opacity));
 }
@@ -409,12 +420,16 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 }
 
 ::-webkit-scrollbar,
+.profile-avatar,
+.profile-hero__avatar-button,
+.profile-hero__information [aria-live="polite"][aria-busy="true"],
 .user-stats__box,
 .user-stats__list-item:hover,
 .recent-games__box,
 .recent-games__list-item:hover,
 .friends-box__box,
 .friends-box__list-item:hover,
+.locked-profile__lock-icon,
 .sidebar-profile__friends-button,
 .header__search,
 .hero,
@@ -507,7 +522,12 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   --header-update-height: 30px;
 }
 
+.profile-hero__information {
+  position: relative;
+}
+
 .hero:not(:has(.hero__backdrop))::before,
+.profile-hero__information [aria-live="polite"][aria-busy="true"]::before,
 .home__card-skeleton::before,
 .catalogue__skeleton::before {
   content: "Loading...";
@@ -515,4 +535,5 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  z-index: 2;
 }
