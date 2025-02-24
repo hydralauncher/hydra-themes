@@ -537,3 +537,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   transform: translateX(-50%) translateY(-50%);
   z-index: 2;
 }
+
+.user-library-game__stats-header > span {
+  display: flex;
+  align-items: center;
+}
