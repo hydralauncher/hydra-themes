@@ -1,0 +1,42 @@
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #0bf565f1;
+}
+
+#root {
+  background: url(https://images.alphacoders.com/122/thumb-1920-1227100.jpg)
+    #2d023a;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(86, 20, 241, 0.178) !important;
+  backdrop-filter: blur(8px);
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(153, 4, 252, 0.664);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(58, 7, 243, 0.534) !important;
+}
