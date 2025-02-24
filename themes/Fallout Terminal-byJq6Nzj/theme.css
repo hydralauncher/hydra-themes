@@ -142,6 +142,7 @@
 .header,
 .container__content,
 .game-details__description-container,
+.game-details__randomizer-button,
 .achievement-panel,
 .achievements__list,
 .select-field__option {
@@ -170,10 +171,12 @@
 .backdrop,
 .modal,
 .react-loading-skeleton::after,
-.game-details__cloud-sync-button {
+.game-details__cloud-sync-button,
+.game-details__randomizer-button {
   animation: none;
 }
 
+.edit-profile-modal__avatar-overlay,
 .modal__close-button,
 .user-friend-item__container,
 .profile-hero__avatar-button,
@@ -255,6 +258,8 @@
 .theme-card__header__title,
 .theme-card__author,
 .theme-card__author__name,
+.settings-account__unblock-button,
+.text-field-container__toggle-password-button,
 .text-field-container__text-field-input,
 .select-field__label,
 .select-field__option,
@@ -263,6 +268,7 @@
   color: rgba(var(--theme-rgb-text-color), var(--theme-opacity));
 }
 
+.edit-profile-modal__avatar-overlay path,
 .user-library-game__stats-item path,
 .user-stats__list-description path,
 .achievement-panel__content-icon path,
@@ -311,6 +317,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .modal,
 .profile-avatar,
 .profile-avatar__image,
+.edit-profile-modal__avatar-overlay,
 .profile-hero__avatar-button,
 .profile-hero__information [aria-live="polite"][aria-busy="true"],
 .locked-profile__lock-icon,
@@ -366,6 +373,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .user-library-game__cover,
 .hero,
 .game-details__cloud-sync-button,
+.game-details__randomizer-button,
 .home__card-skeleton,
 .settings__content {
   box-shadow: none;
@@ -385,7 +393,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .repacks-modal__repack-button:hover .repacks-modal__repack-title,
 .sidebar-section__button:hover,
 .theme-card--active .button--dark,
-.button:hover {
+.button:hover,
+.button--primary:disabled {
   color: rgb(var(--theme-rgb-background-color));
 }
 
@@ -401,6 +410,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .sidebar-section__button:hover,
 .theme-card--active .button--dark,
 .button--primary,
+.button--primary:disabled,
 progress.user-library-game__achievements-progress::-webkit-progress-value,
 progress.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
   background-color: rgba(var(--theme-rgb-text-color), var(--theme-opacity));
@@ -486,7 +496,9 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .user-friend-modal__friend-code-button:hover,
 .header__back-button:hover,
 .header__search:hover .header__action-button,
-.hero:hover .hero__description {
+.hero:hover .hero__description,
+.settings-account__unblock-button:hover,
+.text-field-container__toggle-password-button:hover {
   color: rgba(var(--theme-rgb-text-color), var(--theme-opacity-hover));
 }
 
@@ -495,7 +507,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .game-card:hover,
 .hero-panel,
 .content-sidebar,
-.text-field-container__text-field:hover,
+.settings-account__user-avatar:hover,
+.settings-account__blocked-users .profile-avatar:hover,
 .checkbox-field__checkbox:hover:not(:has(input:disabled)),
 .select-field:hover {
   border-color: rgba(var(--theme-rgb-text-color), var(--theme-opacity-hover));
@@ -550,6 +563,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   z-index: 2;
 }
 
+.profile-hero__display-name-badges-container > div,
 .user-library-game__stats-header > span {
   display: flex;
   align-items: center;
@@ -557,4 +571,9 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 
 .user-friend-modal-list {
   overflow-y: auto;
+}
+
+.settings-account__user-avatar {
+  width: 100%;
+  height: 100%;
 }
