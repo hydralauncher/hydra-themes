@@ -502,6 +502,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   color: rgba(var(--theme-rgb-text-color), var(--theme-opacity-hover));
 }
 
+.profile-avatar:hover,
 .header__search:hover,
 .hero:hover,
 .game-card:hover,
@@ -509,6 +510,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .content-sidebar,
 .settings-account__user-avatar:hover,
 .settings-account__blocked-users .profile-avatar:hover,
+.text-field-container__text-field:hover,
 .checkbox-field__checkbox:hover:not(:has(input:disabled)),
 .select-field:hover {
   border-color: rgba(var(--theme-rgb-text-color), var(--theme-opacity-hover));
