@@ -336,6 +336,8 @@ h4 {
   border-radius: 100px;
   border-color: rgb(34, 34, 34);
   padding: 5px 10px;
+  background-color: #00000010;
+  backdrop-filter: blur(10px);
 }
 
 .pagination__button {
@@ -563,7 +565,7 @@ h4 {
   border-color: #00000027;
 }
 
-.achievements__item achievements__item-compared { /* Corrigi a sintaxe */
+.achievements__item.achievements__item-compared {
   border-radius: 30px;
 }
 
@@ -675,9 +677,4 @@ a:hover {
 
 .edit-profile-modal__avatar-container {
   border-radius: 200px;
-}
-
-.badge {
-  background-color: #00000010;
-  backdrop-filter: blur(10px);
 }
