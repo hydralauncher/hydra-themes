@@ -150,6 +150,7 @@
 
 .modal,
 .modal__header,
+.user-friend-item__container,
 .sidebar,
 .header,
 .profile-avatar,
@@ -174,6 +175,7 @@
 }
 
 .modal__close-button,
+.user-friend-item__container,
 .profile-hero__avatar-button,
 .user-stats__list-item,
 .recent-games__list-item,
@@ -206,6 +208,8 @@
 .modal,
 .modal__close-button-icon,
 .user-friend-modal__friend-code-button,
+.user-friend-item__button,
+.user-friend-item__cancel-button,
 .profile-hero__information,
 .user-stats__list-item,
 .user-stats__link,
@@ -266,6 +270,7 @@
   fill: rgba(var(--theme-rgb-text-color), var(--theme-opacity));
 }
 
+.user-friend-modal-list__skeleton,
 .profile-hero__information [aria-live="polite"][aria-busy="true"],
 .locked-profile__lock-icon,
 .user-library-game__wrapper,
@@ -301,6 +306,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 }
 
 ::-webkit-scrollbar-thumb,
+.user-friend-modal-list__skeleton,
+.user-friend-item__container,
 .modal,
 .profile-avatar,
 .profile-avatar__image,
@@ -364,6 +371,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   box-shadow: none;
 }
 
+.user-friend-item__container:hover .user-friend-item__display-name,
+.user-friend-item__container:hover .user-friend-item__cancel-button,
 .user-library-game__playtime,
 .sidebar-profile__button:hover,
 .sidebar-profile__friends-button:hover,
@@ -406,6 +415,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 }
 
 ::-webkit-scrollbar-thumb:hover,
+.user-friend-item__container:hover,
 .sidebar-profile__button:hover,
 .sidebar-profile__friends-button:hover,
 .sidebar__menu-item:hover,
@@ -420,6 +430,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 }
 
 ::-webkit-scrollbar,
+.user-friend-modal-list__skeleton,
 .profile-avatar,
 .profile-hero__avatar-button,
 .profile-hero__information [aria-live="polite"][aria-busy="true"],
@@ -526,6 +537,7 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
   position: relative;
 }
 
+.user-friend-modal-list__skeleton::before,
 .hero:not(:has(.hero__backdrop))::before,
 .profile-hero__information [aria-live="polite"][aria-busy="true"]::before,
 .home__card-skeleton::before,
@@ -541,4 +553,8 @@ progress.achievements-content__user-summary__container__stats__progress-bar::-we
 .user-library-game__stats-header > span {
   display: flex;
   align-items: center;
+}
+
+.user-friend-modal-list {
+  overflow-y: auto;
 }
