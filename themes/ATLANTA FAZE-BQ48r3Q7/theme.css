@@ -1,23 +1,6 @@
 
 
-  /* Header */
-  .header {}
-
-  /* Sidebar */
-  .sidebar {}
-
-  /* Main content */
-  .container__content {}
-
-  /* Bottom panel */
-  .bottom-panel {}
-
-  /* Toast */
-  .toast {}
-
-  /* Button */
-  .button {}
-
+  
 body {
     margin: 0;
     color: #ffffff;
@@ -56,11 +39,8 @@ body {
   .sidebar {
 
     background-color: rgba(255, 255, 255, 0) !important;
-    
- backdrop-filter: blur(8px);
-
-
-    }
+   backdrop-filter: blur(8px);
+}
 
   .container__content .button--outline {
     
@@ -71,7 +51,7 @@ body {
   .settings-download-sources__item,
   .download-group__item,
   .game-item {
-    background-color: rgba(255, 0, 0, 0) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
   }
 
 
@@ -88,4 +68,3 @@ body {
 
   .bottom-panel {
     background-color: rgba(255, 0, 0, 0);
-  }
