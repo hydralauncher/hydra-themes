@@ -111,6 +111,7 @@ body {
 
 .achievements-content__achievements-list__section__table-header {
   background-color: #000000;
+  border-color: #00000027;
 }
 
 .bottom-panel__version-button {
@@ -469,7 +470,7 @@ h4 {
   box-shadow: none;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color:  transparent
+  background-color: transparent;
 }
 
 .profile-hero__content-box,
@@ -558,10 +559,6 @@ h4 {
 .achievement-panel {
   background-color: #000000;
   color: rgba(255, 255, 255, 0.575);
-  border-color: #00000027;
-}
-
-.achievements-content__achievements-list__section__table-header {
   border-color: #00000027;
 }
 
