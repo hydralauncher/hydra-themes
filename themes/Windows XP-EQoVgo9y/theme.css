@@ -20,8 +20,7 @@
   color: #000000;
   display: flex;
   justify-content: flex-start;
-  background-color: #222222;
-  background: rgba(255, 255, 255, .75);
+  background-color: rgb(255, 255, 255, .75);
   border-radius: 0px;
 }
 
