@@ -28,7 +28,7 @@ body {
   }
   
   .title-bar::after {
-    content: "blue Hydra";
+    content: "Blue Hydra";
     margin-left: 40%;
     font-size: 18px;
     font-weight: 800;
