@@ -1,4 +1,4 @@
-name: Validate Theme
+name: Validate Themes
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -7,7 +7,7 @@ concurrency:
 on: pull_request
 
 jobs:
-  lint:
+  validate-themes:
     runs-on: ubuntu-latest
 
     steps:
