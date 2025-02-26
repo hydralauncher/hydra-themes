@@ -28,7 +28,7 @@ body {
   }
   
   .title-bar::after {
-    content: "blue Hydra";
+    content: "Blue Hydra";
     margin-left: 40%;
     font-size: 18px;
     font-weight: 800;
@@ -48,7 +48,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .sidebar, .header, .container__content, .bottom-panel {
+  .header, .container__content, .bottom-panel {
     background: transparent;
     border: 1px solid #005f92;
     border-radius: 12px;
@@ -71,6 +71,11 @@ body {
   }
   
   .sidebar {
+    background: transparent;
+    border: 1px solid #005f92;
+    border-radius: 12px;
+    padding: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     background-color: rgba(0, 0, 0, 0.5) !important;
     backdrop-filter: blur(15px);
   }
