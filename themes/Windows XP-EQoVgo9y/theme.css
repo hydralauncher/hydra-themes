@@ -1,14 +1,3 @@
-/*
-  Here you can edit CSS for your theme and apply it on Hydra.
-  There are a few classes already in place, you can use them to style the launcher.
-
-  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
-  or how to publish your theme in the theme store, you can check the docs:
-  https://docs.hydralauncher.gg/
-
-  Happy hacking!
-*/
-
 /* Reset básico para garantir consistência entre navegadores */
 * {
   margin: 0;
@@ -69,8 +58,7 @@ h4 {
 .button,
 .header__search,
 .catalogue__filters-container,
-.download-group__item,
-.text-field-container__text-field--dark {
+.download-group__item {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
@@ -88,7 +76,7 @@ h4 {
 
 .container {
   border-radius: 20px;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 .sidebar {
@@ -135,8 +123,8 @@ h4 {
 
 .header__search {
   background: rgba(255, 255, 255, 1);
-  border-radius: 18px;
-  width: 350px;
+  border-radius: 20px;
+  width: 390px;
   padding: 10px;
 }
 
@@ -174,6 +162,11 @@ h4 {
 
 .text-field-container__text-field--dark {
   background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .game-details__container {
@@ -214,8 +207,7 @@ h4 {
 .button,
 .header__search,
 .catalogue__filters-container,
-.download-group__item,
-.text-field-container__text-field--dark {
+.download-group__item {
   background: rgba(255, 255, 255, 0.2);
 }
 
@@ -232,8 +224,4 @@ h4 {
 .catalogue__filters-container,
 .download-group__item {
   background: rgba(255, 255, 255, 0.3);
-}
-
-.text-field-container__text-field--dark {
-  background: rgba(255, 255, 255, 0.1);
 }
