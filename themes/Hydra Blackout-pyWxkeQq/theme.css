@@ -9,14 +9,15 @@
     --color-text: #ffffff;
     --color-shadow: rgb(0, 0, 0);
     --background-main: rgba(0, 0, 0, 0.603);
+    --font-used: "Roboto Condensed";
 }
 
 body {
     background: var(--background-main);
     background-size: cover;
-    font-family: "Roboto Condensed";
-  font-optical-sizing: auto;
-  font-style: normal;
+    font-family: var(--font-used);
+    font-optical-sizing: auto;
+    font-style: normal;
     color: var(--color-text);
     margin: 0;
     padding: 0;
