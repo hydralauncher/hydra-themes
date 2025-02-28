@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
-    --color-background-base: rgba(23, 23, 27, 0.8);
-    --color-background-dark: rgb(20, 20, 20);
-    --color-background-button: rgba(128, 58, 0, 0.562);
-    --color-background-checkbox: rgba(128, 58, 0, 0.432);
-    --color-background-scrollbar-thumb: rgba(128, 58, 0, 0.568); 
-    --color-all: rgba(128, 58, 0, 0.8); 
-    --color-text: #ffffff; 
-    --color-shadow: rgba(0, 0, 0, 0.5); 
-    --background-main: url('https://images4.alphacoders.com/111/1117424.png');
-    --font-used: "Roboto Condensed";
+    --color-background-base: rgb(0, 0, 0);
+    --color-background-dark: rgb(10, 10, 10);
+    --color-background-button: rgb(10, 10, 10);
+    --color-background-checkbox: rgb(10, 10, 10);
+    --color-background-scrollbar-thumb: rgba(29, 29, 29, 0.57);
+    --color-all: rgb(34, 34, 34);
+    --color-text: #ffffff;
+    --color-shadow: rgb(0, 0, 0);
+    --background-main: rgba(0, 0, 0, 0.603);
 }
+
 body {
-    background: var(--background-main) no-repeat fixed;
+    background: var(--background-main);
     background-size: cover;
-    font-family: var(--font-used);
-    font-optical-sizing: auto;
-    font-style: normal;
+    font-family: "Roboto Condensed";
+  font-optical-sizing: auto;
+  font-style: normal;
     color: var(--color-text);
     margin: 0;
     padding: 0;
@@ -91,9 +91,9 @@ body {
 }
 
 .game-item:hover, .achievements__list li:hover {
-    background-color: rgba(0, 0, 0, 0.849);
-    transform: scale(1.03);
-    border: 1px solid var(--color-all);
+    background-color: var(--color-all);
+    transform: scale(1.02);
+    border: 1px solid var(--color-text);
 }
 
 .catalogue__games-container {
@@ -141,10 +141,11 @@ body {
 .repacks-modal__repack-button:hover {
     background-color: var(--color-all);
     transform: scale(1.05);
+    border: 1px solid var(--color-text);
 }
 
-.badge {
-    border-color: var(--color-background-scrollbar-thumb);
+.badge, .sidebar-profile__friends-button-badge {
+    border-color: var(--color-text);
 }
 
 .sidebar-profile__friends-button-badge {
@@ -170,7 +171,9 @@ body {
 .bottom-panel__version-button small::after {
     content: " - Theme by Naitan";
 }
-
+.title-bar h4::after {
+    content: " Blackout";
+}
 .settings__container {
     padding: 0px;
 }
@@ -194,6 +197,7 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-all);
+    
 }
 
 .download-group__downloads {
@@ -276,7 +280,7 @@ body {
     text-decoration: none;
 }
 .list > .link:hover {
-    border: 1px solid var(--color-all);
+    border: 1px solid var(--color-text);
 }
 /* Titulo */
 .description-header, .achievement-panel {
@@ -293,7 +297,9 @@ body {
     position: relative;
     
 }
-
+.sidebar__menu-item:hover{
+    background-color: var(--color-background-button);
+}
 .sidebar__menu-item::before {
     content: "";
     position: absolute;
@@ -301,23 +307,24 @@ body {
     height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: var(--color-all);
+    background-color: var(--color-text);
     transition: all 0.4s;
 }
 
 .sidebar__menu-item:hover::before {
     width: 100%;
     left: 0;
-
 }
 
 .sidebar__menu-item--active::before {
     width: 100%;
     left: 0;
     border-radius: 100px;
+    
 }
 .sidebar__menu-item--active {
-    color: var(--color-all);
+    color: var(--color-text);
+    background-color: var(--color-background-button);
 }
 
 .header__back-button {
@@ -352,10 +359,6 @@ body {
 .filter-section__count {
     font-size: 9px;
     text-align: center;
-}
-.sidebar__content section:nth-child(2):nth-last-child(2){
-    border-left: 1px solid rgba(255, 136, 0, 0.055);
-    border-right: 1px double rgba(255, 136, 0, 0.055);
 }
 /* Adicional */
 main {
@@ -424,6 +427,10 @@ main {
 .sidebar__content section:nth-child(1) {
     margin-left: 22px;
 }
+.sidebar__content section:nth-child(2):nth-last-child(2){
+    border: 1px solid var(--color-all);
+}
+
 .sidebar__content section {
     max-width: 250px;
     text-align: end;
@@ -448,9 +455,6 @@ main {
 .sidebar__menu-item-button {
     width: 50px;
     justify-content: center;
-}
-.sidebar__menu-item-button:hover{
-    color: var(--color-all);
 }
 
 /* Título */
@@ -541,10 +545,7 @@ main {
         grid-template-columns: repeat(4, 1fr);
     }
     .catalogue__filters-container {
-        display: block;
-    }
-    .catalogue__filters-sections{
-        width: 100%;
+        display: flex;
     }
     .sidebar__content section {
     max-width: 500px;

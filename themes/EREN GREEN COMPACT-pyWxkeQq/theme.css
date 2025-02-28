@@ -240,7 +240,6 @@ body {
     margin-bottom: 5px;
     margin-left: 5px;
     align-items: center;
-    padding-top: 10px;
     float: left;
     background-color: var(--color-background-base);
     color: var(--color-text);
@@ -355,8 +354,8 @@ body {
     text-align: center;
 }
 .sidebar__content section:nth-child(2):nth-last-child(2){
-    border-left: 1px solid rgba(0, 255, 76, 0.055);
-    border-right: 1px double rgba(0, 255, 76, 0.055);
+    border-left: 1px solid rgba(0, 255, 157, 0.055);
+    border-right: 1px double rgba(0, 255, 157, 0.055);
 }
 /* Adicional */
 main {
