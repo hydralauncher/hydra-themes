@@ -1,0 +1,144 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/
+
+  Happy hacking!
+*/
+
+/* Header */
+.header {}
+
+/* Sidebar */
+.sidebar {}
+
+/* Main content */
+.container__content {}
+
+/* Bottom panel */
+.bottom-panel {}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
+
+body {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: url('seu-cursor.png') 5 5, auto;
+}
+
+a, button, input, select {
+  cursor: url('seu-cursor.cur'), auto;
+}
+
+#root {
+  position: relative;
+  background: rgba(111, 1, 255, 0.2) url("https://images.alphacoders.com/131/1311951.jpg") no-repeat center center;
+  backdrop-filter: blur(10px);
+  background-size: cover;
+}
+
+body::after {
+    content: "@odexz"; /* Texto que será exibido */
+    position: absolute;
+    top: 10px;  /* Distância do topo */
+    right: 150px; /* Distância da borda direita */
+    color: white; /* Cor do texto */
+    font-family: 'Courier New', Courier, monospace; /* Fonte */
+    font-size: 16px; /* Tamanho da fonte */
+    z-index: 1000; /* Para ficar acima de outros elementos */
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% { opacity: 1; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6f01ff; }
+  50% { opacity: 0.6; text-shadow: 0 0 3px #fff, 0 0 7px #fff, 0 0 12px #6f01ff; }
+  100% { opacity: 1; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6f01ff; }
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent !important;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(184, 4, 255, 0.144) !important;
+  backdrop-filter: blur(8px);
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 0, 119, 0.233);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(195, 0, 255, 0) !important;
+}
+
+.title-bar {
+  background-color: hsla(288, 100%, 50%, 0.178);
+}
+
+.home__content {
+  background-color: rgba(195, 0, 255, 0.144);
+  backdrop-filter: blur(2px);
+}
+
+.bottom-panel {
+  background-color: rgb(39, 12, 112);
+}
+
+/* Efeito Neon para botões */
+.button:hover {
+  background-color: rgba(255, 0, 119, 0.4);
+  box-shadow: 0 0 10px #ff00b3, 0 0 20px #ff0077;
+  transition: 0.3s ease-in-out;
+}
+
+/* Bordas arredondadas e efeito suave nos inputs */
+input, select {
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+input:hover, select:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Barra de rolagem personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff7c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0077;
+}
