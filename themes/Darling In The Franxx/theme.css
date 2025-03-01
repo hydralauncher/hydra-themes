@@ -2,31 +2,31 @@
 .header,
 .container__content,
 .sidebar-profile,
-.bottom-panel__downloads-button{
+.bottom-panel__downloads-button {
   background: transparent;
-  color: #ffff;
+  color: #fff;
 }
 
-.button{
-  background-color: rgba(0, 119, 255);
-  color: #ffff;
+.button {
+  background-color: rgba(0, 119, 255, 1);
+  color: #fff;
 }
 
 .sidebar {
-    background-color: rgba(0, 119, 255, 0.74);
+  background-color: rgba(0, 119, 255, 0.74);
 }
 
 body {
-  color: rgba(0, 119, 255);
+  color: rgba(0, 119, 255, 1);
 }
 
-::placeholder{
-  color: #ffff;
+::placeholder {
+  color: #fff;
 }
 
 .title-bar {
-    background: linear-gradient(180deg, #ffffff, #5bb0ff);
-    background-clip: text;
+  background: linear-gradient(180deg, #ffffff, #5bb0ff);
+  background-clip: text;
 }
 
 .container,
@@ -35,37 +35,31 @@ input,
 .filter-item__remove-button,
 .sidebar-profile__button-title,
 .header__back-button,
-.link recent-games__list-item,
+.recent-games__list-item,
 .recent-games__game-title,
 .recent-games__game-description,
-.filter-section__clear-button{
-  color: #ffff;
+.filter-section__clear-button {
+  color: #fff;
 }
 
 .bottom-panel,
-.sidebar-profile__friends-button{
-  background-color: rgba(0, 119, 255);
-  color: #ffff;
+.sidebar-profile__friends-button {
+  background-color: rgba(0, 119, 255, 1);
+  color: #fff;
 }
 
-.profile__wrapper{
-    background-color: rgba(0, 119, 255, 0.3);
+.profile__wrapper {
+  background-color: rgba(0, 119, 255, 0.3);
 }
-
-
-
-
-
 
 #root {
-  background: url(https://images5.alphacoders.com/896/896569.png)
-    #000;
+  background: url(https://images5.alphacoders.com/896/896569.png) #000;
   background-position: top;
   background-repeat: no-repeat;
-  color: #ffff;
+  color: #fff;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   background-color: rgba(250, 250, 250, 0.651);
 }
 
@@ -78,9 +72,9 @@ input,
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
-.how-long-to-beat__categories-list{
-  background-color: rgba(0, 119, 255, 0.2) !important;
-  color: #ffff;
+.how-long-to-beat__categories-list {
+  background-color: rgba(0, 119, 255, 0.2);
+  color: #fff;
 }
 
 .user-stats__list,
@@ -88,16 +82,12 @@ input,
 .user-stats__link,
 .how-long-to-beat__category,
 .how-long-to-beat__category-label,
-.bottom-panel__version-button
-{
-  color: #ffff;
+.bottom-panel__version-button {
+  color: #fff;
 }
 
-
 .game-details__description-container,
-.description-header
-{
-  background: transparent;
+.description-header {
   background-color: rgba(0, 102, 255, 0.6);
 }
 
@@ -107,12 +97,10 @@ input,
 .sidebar-section__button,
 .game-details__cloud-sync-button,
 .user-stats__box,
-.recent-games__box{
-  background-color: rgba(0, 119, 255, 0.6) !important;
-  color: #ffff;
+.recent-games__box {
+  background-color: rgba(0, 119, 255, 0.6) ;
+  color: #fff;
 }
-
-
 
 .badge,
 .game-item__genres,
@@ -121,42 +109,36 @@ input,
 .theme-card__author__name,
 .select-field__label,
 .download-group__title,
-.link
-{
-  color: #ffff;
+.link {
+  color: #fff;
 }
 
-.checkbox-field__checkbox{
-   background-color: rgba(0, 110, 255);
-
+.checkbox-field__checkbox {
+  background-color: rgba(0, 110, 255, 1);
 }
 
-.container__content, 
+.container__content,
 .button--outline,
 .select-field__option,
 .checkbox-field__input,
-.dropdown-menu__content
- {
+.dropdown-menu__content {
   background-color: rgba(0, 110, 255, 0.2);
-  color: #ffff;
+  color: #fff;
 }
 
-.theme-card--active{
+.theme-card--active {
   background-color: rgba(0, 183, 255, 0.2);
 }
 
-
-.checkbox-field__input{
-  color: #ffff;
-  background-color: rgba(0, 102, 255, 0.2) !important;
-
+.checkbox-field__input {
+  color: #fff;
+  background-color: rgba(0, 102, 255, 0.2) ;
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item,
-.modal
-{
-  background-color: rgba(0, 102, 255, 0.6) !important;
-    color: #ffff;
+.modal {
+  background-color: rgba(0, 102, 255, 0.6) ;
+  color: #fff;
 }
