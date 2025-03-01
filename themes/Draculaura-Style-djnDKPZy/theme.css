@@ -164,7 +164,7 @@ body {
 }
 
 .bottom-panel__version-button small::after {
-    content: " - Theme by Henry";
+    content: " - Theme by Henryyzzk";
 }
     .achievements__list {
         grid-template-columns: repeat(4, 1fr);
