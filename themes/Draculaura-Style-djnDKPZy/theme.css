@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --bg-base: rgba(23, 23, 27, 0.8);
+    --bg-dark: #141414;
+    --bg-btn: rgba(255, 148, 203, 0.575);
+    --bg-checkbox: rgba(255, 148, 204, 0.43);
+    --bg-scroll-thumb: #ff94cb;
+    --primary-color: #ff94cba4;
+    --text-color: #fff;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --font-main: 'Roboto Condensed';
+    --btn-download-bg: rgba(255, 148, 204, 0.2);
+    --btn-download-hover: rgba(255, 148, 204, 0.4);
+}
+
+body {
+    background: url('https://www.dropbox.com/scl/fi/2xwh2hzkze7frcgw7vp1m/1740770004609.png?rlkey=0ebzmloxu3rt07j2du7gcrkuf&st=me0y7h2e&raw=1') no-repeat fixed;
+    background-size: cover;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1.5s ease;
+}
+
+.container, .header, .modal, .sidebar, .bottom-panel, .game-item, .theme-card {
+    background-color: var(--bg-base);
+    color: var(--text-color);
+    box-shadow: 0 2px 5px var(--shadow);
+    padding: 10px;
+    border-radius: 5px;
+    animation: slideIn 0.6s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.button, .select-field__option {
+    background-color: var(--bg-base);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover, .select-field__option:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05) rotate(2deg);
+}
+
+.button.download-option {
+    background-color: var(--btn-download-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.button.download-option:hover {
+    background-color: var(--btn-download-hover);
+    transform: scale(1.05) rotate(2deg);
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: transparent;
+    transition: all 0.75s;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-scroll-thumb);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar__menu-item {
+    color: var(--text-color);
+    transition: 0.4s;
+    position: relative;
+}
+
+.sidebar__menu-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.4s;
+}
+
+.sidebar__menu-item:hover::before, .sidebar__menu-item--active::before {
+    width: 100%;
+    left: 0;
+}
+
+.game-item {
+    width: 182px;
+    height: 250px;
+    margin: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.game-item:hover {
+    border: 1px solid var(--primary-color);
+    transform: scale(1.03);
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.game-item img {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    transition: transform 0.5s;
+}
+
+.game-item img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1198px) {
+    .catalogue__filters-container {
+        display: none;
+    }
+
+    .achievements__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.title-bar h4 {
+    visibility: hidden;
+}
+.title-bar {
+    background-color: #171a21;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    animation: fadeIn 1.5s ease;
+}
+.title-bar::before {
+    color: #ff94cc;
+    content: "Hydra";
+    display: inline-block;
+    width: 130px;
+    height: 17px;
+    font-weight: bold;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bottom-panel__version-button small::after {
+    content: " - Theme by Henry";
+}
+
+@media (min-width: 1390px) {
+    .game-item {
+        width: 250px;
+    }
+
+    .achievements__list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
