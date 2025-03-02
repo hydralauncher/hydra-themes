@@ -92,6 +92,9 @@ body {
 .catalogue {
   padding-top: 0px;
 }
+.filter-item {
+  margin-top: 16px;
+}
 
 /* SETTINGS */
 .settings-download-sources__item {
@@ -190,7 +193,6 @@ body {
 }
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 1);
-}
 }
 ::-webkit-scrollbar-thumb {
   background: #888;
