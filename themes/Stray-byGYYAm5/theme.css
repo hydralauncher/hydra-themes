@@ -189,7 +189,8 @@ body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 1)
+  background: rgba(0, 0, 0, 1);
+}
 }
 ::-webkit-scrollbar-thumb {
   background: #888;
