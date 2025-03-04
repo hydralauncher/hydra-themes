@@ -84,14 +84,12 @@ body {
   gap: 8px;
 }
 
-::-webkit-scrollbar,
 ::-webkit-scrollbar {
   backdrop-filter: blur(8px);
   background-color: rgba(35, 54, 90, 0.8);
   border-radius: 24px;
 }
 
-.game-details__description-container,
 .game-details__description-container {
     display: flex;
     width: 100%;
@@ -150,7 +148,6 @@ body {
 
 .container__content .button--outline {
   backdrop-filter: blur(8px);
-  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .settings-download-sources__item,
