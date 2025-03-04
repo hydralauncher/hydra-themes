@@ -1,14 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
-import themeList from "@/lib/themes.json";
+import { Note } from "@/components/ui/note";
+import type { ThemeListResponse } from "@/pages/api/themes";
+import axios from "axios";
+
+const sort = "newest";
+
+const themes = await axios
+  .get<ThemeListResponse>(`${Astro.url.origin}/api/themes?page=1&sort=${sort}`)
+  .then((res) => res.data);
 ---
 
 <Layout title="Hydra Themes">
-  <ThemeList client:load themes={themeList} />
+  <ThemeList
+    client:load
+    themes={themes.edges}
+    themeCount={themes.count}
+    sort={sort}
+  />
 
-  <!-- TODO: finish pagination -->
-  <!-- <div class="flex justify-center py-24 absolute bottom-0 w-full left-0">
-        <ThemePagination pagination={{ page: 1, perPage: 16, total: themes.length }} />
-    </div> -->
+  <Note />
 </Layout>
