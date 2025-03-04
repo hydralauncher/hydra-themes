@@ -17,6 +17,13 @@ export interface ThemeListResponse {
   count: number;
 }
 
+const sortMapping = {
+  newest: ["createdAt", "desc"],
+  oldest: ["createdAt", "asc"],
+  favorites: ["favorites", "desc"],
+  downloads: ["downloads", "desc"],
+};
+
 export const GET: APIRoute = async ({ request }) => {
   const { searchParams } = new URL(request.url);
 
@@ -39,7 +46,10 @@ export const GET: APIRoute = async ({ request }) => {
       }),
   );
 
-  const sortedThemes = orderBy(themes, sort, "desc");
+  const sortedThemes = orderBy(
+    themes,
+    ...sortMapping[sort as keyof typeof sortMapping],
+  );
 
   const response = {
     edges: slice(sortedThemes, (page - 1) * PAGE_SIZE, page * PAGE_SIZE),

@@ -1,5 +1,5 @@
 import { ThemeCard } from "./theme-card";
-import { Frown } from "lucide-react";
+import { CalendarArrowDown, CalendarArrowUp, Frown } from "lucide-react";
 import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
 import { ThemePagination } from "./theme-pagination";
@@ -48,6 +48,15 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const handleSortChange = useCallback((value: string) => {
+    setSort(value);
+
+    searchQuery.set({
+      value: search.value,
+      page: 1,
+    });
+  }, []);
+
   return (
     <div className="mt-20 flex flex-col gap-4">
       <div className="flex flex-row justify-between">
@@ -55,17 +64,21 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
 
         <ThemeSorting
           options={[
-            // { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
-            // { label: "Oldest", icon: <CalendarArrowDown />, value: "oldest" },
-            { label: "Most Popular", icon: <Flame />, value: "downloads" },
+            { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
             {
-              label: "Most Favorited",
+              label: "Oldest",
+              icon: <CalendarArrowDown />,
+              value: "oldest",
+            },
+            { label: "Downloads", icon: <Flame />, value: "downloads" },
+            {
+              label: "Favorites",
               icon: <Heart />,
               value: "favorites",
             },
           ]}
           selectedValue={sort}
-          onSelect={setSort}
+          onSelect={handleSortChange}
         />
       </div>
 
