@@ -1,7 +1,6 @@
 .sidebar,
 .header,
 .container__content,
-
 .bottom-panel {
   background: transparent;
 }
@@ -18,6 +17,46 @@ body {
   background-size: cover;
 }
 
+.downloads__container .downloads__groups .download-group__title {
+  color: #ffabab;
+}
+
+.sidebar__content .sidebar__section {
+  color: #ffabab;
+}
+
+.sidebar__content .sidebar__section .sidebar__menu-item-button {
+  color: #ffabab;
+}
+
+.container .header__title {
+  color: #ffabab;
+}
+
+.container__content .settings-appearance__themes .theme-card {
+  background: #2b000044;
+}
+
+.hero-panel {
+  background: #00000088 !important;
+}
+
+.game-details__description-container {
+  background: #00000066;
+}
+
+.game-details__description-container .description-header {
+  background: #00000066;
+}
+
+.game-details__description-container .content-sidebar {
+  background: #00000066;
+}
+
+.game-details__description-container .content-sidebar .sidebar-section__button {
+  background: #00000088;
+}
+
 .header__search {
   background-color: #350200;
   color: #7c0400;
@@ -25,6 +64,7 @@ body {
 
 .game-item {
   color: #e98a8a;
+  background-color: rgba(66, 18, 18, 0.8) !important;
 }
 
 .settings__content {
@@ -70,5 +110,9 @@ body {
 }
 
 .game-item {
+  background-color: rgba(66, 18, 18, 0.8) !important;
+}
+
+::-webkit-file-upload-button {
   background-color: rgba(66, 18, 18, 0.8) !important;
 }
