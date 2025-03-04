@@ -97,7 +97,7 @@
     }
     to {
         opacity: 1;
-        transform: translateY(1);
+        transform: translateY(0);
     }
 }
 
@@ -132,7 +132,7 @@ body {
     color: var(--text-primary);
     flex-direction: column;
     display: flex;
-    transition: width 0.3s ease, background-color 0.3s ease, box-shadow 0.s ease;
+    transition: width 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     border-right: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
@@ -401,7 +401,7 @@ body {
 }
 
 .button--dark:hover {
-    border: 1px, #7aa2f7 dashed;
+  border: 1px dashed #7aa2f7;
 }
 
 .text-field-container__text-field--dark:hover {
@@ -1072,10 +1072,14 @@ body {
     content: '';
     width: 10px;
     height: 10px;
+    background-image: url('path/to/checkmark-icon.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
 }
 
 .checkbox-field__label {
@@ -1165,6 +1169,8 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
 }
 
 .game-item__meta {
