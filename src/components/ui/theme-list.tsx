@@ -1,5 +1,5 @@
 import { ThemeCard } from "./theme-card";
-import { Frown } from "lucide-react";
+import { CalendarArrowDown, CalendarArrowUp, Frown } from "lucide-react";
 import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
 import { ThemePagination } from "./theme-pagination";
@@ -64,11 +64,15 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
 
         <ThemeSorting
           options={[
-            // { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
-            // { label: "Oldest", icon: <CalendarArrowDown />, value: "oldest" },
-            { label: "Most Popular", icon: <Flame />, value: "downloads" },
+            { label: "Newest", icon: <CalendarArrowUp />, value: "newest" },
             {
-              label: "Most Favorited",
+              label: "Oldest",
+              icon: <CalendarArrowDown />,
+              value: "oldest",
+            },
+            { label: "Downloads", icon: <Flame />, value: "downloads" },
+            {
+              label: "Favorites",
               icon: <Heart />,
               value: "favorites",
             },
