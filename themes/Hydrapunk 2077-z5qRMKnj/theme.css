@@ -9,8 +9,11 @@
 
 main {
   background-image: url('https://i.imgur.com/iYcWWgF.png');
-  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 .title-bar {
   display: flex;
@@ -19,6 +22,12 @@ main {
   background-image: url('https://i.imgur.com/iYcWWgF.png');
   background-size: cover;
   border: none;
+}
+
+@container app-container (min-width: 1300px) {
+    .profile-content__games-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
 }
 
 .title-bar h4{
@@ -241,53 +250,6 @@ element.style {
   color: #983433;
 }
 
-/*
-#root > main > article > section > section > section.home__header > ul > li:nth-child(1) > button{
-  background-image: url('https://i.imgur.com/kgfLbbT.png');
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #2b141c00;
-  border-radius: 0px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-#root > main > article > section > section > section.home__header > ul > li:nth-child(2) > button{
-  background-image: url('https://i.imgur.com/kgfLbbT.png');
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #2b141c00;
-  border-radius: 0px;
-  width: 110%;
-  text-transform: uppercase;
-}
-
-#root > main > article > section > section > section.home__header > ul > li:nth-child(3) > button{
-  background-image: url('https://i.imgur.com/kgfLbbT.png');
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #2b141c00;
-  border-radius: 0px;
-  margin-left: 10%;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-#root > main > article > section > section > section.home__header > ul > li:nth-child(1){
-  width: 100%;
-}
-#root > main > article > section > section > section.home__header > ul > li:nth-child(2){
-  width: 100%;
-}
-
-#root > main > article > section > section > section.home__header > ul > li:nth-child(3){
-  width: 100%;
-}
-*/
-
 .settings-appearance__button, .button--danger, .upload-background-image-button{
   text-transform: uppercase;
   color: #2cf8ff;
@@ -356,10 +318,25 @@ element.style {
   border: 2px solid #98353300;
 }
 
-.theme-card--active, .settings-download-sources__item, .game-item, .catalogue__filters-container, .download-group__item, .user-stats__box, .recent-games__box, .friends-box__box {
+.theme-card--active, .settings-download-sources__item, .catalogue__filters-container, .user-stats__box, .recent-games__box, .friends-box__box {
     border: 2px solid #983433;
     border-radius: 0px;
     background-color: #632c3370;
+}
+
+.download-group__item:hover{
+  background-color: #632c3349;
+}
+
+.game-item, .download-group__item{
+    border: 2px solid #9835335e;
+    border-radius: 0px;
+    background-color: #632c3327;
+    box-shadow: none;
+}
+
+.game-item__cover{
+  width: 28%;
 }
 
 .downloads__groups{
@@ -407,12 +384,22 @@ element.style {
 
 .modal{
   border-radius: 0px;
-  background-color: #632c33f5;
+  background-color: #632c333f;
   color: #ffffff;
+  backdrop-filter: blur(10px);
+}
+
+.modal__content{
+  border-top: 0px solid #983433;
+  border-bottom: 2px solid #983433;
+  border-left: 2px solid #983433;
+  border-right: 2px solid #983433;
 }
 
 .modal__header{
+  background-color:#22141942;
   color: #18fdf2;
+  border: 2px solid #983433;
 }
 
 .game-card, .hero{
@@ -420,6 +407,10 @@ element.style {
   border-radius: 0px;
   border: 2px solid #98353354;
   box-shadow: none;
+}
+
+.game-card{
+  height: 200px;
 }
 
 .user-friend-item__container{
@@ -438,8 +429,24 @@ body > div.backdrop.backdrop--windows > div > div.modal__content > div > div.use
 
 .game-card__backdrop{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.game-card__content {
+    FONT-WEIGHT: 200;
+    color: #dadbe1;
+    padding: 8px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-direction: column;
+    transition: all ease 0.2s;
+    transform: translateY(75%);
+}
+
+.game-card__title-container{
+  padding-bottom: 50px;
 }
 
 .achievements-content__achievements-list__section__table-header {
@@ -521,24 +528,6 @@ body > div.backdrop.backdrop--windows > div > div.modal__content > div > div.use
   color: rgb(150, 150, 150);
 }
 
-.catalogue__games-container {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 5px;
-    row-gap: 5px;
-    grid-template-rows: 300px 300px 300px 300px 300px;
-}
-
-.game-item{
-  flex-direction: column;
-  height: 100%;
-}
-
-.game-item__cover{
-  width: 100%;
-  height: 35%;
-}
-
-.game-item__details{
-  padding: 10px;
+.game-card__content{
+  padding: auto;
 }
