@@ -169,7 +169,13 @@ body::after {
 }
 
 
-.content-sidebar,
+.content-sidebar{
+  background: var(--alpha-dark) !important;
+  backdrop-filter: var(--blur-bg);
+  -webkit-backdrop-filter: var(--blur-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
 .sidebar-section__button {
   background: var(--alpha-dark) !important;
   backdrop-filter: var(--blur-bg);
@@ -446,3 +452,122 @@ body::after {
   box-shadow: 0 0 8px var(--emerald-green);
 }
 
+.achievements__list,
+.achievements-content__user-summary,
+.achievements-content__achievements-list__section__container__hero__content {
+  background: var(--alpha-dark) !important;           /* Semi-transparent black/maroon */
+  border: 1px solid var(--emerald-green) !important; /* Dark gold border */
+  color: var(--text-color) !important;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(90, 23, 23, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.achievements__list:hover,
+.achievements-content__user-summary:hover,
+.achievements-content__achievements-list__section__container__hero__content:hover {
+  box-shadow: 0 0 12px var(--emerald-green); /* Dark gold glow */
+}
+
+/* Individual Achievement Items */
+.achievements__list__item {
+  background: var(--alpha-maroon);         /* Slightly more maroon than parent */
+  border: 1px solid rgba(255, 0, 0, 0.4);  /* Red accent border */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.achievements__list__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--emerald-green);
+}
+
+/* Achievement Icon */
+.achievements__list__item .achievements__list__icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  background: #000;
+  border: 2px solid var(--emerald-green);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.achievements__list__item .achievements__list__icon:hover {
+  border-color: var(--shadow-red);  /* Optional: red on hover */
+}
+
+/* Achievement Title */
+.achievements__list__item .achievements__list__title {
+  font-weight: bold;
+  color: var(--emerald-green);      /* Dark gold highlight for titles */
+  font-size: 15px;
+}
+
+/* Achievement Description or Info */
+.achievements__list__item .achievements__list__description {
+  color: var(--text-color);
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Locked vs. Unlocked Achievements */
+.achievements__list__item--locked {
+  filter: grayscale(80%);
+  opacity: 0.6;
+}
+.achievements__list__item--locked:hover {
+  box-shadow: 0 0 6px rgba(128, 128, 128, 0.3);
+  border-color: rgba(128, 128, 128, 0.3);
+  transform: none; /* Don’t shift up on hover if locked, for example */
+}
+
+.achievements__list__item--unlocked {
+  border-color: var(--emerald-green);
+  box-shadow: none;
+}
+.achievements__list__item--unlocked:hover {
+  box-shadow: 0 0 10px var(--emerald-green);
+}
+
+.achievements-content__user-summary__container__stats__progress-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin: 10px 0;
+  background: var(--alpha-maroon);
+  border: 1px solid var(--emerald-green);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.achievements-content__user-summary__container__stats__progress-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--emerald-green);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+
+.achievements-content__user-summary__container__stats__progress-bar[data-progress="25"]::after {
+  width: 25%;
+}
+.achievements-content__user-summary__container__stats__progress-bar[data-progress="50"]::after {
+  width: 50%;
+}
+.achievements-content__user-summary__container__stats__progress-bar[data-progress="75"]::after {
+  width: 75%;
+}
+.achievements-content__user-summary__container__stats__progress-bar[data-progress="100"]::after {
+  width: 100%;
+}
