@@ -8,7 +8,18 @@ import tailwind from "eslint-plugin-tailwindcss";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
+  { 
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    rules: {
+      "tailwindcss/no-custom-classname": ["warn", {
+        cssFiles: [
+          "resources/css/app.css",
+          "resources/css/editor.css",
+          "resources/css/font-delivery.css"
+        ]
+      }]
+    }
+  },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
