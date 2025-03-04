@@ -7,9 +7,10 @@
     "build": "yarn generate-themes && astro build",
     "preview": "yarn generate-themes && astro preview",
     "astro": "astro",
-    "generate-themes": "npx bun src/lib/generate-themes.ts",
     "lint": "eslint src",
-    "start": "node dist/server/entry.mjs"
+    "start": "node dist/server/entry.mjs",
+    "generate-themes": "npx bun src/lib/generate-themes.ts",
+    "validate-themes": "npx bun src/lib/validate-themes.ts"
   },
   "devDependencies": {
     "@astrojs/node": "^9.1.0",
