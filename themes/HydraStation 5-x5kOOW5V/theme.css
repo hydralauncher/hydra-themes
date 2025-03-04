@@ -986,3 +986,8 @@ label,
 .achievements__list {
     background: transparent !important;
 }
+
+.title-bar {
+    background: transparent !important;
+    border-bottom: none !important;
+}
