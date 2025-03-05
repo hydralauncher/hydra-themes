@@ -45,7 +45,7 @@ Promise.all(
 
     await api
       .post(
-        `/badge/${authorCode}/theme`,
+        `/badges/${authorCode}/theme`,
         {},
         {
           headers: {

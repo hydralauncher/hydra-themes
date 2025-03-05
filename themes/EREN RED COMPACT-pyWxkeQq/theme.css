@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --color-background-base: rgba(23, 23, 27, 0.8);
     --color-background-dark: rgb(20, 20, 20);
@@ -8,18 +9,20 @@
     --color-text: #ffffff;
     --color-shadow: rgba(0, 0, 0, 0.5);
     --background-main: url("https://images6.alphacoders.com/112/1126962.jpg");
+    --font-used: "Roboto Condensed";
 }
-
 body {
     background: var(--background-main) no-repeat fixed;
     background-size: cover;
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-used);
+    font-optical-sizing: auto;
+    font-style: normal;
     color: var(--color-text);
     margin: 0;
     padding: 0;
 }
 
-.achievements__list, .header, .title-bar, .toast, .theme-card, .catalogue__filters-container, .modal, .repacks-modal__repack-button, .user-stats__box, .recent-games__box, .friends-box__box, .settings-download-sources__item, .download-group__item {
+.achievements__list, .header, .title-bar, .toast, .catalogue__filters-container, .modal, .repacks-modal__repack-button, .user-stats__box, .recent-games__box, .friends-box__box, .settings-download-sources__item, .download-group__item {
     background-color: var(--color-background-base);
     color: var(--color-text);
     box-shadow: 0px 2px 5px var(--color-shadow);
@@ -89,7 +92,7 @@ body {
 
 .game-item:hover, .achievements__list li:hover {
     background-color: rgba(0, 0, 0, 0.849);
-    transform: scale(1.02);
+    transform: scale(1.03);
     border: 1px solid var(--color-all);
 }
 
@@ -137,14 +140,16 @@ body {
 
 .repacks-modal__repack-button:hover {
     background-color: var(--color-all);
+    transform: scale(1.05);
 }
 
-.badge, .sidebar-profile__friends-button-badge {
+.badge {
     border-color: var(--color-background-scrollbar-thumb);
 }
 
 .sidebar-profile__friends-button-badge {
     background-color: var(--color-background-scrollbar-thumb);
+    margin-top: 10px;
 }
 
 .game-item__repackers {
@@ -235,8 +240,11 @@ body {
     margin-bottom: 5px;
     margin-left: 5px;
     align-items: center;
-    padding-top: 10px;
     float: left;
+    background-color: var(--color-background-base);
+    color: var(--color-text);
+    box-shadow: 0px 2px 5px var(--color-shadow);
+    padding: 10px;
 }
 
 .theme-card--active {
@@ -283,6 +291,7 @@ body {
     color: var(--color-text);
     text-decoration: none;
     position: relative;
+    
 }
 
 .sidebar__menu-item::before {
@@ -299,12 +308,16 @@ body {
 .sidebar__menu-item:hover::before {
     width: 100%;
     left: 0;
+
 }
 
 .sidebar__menu-item--active::before {
     width: 100%;
     left: 0;
     border-radius: 100px;
+}
+.sidebar__menu-item--active {
+    color: var(--color-all);
 }
 
 .header__back-button {
@@ -339,6 +352,10 @@ body {
 .filter-section__count {
     font-size: 9px;
     text-align: center;
+}
+.sidebar__content section:nth-child(2):nth-last-child(2){
+    border-left: 1px solid rgba(255, 0, 0, 0.055);
+    border-right: 1px double rgba(255, 0, 0, 0.055);
 }
 /* Adicional */
 main {
@@ -399,16 +416,18 @@ main {
 }
 
 .sidebar__section {
-    display: flex;
+    display: flex ;
     height: 55px;
     padding: 0px;
+    margin: 0px; 
 }
 .sidebar__content section:nth-child(1) {
     margin-left: 22px;
 }
-.sidebar__content section:nth-child(2) {
-    width: 498px;
+.sidebar__content section {
+    max-width: 250px;
     text-align: end;
+
 }
 
 .sidebar__menu {
@@ -429,6 +448,9 @@ main {
 .sidebar__menu-item-button {
     width: 50px;
     justify-content: center;
+}
+.sidebar__menu-item-button:hover{
+    color: var(--color-all);
 }
 
 /* Título */
@@ -486,9 +508,6 @@ main {
     
 }
 @media (min-width: 1199px) {
-    .sidebar__content section:nth-child(2) {
-    width: 600px;
-    }
     .catalogue__filters-container {
         display: none;
     }
@@ -522,6 +541,13 @@ main {
         grid-template-columns: repeat(4, 1fr);
     }
     .catalogue__filters-container {
-        display: flex;
+        display: block;
     }
+    .catalogue__filters-sections{
+        width: 100%;
+    }
+    .sidebar__content section {
+    max-width: 500px;
+
+}
 }
