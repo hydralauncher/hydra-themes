@@ -11,7 +11,9 @@
 /* Fundo local */
 #root {
   position: relative;
+
   background: url("assets/background/background-reflex.png") center center no-repeat fixed;
+
   background-size: cover;
   overflow: hidden;
 }
