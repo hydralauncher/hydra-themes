@@ -26,6 +26,7 @@ body {
 
 .title-bar::after {
   content: "@lorenzo.zx";
+  opacity: 0.4;
   font-size: 14px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);  
