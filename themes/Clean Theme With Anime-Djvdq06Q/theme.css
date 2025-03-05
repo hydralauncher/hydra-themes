@@ -27,10 +27,27 @@ body {
   background-color: transparent;
   backdrop-filter: blur(8px);
   align-items: center;
+  justify-content: center;
   padding: 0 16px;
   -webkit-app-region: drag;
   z-index: 4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.title-bar::after {
+  content: "ㅤ🐉";
+}
+
+.title-bar::before {
+  content: "@light.xxz";
+  opacity: 0.4;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);  
+  position: absolute;
+  right: 150px; 
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .bottom-panel {
