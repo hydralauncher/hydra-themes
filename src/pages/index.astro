@@ -1,14 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
-import { Note } from "@/components/ui/note";
-import type { ThemeListResponse } from "@/pages/api/themes";
+import type { ThemeListResponse } from "@/pages/api/themes.json";
 import axios from "axios";
 
 const sort = "newest";
 
 const themes = await axios
-  .get<ThemeListResponse>(`${Astro.url.origin}/api/themes?page=1&sort=${sort}`)
+  .get<ThemeListResponse>(
+    `${Astro.url.origin}/api/themes.json?page=1&sort=${sort}`,
+  )
   .then((res) => res.data);
 ---
 
@@ -19,6 +20,4 @@ const themes = await axios
     themeCount={themes.count}
     sort={sort}
   />
-
-  <Note />
 </Layout>
