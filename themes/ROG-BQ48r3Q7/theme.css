@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    color: #ffffff9d;
+    font-family: Arial, sans-serif;
+
+  }
+
+
+  #root {
+    background: #696870
+      url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8bcc75a-51d8-4652-95d2-4d097c5d8da5/ddr8sbd-94a5d939-818d-4bcb-82da-5942ba7f63a5.jpg/v1/fill/w_1600,h_900,q_75,strp/rog_wallpaper_desktop_by_hardzvixiv_ddr8sbd-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvZThiY2M3NWEtNTFkOC00NjUyLTk1ZDItNGQwOTdjNWQ4ZGE1XC9kZHI4c2JkLTk0YTVkOTM5LTgxOGQtNGJjYi04MmRhLTU5NDJiYTdmNjNhNS5qcGciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19._7nOqaC3t4gPhWhneup8wkNbEIQjahaaTRFNmVqpGxk)
+      no-repeat center center;
+    background-size: cover;
+    }
+
+
+  .sidebar,
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: transparent !important; 
+  }
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+
+    background-color: rgba(0, 0, 0, 0.404) !important;
+    backdrop-filter: blur(1px);
+
+    }
+
+  .container__content .button--outline {
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background-color: rgba(0, 0, 0, 0.589) !important;
+  }
+
+
+  .title-bar {
+    background-color: #02010749;
+  }
+
+
+  .home__content {
+    background-color: rgba(0, 0, 0, 0.322);
+    backdrop-filter: blur(1px);
+  }
+
+  .bottom-panel {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
