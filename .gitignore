@@ -1,27 +1,5 @@
-# build output
-dist/
-public/themes/
-src/lib/themes.json
-# generated types
-.astro/
-
-# dependencies
-node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
-.idea/
-
-.vscode/settings.json
+AppData/
+Cookies/
+Documents/
+Desktop/
+Downloads/
