@@ -1,5 +1,17 @@
-AppData/
-Cookies/
-Documents/
+# Ignorar arquivos do sistema
 Desktop/
+Documents/
 Downloads/
+Favorites/
+Links/
+Music/
+OneDrive/
+Pictures/
+Saved Games/
+Searches/
+Videos/
+
+# Ignorar arquivos temporários
+*.log
+*.bak
+*.swp
