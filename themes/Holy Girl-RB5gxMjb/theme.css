@@ -1,46 +1,33 @@
+body {
+  color: #ffffff;
+  background: #000 url(https://images.pexels.com/photos/31011601/pexels-photo-31011601.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center top;
+  background-size: cover;
+}
+
 .sidebar,
 .header,
 .container__content,
 .bottom-panel {
+  backdrop-filter: blur(0.5px);
   background: transparent;
-}
-
-body {
-  color: #9e9e9e;
-}
-
-#root {
-  background: url(https://images.pexels.com/photos/31011601/pexels-photo-31011601.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
-    #000;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search,
 .settings-download-sources__item,
-.download-group__item {
-  background-color: rgba(0, 0, 0, 0.6) !important;
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
+
 .settings__content,
 .catalogue__filters-container,
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
-.sidebar {
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  backdrop-filter: blur(8px);
-}
-
+.sidebar,
 .container__content .button--outline {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.settings-download-sources__item,
-.download-group__item,
-.game-item {
-  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.3);
 }
