@@ -9,6 +9,7 @@ import axios from "axios";
 import { Heart, Flame } from "lucide-react";
 import { searchQuery } from "@/stores/search";
 import { useStore } from "@nanostores/react";
+import { compactNumber } from "@/lib/helpers";
 
 interface ThemeListProps {
   themes: Theme[];
@@ -27,7 +28,7 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
     if (search.page > 1 || sort !== props.sort || search.value) {
       axios
         .get(
-          `/api/themes?page=${search.page}&sort=${sort}&query=${search.value}`,
+          `/api/themes.json?page=${search.page}&sort=${sort}&query=${search.value}`,
         )
         .then((res) => {
           setThemes(res.data.edges);
@@ -60,7 +61,12 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
   return (
     <div className="mt-20 flex flex-col gap-4">
       <div className="flex flex-row justify-between">
-        <h2 className="text-2xl font-bold">Community Themes</h2>
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl font-bold">Community Themes</h2>
+          <h4 className="text-sm text-muted-foreground">
+            {compactNumber(themeCount)} themes
+          </h4>
+        </div>
 
         <ThemeSorting
           options={[

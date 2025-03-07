@@ -57,6 +57,7 @@
     height: 100%;
     gap: 0px;
     justify-content: flex-start;
+    flex-direction: column;
   }
 
   .dropdown-menu__group, .dropdown-menu__separator{
