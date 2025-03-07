@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   --primary-bg-color: #2A004E;
   --secundary-bg-color: #500073;
@@ -14,7 +16,26 @@
 
 body {
   margin: 0;
-  /* font-family: sans-serif; */
+    font-family: "Exo", sans-serif;
+     font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1{
+  font-weight: 300;
+}
+
+h2{
+  font-weight: 400;
+}
+
+p{
+  font-weight: 400;
+}
+
+label{
+  font-weight: 400;
 }
 
 /* Title Bar */
