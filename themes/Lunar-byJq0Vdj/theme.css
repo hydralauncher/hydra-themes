@@ -7,6 +7,26 @@
   --button-hover-bg-color: #F14A00;
   --button-border-bg-color: #f1480021;
 }
+
+#root {
+  position: relative;
+}
+
+#root::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://media-hosting.imagekit.io//a73e68f442d84e27/hex-background-networking.jpg?Expires=1835977938&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=FneBj09FSakVGOPniI4H56Td~k~ROmwyDBkrYR3D7ZTSqMoDs8GPo1sqHPu61BV9b5yIVI9gmo02PPJLlMFMFTKHvE~P-0nFK9p2uCZX-b-6MnxUWwvWx34VgXl7MDKdNW9itHCEq~nWz5mrmsgHTadR0rjTub9EMr33CpZ4NAqkK7hw~uZ66vnoGJY70ax1HNWleNe675A74LVm0yC6JBG~PlUVGwQnnklN6fWCcJVL0kih8JNmCNdK00TpCienzs-zYRxwFgUHxdkjIrpNsXKBPzETvFMDkqyfmINwv9p5TItIFuIpWefNdVuuwlmNBN1rF7ES9B1UcmQ-u~R6Tg__") 
+    no-repeat center center;
+  background-size: cover;
+  filter: saturate(0);
+  opacity: 0.05;  /* Aplique a transparência de 10% na imagem */
+  z-index: -1;  /* Coloca o pseudo-elemento atrás do conteúdo */
+}
+
 /* General Styles */
 *,
 *::before,
@@ -20,6 +40,7 @@ body {
      font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  background-color: var(--primary-bg-color);
 }
 
 h1{
@@ -38,15 +59,28 @@ label{
   font-weight: 400;
 }
 
+#bgvideo{
+
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ object-fit: cover;
+ z-index:1;
+
+
+}
+
 /* Title Bar */
 .title-bar {
   border-bottom: none;
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
 }
 
 /* Header */
 .header {
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
   border-bottom: none;
 }
 
@@ -59,7 +93,7 @@ label{
 
 /* Sidebar */
 .sidebar {
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
   border-right: none;
 }
 
@@ -87,7 +121,7 @@ label{
 
 /* Main Content */
 .container__content {
-  background: var(--primary-bg-color);
+  background: transparent;
 }
 
 .container__content .home__content {
@@ -167,7 +201,7 @@ label{
 }
 
 .container__content .game-details__wrapper .hero-panel {
-  background-color: var(--primary-bg-color) !important;
+  background-color: transparent !important;
   border: none;
 }
 
@@ -191,7 +225,7 @@ label{
 
 /* Bottom Panel */
 .bottom-panel {
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
   border: none;
 }
 
@@ -218,7 +252,7 @@ label{
 
 /* Toast */
 .toast {
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
 }
 
 /* Custom Scrollbars */
@@ -259,6 +293,7 @@ label{
 }
 
 /* Profile Hero */
+
 .profile-hero__content-box {
   background: transparent !important;
 }
@@ -280,7 +315,7 @@ label{
 
 /* Modal */
 .modal {
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
 }
 
 /* Button Styles */
