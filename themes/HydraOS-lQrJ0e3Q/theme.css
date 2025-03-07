@@ -269,7 +269,6 @@ body {
 
 .profile-hero__background-image {
   background-color: transparent;
-  background: transparent;
   border-radius: 15px; /* Bordas arredondadas */
 }
 
@@ -535,7 +534,7 @@ body {
   background: transparent;
 }
 
-.download-group__cover, .download-group__cover, .download-group__cover-content {
+.download-group__cover, .download-group__cover-content {
   background: transparent;
   background-color: transparent;
   border: none;
@@ -563,7 +562,6 @@ body {
 
 .hero, .game-card {
   background-color: transparent;
-  background: transparent;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
   box-shadow: 0px 2px 5px var(--color-shadow);
@@ -626,7 +624,6 @@ body {
 
 .user-library-game__wrapper {
   background-color: transparent;
-  background: transparent;
   border-radius: 15px;
 }
 
