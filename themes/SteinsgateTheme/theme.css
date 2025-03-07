@@ -75,13 +75,10 @@
   .sidebar__menu-item-button:active {
     border-radius: 5px;
     background-color: rgba(133, 35, 35, 0.5);
-  }
-  
-  .sidebar__menu-item-button:active {
     transition: transform 300ms ease;
     transform: scale(1.10);
   }
-  
+
   .text-field-container__text-field-input {
     background-color: rgb(36, 35, 35);
     border-radius: 10px;
@@ -158,7 +155,7 @@
     transition: all 1s ease;
   }
   .game-card:hover, .user-library-game__wrapper:hover, .how-long-to-beat__category:hover, .achievements__item:hover, .list__item:hover, .theme-card:hover {
-    box-shadow: 0px 0px 20px 10px rgba(256, 0, 0, 0.2);
+    box-shadow: 0px 0px 20px 10px rgba(255, 0, 0, 0.2);
   }
   
   /* input */
