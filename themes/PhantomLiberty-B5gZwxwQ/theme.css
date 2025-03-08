@@ -466,7 +466,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur (20px);
+    backdrop-filter: blur(20px);
 }
 
 .button {
