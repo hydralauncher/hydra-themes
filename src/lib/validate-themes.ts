@@ -35,3 +35,5 @@ folders.forEach(async (folder) => {
     throw new Error(`❌ Failed to fetch author ${authorCode}`);
   });
 });
+
+console.log(`✅ Validated ${folders.length} themes`);
