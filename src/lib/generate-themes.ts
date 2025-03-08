@@ -3,6 +3,9 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
+import sharp from "sharp";
+import { redis } from "./redis";
+import { api } from "./api";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -20,7 +23,9 @@ Promise.all(
     const files = fs.readdirSync(folderPath);
 
     const cssFile = files.find((file) => file.endsWith(".css"));
-    const screenshotFile = files.find((file) => file.startsWith("screenshot"));
+    const screenshotFile = files.find((file) =>
+      file.toLowerCase().startsWith("screenshot"),
+    );
 
     if (!cssFile) {
       console.error(`No css file found for theme ${folder}`);
@@ -32,69 +37,94 @@ Promise.all(
       return;
     }
 
-    const [themeName, authorCode] = folder.split("-");
+    const parts = folder.split("-");
+    const authorCode = parts.pop()?.trim();
+    const themeName = parts.join("-").trim();
 
-    const response = await fetch(
-      `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "hydra-token": hydraHeaderSecret,
+    const response = await api.get<Theme["author"]>(`/users/${authorCode}`);
+
+    await api
+      .post(
+        `/badges/${authorCode}/theme`,
+        {},
+        {
+          headers: {
+            "hydra-token": hydraHeaderSecret,
+          },
         },
-      },
+      )
+      .catch((err) => {
+        console.error(
+          `could not update user (${authorCode}) badge`,
+          err.message,
+          err.response?.data,
+        );
+      });
+
+    const data: Theme["author"] = {
+      id: response.data.id,
+      displayName: response.data.displayName,
+      profileImageUrl: response.data.profileImageUrl,
+    };
+
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
     );
 
-    if (!response.ok) {
-      console.error(`Failed to fetch author ${authorCode}`);
-      return;
+    if (!fs.existsSync(publicThemePath)) {
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
+
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(340, null, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(path.join(publicThemePath, "screenshot.webp"))
+        .then(() => {
+          if (screenshotFile !== "screenshot.webp") {
+            fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+          }
+        });
     }
 
-    const data = (await response.json()) as Theme["author"];
+    const redisKey = `theme:${authorCode}:${themeName}`;
 
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
-    );
+    const themeData = await redis.get(redisKey);
 
-    const fileExt = path.extname(data.profileImageUrl);
-    const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-      res.arrayBuffer(),
-    );
-
-    fs.writeFileSync(
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        `author${fileExt}`,
-      ),
-      Buffer.from(authorResponse),
-    );
+    if (!themeData) {
+      await redis.set(
+        redisKey,
+        JSON.stringify({
+          downloads: 0,
+          favorites: 0,
+          createdAt: new Date(),
+        }),
+      );
+    }
 
     return {
+      id: `${authorCode}:${themeName}`,
       name: themeName,
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: `author${fileExt}`,
-    };
+      downloads: 0,
+      favorites: 0,
+    } as Theme;
   }),
-).then((themes) => {
-  console.log(`Generated ${themes.length} themes`);
+)
+  .then((themes) => themes.filter((theme) => theme))
+  .then((themes) => {
+    console.log(`Generated ${themes.length} themes`);
 
-  fs.writeFileSync(
-    path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
-  );
-});
+    fs.writeFileSync(
+      path.join(import.meta.dirname, "themes.json"),
+      // Fix themes returning null
+      JSON.stringify(themes.filter((theme) => theme)),
+    );
+
+    redis.disconnect();
+  });
