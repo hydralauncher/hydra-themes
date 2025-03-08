@@ -41,11 +41,11 @@ Promise.all(
     const authorCode = parts.pop()?.trim();
     const themeName = parts.join("-").trim();
 
-    const response = await api.get(`/users/${authorCode}`);
+    const response = await api.get<Theme["author"]>(`/users/${authorCode}`);
 
     await api
       .post(
-        `/badge/${authorCode}/theme`,
+        `/badges/${authorCode}/theme`,
         {},
         {
           headers: {
@@ -59,16 +59,13 @@ Promise.all(
           err.message,
           err.response?.data,
         );
-      })
-      .catch((err) => {
-        console.error(
-          `could not update user (${authorCode}) badge`,
-          err.message,
-          err.response?.data,
-        );
       });
 
-    const data = response.data as Theme["author"];
+    const data: Theme["author"] = {
+      id: response.data.id,
+      displayName: response.data.displayName,
+      profileImageUrl: response.data.profileImageUrl,
+    };
 
     const publicThemePath = path.join(
       import.meta.dirname,
@@ -85,7 +82,12 @@ Promise.all(
       await sharp(path.join(folderPath, screenshotFile))
         .resize(340, null, { fit: "inside" })
         .toFormat("webp")
-        .toFile(path.join(publicThemePath, "screenshot.webp"));
+        .toFile(path.join(publicThemePath, "screenshot.webp"))
+        .then(() => {
+          if (screenshotFile !== "screenshot.webp") {
+            fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+          }
+        });
     }
 
     const redisKey = `theme:${authorCode}:${themeName}`;
