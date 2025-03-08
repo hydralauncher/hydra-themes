@@ -1,0 +1,186 @@
+
+  /*
+  theme: Kamusary
+  description: matias
+  update: 02/18/25
+  by: Prefeitura
+  */
+
+
+  .sidebar,
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: transparent;
+  }
+
+
+  .bottom-panel__downloads-button,
+  .bottom-panel__version-button,
+  .download-group__title,
+  .header__section--left,
+  .sidebar__menu-item,
+  .sidebar,
+  body {
+    color: #E88000;
+  }
+  
+  
+  #root {
+    background: url(https://images3.alphacoders.com/163/163957.jpg)
+      #000;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+  .bottom-panel,
+  .title-bar,
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar{
+    background-color: rgba(0, 0, 0, 0.658) !important;
+    backdrop-filter: blur(3px);
+  }
+
+
+  .container__content .button--outline {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.63);
+  }
+  
+  
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background-color: rgba(0, 0, 0, 0.644) !important;
+    backdrop-filter: blur(2px);
+  }
+  
+  
+  .profile-hero__hero-panel--transparent,
+  .profile-hero__background-overlay--transparent{
+    background-color: rgba(0, 0, 0, 0) !important;
+    backdrop-filter: blur(0px);
+  }
+
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  background: linear-gradient(135deg, #0303038a, #0a0a0a34);
+  border-radius: 5px;
+  padding: 12px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  width: 250px; 
+  overflow: hidden; 
+}
+
+
+.sidebar-profile__button {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
+
+}
+
+
+.sidebar-profile__button:hover {
+  transform: scale(1.05);
+  backdrop-filter: blur 5px;
+}
+
+
+.sidebar-profile__button-content {
+  display: flex;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  width: 100%;
+}
+
+
+.game-item__genres{
+  color: rgb(245, 229, 8);
+}
+
+
+  .theme-card__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+  }
+
+
+.downloads__no-downloads{
+  color: white;
+}
+
+
+.select-field:hover,
+.select-field--primary,
+.button--outline{
+  border: solid 1px #ff0000 ;
+
+}
+
+
+.button--primary:hover{
+  background-color: #e5bb39;
+}
+
+
+.sidebar-profile__friends-button {
+  background: transparent;
+  width: 30px; 
+  height: 30px; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  cursor: pointer;
+  transition: transform 0.3s ease, fill 0.3s ease;
+  box-sizing: border-box; 
+}
+
+
+.sidebar-profile__friends-button:hover {
+  transform: scale(1.2);
+}
+
+
+.sidebar-profile__friends-button svg {
+  fill: #FDEB09
+}
+
+
+.title-bar h4 {
+visibility: hidden;
+}
+
+.title-bar::before {
+content: "Castlevania Hydra";
+font-size: 15px;
+font-weight: 700;
+letter-spacing: 7px;
+text-transform: uppercase;
+text-shadow: 
+        0 0 23px #eec926, 
+        0 0 20px #eec926, 
+        0 0 20px #F2CC0C, 
+        0 0 5px #ff0000, 
+        0 0 30px #ff0000, 
+        0 0 30px #ff0000;
+}
