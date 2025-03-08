@@ -24,6 +24,7 @@
     #000;
     background-position: top;
     background-repeat: no-repeat;
+    background-size: cover;
   }
 
   h1, 
@@ -58,6 +59,7 @@
   .user-stats__box,
   .recent-games__box {
     background-color: rgba(0, 0, 0, 0.4) !important;
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     box-shadow: 0px 0px 7px rgba(0, 255, 255, 0.7); /* Glow Neon */
   }

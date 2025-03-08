@@ -3,9 +3,9 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
-import axios from "axios";
 import sharp from "sharp";
 import { redis } from "./redis";
+import { api } from "./api";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -41,28 +41,14 @@ Promise.all(
     const authorCode = parts.pop()?.trim();
     const themeName = parts.join("-").trim();
 
-    const response = await axios.get(
-      `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "hydra-token": hydraHeaderSecret,
-        },
-      },
-    );
+    const response = await api.get<Theme["author"]>(`/users/${authorCode}`);
 
-    if (response.status !== 200) {
-      console.error(`Failed to fetch author ${authorCode}`);
-      return;
-    }
-
-    await axios
+    await api
       .post(
-        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        `/badges/${authorCode}/theme`,
         {},
         {
           headers: {
-            "Content-Type": "application/json",
             "hydra-token": hydraHeaderSecret,
           },
         },
@@ -75,7 +61,11 @@ Promise.all(
         );
       });
 
-    const data = response.data as Theme["author"];
+    const data: Theme["author"] = {
+      id: response.data.id,
+      displayName: response.data.displayName,
+      profileImageUrl: response.data.profileImageUrl,
+    };
 
     const publicThemePath = path.join(
       import.meta.dirname,
@@ -92,7 +82,12 @@ Promise.all(
       await sharp(path.join(folderPath, screenshotFile))
         .resize(340, null, { fit: "inside" })
         .toFormat("webp")
-        .toFile(path.join(publicThemePath, "screenshot.webp"));
+        .toFile(path.join(publicThemePath, "screenshot.webp"))
+        .then(() => {
+          if (screenshotFile !== "screenshot.webp") {
+            fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+          }
+        });
     }
 
     const redisKey = `theme:${authorCode}:${themeName}`;
