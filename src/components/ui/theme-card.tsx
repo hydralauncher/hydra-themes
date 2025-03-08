@@ -4,6 +4,7 @@ import { DownloadIcon, HeartIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import axios from "axios";
+import { compactNumber } from "@/lib/helpers";
 
 export interface ThemeCardProps {
   theme: Theme;
@@ -26,7 +27,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   const performThemeAction = useCallback(
     (action: string) => {
-      axios.put("/api/themes", {
+      axios.put("/api/themes.json", {
         themeId: theme.id,
         action,
       });
@@ -107,12 +108,12 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           <div className="flex items-center gap-2">
             <HeartIcon className="size-4 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">
-              {favoriteCount}
+              {compactNumber(favoriteCount)}
             </span>
 
             <DownloadIcon className="size-4 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">
-              {downloadCount}
+              {compactNumber(downloadCount)}
             </span>
           </div>
         </div>
