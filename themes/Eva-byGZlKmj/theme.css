@@ -562,18 +562,33 @@ padding: 15px;
 border-color: #594d86;
 background-color: #594d86a8;
 }
-.select-field--primary{
-border-radius: 20px;
-border-color: #594d86;
-background-color: #594d86a8;
+.text-field-container__text-field:hover{
+  border-color: #201D30;
+}
+
+.select-field.select-field--primary{
+  border-top-right-radius: 30px;
+  background-color: #594d86a8;
+  border-color: transparent;
 }
 .select-field__option{
-border-radius: 20px;
-background-color: #594d86a8;
+  border-top-right-radius: 30px;
+  background-color: #594d86a8;
+  border-color: transparent;
 }
-.slect-field--focused{
-background: transparent;
+.select-field__option:hover{
+  border-color: transparent;
+  border-top-right-radius: 30px;
 }
+.select-field--focused{
+  border-color: transparent;
+ border-top-right-radius: 30px;
+}
+.select-field.select-field.select-field--primary:hover{
+  border-color: #201D30;
+
+}
+
 
 
 .settings-download-sources__item {
