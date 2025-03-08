@@ -58,7 +58,7 @@ export function Header() {
                 value={search}
                 onChange={handleSearch}
                 className="h-8 rounded-lg bg-muted/50 pl-10 text-sm text-muted-foreground xs:w-64"
-                placeholder="Search a style..."
+                placeholder="Search a theme..."
               />
             </div>
           </div>
