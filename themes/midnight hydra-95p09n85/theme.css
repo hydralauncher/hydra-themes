@@ -5,12 +5,10 @@ body {
     background-color: #16181d;
 }
 
-
 .container__content{
     background: transparent;
     border-radius: 7px;
-    
-  }
+}
 
 .settings__content {
     background-color: #1c1f26;
@@ -21,7 +19,6 @@ body {
     border-bottom: solid 7px #16181d;
 }
 
-
 .bottom-panel {
     background-color: #1c1f26;
     border-top: solid 10px #16181d;
@@ -31,22 +28,19 @@ body {
 .text-field-container__text-field-input--read-only {
     background-color: #1c1f26;
     border-radius: 7px;
-    }
-
+}
 
 .text-field-container__text-field--dark,
-  .header__search, .text-field-container__text-field--primary,
-  .game-item {  
+.header__search, .text-field-container__text-field--primary,
+.game-item {  
     background-color: #16181d; 
     border: transparent             
   }
-
 
 .sidebar__menu {
     background-color: #16181d;
     border-radius: 7px;
 }
-
 
 .sidebar__section-title {
     text-transform: uppercase;
@@ -54,7 +48,6 @@ body {
     text-align: center;
     color: #778a9f;
 }
-
 
 .sidebar__content {
     background-color: #1c1f26;
@@ -71,28 +64,24 @@ body {
     color: #778a9f;
 }
 
-
 .sidebar-profile {
     border-radius: 7px;
+    border-top: 7px #1c1f26;
     background-color: #1c1f26;
 }
-
 
 .game-item {
     background-color: #1c1f26;
     color: #778a9f;
     border-radius: 7px;
     border: 7px solid #1c1f26;
-
 }
- 
 
 .catalogue__filters-container {
     background-color: #1c1f26;
     border-radius: 7px;
     border: 1px solid #ffffff00;
 }
-
 
 .sidebar {
     background-color: #16181d;
@@ -108,15 +97,10 @@ body {
     border-radius: 7px;
     border-bottom: solid 7px #16181d;
 }
-
-
 .title-bar {
-
     background-color: #1c1f2600;
     color: #778a9f;
     border-bottom: 1px solid #16181d;
-
-    
 }
 
 .header {
@@ -126,7 +110,6 @@ body {
     border-right: solid 10px #16181d;
     border-radius: 7px;
 }
-
 
 .user-stats__section-header,
 .recent-games__section-header {
@@ -162,8 +145,7 @@ body {
     background: #00000000
       url("https://media.discordapp.net/attachments/712598144889651230/1343851567576649778/wallhaven-m3v3j1.png?ex=67bec6cd&is=67bd754d&hm=adaa9f092a2c93854e368cb617440bb7be265bbb63c16cf1caf47275eec80eee&=&format=webp&quality=lossless&width=1020&height=260")
     no-repeat center center;
-     background-size: cover ;
-    
+     background-size: cover;
 }
 
 .profile-hero__button--outline {
@@ -176,13 +158,13 @@ body {
 }
 
 .sidebar__menu-item,
-.recent-games__list-item
-{
+.recent-games__list-item,
+.download-group__title,
+.theme-card__header__title {
     color: #869ab1;
 }
 
 .settings-download-sources__item {
-   
     background-color: #16181d;
     border: solid 1px rgba(255, 255, 255, 0);
 }
@@ -198,6 +180,40 @@ body {
     color: #778a9f;
 }
 
-.theme-card__header__title  {
-    color: #778a9f;
+.download-group__item{
+     background-color: #1c1f26;
+     border: transparent;
+     box-shadow: 5px 5px 0px 0px #00000063
+}
+
+.game-details__description-container {
+    background: linear-gradient(0deg, #1c1f26 50%, #1c1f26 100%);
+} 
+
+.content-sidebar {
+    background-color: #1c1f26;
+    border-left: solid 5px #16181d;
+}
+
+.sidebar-section__button,
+.list__item,
+.description-header {
+    background-color: #16181d;
+}
+
+.modal {
+    background-color: #16181d;
+    border-radius: 7px;
+    border: solid 10px #1c1f26
+}
+
+.modal__header {
+    border: solid 7px #16181d;
+    background: #1c1f26;
+    border-radius: 40px;
+}
+
+.text-field-container__text-field-wrapper{
+    border: solid 6px #1c1f26;
+    border-radius: 7px;
 }
