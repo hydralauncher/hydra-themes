@@ -3,7 +3,9 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import type { Theme } from "./schemas/theme";
-import axios from "axios";
+import sharp from "sharp";
+import { redis } from "./redis";
+import { api } from "./api";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
@@ -39,28 +41,14 @@ Promise.all(
     const authorCode = parts.pop()?.trim();
     const themeName = parts.join("-").trim();
 
-    const response = await axios.get(
-      `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "hydra-token": hydraHeaderSecret,
-        },
-      },
-    );
+    const response = await api.get<Theme["author"]>(`/users/${authorCode}`);
 
-    if (response.status !== 200) {
-      console.error(`Failed to fetch author ${authorCode}`);
-      return;
-    }
-
-    await axios
+    await api
       .post(
-        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
+        `/badges/${authorCode}/theme`,
         {},
         {
           headers: {
-            "Content-Type": "application/json",
             "hydra-token": hydraHeaderSecret,
           },
         },
@@ -73,48 +61,48 @@ Promise.all(
         );
       });
 
-    const data = response.data as Theme["author"];
+    const data: Theme["author"] = {
+      id: response.data.id,
+      displayName: response.data.displayName,
+      profileImageUrl: response.data.profileImageUrl,
+    };
 
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
     );
 
-    let authorImage = null;
-    try {
-      const url = new URL(data.profileImageUrl);
-      url.search = "";
-      data.profileImageUrl = url.toString();
+    if (!fs.existsSync(publicThemePath)) {
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
 
-      const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-        res.arrayBuffer(),
-      );
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(340, null, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(path.join(publicThemePath, "screenshot.webp"))
+        .then(() => {
+          if (screenshotFile !== "screenshot.webp") {
+            fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+          }
+        });
+    }
 
-      const authorImagePath = path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        'author.png'
-      );
+    const redisKey = `theme:${authorCode}:${themeName}`;
 
-      fs.writeFileSync(
-        authorImagePath,
-        Buffer.from(authorResponse)
+    const themeData = await redis.get(redisKey);
+
+    if (!themeData) {
+      await redis.set(
+        redisKey,
+        JSON.stringify({
+          downloads: 0,
+          favorites: 0,
+          createdAt: new Date(),
+        }),
       );
-      authorImage = 'author.png';
-    } catch (error) {
-      console.error(`Failed to fetch author image for ${authorCode}`, error);
     }
 
     return {
@@ -123,16 +111,20 @@ Promise.all(
       author: data,
       screenshotFile: screenshotFile,
       cssFile: cssFile,
-      authorImage: authorImage,
       downloads: 0,
       favorites: 0,
     } as Theme;
   }),
-).then((themes) => {
-  console.log(`Generated ${themes.length} themes`);
+)
+  .then((themes) => themes.filter((theme) => theme))
+  .then((themes) => {
+    console.log(`Generated ${themes.length} themes`);
 
-  fs.writeFileSync(
-    path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
-  );
-});
+    fs.writeFileSync(
+      path.join(import.meta.dirname, "themes.json"),
+      // Fix themes returning null
+      JSON.stringify(themes.filter((theme) => theme)),
+    );
+
+    redis.disconnect();
+  });
