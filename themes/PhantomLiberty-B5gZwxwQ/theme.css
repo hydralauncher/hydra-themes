@@ -709,9 +709,8 @@ button {
     transition: all ease 0.1s;
     color: #ffffffa0;
     width: 100%;
-    /* overflow: hidden; */
     padding: 8px 8px;
-    overflow:   hidden;
+    overflow: hidden;
     border-radius: 50px;
 }
 
