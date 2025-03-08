@@ -4,18 +4,33 @@ import { ModeToggle } from "@/components/ui/theme-mode";
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Upload } from "lucide-react";
-import { I18nSelector } from "@/components/ui/i18n-selector";
-import { useStore } from "@nanostores/react";
-import { searchQuery } from "@/stores/search";
 import { cn } from "@/lib/utils";
+import { searchQuery } from "@/stores/search";
+import { useCallback, useRef, useState } from "react";
+import { debounce } from "lodash-es";
 
 export function Header() {
-  const query = useStore(searchQuery);
+  const debouncedSearch = useRef(
+    debounce((value: string) => {
+      searchQuery.set({
+        value,
+        page: 1,
+      });
+    }, 300),
+  ).current;
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    searchQuery.set(value);
-  };
+  const [search, setSearch] = useState("");
+
+  const handleSearch = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setSearch(value);
+
+      debouncedSearch.cancel();
+      debouncedSearch(value);
+    },
+    [],
+  );
 
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -37,13 +52,13 @@ export function Header() {
 
         <div className="flex items-center">
           <div className="mr-2 items-center gap-2">
-            <div className="relative w-full hidden sm:flex">
+            <div className="relative hidden w-full sm:flex">
               <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                value={query}
+                value={search}
                 onChange={handleSearch}
                 className="h-8 rounded-lg bg-muted/50 pl-10 text-sm text-muted-foreground xs:w-64"
-                placeholder="Search a style..."
+                placeholder="Search a theme..."
               />
             </div>
           </div>
