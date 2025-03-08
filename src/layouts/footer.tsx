@@ -10,7 +10,7 @@ export function Footer() {
           <div className="mb-4 text-center md:mb-0 md:text-left">
             <h3 className="text-2xl font-bold">Hydra Theme Store</h3>
             <p className="mt-2 text-sm">
-              {new Date().getFullYear()} &copy; Hydra Launcher.
+              &copy; {new Date().getFullYear()} Hydra Launcher
             </p>
           </div>
 
