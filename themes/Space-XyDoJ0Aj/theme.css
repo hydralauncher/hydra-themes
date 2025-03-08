@@ -14,7 +14,7 @@ body {
 
 .container__content, .button--outline{
   background: transparent;
-  border: 1px solid rgba(4, 32, 85, 0.3);
+  border: 1px solid rgb(8, 122, 230); 
   padding: 0px 05px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -24,11 +24,20 @@ body {
   background: transparent;
   color: whitesmoke;
   font-style: italic;
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
 }
 
 .game-item span {
   color: white !important; 
-  text-shadow: 0 0 5px rgb(8, 122, 230), 0 0 10px rgb(16, 96, 172)
+  text-shadow: 0 0 5px rgb(8, 122, 230), 0 0 10px rgb(16, 96, 172);
+  box-shadow: rgb(8, 122, 230);
+}
+
+.game-item:hover {
+  background: rgba(8, 122, 230, 0.5); 
+  border: 1px solid rgb(8, 122, 230); 
+  box-shadow: 0 0 10px rgba(8, 122, 230, 0.5); 
 }
 
 .text-field-container__text-field--dark,
