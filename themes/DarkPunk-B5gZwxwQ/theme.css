@@ -1,6 +1,4 @@
-/*asstro lyk,labirintite*/
-
-/* Reset básico */
+/* asstro lyk */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,32 +16,32 @@ body {
   font-weight: 400;
   color: #ffffffdc;
   background-color: rgba(0, 0, 0, 0.534);
-  border-radius: 10px; /* Arredondamento do body */
+  border-radius: 10px;
   overflow: hidden;
   user-select: none;
-  transition: background-color 0.5s ease-in-out; /* Suaviza mudança de cor do background */
+  transition: background-color 0.5s ease-in-out;
   border-bottom: solid 1px rgba(0, 0, 0, 0.43);
 }
 
 /* Container principal */
 #root {
-  background: #0000007b url("https://w.wallhaven.cc/full/v9/wallhaven-v9k9yl.png") no-repeat center center;
+  background: #0000007b url("https://w.wallhaven.cc/full/rr/wallhaven-rrvqk7.jpg") no-repeat center center;
   background-size: cover;
-  border-radius: 30px; /* Arredondamento do container principal */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza transformações e transições */
+  border-radius: 30px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Header */
 .header {
   background: #000000 !important;
   backdrop-filter: blur(10px);
-  border-radius: 0px; /* Arredondamento do header */
-  transition: background-color 0.3s ease; /* Suaviza a transição de cor */
+  border-radius: 0px;
+  transition: background-color 0.3s ease;
   color: #eeeee2;
   width: 100%;
-    padding: 16px 24px;
-    gap: 16px;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.315);
+  padding: 16px 24px;
+  gap: 16px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.315);
 }
 
 /* Sidebar */
@@ -51,19 +49,17 @@ body {
   background: transparent !important;
   background-color: rgba(0, 0, 0, 0.844) !important;
   backdrop-filter: blur(6px);
-  border-radius: 30px; /* Arredondamento da sidebar */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Suaviza a mudança de cor de fundo e transição */
+  border-radius: 30px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   border-right: solid 1px rgba(0, 0, 0, 0.997);
 }
-
-
 
 /* Conteúdo principal */
 .container__content {
   color: hwb(60 90% 7%);
   background: transparent !important;
-  border-radius: 0px; /* Arredondamento do conteúdo principal */
-  transition: background-color 0.3s ease; /* Suaviza a mudança de cor de fundo */
+  border-radius: 0px;
+  transition: background-color 0.3s ease;
 }
 
 /* Painel inferior */
@@ -71,26 +67,26 @@ body {
   background: transparent !important;
   background-color: rgba(0, 0, 0, 0.46);
   backdrop-filter: blur(3px);
-  border-radius: 30px; /* Arredondamento do painel inferior */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Suaviza a transição de transformação */
+  border-radius: 30px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Toast */
 .toast {
-  border-radius: 30px; /* Arredondamento do toast */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a transformação do toast */
+  border-radius: 30px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Botões */
 .button {
-  border-radius: 30px; /* Arredondamento dos botões */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave ao clicar */
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .container__content .button--outline {
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.523);
-  border-radius: 30px; /* Arredondamento dos botões outline */
+  border-radius: 30px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -98,15 +94,15 @@ body {
 .title-bar {
   background-color: #7600000f;
   backdrop-filter: blur(10px);
-  border-radius: 30px; /* Arredondamento da barra de título */
-  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
 }
 
 /* Conteúdo da página inicial */
 .home__content {
   background-color: rgb(0, 0, 0);
   backdrop-filter: blur(3px);
-  border-radius: 30px; /* Arredondamento do conteúdo da página inicial */
+  border-radius: 30px;
 }
 
 /* Widget Featurebase */
@@ -115,8 +111,8 @@ body {
   --featurebase-widget-bottom: 75px;
   --featurebase-widget-height: 75vh;
   --featurebase-widget-width: 420px;
-  --featurebase-widget-border-radius: 80px; /* Não alterar o border-radius dos widgets */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a transformação do widget */
+  --featurebase-widget-border-radius: 80px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .featurebase-widget.featurebase-right {
@@ -133,28 +129,28 @@ body {
   --featurebase-widget-width: 580px;
   --featurebase-widget-bottom: 0px;
   --featurebase-widget-height: 100vh;
-  --featurebase-widget-border-radius: 0px; /* Não alterar o border-radius dos widgets */
+  --featurebase-widget-border-radius: 0px;
 }
 
 /* Estilos da scrollbar */
 ::-webkit-scrollbar {
   width: 9px;
   height: 20px;
-  background-color: transparent; /* Agora a scrollbar é transparente */
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(111, 111, 111, 0.318);
   border-radius: 10px;
-  transition: background-color 0.3s ease; /* Efeito de transição suave */
+  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(223, 223, 223, 0.6); /* Efeito de cor mais destacada quando passar o mouse */
+  background-color: rgba(223, 223, 223, 0.6);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent; /* Fundo da track também transparente */
+  background-color: transparent;
 }
 
 /* Elementos comuns */
@@ -170,16 +166,16 @@ body {
 .sidebar {
   background-color: rgba(0, 0, 0, 0.168) !important;
   backdrop-filter: blur(10px);
-  border-radius: 6px; /* Arredondamento dos elementos comuns */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Suaviza a mudança de fundo e a transformação */
+  border-radius: 6px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
   background-color: rgba(225, 225, 225, 0.692) !important;
-  border-radius: 30px; /* Arredondamento dos itens de download e dos itens de jogo */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Suaviza o efeito de transformação */
+  border-radius: 30px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Efeitos de hover e foco */
@@ -187,29 +183,29 @@ body {
 .text-field-container__text-field--dark:hover,
 .text-field-container__text-field--primary:hover,
 .button:hover {
-  border-radius: 15px; /* Garantir que o hover mantenha o arredondamento */
-  background-color: rgba(0, 0, 0, 0.518); /* Alteração sutil do fundo no hover */
-  transform: translateY(-2px); /* Levanta o item sutilmente */
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.518);
+  transform: translateY(-2px);
   cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave */
+  transition: all 0.3s ease;
 }
 
 .game-item:active,
 .text-field-container__text-field--dark:active,
 .text-field-container__text-field--primary:active,
 .button:active {
-  transform: translateY(2px); /* Efeito ao clicar */
+  transform: translateY(2px);
 }
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary {
-  transition: border-color 0.3s ease; /* Transição suave para bordas */
+  transition: border-color 0.3s ease;
 }
 
 .text-field-container__text-field--dark:focus,
 .text-field-container__text-field--primary:focus {
-  border-color: #000000; /* Cor suave no foco */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave no foco */
+  border-color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Efeitos ao passar o mouse em cima de textos */
@@ -224,8 +220,8 @@ body {
 }
 
 .game-item:hover .game-description {
-  opacity: 0.8; /* Deixa a descrição mais sutil quando o mouse passar por cima */
-  transform: translateY(5px); /* Move a descrição suavemente para cima */
+  opacity: 0.8;
+  transform: translateY(5px);
 }
 
 .game-item:active .game-description {
@@ -235,61 +231,61 @@ body {
 
 /* Foto de perfil */
 .profile-picture {
-  border-radius: 100%; /* Arredondar a imagem de perfil para que seja circular */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para zoom e sombra */
+  border-radius: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-picture:hover {
-  transform: scale(1.05); /* Leve aumento da imagem ao passar o mouse */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave ao passar o mouse */
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Banner do perfil */
 .profile-banner {
-  border-radius: 15px; /* Bordas arredondadas de forma sutil no banner */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para zoom e sombra */
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-banner:hover {
-  transform: scale(1.02); /* Leve aumento do banner ao passar o mouse */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra suave ao passar o mouse */
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Caixa de informações do perfil */
 .user-stats__box {
   background-color: rgba(255, 255, 255, 0.388) !important;
   backdrop-filter: blur(10px);
-  border-radius: 20px; /* Bordas arredondadas na caixa de informações */
+  border-radius: 20px;
   padding: 10px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .user-stats__box:hover {
-  transform: scale(1.02); /* Leve aumento ao passar o mouse */
-  background-color: rgba(0, 0, 0, 0.45); /* Leve escurecimento do fundo */
+  transform: scale(1.02);
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 /* Efeito de transição suave para texto dentro do perfil */
 .profile-text {
   font-size: 16px;
   color: #fff;
-  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease, text-shadow 0.3s ease; /* Inclui transição para text-shadow */
+  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease, text-shadow 0.3s ease;
 }
 
 .profile-text:hover {
-  color: #ffffff; /* Mudança suave de cor ao passar o mouse */
-  transform: scale(1.05); /* Efeito de aproximação sutil ao passar o mouse */
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6); /* Efeito de sombra sutil para destacar o texto sem blur */
+  color: #ffffff;
+  transform: scale(1.05);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Ajustando os ícones dos jogos na tela inicial para preencher completamente o card */
 .game-card {
-  border-radius: 40px; /* Deixa os cards mais arredondados */
-  overflow: hidden; /* Garante que nada ultrapasse as bordas */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombreamento suave */
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)); /* Fundo moderno */
-  padding: 0; /* Remove padding que pode afetar o preenchimento da imagem */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -302,16 +298,16 @@ body {
 
 /* Ajuste das imagens dentro dos cards para cobrir toda a área */
 .game-card img {
-  border-radius: 40px; /* Mantém o arredondamento */
+  border-radius: 40px;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Faz com que a imagem preencha todo o espaço sem cortes */
-  position: absolute; /* Posiciona a imagem corretamente */
+  object-fit: cover;
+  position: absolute;
 }
 
 /* Ajustando os botões e textos dentro dos cards */
 .game-card .game-info {
-  position: relative; /* Para manter os textos acima da imagem */
+  position: relative;
   padding: 10px;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.7);
@@ -322,12 +318,12 @@ body {
 
 /* Ajustando tags de categorias dos jogos */
 .game-card .game-tags {
-  position: relative; /* Mantém as tags visíveis sobre a imagem */
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   justify-content: center;
-  z-index: 2; /* Garante que fiquem acima da imagem */
+  z-index: 2;
 }
 
 .game-card .game-tags span {
@@ -362,33 +358,31 @@ body {
 .profile-avatar {
   border-radius: 50%;
   overflow: visible;
-  width: 100px; /* Ajuste conforme necessário */
-  height: 100px; /* Ajuste conforme necessário */
-  border: 4px solid rgba(0, 0, 0, 0.186); /* Opcional: borda sutil */
-   background-color: transparent; /* Remove qualquer fundo padrão */
-  box-shadow: none; /* Remove sombras indesejadas */
+  width: 100px;
+  height: 100px;
+  border: 4px solid rgba(0, 0, 0, 0.186);
+  background-color: transparent;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 10 px;
+  margin-bottom: 10px;
 }
-
 
 /* Efeito Neon */
 .profile-avatar::before {
   content: "";
   position: absolute;
   top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-  inset: -8px; /* Define um espaço externo ao avatar */
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
   border-radius: 50%;
   border: 3px solid rgba(230, 225, 225, 0.8);
   box-shadow: 0 0 20px 5px rgba(230, 228, 228, 0.8);
   animation: pulse 1.5s infinite alternate ease-in-out;
-  z-index: -1; /* Coloca a borda atrás do avatar */
+  z-index: -1;
 }
 
 /* Animação de pulsação */
@@ -402,18 +396,19 @@ body {
     box-shadow: 0 0 20px rgb(255, 255, 255);
   }
 }
+
 .profile-avatar img {
-  width: 100%; /* Garante que a imagem ocupe todo o espaço do avatar */
-  height: 100%; /* Garante que a imagem ocupe todo o espaço do avatar */
-  object-fit: cover; /* Faz com que a imagem preencha o espaço sem distorção */
-  display: block; /* Remove espaços extras abaixo da imagem */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .hero {
-  border-radius: 20px; /* Ajuste o valor conforme necessário */
-  overflow: visible; /* Garante que a imagem dentro do banner também fique arredondada */
+  border-radius: 20px;
+  overflow: visible;
 }
 
 .avatar-container {
@@ -424,50 +419,50 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* Largura da scrollbar */
-  border-radius: 10px; /* Deixa a barra arredondada */
+  width: 8px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2); /* Fundo da trilha da scrollbar */
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(66, 66, 66, 0.188); /* Cor da barra */
-  border-radius: 10px; /* Deixa a barra arredondada */
-  border: 2px solid rgba(0, 0, 0, 0.2); /* Evita que vaze da margem */
+  background: rgba(66, 66, 66, 0.188);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(176, 176, 176, 0.179); /* Cor ao passar o mouse */
+  background: rgba(176, 176, 176, 0.179);
 }
 
 .sidebar-profile__friends-button {
-    color: #ffffff;
-    border-radius: 50%;
-    width: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    height: 40px;
-    background-color: #00000000;
-    position: relative;
-    transition: all ease 0.3s;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  height: 40px;
+  background-color: #00000000;
+  position: relative;
+  transition: all ease 0.3s;
 }
 
 .modal {
-    animation: scale-fade-in 0.2s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
-    background-color: #00000042;
-    border-radius: 30px;
-    min-width: 400px;
-    max-width: 600px;
-    color: #8a8b8f;
-    max-height: 100%;
-    border: solid 1px rgba(90, 90, 90, 0);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur (20px);
+  animation: scale-fade-in 0.2s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
+  background-color: #00000042;
+  border-radius: 30px;
+  min-width: 400px;
+  max-width: 600px;
+  color: #8a8b8f;
+  max-height: 100%;
+  border: solid 1px rgba(90, 90, 90, 0);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
 }
 
 /* Botões */
@@ -484,131 +479,134 @@ body {
   justify-content: center;
   gap: 10px;
   color: #ffffff;
-  
 }
 
 .container__content .button--outline {
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.66);
-    border-radius: 30px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.66);
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero {
-    width: 100%;
-    height: 350px;
-    min-height: 480px;
-    max-height: 480px;
-    border-radius: 60px;
-    color: #dadbe1;
-    overflow: hidden;
-    box-shadow: 0px 0px 15px 0px #5a5a5a7f;
-    cursor: pointer;
-    border: solid 1px rgba(68, 68, 68, 0.61);
-    z-index: 1;
+  width: 100%;
+  height: 350px;
+  min-height: 480px;
+  max-height: 480px;
+  border-radius: 60px;
+  color: #dadbe1;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 0px #5a5a5a7f;
+  cursor: pointer;
+  border: solid 1px rgba(68, 68, 68, 0.61);
+  z-index: 1;
 }
 
 .game-details__description-container {
-    display: flex;
-    width: 100%;
-    flex: 1;
-    background: linear-gradient(0deg, #000000d5 50%, #000000 100%);
+  display: flex;
+  width: 100%;
+  flex: 1;
+  background: linear-gradient(0deg, #000000d5 50%, #000000 100%);
 }
 
 .container__content {
-    color: hwb(0 100% 0% / 0.834);
+  color: hwb(0 100% 0% / 0.834);
 }
 
 element.style {
-    background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
 }
 
-.hero-panel {border-bottom: solid 1px rgba(62, 62, 62, 0.463);
-position: relative;
-    overflow: hidden;
-    top: 0;
-    z-index: 2;
+.hero-panel {
+  border-bottom: solid 1px rgba(62, 62, 62, 0.463);
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  z-index: 2;
 }
 
 .content-sidebar {
-    border-left: solid 1px rgb(0 0 0 / 15%);
-    background-color: #000000e6;
-    width: 100%;
-    height: 100%;
+  border-left: solid 1px rgb(0 0 0 / 15%);
+  background-color: #000000e6;
+  width: 100%;
+  height: 100%;
 }
 
-
-.description-header {background-color: #000000b8;
+.description-header {
+  background-color: #000000b8;
 }
 
 .checkbox-field__checkbox {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    border-radius: 10px;
-    background-color: #00000052;
-    border: solid 1px rgba(0, 0, 0, 0.404);
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 10px;
+  background-color: #00000052;
+  border: solid 1px rgba(0, 0, 0, 0.404);
 }
 
 .button {
-    background-color: #000000dd; /* Cor final aplicada */
-    border-color: #75757579;
+  background-color: #000000dd;
+  border-color: #75757579;
 }
 
 .home__content {
-    background-color: rgba(97, 97, 97, 0.066);
-    backdrop-filter: blur(10px);
-    border-radius: 0px;
+  background-color: rgba(97, 97, 97, 0.066);
+  backdrop-filter: blur(10px);
+  border-radius: 0px;
 }
+
 .home__content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px;
-    flex: 1;
-    overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .text-field-container__text-field--drk, .text-field-container__text-field--primary, .header__search, .game-item, .settings__content, .catalogue__filters-container, .friends-box__box, .user-stats__box, .recent-games__box, .sidebar {
-    background-color: rgba(0, 0, 0, 0.245) !important;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.245) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .theme-card {
-    width: 100%;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;border: 1px solid rgba(226, 226, 226, 0.15);
-    border-radius: 40px;
-    gap: 4px;
-    transition: background-color 0.2s ease;
-    padding: 16px;
-    position: relative;
+  width: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(226, 226, 226, 0.15);
+  border-radius: 40px;
+  gap: 4px;
+  transition: background-color 0.2s ease;
+  padding: 16px;
+  position: relative;
 }
 
 .sidebar__handle {
-    width: 5px;
-    height: 100%;
-    cursor: col-resize;
-    position: absolute;
-    right: 0;
-}
-button {
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    font-family: inherit;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  position: absolute;
+  right: 0;
 }
 
-.title-bar{
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+}
+
+.title-bar {
   font-size: 0.4cm;
   font-family: 'verdana';
- transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave ao clicar */
+  transition: background-color 0.3s ease, transform 0.3s ease;
   border: none;
 }
 
@@ -631,8 +629,8 @@ button {
   background-color: rgba(0, 0, 0, 0.184) !important;
   border-radius: 30px;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  overflow: hidden; /* Garante que o conteúdo interno não ultrapasse as bordas arredondadas */
-  position: relative; /* Permite posicionar o pseudo-elemento corretamente */
+  overflow: hidden;
+  position: relative;
 }
 
 /* Pseudo-elemento para aplicar o blur */
@@ -645,199 +643,194 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px); /* Efeito de blur */
-  z-index: -1; /* Coloca o blur atrás do conteúdo */
-  border-radius: 30px; /* Mantém o arredondamento */
+  backdrop-filter: blur(5px);
+  z-index: -1;
+  border-radius: 30px;
 }
 
 /* Efeito de hover para itens de download e jogos */
 .settings-download-sources__item:hover,
 .download-group__item:hover,
 .game-item:hover {
-  transform: scale(1.02) translateY(-2px); /* Aumenta levemente o tamanho e levanta o item */
-  background-color: rgba(0, 0, 0, 0.34) !important; /* Fundo mais escuro ao passar o mouse */
+  transform: scale(1.02) translateY(-2px);
+  background-color: rgba(0, 0, 0, 0.34) !important;
 }
 
 element.style {
-    width: 96px;
-    height: 96px;
+  width: 96px;
+  height: 96px;
 }
 
 .profile-hero__avatar-button {
-    width: 96px;
-    min-width: 96px;
-    height: 96px;
-    border-radius: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff00;
-    border: solid 1px rgba(255, 255, 255, 0.15);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-    transition: all ease 0.3s;
-    color: #c0c1c7;
-    position: relative;
+  width: 96px;
+  min-width: 96px;
+  height: 96px;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff00;
+  border: solid 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: all ease 0.3s;
+  color: #c0c1c7;
+  position: relative;
 }
-
 
 .edit-profile-modal__avatar-container {
-    align-self: center;
-    display: flex;
-    color: #000000da;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #1c1c1c; */
-    position: relative;
-    cursor: pointer;
-    background-color: #1c1c1c00;
+  align-self: center;
+  display: flex;
+  color: #000000da;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  background-color: #1c1c1c00;
 }
+
 style
 button {
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    font-family: inherit;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
 }
 
-
 .sidebar-profile__button {
-    display: flex;
-    cursor: pointer;
-    transition: all ease 0.1s;
-    color: #ffffffa0;
-    width: 100%;
-    /* overflow: hidden; */
-    padding: 8px 8px;
-    overflow:   hidden;
-    border-radius: 50px;
+  display: flex;
+  cursor: pointer;
+  transition: all ease 0.1s;
+  color: #ffffffa0;
+  width: 100%;
+  padding: 8px 8px;
+  overflow: hidden;
+  border-radius: 50px;
 }
 
 .achievement-panel {
-    width: 100%;
-    padding: 16px 24px;
-    background-color: #6c6c6ca1;
+  width: 100%;
+  padding: 16px 24px;
+  background-color: #6c6c6ca1;
 }
 
-
-.achievements__list {background-color: #000000;
+.achievements__list {
+  background-color: #000000;
 }
-
 
 .achievements-content__user-summary__container__stats {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    color: #ffffffbf;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #ffffffbf;
 }
 
 .dropdown-menu__content {
-    background-color: #1515156b;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    min-width: 200px;
+  background-color: #1515156b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  min-width: 200px;
 }
-
 
 .dropdown-menu__separator {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.829);
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.829);
 }
 
-.dropdown-menu__item {border-radius: 40px;
-    padding: 5px 12px;
-    cursor: pointer;
-    transition: background-color 0.1s ease-in-out;
-    font-size: 14px;
+.dropdown-menu__item {
+  border-radius: 40px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  font-size: 14px;
 }
 
 .checkbox-field__checkbox {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    border-radius: 10px;
-    background-color: #dadada52;
-    border: solid 1px rgba(0, 0, 0, 0.404);
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 10px;
+  background-color: #dadada52;
+  border: solid 1px rgba(0, 0, 0, 0.404);
 }
 
 element.style {
-    background-color: rgb(65 157 0);
+  background-color: rgb(65 157 0);
 }
 
 element.style {
-    background-color: rgb(204 92 0);
+  background-color: rgb(204 92 0);
 }
 
 element.style {
-    background-color: rgb(0 151 171);
+  background-color: rgb(0 151 171);
 }
-
 
 .friends-box__list-item {
-    display: flex;
-    cursor: pointer;
-    transition: all ease 0.1s;
-    color: #c0c1c7;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 50px;
-    padding: 12px;
-    gap: 16px;
-    align-items: center;
+  display: flex;
+  cursor: pointer;
+  transition: all ease 0.1s;
+  color: #c0c1c7;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 50px;
+  padding: 12px;
+  gap: 16px;
+  align-items: center;
 }
 
 .game-card {
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4)
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .edit-profile-modal__avatar-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    color: #c0c1c7;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  color: #c0c1c7;
 }
 
 .cloud-sync-modal__artifact {
-    display: flex;
-    text-align: left;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    color: #ffffff;
-    padding: 16px;
-    background-color: #000000;
-    border: 1px solid rgba(250, 250, 250, 0.796);
-    border-radius: 30px;
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  padding: 16px;
+  background-color: #000000;
+  border: 1px solid rgba(250, 250, 250, 0.796);
+  border-radius: 30px;
 }
 
 .game-details__cloud-sync-button {
-    padding: 12px 16px;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(20px);
-    border-radius: 30px;
+  padding: 12px 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
 }
 
 .settings-download-sources__item, .download-group__item, .game-item {
-    background-color: rgba(0, 0, 0, 0.18) !important;
-    border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.18) !important;
+  border-radius: 30px;
 }
 
 .sidebar-section__button {
-    background-color: #000000e6;
-    color: #ffffffd2;
+  background-color: #000000e6;
+  color: #ffffffd2;
 }
 
 .title-bar {
-    position: relative;
-    text-align: left;
-    color: #000000;
-    display: flex;
-    justify-content: flex-start;
+  position: relative;
+  text-align: left;
+  color: #000000;
+  display: flex;
+  justify-content: flex-start;
 }
 
 h4 {
@@ -845,52 +838,52 @@ h4 {
 }
 
 .title-bar::after {
-    width: 330px;
-    content: "DARKPUNK";
-    letter-spacing: 9px;
-    font-size: 16px;
-    font-weight: 100;
-    visibility: visible;
-    background: linear-gradient(90deg, #65656575, #dcdcdc, #4d4d4d85); /* Degradê inicial */
-    background-size: 700% 700%; /* Aumentamos o tamanho do fundo para cobrir o movimento completo */
-    -webkit-background-clip: text; /* Aplica o degradê ao texto */
-    background-clip: text;
-    color: transparent; /* Torna o texto transparente para mostrar o degradê */
-    animation: gradientAnimation 10s linear infinite; /* Aplica a animação */
+  width: 330px;
+  content: "DARKPUNK";
+  letter-spacing: 9px;
+  font-size: 16px;
+  font-weight: 100;
+  visibility: visible;
+  background: linear-gradient(90deg, #65656575, #dcdcdc, #4d4d4d85);
+  background-size: 700% 700%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientAnimation 10s linear infinite;
 }
 
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 45%; /* Início do degradê à esquerda */
-    }
-    100% {
-        background-position: 225% 150%; /* Fim do degradê à direita */
-    }
+  0% {
+    background-position: 0% 45%;
+  }
+  100% {
+    background-position: 225% 150%;
+  }
 }
 
 .badge {
-    color: #ffffff;
-    font-size: 11px;
-    padding: 5px 8px;
-    border: solid 1px #8d8d8d;
-    border-radius: 40px;
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    backdrop-filter: blur (20px);
+  color: #ffffff;
+  font-size: 11px;
+  padding: 5px 8px;
+  border: solid 1px #8d8d8d;
+  border-radius: 40px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  backdrop-filter: blur(20px);
 }
 
 .sidebar__menu-item--active {
-    background-color: rgba(48, 48, 48, 0.588);
-}
-.sidebar__menu-item {
-    transition: all ease 0.1s;
-    color: #ffffff;
-    border-radius: 20px;
+  background-color: rgba(48, 48, 48, 0.588);
 }
 
+.sidebar__menu-item {
+  transition: all ease 0.1s;
+  color: #ffffff;
+  border-radius: 20px;
+}
 
 .text-field-container__text-field--dark, .text-field-container__text-field--primary, .header__search, .game-item, .settings__content, .catalogue__filters-container, .friends-box__box, .user-stats__box, .recent-games__box, .sidebar {
-    background-color: rgba(0, 0, 0, 0.168) !important;
-    border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.168) !important;
+  border-radius: 20px;
 }
