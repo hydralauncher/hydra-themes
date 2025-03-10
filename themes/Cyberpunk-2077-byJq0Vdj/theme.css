@@ -6,13 +6,6 @@
   --white-color: 3ffffff;
 }
 
-/* #root {
-  position: relative;
-  background: url("https://wallpapercave.com/wp/wp8112453.jpg") no-repeat center center;
-  background-size: cover;
-} */
-
-
 #root {
   position: relative;
   
@@ -41,6 +34,12 @@
  background-color: transparent;
  background: transparent;
  border-radius: 0px;
+}
+
+.sidebar,
+.header,
+.container__content  {
+ background: transparent;
 }
 
 
@@ -539,7 +538,6 @@ background: rgba( 255, 255, 255, 0.15 );
 
 .modal{
    background-color: transparent !important;
-   background: rgba( 0, 0, 0, 0.9 );
     backdrop-filter: blur( 7.5px );
     -webkit-backdrop-filter: blur( 13.5px );
     color: #fff;
@@ -552,14 +550,12 @@ background: rgba( 255, 255, 255, 0.15 );
 
 .backdrop{
    background-color: transparent !important;
-   background: rgba( 0, 0, 0, 0.55 );
     backdrop-filter: blur( 7.5px );
     -webkit-backdrop-filter: blur( 13.5px );
   transition: all 0.3s ease;
 }
 
 .bottom-panel{
-  background: transparent;
   background-color: transparent;
   border-image: linear-gradient(to right, var(--blue-color) 0%, transparent 60%) 1;
 }
