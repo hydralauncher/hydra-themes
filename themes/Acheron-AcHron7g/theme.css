@@ -1,14 +1,21 @@
+:root {
+  --main-bg-color: rgba(60, 45, 90, 0.11);
+  --blur-effect: blur(8px);
+  --scrollbar-thumb: rgba(122, 72, 162, 0.7);
+  --text-color: #f0efef;
+  --placeholder-color: #c8c9ce;
+  --dark-text: #343436;
+  --hero-bg: rgba(191, 178, 221, 0.1);
+}
+
 body {
-    margin: 0;
-    color: #f0efef;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
 }
 
 #root {
-    background: #c7c0ee
-        url("https://s4.anilist.co/file/anilistcdn/user/banner/b6713707-smSFy6MHcJLv.jpg")
-        no-repeat center center;
-    background-size: cover;
+  background: #c7c0ee url("https://s4.anilist.co/file/anilistcdn/user/banner/b6713707-smSFy6MHcJLv.jpg") no-repeat center center/cover;
 }
 
 .sidebar,
@@ -17,7 +24,12 @@ body {
 .title-bar {
     background: transparent;
 }
-  
+
+.sidebar,
+.container__content,
+.container section,
+.bottom-panel,
+.title-bar,
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search,
@@ -27,7 +39,6 @@ body {
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
-.sidebar,
 .profile-hero__user-information,
 .game-details__description-container,
 .game-details__description-content,
@@ -36,33 +47,42 @@ body {
 .content-sidebar,
 .sidebar-section__button,
 .header {
-  background-color: rgba(60, 45, 90, 0.11);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.profile-hero__hero-panel.profile-hero__hero-panel--transparent { 
-  background-color: rgba(191, 178, 221, 0.10); 
-}
-
-.container__content .button--outline {
-  backdrop-filter: blur(8px); 
-  -webkit-backdrop-filter: blur(8px);
-  background-color: rgba(60, 45, 90, 0.11);
+  background-color: var(--main-bg-color);
+  backdrop-filter: var(--blur-effect);
+  -webkit-backdrop-filter: var(--blur-effect);
 }
 
 
+.profile-hero__hero-panel--transparent { 
+  background-color: var(--hero-bg); 
+}
+
+.sidebar__menu-item button,
+.sidebar-profile__friends-button,
+.sidebar-profile__friends-button:hover {
+  color: var(--placeholder-color);
+}
+
+.sidebar-profile__button-title,
+.title-bar h4 {
+  color: var(--dark-text);
+}
+
+.profile-avatar {
+  border-radius: 30%;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 0.4em;
   background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb,
-.sidebar-profile__friends-button,
-.sidebar-profile__friends-button:hover {
-  background-color: rgba(122, 72, 162, 0.7);
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
 }
 
-.sidebar__menu-item button, ::placeholder{ color: #c8c9ce; }
-.sidebar-profile__button-title, .title-bar h4 { color: #343436; }
-.profile-avatar { border-radius: 30%; }
+/* Placeholder */
+::placeholder {
+  color: var(--placeholder-color);
+}
