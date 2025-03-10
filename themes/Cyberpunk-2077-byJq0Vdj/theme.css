@@ -3,7 +3,7 @@
   --balck-color: #050A0E;
   --red-color: #FF003C;
   --blue-color: #00F0FF;
-  --white-color: 3ffffff;
+  --white-color: #ffffff;
 }
 
 #root {
@@ -32,7 +32,6 @@
 .header,
 .container__content  {
  background-color: transparent;
- background: transparent;
  border-radius: 0px;
 }
 
