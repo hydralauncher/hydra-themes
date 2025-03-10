@@ -160,7 +160,7 @@ body {
     width: fit-content;
 }
 
-.profile-hero__information {
+.profile-hero__information, .profile-hero__current-game-wrapper {
     text-align: center;
     align-items: center;
 }
@@ -478,13 +478,14 @@ main {
 
 .sidebar__menu-item span,
 .sidebar__section .sidebar__section-title,
-.sidebar__section .text-field-container {
+.sidebar__section .text-field-container, .sidebar__help-button{
     display: none;
 }
 
 /* Botões do perfil */
 .sidebar-profile__button {
     height: 100%;
+    width: fit-content;
     border-radius: 10px 0 0 10px;
     background-color: #16151563;
 }
@@ -496,14 +497,9 @@ main {
     border-radius: 0 10px 10px 0;
     background-color: #16151563;
 }
-
-.sidebar-profile__button-title,
-.sidebar-profile__button-game-running-title,
-.sidebar-profile__button-content {
-    padding: 0;
-    margin: -1px;
+.sidebar-profile__button-information{
+    display: none;
 }
-
 /* Conteúdo da sidebar */
 .sidebar__container {
     display: flex;
@@ -512,7 +508,7 @@ main {
 }
 
 .sidebar-profile {
-    width: 250px;
+    width: fit-content;
     height: 90%;
     padding: 0;
     display: flex;
