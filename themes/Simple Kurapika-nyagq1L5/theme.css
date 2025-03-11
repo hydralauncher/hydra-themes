@@ -10,6 +10,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+  #root > div > h4::after {
+    content: "'s Hunter";
+  }
+
 #root {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://raw.githubusercontent.com/repudiar/foruploads/refs/heads/main/kurapika.jpg) #000;
     background-position: center top;
