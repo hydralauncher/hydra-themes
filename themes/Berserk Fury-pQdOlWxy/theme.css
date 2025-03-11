@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
-
 /* Aplica a fonte japonesa globalmente */
 *,
 *::before,
@@ -11,7 +9,7 @@
 /* Fundo local */
 #root {
   position: relative;
-  background: url("assets/background/background-reflex.png") center center no-repeat fixed;
+  background: url("assets/background/background-reflex.png");
   background-size: cover;
   overflow: hidden;
 }
@@ -34,8 +32,8 @@
 .user-stats__box,
 .recent-games__box,
 .friends-box__box {
-  background: #341f3b6e;
-  scrollbar-color: #341f3b #341f3b6e;
+  background: #BF244180; /* Novo fundo translúcido */
+  scrollbar-color: #D92B4B #BF244180;
   scrollbar-width: thin;
 }
 
@@ -53,25 +51,20 @@
 .sidebar__section-title,
 .header__title,
 .sidebar__menu-item {
-  color: #FAF0CA;
+  color: #F2F2F2; /* Novo texto principal */
 }
 
 .button--dark {
   border: solid 1px rgba(255, 255, 255, 0.15);
 }
 .button--dark:hover {
-  background-color: #ffffff1e;
-}
-.sidebar__content {
-  scrollbar-width: thin;
+  background-color: #BF2441; /* Novo hover para botões principais */
 }
 
-/* Keyframes da animação Neon Pulse */
-@keyframes neonPulse {
-  0% {
-    text-shadow: 0 0 5px #713D9D;
-  }
-  100% {
-    text-shadow: 0 0 20px #713D9D;
-  }
+/* Outros botões */
+.button--secondary {
+  background-color: #BF807A; /* Botões secundários */
+}
+.button--secondary:hover {
+  background-color: #D92B4B; /* Hover para botões secundários */
 }
