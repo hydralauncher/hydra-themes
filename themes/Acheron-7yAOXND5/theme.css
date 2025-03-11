@@ -1,5 +1,5 @@
 :root {
-  --main-bg-color: rgba(60, 45, 90, 0.11);
+  --main-bg-color: rgba(60, 45, 90, 0.1);
   --blur-effect: blur(8px);
   --scrollbar-thumb: rgba(122, 72, 162, 0.7);
   --text-color: #f0efef;
@@ -21,7 +21,8 @@ body {
 .sidebar,
 .container__content,
 .bottom-panel,
-.title-bar {
+.title-bar,
+.settings-download-sources__list .settings-download-sources__item {
     background: transparent;
 }
 
@@ -64,25 +65,19 @@ body {
 }
 
 .sidebar-profile__button-title,
-.title-bar h4 {
+.title-bar h4{
   color: var(--dark-text);
 }
 
-.profile-avatar {
-  border-radius: 30%;
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 0.4em;
   background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
+::-webkit-scrollbar-thumb { 
+  background-color: var(--scrollbar-thumb); 
 }
 
-/* Placeholder */
-::placeholder {
-  color: var(--placeholder-color);
-}
+.bottom-panel small { color: var(--placeholder-color); }
+.profile-avatar { border-radius: 30%; }
+::placeholder { color: var(--placeholder-color); }
