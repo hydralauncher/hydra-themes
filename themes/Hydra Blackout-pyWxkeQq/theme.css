@@ -5,15 +5,19 @@
     --color-background-button: rgb(10, 10, 10);
     --color-background-checkbox: rgb(10, 10, 10);
     --color-background-scrollbar-thumb: rgba(29, 29, 29, 0.57);
-    --color-all: rgb(34, 34, 34);
+    --color-all: rgb(66, 66, 66);
     --color-text: #ffffff;
     --color-shadow: rgb(0, 0, 0);
     --background-main: rgba(0, 0, 0, 0.603);
     --font-used: "Roboto Condensed";
 }
+.title-bar h4::after {
+    content: " Blackout";
+}
 
+/* Estilos globais */
 body {
-    background: var(--background-main);
+    background: var(--background-main) no-repeat fixed;
     background-size: cover;
     font-family: var(--font-used);
     font-optical-sizing: auto;
@@ -23,48 +27,171 @@ body {
     padding: 0;
 }
 
-.achievements__list, .header, .title-bar, .toast, .catalogue__filters-container, .modal, .repacks-modal__repack-button, .user-stats__box, .recent-games__box, .friends-box__box, .settings-download-sources__item, .download-group__item {
+/* Componentes gerais */
+.achievements__list,
+.header,
+.title-bar,
+.toast,
+.catalogue__filters-container,
+.modal,
+.repacks-modal__repack-button,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.settings-download-sources__item,
+.download-group__item,
+.auto-update-sub-header {
     background-color: var(--color-background-base);
     color: var(--color-text);
     box-shadow: 0px 2px 5px var(--color-shadow);
     padding: 10px;
 }
 
+/* Sidebar */
 .sidebar {
-    background-color: var(--color-background-base); 
+    background-color: var(--color-background-base);
     width: 100%;
     height: 55px;
     min-width: 100% !important;
     max-width: 100% !important;
-    padding: 0px;
+    padding: 0;
 }
 
-.container__content {
-    background: none;
+.sidebar__content {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.sidebar__section {
+    display: flex;
+    height: 55px;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar__content section:nth-child(1) {
+    margin-left: 22px;
+}
+
+.sidebar__content section {
+    max-width: 250px;
+    text-align: end;
+}
+
+.sidebar__menu {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+    height: 55px;
+}
+
+.sidebar__menu::-webkit-scrollbar {
+    height: 5px;
+}
+
+.sidebar__menu-item {
+    transition: 0.4s;
     color: var(--color-text);
-    padding: 20px;
+    text-decoration: none;
+    position: relative;
 }
 
-.bottom-panel {
-    background-color: var(--color-background-base);
-    border-top: 3px solid var(--color-all);
-    backdrop-filter: blur(5px);
-    padding: 10px;
+.sidebar__menu-item::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--color-all);
+    transition: all 0.4s;
+}
+
+.sidebar__menu-item:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.sidebar__menu-item--active::before {
+    width: 100%;
+    left: 0;
+    border-radius: 100px;
+}
+
+.sidebar__menu-item--active {
+    color: var(--color-all);
+}
+
+.sidebar__menu-item-button {
+    width: 50px;
+    justify-content: center;
+}
+
+.sidebar__menu-item-button:hover {
+    color: var(--color-all);
+}
+
+/* Perfil */
+.profile-hero__content-box {
+    border-radius: 10px;
+}
+
+.profile-hero__user-information {
+    width: fit-content;
+    display: flex;
+    margin: 30px auto;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--color-shadow);
+    flex-direction: column-reverse;
+}
+
+.profile-hero__avatar-button {
+    order: 1;
+    width: fit-content;
+    height: fit-content;
+}
+
+.profile-avatar__image {
+    width: fit-content;
+}
+
+.profile-hero__information, .profile-hero__current-game-wrapper {
     text-align: center;
+    align-items: center;
 }
 
-.button, .select-field__option {
+.profile-hero__avatar-button .profile-avatar {
+    width: 150px !important;
+    height: 150px !important;
+}
+.sidebar-profile__friends-button-badge{
+    background-color: var(--color-all);
+    margin-top: 6px;
+}
+/* Botões */
+.button,
+.select-field__option {
     background-color: var(--color-background-base);
     color: var(--color-text);
     border-radius: 5px;
     transition: 0.3s;
     box-shadow: 0px 2px 5px var(--color-shadow);
-    border: 1px solid var(--color-all); 
+    border: 1px solid var(--color-all);
     cursor: pointer;
 }
 
-.button:hover, .select-field__option:hover {
-    background-color: var(--color-all); 
+.button:hover,
+.select-field__option:hover {
+    background-color: var(--color-all);
     opacity: 1;
 }
 
@@ -72,9 +199,42 @@ body {
     box-shadow: 0px 0px 10px var(--color-all);
 }
 
-.settings__content {
-    background-color: var(--color-background-base);
+.button--primary {
+    background-color: var(--color-background-scrollbar-thumb);
+    border: 1px solid var(--color-all);
 }
+.repacks-modal__repack-button:hover {
+    background-color: var(--color-all);
+    transform: scale(1.05);
+}
+.requirement__button-container button{
+    margin: 5px;
+}
+/* Containers */
+.container__content {
+    background: none;
+    color: var(--color-text);
+    padding: 20px;
+}
+
+.container {
+    height: 94%;
+}
+
+/* Painel inferior */
+.bottom-panel {
+    background-color: var(--color-background-base);
+    border-top: 3px solid var(--color-all);
+    backdrop-filter: blur(5px);
+    padding: 5px;
+    text-align: center;
+}
+
+.bottom-panel__version-button small::after {
+    content: " - Theme by Naitan";
+}
+
+/* Jogos */
 .game-item {
     width: 182px;
     height: 250px;
@@ -91,28 +251,18 @@ body {
     padding: 10px;
 }
 
-.game-item:hover, .achievements__list li:hover {
-    background-color: var(--color-all);
-    transform: scale(1.02);
-    border: 1px solid var(--color-text);
-}
-
-.catalogue__games-container {
-    display: inline-block;
-    width: 100%;
-}
-
-.catalogue__pagination-container {
-    clear: both;
-    width: 450px;
-    margin: 10px auto;
+.game-item:hover,
+.achievements__list li:hover {
+    background-color: rgba(0, 0, 0, 0.849);
+    transform: scale(1.03);
+    border: 1px solid var(--color-all);
 }
 
 .game-item__details {
     display: block;
     width: 100%;
     padding-top: 5px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
 
 .game-item__details span {
@@ -133,27 +283,6 @@ body {
     padding: 5px;
 }
 
-.checkbox-field__checkbox {
-    background-color: var(--color-background-checkbox);
-    color: var(--color-text);
-    box-shadow: 0px 2px 5px var(--color-shadow);
-}
-
-.repacks-modal__repack-button:hover {
-    background-color: var(--color-all);
-    transform: scale(1.05);
-    border: 1px solid var(--color-text);
-}
-
-.badge, .sidebar-profile__friends-button-badge {
-    border-color: var(--color-text);
-}
-
-.sidebar-profile__friends-button-badge {
-    background-color: var(--color-background-scrollbar-thumb);
-    margin-top: 10px;
-}
-
 .game-item__repackers {
     display: flex;
     justify-content: center;
@@ -165,30 +294,33 @@ body {
     font-size: 8px;
 }
 
-.requirement__button-container button {
-    margin: 5px;
+.catalogue__games-container {
+    display: inline-block;
+    width: 100%;
 }
 
-.bottom-panel__version-button small::after {
-    content: " - Theme by Naitan";
-}
-.title-bar h4::after {
-    content: " Blackout";
-}
-.settings__container {
-    padding: 0px;
+.catalogue__pagination-container {
+    clear: both;
+    width: 450px;
+    margin: 10px auto;
 }
 
-.button--primary {
-    background-color: var(--color-background-scrollbar-thumb);
-    border: 1px solid var(--color-all);
+/* Filtros */
+.catalogue__filters-container {
+    display: block;
 }
 
+.catalogue__filters-sections {
+    width: 100%;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
 
-::-webkit-scrollbar-track, .sidebar-section__button {
+::-webkit-scrollbar-track,
+.sidebar-section__button {
     background-color: var(--color-background-dark);
 }
 
@@ -198,9 +330,9 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-all);
-    
 }
 
+/* Grupos de download */
 .download-group__downloads {
     display: flex;
     flex-wrap: wrap;
@@ -221,19 +353,24 @@ body {
     text-align: left;
 }
 
-.hero-panel__progress-bar, .achievements-content__user-summary__container__stats__progress-bar {
+/* Barra de progresso */
+.hero-panel__progress-bar,
+.achievements-content__user-summary__container__stats__progress-bar {
     -webkit-appearance: none;
     appearance: none;
 }
 
-.hero-panel__progress-bar, .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-bar {
+.hero-panel__progress-bar::-webkit-progress-bar,
+.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-bar {
     background-color: var(--color-background-dark);
 }
 
-.hero-panel__progress-bar, .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
+.hero-panel__progress-bar::-webkit-progress-value,
+.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
     background-color: var(--color-background-scrollbar-thumb);
 }
 
+/* Temas */
 .settings-appearance__themes {
     display: block;
     width: 100%;
@@ -256,6 +393,7 @@ body {
     border: 1px solid var(--color-all);
 }
 
+/* Lista de conquistas */
 .achievements__list {
     display: grid;
     width: 100%;
@@ -266,68 +404,38 @@ body {
     background-color: var(--color-background-dark);
 }
 
-.game-details__description-content, .content-sidebar {
+/* Detalhes do jogo */
+.game-details__description-content,
+.content-sidebar {
     background-color: var(--color-background-base);
 }
 
 .game-details__description-container {
     background: none;
 }
-.list > .link {
+
+/* Links */
+.list>.link {
     background-color: var(--color-background-dark);
     padding: 5px;
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
 }
-.list > .link:hover {
-    border: 1px solid var(--color-text);
+
+.list>.link:hover {
+    border: 1px solid var(--color-all);
 }
-/* Titulo */
-.description-header, .achievement-panel {
+
+/* Cabeçalhos */
+.description-header,
+.achievement-panel {
     background-color: var(--color-background-dark);
     border-bottom: 10px solid var(--color-all);
     border-top: 1px solid var(--color-all);
 }
 
-/* Menu */
-.sidebar__menu-item {
-    transition: 0.4s;
-    color: var(--color-text);
-    text-decoration: none;
-    position: relative;
-    
-}
-.sidebar__menu-item:hover{
-    background-color: var(--color-background-button);
-}
-.sidebar__menu-item::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: var(--color-text);
-    transition: all 0.4s;
-}
-
-.sidebar__menu-item:hover::before {
-    width: 100%;
-    left: 0;
-}
-
-.sidebar__menu-item--active::before {
-    width: 100%;
-    left: 0;
-    border-radius: 100px;
-    
-}
-.sidebar__menu-item--active {
-    color: var(--color-text);
-    background-color: var(--color-background-button);
-}
-
+/* Botões de ação */
 .header__back-button {
     background-color: transparent;
     border: none;
@@ -340,155 +448,128 @@ body {
     transition: color 0.3s ease;
 }
 
-.header__back-button:hover {
+.header__back-button:hover,
+.modal__close-button-icon:hover {
     color: var(--color-all);
 }
 
-.profile-hero__content-box {
-    border-radius: 10px;
-}
-
+/* Seções de filtro */
 .filter-section__item:hover {
     color: var(--color-all);
 }
 
 .filter-section__header {
     padding: 5px;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
 }
 
 .filter-section__count {
     font-size: 9px;
     text-align: center;
 }
-/* Adicional */
+
+/* Seções da sidebar */
+.sidebar__content section:nth-child(2):nth-last-child(2) {
+    border-left: 1px solid var(--color-background-checkbox);
+    border-right: 1px double var(--color-background-checkbox);
+}
+
+/* Elementos principais */
 main {
     display: block;
     float: left;
 }
-.sidebar__menu-item span, .sidebar__section .sidebar__section-title, .sidebar__section .text-field-container {
+
+.sidebar__menu-item span,
+.sidebar__section .sidebar__section-title,
+.sidebar__section .text-field-container, .sidebar__help-button{
     display: none;
 }
 
-/* Perfil */
-.sidebar__container {
-    display: flex;
-    flex-direction: row;
-}
-
-.sidebar-profile {
-    width: 250px;
-    padding: 0px;
-    display: flex;
-    margin: 0px;
-    border-radius: 5px;
-    margin-left: 5px;
-}
-
+/* Botões do perfil */
 .sidebar-profile__button {
-    padding: 10px;
-    background-color: var(--color-background-dark);
     height: 100%;
-    border-radius: 10px 0px 0px 10px;
-}
-
-.profile-avatar__image {
     width: fit-content;
+    border-radius: 10px 0 0 10px;
+    background-color: #16151563;
 }
 
 .sidebar-profile__friends-button {
     background: none;
     height: 100%;
-    background-color: var(--color-background-dark);
     margin-left: -8px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0 10px 10px 0;
+    background-color: #16151563;
 }
-
-.sidebar-profile__button-title, .sidebar-profile__button-game-running-title {
-    padding: 0px;
-    margin: -1px;
+.sidebar-profile__button-information{
+    display: none;
 }
-
-/* Menu */
-.sidebar__content {
+/* Conteúdo da sidebar */
+.sidebar__container {
     display: flex;
     flex-direction: row;
-    margin: 0;
+    align-items: center;
+}
+
+.sidebar-profile {
+    width: fit-content;
+    height: 90%;
     padding: 0;
-    height: 100%;
-    justify-content: space-between;
-}
-
-.sidebar__section {
-    display: flex ;
-    height: 55px;
-    padding: 0px;
-    margin: 0px; 
-}
-.sidebar__content section:nth-child(1) {
-    margin-left: 22px;
-}
-.sidebar__content section:nth-child(2):nth-last-child(2){
-    border: 1px solid var(--color-all);
-}
-
-.sidebar__content section {
-    max-width: 250px;
-    text-align: end;
-
-}
-
-.sidebar__menu {
     display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scroll-snap-align: start;
-    height: 55px;
+    border-radius: 5px;
+    margin-left: 5px;
 }
 
-.sidebar__menu::-webkit-scrollbar {
-    height: 5px;
-}
-
-.sidebar__menu-item-button {
-    width: 50px;
-    justify-content: center;
-}
-
-/* Título */
+/* Cabeçalho */
 .header--is-windows {
     height: 50px;
     padding: 10px;
 }
 
-.header__action-button, .header__search {
+.header__action-button,
+.header__search {
     height: 29px;
     padding: 5px;
 }
 
-/* Conteúdo */
-.container {
-    height: 94%;
+/* Configurações */
+.settings__content {
+    background-color: var(--color-background-base);
 }
-/*lista*/
+
+.settings__container {
+    padding: 0;
+}
+
 .settings-download-sources__list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.settings-download-sources__item  {
+
+.settings-download-sources__item {
     flex-basis: 300px;
     box-sizing: border-box;
     text-align: center;
     align-items: center;
 }
-.settings-download-sources__item-header div{
-    
+
+.settings-download-sources__item-header div {
     justify-content: center;
 }
+
+.settings-account__blocked-users {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.settings-account__blocked-user {
+    width: 200px;
+    margin-right: 10px;
+}
+
+/* Media Queries */
 @media (max-width: 1198px) {
     .download-group__downloads {
         display: block;
@@ -507,20 +588,23 @@ main {
         width: 100%;
         grid-template-columns: repeat(2, 1fr);
     }
-    .settings-download-sources__item  {
-    flex-basis: 219px;
+
+    .settings-download-sources__item {
+        flex-basis: 219px;
     }
-    
 }
+
 @media (min-width: 1199px) {
     .catalogue__filters-container {
         display: none;
     }
+
     .game-item {
-    width: 180px;
-    height: 250px;
+        width: 180px;
+        height: 250px;
     }
 }
+
 @media (min-width: 1390px) {
     .game-item {
         width: 250px;
@@ -545,11 +629,16 @@ main {
         width: 100%;
         grid-template-columns: repeat(4, 1fr);
     }
-    .catalogue__filters-container {
-        display: flex;
-    }
-    .sidebar__content section {
-    max-width: 500px;
 
-}
+    .catalogue__filters-container {
+        display: block;
+    }
+
+    .catalogue__filters-sections {
+        width: 100%;
+    }
+
+    .sidebar__content section {
+        max-width: 500px;
+    }
 }
