@@ -7,7 +7,7 @@ body {
 }
 
 h2 {
-  color: red !important;
+  color: red;
   background: -webkit-linear-gradient(150deg, #8a8a8a 10%, #bebebe 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -58,10 +58,6 @@ button {
   transform: scale(102%);
 }
 
-.game-details__cloud-sync-button{
-  transition: ease-out 0.2s !important;
-}
-
 .game-details__cloud-sync-button:hover{
   transform: scale(103%);
 }
@@ -102,7 +98,7 @@ button {
 }
 
 .container__content{
-  background: linear-gradient(0deg, #0f0f0f 50%, #0f0f0f 100%);
+  background: #0f0f0f;
 }
 
 .container__content {
@@ -311,7 +307,7 @@ button {
 }
 
 .dropdown-menu__group {
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .dropdown-menu__separator {
@@ -354,7 +350,7 @@ button {
   color: #ffffff;
   box-shadow: inset 0 0 16px #1debe141;
   border: 1px #1DCCEB inset;
-  transition: 1s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .game-details__cloud-sync-button:hover {
@@ -366,7 +362,7 @@ button {
   color: #ffffffda;
   padding: 16px;
   border-radius: 8px;
-  transition: 1s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .settings-general__notifications-title {
