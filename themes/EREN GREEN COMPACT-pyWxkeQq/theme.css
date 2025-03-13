@@ -502,7 +502,7 @@ main {
 .header__search {
   display: inline-flex;
   align-items: center;
-  background-color: var(--background-main);
+  background-color: transparent;
   width: fit-content;
   border: none;
   overflow: hidden;
