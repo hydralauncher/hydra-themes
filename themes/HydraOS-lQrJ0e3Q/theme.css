@@ -1,6 +1,6 @@
 
   /*
-    Teal11 by nxty
+    Teal11 by nxty.cc
   */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
@@ -177,8 +177,14 @@ body {
   box-sizing: border-box;
 }
 
+.sidebar__content::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 .sidebar__content {
-  padding: 10px;
+  padding: 8px;
+  padding-bottom: 15px;
+  margin-bottom: 60px;
 }
 
 .sidebar__menu-item {
@@ -438,7 +444,7 @@ body {
   background: linear-gradient(to right, rgb(35, 235, 235) 0%, rgb(10, 161, 161) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  content: " HydraOS 1.0";
+  content: " HydraOS 1.1";
 }
 
 .settings__container {
@@ -453,7 +459,7 @@ body {
   background: linear-gradient(to right, rgb(35, 235, 235) 0%, rgb(10, 161, 161) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  content: "HydraOS © nxty.cc / s2.rip";
+  content: "HydraOS © nxty.cc";
     padding-top: 5px;
     padding-left: 2px;
     text-shadow: 0px 2px 2px var(--color-shadow);
@@ -534,7 +540,7 @@ body {
   background: transparent;
 }
 
-.download-group__cover, .download-group__cover-content {
+.download-group__cover, .download-group__cover, .download-group__cover-content {
   background: transparent;
   background-color: transparent;
   border: none;
