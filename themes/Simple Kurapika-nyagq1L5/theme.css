@@ -10,21 +10,21 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-  #root > div > h4::after {
+#root > div > h4::after {
     content: "'s Hunter";
-  }
+}
 
 #root {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://raw.githubusercontent.com/repudiar/foruploads/refs/heads/main/kurapika.jpg) #000;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://raw.githubusercontent.com/repudiar/foruploads/main/kurapika.jpg) #000;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #000;
 }
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search,
-.game-item,
 .settings__content,
 .catalogue__filters-container,
 .friends-box__box,
