@@ -34,7 +34,6 @@ body {
 .user-stats__box,
 .recent-games__box,
 .friends-box__box,
-.settings-download-sources__item,
 .download-group__item,
 .auto-update-sub-header {
     background-color: var(--color-background-base);
@@ -69,13 +68,18 @@ body {
     margin: 0;
 }
 
+.sidebar__content section {
+    max-width: 310px;
+    text-align: end;
+}
+
 .sidebar__content section:nth-child(1) {
     margin-left: 22px;
 }
 
-.sidebar__content section {
-    max-width: 250px;
-    text-align: end;
+.sidebar__content section:nth-child(2):nth-last-child(2) {
+    border-left: 1px solid var(--color-background-checkbox);
+    border-right: 1px double var(--color-background-checkbox);
 }
 
 .sidebar__menu {
@@ -90,7 +94,7 @@ body {
 }
 
 .sidebar__menu::-webkit-scrollbar {
-    height: 5px;
+    height: 4px;
 }
 
 .sidebar__menu-item {
@@ -160,7 +164,7 @@ body {
     width: fit-content;
 }
 
-.profile-hero__information {
+.profile-hero__information, .profile-hero__current-game-wrapper {
     text-align: center;
     align-items: center;
 }
@@ -210,11 +214,11 @@ body {
 .container__content {
     background: none;
     color: var(--color-text);
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
-    height: 94%;
+    height: 93%;
 }
 
 /* Painel inferior */
@@ -328,27 +332,6 @@ body {
     background: var(--color-all);
 }
 
-/* Grupos de download */
-.download-group__downloads {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 0;
-    list-style-type: none;
-}
-
-.download-group__downloads li {
-    flex: 0 0 500px;
-    margin-right: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
-
-.download-group__details {
-    text-align: left;
-}
-
 /* Barra de progresso */
 .hero-panel__progress-bar,
 .achievements-content__user-summary__container__stats__progress-bar {
@@ -373,7 +356,7 @@ body {
 }
 
 .theme-card {
-    width: 250px;
+    width: 230px;
     height: 150px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -386,7 +369,7 @@ body {
 }
 
 .theme-card--active {
-    border: 1px solid var(--color-all);
+    border: 3px solid var(--color-all);
 }
 
 /* Lista de conquistas */
@@ -464,12 +447,6 @@ body {
     text-align: center;
 }
 
-/* Seções da sidebar */
-.sidebar__content section:nth-child(2):nth-last-child(2) {
-    border-left: 1px solid var(--color-background-checkbox);
-    border-right: 1px double var(--color-background-checkbox);
-}
-
 /* Elementos principais */
 main {
     display: block;
@@ -478,13 +455,14 @@ main {
 
 .sidebar__menu-item span,
 .sidebar__section .sidebar__section-title,
-.sidebar__section .text-field-container {
+.sidebar__section .text-field-container, .sidebar__help-button{
     display: none;
 }
 
 /* Botões do perfil */
 .sidebar-profile__button {
     height: 100%;
+    width: fit-content;
     border-radius: 10px 0 0 10px;
     background-color: #16151563;
 }
@@ -496,14 +474,9 @@ main {
     border-radius: 0 10px 10px 0;
     background-color: #16151563;
 }
-
-.sidebar-profile__button-title,
-.sidebar-profile__button-game-running-title,
-.sidebar-profile__button-content {
-    padding: 0;
-    margin: -1px;
+.sidebar-profile__button-information{
+    display: none;
 }
-
 /* Conteúdo da sidebar */
 .sidebar__container {
     display: flex;
@@ -512,7 +485,7 @@ main {
 }
 
 .sidebar-profile {
-    width: 250px;
+    width: fit-content;
     height: 90%;
     padding: 0;
     display: flex;
@@ -526,11 +499,27 @@ main {
     padding: 10px;
 }
 
-.header__action-button,
 .header__search {
-    height: 29px;
-    padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  width: fit-content;
+  border: none;
+  overflow: hidden;
 }
+
+.header__search-input {
+  opacity: 0;
+  width: 0;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.header__search--focused .header__search-input {
+  opacity: 1;
+  width: 150px;
+  display: inline-block; 
+}
+
 
 /* Configurações */
 .settings__content {
@@ -548,10 +537,14 @@ main {
 }
 
 .settings-download-sources__item {
-    flex-basis: 300px;
+    flex-basis: 219px;
     box-sizing: border-box;
     text-align: center;
     align-items: center;
+    background-color: var(--color-background-base);
+    color: var(--color-text);
+    box-shadow: 0px 2px 5px var(--color-shadow);
+    padding: 10px;
 }
 
 .settings-download-sources__item-header div {
@@ -567,6 +560,25 @@ main {
 .settings-account__blocked-user {
     width: 200px;
     margin-right: 10px;
+}
+/* Home */
+.home__cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.home__cards .game-card{
+    width: 298px;
+}
+.container h2{
+    border-bottom: 2px solid var(--color-all);
+    padding-bottom: 5px;
+}
+.home__content{
+    padding: 0px 23px 10px 30px;
+}
+.header__title{
+    text-align: center;
 }
 
 /* Media Queries */
@@ -588,10 +600,6 @@ main {
         width: 100%;
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .settings-download-sources__item {
-        flex-basis: 219px;
-    }
 }
 
 @media (min-width: 1199px) {
@@ -603,6 +611,18 @@ main {
         width: 180px;
         height: 250px;
     }
+    .home__cards .game-card{
+    width: 357px;
+    }
+    .settings-download-sources__item {
+        flex-basis: 265px;
+    }
+    .theme-card {
+    width: 275px;
+    }
+    .sidebar__content section {
+    max-width: 400px;
+}
 }
 
 @media (min-width: 1390px) {
@@ -640,5 +660,17 @@ main {
 
     .sidebar__content section {
         max-width: 500px;
+    }
+    .home__cards .game-card{
+    width: 420px;
+    }
+    .container {
+    height: 95%;
+    }
+    .settings-download-sources__item {
+        flex-basis: 285px;
+    }
+    .theme-card {
+    width: 295px;
     }
 }
