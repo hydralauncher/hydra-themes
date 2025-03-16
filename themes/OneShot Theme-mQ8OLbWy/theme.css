@@ -9,11 +9,11 @@ Sidebar: u/tardfuck-exists on Reddit! */
 }
 
 body {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 #root {
-  background: url(https://images7.74932ac241946d4c3e5711ea2fe60f16.r2.cloudflarestorage.com/977/977889.png?response-content-disposition=attachment%3B%20filename%3D%22977889.png%22&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=25a1f3698f61250ae37fa2aae83c3913%2F20250316%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250316T112950Z&X-Amz-SignedHeaders=host&X-Amz-Expires=60&X-Amz-Signature=73381ed17aad5649a05063c79387b9f6c7f190c7e7becc059d5dda54f7b318f0)
+  background: url(https://images2.alphacoders.com/977/thumb-1920-977890.png)
     #000;
   background-position: top;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body {
 
   /* Sidebar */
   .sidebar {
-    background-image: url('https://i.redd.it/b76rqyghotla1.gif');
+    background-image: url('https://files.catbox.moe/8z3rbu.gif');
     background-position: 50%;
     z-index: 1;
     color: #FFFFFF
@@ -50,17 +50,17 @@ body {
 .user-stats__box,
 .recent-games__box,
 .container__content .button--outline {
-  background-color: rgba(148, 65, 156, 0.233);
+  background-color: rgba(88, 19, 21, 0.233);
   backdrop-filter: blur(4px);
 }
 
 .container__content .button--outline {
   backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(158, 22, 22, 0.5);
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-  background-color: rgba(0, 0, 0, 0.6) !important;
+  background-color: rgba(158, 22, 22, 0.5);
 }
