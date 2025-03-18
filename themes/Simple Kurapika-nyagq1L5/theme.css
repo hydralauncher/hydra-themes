@@ -10,24 +10,28 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+#root > div > h4::after {
+    content: "'s Hunter";
+}
+
 #root {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i.imgur.com/9WxhdqM.jpeg) #000;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://raw.githubusercontent.com/repudiar/hydra-themes/refs/heads/wallpaper/themes/Simple%20Kurapika-nyagq1L5/kurapika.jpg) #000;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #000;
 }
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search,
-.game-item,
 .settings__content,
 .catalogue__filters-container,
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
 .sidebar {
-    background-color: rgba(0, 0, 0, 0.7) !important;
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 0, 0, 0.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -43,7 +47,7 @@ body {
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid rgba(255, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
@@ -51,5 +55,5 @@ body {
 .settings-download-sources__item:hover,
 .download-group__item:hover,
 .game-item:hover {
-    background-color: rgba(255, 0, 0, 0.2) !important;
+    background-color: rgba(255, 0, 0, 0.2);
 }

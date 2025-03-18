@@ -24,7 +24,9 @@ Promise.all(
 
     if (
       !screenshotFile ||
-      !ALLOWED_SCREENSHOT_FORMATS.includes(screenshotFile.split(".").pop()!)
+      !ALLOWED_SCREENSHOT_FORMATS.includes(
+        screenshotFile.split(".").pop()!.toLowerCase(),
+      )
     ) {
       throw new Error(
         `❌ No screenshot file found for theme ${folder}.\nScreenshot file must be named 'screenshot' and have one of the following extensions: ${ALLOWED_SCREENSHOT_FORMATS.join(", ")}`,
