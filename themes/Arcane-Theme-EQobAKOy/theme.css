@@ -65,8 +65,8 @@
   }
   
   /* Remove backgrounds from pseudo-elements */
-  *::before:not(html::before),
-  *::after:not(html::after) {
+  :not(html)::before,
+  :not(html)::after {
     background-color: transparent !important;
     background-image: none !important;
   }
