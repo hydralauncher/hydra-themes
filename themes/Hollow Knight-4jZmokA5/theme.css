@@ -2,7 +2,6 @@
 .header,
 .container__content,
 .bottom-panel {
-  background: transparent;
   background-color: rgba(0, 1, 56, 0.30);
 }
 
