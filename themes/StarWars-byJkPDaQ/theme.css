@@ -1,0 +1,34 @@
+
+  /*
+    Here you can edit CSS for your theme and apply it on Hydra.
+    There are a few classes already in place, you can use them to style the launcher.
+
+    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+    or how to publish your theme in the theme store, you can check the docs:
+    https://docs.hydralauncher.gg/
+
+    Happy hacking!
+  */
+  /* Header */
+  .header {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  body{
+    background-image:url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExODdscHcwbWp3bnB1aW54Y3RydmF6Y2Z2azZsZGNvamJpc3RhdjlxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1014X8eZiCtBNm/giphy.gif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+    }
+  /* Sidebar */
+  .sidebar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  /* Main content */
+  .container__content {
+    background-color: rgba(0, 0, 0, 0.253);
+    opacity: 0.7;
+  }
+
