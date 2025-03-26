@@ -1,0 +1,195 @@
+/* Root Background */
+#root {
+    background: url("https://wallpaperaccess.com/full/1099445.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 40%, rgba(173, 138, 47, 0.4) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif; /* Added a default font */
+  }
+  
+  :root {
+    --primary-background: rgba(0, 0, 0, 0.6);
+    --primary-text-color: #FFFFFF;
+    --secondary-background: rgba(0, 0, 0, 0.8);
+    --tertiary-background: rgba(0, 0, 0, 0.7);
+    --quaternary-background: rgba(0, 0, 0, 0.6);
+    --quinary-background: rgba(0, 0, 0, 0.4);
+    --input-background: rgba(255, 255, 255, 0.1);
+    --button-background: #AD8A2F;
+    --button-text-color: #000000;
+    --border-color: #AD8A2F;
+    --white: #FFFFFF;
+    --black: #000000;
+    --red: #FF0000;
+    --gold: #AD8A2F;
+    --card-shadow: 0px 0px 5px rgba(173, 138, 47, 0.4);
+  }
+  
+  .title-bar,
+  .header,
+  .sidebar {
+    background: var(--primary-background);
+    color: var(--primary-text-color);
+    border-bottom: 2px solid var(--border-color);
+  }
+  
+  .bottom-panel,
+  .bottom-panel__downloads-button,
+  .bottom-panel__version-button {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 5px rgba(173, 138, 47, 0.6);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .bottom-panel:hover,
+  .bottom-panel__downloads-button:hover,
+  .bottom-panel__version-button:hover {
+    background-color: rgba(173, 138, 47, 0.1);
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  }
+  
+  .container__content {
+    background: var(--secondary-background);
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--border-color);
+  }
+  
+  .button {
+    background: var(--button-background);
+    color: var(--button-text-color);
+    font-weight: bold;
+    border: 2px solid var(--white);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 16px;
+  }
+  
+  .button:hover {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--gold);
+  }
+  
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .settings__content,
+  .catalogue__filters-container {
+    background: var(--input-background) !important;
+    color: var(--primary-text-color);
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 16px;
+  }
+  
+  .game-item {
+    background: var(--tertiary-background);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease-in-out;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .game-item:hover {
+    transform: scale(1.03);
+  }
+  
+  .description-header,
+  .content-sidebar,
+  .modal__content,
+  .modal__header,
+  .hero-panel,
+  .game-details__description-content {
+    background: var(--quaternary-background) !important;
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--border-color);
+  }
+  
+  .profile-hero__content-box,
+  .profile-hero__hero-panel--transparent,
+  .achievement-panel,
+  .achievements__list {
+    background: var(--quinary-background) !important;
+    border: 1px solid var(--border-color);
+  }
+  
+  button:focus,
+  a:focus,
+  input:focus {
+    outline: 2px solid var(--border-color);
+    outline-offset: 2px;
+  }
+  
+  .sidebar {
+    width: 354px;
+    min-width: 354px;
+    max-width: 354px;
+  }
+  
+  .sidebar__menu-item {
+    padding: 8px 16px;
+  }
+  
+  .sidebar__game-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .header__search {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 4px;
+    background: var(--input-background);
+  }
+  
+  .header__search-input {
+    background: transparent;
+    border: none;
+    color: var(--primary-text-color);
+    padding: 4px;
+  }
+  
+  .header__search-input:focus {
+    outline: none;
+  }
+  
+  .home__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  
+  .game-item__cover {
+    width: 25%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .badge {
+    background-color: rgba(173, 138, 47, 0.2);
+    color: var(--primary-text-color);
+    padding: 4px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 0.8em;
+  }
