@@ -46,10 +46,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
       authorName: theme.author.displayName,
     });
 
-    window.open(
-      `hydralauncher://install-theme?${searchParams.toString()}`,
-      "_blank",
-    );
+    window.location.href = `hydralauncher://install-theme?${searchParams.toString()}`;
 
     if (!hasInstalled) {
       performThemeAction("install");
