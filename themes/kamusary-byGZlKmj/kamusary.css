@@ -527,7 +527,7 @@ color: white;
 .how-long-to-beat__category{
 border-radius: 15px;
 background-color: rgba(0, 0, 0, 0.493);
-backdrop-filter: blur (4px);
+backdrop-filter: blur(4px);
 border-color: #BC653D;
 }
 .how-long-to-beat__category:hover{
