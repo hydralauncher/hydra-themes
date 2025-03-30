@@ -514,7 +514,6 @@ font-family: inherit;
 }
 
 /* Efeito de blur e animação para itens de download e jogos */
-.settings-download-sources__item,
 .download-group__item,
 .game-item {
 background-color: rgba(95, 1, 59, 0.184) !important;
