@@ -211,7 +211,6 @@ position: relative;
 }
 
 /* Efeitos de hover e foco */
-.game-item:hover,
 .text-field-container__text-field--dark:hover,
 .text-field-container__text-field--primary:hover,
 .button:hover {
