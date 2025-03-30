@@ -735,6 +735,7 @@ content: "HelloKitty Launcher";
 font-size: 20px;
 }
 
+/* Styles inline */
 .inline-style {
 background-color: rgb(0, 0, 0);
 }
@@ -749,4 +750,9 @@ background-color: rgb(204 92 0);
 
 .inline-style-info {
 background-color: rgb(0 151 171);
+}
+
+.inline-style-avatar {
+width: 96px;
+height: 96px;
 }
