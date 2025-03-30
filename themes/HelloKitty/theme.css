@@ -28,7 +28,7 @@ html, body, #root, main {
 }
 
 body {
-  font-family: 'Noto Sans', sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Noto Sans', Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: #cc156a79;
@@ -152,10 +152,12 @@ body {
 
 /* Estilos da scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px; /* Largura da scrollbar */
   height: 20px;
+  border-radius: 10px; /* Deixa a barra arredondada */
   background-color: transparent; /* Agora a scrollbar é transparente */
 }
+
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(181, 26, 116, 0.318);
@@ -393,10 +395,6 @@ body {
 .profile-avatar::before {
   content: "";
   position: absolute;
-  top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
   inset: -8px; /* Define um espaço externo ao avatar */
   border-radius: 50%;
   border: 3px solid rgba(255, 0, 128, 0.8);
