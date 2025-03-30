@@ -74,7 +74,7 @@ border-right: solid 1px rgba(153, 0, 64, 0.292);
 
 /* Conteúdo principal */
 .container__content {
-color: hwb(290 0% 26%);
+color: hwb(276 0% 27% / 0.834);
 background: transparent !important;
 border-radius: 0px;
 transition: background-color 0.3s ease;
@@ -130,17 +130,9 @@ border: none;
 
 /* Conteúdo da página inicial */
 .home__content {
-background-color: rgba(151, 2, 94, 0.237);
-backdrop-filter: blur(3px);
-border-radius: 30px;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-gap: 24px;
-padding: 24px;
-flex: 1;
-overflow-y: auto;
+background-color: rgba(151, 2, 106, 0.066);
+backdrop-filter: blur(10px);
+border-radius: 0px;
 }
 
 /* Widget Featurebase */
@@ -320,12 +312,12 @@ text-shadow: 0 0 8px rgba(132, 0, 255, 0.6); /* Efeito de sombra sutil para dest
 
 /* Ajustando os ícones dos jogos na tela inicial para preencher completamente o card */
 .game-card {
-border-radius: 40px; /* Deixa os cards mais arredondados */
-overflow: hidden; /* Garante que nada ultrapasse as bordas */
-box-shadow: 0px 4px 10px rgba(87, 0, 58, 0.4); /* Sombreamento suave */
+border-radius: 40px;
+overflow: hidden;
+box-shadow: 0px 4px 10px rgba(87, 0, 58, 0.4);
 transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)); /* Fundo moderno */
-padding: 0; /* Remove padding que pode afetar o preenchimento da imagem */
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+padding: 0;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -464,16 +456,6 @@ flex: 1;
 background: linear-gradient(0deg, #000000d5 50%, #000000 100%);
 }
 
-.container__content {
-color: hwb(276 0% 27% / 0.834);
-}
-
-.home__content {
-background-color: rgba(151, 2, 106, 0.066);
-backdrop-filter: blur(10px);
-border-radius: 0px;
-}
-
 .hero-panel {border-bottom: solid 1px rgba(74, 0, 84, 0.463);
 position: relative;
 overflow: hidden;
@@ -532,13 +514,6 @@ border: none;
 font-family: inherit;
 }
 
-.title-bar{
-font-size: 0.4cm;
-font-family: 'verdana';
-transition: background-color 0.3s ease;
-border: none;
-}
-
 /* Efeitos de hover e foco */
 .game-item:hover,
 .text-field-container__text-field--dark:hover,
@@ -558,8 +533,8 @@ transition: all 0.3s ease;
 background-color: rgba(95, 1, 59, 0.184) !important;
 border-radius: 30px;
 transition: transform 0.3s ease, background-color 0.3s ease;
-overflow: hidden; /* Garante que o conteúdo interno não ultrapasse as bordas arredondadas */
-position: relative; /* Permite posicionar o pseudo-elemento corretamente */
+overflow: hidden;
+position: relative;
 }
 
 /* Pseudo-elemento para aplicar o blur */
@@ -672,16 +647,6 @@ transition: background-color 0.1s ease-in-out;
 font-size: 14px;
 }
 
-.checkbox-field__checkbox {
-width: 20px;
-height: 20px;
-min-width: 20px;
-min-height: 20px;
-border-radius: 10px;
-background-color: #47003252;
-border: solid 1px rgba(0, 0, 0, 0.404);
-}
-
 .friends-box__list-item {
 display: flex;
 cursor: pointer;
@@ -693,12 +658,6 @@ border-radius: 50px;
 padding: 12px;
 gap: 16px;
 align-items: center;
-}
-
-.game-card {
-border-radius: 40px;
-overflow: hidden;
-box-shadow: 0px 4px 10px rgba(87, 0, 58, 0.4);
 }
 
 .edit-profile-modal__avatar-overlay {
