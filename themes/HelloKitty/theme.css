@@ -28,15 +28,15 @@ height: 100%;
 }
 
 body {
-font-family: 'Noto Sans', sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+font-family: 'Noto Sans', Verdana, Geneva, Tahoma, sans-serif;
 font-size: 15px;
 font-weight: 400;
 color: #cc156a79;
 background-color: rgba(123, 0, 76, 0.534);
-border-radius: 10px; /* Arredondamento do body */
+border-radius: 10px;
 overflow: hidden;
 user-select: none;
-transition: background-color 0.5s ease-in-out; /* Suaviza mudança de cor do background */
+transition: background-color 0.5s ease-in-out;
 border-bottom: solid 1px rgba(77, 0, 112, 0.43);
 }
 
@@ -97,14 +97,23 @@ transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza a transformação
 
 /* Botões */
 .button {
-border-radius: 30px; /* Arredondamento dos botões */
-transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave ao clicar */
+padding: 12px 20px;
+background-color: #7c00add4;
+border-radius: 30px;
+border: solid 1px transparent;
+transition: all ease 0.2s;
+cursor: pointer;
+min-height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
 }
 
 .container__content .button--outline {
 backdrop-filter: blur(10px);
-background-color: rgba(89, 0, 70, 0.523);
-border-radius: 30px; /* Arredondamento dos botões outline */
+background-color: rgba(0, 0, 0, 0.66);
+border-radius: 30px;
 transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -393,16 +402,12 @@ margin-bottom: 10px;
 .profile-avatar::before {
 content: "";
 position: absolute;
-top: -8px;
-left: -8px;
-right: -8px;
-bottom: -8px;
-inset: -8px; /* Define um espaço externo ao avatar */
+inset: -8px; /* Remplace top, right, bottom, left */
 border-radius: 50%;
 border: 3px solid rgba(255, 0, 128, 0.8);
 box-shadow: 0 0 20px 5px rgba(255, 0, 221, 0.8);
 animation: pulse 1.5s infinite alternate ease-in-out;
-z-index: -1; /* Coloca a borda atrás do avatar */
+z-index: -1;
 }
 
 /* Animação de pulsação */
@@ -426,8 +431,8 @@ overflow: hidden;
 }
 
 .hero {
-border-radius: 20px; /* Ajuste o valor conforme necessário */
-overflow: visible; /* Garante que a imagem dentro do banner também fique arredondada */
+border-radius: 20px;
+overflow: visible;
 }
 
 .avatar-container {
@@ -462,27 +467,6 @@ overflow: hidden;
 display: flex;
 flex-direction: column;
 backdrop-filter: blur(20px);
-}
-
-.button {
-padding: 12px 20px;
-background-color: #7c00add4;
-border-radius: 30px;
-border: solid 1px transparent;
-transition: all ease 0.2s;
-cursor: pointer;
-min-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-}
-
-.container__content .button--outline {
-backdrop-filter: blur(10px);
-background-color: rgba(0, 0, 0, 0.66);
-border-radius: 30px;
-transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero {
@@ -544,13 +528,6 @@ min-height: 20px;
 border-radius: 10px;
 background-color: #75790052;
 border: solid 1px rgba(0, 0, 0, 0.404);
-}
-
-.button {
-padding: 12px 20px;
-background-color: #7b00526d; /* Cor final aplicada */
-border-radius: 30px;
-border: 1px solid transparent;
 }
 
 .home__content {
