@@ -17,8 +17,17 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
 
+      - uses: mskelton/setup-yarn@v3
+
       - name: Install dependencies
         run: yarn
 
       - name: Validate themes
-        run: yarn validate-themes
+        run: |
+          npx bun src/lib/validate-themes.ts 2>stderr.txt
+
+      - name: Comment validation error on PR
+        if: failure()
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          file-path: stderr.txt
