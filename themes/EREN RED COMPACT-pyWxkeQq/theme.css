@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --color-background-base: rgba(23, 23, 27, 0.8);
-    --color-background-dark: rgb(20, 20, 20);
-    --color-background-button: rgba(82, 24, 24, 0.7);
-    --color-background-checkbox: rgba(88, 0, 0, 0.43);
+    --color-background-dark: rgba(82, 24, 24, 0.7);
+    --color-background-button: rgb(20, 20, 20);
     --color-background-scrollbar-thumb: rgba(151, 0, 0, 0.57);
     --color-all: rgba(139, 0, 0, 0.8);
-    --color-text: #ffffff;
+    --color-text: #c7d5e0;
     --color-shadow: rgba(0, 0, 0, 0.5);
     --background-main: url("https://images6.alphacoders.com/112/1126962.jpg");
     --font-used: "Roboto Condensed";
@@ -75,13 +74,14 @@ body {
 
 .sidebar__content section:nth-child(1) {
     margin-left: 22px;
+    
 }
 
 .sidebar__content section:nth-child(2):nth-last-child(2) {
-    border-left: 1px solid var(--color-background-checkbox);
-    border-right: 1px double var(--color-background-checkbox);
+    border-left: 1px solid var(--color-background-dark);
+    border-right: 1px double var(--color-background-dark);
+    
 }
-
 .sidebar__menu {
     display: flex;
     flex-direction: row;
@@ -107,23 +107,25 @@ body {
 .sidebar__menu-item::before {
     content: "";
     position: absolute;
-    width: 0;
     height: 2px;
-    bottom: 0;
-    left: 50%;
+    width: 50%;
+    top: 0px; 
+    left: 25%;
     background-color: var(--color-all);
-    transition: all 0.4s;
+    box-shadow: 0 0 8px 0.3px var(--color-all);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 100px;
 }
 
 .sidebar__menu-item:hover::before {
-    width: 100%;
-    left: 0;
+    transform: scaleX(2);
 }
 
 .sidebar__menu-item--active::before {
-    width: 100%;
-    left: 0;
-    border-radius: 100px;
+    transform: scaleX(1);
+    box-shadow: 0 0 8px 0.9px var(--color-all);
 }
 
 .sidebar__menu-item--active {
@@ -138,6 +140,7 @@ body {
 .sidebar__menu-item-button:hover {
     color: var(--color-all);
 }
+
 
 /* Perfil */
 .profile-hero__content-box {
@@ -185,13 +188,13 @@ body {
     border-radius: 5px;
     transition: 0.3s;
     box-shadow: 0px 2px 5px var(--color-shadow);
-    border: 1px solid var(--color-all);
+    border: 1px solid var(--color-background-dark);
     cursor: pointer;
 }
 
 .button:hover,
 .select-field__option:hover {
-    background-color: var(--color-all);
+    background-color: var(--color-background-dark);
     opacity: 1;
 }
 
@@ -200,15 +203,19 @@ body {
 }
 
 .button--primary {
-    background-color: var(--color-background-scrollbar-thumb);
+    background-color: var(--color-background-button);
     border: 1px solid var(--color-all);
 }
 .repacks-modal__repack-button:hover {
-    background-color: var(--color-all);
+    background-color: var(--color-background-dark);
     transform: scale(1.05);
 }
 .requirement__button-container button{
     margin: 5px;
+}
+
+.text-field-container__text-field, .checkbox-field__checkbox {
+    background-color: var(--color-background-dark);
 }
 /* Containers */
 .container__content {
@@ -224,7 +231,7 @@ body {
 /* Painel inferior */
 .bottom-panel {
     background-color: var(--color-background-base);
-    border-top: 3px solid var(--color-all);
+    border-top: 3px solid var(--color-background-dark);
     backdrop-filter: blur(5px);
     padding: 5px;
     text-align: center;
@@ -253,7 +260,7 @@ body {
 
 .game-item:hover,
 .achievements__list li:hover {
-    background-color: rgba(0, 0, 0, 0.849);
+    background-color: var(--color-background-dark);
     transform: scale(1.03);
     border: 1px solid var(--color-all);
 }
@@ -318,20 +325,6 @@ body {
 ::-webkit-scrollbar {
     width: 8px;
 }
-
-::-webkit-scrollbar-track,
-.sidebar-section__button {
-    background-color: var(--color-background-dark);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--color-background-scrollbar-thumb);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-all);
-}
-
 /* Barra de progresso */
 .hero-panel__progress-bar,
 .achievements-content__user-summary__container__stats__progress-bar {
@@ -392,26 +385,31 @@ body {
 .game-details__description-container {
     background: none;
 }
+.sidebar-section__button{
+    background-color: var(--background-main);
+}
 
 /* Links */
 .list>.link {
-    background-color: var(--color-background-dark);
+    background-color: var(--color-background-base);
     padding: 5px;
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
+    border: 0.1px solid var(--background-main);
 }
 
 .list>.link:hover {
-    border: 1px solid var(--color-all);
+    background-color: var(--color-background-dark);
+    border: 0.1px solid var(--color-all);
 }
 
 /* Cabeçalhos */
 .description-header,
 .achievement-panel {
-    background-color: var(--color-background-dark);
-    border-bottom: 10px solid var(--color-all);
-    border-top: 1px solid var(--color-all);
+    background-color: var(--color-background-base);
+    border-bottom: 5px solid var(--color-background-dark);
+    border-top: 1px solid var(--color-background-dark);
 }
 
 /* Botões de ação */
@@ -571,7 +569,7 @@ main {
     width: 298px;
 }
 .container h2{
-    border-bottom: 2px solid var(--color-all);
+    border-bottom: 1px solid var(--color-background-dark);
     padding-bottom: 5px;
 }
 .home__content{
