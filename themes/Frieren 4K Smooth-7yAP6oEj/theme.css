@@ -1,104 +1,109 @@
 #root {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.65)), url(https://i.imgur.com/l3uarRH.jpeg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    transition: background-position 0.5s ease;
-  }
-  
-  /* Enhanced blur effects for UI elements */
-  .sidebar,
-  .header,
-  .bottom-panel {
-    backdrop-filter: blur(12px);
-    background: rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Hover effects for UI elements */
-  .sidebar:hover,
-  .header:hover {
-    backdrop-filter: blur(16px);
-    background: rgba(0, 0, 0, 0.3);
-  }
-  
-  .container__content {
-    background: transparent;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Refined blur for content boxes */
-  .catalogue__filters-container,
-  .user-stats__box,
-  .recent-games__box,
-  .friends-box__box,
-  .settings__content,
-  .profile-hero__content-box,
-  .profile-hero__hero-panel {
-    background: rgba(0, 0, 0, 0.45) !important;
-    backdrop-filter: blur(14px) !important;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
-  
-  /* Hover animations for content boxes */
-  .catalogue__filters-container:hover,
-  .user-stats__box:hover,
-  .recent-games__box:hover,
-  .friends-box__box:hover,
-  .settings__content:hover,
-  .profile-hero__content-box:hover,
-  .profile-hero__hero-panel:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-    background: rgba(0, 0, 0, 0.55) !important;
-  }
-  
-  /* Toast notifications with elegant blur */
-  .toast {
-    backdrop-filter: blur(10px);
-    background: rgba(30, 30, 30, 0.85);
-    border-left: 3px solid #4d8aff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .toast:hover {
-    background: rgba(40, 40, 40, 0.95);
-    transform: translateY(-2px);
-  }
-  
-  /* Button enhancements */
-  .button {
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .button:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-  
-  .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  }
-  
-  .button:hover:before {
-    left: 100%;
-  }
-  
-  /* Bottom panel hover effect */
-  .bottom-panel:hover {
-    backdrop-filter: blur(16px);
-    background: rgba(0, 0, 0, 0.35);
-  }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.65)), url(https://i.imgur.com/l3uarRH.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: background-position 0.5s ease;
+}
+
+/* Enhanced blur effects for UI elements */
+.sidebar,
+.header,
+.bottom-panel {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effects for UI elements */
+.sidebar:hover,
+.header:hover {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.container__content {
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+/* Refined blur for content boxes */
+.catalogue__filters-container,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.settings__content,
+.profile-hero__content-box,
+.profile-hero__hero-panel {
+  background: rgba(0, 0, 0, 0.45) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(14px) !important;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover animations for content boxes */
+.catalogue__filters-container:hover,
+.user-stats__box:hover,
+.recent-games__box:hover,
+.friends-box__box:hover,
+.settings__content:hover,
+.profile-hero__content-box:hover,
+.profile-hero__hero-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Toast notifications with elegant blur */
+.toast {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(30, 30, 30, 0.85);
+  border-left: 3px solid #4d8aff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toast:hover {
+  background: rgba(40, 40, 40, 0.95);
+  transform: translateY(-2px);
+}
+
+/* Button enhancements */
+.button {
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.button:hover:before {
+  left: 100%;
+}
+
+/* Bottom panel hover effect */
+.bottom-panel:hover {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.35);
+}
