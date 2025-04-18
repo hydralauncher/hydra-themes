@@ -55,7 +55,8 @@
 .description-header,
 ::-webkit-scrollbar,
 .achievement-panel,
-.achievements__list{
+.achievements__list,
+.description-header{
   background-color: rgba(255, 255, 255, 0.100);
 }
 
