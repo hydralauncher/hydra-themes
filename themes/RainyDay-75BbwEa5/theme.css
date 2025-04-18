@@ -8,11 +8,10 @@
 
 .title-bar{
   font-size: 15px;
-  border-radius: 5px;
 }
 
 #root{
-  background-image: url(https://giffiles.alphacoders.com/219/219230.gif);
+  background-image: url(assets/background.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -24,17 +23,6 @@
 .sidebar__content,
 .sidebar-profile{
   margin-top: 10px;
-}
-
-.sidebar__menu li,
-.sidebar-profile__button,
-.sidebar__content,
-.sidebar-profile,
-.text-field-container__text-field--primary,
-.text-field-container__text-field-input,
-.sidebar-section__button,
-.description-header{
-  border-radius: 10px;
 }
 
 .text-field-container__text-field-input,
@@ -62,8 +50,11 @@
 .game-details__description,
 .list li,
 .sidebar-section__button,
-.description-header{
-  background-color: rgba(255, 255, 255, 0.150);
+.description-heade,
+::-webkit-scrollbar,
+.achievement-panel,
+.achievements__list{
+  background-color: rgba(255, 255, 255, 0.100);
 }
 
 .text-field-container__text-field-input::placeholder,
@@ -89,8 +80,18 @@
 .button--outline,
 .theme-card,
 .game-details__description-content,
-.sidebar-section__button{
+.sidebar-section__button,
+.theme-card__header__title,
+.theme-card__author,
+.bb_ul,
+.requirement__details,
+.stats__category,
+.list__item,
+.achievement-panel,
+.achievements__item,
+.game-item__genres{
   color: white;
+  text-shadow: 0px 0px 10px black;
 }
 
 .hero,
@@ -103,12 +104,15 @@
 .game-details__description,
 .bb_img,
 .list li,
-.modal--large{
-  border-radius: 15px;
-}
-
+.modal--large,
+.sidebar__menu li,
+.sidebar-profile__button,
+.sidebar__content,
+.sidebar-profile,
+.text-field-container__text-field--primary,
+.text-field-container__text-field-input,
+.sidebar-section__button,
+.description-header,
 ::-webkit-scrollbar {
-    width: 0;  
-    height: 0; 
-    background: transparent;
+  border-radius: 15px;
 }
