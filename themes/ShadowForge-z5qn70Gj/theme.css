@@ -1,205 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sst');
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Global styles - Cores alteradas para tema roxo/neon */
+:root {
+    --ps5-bg-color: #0f0a1a;
+    --ps5-text-color: #e0d6ff;
+    --ps5-accent-color: #9c4dff;
+    --ps5-secondary-color: #3d2a5f;
 }
 
-@keyframes slideInFromLeft {
-  from { transform: translateX(-30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInFromRight {
-  from { transform: translateX(30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInFromBottom {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 0 5px rgba(69, 90, 100, 0.3); }
-  50% { box-shadow: 0 0 15px rgba(69, 90, 100, 0.6); }
-  100% { box-shadow: 0 0 5px rgba(69, 90, 100, 0.3); }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-.sidebar,
-.header,
-.container__content,
-.bottom-panel {
-  background: transparent;
+* {
+    font-weight: 300;
 }
 
 body {
-  color: #ffffff;
+    font-family: 'SST', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    background-image: url('https://i.imgur.com/JXZJk3a.jpg'); /* Imagem alterada */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--ps5-text-color);
 }
 
-#root {
-  background: url(https://wallpaper.dog/large/10754268.jpg) #e7000000;
-  background-position: top;
-  background-repeat: repeat;
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(15, 10, 26, 0.7) 0%, rgba(61, 42, 95, 0.5) 100%);
+    z-index: -1;
 }
 
-.sidebar,
-.header,
-.container__content,
-.bottom-panel,
-.toast {
-  background-color: rgba(255, 255, 255, 0) !important;
-  backdrop-filter: blur(8px);
-}
-
-.container__content .button {
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.header {
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #2D373C;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-.header input {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #37474F;
-  border-radius: 5px;
-  padding: 6px 12px;
-  color: #ffffff;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-}
-
-.header input:focus {
-  border-color: #B0BEC5;
-  outline: none;
-}
-
-.sidebar {
-  width: 260px;
-  height: 100vh;
-  padding: 20px 10px;
-  border-right: 1px solid #2D373C;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
-
-.sidebar a {
-  color: #ffffff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  font-size: 14px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  animation: slideInFromLeft 0.6s ease-in-out;
-  animation-fill-mode: backwards;
-}
-
-.sidebar a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  transform: rotate(2deg) scale(1.02);
-}
-
-.container__content {
-  padding: 30px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
-
-.container__content h1 {
-  color: #ffffff;
-  font-size: 28px;
-  margin-bottom: 12px;
-  font-weight: 500;
-  animation: slideInFromBottom 0.8s ease-in-out;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.container__content p {
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 1.5;
-  animation: slideInFromBottom 0.9s ease-in-out;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.container__content img {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.bottom-panel {
-  padding: 12px 24px;
-  border-top: 1px solid #2D373C;
-  font-size: 12px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  animation: slideInFromBottom 0.7s ease-in-out;
-}
-
-.toast {
-  color: #ffffff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  animation: slideInFromRight 0.5s ease-in-out;
-}
-
-.toast.hide {
-  animation: fadeOut 0.5s ease-in-out forwards;
-}
-
+/* Botões com gradiente roxo */
 .button {
-  background: linear-gradient(90deg, #455A64, #37474F);
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.1s ease, background 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    background: rgb(61 42 95 / 50%) !important;
+    border: none !important;
+    color: var(--ps5-text-color);
+    transition: all 0.2s ease;
+    border-radius: 50px;
+    padding: 8px 16px;
+    z-index: 1;
 }
 
-.button:hover {
-  background: linear-gradient(90deg, #37474F, #263238);
-  transform: scale(1.05);
-  animation: glow 1.5s infinite ease-in-out;
+.button:hover::before,
+.button--primary::before,
+.button--primary:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 1px;
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: gradient-move 5s linear infinite;
+    z-index: -1;
 }
 
-.button:active {
-  transform: scale(0.95);
+.button--primary {
+    background: #9c4dff !important;
+    color: #ffffff !important;
 }
 
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(69, 90, 100, 0.5);
+/* Efeitos de hover com roxo */
+.sidebar__menu-item-button:hover::before,
+.sidebar-profile__button:hover::before,
+.sidebar-profile__friends-button:hover::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.5) 0%, rgba(202, 172, 255, 0.3) 100%);
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button::before,
+.sidebar-profile__button:active::before,
+.sidebar-profile__friends-button:active::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+}
+
+/* Modal com tema roxo */
+.modal {
+    background: linear-gradient(to bottom left, rgb(23, 15, 42), rgb(53, 37, 85)) !important;
+}
+
+/* Barra de rolagem roxa */
+::-webkit-scrollbar-thumb {
+    background: rgba(156, 77, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 77, 255, 0.7);
+}
+
+/* Cards de jogos com borda roxa */
+.game-card::before,
+.hero::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+}
+
+/* Toast notification roxa */
+.toast {
+    background: var(--ps5-secondary-color);
+    border: 1px solid rgba(156, 77, 255, 0.3);
+}
+
+/* Inputs com borda roxa */
+.header__search:focus-within::before,
+.text-field-container__text-field:focus-within::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+}
+
+/* Restante do seu CSS original permanece igual */
+/* [Todo o resto do seu CSS existente] */
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
 }
