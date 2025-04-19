@@ -31,9 +31,38 @@
   to { opacity: 0; }
 }
 
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #ffffff;
+}
+
+#root {
+  background: url(https://wallpaper.dog/large/10754268.jpg) #e7000000;
+  background-position: top;
+  background-repeat: repeat;
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+.toast {
+  background-color: rgba(255, 255, 255, 0) !important;
+  backdrop-filter: blur(8px);
+}
+
+.container__content .button {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .header {
-  background-color: #1A2023;
-  color: #B0BEC5;
   padding: 12px 24px;
   display: flex;
   align-items: center;
@@ -45,11 +74,11 @@
 }
 
 .header input {
-  background-color: #263238;
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid #37474F;
   border-radius: 5px;
   padding: 6px 12px;
-  color: #B0BEC5;
+  color: #ffffff;
   font-size: 14px;
   transition: border-color 0.3s ease;
 }
@@ -60,8 +89,6 @@
 }
 
 .sidebar {
-  background-color: rgba(33, 39, 42, 0.8);
-  color: #B0BEC5;
   width: 260px;
   height: 100vh;
   padding: 20px 10px;
@@ -71,7 +98,7 @@
 }
 
 .sidebar a {
-  color: #B0BEC5;
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -83,31 +110,20 @@
   animation-fill-mode: backwards;
 }
 
-.sidebar a:nth-child(1) { animation-delay: 0.1s; }
-.sidebar a:nth-child(2) { animation-delay: 0.2s; }
-.sidebar a:nth-child(3) { animation-delay: 0.3s; }
-.sidebar a:nth-child(4) { animation-delay: 0.4s; }
-.sidebar a:nth-child(5) { animation-delay: 0.5s; }
-.sidebar a:nth-child(6) { animation-delay: 0.6s; }
-.sidebar a:nth-child(7) { animation-delay: 0.7s; }
-
 .sidebar a:hover {
-  background-color: #2D373C;
-  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   transform: rotate(2deg) scale(1.02);
 }
 
 .container__content {
-  background: radial-gradient(circle at center, #21272A 0%, #1A2023 100%);
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
-  color: #B0BEC5;
   padding: 30px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
 
 .container__content h1 {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 28px;
   margin-bottom: 12px;
   font-weight: 500;
@@ -116,7 +132,7 @@
 }
 
 .container__content p {
-  color: #B0BEC5;
+  color: #ffffff;
   font-size: 14px;
   line-height: 1.5;
   animation: slideInFromBottom 0.9s ease-in-out;
@@ -129,18 +145,7 @@
   animation: fadeIn 1s ease-in-out;
 }
 
-.game-tile {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.game-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
 .bottom-panel {
-  background-color: rgba(33, 39, 42, 0.8);
-  color: #90A4AE;
   padding: 12px 24px;
   border-top: 1px solid #2D373C;
   font-size: 12px;
@@ -153,8 +158,7 @@
 }
 
 .toast {
-  background-color: rgba(55, 71, 79, 0.9);
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 14px;
@@ -173,7 +177,7 @@
 
 .button {
   background: linear-gradient(90deg, #455A64, #37474F);
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
@@ -181,8 +185,6 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
   transition: transform 0.1s ease, background 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
