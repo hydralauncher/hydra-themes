@@ -1,0 +1,37 @@
+body {
+    background-image: url(https://preview.redd.it/hydra-rainforest2-v0-qu7bndul0ise1.jpg?width=1080&crop=smart&auto=webp&s=08a73a6942eec7c3060b206379ad2ce678a82266);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Elementos principais com transparência */
+.header, .sidebar, .bottom-panel, .toast {
+    background: rgba(0, 0, 0, 0.3); /* Preto transparente */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Parte central realmente transparente */
+.container__content {
+    background: rgba(0, 0, 0, 0.1); /* Transparência maior */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Botão com borda de 20% de verde */
+.button {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(48, 116, 48, 0.2); /* Borda verde 20% */
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Efeito hover do botão */
+.button:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(48, 116, 48, 0.4);
+}
