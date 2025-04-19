@@ -1,0 +1,240 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideInFromLeft {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideInFromBottom {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(69, 90, 100, 0.3); }
+    50% { box-shadow: 0 0 15px rgba(69, 90, 100, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(69, 90, 100, 0.3); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .header {
+    background-color: #1A2023;
+    color: #B0BEC5;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2D373C;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  .header input {
+    background-color: #263238;
+    border: 1px solid #37474F;
+    border-radius: 5px;
+    padding: 6px 12px;
+    color: #B0BEC5;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .header input:focus {
+    border-color: #B0BEC5;
+    outline: none;
+  }
+  
+  .sidebar {
+    background-color: rgba(33, 39, 42, 0.8);
+    backdrop-filter: blur(10px);
+    color: #B0BEC5;
+    width: 260px;
+    height: 100vh;
+    padding: 20px 10px;
+    border-right: 1px solid #2D373C;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+  
+  .sidebar a {
+    color: #B0BEC5;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    animation: slideInFromLeft 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    animation-fill-mode: backwards;
+  }
+  
+  .sidebar a:nth-child(1) { animation-delay: 0.1s; }
+  .sidebar a:nth-child(2) { animation-delay: 0.2s; }
+  .sidebar a:nth-child(3) { animation-delay: 0.3s; }
+  .sidebar a:nth-child(4) { animation-delay: 0.4s; }
+  .sidebar a:nth-child(5) { animation-delay: 0.5s; }
+  .sidebar a:nth-child(6) { animation-delay: 0.6s; }
+  .sidebar a:nth-child(7) { animation-delay: 0.7s; }
+  
+  .sidebar a:hover {
+    background-color: #2D373C;
+    color: #FFFFFF;
+    transform: rotate(2deg) scale(1.02);
+  }
+  
+  .container__content {
+    background: radial-gradient(circle at center, #21272A 0%, #1A2023 100%);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+    color: #B0BEC5;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+  
+  .container__content h1 {
+    color: #FFFFFF;
+    font-size: 28px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    animation: slideInFromBottom 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .container__content p {
+    color: #B0BEC5;
+    font-size: 14px;
+    line-height: 1.5;
+    animation: slideInFromBottom 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .container__content img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .game-tile {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .game-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .bottom-panel {
+    background-color: rgba(33, 39, 42, 0.8);
+    backdrop-filter: blur(10px);
+    color: #90A4AE;
+    padding: 12px 24px;
+    border-top: 1px solid #2D373C;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideInFromBottom 0.7s ease-in-out;
+  }
+  
+  .toast {
+    background-color: rgba(55, 71, 79, 0.9);
+    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    animation: slideInFromRight 0.5s ease-in-out;
+  }
+  
+  .toast.hide {
+    animation: fadeOut 0.5s ease-in-out forwards;
+  }
+  
+  .button {
+    background: linear-gradient(90deg, #455A64, #37474F);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.1s ease, background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .button:hover {
+    background: linear-gradient(90deg, #37474F, #263238);
+    transform: scale(1.05);
+    animation: glow 1.5s infinite ease-in-out;
+  }
+  
+  .button:active {
+    transform: scale(0.95);
+  }
+  
+  .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(69, 90, 100, 0.5);
+  }
+  
+  .button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(69, 90, 100, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #21272A;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #455A64, #37474F), url('https://example.com/scrollbar-gif.gif') center center / cover;
+    border-radius: 10px;
+    border: 2px solid rgba(33, 39, 42, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.5s ease-in-out;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #37474F, #263238), url('https://example.com/scrollbar-gif.gif') center center / cover;
+    transform: scale(1.1);
+    animation: glow 1.5s infinite ease-in-out;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    animation: glow 0.5s infinite ease-in-out;
+  }
