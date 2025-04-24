@@ -1,7 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
 
-* {
-  font-family: 'Sixtyfour', monospace !important;
+body,
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.settings-download-sources__item,
+.download-group__item {
+  font-family: 'Sixtyfour', monospace;
 }
 
 .sidebar,
