@@ -16,7 +16,7 @@ body,
 .recent-games__box,
 .settings-download-sources__item,
 .download-group__item {
-  font-family: 'Sixtyfour', monospace;
+  font-family: 'Sixtyfour', 'Courier New', Courier, monospace;
 }
 
 .sidebar,
