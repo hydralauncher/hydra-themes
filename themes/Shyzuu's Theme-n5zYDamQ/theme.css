@@ -1,0 +1,53 @@
+/* Shyzuu's Theme V1 for Hydra Launcher By Shyzuuu */
+
+/* Header */
+.header {
+  background-color: rgba(88, 0, 139, 0.9);
+  border-bottom: 3px solid #b2229f; 
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #260742;
+  color: #E0C097;
+  border-right: 2px solid #740daf; 
+}
+
+/* Main content */
+.container__content {
+  background: rgba(39, 2, 59, 0.9);;
+  background-size: cover;
+  color: #bf97e0; 
+}
+
+/* Bottom Panel */
+.bottom-panel {
+  background-color: rgba(60, 0, 139, 0.9);
+  color: white;
+  border-top: 3px solid #a622b2;
+}
+
+/* Toast */
+.toast {
+  background-color: rgba(76, 0, 139, 0.9);
+  color: white;
+  font-weight: bold;
+}
+
+/* Buttons */
+.button {
+  background-color: #58008b; 
+  color: white;
+  border: 1px solid #58008b;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #58008b;
+  color: #b900b9;
+}
