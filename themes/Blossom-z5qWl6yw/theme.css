@@ -19,7 +19,7 @@ body {
   font-family: 'Quicksand', 'Montserrat', sans-serif;
   color: var(--text-primary);
   background: linear-gradient(135deg, #0a0a0a, #151515, #0a0a0a);
-  overflow: hidden;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -460,9 +460,42 @@ body::after {
   pointer-events: none;
 }
 
-/* Custom scrollbar */
+/* Fixed scrollable containers */
+.container__content {
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
+}
+
+.sidebar {
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
+}
+
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  overflow-y: auto;
+  max-height: 80vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
+}
+
+/* Custom scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
+}
+
+/* Custom scrollbar for Webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -477,6 +510,33 @@ body::after {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--accent-pink-dark), #222);
+}
+
+/* Horizontal scrollbar */
+::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(90deg, #222, var(--accent-pink-dark));
+  border-radius: 10px;
+}
+
+/* For tables or other elements that might need horizontal scrolling */
+.table-container {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
+}
+
+/* Long content containers */
+.game-description,
+.chat-messages,
+.notifications-list {
+  overflow-y: auto;
+  max-height: 300px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
 }
 
 /* Selection style */
