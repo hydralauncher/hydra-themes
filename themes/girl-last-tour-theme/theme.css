@@ -1,0 +1,1106 @@
+.header {
+    height: 5%;
+    min-height: 7%;
+    background: rgba(0, 0, 0, 0);
+    border-bottom: solid 0px rgba(255, 255, 255, 0.15);
+    position: absolute;
+    z-index: 99;
+    overflow: visible;
+    gap: 8px;
+}
+.header__section {
+    transform: translateY(-50px);
+    padding: 22px 40px 22px 25px;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.452), rgba(0, 0, 0, 0.233));
+    transition: transform 0.5s ease-in-out;
+    border-radius: 8px;
+}
+.auto-update-sub-header__new-version-button {
+    color: #ffffff;
+}
+.auto-update-sub-header {
+    background: #000000;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 20px; /* Stick it to the bottom */
+    left: 50%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Actually center it properly */
+    border-bottom: unset;
+    padding: 4px 24px;
+    opacity: 0.8;
+    z-index: 5;
+    min-height: 4.5vh;
+        display: flex; /* Make it a flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.header:hover .header__section {
+    transform: translateY(4px);
+}
+
+.container__content {
+    overflow-y: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+}
+.settings__container {
+    padding: 24px;
+    width: 100%;
+    display: flex;
+        overflow: auto;
+        margin-bottom: 3.5vh;
+}
+.profile__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: auto;
+            margin-bottom: 3.2vh;
+}
+.sidebar-profile__button-game-running-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    transform: translateY(18px) translateX(50px);
+    font-size: 9px;
+    visibility: hidden;
+}
+.sidebar{
+    top: 3.7vh;
+    position: absolute;
+    background: transparent;
+    border-right: solid 0px rgba(255, 255, 255, 0);
+    z-index: 5;
+    height: 97vh; /* full viewport height */
+    transform: translateX(-215px);
+        transition: ease-out 0.4s;
+}
+.sidebar:hover{
+transform: translateX(0px);
+}
+.sidebar__container {
+        backdrop-filter: blur(5px);
+            border-right: solid 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column-reverse;
+    flex: 1;
+    overflow: scroll;
+    padding: 8px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    z-index: 21;
+    transform: translateX(-500px);
+    transition: ease-out 0.4s;
+        background: rgba(0, 0, 0, 0.0);
+}
+.sidebar:hover .sidebar__container{
+        background: rgba(0, 0, 0, 0.1);
+transform: translateX(0px);
+}
+
+.sidebar__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 5px;
+    gap: 16px;
+    width: 100%;
+    overflow: scroll;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 1%;
+  height: 0%;
+  background-color: transparent;
+}
+.sidebar-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(5, 5, 5, 0);
+    padding: 12px 9px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.sidebar-profile__button {
+    display: flex;
+    cursor: pointer;
+    transition: all ease 0.1s;
+    background-color: rgba(0, 0, 0, 0.459);
+    width: 100%;
+    overflow: hidden;
+    padding: 6px 6px;
+    border-radius: 9px;
+}
+.sidebar-profile__button:hover {
+    transform: scale(1.03);
+    background-color: rgba(0, 0, 0, 0.192);
+}
+
+.sidebar__menu-item {
+    transition: all ease 0.1s;
+    cursor: pointer;
+    display: flex;
+    color: #c0c1c7;
+    border-radius: 4px;
+    padding: 1px 1px;
+}
+.sidebar__menu-item:hover {
+    transform: scale(1.03);
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    
+}
+
+.sidebar-profile__friends-button {
+    color: #707070;
+    border-radius: 12px;
+    width: 64px;
+    height: 47px;
+    background-color: rgba(0, 0, 0, 0.459);
+    position: relative;
+    transition: all ease 0.3s;
+  cursor: pointer;
+}
+.sidebar__menu-item-button {
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    padding: 7px 8px;
+}
+.sidebar__game-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+.profile-hero__user-information {
+    display: flex;
+    padding: 56px 24px;
+    align-items: center;
+    gap: 16px;
+    background-color: transparent;
+}
+.sidebar-profile__button-information::after {
+    color: rgba(255, 255, 255, 0.205);
+    content: "The Last Tour:";
+    text-align: left;
+    visibility: visible;
+    font-size: 9px;
+    font-weight: bold; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: absolute; 
+}
+.sidebar__section-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 9px;
+}
+.text-field-container__text-field-wrapper {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    background-color: transparent;
+}
+.sidebar__section {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding-bottom: 8px;
+}
+.profile-avatar__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.profile-hero__information {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    color: #c0c1c7;
+    z-index: 1;
+    overflow: hidden;
+}
+.profile-hero__information::after {
+        font-size: 15px;
+  position: absolute;
+  content: "The last tour people. Keep friendly my buddy!";
+  transform: translateY(-15px);
+  opacity: 0.4; /* this means 20% visible */
+}
+.user-library-game__overlay {
+      opacity: 0.0; /* this means 20% visible */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(20deg, rgba(0, 0, 0, 0.7) 20%, transparent 100%);
+    padding: 8px;
+        transition: all ease 0.5s;
+}
+.backdrop {
+        animation-duration: 0.5s;
+    backdrop-filter: blur(12px);
+}
+.edit-profile-modal__avatar-container {
+    align-self: center;
+    display: flex;
+    color: #8e919b;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c00;
+    position: relative;
+    cursor: pointer;
+    border-radius: 100%;
+}
+.edit-profile-modal__avatar-container:hover{
+    border-radius: 100%;
+}
+.edit-profile-modal__avatar-overlay {
+    border-radius: 100%;
+    opacity: 0.5;
+}
+.edit-profile-modal__avatar-container {
+    width: fit-content;
+    align-self: center;
+    display: flex;
+    color: #8e919b;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c00;
+    position: relative;
+    cursor: pointer;
+    border-radius: 100%;
+}
+.hero-panel__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    visibility: visible;
+}
+.gallery-slider__animation-container {
+        width: 80%;
+    }
+    .gallery-slider__preview {
+        width: 80%;
+    }
+.game-details__game-logo {
+    display: flex;
+    width: 300px;
+}
+.gallery-slider__container {
+    padding: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content-sidebar{
+    border-left: unset !important;
+}
+.description-header {
+    background-color: transparent !important;
+}
+.description-header__info {
+    display: flex;
+    color: #ffffff3b;
+    gap: 1px;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+.game-details__description {
+        width: 85%;
+    }
+.hero-panel__actions {
+        position: relative;
+    overflow: hidden; /* if you're clipping */
+    right: 0;
+    display: flex;
+    gap: 8px;
+    visibility: visible;
+}
+.hero-panel__content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), #00000079);
+    pointer-events: none;
+    z-index: -1;
+}
+.hero-panel{
+    visibility: hidden;
+    display: grid;
+    gap: 10px;
+    height: 120%;
+    min-height: 21%;
+    top: unset;
+}
+.game-details__hero-image {
+    opacity: 0.6;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgb(0, 0, 0));
+    -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0)); /* for Safari */
+}
+.game-details__hero-backdrop {
+visibility: hidden;
+}
+.modal__header {
+    border-bottom: transparent;
+}
+.modal {
+    background: rgba(0, 0, 0, 0.301);
+    border: transparent;
+    color: rgba(255, 255, 255, 0.664);
+}
+.edit-profile-modal__content {
+    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.edit-profile-modal__form {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+@keyframes backdrop-fade-in {
+0% {
+    backdrop-filter: blur(0px);
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+100% {
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+}
+text-field-container__text-field{
+    margin-top: 10px;
+    height: 120%;
+    min-height: 120%;
+    border-radius: 10px;
+    border: #dadbe1;
+    background-color: #00000013;
+}
+.user-library-game__cover:before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 172%;
+    position: absolute;
+    background: transparent;
+    transition: all ease 0.3s;
+    transform: translateY(-36%);
+    opacity: 0.5;
+}
+.user-library-game__overlay:hover{
+          opacity: 0.9; /* this means 20% visible */
+}
+.profile-hero__content-box::after {
+  position: absolute;
+  content: " "; /* shows the text */
+  display: block; /* OR use flex if you wanna center stuff */
+  width: 100%; /* full width of parent */
+  height: 105%;
+  background-color: #000000;
+  color: white; /* make the text visible on black bg */
+  padding: 0px; /* optional: add some spacing */
+  z-index: -1; /* make sure it’s on top */
+  visibility: visible;
+  border-radius: 20px;
+  background: 
+    linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), 
+    url('https://undeadimpulse.wordpress.com/wp-content/uploads/2019/03/5a03df61cc2ea.jpg') center / cover no-repeat;
+      opacity: 0.8; /* this means 20% visible */
+}
+.profile-hero__avatar-button {
+    width: 96px;
+    min-width: 96px;
+    height: 96px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c00;
+    border: solid 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: all ease 0.3s;
+    color: #c0c1c7;
+    position: relative;
+}
+.profile-avatar {
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c00;
+    border: solid 0px rgba(255, 255, 255, 0);
+    cursor: pointer;
+    color: #c0c1c7;
+    position: relative;
+    overflow: hidden;
+}
+.sidebar-profile__button-title {
+    font-weight: bold;
+    font-size: 12px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 9px;
+}
+.sidebar-profile__friends-button:hover {
+  color: #ffffff;
+    transform: scale(1.03);
+    background-color: rgba(0, 0, 0, 0.192);
+}
+.edit-profile-modal__content
+.text-field-container
+.text-field-container__text-field-wrapper
+.text-field-container__text-field--primary {
+    background-color: transparent !important;
+    border: unset;
+}
+.settings-general
+.text-field-container
+.text-field-container__text-field-wrapper
+.text-field-container__text-field--primary {
+    background-color: transparent !important;
+    border: unset;
+}
+.bottom-panel {
+    width: 100%;
+    border-top: solid 1px rgba(56, 2, 2, 0);
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    transition: all ease 0.2s;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+}
+.bottom-panel::after {
+    content: "Theme by shanisnice";
+    position: absolute;
+    right: 0;
+    padding-right: 1%;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: unset;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+.bottom-panel:hover::after {
+    content: "Support us! Theme by shanisnice";
+            text-decoration: underline;
+    color: white;
+}
+.bottom-panel::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 1%;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://media.tenor.com/x8v1oNUOmg4AAAAM/rickroll-roll.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.bottom-panel:hover::before {
+    opacity: 1;
+}
+
+
+
+.bottom-panel__version-button {
+    color: rgba(255, 255, 255, 0.300);
+    border-bottom: solid 1px transparent;
+    padding-right: 7px;
+    padding-left: 7px;
+        font-size: 9px;
+}
+.bottom-panel__downloads-button {
+    padding-right: 7px;
+    padding-left: 7px;
+    color: rgba(255, 255, 255, 0.300);
+        font-size: 9px;
+    border-bottom: solid 1px transparent;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000000;
+  z-index: 999;
+  pointer-events: none;
+  animation: fadeOutBlack 6s linear forwards;
+}
+
+/* 🔥 The keyframes */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  width: 100%;
+  background: url('https://i.pinimg.com/originals/05/39/17/0539179a75d8d50e5d3a402c2c97982c.gif') no-repeat center center;
+   background-size: 500px;
+  z-index: 999;
+  pointer-events: none;
+  animation: fadeOutBlacktitle 6s linear forwards;
+}
+@keyframes fadeOutBlack {
+  0% {
+    opacity: 0;
+  }
+    2% {
+    opacity: 1;
+  }
+    75% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 0;
+  }
+    100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOutBlacktitle {
+  0% {
+    opacity: 0;
+  }
+      2% {
+    opacity: 0;
+  }
+      4% {
+    opacity: 1;
+  }
+    70% {
+    opacity: 1;
+  }
+      75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.title-bar {
+    display: flex;
+    width: 100%;
+    height: 35px;
+    min-height: 35px;
+    padding: 0 16px;
+    -webkit-app-region: drag;
+    z-index: 4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0);
+}
+body {
+  color: #ffffff;
+}
+main {
+    overflow: hidden;
+    bottom: 0;
+}
+.title-bar h4 {
+    visibility: hidden;
+}
+.hero {
+    width: 100%;
+    height: 280px;
+    min-height: 280px;
+    max-height: 280px;
+    border-radius: 0px;
+    color: #dadbe100;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 0px #000000;
+    cursor: pointer;
+    border: solid 1px rgba(255, 255, 255, 0.0);
+    z-index: 1;
+}
+.title-bar h4::after {
+    color: white;
+    content: "Hydra Last Tour - v1.0";
+    visibility: visible;
+    position: relative;
+    top: 50%;
+    left: -50px;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px;
+}
+
+#root {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; /* just to make sure it fills the screen */
+}
+
+#root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://i.pinimg.com/736x/4f/9f/20/4f9f208a6ab4106f36a427e10e2153b1.jpg') center / cover no-repeat;
+  filter: blur(10px);
+  background-size: 125%;
+  z-index: -1; /* stays behind everything else */
+  opacity: 0.8;
+}
+
+@keyframes squzy-pop {
+  0% {
+    transform: translateX(1px) rotate(0.2deg); /* tall & thin */
+  }
+  20% {
+    transform: translateX(-1px) rotate(0deg);
+  }
+  40% {
+    transform: translateX(1px) rotate(-0.2deg); /* slight rebound */
+  }
+  60% {
+    transform: translateX(-1px) rotate(0deg); /* slight rebound */
+  }
+  100% {
+    transform: translateX(1px) rotate(0.2deg); /* settle */
+  }
+}
+#root::after {
+  animation: squzy-pop 2s linear infinite;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://i.redd.it/g8ohtg3x2n4d1.gif') no-repeat bottom right;
+  background-size: 200px; /* adjust the size you want */
+  pointer-events: none; /* this makes sure it doesn't block clicks or scrolling */
+  z-index: 0;
+  filter: blur(0px); /* keep if you want, or remove */
+}
+
+.home__content h2 {
+    text-align: center;
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.profile-hero__background-overlay--transparent {
+    background: transparent;
+        visibility: visible;
+}
+.profile-hero__actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    flex: 1;
+     visibility: visible;
+     backdrop-filter: blur(0px);
+     flex-direction: row-reverse;
+}
+.friends-box__box {
+    background-color: #1c1c1c00;
+    border-radius: 4px;
+    border: solid 0px rgba(255, 255, 255, 0);
+    padding: 16px;
+}
+.recent-games__box {
+    background-color: #1c1c1c00;
+    border-radius: 4px;
+    border: solid 0px rgba(255, 255, 255, 0);
+    padding: 16px;
+}
+.user-stats__box {
+    background-color: #1c1c1c00;
+    border-radius: 4px;
+    border: solid 0px rgba(255, 255, 255, 0);
+    padding: 16px;
+}
+.profile-hero__content-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 25px;
+        visibility: hidden;
+}
+.catalogue__games-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
+    gap: 12px;
+    padding: 8px;
+        height: 80%;
+}
+.catalogue__content {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+} 
+.game-card__cover {
+    opacity: 0.3;
+}
+.header__search {
+    background-color: #1c1c1c00;
+    border: solid 1px rgba(255, 255, 255, 0.0);
+}
+.header__search:hover{
+    border: solid 1px rgba(255, 255, 255, 0.0);
+}
+.game-card__cover:hover {
+    opacity: 0.6;
+}
+.game-card {
+    width: 100%;
+    height: 180px;
+    box-shadow: 0px 0px 0px 0px #000000;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: all ease 0.2s;
+    border: solid 1px rgba(255, 255, 255, 0.0);
+    cursor: pointer;
+    z-index: 1;
+}
+.game-item {
+    width: 100%;
+    padding: 0%;
+    gap: 0px;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-color: #00000057;
+    border: transparent;
+     background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(0px);
+    border-radius: 5px;
+}
+.game-item:hover {
+ background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+      transform: scale(1.012);
+          padding: 1%;
+}
+.home__cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+.profile-hero__hero-panel {
+    width: 100%;
+    height: 72px;
+    min-height: 72px;
+    padding: 16px 24px;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    backdrop-filter: blur(0px);
+    border-top: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.game-item__repackers {
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+.game-item__genres {
+    color: #8e919b;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 4px;
+}
+.game-item__details {
+    padding: 12px;
+    text-align: left;
+}
+.game-item__cover {
+    margin-top: 2%;
+    height: 30%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.catalogue__filters-container {
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+    background-color: #00000000;
+    border-radius: 0px;
+    padding: 16px;
+    border: 0px solid rgba(255, 255, 255, 0.15);
+    align-self: flex-start;
+    
+}
+
+.settings__content {
+    background-color: #00000000;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    border: solid 0px rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 0px 0px 0px #000000;
+    border-radius: 0px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+        backdrop-filter: blur(0px);
+}
+.settings-download-sources__item .text-field-container__text-field-wrapper .text-field-container__text-field--dark {
+background-color: #1c1c1c00 !important;
+border: unset;
+backdrop-filter: unset;
+}
+.settings-download-sources__item-header .text-field-container .text-field-container__text-field-wrapper .text-field-container__text-field--dark {
+background-color: #1c1c1c00 !important;
+border: unset }
+
+.settings-download-sources__list {
+    padding: 0;
+    margin: 0;
+    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.sidebar__section .text-field-container .text-field-container__text-field-wrapper .text-field-container__text-field--dark {
+background-color: #1c1c1c00 !important;
+border: unset 
+}
+
+.sidebar__section .text-field-container .text-field-container__text-field-wrapper .text-field-container__text-field--dark .text-field-container__text-field-input {
+    margin-top: 20px;
+        padding: 9px;
+}
+.container__content .button--outline {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.0);
+}
+.select-field__label {
+    margin-bottom: 8px;
+    display: block;
+    color: white;
+}
+.select-field--primary {
+    background-color: transparent;
+    border: transparent;
+}
+.select-field--primary:hover {
+    border: transparent;
+}
+.badge {
+    color: #ffffff;
+    font-size: 9px;
+    padding: 3px 4px;
+    border: solid 1px #ffffff21;
+    border-radius: 4px;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+.settings-download-sources__item {
+    display: flex;
+    flex-direction: column;
+    background-color: #15151546;
+    border-radius: 0px;
+    padding: 16px;
+    gap: 8px;
+    border: solid 0px rgba(0, 0, 0, 0.0);
+    transition: all ease 0.2s;
+}
+.settings-download-sources__item:hover {
+    transform: scale(1);
+}
+.theme-card {
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+   background-color: #1515154b;
+    border: 1px solid rgba(255, 255, 255, 0.0);
+    border-radius: 12px;
+    gap: 4px;
+    transition: background-color 0.2s ease;
+    padding: 16px;
+    position: relative;
+    align-items: center;
+}
+.theme-card__header__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+.theme-card__author {
+    font-size: 12px;
+    color: #ffffff4b;
+    font-weight: 400;
+}
+.settings-appearance__themes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 columns */
+    gap: 10px;
+}
+.select-field__option {
+    background-color: transparent;
+    border-right: 4px solid;
+    border-color: transparent;
+    border-radius: 8px;
+    width: fit-content;
+    height: 100%;
+    outline: none;
+    color: #dadbe1;
+    cursor: default;
+    font-family: inherit;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    padding: 8px;
+}
+.checkbox-field__checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 4px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all ease 0.2s;
+    border: solid 1px rgba(255, 255, 255, 0.15);
+}
+.settings__categories {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.button:hover{
+    transform: scale(1.05);
+    background-color: #00000049;
+}
+
+.game-details__description-container {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    background: transparent;
+}
+
+.content-sidebar {
+    border-left: solid 1px rgba(255, 255, 255, 0.15);
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-section__button {
+    height: 12px;
+    padding: 16px 16px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: #c0c1c7;
+    width: 100%;
+    cursor: pointer;
+    transition: all ease 0.2s;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+li:hover {
+        transform: scale(1.012);
+}
+
+.description-header {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1515150c;
+    height: 72px;
+}
+.download-group__item {
+    width: 100%;
+    background-color: #1515150c;
+    display: flex;
+    border-radius: 8px;
+    border: solid 1px rgba(255, 255, 255, 0.0);
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 0px #000000;
+    transition: all ease 0.2s;
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
+    position: relative;
+}
