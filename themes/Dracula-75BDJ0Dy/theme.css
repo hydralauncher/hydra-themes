@@ -8,13 +8,13 @@
     --fg: #F8F8F2;
     --selection: #44475A;
     --comment: #6272A4;
-    --cyan: #8BE9FD;
+    --purple: #451952;
     --green: #50FA7B;
     --orange: #eba55b;
     --pink: #FF79C6;
-    --purple: #a83c3c;
+    --redish: #a83c3c;
     --red: #FF5555;
-    --yellow: #FCDC94;
+    --yellow: #f8e53b;
 }
 
 /* geral */
@@ -29,7 +29,6 @@ body {
 /* containers */
 .container__content,
 .settings__content,
-.home__content,
 .bottom-panel,
 .catalogue__filters-container,
 .content-sidebar {
@@ -37,6 +36,13 @@ body {
     border-radius: 7px;
     color: var(--fg);
 }
+
+.home__content {
+    background-color: var(--bg-darker);
+    border-radius: 7px;
+    color: var(--fg);
+}
+
 
 /* sidebar */
 .sidebar,
@@ -63,14 +69,14 @@ body {
 }
 
 .sidebar__menu-item {
-    color: var(--purple);
+    color: var(--redish);
 }
 
 /* header / título */
 .title-bar,
 .header {
     background-color: var(--bg-dark);
-    color: var(--fg);
+    color: var(--purple);
     border-bottom: 1px solid var(--selection);
     border-radius: 7px;
 }
@@ -78,11 +84,11 @@ body {
 /* jogo relacionados */
 .game-item,
 .download-group__item {
-    background-color: var(--bg-light);
+    background-color: var(--bg-dark);
     border-radius: 7px;
     border: 2px solid var(--bg);
-    color: var(--fg);
-    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+    color: var(--red);
+    box-shadow: 4px 4px 0px 0px rgba(63, 2, 2, 0.4);
 }
 
 /* campos de texto */
@@ -105,7 +111,7 @@ body {
 .button--danger,
 .button--outline {
     background-color: var(--bg-dark);
-    color: var(--fg);
+    color: var(--yellow);
     border: transparent;
 }
 
