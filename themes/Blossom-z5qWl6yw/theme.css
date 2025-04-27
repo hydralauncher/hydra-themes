@@ -382,7 +382,7 @@ a:hover::after {
 @keyframes falling {
   0% {
     top: -10%;
-    left: random(100) * 1%;
+    left: 50%;
     transform: rotate(0deg) scale(0.4);
     opacity: 0;
   }
