@@ -4,7 +4,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
   background: linear-gradient(to bottom, #1a1a1a, #0d0d0d, #000000);
-  overflow-x: hidden; /* Изменено для предотвращения горизонтальной прокрутки */
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   display: flex;
@@ -186,7 +186,7 @@ h6 {
   -moz-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #ff00cc; /* Fallback */
+  color: #ff00cc;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
