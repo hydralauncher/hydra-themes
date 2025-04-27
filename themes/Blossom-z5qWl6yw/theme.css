@@ -57,10 +57,11 @@ body {
 }
 
 #root {
-  background: url('https://i.pinimg.com/originals/79/50/f1/7950f1d2015d09044573e62565b3fd0b.gif') no-repeat center center fixed;
+  background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExanh2Z2dhd2twc3Y3OHN1NmxncnRwOHg3eDV2ejg3NWp2N3B2NHVvNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/m2JoDjoeObDQG7ARxd/giphy.gif') no-repeat center center fixed;
   background-size: cover;
   opacity: 1;
   image-rendering: auto;
+  -webkit-backdrop-filter: blur(9px);
   backdrop-filter: blur(9px);
   min-height: 100vh;
   position: relative;
@@ -86,6 +87,7 @@ body {
   border-radius: 15px;
   padding: 14px;
   box-shadow: 0 5px 25px var(--shadow-dark), inset 0 0 10px var(--shadow-light);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
@@ -157,6 +159,7 @@ body {
 .user-stats__box,
 .recent-games__box {
   background-color: rgba(10, 10, 10, 0.75);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-light);
   border-radius: 12px;
@@ -382,7 +385,7 @@ a:hover::after {
 @keyframes falling {
   0% {
     top: -10%;
-    left: 50%;
+    left: calc(100% * var(--x-offset, 0.5));
     transform: rotate(0deg) scale(0.4);
     opacity: 0;
   }
@@ -397,7 +400,7 @@ a:hover::after {
 
   100% {
     top: 100%;
-    left: 20%;
+    left: calc(var(--x-offset, 0.5) * 100% + 20%);
     transform: rotate(360deg) scale(0.4);
     opacity: 0;
   }
