@@ -47,7 +47,6 @@ background: linear-gradient(0deg, rgba(0, 0, 0, 0.452), rgba(0, 0, 0, 0.233));
     position: relative;
     height: 100%;
     background: transparent;
-    overflow: hidden;
 }
 .settings__container {
     padding: 24px;
@@ -437,7 +436,6 @@ text-field-container__text-field{
   display: block; /* OR use flex if you wanna center stuff */
   width: 100%; /* full width of parent */
   height: 105%;
-  background-color: #000000;
   color: white; /* make the text visible on black bg */
   padding: 0px; /* optional: add some spacing */
   z-index: -1; /* make sure it’s on top */
