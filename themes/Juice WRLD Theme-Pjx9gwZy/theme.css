@@ -28,7 +28,7 @@
     border-top: 1px solid #BB86FC;
     }
     
-    /* Toast (всплывающие уведомления) */
+    /* Toast (popup notifications) */
     .toast {
     background-color: #1F1B24;
     color: #BB86FC;
