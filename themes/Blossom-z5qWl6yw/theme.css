@@ -397,7 +397,7 @@ a:hover::after {
 
   100% {
     top: 100%;
-    left: calc(var(--x-pos) + 20%);
+    left: 20%;
     transform: rotate(360deg) scale(0.4);
     opacity: 0;
   }
