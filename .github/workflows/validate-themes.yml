@@ -24,10 +24,4 @@ jobs:
 
       - name: Validate themes
         run: |
-          npx bun src/lib/validate-themes.ts 2>stderr.txt
-
-      - name: Comment validation error on PR
-        if: failure()
-        uses: thollander/actions-comment-pull-request@v3
-        with:
-          file-path: stderr.txt
+          yarn validate-themes
