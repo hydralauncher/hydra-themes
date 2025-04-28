@@ -35,12 +35,26 @@ Promise.all(
 
     const parts = folder.split("-");
     const authorCode = parts.pop()?.trim();
+    const themeName = parts.join("-").trim();
 
     await api.get(`/users/${authorCode}`).catch(() => {
       throw new Error(`❌ Failed to fetch author ${authorCode}`);
     });
+
+    return themeName;
   }),
 )
+  .then((themes) => {
+    // validate if theme name is unique
+    const uniqueThemes = new Set(themes);
+    if (uniqueThemes.size !== themes.length) {
+      throw new Error(
+        `❌ Found duplicate theme names: ${themes
+          .filter((theme, index) => themes.indexOf(theme) !== index)
+          .join(", ")}`,
+      );
+    }
+  })
   .then(() => console.log(`✅ Validated ${folders.length} themes`))
   .catch((err: Error) => {
     console.error(err.message);
