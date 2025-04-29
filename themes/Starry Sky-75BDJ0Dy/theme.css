@@ -14,7 +14,7 @@
 body {
     background-color: var(--matte-black);
     color: var(--fg);
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', serif;
     font-size: 15px;
     font-weight: bold;
     overflow: hidden;
