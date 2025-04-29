@@ -1,0 +1,101 @@
+
+/*
+Here you can edit CSS for your theme and apply it on Hydra.
+There are a few classes already in place, you can use them to style the launcher.
+
+If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+or how to publish your theme in the theme store, you can check the docs:
+https://docs.hydralauncher.gg/
+
+Happy hacking!
+*/
+
+/* Header */
+.header {}
+
+/* Sidebar */
+.sidebar {}
+
+/* Main content */
+.container__content {}
+
+/* Bottom panel */
+.bottom-panel {}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
+
+body {
+margin: 0;
+color: #ff7300;
+font-family: 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif, Helvetica, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+-webkit-text-stroke-width:thin;
+-webkit-text-fill-color: rgb(187, 255, 0);
+-webkit-text-stroke: #fa0000;
+font-size: x-large;
+}
+
+
+#root {
+background: #f306d362
+  url("https://w.wallhaven.cc/full/1k/wallhaven-1kk211.jpg")
+  no-repeat center center;
+background-size: cover;
+}
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+background: transparent !important; 
+}
+
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+
+background-color: rgba(228, 142, 163, 0.212) !important;
+backdrop-filter: blur(0px);
+
+}
+
+.container__content .button--outline {
+backdrop-filter: blur(0px);
+background-color: rgba(0, 0, 0, 0.253);
+}
+
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+background-color: rgba(14, 93, 99, 0.329) !important;
+}
+
+
+.title-bar {
+background-color: #ffffff00;
+text-transform: uppercase;
+}
+
+
+.home__content {
+background-color: rgba(112, 52, 12, 0);
+backdrop-filter: blur(0px);
+}
+
+.bottom-panel {
+background-color: rgba(112, 65, 12, 0);
+}
