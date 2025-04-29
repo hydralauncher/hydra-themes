@@ -175,14 +175,15 @@
 
 /*Mais alguns botões*/
   .button--outline, .button--primary, .user-friend-modal-add-friend__button{
-    background-color: transparent;
+    /*background-color: transparent;*/
     border: 1px solid rgba(0, 255, 255, 0.7);
     background: rgba(0, 255, 255, 0.15);
   }
 
 /*Caixa de adicionar amigos*/
   .modal{
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.575);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.801);
+    color: white;
     background-color: rgba(0, 0, 0, 0.466) !important;
     border: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.582);
