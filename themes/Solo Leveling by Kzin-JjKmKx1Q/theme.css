@@ -113,7 +113,7 @@ body {
 .download-group__item,
 .game-item {
   background-color: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: transparent; blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .game-details__description-container {
