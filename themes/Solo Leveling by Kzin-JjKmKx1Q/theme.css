@@ -18,6 +18,11 @@
   color: #ff0000;
   text-shadow: 2px 2px 2px #000;
   background: transparent;
+<<<<<<< HEAD
+=======
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+>>>>>>> c114ecf64ec72e55e0c609d34a69b0e9ccf683cd
   font: 
     1.1em Chewy Bubble,
     serif;
