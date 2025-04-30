@@ -75,8 +75,6 @@ body {
   border: none;
 }
 
-#root::before
-
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search {
