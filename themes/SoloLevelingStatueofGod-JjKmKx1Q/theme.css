@@ -18,8 +18,8 @@
   color: #ff0000;
   text-shadow: 2px 2px 2px #000;
   background: transparent;
-  background-color: transparent; rgba(0, 0, 0, 0.8)
-  backdrop-filter: transparent; blur(8px);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
   font: 
     1.1em Chewy Bubble,
     serif;
@@ -74,8 +74,6 @@ body {
  .title-bar, .sidebar, .header, .bottom-panel, .hero-panel, .content-sidebar, .profile-hero__hero-panel, .profile-hero__hero-panel--transparent {
   border: none;
 }
-
-#root::before
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,

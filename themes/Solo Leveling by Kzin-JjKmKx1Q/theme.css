@@ -78,7 +78,6 @@ body {
   border: none;
 }
 
-#root::before
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
@@ -153,7 +152,6 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-element.style
 .profile-hero__background-overlay--transparent {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.1);
