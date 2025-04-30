@@ -77,6 +77,8 @@ body {
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ff0000;
   
   
@@ -158,11 +160,6 @@ body {
 }
 
 .repacks-modal__repack-button {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.text-field-container__text-field--dark, .text-field-container__text-field--primary, .header__search {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.6);
 }
