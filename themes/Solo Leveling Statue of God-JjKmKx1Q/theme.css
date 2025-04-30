@@ -18,6 +18,8 @@
   color: #ff0000;
   text-shadow: 2px 2px 2px #000;
   background: transparent;
+  background-color: transparent; rgba(0, 0, 0, 0.8)
+  backdrop-filter: transparent; blur(8px);
   font: 
     1.1em Chewy Bubble,
     serif;
@@ -38,7 +40,7 @@ body {
 }
 
 #root {
-  background: url(https://images.wallpapersden.com/image/download/solo-leveling-4k-digital_bW1paWmUmZqaraWkpJRobWllrWdma2U.jpg) no-repeat center center fixed;
+  background: url(https://static.wikia.nocookie.net/solo-leveling/images/c/cb/Statue_of_God_Smile_Anime_Episode_1.png/revision/latest?cb=20240115090031) no-repeat center center fixed;
   background-position: top;
   background-size: 100%;
   opacity: 1;
@@ -51,13 +53,13 @@ body {
 
 /* elementos especiais */
  .profile-hero__background-overlay--transparent {
-     background: url(https://4kwallpapers.com/images/wallpapers/solo-leveling-game-2560x1080-17908.jpeg);
+     background: url(https://4kwallpapers.com/images/wallpapers/solo-leveling-3440x1440-16126.jpg);
      background-size: 100%;
      background-position: 0px -120px;
  }
 
  .profile-hero__hero-panel {
-     background: url(https://4kwallpapers.com/images/wallpapers/solo-leveling-game-2560x1080-17908.jpeg) !important;
+     background: url(https://4kwallpapers.com/images/wallpapers/solo-leveling-3440x1440-16126.jpg) !important;
      background-size: 100% !important;
      background-position-y: -328px !important;
  }
@@ -111,7 +113,7 @@ body {
 .download-group__item,
 .game-item {
   background-color: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(8px);
+  backdrop-filter: transparent;
 }
 
 .game-details__description-container {
@@ -148,7 +150,6 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-element.style
 .profile-hero__background-overlay--transparent {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.1);
