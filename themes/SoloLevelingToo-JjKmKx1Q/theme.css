@@ -3,8 +3,8 @@
   text-shadow: 2px 2px 2px #000;
   color: #ff0000;
   background-color: rgba(0, 0, 0, 0.0);
-  
 }
+
 .sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
   text-transform: uppercase;
   color: #ffffff;
@@ -80,16 +80,14 @@ body {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.6);
   color: #ff0000;
-  
-  
 }
+
 .game-item {
   text-shadow: 2px 2px 2px #000;
   color: #ff0000;
   font: 
     1em Chewy Bubble,
     sans-serif;
-  
 }
 
 .settings__content {
@@ -104,7 +102,6 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar 
-
 .container__content .button--outline {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.5);
@@ -122,18 +119,22 @@ body {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .content-sidebar {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.2);
 }
+
 .description-header {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .hero-panel {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .settings__container {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.0);
@@ -143,6 +144,7 @@ body {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .theme-card {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
