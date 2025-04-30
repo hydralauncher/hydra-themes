@@ -94,7 +94,9 @@ body {
 
 .settings__content {
   text-shadow: 2px 2px 2px #000;
-  color: #ff0000;  
+  color: #ff0000;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.0);  
 }
 
 .catalogue__filters-container,
@@ -136,10 +138,7 @@ body {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.0);
 }
-.settings__content {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.0);
-}
+
 .button--outline {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
