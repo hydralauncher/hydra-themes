@@ -17,8 +17,7 @@
 .header {
   color: #ff0000;
   text-shadow: 2px 2px 2px #000;
-  background: transparent;
-  background-color: transparent; 
+  background: transparent; 
   backdrop-filter: transparent; 
   font: 
     1.1em Chewy Bubble,
@@ -90,12 +89,12 @@ body {
     sans-serif;
   
 }
-.settings__content 
-{
+
+.settings__content {
   text-shadow: 2px 2px 2px #000;
-  color: #ff0000;
-  
+  color: #ff0000;  
 }
+
 .catalogue__filters-container,
 .friends-box__box,
 .user-stats__box,
