@@ -205,3 +205,10 @@ select:focus {
 .highlight-item {
     animation: pulse 2s infinite;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .highlight-item {
+        animation: none;
+    }
+}
+}
