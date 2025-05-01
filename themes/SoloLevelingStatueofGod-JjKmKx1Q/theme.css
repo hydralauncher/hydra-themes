@@ -3,8 +3,8 @@
   text-shadow: 2px 2px 2px #000;
   color: #ff0000;
   background-color: rgba(0, 0, 0, 0.0);
-  
 }
+
 .sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
   text-transform: uppercase;
   color: #ffffff;
@@ -19,7 +19,7 @@
   text-shadow: 2px 2px 2px #000;
   background: transparent;
   background-color: transparent;
-  backdrop-filter: transparent;
+  backdrop-filter: transparent; 
   font: 
     1.1em Chewy Bubble,
     serif;
@@ -75,35 +75,34 @@ body {
   border: none;
 }
 
-#root::before
-
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ff0000;
-  
-  
 }
+
 .game-item {
   text-shadow: 2px 2px 2px #000;
   color: #ff0000;
   font: 
     1em Chewy Bubble,
     sans-serif;
-  
 }
-.settings__content 
-{
+
+.settings__content {
   text-shadow: 2px 2px 2px #000;
   color: #ff0000;
-  
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.0);
 }
+
 .catalogue__filters-container,
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
 .sidebar 
-
 .container__content .button--outline {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.5);
@@ -113,7 +112,7 @@ body {
 .download-group__item,
 .game-item {
   background-color: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: transparent; blur(8px);
+  backdrop-filter: transparent;
 }
 
 .game-details__description-container {
@@ -121,30 +120,32 @@ body {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .content-sidebar {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.2);
 }
+
 .description-header {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .hero-panel {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .settings__container {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.0);
 }
-.settings__content {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.0);
-}
+
 .button--outline {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .theme-card {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
@@ -161,11 +162,6 @@ body {
 }
 
 .repacks-modal__repack-button {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.text-field-container__text-field--dark, .text-field-container__text-field--primary, .header__search {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.6);
 }
