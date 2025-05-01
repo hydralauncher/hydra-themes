@@ -679,7 +679,7 @@ body {
 
 /*MODAL PAGINA DE GAMES */
 .repacks-modal__repack-button{
-    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.45);
 }
 .repacks-modal__repack-title{
     color: white;
