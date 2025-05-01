@@ -152,6 +152,11 @@ body {
     transform: translateY(1px);
 }
 
+* {
+    scrollbar-color: var(--blood-red) var(--blood-dark);
+    scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
