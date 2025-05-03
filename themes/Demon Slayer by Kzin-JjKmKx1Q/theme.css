@@ -262,7 +262,7 @@ body {
     transition: all ease 0.2s;
 }
 .hero__media:hover {
-    transform: scale(1.03s);
+    transform: scale(1.03);
 }
 .hero {
     border-radius: 15px;
@@ -452,7 +452,6 @@ body {
 }
 .description-header{
     color: white;
-    background-color: transparent;
     background-color: rgba(0, 0, 0, 0.0);
 }
 .game-details__description-container{
