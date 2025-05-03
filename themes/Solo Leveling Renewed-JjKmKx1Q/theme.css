@@ -337,7 +337,7 @@ body {
     justify-content: flex-start;
     border: 3px solid #0e1d74da;
     background: linear-gradient(40deg, rgba(0, 0, 0, 0.534) 25%, transparent 100%);
-    backdrop-filter: tranparent;
+    backdrop-filter: transparent;
     border-radius: 30px;
     text-shadow: 2px 2px 2px #000;
     color: #FFFF00;
