@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://db.onlinewebfonts.com/c/73fedd912ba11f583a359ce4c2e742ed?family=Ninja+Naruto+V1');
+
+
+
+* {
+  font-weight: bold;
+  
+  color: white;
+  
+  
+  
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+  
+  
+}
+
+.title-bar {
+  font-size: 22px;
+  font-family: 'Ninja Naruto V1', sans-serif;
+  color: white;
+  -webkit-text-stroke: 1px black; 
+  color: #3a3a39;
+  display: inline-block;       
+  padding: 5px 50px;           
+  border-radius: 10px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);  
+  z-index: 10;
+  color: rgba(165, 165, 165, 0.842);
+  border: 0.1px solid rgba(167, 167, 167, 0.74);
+
+  width: auto;                  
+  height: auto;                
+  margin: 0;                    
+  
+  
+}
+
+
+.sidebar-profile__button {
+  background-color: rgba(0, 0, 0, 0.288);
+  border-radius: 10px;
+  
+  
+}
+
+.sidebar__content {
+  overflow: scroll;
+  
+ top: 8vh;
+
+ position: fixed;
+}
+
+
+
+#root {
+  background: url(https://i.imgur.com/XxMgOET.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+.text-field-container__text-field--primary,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(68, 65, 65, 0.5) !important;
+  backdrop-filter: blur(5px);
+}
+
+
+
+.header__search {
+  align-items: center;
+  position: absolute;
+  display: flex;
+  right: 20%;
+  top: 5px;
+  padding: 10px 10px;
+ 
+  
+  
+  
+}
+
+.text-field-container__text-field--dark {
+  background-color: rgba(0, 0, 0, 0.719) !important;
+  border: 1px solid rgba(255, 255, 255, 0.473);
+}
+
+.settings__content {
+  color: rgb(255, 255, 255);
+  
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.747);
+  
+}
+
+
+.button--primary {
+  color: rgba(255, 255, 255, 0.829);
+  background-color: rgba(71, 70, 70, 0.644);
+  border: 0.2px solid rgba(255, 253, 253, 0.637);
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease;
+}
+
+.button:hover {
+  background-color: rgba(7, 7, 7, 0.829);
+  color: rgb(255, 255, 255);
+  border: 0.2px solid rgba(255, 255, 255, 0.637);
+  transition: background-color 0.9s ease, color 0.9s ease, border-color 0.9s ease, fill 0.9s ease;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgb(0, 0, 0) !important;
+  
+  transition: background-color 0.9s ease, border-color 0.9s ease, fill 0.9s ease;
+  border-radius: 10px;
+}
+
+.button:hover svg {
+  fill: rgba(255, 255, 255, 0.87);
+  transition: fill 0.9s ease;
+}
+
+::-webkit-scrollbar {
+  width: 0px; 
+  height: 0px;
+}
+
+.theme-card {
+  background-color: rgb(0, 0, 0);
+}
+
+
+
+
+.profile-content__right-content {
+  background: none;
+  
+
+}
+.user-stats__box {
+  border-radius: 10px;
+  
+  color: whi;
+}
+
+.recent-games__box {
+  border-radius: 10px;
+}
+
+.friends-box__box {
+  border-radius: 10px;
+}
+
+.user-stats__section-header {
+  background-color: rgb(0, 0, 0);
+  padding: 8px;
+  position: relative;
+  border-radius: 10px;
+  display: block;
+  
+  text-align: center;
+}
+
+.recent-games__section-header{
+  background-color: rgb(0, 0, 0);
+  padding: 8px;
+  position: relative;
+  border-radius: 10px;
+  display: block;
+  
+  text-align: center;
+
+}
+
+.friends-box__section-header {
+  display: flex;
+  align-items: center; 
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
