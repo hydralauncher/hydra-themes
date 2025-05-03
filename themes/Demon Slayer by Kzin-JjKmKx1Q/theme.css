@@ -262,7 +262,7 @@ body {
     transition: all ease 0.2s;
 }
 .hero__media:hover {
-    transform: scale(1.03);
+    transform: scale(1.03s);
 }
 .hero {
     border-radius: 15px;
