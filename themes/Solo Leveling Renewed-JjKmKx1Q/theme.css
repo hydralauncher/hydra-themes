@@ -93,6 +93,10 @@ body {
      background: url(https://4kwallpapers.com/images/wallpapers/solo-leveling-blue-3440x1440-17997.jpg) !important;
      background-size: 100% !important;
      background-position-y: -331px !important;
+     border-top: none;
+     box-shadow: none;
+     border-bottom-right-radius: 22px;
+     border-bottom-left-radius: 22px;
  }
 
  .profile-content__section-header{
@@ -106,6 +110,7 @@ body {
   font: 
     2em Chewy Bubble,
     sans-serif;
+    color: #ffffff;
  }
 .react-tooltip{
     background: #f9000475!important;
@@ -113,15 +118,6 @@ body {
 }
 .profile-hero__user-information{
     margin-top: 15px;
-}
-.profile-hero__display-name {
-    color: #ffffff;
-}
-.profile-hero__hero-panel {
-    border-top: none;
-    box-shadow: none;
-    border-bottom-right-radius: 22px;
-    border-bottom-left-radius: 22px;
 }
 .profile-hero__content-box {
     border-radius: 15px;
@@ -343,6 +339,11 @@ body {
     background: linear-gradient(40deg, rgba(0, 0, 0, 0.534) 25%, transparent 100%);
     backdrop-filter: tranparent;
     border-radius: 30px;
+    text-shadow: 2px 2px 2px #000;
+    color: #FFFF00;
+    font: 
+    1em Chewy Bubble,
+    sans-serif;
 }
 .game-item:hover {
     transform: scale(1.03);
@@ -456,22 +457,17 @@ body {
 .description-header{
     color: white;
     background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.0);
 }
 .game-details__description-container{
-    background: rgba(0, 0, 0, 0.534); 
+    background: transparent;
     backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .game-details__container{
   backdrop-filter: blur(3px);
 }
-.game-item {
-  background: transparent;
-  text-shadow: 2px 2px 2px #000;
-  color: #FFFF00;
-  font: 
-    1em Chewy Bubble,
-    sans-serif;
-}
+
 .gallery-slider__preview-image,
 .gallery-slider__preview-button--active,
 .gallery-slider__preview-button,
@@ -479,13 +475,15 @@ body {
 .gallery-slider__animation-container{
     border-radius: 15px;
 }
-.content-sidebar{
-    background-color: transparent;
+.content-sidebar {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .sidebar-section__button{
     background: rgba(0, 0, 0, 0.096); 
     backdrop-filter: blur(4px);
     color: white;  
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .sidebar-section__button:hover{ 
     background: linear-gradient(29deg, rgb(0, 0, 0) 35%, transparent 100%);
@@ -681,7 +679,7 @@ body {
 
 /*MODAL PAGINA DE GAMES */
 .repacks-modal__repack-button{
-    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.45);
 }
 .repacks-modal__repack-title{
     color: white;
@@ -883,22 +881,6 @@ body {
   backdrop-filter: transparent;
 }
 
-.game-details__description-container {
-  background: transparent;
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.content-sidebar {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.description-header {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 .settings__container {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.0);
@@ -909,29 +891,9 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.theme-card {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 .profile-hero__hero-panel--transparent {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.1);
-}
-
-.modal {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.repacks-modal__repack-button {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.sidebar-section__button {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .title-bar {
