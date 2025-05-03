@@ -877,7 +877,7 @@ body {
 .user-stats__box,
 .recent-games__box,
 .sidebar 
-.container__content .button--outline {
+.container__content {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -909,11 +909,6 @@ body {
     font: 
     1.8em Chewy Bubble,
     serif;
-}
-
-.button--outline {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .profile-hero__hero-panel--transparent {
