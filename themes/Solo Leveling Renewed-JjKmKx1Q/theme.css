@@ -868,7 +868,6 @@ body {
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
-.sidebar 
 .container__content .button--outline {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.5);
