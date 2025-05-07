@@ -72,7 +72,17 @@ export function ThemeList() {
           No themes found... <br /> consider contributing with what you think is
           missing!
         </p>
-        <Button variant="secondary" size="sm" className="w-fit">
+        <Button
+          variant="secondary"
+          size="sm"
+          className="w-fit"
+          onClick={() => {
+            window.open(
+              "https://github.com/hydralauncher/hydra-themes/pulls",
+              "_blank",
+            );
+          }}
+        >
           Submit a theme
         </Button>
       </div>
