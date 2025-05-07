@@ -80,6 +80,7 @@ export function ThemeList() {
             window.open(
               "https://github.com/hydralauncher/hydra-themes/pulls",
               "_blank",
+              "noopener,noreferrer",
             );
           }}
         >
