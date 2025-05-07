@@ -37,7 +37,7 @@ Promise.all(
     const authorCode = parts.pop()?.trim();
     const themeName = parts.join("-").trim();
 
-    await api.get(`/users/${authorCode}`).catch(() => {
+    await api.get(`users/${authorCode}`).catch(() => {
       throw new Error(`❌ Failed to fetch author ${authorCode}`);
     });
 

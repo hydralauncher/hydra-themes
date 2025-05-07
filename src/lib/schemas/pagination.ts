@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-const PaginationSchema = z.object({
+export const paginationSchema = z.object({
   page: z.number(),
   perPage: z.number(),
   total: z.number(),
 });
 
-export type PaginationSchema = z.infer<typeof PaginationSchema>;
+export type PaginationSchema = z.infer<typeof paginationSchema>;
