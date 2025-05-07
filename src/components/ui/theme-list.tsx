@@ -36,7 +36,7 @@ export function ThemeList() {
         setThemeCount(response.count);
       })
       .finally(() => setIsLoading(false));
-  }, [search.page, sort, search]);
+  }, [search.page, search.value, sort]);
 
   const handlePageChange = useCallback((page: number) => {
     searchQuery.set({

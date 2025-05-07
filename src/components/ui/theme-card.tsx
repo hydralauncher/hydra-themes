@@ -20,11 +20,15 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
   const [isLoading, setIsLoading] = useState(false);
 
   const performThemeAction = useCallback(
-    async (action: string) => {
+    async (action: "install" | "favorite" | "unfavorite") => {
       setIsLoading(true);
 
       try {
-        await api.put(`themes/${theme.id}/${action}`);
+        if (action === "unfavorite") {
+          await api.delete(`themes/${theme.id}/favorite`);
+        } else {
+          await api.put(`themes/${theme.id}/${action}`);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -50,15 +54,14 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     setIsFavorite(updatedIsFavorite);
 
     if (isFavorite) {
-      setIsLoading(true);
-      api.delete(`themes/${theme.id}/favorite`).finally(() => setIsLoading(false));
+      performThemeAction("unfavorite");
       setFavoriteCount(favoriteCount - 1);
       return;
     }
 
     performThemeAction("favorite");
     setFavoriteCount(favoriteCount + 1);
-  }, [isFavorite, favoriteCount, theme]);
+  }, [isFavorite, favoriteCount, performThemeAction, theme]);
 
   const profileImageUrl = useMemo(() => {
     if (!theme.author.profileImageUrl) return null;
