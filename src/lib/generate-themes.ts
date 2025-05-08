@@ -73,7 +73,9 @@ Promise.all(
         .toFormat("webp")
         .toFile(path.join(publicThemePath, "screenshot.webp"));
 
-      fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+      if (screenshotFile !== "screenshot.webp") {
+        fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+      }
     }
 
     return {
