@@ -63,22 +63,24 @@ Promise.all(
     if (!fs.existsSync(publicThemePath)) {
       fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
 
+      fs.renameSync(
+        path.join(publicThemePath, cssFile),
+        path.join(publicThemePath, "theme.css"),
+      );
+
       await sharp(path.join(folderPath, screenshotFile))
         .resize(340, null, { fit: "inside" })
         .toFormat("webp")
-        .toFile(path.join(publicThemePath, "screenshot.webp"))
-        .then(() => {
-          if (screenshotFile !== "screenshot.webp") {
-            fs.unlinkSync(path.join(publicThemePath, screenshotFile));
-          }
-        });
+        .toFile(path.join(publicThemePath, "screenshot.webp"));
+
+      if (screenshotFile !== "screenshot.webp") {
+        fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+      }
     }
 
     return {
       name: themeName,
       authorId: authorCode,
-      screenshotFileName: screenshotFile,
-      cssFileName: cssFile,
     };
   }),
 )

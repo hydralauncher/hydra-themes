@@ -26,7 +26,7 @@
 /* Menu lateral */
 .sidebar {
   /*width: 250px;
-    height: 100vh;*/
+      height: 100vh;*/
   background-color: rgba(0, 0, 0, 0.425) !important;
   /*border-right: 2px solid rgba(0, 255, 255, 0.5);*/
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
@@ -135,9 +135,9 @@ body {
 
 /*Biblioteca de jogos do usuário*/
 /*.user-library-game__overlay {
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    text-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
-   }*/
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      text-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+     }*/
 
 /* Botões */
 .button {
@@ -243,13 +243,13 @@ h4::after {
 }
 
 /*@keyframes neonBackground {
-    0% {
-        background: rgba(0, 255, 255, 0.15);
-    }
-    50% {
-        background: rgba(0, 255, 255, 0.17);
-    }
-    100% {
-        background: rgba(0, 255, 255, 0.2);
-    }
-}*/
+      0% {
+          background: rgba(0, 255, 255, 0.15);
+      }
+      50% {
+          background: rgba(0, 255, 255, 0.17);
+      }
+      100% {
+          background: rgba(0, 255, 255, 0.2);
+      }
+  }*/

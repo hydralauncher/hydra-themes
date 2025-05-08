@@ -1,6 +1,6 @@
 import ky from "ky";
 
 export const api = ky.create({
-  prefixUrl: "https://hydra-api-us-east-1.losbroxas.org",
+  prefixUrl: import.meta.env.PUBLIC_API_URL,
   credentials: "include",
 });
