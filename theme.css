@@ -3071,7 +3071,7 @@ button.bottom-panel__version-button:hover::after {
   text-shadow: none;
 }
 
-.profile-hero__user-information:has(img.profile-avatar__image[src="https://cdn.losbroxas.org/eb902ec4-e9ca-44bc-b747-d638cb06b2a6.jpg"]) .profile-hero__badges::before {
+/*.profile-hero__user-information:has(img.profile-avatar__image[src="https://cdn.losbroxas.org/eb902ec4-e9ca-44bc-b747-d638cb06b2a6.jpg"]) .profile-hero__badges::before {
     content: "";
     display: inline-block;
     width: 20px;
@@ -3088,20 +3088,20 @@ button.bottom-panel__version-button:hover::after {
     cursor: default;
     transition: filter 0.2s ease, transform 0.2s ease;
     transform: scale(1);
-}
+}*/
 
-.profile-hero__user-information:has(img.profile-avatar__image[src="https://cdn.losbroxas.org/eb902ec4-e9ca-44bc-b747-d638cb06b2a6.jpg"]):hover .profile-hero__badges::before {
+/*.profile-hero__user-information:has(img.profile-avatar__image[src="https://cdn.losbroxas.org/eb902ec4-e9ca-44bc-b747-d638cb06b2a6.jpg"]):hover .profile-hero__badges::before {
     filter: drop-shadow(0 0 8px rgba(var(--rgb-neon-primary), 0.8));
     transform: scale(1.1);
-}
+}*/
 
 .profile-hero__display-name-container {
   align-items: center;
 }
 
-body, body * {
-  cursor: url('https://r2.fakecrime.bio/assets/cursors/pink.cur'), auto !important; /* Manter !important */
-}
+/*body, body * {
+  cursor: url('https://r2.fakecrime.bio/assets/cursors/pink.cur'), auto !important; 
+}*/
 
 input[type="text"],
 input[type="password"],
