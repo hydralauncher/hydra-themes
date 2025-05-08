@@ -61,8 +61,10 @@ Promise.all(
     );
 
     if (!fs.existsSync(publicThemePath)) {
-      fs.cpSync(
-        path.join(folderPath, cssFile),
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
+
+      fs.renameSync(
+        path.join(publicThemePath, cssFile),
         path.join(publicThemePath, "theme.css"),
       );
 
@@ -70,6 +72,8 @@ Promise.all(
         .resize(340, null, { fit: "inside" })
         .toFormat("webp")
         .toFile(path.join(publicThemePath, "screenshot.webp"));
+
+      fs.unlinkSync(path.join(publicThemePath, screenshotFile));
     }
 
     return {
