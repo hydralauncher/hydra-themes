@@ -35,9 +35,10 @@ Promise.all(
 
     const parts = folder.split("-");
     const authorCode = parts.pop()?.trim();
+    if (!authorCode) throw new Error(`❌ Invalid theme folder name ${folder} - missing author code`);
     const themeName = parts.join("-").trim();
 
-    await api.get(`/users/${authorCode}`).catch(() => {
+    await api.get(`users/${authorCode}`).catch(() => {
       throw new Error(`❌ Failed to fetch author ${authorCode}`);
     });
 
