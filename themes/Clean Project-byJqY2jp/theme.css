@@ -58,6 +58,9 @@
 
   .sidebar__menu-item {
     background: #070707;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0.5em;
   }
 
   .sidebar__menu-item--active {
@@ -73,13 +76,6 @@
   .sidebar__menu-item--active span, .sidebar__menu-item--active svg {
     color: #000;
     font-weight: bold;
-  }
-
-  .sidebar__menu-item {
-    background: #070707;
-    color: #fff;
-    border-radius: 30px;
-    padding: 0.5em;
   }
 
   /* Main content */
