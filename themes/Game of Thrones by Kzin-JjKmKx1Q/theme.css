@@ -7,8 +7,7 @@ h4 {
 }
 .title-bar::after{
     content: "GAME OF THRONES";
-    font: 
-    1em Cormorant Unicase;
+    font-family: 1em Cormorant Unicase;
     font-size: 17px;
     color: #3363ff;
     letter-spacing: 5px;
@@ -60,9 +59,7 @@ h4 {
     width: 99%;
     border-radius: 33px;
     color: #f0f0f0;
-    font: 
-       1.1em Cormorant Unicase,
-        static;
+    font: 1.1em Cormorant Unicase;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
