@@ -7,8 +7,7 @@ h4 {
 }
 .title-bar::after{
     content: "THE LAST OF US";
-    font: 
-    2em Rubik Dirt;
+    font-family: 'Rubik Dirt';
     font-size: 15px;
     color: #ff3333;
     letter-spacing: 5px;
