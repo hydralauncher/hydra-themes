@@ -142,8 +142,8 @@ body {
 }
 
 .profile-hero__background-overlay--transparent {
-    background: #00000000
-      url("https://media.discordapp.net/attachments/712598144889651230/1343851567576649778/wallhaven-m3v3j1.png?ex=67bec6cd&is=67bd754d&hm=adaa9f092a2c93854e368cb617440bb7be265bbb63c16cf1caf47275eec80eee&=&format=webp&quality=lossless&width=1020&height=260")
+    background: #dd181800
+      url("https://i.ibb.co/LdwjqR03/wallhaven-m3v3j1.png")
     no-repeat center center;
      background-size: cover;
 }
@@ -204,7 +204,7 @@ body {
 .modal {
     background-color: #16181d;
     border-radius: 7px;
-    border: solid 10px #1c1f26
+    border: solid 10px #1c1f26;
 }
 
 .modal__header {
@@ -216,4 +216,5 @@ body {
 .text-field-container__text-field-wrapper{
     border: solid 6px #1c1f26;
     border-radius: 7px;
-}
+} 
+
