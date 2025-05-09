@@ -7,7 +7,8 @@ h4 {
 }
 .title-bar::after{
     content: "GAME OF THRONES";
-    font-family: 1em Cormorant Unicase;
+    font: 1em Cormorant Unicase;
+    font-family: serif;
     font-size: 17px;
     color: #3363ff;
     letter-spacing: 5px;
@@ -60,6 +61,7 @@ h4 {
     border-radius: 33px;
     color: #f0f0f0;
     font: 1.1em Cormorant Unicase;
+    font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -74,8 +76,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.1em Cormorant Unicase,
-        static;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 6px #3363ff,
@@ -95,8 +97,8 @@ h4 {
     border-radius: 33px;
     color: #f0f0f0;
     font: 
-       1.1em Cormorant Unicase,
-        static;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -111,8 +113,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.4em Cormorant Unicase,
-        serif;
+       1.4em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -146,8 +148,8 @@ h4 {
     border-radius: 33px;
     color: #f0f0f0;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -170,8 +172,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.9em Cormorant Unicase,
-        serif;
+       1.9em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -182,8 +184,8 @@ h4 {
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1.8em Cormorant Unicase,
-        serif;
+       1.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -194,8 +196,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.9em Cormorant Unicase,
-        serif;
+       1.9em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -218,8 +220,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.4em Cormorant Unicase,
-        serif;
+       1.4em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -264,8 +266,8 @@ h4 {
     border: 3px solid #3363ff;
     color: #3363ff;
     font: 
-        1em Cormorant Unicase,
-        serif;
+        1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -287,8 +289,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -327,8 +329,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -339,8 +341,8 @@ h4 {
   text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.3em Cormorant Unicase,
-        serif;
+       1.3em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -351,8 +353,8 @@ h4 {
   text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.2em Cormorant Unicase,
-        serif;
+       1.2em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -399,8 +401,8 @@ h4 {
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       2em Cormorant Unicase,
-        serif;
+       2em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -423,8 +425,8 @@ h4 {
     text-transform: uppercase;
     color: #3363ff;
     font: 
-       1.03em Cormorant Unicase,
-        serif;
+       1.03em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -435,8 +437,8 @@ h4 {
 .user-friend-modal__header{
     color: #f0f0f0;
     font: 
-       0.9em Cormorant Unicase,
-        serif;
+       0.9em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -447,8 +449,8 @@ h4 {
 background-color: #3363ff0e;
     color: #f0f0f0;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -464,8 +466,8 @@ background-color: #3363ff0e;
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -476,8 +478,8 @@ background-color: #3363ff0e;
     text-transform: uppercase;
     color: #3363ff;
     font: 
-       1.03em Cormorant Unicase,
-        serif;
+       1.03em Cormorant Unicase;
+        font-family: serif;
         width: 20px;
         height: 20px;
         border-radius: 10px;
@@ -492,8 +494,8 @@ background-color: #3363ff0e;
     background-color: #3363ff00;
     color: #f0f0f0;
     font: 
-       1.05em Cormorant Unicase,
-        serif;
+       1.05em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -504,8 +506,8 @@ background-color: #3363ff0e;
     text-transform: uppercase;
     color: #3363ff;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -516,8 +518,8 @@ background-color: #3363ff0e;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -528,8 +530,8 @@ background-color: #3363ff0e;
 text-transform: uppercase;
     color: #ffffff;
     font: 
-       0.8em Cormorant Unicase,
-        serif;
+       0.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -540,8 +542,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -552,8 +554,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.2em Cormorant Unicase,
-        serif;
+       1.2em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -564,8 +566,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       0.8em Cormorant Unicase,
-        serif;
+       0.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -592,8 +594,8 @@ text-transform: uppercase;
     border-radius: 33px;
     color: #3363ff;
     font: 
-       1.3em Cormorant Unicase,
-        serif;
+       1.3em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 7px #3363ff,
@@ -628,8 +630,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       0.65em Cormorant Unicase,
-        serif;
+       0.65em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -641,8 +643,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -652,8 +654,8 @@ text-transform: uppercase;
 .pagination__ellipsis-text{
     color: #ffffff;
     font: 
-       0.93em Cormorant Unicase,
-        serif;
+       0.93em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -668,8 +670,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       0.75em Cormorant Unicase,
-        serif;
+       0.75em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 5px #3363ff,
@@ -691,8 +693,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 9px #3363ff,
@@ -719,8 +721,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -737,8 +739,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -749,8 +751,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       0.85em Cormorant Unicase,
-        serif;
+       0.85em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -780,8 +782,8 @@ text-transform: uppercase;
     color: #ffffff;
     text-transform: uppercase;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -792,8 +794,8 @@ text-transform: uppercase;
     color: #3363ff;
     text-transform: uppercase;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -818,8 +820,8 @@ text-transform: uppercase;
     color: #3363ff;
     text-transform: uppercase;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -866,8 +868,8 @@ text-transform: uppercase;
     color: #ffffff;
     text-transform: uppercase;
     font: 
-       1.2em Cormorant Unicase,
-        serif;
+       1.2em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -878,8 +880,8 @@ text-transform: uppercase;
     color: #3363ff;
     text-transform: uppercase;
     font: 
-       1.2em Cormorant Unicase,
-        serif;
+       1.2em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -902,8 +904,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -917,8 +919,8 @@ text-transform: uppercase;
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -934,8 +936,8 @@ text-transform: uppercase;
     color: #3363ff;
     text-transform: uppercase;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -946,8 +948,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -965,8 +967,8 @@ label{
     border-radius: 20px;
     color: #3363ff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -986,8 +988,8 @@ label{
     border-radius: 20px;
     color: #3363ff;
     font: 
-       1em Cormorant Unicase,
-        serif;     
+       1em Cormorant Unicase;
+        font-family: serif;    
 }
 .checkbox-field__checkbox.checked{
     background-color: #3363ff0e;
@@ -1006,8 +1008,8 @@ label{
     border-radius: 20px;
     color: #3363ff;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1030,8 +1032,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       0.8em Cormorant Unicase,
-        serif;
+       0.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1041,8 +1043,8 @@ label{
 .theme-card__header{
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1053,8 +1055,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1065,8 +1067,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       0.9em Cormorant Unicase,
-        serif;
+       0.9em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1078,8 +1080,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       0.9em Cormorant Unicase,
-        serif;
+       0.9em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1090,8 +1092,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       0.8em Cormorant Unicase,
-        serif;
+       0.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1102,8 +1104,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1134,8 +1136,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Cormorant Unicase,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1146,8 +1148,8 @@ label{
     text-transform: uppercase;
     color: #3363ff;
     font: 
-       1.1em Cormorant Unicase,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1158,8 +1160,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       0.8em Cormorant Unicase,
-        serif;
+       0.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1171,8 +1173,8 @@ label{
     border-radius: 20px;
     color: #f0f0f0;
     font: 
-       0.8em Cormorant Unicase,
-        serif;
+       0.8em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
@@ -1256,8 +1258,8 @@ label{
     text-transform: uppercase;
     color: #ffffff;
     font: 
-       1em Rubik Dirt,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 3px #3363ff,
@@ -1268,8 +1270,8 @@ label{
     text-transform: uppercase;
     color: #3363ff;
     font: 
-       1.1em Rubik Dirt,
-        serif;
+       1.1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 4px #3363ff,
@@ -1281,8 +1283,8 @@ label{
     text-transform: uppercase;
     color: #f0f0f0;
     font: 
-       1em Rubik Dirt,
-        serif;
+       1em Cormorant Unicase;
+        font-family: serif;
         text-shadow: 
         1px 1px 3px #040d94,
         1px 1px 10px #3363ff,
