@@ -4,41 +4,39 @@ import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
 import { ThemePagination } from "./theme-pagination";
 import type { Theme } from "@/lib/schemas/theme";
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Heart, Flame } from "lucide-react";
 import { searchQuery } from "@/stores/search";
 import { useStore } from "@nanostores/react";
 import { compactNumber } from "@/lib/helpers";
+import { api } from "@/lib/api";
 
-interface ThemeListProps {
-  themes: Theme[];
-  themeCount: number;
-  sort: string;
-}
-
-export function ThemeList(props: Readonly<ThemeListProps>) {
-  const [sort, setSort] = useState(props.sort);
+export function ThemeList() {
+  const [sort, setSort] = useState("newest");
   const search = useStore(searchQuery);
 
-  const [themes, setThemes] = useState<Theme[]>(props.themes);
-  const [themeCount, setThemeCount] = useState(props.themeCount);
+  const [themes, setThemes] = useState<Theme[]>([]);
+  const [themeCount, setThemeCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (search.page > 1 || sort !== props.sort || search.value) {
-      axios
-        .get(
-          `/api/themes.json?page=${search.page}&sort=${sort}&query=${search.value}`,
-        )
-        .then((res) => {
-          setThemes(res.data.edges);
-          setThemeCount(res.data.count);
-        });
-    } else {
-      setThemes(props.themes);
-      setThemeCount(props.themeCount);
-    }
-  }, [search.page, sort, search]);
+    const searchParams = new URLSearchParams({
+      page: search.page.toString(),
+      sort: sort,
+      query: search.value,
+    });
+
+    api
+      .get<{ edges: Theme[]; count: number }>(
+        `themes?${searchParams.toString()}`,
+      )
+      .json()
+      .then((response) => {
+        setThemes(response.edges);
+        setThemeCount(response.count);
+      })
+      .finally(() => setIsLoading(false));
+  }, [search.page, search.value, sort]);
 
   const handlePageChange = useCallback((page: number) => {
     searchQuery.set({
@@ -58,13 +56,47 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
     });
   }, []);
 
+  const content = useMemo(() => {
+    if (isLoading) return null;
+
+    if (themes.length) {
+      return themes.map((theme) => (
+        <ThemeCard key={theme.name} theme={theme} />
+      ));
+    }
+
+    return (
+      <div className="col-span-4 mt-32 flex flex-col items-center justify-center gap-6 text-center">
+        <Frown className="size-10 text-muted-foreground" />
+        <p className="font-medium text-muted-foreground">
+          No themes found... <br /> consider contributing with what you think is
+          missing!
+        </p>
+        <Button
+          variant="secondary"
+          size="sm"
+          className="w-fit"
+          onClick={() => {
+            window.open(
+              "https://github.com/hydralauncher/hydra-themes/pulls",
+              "_blank",
+              "noopener,noreferrer",
+            );
+          }}
+        >
+          Submit a theme
+        </Button>
+      </div>
+    );
+  }, [isLoading, themes]);
+
   return (
     <div className="mt-20 flex flex-col gap-4">
       <div className="flex flex-row justify-between">
         <div className="flex flex-col gap-1">
           <h2 className="text-2xl font-bold">Community Themes</h2>
           <h4 className="text-sm text-muted-foreground">
-            {compactNumber(themeCount)} themes
+            {isLoading ? "Loading..." : `${compactNumber(themeCount)} themes`}
           </h4>
         </div>
 
@@ -89,21 +121,9 @@ export function ThemeList(props: Readonly<ThemeListProps>) {
       </div>
 
       <div className="relative mt-1 grid h-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {themes.length ? (
-          themes.map((theme) => <ThemeCard key={theme.name} theme={theme} />)
-        ) : (
-          <div className="col-span-4 mt-32 flex flex-col items-center justify-center gap-6 text-center">
-            <Frown className="size-10 text-muted-foreground" />
-            <p className="font-medium text-muted-foreground">
-              No themes found... <br /> consider contributing with what you
-              think is missing!
-            </p>
-            <Button variant="secondary" size="sm" className="w-fit">
-              Submit a theme
-            </Button>
-          </div>
-        )}
+        {content}
       </div>
+
       <div className="my-16 flex w-full justify-center">
         <ThemePagination
           pagination={{
