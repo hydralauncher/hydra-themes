@@ -474,12 +474,9 @@ body {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.2);
 }
-.sidebar-section__button{
-    background: rgba(0, 0, 0, 0.096); 
-    backdrop-filter: blur(4px);
-    color: white;  
     background-color: rgba(0, 0, 0, 0.3);
-}
+    backdrop-filter: blur(4px);
+    color: white;
 .sidebar-section__button:hover{ 
     background: linear-gradient(29deg, rgb(0, 0, 0) 35%, transparent 100%);
 } 
