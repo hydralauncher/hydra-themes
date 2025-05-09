@@ -44,12 +44,14 @@ const PaginationLink = ({
   children,
   size = "icon",
   onClick,
+  disabled,
 }: PaginationLinkProps) => (
   <Button
     variant={isActive ? "outline" : "ghost"}
     className={className}
     size={size}
     onClick={onClick}
+    disabled={disabled}
   >
     {children}
   </Button>
