@@ -554,16 +554,12 @@ text-transform: uppercase;
 .game-item {
     margin-left: 2px;
     background-color: rgba(8, 27, 197, 0.1);
-    box-shadow: 
-        1px 1px 3px #ffffff,
-        1px 1px 2px #ff3333,
-        1px 1px 2px #c229d6,
-        1px 1px 5px #292cd6;
     transition: all ease 0.3s;
     width: 100%;
     gap: 1px;
     justify-content: flex-start;
-    border: 3px solid
+    border: 33px;
+    box-shadow: 
         1px 1px 15px #ffffff,
         1px 1px 2px #ff0000,
         1px 1px 2px #c229d6,
