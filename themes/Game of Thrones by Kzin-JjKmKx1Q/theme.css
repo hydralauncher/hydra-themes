@@ -1161,10 +1161,6 @@ label{
     border-color: #3363ff;
     border-radius: 34px;
 }
-.sidebar-profile__friends-button {
-    background: transparent;
-    background-color: #3363ff0a;
-}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
