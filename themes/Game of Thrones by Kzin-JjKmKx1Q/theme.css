@@ -563,11 +563,6 @@ text-transform: uppercase;
     width: 100%;
     gap: 1px;
     justify-content: flex-start;
-    border: 3px solid
-        1px 1px 3px #040d94,
-        1px 1px 3px #3363ff,
-        1px 1px 3px #2c29d6,
-        1px 1px 3px #292cd6;
     border-radius: 33px;
     color: #3363ff;
     font-family: Cormorant Unicase, Helvetica, Arial, Verdana, Tahoma, sans-serif;
