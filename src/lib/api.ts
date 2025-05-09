@@ -1,5 +1,6 @@
-import axios from "axios";
+import ky from "ky";
 
-export const api = axios.create({
-  baseURL: "https://hydra-api-us-east-1.losbroxas.org",
+export const api = ky.create({
+  prefixUrl: import.meta.env.PUBLIC_API_URL || "https://api.hydrathemes.shop",
+  credentials: "include",
 });

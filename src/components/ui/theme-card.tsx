@@ -1,10 +1,10 @@
 import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
 import { DownloadIcon, HeartIcon } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
-import axios from "axios";
 import { compactNumber } from "@/lib/helpers";
+import { api } from "@/lib/api";
 
 export interface ThemeCardProps {
   theme: Theme;
@@ -13,33 +13,30 @@ export interface ThemeCardProps {
 const AVATAR_SIZE = 25;
 
 export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [favoriteCount, setFavoriteCount] = useState(theme.favorites);
-  const [downloadCount, setDownloadCount] = useState(theme.downloads);
+  const [isFavorite, setIsFavorite] = useState(theme.isFavorite);
+  const [favoriteCount, setFavoriteCount] = useState(theme.favoriteCount);
+  const [downloadCount, setDownloadCount] = useState(theme.downloadCount);
 
-  useEffect(() => {
-    const isFavorite = window.localStorage.getItem(
-      `theme_favorite:${theme.id}`,
-    );
-
-    setIsFavorite(isFavorite === "true");
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const performThemeAction = useCallback(
-    (action: string) => {
-      axios.put("/api/themes.json", {
-        themeId: theme.id,
-        action,
-      });
+    async (action: "install" | "favorite" | "unfavorite") => {
+      setIsLoading(true);
+
+      try {
+        if (action === "unfavorite") {
+          await api.delete(`themes/${theme.id}/favorite`);
+        } else {
+          await api.put(`themes/${theme.id}/${action}`);
+        }
+      } finally {
+        setIsLoading(false);
+      }
     },
     [theme],
   );
 
-  const installTheme = useCallback(() => {
-    const hasInstalled = window.localStorage.getItem(
-      `theme_installed:${theme.id}`,
-    );
-
+  const installTheme = useCallback(async () => {
     const searchParams = new URLSearchParams({
       theme: theme.name,
       authorId: theme.author.id,
@@ -48,32 +45,23 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
     window.location.href = `hydralauncher://install-theme?${searchParams.toString()}`;
 
-    if (!hasInstalled) {
-      performThemeAction("install");
-      setDownloadCount(downloadCount + 1);
-
-      window.localStorage.setItem(`theme_installed:${theme.id}`, "true");
-    }
+    await performThemeAction("install");
+    setDownloadCount(downloadCount + 1);
   }, [theme]);
 
-  const toggleFavorite = useCallback(() => {
+  const toggleFavorite = useCallback(async () => {
     const updatedIsFavorite = !isFavorite;
     setIsFavorite(updatedIsFavorite);
 
-    window.localStorage.setItem(
-      `theme_favorite:${theme.id}`,
-      updatedIsFavorite.toString(),
-    );
-
     if (isFavorite) {
-      performThemeAction("remove-favorite");
+      performThemeAction("unfavorite");
       setFavoriteCount(favoriteCount - 1);
       return;
     }
 
     performThemeAction("favorite");
     setFavoriteCount(favoriteCount + 1);
-  }, [isFavorite, favoriteCount, theme]);
+  }, [isFavorite, favoriteCount, performThemeAction, theme]);
 
   const profileImageUrl = useMemo(() => {
     if (!theme.author.profileImageUrl) return null;
@@ -144,6 +132,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               className="rounded-lg"
               onClick={toggleFavorite}
               aria-label="Toggle theme as favorite"
+              disabled={isLoading}
             >
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}
@@ -156,6 +145,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               size="default"
               className="rounded-lg"
               onClick={installTheme}
+              disabled={isLoading}
             >
               Install
             </Button>
