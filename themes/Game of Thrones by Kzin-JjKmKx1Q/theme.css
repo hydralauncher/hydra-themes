@@ -19,9 +19,9 @@ h4 {
     filter: contrast(1.5) brightness(1.2);
     text-shadow:   
         1px 1px 3px #040d94,
-        1px 1px 10px #071463,
-        1px 1px 15px #2c29d6,
-        1px 1px 15px #292cd6;
+        1px 1px 5px #071463,
+        1px 1px 8px #2c29d6,
+        1px 1px 8px #292cd6;
         animation: pulso 1s infinite;
     }
     
@@ -196,9 +196,9 @@ h4 {
     font-size: 22px;
         text-shadow: 
         1px 1px 3px #040d94,
-        1px 1px 10px #3363ff,
-        1px 1px 15px #2c29d6,
-        1px 1px 15px #292cd6 !important;
+        1px 1px 3px #3363ff,
+        1px 1px 7px #2c29d6,
+        1px 1px 7px #292cd6 !important;
     animation: pulso 1s infinite;
     }
     @keyframes pulso {
