@@ -24,7 +24,9 @@ Promise.all(
 
     if (
       !screenshotFile ||
-      !ALLOWED_SCREENSHOT_FORMATS.includes(screenshotFile.split(".").pop()!)
+      !ALLOWED_SCREENSHOT_FORMATS.includes(
+        screenshotFile.split(".").pop()!.toLowerCase(),
+      )
     ) {
       throw new Error(
         `❌ No screenshot file found for theme ${folder}.\nScreenshot file must be named 'screenshot' and have one of the following extensions: ${ALLOWED_SCREENSHOT_FORMATS.join(", ")}`,
@@ -33,12 +35,27 @@ Promise.all(
 
     const parts = folder.split("-");
     const authorCode = parts.pop()?.trim();
+    if (!authorCode) throw new Error(`❌ Invalid theme folder name ${folder} - missing author code`);
+    const themeName = parts.join("-").trim();
 
-    await api.get(`/users/${authorCode}`).catch(() => {
+    await api.get(`users/${authorCode}`).catch(() => {
       throw new Error(`❌ Failed to fetch author ${authorCode}`);
     });
+
+    return themeName;
   }),
 )
+  .then((themes) => {
+    // validate if theme name is unique
+    const uniqueThemes = new Set(themes);
+    if (uniqueThemes.size !== themes.length) {
+      throw new Error(
+        `❌ Found duplicate theme names: ${themes
+          .filter((theme, index) => themes.indexOf(theme) !== index)
+          .join(", ")}`,
+      );
+    }
+  })
   .then(() => console.log(`✅ Validated ${folders.length} themes`))
   .catch((err: Error) => {
     console.error(err.message);
