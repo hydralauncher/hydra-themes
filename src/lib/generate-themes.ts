@@ -2,9 +2,7 @@ import "dotenv/config";
 
 import fs from "node:fs";
 import path from "node:path";
-import type { Theme } from "./schemas/theme";
 import sharp from "sharp";
-import { redis } from "./redis";
 import { api } from "./api";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
@@ -12,10 +10,6 @@ const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 const folders = fs.readdirSync(themesPath);
 
 const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
-
-if (!hydraHeaderSecret) {
-  throw new Error("HYDRA_HEADER_SECRET is not set");
-}
 
 Promise.all(
   folders.map(async (folder) => {
@@ -41,34 +35,21 @@ Promise.all(
     const authorCode = parts.pop()?.trim();
     const themeName = parts.join("-").trim();
 
-    const response = await api.get(`/users/${authorCode}`);
-
-    await api
-      .post(
-        `/badge/${authorCode}/theme`,
-        {},
-        {
+    if (hydraHeaderSecret) {
+      await api
+        .post(`badges/${authorCode}/theme`, {
           headers: {
             "hydra-token": hydraHeaderSecret,
           },
-        },
-      )
-      .catch((err) => {
-        console.error(
-          `could not update user (${authorCode}) badge`,
-          err.message,
-          err.response?.data,
-        );
-      })
-      .catch((err) => {
-        console.error(
-          `could not update user (${authorCode}) badge`,
-          err.message,
-          err.response?.data,
-        );
-      });
-
-    const data = response.data as Theme["author"];
+        })
+        .catch((err) => {
+          console.error(
+            `could not update user (${authorCode}) badge`,
+            err.message,
+            err.response?.data,
+          );
+        });
+    }
 
     const publicThemePath = path.join(
       import.meta.dirname,
@@ -82,47 +63,39 @@ Promise.all(
     if (!fs.existsSync(publicThemePath)) {
       fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
 
+      fs.renameSync(
+        path.join(publicThemePath, cssFile),
+        path.join(publicThemePath, "theme.css"),
+      );
+
       await sharp(path.join(folderPath, screenshotFile))
         .resize(340, null, { fit: "inside" })
         .toFormat("webp")
         .toFile(path.join(publicThemePath, "screenshot.webp"));
-    }
 
-    const redisKey = `theme:${authorCode}:${themeName}`;
-
-    const themeData = await redis.get(redisKey);
-
-    if (!themeData) {
-      await redis.set(
-        redisKey,
-        JSON.stringify({
-          downloads: 0,
-          favorites: 0,
-          createdAt: new Date(),
-        }),
-      );
+      if (screenshotFile !== "screenshot.webp") {
+        fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+      }
     }
 
     return {
-      id: `${authorCode}:${themeName}`,
       name: themeName,
-      author: data,
-      screenshotFile: screenshotFile,
-      cssFile: cssFile,
-      downloads: 0,
-      favorites: 0,
-    } as Theme;
+      authorId: authorCode,
+    };
   }),
 )
   .then((themes) => themes.filter((theme) => theme))
-  .then((themes) => {
+  .then(async (themes) => {
     console.log(`Generated ${themes.length} themes`);
 
-    fs.writeFileSync(
-      path.join(import.meta.dirname, "themes.json"),
-      // Fix themes returning null
-      JSON.stringify(themes.filter((theme) => theme)),
-    );
-
-    redis.disconnect();
+    if (hydraHeaderSecret) {
+      await api.post("themes", {
+        json: themes,
+        headers: {
+          "hydra-token": hydraHeaderSecret,
+        },
+      });
+    } else {
+      console.log("HYDRA_HEADER_SECRET is not set, skipping theme upload");
+    }
   });
