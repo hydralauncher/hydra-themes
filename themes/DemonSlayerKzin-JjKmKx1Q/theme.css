@@ -8,6 +8,7 @@ h4 {
 }
 .title-bar::after {
     content: "demon slayer";
+    @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
     font-family: "Chewy Bubble", cursive;
     font-size: 14px;
     color: #ff3333;
