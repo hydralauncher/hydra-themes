@@ -10,8 +10,7 @@ h4 {
 }
 .title-bar::after{
     content: "GAME OF THRONES";
-    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
-    font: 1em Cormorant Unicase;
+    font-family: Cormorant Unicase, Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 17px;
     color: #3363ff;
     letter-spacing: 5px;
