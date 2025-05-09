@@ -1,0 +1,61 @@
+/* Shyzuu's Theme V1 for Hydra Launcher By Shyzuuu */
+
+/* Header */
+.header {
+  background-color: #2d014d;
+  border-bottom: 3px solid #a04daa;
+  color: #faf7ff;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(40,0,60,0.3);
+}
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(180deg, #35145a 0%, #210933 100%);
+  color: #c8a3e6;
+  border-right: 2px solid #725099;
+}
+
+/* Main content */
+.container__content {
+  background: linear-gradient(120deg, #17092f 60%, #271044 100%);
+  color: #dcc6f6;
+}
+
+/* Bottom Panel */
+.bottom-panel {
+  background-color: #271044;
+  color: #ede4fa;
+  border-top: 3px solid #8a1aac;
+  box-shadow: 0 -2px 8px rgba(40,0,60,0.2);
+}
+
+/* Toast */
+.toast {
+  background: linear-gradient(90deg, #4b1877 65%, #7426c6 100%);
+  color: #fff5fc; 
+  font-weight: bold;
+  border-left: 4px solid #c856db;
+}
+
+/* Buttons */
+.button {
+  background: linear-gradient(90deg, #632fa7 30%, #b472f8 100%);
+  color: #fff;
+  border: 1px solid #8041d9;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 1px 8px rgba(81, 36, 133, 0.18);
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #ad66cb 25%, #6c2e7f 100%);
+  color: #f9c2ff;
+  border-color: #cf5fff;
+}
+
+body {
+  background: #110024;
+}
