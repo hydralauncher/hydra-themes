@@ -59,19 +59,6 @@ label{
   font-weight: 400;
 }
 
-#bgvideo{
-
- position: fixed;
- top: 0;
- left: 0;
- width: 100vw;
- height: 100vh;
- object-fit: cover;
- z-index:1;
-
-
-}
-
 /* Title Bar */
 .title-bar {
   border-bottom: none;
