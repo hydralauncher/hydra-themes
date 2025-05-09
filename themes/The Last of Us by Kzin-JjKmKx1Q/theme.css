@@ -735,6 +735,7 @@ text-transform: uppercase;
 
 /* DOWNLOADS */
 .download-group__item{
+    .download-group__item{
     margin-left: 2px;
     background-color: rgba(8, 27, 197, 0.1);
     box-shadow: 
@@ -746,7 +747,7 @@ text-transform: uppercase;
     width: 100%;
     gap: 1px;
     justify-content: flex-start;
-    border: 3px solid
+    border: 3px solid,
         1px 1px 15px #ffffff,
         1px 1px 2px #ff0000,
         1px 1px 2px #c229d6,
