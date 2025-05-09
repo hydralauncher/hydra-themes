@@ -10,6 +10,7 @@ h4 {
 }
 .title-bar::after{
     content: "GAME OF THRONES";
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font: 1em Cormorant Unicase;
     font-size: 17px;
     color: #3363ff;
@@ -24,6 +25,7 @@ h4 {
         1px 1px 15px #292cd6;
         animation: pulso 1s infinite;
     }
+    
     @keyframes pulso {
       0% {
         filter: brightness(100%);
