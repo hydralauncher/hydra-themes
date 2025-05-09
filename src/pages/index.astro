@@ -1,23 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
-import type { ThemeListResponse } from "@/pages/api/themes.json";
-import axios from "axios";
-
-const sort = "newest";
-
-const themes = await axios
-  .get<ThemeListResponse>(
-    `${Astro.url.origin}/api/themes.json?page=1&sort=${sort}`,
-  )
-  .then((res) => res.data);
 ---
 
 <Layout title="Hydra Themes">
-  <ThemeList
-    client:load
-    themes={themes.edges}
-    themeCount={themes.count}
-    sort={sort}
-  />
+  <ThemeList client:load />
 </Layout>
