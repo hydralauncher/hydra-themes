@@ -2,7 +2,7 @@ body {
   color: white;
   background: url(https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center top;
   background-size: cover;
-  font-style: family;
+  font-family: sans-serif;
   font-size: 17px;
 }
 
@@ -12,10 +12,10 @@ body {
   background-color: rgba(6, 58, 117, 0.3) !important;
 }
 
-.container__content, .button--outline{
+.container__content, .button--outline {
   background: transparent;
-  border: 1px solid rgba(4, 32, 85, 0.3);
-  padding: 0px 05px;
+  border: 1px solid rgb(8, 122, 230);
+  padding: 0px 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -24,18 +24,26 @@ body {
   background: transparent;
   color: whitesmoke;
   font-style: italic;
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
 }
 
 .game-item span {
   color: white !important; 
-  text-shadow: 0 0 5px rgb(8, 122, 230), 0 0 10px rgb(16, 96, 172)
+  text-shadow: 0 0 5px rgb(8, 122, 230), 0 0 10px rgb(16, 96, 172);
+}
+
+.game-item:hover {
+  background: rgba(8, 122, 230, 0.5); 
+  border: 1px solid rgb(8, 122, 230); 
+  box-shadow: 0 0 10px rgba(8, 122, 230, 0.5); 
 }
 
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .download-group__item,
 .header__search,
-.settings-download-sources__item  {
+.settings-download-sources__item {
   background-color: rgba(6, 58, 117, 0.3) !important;
 }
 
