@@ -7,17 +7,18 @@
     "build": "yarn generate-themes && astro build",
     "preview": "yarn generate-themes && astro preview",
     "astro": "astro",
-    "generate-themes": "npx bun src/lib/generate-themes.ts",
     "lint": "eslint src",
-    "start": "node dist/server/entry.mjs"
+    "start": "node dist/server/entry.mjs",
+    "generate-themes": "npx bun src/lib/generate-themes.ts",
+    "validate-themes": "npx bun src/lib/validate-themes.ts"
   },
   "devDependencies": {
-    "@astrojs/node": "^9.1.0",
     "@eslint/js": "^9.20.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.5",
     "@types/react-dom": "^19.0.3",
+    "bun": "^1.2.9",
     "dotenv": "^16.4.7",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
@@ -33,6 +34,7 @@
     "typescript-eslint": "^8.24.0"
   },
   "dependencies": {
+    "@astrojs/node": "^9.1.0",
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.0",
     "@nanostores/react": "^0.8.4",
@@ -42,10 +44,10 @@
     "@radix-ui/react-popover": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "astro": "^5.2.5",
-    "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
+    "ky": "^1.8.1",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.475.0",
     "nanostores": "^0.11.4",
