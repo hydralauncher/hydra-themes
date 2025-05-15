@@ -70,6 +70,20 @@ h4 {
         1px 1px 15px #2c29d6,
         1px 1px 15px #292cd6;
 }
+.hero:hover{
+    animation: pulso 1s infinite;
+    }
+    @keyframes pulso {
+      0% {
+        filter: brightness(100%);
+      }
+      50% {
+        filter: brightness(150%);
+      }
+      100% {
+        filter: brightness(100%);
+      }
+}
 .button{
     background-color: #3363ff0e;
     border: 1px solid;
@@ -104,6 +118,20 @@ h4 {
         1px 1px 10px #3363ff,
         1px 1px 15px #2c29d6,
         1px 1px 15px #292cd6;
+}
+.game-card:hover{
+    animation: pulso 1s infinite;
+    }
+    @keyframes pulso {
+      0% {
+        filter: brightness(100%);
+      }
+      50% {
+        filter: brightness(150%);
+      }
+      100% {
+        filter: brightness(100%);
+      }
 }
 
 .container__content {
