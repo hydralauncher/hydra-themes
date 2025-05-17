@@ -1,0 +1,204 @@
+/* === Подключение шрифтов === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* === Базовые стили body и фон === */
+body {
+  color: #e0e0ff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: none;
+  cursor: url('https://static.wikia.nocookie.net/devilmaycry/images/1/1d/Rebellion_Awakened_DMC3.png/revision/latest/scale-to-width/32?cb=20190523103320'), auto;
+}
+
+#root {
+  background: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGRkcjh3aGtncjJ6b2Z1Nm44bHljbWdtNmlpcGp1eWU2c2IxNGJyZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1pAe8bYGnxmHAbqTR3/giphy.gif) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(10,10,20,0.22) 0%, rgba(30,30,50,0.28) 100%);
+  opacity: 0;
+  animation: overlayFadeIn 1.2s ease forwards, overlayMove 20s linear infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes overlayFadeIn {
+  to { opacity: 1; }
+}
+@keyframes overlayMove {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* === Основные контейнеры === */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+.home__content,
+.catalogue,
+.settings__container {
+  background: rgba(20, 20, 30, 0.15);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(120,130,160,0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px 0 rgba(40, 60, 100, 0.18);
+  color: #e0e0e0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* === Карточки, списки, фильтры === */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.gallery-slider__container,
+.list,
+.description-header,
+.sidebar-section__button,
+.game-details__description-container,
+.content-sidebar {
+  background: rgba(20, 20, 30, 0.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 0 rgba(40, 60, 100, 0.08);
+  border: 1px solid rgba(120,130,160,0.10);
+}
+
+.profile-hero__user-information,
+.profile-hero__hero-panel,
+.profile-hero__hero-panel--transparent {
+  background: rgba(20,20,30,0.07);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(120,130,160,0.12);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px 0 rgba(40,60,100,0.08);
+  color: #e0e0e0;
+}
+
+/* === Мелкие элементы и разделители === */
+.sidebar__handle,
+.sidebar__divider,
+.sidebar__footer,
+.sidebar__user,
+.catalogue__divider,
+.settings__divider,
+.bottom-panel__handle,
+.friends-box__handle,
+.user-stats__handle,
+.recent-games__handle {
+  background: rgba(30, 40, 60, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(40, 60, 100, 0.10);
+  border: 1px solid rgba(120,130,160,0.18);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(120,130,160,0.12);
+  margin: 16px 0;
+  border: none;
+}
+
+/* === Кнопки и интерактивные элементы === */
+.container__content .button--outline,
+.settings-download-sources__item,
+.download-group__item {
+  background: rgba(30,40,60,0.22);
+  border: 1px solid rgba(120,130,160,0.22);
+  border-radius: 10px;
+  color: #e0e0e0;
+  box-shadow: 0 0 8px 0 rgba(80, 80, 120, 0.10);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+}
+.container__content .button--outline:hover,
+.settings-download-sources__item:hover,
+.download-group__item:hover,
+button:hover, .button--outline:hover, .sidebar__item:hover, .game-item:hover {
+  background: rgba(60,80,120,0.22);
+  box-shadow: 0 4px 16px 0 rgba(80, 120, 200, 0.12);
+  transform: translateY(-2px) scale(1.03);
+}
+.button--outline:active,
+.button--outline:focus,
+.sidebar__item--active {
+  box-shadow: 0 0 12px 0 #6a7cff, 0 0 2px #fff;
+  border-color: #6a7cff;
+}
+
+/* === Иконки для кнопок === */
+.button--play::before,
+.button--profile::before,
+.button--settings::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.button--play::before {
+  background-image: url('https://static.wikia.nocookie.net/devilmaycry/images/1/1d/Rebellion_Awakened_DMC3.png/revision/latest/scale-to-width/360?cb=20190523103320');
+}
+.button--profile::before {
+  background-image: url('https://i.pinimg.com/originals/2d/7e/83/2d7e839e4237d380e76fe1224c39ca0b.png');
+}
+.button--settings::before {
+  background-image: url('https://image.pngaaa.com/802/1364802-middle.png');
+}
+
+/* === Текстовые элементы === */
+.header, .game-item__title {
+  color: #e0e0e0;
+  text-shadow: 0 0 4px #222a38;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* === Анимации появления === */
+.game-item {
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.container__content,
+.home__content,
+.catalogue,
+.settings__container,
+.settings__content {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* === Скроллбар === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 80, 120, 0.22);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120,130,200,0.32);
+}
