@@ -117,7 +117,6 @@ Promise.all(
     }
 
     const features = await getThemeFeatures(publicThemePath);
-    console.log(features);
 
     return {
       name: themeName,
