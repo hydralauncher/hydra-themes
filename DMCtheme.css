@@ -97,14 +97,17 @@ main {
   transition: all var(--dmc-transition-duration) ease;
   position: relative;
   margin-left: 10px;
+  background: rgba(20, 10, 10, 0.4);
 }
 
 .container__content {
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  background: rgba(20, 10, 10, 0.6);
+  background: rgba(20, 10, 10, 0.4);
   padding: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .container__content,
@@ -1045,4 +1048,42 @@ textarea:focus-visible,
   position: relative;
   width: 100%;
   overflow: visible;
+}
+
+.sidebar {
+  background: rgba(20, 10, 10, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(255, 0, 0, 0.15);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar__container {
+  background: transparent;
+}
+
+.sidebar__content {
+  background: transparent;
+}
+
+.sidebar__section {
+  background: transparent;
+}
+
+.sidebar__menu {
+  background: transparent;
+}
+
+.sidebar__menu-item {
+  background: transparent;
+}
+
+.sidebar__menu-item-button {
+  background: transparent;
+  transition: all var(--dmc-transition-duration) ease;
+}
+
+.sidebar__menu-item-button:hover {
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--dmc-red-glow-light);
 }
