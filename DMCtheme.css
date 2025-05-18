@@ -804,7 +804,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   transition: all var(--dmc-transition-duration) ease;
   position: relative;
   overflow: visible; /* Изменено с hidden на visible */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 0 4px rgba(255, 0, 0, 0.05); /* Умеренная тень и легкое внутреннее свечение */
 }
 
 .list__item::before {
