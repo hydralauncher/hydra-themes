@@ -35,14 +35,11 @@ body {
     color: var(--color-text);
     margin: 0;
     padding: 0;
-}
-main{
     background-color: var(--background-main);
 }
 /* Componentes gerais */
 .achievements__list,
 .header,
-.title-bar,
 .toast,
 .modal,
 .repacks-modal__repack-button,
@@ -57,7 +54,11 @@ main{
     padding: 10px;
 }
 
-
+.title-bar{
+    background-color: var(--color-background-base);
+    color: var(--color-text);
+    border: 0px;
+}
 /* Sidebar */
 .sidebar {
     background-color: var(--color-background-base);
