@@ -39,6 +39,7 @@
   border: 2px solid #8b0000;
   box-shadow: 0 0 6px #8b0000;
   border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.87);
   animation: fadeInZoom 1.2s ease-out;
 }
 
