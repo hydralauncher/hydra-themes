@@ -33,6 +33,7 @@ export function ThemePagination({
         <PaginationItem>
           <PaginationPrevious
             onClick={() => onPageChange(pagination.page - 1)}
+            disabled={pagination.page === 1}
           />
         </PaginationItem>
 
@@ -77,7 +78,10 @@ export function ThemePagination({
         )}
 
         <PaginationItem>
-          <PaginationNext onClick={() => onPageChange(pagination.page + 1)} />
+          <PaginationNext
+            onClick={() => onPageChange(pagination.page + 1)}
+            disabled={pagination.page === totalPages}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
