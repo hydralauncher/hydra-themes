@@ -647,21 +647,6 @@ main {
   border-radius: 8px;
   padding: 10px;
 
-}/* Not */
-.achievement-notification__outer-container {
-  background-color: var(--background-main);
-  padding: 5px;
-  border-radius: 8px;
-  width: fit-content;
-  max-width: 360px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.achievement-notification__container {
-  background-color: rgba(0, 0, 0, 0.281);
-  border-radius: 8px;
-  padding: 10px;
-
 }
 /* Media Queries */
 @media (max-width: 1198px) {
