@@ -714,11 +714,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   animation: listItemHover 0.5s ease forwards;
 }
 
-@keyframes listItemHover {
-    from { transform: translateX(0); }
-    to { transform: translateX(4px); }
-}
-
 .list__item:hover::before {
   left: 100%;
 }
@@ -727,6 +722,7 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   border-left: 3px solid rgba(0, 255, 0, 0.5);
   background: rgba(0, 255, 0, 0.05);
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.3), inset 0 0 5px rgba(0, 255, 0, 0.2);
+  border-color: rgba(0, 255, 0, 0.5);
 }
 
 .list__item--completed:hover {
@@ -734,18 +730,9 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 8px rgba(0, 255, 0, 0.3);
 }
 
-.list__item:hover {
-  box-shadow: 0 0 10px var(--dmc-red-glow-light), inset 0 0 8px rgba(255, 0, 0, 0.2);
-  border-color: var(--dmc-red);
-}
-
-.list__item--completed {
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3), inset 0 0 5px rgba(0, 255, 0, 0.2);
-  border-color: rgba(0, 255, 0, 0.5);
-}
-
-.list__item--completed:hover {
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 8px rgba(0, 255, 0, 0.3);
+@keyframes listItemHover {
+  from { transform: translateX(0); }
+  to { transform: translateX(4px); }
 }
 
 .catalogue__filters-list li,
