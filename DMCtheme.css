@@ -1,0 +1,402 @@
+/* === Подключение шрифтов === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* === Базовые стили body и фон === */
+body {
+  color: #e0e0ff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: none;
+  cursor: url('https://static.wikia.nocookie.net/devilmaycry/images/1/1d/Rebellion_Awakened_DMC3.png/revision/latest/scale-to-width/32?cb=20190523103320'), auto;
+}
+
+#root {
+  background: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGRkcjh3aGtncjJ6b2Z1Nm44bHljbWdtNmlpcGp1eWU2c2IxNGJyZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1pAe8bYGnxmHAbqTR3/giphy.gif) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(10,10,20,0.22) 0%, rgba(30,30,50,0.28) 100%);
+  opacity: 0;
+  animation: overlayFadeIn 1.2s ease forwards, overlayMove 20s linear infinite alternate;
+  pointer-events: none;
+}
+
+#root::after {
+  content: '';
+  position: fixed;
+  z-index: 1;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: url('https://i.imgur.com/8XZQZQZ.png') repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+@keyframes overlayFadeIn {
+  to { opacity: 1; }
+}
+@keyframes overlayMove {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* === Основные контейнеры === */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+.home__content,
+.catalogue,
+.settings__container {
+  background: rgba(20, 20, 30, 0.15);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(120,130,160,0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px 0 rgba(40, 60, 100, 0.18);
+  color: #e0e0e0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* === Карточки, списки, фильтры === */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.gallery-slider__container,
+.list,
+.description-header,
+.sidebar-section__button,
+.game-details__description-container,
+.content-sidebar {
+  background: rgba(20, 20, 30, 0.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 0 rgba(40, 60, 100, 0.08);
+  border: 1px solid rgba(120,130,160,0.10);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.profile-hero__user-information,
+.profile-hero__hero-panel,
+.profile-hero__hero-panel--transparent {
+  background: rgba(20,20,30,0.07);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(120,130,160,0.12);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px 0 rgba(40,60,100,0.08);
+  color: #e0e0e0;
+}
+
+/* === Мелкие элементы и разделители === */
+.sidebar__handle,
+.sidebar__divider,
+.sidebar__footer,
+.sidebar__user,
+.catalogue__divider,
+.settings__divider,
+.bottom-panel__handle,
+.friends-box__handle,
+.user-stats__handle,
+.recent-games__handle {
+  background: rgba(30, 40, 60, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(40, 60, 100, 0.10);
+  border: 1px solid rgba(120,130,160,0.18);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(120,130,160,0.12);
+  margin: 16px 0;
+  border: none;
+}
+
+/* === Кнопки и интерактивные элементы === */
+.container__content .button--outline,
+.settings-download-sources__item,
+.download-group__item {
+  background: rgba(30,40,60,0.22);
+  border: 1px solid rgba(120,130,160,0.22);
+  border-radius: 10px;
+  color: #e0e0e0;
+  box-shadow: 0 0 8px 0 rgba(80, 80, 120, 0.10);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.container__content .button--outline::before,
+.settings-download-sources__item::before,
+.download-group__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.container__content .button--outline:hover::before,
+.settings-download-sources__item:hover::before,
+.download-group__item:hover::before {
+  left: 100%;
+}
+
+.container__content .button--outline:hover,
+.settings-download-sources__item:hover,
+.download-group__item:hover,
+button:hover, .button--outline:hover, .sidebar__item:hover, .game-item:hover {
+  background: rgba(60,80,120,0.22);
+  box-shadow: 0 4px 16px 0 rgba(80, 120, 200, 0.12);
+  transform: translateY(-2px) scale(1.03);
+  border-color: #ff0000;
+}
+
+.button--outline:active,
+.button--outline:focus,
+.sidebar__item--active {
+  box-shadow: 0 0 12px 0 #ff0000, 0 0 2px #fff;
+  border-color: #ff0000;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 12px 0 #ff0000, 0 0 2px #fff; }
+  50% { box-shadow: 0 0 20px 0 #ff0000, 0 0 4px #fff; }
+  100% { box-shadow: 0 0 12px 0 #ff0000, 0 0 2px #fff; }
+}
+
+/* === Стили для основных кнопок === */
+.button--primary,
+.requirement__button {
+  background: rgba(30,40,60,0.22);
+  border: 1px solid rgba(120,130,160,0.22);
+  border-radius: 10px;
+  color: #e0e0e0;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button--primary::before,
+.requirement__button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.button--primary:hover,
+.requirement__button:hover {
+  background: rgba(60,80,120,0.22);
+  border-color: #ff0000;
+  box-shadow: 0 4px 16px 0 rgba(255, 0, 0, 0.12);
+}
+
+.button--primary:hover::before,
+.requirement__button:hover::before {
+  left: 100%;
+}
+
+.button--primary:active,
+.requirement__button:active {
+  background: rgba(255, 0, 0, 0.1);
+  border-color: #ff0000;
+  box-shadow: 0 0 12px 0 rgba(255, 0, 0, 0.3);
+}
+
+.button--primary:focus,
+.requirement__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.3);
+}
+
+/* === Иконки для кнопок === */
+.button--play::before,
+.button--profile::before,
+.button--settings::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.button--play::before {
+  background-image: url('https://static.wikia.nocookie.net/devilmaycry/images/1/1d/Rebellion_Awakened_DMC3.png/revision/latest/scale-to-width/360?cb=20190523103320');
+}
+.button--profile::before {
+  background-image: url('https://i.pinimg.com/originals/2d/7e/83/2d7e839e4237d380e76fe1224c39ca0b.png');
+}
+.button--settings::before {
+  background-image: url('https://image.pngaaa.com/802/1364802-middle.png');
+}
+
+/* === Текстовые элементы === */
+.header, .game-item__title {
+  color: #e0e0e0;
+  text-shadow: 0 0 4px #222a38, 0 0 8px #ff0000;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* === Новые стили для DMC === */
+.dmc-style-text {
+  font-family: 'Poppins', sans-serif;
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.dmc-style-border {
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.dmc-style-glow {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  to {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  }
+}
+
+/* === Анимации появления === */
+.game-item {
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.container__content,
+.home__content,
+.catalogue,
+.settings__container,
+.settings__content {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* === Скроллбар === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 80, 120, 0.22);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120,130,200,0.32);
+}
+
+.sidebar-section__button {
+  transform: none !important;
+  margin: 0;
+  padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  background: rgba(30,40,60,0.22);
+  border: 1px solid rgba(120,130,160,0.22);
+}
+
+.sidebar-section__button:hover {
+  background: rgba(60,80,120,0.22);
+  box-shadow: 0 4px 16px 0 rgba(80, 120, 200, 0.12);
+  border-color: #ff0000;
+  transform: none !important;
+}
+
+/* === Стили для элементов списка достижений === */
+.list__item {
+  background: rgba(30,40,60,0.22);
+  border: 1px solid rgba(120,130,160,0.22);
+  border-radius: 8px;
+  margin: 4px 0;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.list__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 0, 0, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.list__item:hover {
+  background: rgba(60,80,120,0.22);
+  border-color: #ff0000;
+  box-shadow: 0 4px 16px 0 rgba(255, 0, 0, 0.12);
+  transform: translateX(4px);
+}
+
+.list__item:hover::before {
+  left: 100%;
+}
+
+.list__item--completed {
+  border-left: 3px solid #ff0000;
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.list__item--completed:hover {
+  background: rgba(255, 0, 0, 0.1);
+}
