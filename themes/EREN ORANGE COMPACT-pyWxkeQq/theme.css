@@ -44,6 +44,7 @@ body {
     border: 0px;
 }
 /* Sidebar */
+
 .sidebar {
     background-color: var(--color-background-base);
     width: 100%;
@@ -51,6 +52,9 @@ body {
     min-width: 100% !important;
     max-width: 100% !important;
     padding: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1000;
 }
 
 .sidebar__content {
@@ -60,6 +64,7 @@ body {
     padding: 0;
     height: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .sidebar__section {
@@ -67,6 +72,7 @@ body {
     height: 55px;
     padding: 0;
     margin: 0;
+    align-items: center;
 }
 
 .sidebar__content section {
@@ -76,14 +82,13 @@ body {
 
 .sidebar__content section:nth-child(1) {
     margin-left: 22px;
-    
 }
 
 .sidebar__content section:nth-child(2):nth-last-child(2) {
     border-left: 1px solid var(--color-background-dark);
     border-right: 1px double var(--color-background-dark);
-    
 }
+
 .sidebar__menu {
     display: flex;
     flex-direction: row;
@@ -93,6 +98,7 @@ body {
     scroll-behavior: smooth;
     scroll-snap-align: start;
     height: 55px;
+    align-items: center;
 }
 
 .sidebar__menu::-webkit-scrollbar {
@@ -104,6 +110,11 @@ body {
     color: var(--color-text);
     text-decoration: none;
     position: relative;
+    cursor: pointer;
+    display: inline-flex; 
+    align-items: center;
+    height: 100%;
+
 }
 
 .sidebar__menu-item::before {
@@ -111,7 +122,7 @@ body {
     position: absolute;
     height: 2px;
     width: 50%;
-    top: 0px; 
+    top: 0px;
     left: 25%;
     background-color: var(--color-all);
     box-shadow: 0 0 8px 0.3px var(--color-all);
@@ -120,10 +131,20 @@ body {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     border-radius: 100px;
 }
-
-.sidebar__menu-item:hover::before {
+.sidebar__menu-item:hover::before,
+.sidebar__menu-item:focus::before {
     transform: scaleX(2);
 }
+.sidebar__menu-item:hover,
+.sidebar__menu-item:focus {
+    color: var(--color-all);
+    background-color: color-mix(in srgb, var(--color-all) 5%, transparent);
+}
+.sidebar__menu-item:focus {
+    outline: 1px dotted var(--color-all);
+    outline-offset: -2px;
+}
+
 
 .sidebar__menu-item--active::before {
     transform: scaleX(1);
@@ -132,18 +153,28 @@ body {
 
 .sidebar__menu-item--active {
     color: var(--color-all);
+    font-weight: bold;
+    background-color: color-mix(in srgb, var(--color-all) 8%, transparent);
 }
 
 .sidebar__menu-item-button {
     width: 50px;
     justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: color 0.4s, background-color 0.4s;
+    border-radius: 4px;
+    padding: 0;
 }
 
-.sidebar__menu-item-button:hover {
+.sidebar__menu-item-button:hover,
+.sidebar__menu-item-button:focus {
     color: var(--color-all);
+    background-color: color-mix(in srgb, var(--color-all) 10%, transparent);
 }
-
-
 /* Perfil */
 .profile-hero__content-box {
     border-radius: 10px;
@@ -159,69 +190,233 @@ body {
     flex-direction: column-reverse;
 }
 
-.profile-hero__avatar-button {
-    order: 1;
-    width: fit-content;
-    height: fit-content;
-}
-
-.profile-avatar__image {
-    width: fit-content;
-}
-
 .profile-hero__information, .profile-hero__current-game-wrapper {
     text-align: center;
     align-items: center;
 }
 
+.sidebar-profile__friends-button-badge {
+    background-color: var(--color-all);
+    color: var(--color-background-base);
+    margin-top: 6px;
+}
+
+.user-library-game__wrapper:has(progress[value="1"]) {
+    border: 2px solid var(--color-all);
+    box-shadow: 0px 0px 8px var(--color-all);
+}
+
+.profile-hero__avatar-button {
+    order: 1;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
 .profile-hero__avatar-button .profile-avatar {
     width: 150px !important;
     height: 150px !important;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    z-index: 2;
+    background-color: var(--color-background-base);
+    overflow: hidden;
+    border: 3px solid var(--color-shadow);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
 }
+
+.profile-hero__avatar-button .profile-avatar .profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+.profile-hero__avatar-button::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: calc(150px + 8px);
+    height: calc(150px + 8px);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color-all),
+        transparent 30%,
+        transparent 70%,
+        var(--color-all)
+    );
+    animation: rotateBorder 4s linear infinite;
+    transition: animation-duration 0.3s ease-in-out;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Rotação completa */
+    }
+}
+.profile-hero__avatar-button:hover::before {
+    animation-duration: 1.5s;
+}
+.profile-hero__avatar-button:hover .profile-avatar {
+    border-color: var(--color-all); 
+}
+/**/
 .sidebar-profile__friends-button-badge{
     background-color: var(--color-all);
     color: var(--color-background-base);
     margin-top: 6px;
 }
-.user-library-game__cover:has(progress[value="1"]) {
+.user-library-game__wrapper:has(progress[value="1"]) {
   border: 2px solid var(--color-all);
+  box-shadow: 0px 0px 8px var(--color-all);
+
 }
-/* Botões */
+/*Botoes*/
 .button,
 .select-field__option {
     background-color: var(--color-background-base);
     color: var(--color-text);
-    border-radius: 5px;
-    transition: 0.3s;
-    box-shadow: 0px 2px 5px var(--color-shadow);
+    padding: 8px 16px;
+    transition: background-color 0.2s ease-out,
+                border-color 0.2s ease-out,
+                box-shadow 0.2s ease-out,
+                transform 0.15s ease-out;
+    box-shadow: 0px 2px 4px var(--color-shadow);
     border: 1px solid var(--color-background-dark);
     cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
 .button:hover,
 .select-field__option:hover {
     background-color: var(--color-background-dark);
-    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px var(--color-shadow);
 }
 
-.select-field__option:hover {
-    box-shadow: 0px 0px 10px var(--color-all);
+.button:focus-visible,
+.select-field__option:focus-visible {
+    outline: 2px solid var(--color-all);
+    outline-offset: 2px;
+    background-color: var(--color-background-dark);
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px var(--color-shadow);
+}
+
+.button:active,
+.select-field__option:active {
+    background-color: color-mix(in srgb, var(--color-background-dark) 85%, black 15%);
+    transform: translateY(1px);
+    box-shadow: 0px 1px 2px var(--color-shadow);
+}
+
+.select-field__option:hover,
+.select-field__option:focus-visible {
+    box-shadow: 0px 4px 8px var(--color-shadow),
+                0px 0px 12px var(--color-all);
+}
+.select-field__option:active {
+    box-shadow: 0px 1px 2px var(--color-shadow),
+                0px 0px 8px color-mix(in srgb, var(--color-all) 80%, transparent);
 }
 
 .button--primary {
     background-color: var(--color-background-button);
     border: 1px solid var(--color-all);
+    font-weight: 600;
 }
+
+.button--primary:hover {
+    background-color: var(--color-all);
+    color: var(--color-background-base);
+    border-color: var(--color-all);
+    box-shadow: 0px 4px 10px var(--color-shadow),
+                0 0 12px color-mix(in srgb, var(--color-all) 60%, transparent);
+    transform: translateY(-2px);
+}
+
+.button--primary:focus-visible {
+    outline: 2px solid var(--color-all);
+    outline-offset: 2px;
+    background-color: var(--color-all);
+    color: var(--color-background-base);
+    border-color: var(--color-all);
+    box-shadow: 0px 4px 10px var(--color-shadow),
+                0 0 12px color-mix(in srgb, var(--color-all) 60%, transparent);
+    transform: translateY(-2px);
+}
+
+.button--primary:active {
+    background-color: color-mix(in srgb, var(--color-all) 85%, black 15%);
+    color: var(--color-background-base);
+    border-color: color-mix(in srgb, var(--color-all) 85%, black 15%);
+    transform: translateY(1px);
+    box-shadow: 0px 1px 2px var(--color-shadow),
+                inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
 .repacks-modal__repack-button:hover {
     background-color: var(--color-background-dark);
     transform: scale(1.05);
+    box-shadow: 0px 4px 10px var(--color-shadow);
 }
-.requirement__button-container button{
+.repacks-modal__repack-button:focus-visible {
+    outline: 2px solid var(--color-all);
+    outline-offset: 2px;
+    background-color: var(--color-background-dark);
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px var(--color-shadow);
+}
+.repacks-modal__repack-button:active {
+    background-color: color-mix(in srgb, var(--color-background-dark) 85%, black 15%);
+    transform: scale(1.02);
+    box-shadow: 0px 2px 5px var(--color-shadow);
+}
+
+.requirement__button-container button {
     margin: 5px;
 }
 
-.text-field-container__text-field, .checkbox-field__checkbox {
+.text-field-container__text-field,
+.checkbox-field__checkbox {
     background-color: var(--color-background-dark);
+    color: var(--color-text);
+    border: 1px solid var(--color-background-base);
+    border-radius: 4px;
+    padding: 8px 10px;
+    transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.text-field-container__text-field:focus,
+.checkbox-field__checkbox:focus-visible {
+    border-color: var(--color-all);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-all) 25%, transparent);
+    outline: none;
+}
+
+.checkbox-field__checkbox {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin-right: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.checkbox-field__checkbox:checked {
+    background-color: var(--color-all);
+    border-color: var(--color-all);
 }
 /* Containers */
 .container__content {
@@ -337,16 +532,37 @@ body {
     display: block;
     background-color: var(--color-background-base);
     color: var(--color-text);
-    box-shadow: 0px 2px 5px var(--color-shadow);
-    padding: 10px;
-    border-radius: 12px;
-    overflow: auto; 
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--color-shadow) 70%, transparent);
+    padding: 15px;
+    border-radius: 10px;
+    overflow: auto;
     height: 100%;
+    border: 1px solid var(--color-background-dark);
+    transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-background-scrollbar-thumb, var(--color-all)) transparent;
+}
+
+.catalogue__filters-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.catalogue__filters-container::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+}
+
+.catalogue__filters-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-background-scrollbar-thumb, var(--color-all));
+    border-radius: 3px;
 }
 
 .catalogue__filters-sections {
     width: 100%;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 /* Scrollbar */
@@ -398,10 +614,13 @@ body {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
+    background-color: var(--color-background-base);
+    color: var(--color-text);
 }
 
 .achievements__list li {
-    background-color: var(--color-background-dark);
+    background-color: var(--color-background-button);
+    border: var(--color-background-dark) solid 1px;
 }
 
 /* Detalhes do jogo */
@@ -420,6 +639,10 @@ body {
     max-height: 200px;
     max-width: 1200px;
     
+}
+.game-details__description strong, .bb_tag{
+    color: var(--color-all);
+    font-size: 1.1rem;
 }
 .sidebar-section{
     margin-left: 10px;
@@ -443,14 +666,13 @@ body {
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
-    border: 0.1px solid var(--background-main);
+    border: 1px solid var(--color-background-base);
 }
 
 .list>.link:hover {
     background-color: var(--color-background-dark);
-    border: 0.1px solid var(--color-all);
+    border: 1px solid var(--color-all);
 }
-
 /* Cabeçalhos */
 .description-header,
 .achievement-panel {
@@ -629,103 +851,158 @@ main {
 .header__title{
     text-align: center;
 }
-/* Not */
+/* Notificação */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 8px -2px var(--color-all), 0 0 15px -5px var(--color-all);
+    }
+    50% {
+        box-shadow: 0 0 18px 0px var(--color-all), 0 0 30px -2px var(--color-all);
+    }
+    100% {
+        box-shadow: 0 0 8px -2px var(--color-all), 0 0 15px -5px var(--color-all);
+    }
+}
 .achievement-notification {
-  width: 380px;
+    width: 380px;
 }
-.achievement-notification__outer-container {
-   background: var(--background-main) no-repeat;
-  background-size: cover;
-  padding: 5px;
-  border-radius: 8px;
-  width: fit-content;
-  max-width: 360px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  
-}
-.achievement-notification__container {
-  background-color: rgba(0, 0, 0, 0.658);
-  border-radius: 8px;
-  padding: 10px;
 
+.achievement-notification__outer-container {
+    background: var(--background-main) no-repeat;
+    background-size: cover;
+    padding: 5px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 360px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    border: 1px solid transparent;
+    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
+
+.achievement-notification__container {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid transparent;
+    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
 .achievement-notification__icon {
-  border-radius: 8px;
-  border: 1px solid var(--color-background-dark);
-  
+    border-radius: 8px;
+    border: 1px solid var(--color-background-dark);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    transition: outline-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
 }
+
 .achievement-notification__title {
-  font-weight: bold;
-  color: var(--color-text);
+    font-weight: bold;
+    color: var(--color-text);
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
+
 .achievement-notification__hidden-icon {
-  color: var(--color-all);
+    color: var(--color-all);
 }
+
 .achievement-notification__description {
-  font-size: 0.8em;
-  color: #b0a0a0;
+    font-size: 0.85em;
+    color: #c0c0c0;
+    line-height: 1.4;
 }
+
 .achievement-notification__chip {
-  position: absolute;
-  top: 10px;
-  background: var(--color-background-base);
-  border-radius: 5px;
-  font-size: 0.8em;
-  font-weight: bold;
-  color: var(--color-text);
+    position: absolute;
+    right: 12px; 
+    background: var(--color-background-base);
+    border-radius: 15px 5px 15px 5px;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--color-text);
+    padding: 4px 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    border: 1px solid var(--color-background-dark);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
+
 .achievement-notification__chip__label {
-  color: var(--color-text);
+    color: var(--color-text);
 }
+
 .achievement-notification__chip__icon path {
-  fill: var(--color-all);
-   color: var(--color-text);
+    fill: var(--color-all);
+    transition: fill 0.4s ease-in-out;
 }
 
 .achievement-notification__additional-overlay,
 .achievement-notification__dark-overlay,
 .achievement-notification__trophy-overlay,
 .achievement-notification__ellipses-overlay {
-  display: none;
+    display: none;
 }
 
+/* RARE */
 .achievement-notification--rare .achievement-notification__outer-container {
-  border: 1px solid var(--color-all);
+    border-color: var(--color-all);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6),
+                0 0 12px -2px var(--color-all);
 }
+
 .achievement-notification--rare .achievement-notification__title {
-  color: var(--color-text)
+    color: var(--color-text); 
 }
+
 .achievement-notification--rare .achievement-notification__icon {
-  outline: 1px solid var(--color-all);
-  box-shadow: 0 0 15px var(--color-all);
+    outline: none;
+    border-color: var(--color-all);
+    animation: pulseGlow 2.5s infinite ease-in-out;
 }
+
 .achievement-notification--rare .achievement-notification__chip {
-  background: var(--color-background-dark);
-  color: var(--color-text);
+    background: var(--color-background-dark);
+    color: var(--color-text);
+    border-color: var(--color-all);
 }
+
 .achievement-notification--rare .achievement-notification__chip__icon path {
-  fill: #fff;
+    fill: #fff;
 }
+
+/* PLATINUM */
 .achievement-notification--platinum .achievement-notification__outer-container {
-  border: 1px solid var(--color-all);
+    border-color: var(--color-all);
+    box-shadow: 0 6px 1px rgba(0, 0, 0, 0.7),
+                0 0 4px 0px var(--color-all), 
+                0 0 5px 1px var(--color-all); 
 }
+
 .achievement-notification--platinum .achievement-notification__container {
-  border: 1px solid var(--color-all);
-  background: var(--color-background-base);
+    border-color: var(--color-all);
+    background: linear-gradient(145deg, var(--color-background-base), color-mix(in srgb, var(--color-background-base) 70%, var(--color-all) 30%));
 }
+
 .achievement-notification--platinum .achievement-notification__title {
-  color: var(--color-text);
+    color: var(--color-text);
 }
+
 .achievement-notification--platinum .achievement-notification__icon {
-  outline: 2px solid var(--color-all);
-  box-shadow: 0 0 15px var(--color-all);
+    outline: none;
+    border: 2px solid var(--color-all);
+    animation: pulseGlow 2s infinite ease-in-out; 
 }
+
 .achievement-notification--platinum .achievement-notification__chip {
-  background: var(--color-all);
-  border: 1px solid black;
+    background: var(--color-all);
+    color: var(--color-background-base);
+    border: 1px solid color-mix(in srgb, var(--color-all) 70%, black 30%);
+    font-weight: bold;
 }
+
 .achievement-notification--platinum .achievement-notification__chip__icon path {
-  fill: #fff;
+    fill: var(--color-background-base);
 }
 /* Media Queries */
 @media (max-width: 1198px) {
