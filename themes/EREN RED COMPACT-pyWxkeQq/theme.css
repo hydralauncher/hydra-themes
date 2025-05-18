@@ -13,14 +13,16 @@
 }
 /* Estilos globais */
 body {
-    background: var(--background-main) no-repeat fixed;
-    background-size: cover;
     font-family: var(--font-used);
     font-optical-sizing: auto;
     font-style: normal;
     color: var(--color-text);
     margin: 0;
     padding: 0;
+}
+main{
+    background: var(--background-main) no-repeat fixed;
+    background-size: cover;
 }
 /* Componentes gerais */
 .achievements__list,
@@ -626,6 +628,23 @@ main {
 }
 .header__title{
     text-align: center;
+}
+/* Not */
+.achievement-notification__outer-container {
+  background: var(--background-main) no-repeat;
+  background-size: cover;
+  padding: 5px;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 360px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.achievement-notification__container {
+  background-color: rgba(0, 0, 0, 0.658);
+  border-radius: 8px;
+  padding: 10px;
+
 }
 /* Media Queries */
 @media (max-width: 1198px) {
