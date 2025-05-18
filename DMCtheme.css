@@ -533,7 +533,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   transition: all var(--dmc-transition-duration) ease;
   position: relative;
   overflow: visible;
-  box-shadow: 0 0 5px var(--dmc-red-glow-light);
 }
 
 .game-item::before {
