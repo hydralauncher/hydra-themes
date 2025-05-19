@@ -43,7 +43,7 @@ body::before {
 .download-group__item,
 .catalogue__filters-container,
 .settings__content {
-  background: transparent
+  background: transparent;
 }
 
 
