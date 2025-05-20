@@ -94,7 +94,7 @@ body {
   display: block;
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 13px;
+  border-radius: 14px;
   pointer-events: none;
   box-shadow: 0 0 18px 1px #b472f855;
   z-index: 1;
