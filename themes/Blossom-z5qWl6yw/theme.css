@@ -487,7 +487,6 @@ body::after {
 }
 
 /* Custom scrollbar for Firefox */
-* {
   scrollbar-width: thin;
   scrollbar-color: var(--accent-pink-dark) rgba(10, 10, 10, 0.7);
 }
