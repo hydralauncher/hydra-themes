@@ -4,13 +4,14 @@ import {
   CalendarArrowUp,
   Frown,
   Trophy,
+  Heart,
+  Flame,
 } from "lucide-react";
 import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
 import { ThemePagination } from "./theme-pagination";
 import type { Theme } from "@/lib/schemas/theme";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Heart, Flame } from "lucide-react";
 import { searchQuery } from "@/stores/search";
 import { useStore } from "@nanostores/react";
 import { compactNumber } from "@/lib/helpers";
