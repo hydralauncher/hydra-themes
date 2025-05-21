@@ -12,7 +12,7 @@ export const themeSchema = z.object({
   }),
   downloadCount: z.number().min(0),
   favoriteCount: z.number().min(0),
-  features: z.array(z.enum(["achievement-notification"])).nonempty(),
+  hasAchievementsSupport: z.boolean(),
   isFavorite: z.boolean(),
   isInstalled: z.boolean(),
 });

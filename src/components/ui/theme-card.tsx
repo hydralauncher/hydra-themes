@@ -158,7 +158,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         </div>
 
         <div className="flex flex-row items-center gap-2">
-          {theme.features.includes("achievement-notification") ? (
+          {theme.hasAchievementsSupport ? (
             <>
               <CheckCircle2Icon className="size-4 text-green-500" />
               <span className="text-xs text-muted-foreground">
