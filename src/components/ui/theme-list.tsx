@@ -1,5 +1,10 @@
 import { ThemeCard } from "./theme-card";
-import { CalendarArrowDown, CalendarArrowUp, Frown } from "lucide-react";
+import {
+  CalendarArrowDown,
+  CalendarArrowUp,
+  Frown,
+  Trophy,
+} from "lucide-react";
 import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
 import { ThemePagination } from "./theme-pagination";
@@ -113,6 +118,11 @@ export function ThemeList() {
               label: "Favorites",
               icon: <Heart />,
               value: "favorites",
+            },
+            {
+              label: "Achievements",
+              icon: <Trophy />,
+              value: "achievements",
             },
           ]}
           selectedValue={sort}
