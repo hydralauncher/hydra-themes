@@ -1,4 +1,3 @@
-/* === Подключение шрифтов === */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
@@ -141,6 +140,8 @@ main {
   transition: all var(--dmc-transition-duration) ease; 
   position: relative;
   transform: translate(var(--parallax-x), var(--parallax-y)) translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .sidebar::before,
@@ -797,31 +798,12 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   box-shadow: 0 0 10px var(--dmc-red-glow-medium);
 }
 
-.sidebar__menu-item:hover:not(.sidebar__menu-item--active)::before {
+.sidebar__menu-item:hover::before {
   transform: scaleY(1);
 }
 
 .sidebar__menu-item--active::before {
   display: none;
-}
-
-.sidebar__menu-item-button svg {
-  transition: transform 0.3s ease;
-}
-
-.sidebar__menu-item-button:hover svg {
-  transform: scale(1.2);
-  color: var(--dmc-red);
-}
-
-.sidebar-profile__friends-button {
-  transition: all var(--dmc-transition-duration) ease;
-}
-
-.sidebar-profile__friends-button:hover {
-  color: var(--dmc-red);
-  box-shadow: 0 0 8px var(--dmc-red-glow-light);
-  transform: scale(1.1);
 }
 
 .list__item {
@@ -876,24 +858,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 
 .list__item--completed:hover {
   background: rgba(0, 255, 0, 0.1);
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 8px rgba(0, 255, 0, 0.3);
-}
-
-.sidebar-section__button:hover {
-  box-shadow: 0 0 8px var(--dmc-red-glow-light), 0 0 12px rgba(255, 0, 0, 0.2);
-}
-
-.list__item:hover {
-  box-shadow: 0 0 10px var(--dmc-red-glow-light), inset 0 0 8px rgba(255, 0, 0, 0.2);
-  border-color: var(--dmc-red);
-}
-
-.list__item--completed {
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3), inset 0 0 5px rgba(0, 255, 0, 0.2);
-  border-color: rgba(0, 255, 0, 0.5);
-}
-
-.list__item--completed:hover {
   box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 8px rgba(0, 255, 0, 0.3);
 }
 
@@ -1104,18 +1068,6 @@ input[type="range"]::-moz-range-thumb:hover {
   }
 }
 
-.sidebar,
-.header,
-.container__content,
-.bottom-panel,
-.home__content,
-.catalogue,
-.settings__container {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
 :focus-visible {
   outline: 2px solid var(--dmc-red-glow-strong);
   outline-offset: 3px;
@@ -1222,6 +1174,7 @@ textarea:focus-visible,
   position: relative;
   width: 100%;
   overflow: visible;
+  flex-shrink: 0;
 }
 
 .title-bar {
@@ -1366,30 +1319,6 @@ textarea:focus-visible,
 .sidebar__menu-item-button:hover .sidebar__game-icon {
   transform: scale(1.2) rotate(5deg);
   filter: drop-shadow(0 0 8px var(--dmc-red-glow-medium));
-}
-
-.sidebar__menu-item-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.sidebar__menu-item-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(255, 0, 0, 0.1),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.sidebar__menu-item-button:hover::after {
-  left: 100%;
 }
 
 .header__search {
@@ -1633,25 +1562,6 @@ textarea:focus-visible,
   display: none;
 }
 
-.sidebar__menu-item-button svg {
-  transition: transform 0.3s ease;
-}
-
-.sidebar__menu-item-button:hover svg {
-  transform: scale(1.2);
-  color: var(--dmc-red);
-}
-
-.sidebar-profile__friends-button {
-  transition: all var(--dmc-transition-duration) ease;
-}
-
-.sidebar-profile__friends-button:hover {
-  color: var(--dmc-red);
-  box-shadow: 0 0 8px var(--dmc-red-glow-light);
-  transform: scale(1.1);
-}
-
 .game-details__wrapper {
   display: flex;
   flex-direction: column;
@@ -1664,13 +1574,6 @@ textarea:focus-visible,
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-}
-
-.game-details__hero {
-  position: relative;
-  width: 100%;
-  overflow: visible;
-  flex-shrink: 0;
 }
 
 .game-details__description-container {
