@@ -1,0 +1,132 @@
+@import url('https://fonts.cdnfonts.com/css/sst');
+
+/* Global styles - Cores alteradas para tema roxo/neon */
+:root {
+    --ps5-bg-color: #0f0a1a;
+    --ps5-text-color: #e0d6ff;
+    --ps5-accent-color: #9c4dff;
+    --ps5-secondary-color: #3d2a5f;
+}
+
+* {
+    font-weight: 300;
+}
+
+body {
+    font-family: 'SST', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    background-image: url('https://i.imgur.com/JXZJk3a.jpg'); /* Imagem alterada */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--ps5-text-color);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(15, 10, 26, 0.7) 0%, rgba(61, 42, 95, 0.5) 100%);
+    z-index: -1;
+}
+
+/* Botões com gradiente roxo */
+.button {
+    position: relative;
+    background: rgb(61 42 95 / 50%) !important;
+    border: none !important;
+    color: var(--ps5-text-color);
+    transition: all 0.2s ease;
+    border-radius: 50px;
+    padding: 8px 16px;
+    z-index: 1;
+}
+
+.button:hover::before,
+.button--primary::before,
+.button--primary:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 1px;
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: gradient-move 5s linear infinite;
+    z-index: -1;
+}
+
+.button--primary {
+    background: #9c4dff !important;
+    color: #ffffff !important;
+}
+
+/* Efeitos de hover com roxo */
+.sidebar__menu-item-button:hover::before,
+.sidebar-profile__button:hover::before,
+.sidebar-profile__friends-button:hover::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.5) 0%, rgba(202, 172, 255, 0.3) 100%);
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button::before,
+.sidebar-profile__button:active::before,
+.sidebar-profile__friends-button:active::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+}
+
+/* Modal com tema roxo */
+.modal {
+    background: linear-gradient(to bottom left, rgb(23, 15, 42), rgb(53, 37, 85)) !important;
+}
+
+/* Barra de rolagem roxa */
+::-webkit-scrollbar-thumb {
+    background: rgba(156, 77, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 77, 255, 0.7);
+}
+
+/* Cards de jogos com borda roxa */
+.game-card::before,
+.hero::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+}
+
+/* Toast notification roxa */
+.toast {
+    background: var(--ps5-secondary-color);
+    border: 1px solid rgba(156, 77, 255, 0.3);
+}
+
+/* Inputs com borda roxa */
+.header__search:focus-within::before,
+.text-field-container__text-field:focus-within::before {
+    background: linear-gradient(90deg, rgba(93, 63, 143, 0.8) 0%, rgba(202, 172, 255, 0.8) 50%, rgba(93, 63, 143, 0.8) 100%);
+}
+
+/* Restante do seu CSS original permanece igual */
+/* [Todo o resto do seu CSS existente] */
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
