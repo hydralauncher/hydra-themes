@@ -6,17 +6,14 @@ import sharp from "sharp";
 import { api } from "./api";
 import postcss from "postcss";
 import selectorParser from "postcss-selector-parser";
-import { Theme } from "./schemas/theme";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
 
-const getThemeFeatures = async (
+const getThemeAchievementsSupport = async (
   publicThemePath: string,
-): Promise<Theme["features"]> => {
-  const features: Theme["features"] = [];
-
+): Promise<boolean> => {
   try {
     const result = postcss().process(
       fs.readFileSync(path.join(publicThemePath, "theme.css"), "utf8"),
@@ -36,14 +33,18 @@ const getThemeFeatures = async (
 
     for (const className of classNames) {
       if (className.startsWith("achievement-notification")) {
-        features.push("achievement-notification");
+        return true;
       }
     }
 
-    return features;
+    return false;
   } catch (err) {
-    console.error(`Failed to get theme features for ${publicThemePath}`, err);
-    return [];
+    console.error(
+      `Failed to get theme achievements support for ${publicThemePath}`,
+      err,
+    );
+
+    return false;
   }
 };
 
@@ -116,12 +117,13 @@ Promise.all(
       }
     }
 
-    const features = await getThemeFeatures(publicThemePath);
+    const hasAchievementsSupport =
+      await getThemeAchievementsSupport(publicThemePath);
 
     return {
       name: themeName,
       authorId: authorCode,
-      features,
+      hasAchievementsSupport,
     };
   }),
 )
