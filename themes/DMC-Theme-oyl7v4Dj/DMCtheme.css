@@ -652,16 +652,20 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 .settings__content {
   animation: slideInUp 0.8s ease-out forwards;
   opacity: 0;
+  will-change: opacity, transform;
+  visibility: hidden;
 }
 
 @keyframes slideInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
+    visibility: visible;
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
   }
 }
 
