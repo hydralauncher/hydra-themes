@@ -130,7 +130,9 @@ main {
 }
 
 .sidebar {
-   
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
 }
 
 
@@ -147,9 +149,9 @@ main {
   @supports not (backdrop-filter: blur(8px)) {
     background: rgba(20, 10, 10, 0.95);
   }
-  border: 1px solid rgba(255, 0, 0, 0.2);
+  border: var(--dmc-border-simple);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 0, 0, 0.1), 0 0 20px rgba(255, 0, 0, 0.2);
+  box-shadow: var(--dmc-shadow-simple);
   color: var(--dmc-text-light);
   transition: all var(--dmc-transition-duration) ease;
   position: relative;
@@ -818,16 +820,16 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   width: 100%;
   text-align: left;
   background: rgba(50, 10, 10, 0.4);
-  border: 1px solid rgba(255, 0, 0, 0.15);
-  transition: all var(--dmc-transition-duration) ease; 
-  color: var(--dmc-text-light); 
+  border: var(--dmc-border-simple);
+  transition: all var(--dmc-transition-duration) ease;
+  color: var(--dmc-text-light);
 }
 
 .sidebar-section__button:hover {
   background: rgba(80, 20, 20, 0.5);
-  box-shadow: 0 0 8px var(--dmc-red-glow-light), 0 0 12px rgba(255, 0, 0, 0.2); 
+  box-shadow: var(--dmc-shadow-hover);
   border-color: var(--dmc-red);
-  transform: translateX(3px); 
+  transform: translateX(3px);
 }
 
 
@@ -835,6 +837,15 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 .button--primary,
 .button--outline {
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar__menu-item-button:hover,
+.button--primary:hover,
+.button--outline:hover {
+  transform: translateX(5px);
+  box-shadow: var(--dmc-shadow-hover);
 }
 
 .sidebar__menu-item-button::before {
@@ -846,13 +857,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.05), transparent);
   transition: left 0.5s ease;
-}
-
-.sidebar__menu-item-button:hover {
-  background: rgba(255, 0, 0, 0.1);
-  box-shadow: 0 0 5px var(--dmc-red-glow-light);
-  transform: translateX(5px);
-  color: var(--dmc-red);
 }
 
 .sidebar__menu-item-button:hover::before {
@@ -911,9 +915,9 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 }
 
 .sidebar-profile__friends-button:hover {
-  color: var(--dmc-red); 
-  box-shadow: 0 0 8px var(--dmc-red-glow-light); 
-  transform: scale(1.1); 
+  color: var(--dmc-red);
+  box-shadow: var(--dmc-shadow-hover);
+  transform: scale(1.1);
 }
 
 .game-details__wrapper {
@@ -1025,4 +1029,41 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Объединяем стили для элементов списка */
+.list__item {
+  background: rgba(30, 15, 15, 0.7);
+  border: var(--dmc-border-simple);
+  border-radius: 8px;
+  margin: 4px 0;
+  padding: 8px 12px;
+  transition: all var(--dmc-transition-duration) ease;
+}
+
+.list__item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dmc-shadow-hover);
+  border-color: var(--dmc-red);
+}
+
+.list__item--completed {
+  border-left: 3px solid rgba(0, 255, 0, 0.5);
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.list__item--completed:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: var(--dmc-shadow-hover);
+}
+
+/* Объединяем стили для SVG иконок */
+.sidebar__menu-item-button svg {
+  transition: transform 0.3s ease;
+  color: var(--dmc-text-light);
+}
+
+.sidebar__menu-item-button:hover svg {
+  transform: scale(1.2);
+  color: var(--dmc-red);
 }
