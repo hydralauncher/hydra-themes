@@ -1,0 +1,8 @@
+{
+  "name": "DMC Theme",
+  "author": "oyl7v4Dj",
+  "version": "1.0.0",
+  "description": "Devil May Cry style theme for Hydra Launcher with animated glow effects and responsive design",
+  "main": "theme.css",
+  "repository": "https://github.com/hydralauncher/hydra-themes"
+} 
