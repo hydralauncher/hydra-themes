@@ -1,0 +1,323 @@
+:root {
+  --primary-color: #ff00aa;
+  --black: #000000;
+  --font-main: 'Audiowide', cursive;
+  --blur: blur(5px);
+  --radius: 12px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.neon-text {
+  color: var(--primary-color);
+  text-shadow: var(--neon-shadow);
+}
+
+/* GERAL */
+body {
+  margin: 0;
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  animation: fadeIn 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--black)
+    url("https://images5.alphacoders.com/126/thumb-350-1269207.webp")
+    no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.678), transparent);
+  z-index: -1;
+}
+
+/* BOTÕES */
+.button-container {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  top: 20px;
+  right: 20px;
+  flex-wrap: wrap;
+}
+.button--outline {
+  backdrop-filter: var(--blur);
+  background: linear-gradient(135deg, rgba(30, 0, 40, 0.7), rgba(50, 0, 70, 0.7));
+  border: 1px solid rgba(196, 24, 138, 0.5);
+  color: var(--primary-color);
+  padding: 10px 14px;
+  font-size: 11px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 6px rgba(196, 24, 138, 0.4);
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 0.9);
+}
+
+.button--outline:hover {
+  background: linear-gradient(135deg, rgba(196, 24, 138, 0.9), rgba(255, 182, 193, 0.9));
+  color: var(--black);
+  border-color: rgba(196, 24, 138, 1);
+  box-shadow: 0 0 12px rgba(196, 24, 138, 0.9);
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 1);
+}
+
+/* ÁREAS PRINCIPAIS */
+.header,
+.sidebar,
+.container__content,
+.bottom-panel {
+  background: rgba(255, 255, 255, 0.012); /* menos opaco */
+  backdrop-filter: var(--blur);
+  border: 1px solid rgba(196, 24, 138, 0.08);
+  border-radius: var(--radius);
+  animation: fadeInUp 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 0.9);
+}
+
+/* ELEMENTOS ESCUROS */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(71, 0, 65, 0.07) !important; /* menos opaco */
+  backdrop-filter: var(--blur);
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition);
+  color: var(--primary-color) !important;
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 0.9) !important;
+  font-family: var(--font-main);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(196, 24, 138, 0.03) !important; /* menos opaco */
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 0.9);
+}
+
+/* BARRA SUPERIOR */
+.title-bar {
+  background-color: rgba(196, 24, 138, 0.035); /* menos opaco */
+  backdrop-filter: var(--blur);
+  animation: slideDown 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 0.9);
+}
+
+/* CONTEÚDO CENTRAL */
+.home__content {
+  background-color: rgba(196, 24, 138, 0.02); /* menos opaco */
+  backdrop-filter: blur(3px);
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  text-shadow: 2px 2px 6px rgba(196, 24, 138, 0.9);
+}
+
+/* Força qualquer texto branco a usar a cor principal e adiciona sombra */
+* {
+  color: var(--primary-color) !important;
+  text-shadow: 1px 1px 4px rgba(196, 24, 138, 0.7);
+  font-family: var(--font-main);
+}
+
+/* Conteúdo específico dentro da container__content */
+.container__content * {
+  color: var(--primary-color) !important;
+  text-shadow: 1px 1px 4px rgba(196, 24, 138, 0.7) !important;
+  font-family: var(--font-main) !important;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Rodapé com estilo adaptado ao tema */
+.bottom-panel {
+  background-color: rgba(196, 24, 138, 0.02);
+  border-top: 1px solid rgba(196, 24, 138, 0.1);
+  padding: 12px;
+  animation: popIn 0.6s ease;
+  border-radius: 0 0 var(--radius) var(--radius);
+  backdrop-filter: var(--blur);
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  text-shadow: 1px 1px 4px rgba(196, 24, 138, 0.7);
+}
+
+small[data-featurebase-changelog="true"] {
+  position: relative;
+  color: transparent !important;
+  text-shadow: none !important;
+  user-select: none;
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(196, 24, 138, 0.12), rgba(255, 255, 255, 0.03));
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 11px;
+  padding: 6px 10px;
+  border: 1px solid rgba(196, 24, 138, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(196, 24, 138, 0.4);
+  backdrop-filter: var(--blur);
+  animation: fadeIn 0.6s ease;
+}
+/* Rodapé com estilo adaptado ao tema */
+.bottom-panel {
+  background-color: rgba(196, 24, 138, 0.02);
+  border-top: 1px solid rgba(196, 24, 138, 0.1);
+  padding: 12px;
+  animation: popIn 0.6s ease;
+  border-radius: 0 0 var(--radius) var(--radius);
+  backdrop-filter: var(--blur);
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  text-shadow: 1px 1px 4px #c4188ab3;
+}
+
+small[data-featurebase-changelog="true"] {
+  position: relative;
+  color: transparent !important;
+  text-shadow: none !important;
+  user-select: none;
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(196, 24, 138, 0.12), rgba(255, 255, 255, 0.03));
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 11px;
+  padding: 6px 10px;
+  border: 1px solid rgba(196, 24, 138, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(196, 24, 138, 0.4);
+  backdrop-filter: var(--blur);
+  animation: fadeIn 0.6s ease;
+}
+
+small[data-featurebase-changelog="true"]::after {
+  content: "--== By: Yzakyii ==--";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(196, 24, 138, 0.6);
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 11px;
+  white-space: nowrap;
+  user-select: text;
+  text-shadow: 1px 1px 3px rgba(196, 24, 138, 0.3);
+}
+
+.title-bar h4 {
+  position: relative;
+  color: transparent !important;
+  text-shadow: none !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+.title-bar h4::after {
+  content: "Ultra Ego";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  color: rgba(196, 24, 138, 0.7);
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(196, 24, 138, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.achievement-notification__outer-container {
+  background: url(https://media.tenor.com/meOEmOvvln8AAAAM/vegeta-ultra-ego-vegeta.gif) no-repeat center -150px;
+  background-size: cover;
+  padding: 0px;
+  border-radius: 5px;
+  color: #00ff00;
+  box-shadow:
+    0 0 10px #c4188ab3;
+    0 0 25px #c4188ab3;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease-in-out;
+
+  position:;       /* permite posicionamento relativo à janela */
+  top: 0px;             /* distância do topo */
+  right: 20px;           /* afasta do lado direito */
+  width: 330px;          /* largura da notificação */
+  height: auto;          /* altura automática */
+  z-index: 000;         /* sobrepõe outros elementos */
+  overflow: hidden;
+}
+
+
+.achievement-notification__container {
+  background-color: rgba(83, 0, 76, 0.226);
+  border-radius: 5px;
+  color: #31f500;
+  font-size: 15px;
+  font-weight: 0;
+  box-shadow:
+    inset 0 0 10px rgba(255, 42, 78, 0),
+    0 0 25px rgba(43, 252, 1, 0);
+  backdrop-filter: blur(1px);
+}

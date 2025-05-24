@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+  --color-bg-main: #12121252;
+  --color-bg-overlay: rgba(40, 40, 40, 0.315);
+  --color-bg-card: rgba(30, 30, 30, 0.6);
+  --color-bg-panel: rgba(20, 20, 20, 0.274);
+  --color-text: #f5f5f5;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --blur-soft: blur(4px);
+  --blur-strong: blur(8px);
+  --transition-fast: 0.3s ease;
+}
+body {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg-main) url('https://i.pinimg.com/736x/8c/cc/be/8cccbe5c6dccff3141b602a65678415b.jpg') no-repeat center center;
+  background-size: cover;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.274); /* aumenta esse valor para escurecer mais */
+  z-index: -1;
+}
+
+
+*, *::before, *::after {
+  color: var(--color-text) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#root {
+  position: relative;
+  background: transparent;
+  padding: 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+#root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.03), transparent);
+  z-index: -1;
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: var(--color-bg-overlay);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 0px rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  margin: 1px;
+  padding: 16px;
+  backdrop-filter: var(--blur-soft);
+  animation: fadeIn 1s ease-in-out;
+  color: var(--color-text);
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background-color: var(--color-bg-card) !important;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  animation: fadeIn 0.8s ease-in-out;
+  transition: all var(--transition-fast);
+  backdrop-filter: var(--blur-soft);
+  border-radius: 8px;
+}
+
+.button--outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  animation: popIn 0.5s ease-in-out;
+}
+
+.button--outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: var(--color-bg-card) !important;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  animation: fadeIn 0.6s ease-in-out;
+  backdrop-filter: var(--blur-soft);
+  color: var(--color-text);
+}
+
+.title-bar {
+  background-color: rgba(0, 0, 0, 0.178);
+  color: var(--color-text);
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 16px;
+  animation: fadeIn 0.7s ease-in-out;
+  border-radius: 8px 8px 0 0;
+}
+
+.home__content {
+  background-color: var(--color-bg-panel);
+  backdrop-filter: var(--blur-strong);
+  border-radius: 12px;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+  color: var(--color-text);
+}
+
+.button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: slideFadeIn 0.7s ease;
+}
+
+.bottom-panel {
+  background-color: var(--color-bg-panel);
+  border-top: 1px solid var(--color-border);
+  padding: 16px;
+  animation: popIn 0.6s ease-in-out;
+  border-radius: 0 0 10px 10px;
+  color: var(--color-text);
+}
+
+.button:hover {
+  background-color: var(--accent-soft);
+  color: #050505;
+  border-color: #ffffff;
+  box-shadow: none;
+}
+
+.button:hover {
+  background-color: var(--accent-soft);
+  color: #050505;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+  transition: none;
+}
+.achievement-notification__outer-container {
+  background: url(https://media.tenor.com/hQk-4i9dv-YAAAAM/bluelock-anime-team-z.gif) no-repeat center -30px;
+  background-size: cover;
+  padding: 0px;
+  border-radius: 5px;
+  color: #000000;
+  box-shadow:
+    0 0 10px #505050,
+    0 0 25px #4141417c;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease-in-out;
+
+  position:;       /* permite posicionamento relativo à janela */
+  top: 0px;             /* distância do topo */
+  right: 20px;           /* afasta do lado direito */
+  width: 330px;          /* largura da notificação */
+  height: auto;          /* altura automática */
+  z-index: 000;         /* sobrepõe outros elementos */
+  overflow: hidden;
+}
+
+
+.achievement-notification__container {
+  background-color: rgba(0, 0, 0, 0.267);
+  border-radius: 5px;
+  color: #31f500;
+  font-size: 15px;
+  font-weight: 0;
+  box-shadow:
+    inset 0 0 10px rgba(255, 42, 78, 0),
+    0 0 25px rgba(43, 252, 1, 0);
+  backdrop-filter: blur(1px);
+}
+
+/* começa aqui */
+button[data-featurebase-changelog="true"] {
+  all: unset;
+  cursor: pointer;
+  padding: 6px 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: px;
+}
+button[data-featurebase-changelog="true"] small[data-featurebase-changelog="true"] {
+  font-size: 0;
+  color: transparent;
+  position:fixed;
+}
+
+button[data-featurebase-changelog="true"] small[data-featurebase-changelog="true"]::after {
+  content: "--== By: Yzakyii ==--"; 
+  position: relative;
+  top: 70%;
+  left: -90%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: var(--font-main);
+  font-weight: 0;
+  font-size: 13px;
+  white-space: nowrap;
+  user-select: text;
+  text-shadow: none; /* efeito neon removido */
+}
+
+.title-bar h4 {
+  position: relative;
+  color: transparent !important;
+  text-shadow: none !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+:root {
+  --title-name-color: #ffffff; /* cor neon padrão */
+}
+
+.title-bar h4::after {
+  content: "Gagamaru" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 100% !important;
+  transform: translate(-50%, -50%) !important;
+  color: var(--title-name-color) !important;
+  font-family: var(--font-main) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  text-shadow: none !important; /* efeito neon removido */
+}
