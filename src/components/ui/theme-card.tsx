@@ -30,7 +30,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
       try {
         if (action === "unfavorite") {
-          await api.delete(`themes/${theme.id}/favorite`);
+          await api.put(`themes/${theme.id}/unfavorite`);
         } else {
           await api.put(`themes/${theme.id}/${action}`);
         }
