@@ -1,0 +1,179 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do fundo com a imagem posicionada */
+#root {
+    background: url(https://i.pinimg.com/736x/34/c3/f7/34c3f7b560e92f36f8b9e74561a65dd8.jpg) no-repeat;
+    background-position: 60% 40%; /* Posiciona a imagem levemente para a direita e para baixo */
+    background-size: cover;
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    padding-bottom: 8px; /* Pequeno afastamento na parte inferior */
+}
+
+/* Estilo da barra de título (com botões de fechar, minimizar e expandir) */
+.title-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.8); /* Preto escuro semi-transparente */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between; /* Alinha o nome à esquerda e os botões à direita */
+    padding: 0 10px;
+    -webkit-app-region: drag; /* Permite arrastar a janela */
+}
+
+.title-bar .app-name {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
+    -webkit-app-region: no-drag; /* Impede que o nome seja arrastado */
+}
+
+.title-bar .window-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.title-bar button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-app-region: no-drag; /* Impede que os botões sejam arrastados */
+}
+
+.title-bar button:hover {
+    color: #ff4757; /* Vermelho para destaque ao passar o mouse */
+}
+
+/* Estilo do conteúdo principal */
+.container {
+    padding: 40px 20px;
+    margin-top: 8px; /* Compensa a altura da barra de título */
+    margin-bottom: 10px; /* Pequeno afastamento na parte inferior */
+}
+
+/* Estilo dos elementos da interface */
+.sidebar,
+.container__content,
+.header,
+.bottom-panel,
+.game-item {
+    background: rgba(0, 0, 0, 0.6); /* Preto escuro semi-transparente */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 7px;
+    padding: 5px;
+    color: #ffffff;
+}
+
+/* Estilo da parte inferior (downloads e versão) */
+.bottom-panel {
+    position: fixed;
+    bottom: -3px; /* Pequeno afastamento na parte inferior */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Preto escuro semi-transparente */
+    padding: 2px 20px; /* Reduzido o padding para ocupar menos espaço */
+    font-size: 12px; /* Fonte menor */
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottom-panel p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilo dos botões */
+.button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+ 
+.button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.button--primary {
+    background: #ff4757; /* Vermelho para botões primários */
+    border: none;
+}
+
+.button--primary:hover {
+    background: #ff6b81; /* Vermelho mais claro ao passar o mouse */
+}
+
+/* Estilo dos textos */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+/* Estilo dos inputs e seletores */
+.text-field-container__text-field--primary,
+.select-field select-field--primary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 8px;
+    color: #ffffff;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    .sidebar,
+    .container__content,
+    .header,
+    .bottom-panel,
+    .game-item {
+        margin: 5px;
+        padding: 100px;
+    }
+}
