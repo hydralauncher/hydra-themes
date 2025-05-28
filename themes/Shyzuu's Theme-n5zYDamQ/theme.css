@@ -1,4 +1,4 @@
-/* Shyzuu's Theme V1.1 for Hydra Launcher By Shyzuuu */
+/* Shyzuu's Theme V1 for Hydra Launcher By Shyzuuu */
 
 /* Header */
 .header {
@@ -56,6 +56,27 @@
   border-color: #cf5fff;
 }
 
+.button--outline.pagination__button {
+  background: transparent;
+  color: #cf5fff;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+.button--outline.pagination__button:hover {
+  background: #4b187733;
+  color: #fff;
+  border-color: #b472f8;
+}
+
+.button--primary.pagination__button {
+  background: linear-gradient(90deg, #b472f8 0%, #632fa7 100%);
+  color: #fff8fc;
+  box-shadow: 0 2px 8px #8c41d980;
+  font-weight: bold;
+  z-index: 2;
+}
+
 body {
   background: #110024;
 }
@@ -94,7 +115,7 @@ body {
   display: block;
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 14px;
+  border-radius: 13px;
   pointer-events: none;
   box-shadow: 0 0 18px 1px #b472f855;
   z-index: 1;
