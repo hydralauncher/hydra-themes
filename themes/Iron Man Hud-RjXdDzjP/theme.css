@@ -1,3 +1,15 @@
+
+  /*
+    Here you can edit CSS for your theme and apply it on Hydra.
+    There are a few classes already in place, you can use them to style the launcher.
+
+    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+    or how to publish your theme in the theme store, you can check the docs:
+    https://docs.hydralauncher.gg/
+
+    Happy hacking!
+  */
+
 /* Caixa de titulo superior */
   .header {
     color: cyan !important; /* Aplica a cor neon azul ao texto do header */
@@ -109,6 +121,28 @@
 
 /* Toast */
   .toast {}
+
+/*Caixa de conquistas*/
+  .achievement-notification__outer-container {
+    background: url(https://cdn.dribbble.com/userupload/19445350/file/original-d3c1a1167b18464e2eff6622d09f2dc8.gif);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #000;
+  }
+
+    .achievement-notification__container{
+      background: rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(1px);
+      border: 1px solid rgba(0, 255, 255, 0.7);
+      border-radius: 5px;
+      text-shadow: 0 0 8px rgb(255, 255, 255);
+      box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    }
+
+    .achievement-notification__container *{
+      color: white !important;
+    }
 
 /*Transparencia em algumas caixas*/
   .text-field-container__text-field--dark,
@@ -244,3 +278,4 @@
         background: rgba(0, 255, 255, 0.2);
     }
 }*/
+
