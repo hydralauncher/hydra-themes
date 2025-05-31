@@ -1351,8 +1351,7 @@ main {
     width: 24px; height: 20px; /* Tamanho ajustado */
 }
 
-.game-details__container { /* Container principal abaixo do Hero */
-  /* Já tem overflow: auto, z-index: 1 */
+.game-details__container {
 }
 .game-details__description-container { /* Container da descrição */
   background: var(--hl-primary-bg); /* Fundo consistente */
@@ -1626,8 +1625,7 @@ main {
   object-fit: contain;
   filter: drop-shadow(0 3px 8px rgba(0,0,0,0.4));
 }
-.achievements__hero-logo-backdrop { /* Pode ser usado para um gradiente sutil sobre a imagem de fundo se houver */
-  /* background: linear-gradient(...); */
+.achievements__hero-logo-backdrop {
 }
 
 .achievements__table-header { /* Cabeçalho da "tabela" de achievements */
@@ -1772,17 +1770,15 @@ main {
     font-size: var(--hl-font-size-large);
     color: var(--hl-primary-text);
 }
-.theme-editor__editor { /* Área do editor de código (ex: Monaco) */
-  /* Estilos para o editor em si seriam complexos e dependem da lib usada */
-  /* Geralmente, eles têm suas próprias classes para temas */
+.theme-editor__editor {
 }
+
 .theme-editor__footer {
   background-color: var(--hl-secondary-bg);
   border-top: 1px solid var(--hl-border-color);
   padding: 16px 20px;
 }
-.theme-editor__footer-actions .button { /* Botões no footer do editor */
-    /* Herdam estilos de .button */
+.theme-editor__footer-actions .button {
 }
 
 
