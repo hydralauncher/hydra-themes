@@ -1,0 +1,1923 @@
+/* ===== HydraLauncher HyperVision Theme (Ultra Modern Detail) ===== */
+
+/* --- :root Variáveis Globais --- */
+:root {
+  --hl-font-family: 'Noto Sans', sans-serif;
+
+  /* Paleta Principal */
+  --hl-primary-bg: #0A0C10;       /* Fundo ainda mais escuro, quase preto absoluto */
+  --hl-secondary-bg: #10121A;     /* Painéis, cards, sidebar - contraste sutil */
+  --hl-tertiary-bg: #181A24;      /* Inputs, elementos de UI interativos */
+  --hl-overlay-bg: rgba(10, 12, 16, 0.7); /* Para backdrops de modais, com mais blur */
+
+  /* Textos */
+  --hl-primary-text: #E8EAEF;     /* Texto principal muito claro, levemente azulado */
+  --hl-secondary-text: #B0B8CC;   /* Texto secundário/muted */
+  --hl-subtle-text: #707890;      /* Texto ainda mais sutil, para metadados */
+  --hl-disabled-text: #505870;    /* Texto para elementos desabilitados */
+
+  /* Cores de Destaque (Accent) */
+  --hl-accent-primary: #00E0FF;   /* Ciano Elétrico vibrante */
+  --hl-accent-secondary: #00B8D4; /* Ciano mais escuro para hover/active */
+  --hl-accent-glow: rgba(0, 224, 255, 0.25); /* Glow sutil para o accent */
+  --hl-accent-glow-strong: rgba(0, 224, 255, 0.4); /* Glow mais forte */
+  --hl-accent-text-on-bg: #FFFFFF; /* Texto branco sobre fundo accent */
+
+  /* Cores Semânticas */
+  --hl-success: #00F0A0;          /* Verde neon moderno */
+  --hl-error: #FF4060;            /* Vermelho/Rosa neon moderno */
+  --hl-warning: #FFB800;          /* Laranja/Amarelo moderno */
+  --hl-info: var(--hl-accent-primary);
+
+  /* Bordas e Divisores */
+  --hl-border-color: #222633;     /* Cor da borda muito sutil e escura */
+  --hl-border-interactive: #303448; /* Borda para elementos interativos (inputs) */
+  --hl-border-hover-color: var(--hl-accent-secondary);
+  --hl-border-focus-color: var(--hl-accent-primary);
+
+  /* Sombras */
+  --hl-shadow-color-soft: rgba(0, 0, 0, 0.3);
+  --hl-shadow-color-medium: rgba(0, 0, 0, 0.5);
+  --hl-shadow-interactive: 0 0 0 3px var(--hl-accent-glow); /* Sombra de foco para inputs */
+  --hl-card-shadow: 0 4px 12px var(--hl-shadow-color-soft);
+  --hl-card-hover-shadow: 0 8px 24px var(--hl-shadow-color-medium), 0 0 15px var(--hl-accent-glow);
+  --hl-modal-shadow: 0 12px 40px var(--hl-shadow-color-medium);
+
+  /* Tipografia e Espaçamento */
+  --hl-font-size-small: 12px;
+  --hl-font-size-base: 14px;
+  --hl-font-size-medium: 16px;
+  --hl-font-size-large: 18px;
+  --hl-font-size-xl: 22px;
+  --hl-font-size-xxl: 28px;
+
+  --hl-line-height-base: 1.6;
+  --hl-line-height-tight: 1.3;
+
+  --hl-letter-spacing-base: 0.2px;
+  --hl-letter-spacing-wide: 0.5px;
+
+  --hl-border-radius-small: 4px;
+  --hl-border-radius-base: 8px;
+  --hl-border-radius-large: 12px;
+  --hl-border-radius-xl: 16px; /* Para elementos maiores como modais */
+  --hl-border-radius-pill: 999px; /* Para botões tipo "pill" */
+
+  /* Transições */
+  --hl-transition-duration-short: 0.15s;
+  --hl-transition-duration-base: 0.25s;
+  --hl-transition-timing-function: ease-out;
+}
+
+/* --- Estilos Globais Reset e Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-width: 0; /* Resetar bordas, aplicar via variáveis */
+  border-style: solid;
+  border-color: var(--hl-border-color);
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: var(--hl-transition-duration-base);
+  transition-timing-function: var(--hl-transition-timing-function);
+}
+
+html, body, #root, main {
+  height: 100%;
+}
+
+body {
+  background-color: var(--hl-primary-bg);
+  color: var(--hl-primary-text);
+  font-family: var(--hl-font-family);
+  font-size: var(--hl-font-size-base);
+  line-height: var(--hl-line-height-base);
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--hl-primary-text);
+  font-weight: 700;
+  line-height: var(--hl-line-height-tight);
+  letter-spacing: var(--hl-letter-spacing-base);
+}
+h1 { font-size: var(--hl-font-size-xxl); }
+h2 { font-size: var(--hl-font-size-xl); }
+h3 { font-size: var(--hl-font-size-large); }
+h4 { font-size: var(--hl-font-size-medium); }
+
+p {
+  color: var(--hl-secondary-text);
+  margin-bottom: 1em;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--hl-accent-primary);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: var(--hl-accent-secondary);
+  text-decoration: underline;
+  outline: none;
+}
+
+button {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: var(--hl-font-size-base);
+    color: var(--hl-primary-text);
+    background-color: var(--hl-tertiary-bg);
+    border: 1px solid var(--hl-border-interactive);
+    border-radius: var(--hl-border-radius-base);
+    padding: 10px 14px; /* Padding padrão para inputs */
+    outline: none;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--hl-border-focus-color);
+    box-shadow: var(--hl-shadow-interactive);
+}
+input::placeholder, textarea::placeholder {
+    color: var(--hl-subtle-text);
+    opacity: 0.7;
+}
+
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--hl-primary-bg);
+  border-radius: var(--hl-border-radius-pill);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--hl-accent-primary);
+  border-radius: var(--hl-border-radius-pill);
+  border: 3px solid var(--hl-primary-bg);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hl-accent-secondary);
+  border-color: var(--hl-primary-bg); /* Manter o espaçamento */
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* --- Layout Principal --- */
+#root, main {
+  display: flex;
+}
+#root {
+  flex-direction: column;
+}
+main {
+  overflow: hidden; /* Evitar scrollbars duplicadas */
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  container-name: app-container;
+  container-type: inline-size;
+}
+.container__content {
+  flex-grow: 1; /* Ocupar todo o espaço vertical restante */
+  background: var(--hl-primary-bg); /* Fundo consistente */
+  overflow-y: auto; /* Scroll apenas no conteúdo principal */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Para elementos posicionados dentro */
+}
+
+/* --- Title Bar (Windows) --- */
+.title-bar {
+  display: flex;
+  width: 100%;
+  height: 42px; /* Altura refinada */
+  min-height: 42px;
+  background-color: var(--hl-primary-bg);
+  align-items: center;
+  padding: 0 20px;
+  -webkit-app-region: drag;
+  z-index: 100; /* Acima de outros elementos */
+  border-bottom: 1px solid var(--hl-border-color);
+}
+.title-bar__cloud-text {
+  font-weight: 700;
+  font-size: var(--hl-font-size-medium);
+  letter-spacing: var(--hl-letter-spacing-wide);
+  background: linear-gradient(90deg, var(--hl-accent-primary) 0%, var(--hl-success) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* --- Header Principal --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  -webkit-app-region: drag; /* Parte do header pode ser arrastável */
+  width: 100%;
+  padding: 16px 28px; /* Espaçamento generoso */
+  color: var(--hl-primary-text);
+  border-bottom: 1px solid var(--hl-border-color);
+  background-color: var(--hl-secondary-bg); /* Header com fundo sutilmente diferente */
+}
+.header--dragging-disabled {
+  -webkit-app-region: no-drag;
+}
+.header--is-windows { /* Ajustes se for Windows Titlebar */
+  -webkit-app-region: no-drag;
+  /* padding-top: 40px; /* Exemplo se titlebar for customizado em Windows */
+}
+
+.header__section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+  overflow: hidden;
+}
+.header__section--left {
+  flex: 1;
+}
+
+.header__back-button {
+  color: var(--hl-secondary-text);
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  width: 24px; height: 24px; /* Tamanho do ícone de voltar */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-15px); /* Começa fora da tela */
+  transition: opacity var(--hl-transition-duration-short) ease-out, transform var(--hl-transition-duration-base) cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.header__back-button--enabled {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+}
+.header__back-button:hover {
+    color: var(--hl-accent-primary);
+    transform: translateX(0) scale(1.1); /* Leve destaque no hover */
+}
+
+.header__title {
+  font-size: var(--hl-font-size-xl);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform var(--hl-transition-duration-base) ease-out;
+}
+.header__title--has-back-button {
+  transform: translateX(36px); /* Espaço para o botão de voltar */
+}
+
+.header__search {
+  display: inline-flex;
+  width: 220px; /* Largura inicial */
+  max-width: 350px; /* Largura máxima no foco */
+  align-items: center;
+  border-radius: var(--hl-border-radius-base);
+  border: 1px solid var(--hl-border-interactive);
+  background-color: var(--hl-tertiary-bg);
+  height: 42px;
+  -webkit-app-region: no-drag;
+  padding: 0 8px 0 14px; /* Padding para ícone e texto */
+}
+.header__search:hover {
+  border-color: var(--hl-border-hover-color);
+}
+.header__search--focused {
+  width: 300px; /* Expandir no foco */
+  border-color: var(--hl-border-focus-color);
+  box-shadow: var(--hl-shadow-interactive);
+}
+.header__search-input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  color: var(--hl-primary-text);
+  font-size: var(--hl-font-size-medium);
+  padding: 0; /* Padding já está no container */
+}
+.header__search-input:focus {
+  cursor: text;
+}
+.header__search .header__action-button { /* Ícone de busca dentro do input */
+    padding: 8px;
+    color: var(--hl-secondary-text);
+}
+.header__search .header__action-button:hover {
+    color: var(--hl-accent-primary);
+}
+
+
+.header__action-button { /* Botões de ação no header (minimize, etc) */
+  color: var(--hl-secondary-text);
+  cursor: pointer;
+  padding: 10px; /* Área de clique generosa */
+  border-radius: var(--hl-border-radius-base);
+  -webkit-app-region: no-drag;
+}
+.header__action-button:hover {
+  color: var(--hl-accent-primary);
+  background-color: var(--hl-tertiary-bg); /* Fundo sutil no hover */
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  background-color: var(--hl-secondary-bg);
+  color: var(--hl-secondary-text);
+  flex-direction: column;
+  display: flex;
+  border-right: 1px solid var(--hl-border-color);
+  position: relative;
+  overflow: hidden;
+  padding: 16px 0; /* Padding vertical, horizontal nos itens */
+  width: 280px; /* Sidebar mais larga */
+  flex-shrink: 0; /* Não encolher */
+}
+.sidebar--resizing {
+  opacity: 0.7;
+  pointer-events: none;
+}
+.sidebar--darwin { /* Ajuste para MacOS */
+  padding-top: 56px; /* Considerar a titlebar do OS */
+}
+
+.sidebar__handle { /* Divisor para redimensionar */
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  position: absolute;
+  right: -3px; /* Metade para fora */
+  top:0;
+  z-index: 5;
+  background-color: transparent; /* Invisível, mas interativo */
+}
+.sidebar__handle:hover {
+    background-color: var(--hl-accent-glow); /* Feedback visual */
+}
+
+.sidebar__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Ocupar espaço restante */
+  gap: 12px; /* Espaço entre seções */
+  width: 100%;
+  overflow-y: auto; /* Scroll apenas no conteúdo da sidebar */
+  overflow-x: hidden;
+  padding: 0 12px; /* Padding horizontal para o conteúdo */
+}
+
+.sidebar__menu {
+  list-style: none;
+  gap: 6px; /* Espaço entre itens do menu */
+  display: flex;
+  flex-direction: column;
+}
+.sidebar__menu-item {
+  border-radius: var(--hl-border-radius-base);
+  display: flex; /* Para o botão ocupar todo o espaço */
+}
+.sidebar__menu-item-button {
+  color: inherit; /* Herdado do .sidebar__menu-item */
+  display: flex;
+  align-items: center;
+  gap: 14px; /* Mais espaço entre ícone e label */
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+  padding: 12px 16px; /* Padding interno generoso */
+  font-size: var(--hl-font-size-medium);
+  font-weight: 500;
+  border-radius: inherit; /* Herdado do pai */
+}
+.sidebar__menu-item-button-label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sidebar__menu-item:hover .sidebar__menu-item-button {
+  background-color: var(--hl-tertiary-bg);
+  color: var(--hl-accent-primary);
+}
+.sidebar__menu-item--active .sidebar__menu-item-button {
+  background: linear-gradient(90deg, var(--hl-accent-primary) 0%, var(--hl-accent-secondary) 100%);
+  color: var(--hl-accent-text-on-bg);
+  font-weight: 600; /* Mais destaque */
+  box-shadow: 0 0 15px var(--hl-accent-glow-strong);
+}
+.sidebar__menu-item--muted {
+  opacity: 0.6;
+}
+.sidebar__menu-item--muted:hover {
+  opacity: 1;
+}
+
+.sidebar__game-icon {
+  width: 22px; height: 22px; /* Ícones de jogo um pouco maiores */
+  min-width: 22px; min-height: 22px;
+  border-radius: var(--hl-border-radius-small);
+  background-size: cover;
+  filter: grayscale(30%); /* Ícones levemente dessaturados */
+}
+.sidebar__menu-item--active .sidebar__game-icon {
+    filter: grayscale(0%); /* Ícone colorido quando ativo */
+}
+
+.sidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaço entre título da seção e itens */
+}
+.sidebar__section-title {
+  color: var(--hl-primary-text);
+  font-weight: 700;
+  font-size: var(--hl-font-size-small); /* Títulos de seção menores */
+  text-transform: uppercase;
+  letter-spacing: var(--hl-letter-spacing-wide);
+  padding: 8px 16px 0; /* Padding para alinhar com itens */
+  opacity: 0.8; /* Título sutil */
+}
+
+.sidebar__help-button {
+  color: var(--hl-secondary-text);
+  padding: 16px; /* Padding generoso */
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-top: 1px solid var(--hl-border-color);
+  margin-top: auto; /* Empurrar para o final da sidebar */
+}
+.sidebar__help-button:hover {
+  background-color: var(--hl-tertiary-bg);
+  color: var(--hl-accent-primary);
+}
+.sidebar__help-button-icon { /* Ícone do botão de ajuda */
+  background: linear-gradient(135deg, var(--hl-accent-primary) 0%, var(--hl-success) 100%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  color: var(--hl-accent-text-on-bg);
+  /* ...demais propriedades originais... */
+}
+
+.sidebar-profile {
+  padding: 12px; /* Padding em volta da área de perfil */
+  margin-top: auto; /* Empurrar para baixo após os menus */
+  border-top: 1px solid var(--hl-border-color);
+}
+.sidebar-profile__button {
+  display: flex;
+  cursor: pointer;
+  color: var(--hl-primary-text);
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--hl-border-radius-base);
+  padding: 12px;
+  background-color: var(--hl-tertiary-bg); /* Fundo destacado */
+}
+.sidebar-profile__button:hover {
+  background-color: lighten(var(--hl-tertiary-bg), 5%);
+  box-shadow: 0 0 10px var(--hl-accent-glow);
+}
+.sidebar-profile__button-content {
+  gap: 12px;
+}
+.sidebar-profile__button-information {
+  align-items: flex-start;
+}
+.sidebar-profile__button-title { /* Nome do usuário */
+  font-weight: 700;
+  font-size: var(--hl-font-size-medium);
+}
+.sidebar-profile__button-game-running-title { /* Jogo em execução */
+  color: var(--hl-secondary-text);
+  font-size: var(--hl-font-size-small);
+}
+
+.profile-avatar { /* Usado no sidebar e em outros lugares */
+  border-radius: var(--hl-border-radius-base); /* Mais arredondado */
+  background-color: var(--hl-tertiary-bg);
+  border: 1px solid var(--hl-border-interactive);
+  color: var(--hl-secondary-text);
+  /* ...demais propriedades originais... */
+}
+.profile-avatar__image {
+  border-radius: inherit; /* Herdar o arredondamento */
+}
+
+
+/* --- Botões Genéricos --- */
+.button {
+  padding: 10px 24px; /* Padding base para botões */
+  border-radius: var(--hl-border-radius-base);
+  font-weight: 600; /* Botões com texto mais forte */
+  font-size: var(--hl-font-size-medium);
+  letter-spacing: var(--hl-letter-spacing-base);
+  min-height: 44px; /* Altura mínima consistente */
+  display: inline-flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espaço entre ícone e texto no botão */
+  border-width: 2px; /* Borda mais visível para outline/secondary */
+  border-style: solid;
+  border-color: transparent; /* Transparente por padrão */
+  transition: all var(--hl-transition-duration-short) var(--hl-transition-timing-function), transform 0.1s ease;
+}
+.button:active:not(:disabled) {
+  transform: scale(0.96); /* Feedback de clique mais pronunciado */
+}
+.button:disabled {
+  background-color: var(--hl-tertiary-bg) !important;
+  color: var(--hl-disabled-text) !important;
+  border-color: var(--hl-border-color) !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--hl-accent-primary) 0%, var(--hl-accent-secondary) 100%);
+  color: var(--hl-accent-text-on-bg);
+  box-shadow: 0 4px 12px var(--hl-accent-glow), 0 0 0 1px var(--hl-accent-primary) inset;
+}
+.button--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--hl-accent-secondary) 0%, var(--hl-accent-primary) 100%);
+  box-shadow: 0 6px 18px var(--hl-accent-glow-strong), 0 0 0 1px var(--hl-accent-secondary) inset;
+  transform: translateY(-2px); /* Leve elevação */
+}
+
+.button--outline {
+  background-color: transparent;
+  border-color: var(--hl-accent-primary);
+  color: var(--hl-accent-primary);
+}
+.button--outline:hover:not(:disabled) {
+  background-color: var(--hl-accent-glow);
+  color: var(--hl-accent-text-on-bg); /* Texto branco para contraste no hover */
+}
+
+.button--dark { /* Um botão secundário/neutro */
+  background-color: var(--hl-tertiary-bg);
+  color: var(--hl-secondary-text);
+  border-color: var(--hl-border-interactive);
+}
+.button--dark:hover:not(:disabled) {
+  background-color: lighten(var(--hl-tertiary-bg), 5%);
+  border-color: var(--hl-border-hover-color);
+  color: var(--hl-primary-text);
+}
+
+.button--danger {
+  background: linear-gradient(135deg, var(--hl-error) 0%, darken(var(--hl-error), 10%) 100%);
+  color: var(--hl-accent-text-on-bg);
+  box-shadow: 0 4px 12px rgba(255, 64, 96, 0.25);
+}
+.button--danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, darken(var(--hl-error), 5%) 0%, darken(var(--hl-error), 15%) 100%);
+  box-shadow: 0 6px 18px rgba(255, 64, 96, 0.35);
+  transform: translateY(-2px);
+}
+
+/* --- Game Cards --- */
+.game-card {
+  width: 100%;
+  height: 200px; /* Altura ligeiramente aumentada */
+  box-shadow: none; /* Sombra apenas no hover */
+  overflow: hidden;
+  border-radius: var(--hl-border-radius-large); /* Cantos mais suaves */
+  border: 1px solid var(--hl-border-color);
+  background-color: var(--hl-secondary-bg);
+  cursor: pointer;
+  position: relative; /* Para pseudo-elementos e posicionamento absoluto */
+}
+.game-card:hover {
+  transform: translateY(-6px) scale(1.03); /* Efeito de "flutuar" e zoom */
+  box-shadow: var(--hl-card-hover-shadow);
+  border-color: var(--hl-accent-primary);
+}
+.game-card:active {
+  opacity: 0.85;
+  transform: translateY(-2px) scale(1.01); /* Feedback de clique */
+}
+
+.game-card__backdrop { /* Overlay escuro na parte inferior */
+  background: linear-gradient(0deg, rgba(16, 18, 26, 0.95) 15%, rgba(16, 18, 26, 0.6) 50%, transparent 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  position: relative; /* Garante que fique sobre a imagem */
+  z-index: 1;
+}
+.game-card__cover { /* Imagem de fundo */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top:0; left:0;
+  z-index: 0; /* Atrás do backdrop */
+  transition: transform var(--hl-transition-duration-base) var(--hl-transition-timing-function);
+}
+.game-card:hover .game-card__cover {
+  transform: scale(1.08); /* Zoom mais pronunciado na imagem interna */
+}
+
+.game-card__content {
+  color: var(--hl-secondary-text);
+  padding: 16px 20px; /* Padding interno aumentado */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre título e outros elementos */
+  transform: translateY(20px); /* Conteúdo escondido inicialmente */
+  opacity: 0; /* Escondido inicialmente */
+  transition: transform var(--hl-transition-duration-base) ease-out, opacity var(--hl-transition-duration-base) ease-out;
+  position: relative; /* Garante que fique sobre a imagem */
+  z-index: 2;
+}
+.game-card:hover .game-card__content {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.game-card__title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.game-card__shop-icon {
+    width: 22px; height: 22px; min-width: 22px;
+    opacity: 0.8;
+}
+.game-card__title {
+  font-size: var(--hl-font-size-large);
+  font-weight: 700;
+  color: var(--hl-primary-text);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Sombra para legibilidade sobre imagem */
+  line-height: 1.3;
+}
+.game-card__download-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.game-card__specifics {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.game-card__specifics-item {
+  gap: 8px;
+  display: flex;
+  color: var(--hl-subtle-text);
+  font-size: var(--hl-font-size-small);
+  align-items: flex-end;
+  font-weight: 500;
+}
+.game-card__specifics-item svg { /* Ícones dentro de specifics */
+    width: 14px; height: 14px;
+    opacity: 0.7;
+}
+.game-card__no-download-label {
+  color: var(--hl-subtle-text);
+  font-weight: 600;
+  font-style: italic;
+}
+
+
+/* --- Badge --- */
+.badge {
+  color: var(--hl-accent-primary);
+  font-size: var(--hl-font-size-small);
+  font-weight: 600; /* Badges mais legíveis */
+  padding: 5px 10px; /* Padding aumentado */
+  border: 1px solid var(--hl-accent-primary);
+  border-radius: var(--hl-border-radius-pill); /* Formato de pílula */
+  display: inline-flex; /* Para alinhar ícones */
+  align-items: center;
+  gap: 6px;
+  background-color: var(--hl-accent-glow); /* Fundo com cor do glow */
+  text-transform: uppercase;
+  letter-spacing: var(--hl-letter-spacing-wide);
+}
+.badge svg {
+    width: 12px; height: 12px;
+}
+
+/* --- Links --- */
+.link { /* Classe .link genérica */
+  color: var(--hl-accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.link:hover, .link:focus {
+  color: var(--hl-accent-secondary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px; /* Linha de sublinhado mais fina */
+  text-underline-offset: 3px; /* Afastar sublinhado do texto */
+}
+
+/* --- Hero Section (Página Home) --- */
+.hero {
+  width: 100%;
+  height: 300px; /* Altura base */
+  min-height: 300px;
+  max-height: 350px; /* Altura máxima */
+  border-radius: var(--hl-border-radius-large);
+  color: var(--hl-primary-text);
+  overflow: hidden;
+  box-shadow: var(--hl-card-shadow); /* Sombra consistente */
+  cursor: pointer;
+  border: 1px solid var(--hl-border-color);
+  position: relative; /* Para o overlay e imagem */
+}
+.hero__media { /* Imagem ou vídeo de fundo */
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top:0; left:0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--hl-transition-duration-base) var(--hl-transition-timing-function);
+}
+.hero:hover .hero__media {
+  transform: scale(1.05); /* Efeito de zoom no hover */
+}
+.hero__backdrop { /* Overlay escuro */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(10, 12, 16, 0.9) 10%, rgba(10, 12, 16, 0.5) 50%, transparent 90%); /* Gradiente mais escuro na base */
+  position: relative; /* Para z-index sobre a media */
+  z-index: 1;
+  display: flex;
+  overflow: hidden; /* Para conteúdo não vazar */
+}
+.hero__content {
+  width: 100%;
+  height: 100%;
+  padding: 32px 28px; /* Padding generoso */
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Alinhar conteúdo na base */
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6); /* Sombra no texto para legibilidade */
+}
+.hero__description {
+  max-width: 70%; /* Limitar largura da descrição */
+  color: var(--hl-secondary-text);
+  font-size: var(--hl-font-size-medium);
+  line-height: var(--hl-line-height-base);
+  margin-top: 12px;
+}
+
+/* --- Modals e Backdrops --- */
+.modal {
+  animation: scale-fade-in var(--hl-transition-duration-base) cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: var(--hl-secondary-bg);
+  border-radius: var(--hl-border-radius-xl); /* Cantos bem suaves para modais */
+  min-width: 450px; /* Largura mínima maior */
+  max-width: 700px; /* Largura máxima maior */
+  color: var(--hl-secondary-text);
+  border: 1px solid var(--hl-border-color);
+  box-shadow: var(--hl-modal-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Para o header/footer não vazar */
+}
+.modal--closing {
+  animation-name: scale-fade-out;
+  opacity: 0;
+}
+.modal--large {
+  width: 800px; /* Modal grande */
+  max-width: 90vw; /* Responsividade */
+}
+.modal__content {
+  height: 100%;
+  overflow: auto; /* Scroll apenas no conteúdo */
+  padding: 28px 32px; /* Padding generoso no conteúdo */
+}
+.modal__header {
+  display: flex;
+  gap: 12px;
+  padding: 24px 32px; /* Padding generoso no header */
+  border-bottom: 1px solid var(--hl-border-color);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--hl-tertiary-bg); /* Header do modal com fundo sutilmente diferente */
+}
+.modal__header-title {
+  color: var(--hl-primary-text);
+  font-size: var(--hl-font-size-xl);
+  font-weight: 700;
+}
+.modal__header-title p { /* Subtítulo no header do modal */
+    font-size: var(--hl-font-size-base);
+    color: var(--hl-subtle-text);
+    margin-bottom: 0;
+}
+.modal__close-button {
+  cursor: pointer;
+  align-self: flex-start; /* Alinhar no topo */
+  padding: 8px; /* Área de clique */
+  border-radius: var(--hl-border-radius-pill);
+}
+.modal__close-button:hover {
+  background-color: var(--hl-overlay-bg); /* Fundo sutil no hover */
+  opacity: 1; /* Opacidade total no hover */
+}
+.modal__close-button-icon {
+  color: var(--hl-secondary-text);
+  width: 24px; height: 24px; /* Ícone maior */
+  transition: transform var(--hl-transition-duration-short) ease, color var(--hl-transition-duration-short) ease;
+}
+.modal__close-button:hover .modal__close-button-icon {
+  color: var(--hl-accent-primary);
+  transform: rotate(90deg) scale(1.1); /* Efeito de rotação e zoom */
+}
+
+.backdrop { /* Fundo translúcido para modais */
+  animation-name: backdrop-fade-in;
+  animation-duration: var(--hl-transition-duration-base);
+  background-color: var(--hl-overlay-bg); /* Fundo com alfa */
+  position: fixed; /* Corrigido para fixed */
+  top:0; left:0; /* Cobrir toda a tela */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50; /* Acima da maioria dos conteúdos */
+  padding: 24px;
+  backdrop-filter: blur(10px); /* Efeito de vidro fosco mais forte */
+}
+.backdrop--closing {
+  animation-name: backdrop-fade-out;
+  backdrop-filter: blur(0px);
+  background-color: transparent;
+}
+
+@keyframes scale-fade-in {
+  0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes scale-fade-out {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.9) translateY(20px); }
+}
+@keyframes backdrop-fade-in {
+  0% { backdrop-filter: blur(0px); background-color: transparent; }
+  100% { backdrop-filter: blur(10px); background-color: var(--hl-overlay-bg); }
+}
+@keyframes backdrop-fade-out {
+  0% { backdrop-filter: blur(10px); background-color: var(--hl-overlay-bg); }
+  100% { backdrop-filter: blur(0px); background-color: transparent; }
+}
+
+/* --- Campos de Texto e Select --- */
+.text-field-container { /* Container para label + input */
+  gap: 10px; /* Espaço entre label e input */
+}
+.text-field-container__text-field, .select-field {
+  background-color: var(--hl-tertiary-bg);
+  border: 1px solid var(--hl-border-interactive); /* Borda mais visível */
+  border-radius: var(--hl-border-radius-base);
+  height: 46px; /* Altura aumentada para melhor toque/clique */
+  min-height: 46px;
+  padding: 0 16px; /* Padding horizontal */
+}
+.text-field-container__text-field:hover, .select-field:hover {
+  border-color: var(--hl-border-hover-color);
+}
+.text-field-container__text-field--focused, .select-field--focused {
+  border-color: var(--hl-border-focus-color);
+  box-shadow: var(--hl-shadow-interactive);
+}
+.text-field-container__text-field-input, .select-field__option {
+  background-color: transparent;
+  border: none;
+  color: var(--hl-primary-text);
+  font-size: var(--hl-font-size-medium);
+  padding: 0; /* Padding já está no container */
+  height: 100%;
+  width:100%;
+}
+.text-field-container__text-field-input::placeholder {
+    color: var(--hl-subtle-text);
+}
+.text-field-container__error-label, .select-field__label { /* Labels e erros */
+  color: var(--hl-error);
+  font-size: var(--hl-font-size-small);
+  font-weight: 500;
+}
+.select-field__label {
+    color: var(--hl-secondary-text); /* Label do select */
+    margin-bottom: 8px;
+    display: block;
+}
+.text-field-container__toggle-password-button { /* Botão de mostrar senha */
+    color: var(--hl-secondary-text);
+    padding: 0 10px; /* Padding no ícone */
+}
+.text-field-container__toggle-password-button:hover {
+    color: var(--hl-accent-primary);
+}
+
+/* --- Checkbox --- */
+.checkbox-field {
+  gap: 12px; /* Mais espaço entre checkbox e label */
+  cursor: pointer;
+  padding: 8px 0; /* Área de clique maior */
+}
+.checkbox-field:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.checkbox-field__checkbox {
+  width: 22px; height: 22px; /* Checkbox maior */
+  min-width: 22px; min-height: 22px;
+  border-radius: var(--hl-border-radius-small);
+  background-color: var(--hl-tertiary-bg);
+  border: 1px solid var(--hl-border-interactive);
+  position: relative;
+  display: flex; /* Para centralizar o checkmark */
+  align-items: center;
+  justify-content: center;
+}
+.checkbox-field__checkbox:hover:not(:has(input:disabled)) {
+  border-color: var(--hl-border-hover-color);
+}
+.checkbox-field__input { /* Esconder o input nativo */
+  opacity: 0;
+  position: absolute;
+  width: 100%; height: 100%;
+  cursor: inherit;
+}
+.checkbox-field__input:focus + .checkbox-field__checkbox { /* Foco no checkbox customizado */
+    border-color: var(--hl-border-focus-color);
+    box-shadow: var(--hl-shadow-interactive);
+}
+.checkbox-field__input:checked + .checkbox-field__checkbox {
+  background-color: var(--hl-accent-primary);
+  border-color: var(--hl-accent-primary);
+}
+.checkbox-field__input:checked + .checkbox-field__checkbox::after { /* Checkmark customizado */
+  content: '✓';
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--hl-accent-text-on-bg);
+  line-height: 1;
+}
+.checkbox-field__label {
+  cursor: inherit;
+  color: var(--hl-secondary-text);
+  font-size: var(--hl-font-size-medium);
+  font-weight: 500;
+  flex-grow: 1; /* Ocupar espaço */
+}
+.checkbox-field:has(input:disabled) .checkbox-field__label {
+    color: var(--hl-disabled-text);
+}
+
+
+/* --- Toasts (Notificações Flutuantes) --- */
+.toast {
+  background-color: var(--hl-secondary-bg);
+  border-radius: var(--hl-border-radius-base);
+  border: 1px solid var(--hl-border-color);
+  box-shadow: 0 6px 20px var(--hl-shadow-color-medium);
+  padding: 16px 20px; /* Padding interno */
+  gap: 12px; /* Espaço entre ícone e conteúdo */
+  max-width: 400px; /* Largura máxima */
+  z-index: 1000; /* Acima de tudo */
+  /* ... animações originais ... */
+}
+.toast--closing { /* ... animações originais ... */ }
+.toast__content {
+    gap: 16px; /* Espaço interno no conteúdo */
+    padding: 0; /* Padding já está no .toast */
+}
+.toast__message-container {
+    gap: 6px;
+}
+.toast__message { /* Mensagem principal do toast */
+  font-weight: 600;
+  color: var(--hl-primary-text);
+  font-size: var(--hl-font-size-medium);
+}
+.toast p { /* Descrição no toast */
+    color: var(--hl-secondary-text);
+    font-size: var(--hl-font-size-base);
+    margin-bottom: 0;
+}
+.toast__progress {
+  height: 4px; /* Barra de progresso mais fina */
+  border-radius: var(--hl-border-radius-pill);
+  overflow: hidden; /* Para o border-radius funcionar no progresso */
+}
+.toast__progress::-webkit-progress-bar {
+  background-color: var(--hl-tertiary-bg);
+}
+.toast__progress::-webkit-progress-value {
+  background-color: var(--hl-accent-primary); /* Progresso com cor de destaque */
+}
+.toast__close-button {
+  color: var(--hl-secondary-text);
+}
+.toast__close-button:hover {
+  color: var(--hl-accent-primary);
+}
+.toast__icon--success { color: var(--hl-success); }
+.toast__icon--error { color: var(--hl-error); }
+.toast__icon--warning { color: var(--hl-warning); }
+.toast__icon--info { color: var(--hl-info); } /* Adicionado para consistência */
+.toast [class*="toast__icon--"] { /* Estilo para todos os ícones de toast */
+    font-size: 28px; /* Ícones de toast maiores */
+}
+
+/* --- Dropdown Menu --- */
+.dropdown-menu__content {
+  background-color: var(--hl-secondary-bg);
+  border: 1px solid var(--hl-border-color);
+  border-radius: var(--hl-border-radius-base);
+  min-width: 220px; /* Largura mínima maior */
+  padding: 6px; /* Padding em volta dos grupos/itens */
+  box-shadow: 0 5px 15px var(--hl-shadow-color-soft);
+}
+.dropdown-menu__group {
+  padding: 0; /* Sem padding extra no grupo se o content já tem */
+}
+.dropdown-menu__title-bar { /* Título de seção no dropdown */
+  padding: 8px 14px;
+  font-size: var(--hl-font-size-small);
+  font-weight: 600;
+  color: var(--hl-subtle-text);
+  text-transform: uppercase;
+  letter-spacing: var(--hl-letter-spacing-wide);
+}
+.dropdown-menu__separator {
+  height: 1px;
+  background-color: var(--hl-border-color);
+  margin: 6px 0; /* Margem vertical para o separador */
+}
+.dropdown-menu__item {
+  gap: 10px;
+  border-radius: var(--hl-border-radius-small); /* Arredondamento sutil nos itens */
+  padding: 10px 14px; /* Padding interno dos itens */
+  font-size: var(--hl-font-size-base);
+  color: var(--hl-secondary-text);
+}
+.dropdown-menu__item--disabled {
+  cursor: default;
+  opacity: 0.5;
+  color: var(--hl-disabled-text);
+}
+.dropdown-menu__item:not(.dropdown-menu__item--disabled):hover,
+.dropdown-menu__item:not(.dropdown-menu__item--disabled):focus {
+  background-color: var(--hl-tertiary-bg); /* Fundo do item no hover */
+  color: var(--hl-accent-primary); /* Texto accent no hover */
+  outline: none;
+}
+.dropdown-menu__item-icon {
+  width: 18px; height: 18px; /* Ícones maiores no dropdown */
+  opacity: 0.8;
+}
+.dropdown-menu__item:not(.dropdown-menu__item--disabled):hover .dropdown-menu__item-icon {
+    opacity: 1;
+}
+
+
+/* --- Estilos de Catálogo e Listas de Jogos --- */
+.catalogue { /* Container da página de catálogo */
+  padding: 28px;
+  gap: 28px; /* Espaço entre header/filtros e conteúdo */
+}
+.catalogue__filters-container {
+  width: 300px; /* Filtros mais largos */
+  min-width: 300px;
+  background-color: var(--hl-secondary-bg);
+  border-radius: var(--hl-border-radius-large);
+  padding: 24px;
+  border: 1px solid var(--hl-border-color);
+  align-self: flex-start; /* Manter no topo */
+}
+.catalogue__header {
+  gap: 12px;
+  margin-bottom: 20px; /* Espaço abaixo do header do catálogo */
+}
+.catalogue__header h2, .catalogue__header h3 { /* Títulos na página de catálogo */
+    font-size: var(--hl-font-size-xl);
+    font-weight: 700;
+}
+.catalogue__filters-wrapper, .catalogue__filters-list {
+  gap: 10px; /* Espaço entre filtros aplicados */
+}
+.catalogue__content {
+  gap: 28px; /* Espaço entre filtros e lista de jogos */
+}
+.catalogue__games-container {
+  gap: 12px; /* Espaço entre jogos na lista */
+}
+
+/* Item de Jogo em Lista (Catálogo) */
+.game-item {
+  background-color: var(--hl-secondary-bg);
+  color: var(--hl-primary-text); /* Cor base do texto */
+  border-radius: var(--hl-border-radius-base);
+  border: 1px solid var(--hl-border-color);
+  gap: 20px; /* Espaço entre capa e detalhes */
+  padding: 12px; /* Padding interno para dar respiro */
+  transition: background-color var(--hl-transition-duration-short) ease, border-color var(--hl-transition-duration-short) ease, transform var(--hl-transition-duration-short) ease;
+}
+.game-item:hover {
+  background-color: var(--hl-tertiary-bg); /* Leve destaque no fundo */
+  border-color: var(--hl-accent-primary); /* Borda accent no hover */
+  transform: scale(1.01); /* Leve zoom */
+}
+.game-item__cover {
+  width: 180px; /* Capa um pouco menor para dar mais espaço aos detalhes */
+  height: 100px; /* Altura fixa para consistência */
+  object-fit: cover;
+  border-radius: var(--hl-border-radius-small); /* Arredondamento na capa */
+  border: none; /* Remover borda direita, o padding já separa */
+}
+.game-item__cover-placeholder {
+  width: 180px; height: 100px;
+  background: var(--hl-tertiary-bg); /* Fundo para placeholder */
+  color: var(--hl-subtle-text);
+  border-radius: var(--hl-border-radius-small);
+}
+.game-item__details {
+  gap: 8px; /* Espaço entre título, gênero, repackers */
+  padding: 8px 0; /* Padding vertical nos detalhes */
+  flex-grow: 1; /* Ocupar espaço restante */
+}
+.game-item__details h3, .game-item__details h4 { /* Título do jogo na lista */
+    font-size: var(--hl-font-size-large);
+    font-weight: 600;
+    color: var(--hl-primary-text);
+    margin-bottom: 4px;
+}
+.game-item__genres {
+  color: var(--hl-subtle-text);
+  font-size: var(--hl-font-size-small);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.game-item__repackers { /* Lista de repackers usa Badges */
+  gap: 8px;
+}
+.game-item__repackers .badge { /* Estilizar badges de repacker */
+    font-size: 10px;
+    padding: 3px 8px;
+    background-color: var(--hl-tertiary-bg);
+    border-color: var(--hl-border-interactive);
+    color: var(--hl-secondary-text);
+}
+.game-item__repackers .badge:hover {
+    background-color: var(--hl-border-interactive);
+    color: var(--hl-primary-text);
+}
+
+/* Filtros no Catálogo */
+.filter-item { /* Tag de filtro aplicado */
+  color: var(--hl-secondary-text);
+  background-color: var(--hl-tertiary-bg);
+  padding: 6px 12px;
+  border-radius: var(--hl-border-radius-pill); /* Formato de pílula */
+  border: 1px solid var(--hl-border-interactive);
+  font-size: var(--hl-font-size-small);
+  font-weight: 500;
+}
+.filter-item__orb { /* "Bolinha" colorida do filtro */
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 1px solid rgba(255,255,255,0.1); /* Pequena borda na bolinha */
+}
+.filter-item__remove-button { /* Botão de remover filtro */
+  color: var(--hl-subtle-text);
+  margin-left: 8px;
+}
+.filter-item__remove-button:hover {
+  color: var(--hl-error); /* Cor de erro ao remover */
+}
+
+.filter-section__header { /* Header de uma seção de filtros (Gêneros, etc) */
+  gap: 10px;
+  margin-bottom: 8px; /* Espaço antes da lista de filtros */
+}
+.filter-section__orb { /* Bolinha no título da seção de filtro */
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.filter-section__title {
+  font-size: var(--hl-font-size-medium); /* Título da seção de filtros */
+  font-weight: 600;
+  color: var(--hl-primary-text);
+}
+.filter-section__count { /* Contagem de itens no filtro */
+  font-size: var(--hl-font-size-small);
+  color: var(--hl-subtle-text);
+  margin-bottom: 12px;
+}
+.filter-section__clear-button { /* Botão de limpar filtros */
+  font-size: var(--hl-font-size-small);
+  color: var(--hl-accent-primary);
+}
+.filter-section__clear-button:hover {
+    color: var(--hl-accent-secondary);
+}
+.filter-section__search { /* Input de busca dentro dos filtros */
+  margin-bottom: 16px;
+  /* Herda estilos de .text-field-container__text-field */
+}
+.filter-section__item { /* Item individual de filtro (ex: um gênero) */
+  /* Geralmente um checkbox-field, já estilizado */
+  padding: 6px 0; /* Padding para espaçamento vertical */
+}
+
+
+/* Paginação */
+.pagination {
+  display: flex;
+  justify-content: center; /* Centralizar paginação */
+  align-items: center;
+  gap: 8px; /* Espaço entre botões de página */
+  margin-top: 24px; /* Espaço acima da paginação */
+}
+.pagination__button {
+  width: 42px; height: 42px; /* Botões maiores */
+  max-width: 42px; max-height: 42px;
+  border-radius: var(--hl-border-radius-base); /* Consistente com outros botões */
+  font-weight: 600;
+  /* Usar estilos de .button--dark ou .button--outline */
+}
+.pagination__button.button--dark.button--primary { /* Botão de página ativa */
+    background: var(--hl-accent-primary);
+    color: var(--hl-accent-text-on-bg);
+    border-color: var(--hl-accent-primary);
+    box-shadow: 0 0 10px var(--hl-accent-glow);
+}
+.pagination__ellipsis {
+  width: 42px;
+  color: var(--hl-subtle-text);
+  font-size: var(--hl-font-size-large);
+  font-weight: 700;
+}
+
+
+/* --- Game Details Page --- */
+.game-details__wrapper { /* Container geral da página de detalhes */
+  background-color: var(--hl-primary-bg); /* Fundo da página */
+}
+.game-details__hero { /* Seção Hero da página de detalhes */
+  height: 400px; /* Hero bem alto */
+  min-height: 400px;
+}
+.game-details__hero-image { /* Imagem de fundo do Hero */
+  height: 100%; /* Cobrir toda a altura do hero */
+  object-position: center 20%; /* Focar mais no topo da imagem */
+}
+.game-details__hero-logo-backdrop { /* Overlay sobre a imagem do Hero */
+  background: linear-gradient(0deg, var(--hl-primary-bg) 5%, rgba(10, 12, 16, 0.8) 30%, transparent 70%); /* Gradiente mais forte */
+}
+.game-details__game-logo { /* Logo do jogo sobreposto */
+  width: auto; /* Largura automática */
+  max-width: 400px; /* Largura máxima */
+  max-height: 150px; /* Altura máxima */
+  align-self: flex-start; /* Alinhar à esquerda */
+  margin-left: 20px; /* Margem da borda */
+  margin-bottom: 20px;
+  object-fit: contain; /* Manter proporções */
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5)); /* Sombra na logo */
+}
+.game-details__hero-content { /* Conteúdo sobre o Hero (botões, etc) */
+    padding: 28px;
+    justify-content: space-between; /* Alinhar itens nas extremidades */
+    align-items: flex-end; /* Alinhar na base */
+}
+.game-details__cloud-sync-button { /* Botão de Cloud Sync */
+  padding: 10px 18px;
+  background-color: rgba(30, 34, 48, 0.8); /* Fundo semi-transparente */
+  backdrop-filter: blur(8px); /* Efeito de vidro fosco */
+  border-radius: var(--hl-border-radius-pill); /* Formato de pílula */
+  color: var(--hl-primary-text);
+  font-size: var(--hl-font-size-base);
+  font-weight: 600;
+  border: 1px solid var(--hl-border-interactive);
+  box-shadow: 0 2px 8px var(--hl-shadow-color-soft);
+}
+.game-details__cloud-sync-button:hover {
+    background-color: rgba(40, 44, 58, 0.9);
+    border-color: var(--hl-accent-primary);
+    color: var(--hl-accent-primary);
+    box-shadow: 0 0 12px var(--hl-accent-glow);
+}
+.game-details__cloud-icon { /* Ícone de nuvem */
+    width: 24px; height: 20px; /* Tamanho ajustado */
+}
+
+.game-details__container { /* Container principal abaixo do Hero */
+  /* Já tem overflow: auto, z-index: 1 */
+}
+.game-details__description-container { /* Container da descrição */
+  background: var(--hl-primary-bg); /* Fundo consistente */
+  padding: 0; /* Padding será no .game-details__description */
+}
+.game-details__description { /* Bloco de texto da descrição */
+  user-select: text;
+  line-height: 1.75; /* Maior espaçamento entre linhas */
+  font-size: var(--hl-font-size-medium); /* Texto da descrição maior */
+  padding: 32px; /* Padding generoso */
+  color: var(--hl-secondary-text);
+  max-width: 900px; /* Limitar largura para leitura */
+  margin: 0 auto; /* Centralizar bloco de texto */
+}
+.game-details__description img {
+  border-radius: var(--hl-border-radius-base);
+  margin: 24px auto; /* Margem para imagens */
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 6px 18px var(--hl-shadow-color-medium);
+}
+.game-details__description a { /* Links na descrição */
+  color: var(--hl-accent-primary);
+  font-weight: 600;
+}
+.game-details__description a:hover {
+    color: var(--hl-accent-secondary);
+}
+.game-details__description .bb_tag { /* Estilo para BBCode, se usado */
+  margin: 20px 0;
+  padding: 16px;
+  background-color: var(--hl-secondary-bg);
+  border-left: 3px solid var(--hl-accent-primary);
+  border-radius: var(--hl-border-radius-small);
+}
+
+.hero-panel { /* Painel fixo com ações do jogo */
+  height: 78px; /* Altura aumentada */
+  min-height: 78px;
+  padding: 0 32px; /* Padding horizontal generoso */
+  background-color: rgba(16, 18, 26, 0.8); /* Fundo com mais blur */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hl-border-color);
+  position: sticky; top: 0; z-index: 20; /* Acima do conteúdo, abaixo de modais */
+}
+.hero-panel--stuck {
+  box-shadow: 0 5px 25px var(--hl-shadow-color-medium); /* Sombra mais pronunciada quando fixo */
+}
+.hero-panel__content { /* Título do jogo e informações no painel */
+  gap: 6px;
+}
+.hero-panel__content h2 { /* Título do jogo */
+    font-size: var(--hl-font-size-large);
+    font-weight: 700;
+    color: var(--hl-primary-text);
+}
+.hero-panel__download-details, .hero-panel-playtime__download-details { /* Detalhes de download/playtime */
+  color: var(--hl-subtle-text);
+  font-size: var(--hl-font-size-small);
+  font-weight: 500;
+}
+.hero-panel__downloads-link, .hero-panel-playtime__downloads-link { /* Link para downloads */
+  color: var(--hl-subtle-text);
+  font-weight: 500; /* Não tão forte quanto um link primário */
+}
+.hero-panel__downloads-link:hover, .hero-panel-playtime__downloads-link:hover {
+    color: var(--hl-accent-primary);
+}
+.hero-panel__actions { /* Botões no painel (Jogar, Opções) */
+  gap: 12px;
+}
+/* Botões no hero-panel já herdam estilo de .button */
+
+
+/* --- Gallery Slider --- */
+.gallery-slider__container {
+  padding: 32px 0; /* Padding vertical, sem horizontal para largura total */
+  background-color: var(--hl-secondary-bg); /* Fundo para seção da galeria */
+  border-top: 1px solid var(--hl-border-color);
+  border-bottom: 1px solid var(--hl-border-color);
+}
+.gallery-slider__animation-container { /* Container da imagem principal */
+  border-radius: var(--hl-border-radius-base);
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--hl-shadow-color-soft);
+  max-height: 500px; /* Limitar altura da imagem principal */
+}
+.gallery-slider__media { /* Imagem/vídeo principal */
+  border-radius: var(--hl-border-radius-base); /* Aplicar aqui também */
+}
+.gallery-slider__preview { /* Container dos thumbnails */
+  padding: 16px 0; /* Padding vertical para thumbnails */
+  max-width: 900px; /* Limitar largura dos thumbnails */
+  margin: 0 auto; /* Centralizar */
+}
+.gallery-slider__preview-button { /* Thumbnail individual */
+  border-radius: var(--hl-border-radius-small);
+  border: 2px solid transparent; /* Borda transparente para estado ativo */
+  opacity: 0.6; /* Thumbnails não ativos mais apagados */
+  transition: opacity var(--hl-transition-duration-short) ease, border-color var(--hl-transition-duration-short) ease, transform var(--hl-transition-duration-short) ease;
+  height: 80px; /* Altura fixa para thumbnails */
+  width: auto; /* Largura automática baseada na proporção */
+  flex: 0 0 140px; /* Base de largura para thumbnails */
+}
+.gallery-slider__preview-button:hover {
+  opacity: 0.85;
+  transform: scale(1.05); /* Leve zoom no hover */
+}
+.gallery-slider__preview-button--active {
+  opacity: 1;
+  border-color: var(--hl-accent-primary); /* Borda accent no thumbnail ativo */
+  box-shadow: 0 0 10px var(--hl-accent-glow);
+}
+.gallery-slider__preview-image { /* Imagem dentro do thumbnail */
+  object-fit: cover; /* Cobrir área do thumbnail */
+  height: 100%; width: 100%;
+}
+.gallery-slider__button { /* Botões de navegação da galeria (setas) */
+  background-color: rgba(16, 18, 26, 0.7); /* Fundo semi-transparente */
+  border-radius: 50%;
+  color: var(--hl-primary-text);
+  width: 48px; height: 48px; /* Botões maiores */
+  box-shadow: 0 2px 8px var(--hl-shadow-color-soft);
+}
+.gallery-slider__button:hover {
+  background-color: rgba(30, 34, 48, 0.9);
+  color: var(--hl-accent-primary);
+  transform: scale(1.1);
+}
+.gallery-slider__button--hidden {
+  opacity: 0;
+  pointer-events: none; /* Não interagir quando escondido */
+}
+
+
+/* --- Content Sidebar (Detalhes do Jogo: Requisitos, Stats, HLTB) --- */
+.content-sidebar {
+  background-color: var(--hl-secondary-bg);
+  border-left: 1px solid var(--hl-border-color);
+  padding: 20px; /* Padding interno */
+  max-width: 360px; /* Largura aumentada */
+}
+.sidebar-section__button { /* Botão para expandir/recolher seção */
+  background-color: var(--hl-tertiary-bg); /* Fundo sutilmente diferente */
+  color: var(--hl-primary-text);
+  padding: 16px 20px; /* Padding generoso */
+  font-size: var(--hl-font-size-medium);
+  font-weight: 600;
+  border-radius: var(--hl-border-radius-base); /* Arredondar botão da seção */
+}
+.sidebar-section__button:hover {
+  background-color: lighten(var(--hl-tertiary-bg), 5%);
+  color: var(--hl-accent-primary);
+}
+.sidebar-section__chevron { /* Seta de expandir/recolher */
+  transition: transform var(--hl-transition-duration-base) cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave */
+}
+.sidebar-section__chevron--open {
+  transform: rotate(180deg);
+}
+.sidebar-section__content { /* Conteúdo da seção (Requisitos, etc) */
+  padding: 16px 0 0 0; /* Padding apenas no topo, após o botão */
+  background-color: transparent; /* Conteúdo no mesmo fundo da sidebar */
+}
+
+.requirement__button { /* Botão para Mínimo/Recomendado */
+  border: 1px solid var(--hl-border-interactive);
+  border-radius: var(--hl-border-radius-base);
+  background-color: var(--hl-tertiary-bg);
+  color: var(--hl-secondary-text);
+  padding: 10px 16px;
+  /* ... herda de .button ... */
+}
+.requirement__button.button--active-tab { /* Estilo para aba ativa (precisa de JS) */
+    background-color: var(--hl-accent-primary);
+    color: var(--hl-accent-text-on-bg);
+    border-color: var(--hl-accent-primary);
+}
+.requirement__details { /* Texto dos requisitos */
+  padding: 20px;
+  line-height: var(--hl-line-height-base);
+  font-size: var(--hl-font-size-base);
+  color: var(--hl-secondary-text);
+  background-color: var(--hl-tertiary-bg); /* Fundo para o bloco de texto */
+  border-radius: var(--hl-border-radius-base);
+  margin-top: 12px;
+}
+.requirement__details strong { /* Títulos como "Processor", "Memory" */
+    color: var(--hl-primary-text);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+.requirement__details a { /* Links nos requisitos */
+  color: var(--hl-accent-primary);
+}
+
+.how-long-to-beat__categories-list {
+  gap: 16px;
+  padding: 0; /* Padding já está no .sidebar-section__content */
+}
+.how-long-to-beat__category { /* Card de categoria HLTB */
+  background: var(--hl-tertiary-bg); /* Fundo diferente */
+  border-radius: var(--hl-border-radius-base);
+  padding: 16px 20px; /* Padding interno */
+  border: 1px solid var(--hl-border-color);
+  gap: 6px;
+}
+.how-long-to-beat__category-label { /* "Main Story", "Completionist" */
+  color: var(--hl-secondary-text);
+  font-size: var(--hl-font-size-small);
+  font-weight: 500;
+}
+.how-long-to-beat__category-label--bold { /* Tempo HLTB */
+  font-weight: 700;
+  font-size: var(--hl-font-size-medium);
+  color: var(--hl-primary-text);
+}
+
+.stats__section { /* Seção de Stats (Metacritic, etc) */
+  gap: 20px;
+  padding: 0;
+}
+.stats__category { /* Categoria individual de stat */
+  gap: 8px;
+  padding: 10px 0; /* Espaçamento vertical */
+  border-bottom: 1px dashed var(--hl-border-color); /* Separador sutil */
+}
+.stats__category:last-child {
+    border-bottom: none;
+}
+.stats__category-title { /* "Metacritic Score", "User Score" */
+  font-size: var(--hl-font-size-base);
+  font-weight: 600;
+  color: var(--hl-primary-text);
+}
+.stats__category-title svg { /* Ícone ao lado do título */
+    color: var(--hl-accent-primary); /* Ícone com cor de destaque */
+    width: 18px; height: 18px;
+}
+.stats__category .badge { /* Badge de pontuação (ex: Metacritic) */
+    font-size: var(--hl-font-size-medium);
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: var(--hl-border-radius-small);
+    /* Cores de badge baseadas no valor (requer JS) */
+}
+/* Exemplo de cores para badges de stats */
+.stats__category .badge--positive { background-color: var(--hl-success); color: #000; border-color: var(--hl-success); }
+.stats__category .badge--mixed { background-color: var(--hl-warning); color: #000; border-color: var(--hl-warning); }
+.stats__category .badge--negative { background-color: var(--hl-error); color: #FFF; border-color: var(--hl-error); }
+
+
+/* --- Achievements Page --- */
+.achievements { /* Container da página de achievements */
+  background-color: var(--hl-primary-bg);
+}
+.achievements__hero { /* Hero da página de achievements */
+  height: 200px; /* Altura do hero */
+  min-height: 200px;
+  background-color: var(--hl-secondary-bg); /* Fundo sutilmente diferente */
+  border-bottom: 1px solid var(--hl-border-color);
+}
+.achievements__hero-content { /* Conteúdo no Hero (logo do jogo, etc) */
+  padding: 24px 32px;
+}
+.achievements__game-logo { /* Logo do jogo */
+  max-width: 250px;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.4));
+}
+.achievements__hero-logo-backdrop { /* Pode ser usado para um gradiente sutil sobre a imagem de fundo se houver */
+  /* background: linear-gradient(...); */
+}
+
+.achievements__table-header { /* Cabeçalho da "tabela" de achievements */
+  background-color: var(--hl-secondary-bg); /* Para destacar quando fixo */
+  border-bottom: 1px solid var(--hl-border-color);
+  position: sticky; top: 0; z-index: 10;
+  padding: 12px 32px; /* Padding consistente */
+}
+.achievements__table-header--stuck {
+  box-shadow: 0 5px 15px var(--hl-shadow-color-soft);
+}
+/* Dentro do .achievements__table-header, pode haver .achievement-panel__grid para alinhar com os itens */
+
+.achievements__list { /* Lista de achievements */
+  padding: 24px 32px; /* Padding em volta da lista */
+  gap: 16px; /* Espaço entre achievements */
+  background-color: var(--hl-primary-bg);
+}
+.achievements__item { /* Item individual de achievement */
+  background-color: var(--hl-secondary-bg); /* Fundo do card de achievement */
+  border-radius: var(--hl-border-radius-base);
+  padding: 16px 20px; /* Padding interno */
+  gap: 16px;
+  border: 1px solid var(--hl-border-color);
+  transition: background-color var(--hl-transition-duration-short) ease, border-color var(--hl-transition-duration-short) ease;
+}
+.achievements__item:hover {
+  background-color: var(--hl-tertiary-bg);
+  border-color: var(--hl-border-interactive); /* Borda sutil no hover */
+}
+.achievements__item-image { /* Ícone do achievement */
+  width: 64px; height: 64px; /* Ícones maiores */
+  min-width: 64px; /* Evitar encolhimento */
+  border-radius: var(--hl-border-radius-base); /* Arredondamento consistente */
+  object-fit: cover;
+  border: 1px solid var(--hl-border-interactive); /* Borda sutil no ícone */
+}
+.achievements__item-image--locked {
+  filter: grayscale(100%) opacity(0.6); /* Ícone apagado e cinza quando bloqueado */
+}
+.achievements__item-content { /* Nome e descrição do achievement */
+  flex: 1; /* Ocupar espaço */
+  gap: 4px; /* Espaço entre título e descrição */
+}
+.achievements__item-title { /* Título do achievement */
+  font-size: var(--hl-font-size-medium);
+  font-weight: 600;
+  color: var(--hl-primary-text);
+  align-items: center; /* Alinhar com ícone de "hidden" */
+}
+.achievements__item-title p { /* Descrição do achievement */
+    color: var(--hl-secondary-text);
+    font-size: var(--hl-font-size-base);
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.achievements__item-hidden-icon { /* Ícone de achievement secreto */
+  color: var(--hl-warning); /* Cor de aviso para secreto */
+  opacity: 1;
+  margin-right: 6px;
+}
+.achievements__item-hidden-icon svg {
+    width: 16px; height: 16px;
+}
+.achievements__item-meta { /* Contêiner para pontos e data de desbloqueio */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinhar à direita */
+  gap: 6px;
+  text-align: right;
+}
+.achievements__item-points { /* Pontos do achievement */
+  font-size: var(--hl-font-size-base);
+  font-weight: 700;
+  color: var(--hl-primary-text);
+  gap: 6px;
+}
+.achievements__item-points--locked { /* Pontos de achievement bloqueado */
+  color: var(--hl-warning); /* Mesma cor do ícone "hidden" */
+  cursor: help; /* Indicar que pode haver tooltip */
+}
+.achievements__item-points-icon { /* Ícone de "troféu" ou pontos */
+  width: 20px; height: 20px;
+  color: inherit; /* Herdar cor dos pontos */
+}
+.achievements__item-unlock-time { /* Data de desbloqueio */
+  font-size: var(--hl-font-size-small);
+  color: var(--hl-subtle-text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.achievement-panel { /* Painel de resumo de achievements (pode estar no topo) */
+  padding: 20px 32px;
+  background-color: var(--hl-secondary-bg); /* Consistente com header da tabela */
+  border-bottom: 1px solid var(--hl-border-color);
+}
+.achievement-panel__grid { /* Grid para alinhar informações no painel */
+    gap: 20px;
+}
+/* Estilos para .achievements-content__* (comparação de achievements, etc) devem seguir a mesma lógica */
+.achievements-content__user-summary { /* Resumo de achievements do usuário */
+    padding: 16px 24px;
+    background-color: var(--hl-tertiary-bg); /* Fundo destacado */
+    border-radius: var(--hl-border-radius-base);
+    margin-bottom: 20px; /* Espaço abaixo do resumo */
+}
+.achievements-content__user-summary__container h1 { /* Nome do usuário */
+    font-size: var(--hl-font-size-large);
+    color: var(--hl-primary-text);
+    margin-bottom: 8px;
+}
+.achievements-content__user-summary__container__stats { /* Contagem, progresso */
+    color: var(--hl-secondary-text);
+}
+.achievements-content__user-summary__container__stats__trophy-count {
+    font-weight: 600;
+}
+.achievements__progress-bar { /* Barra de progresso de achievements */
+  height: 10px; /* Barra mais grossa */
+  border-radius: var(--hl-border-radius-pill);
+  overflow:hidden;
+}
+.achievements__progress-bar::-webkit-progress-bar {
+  background-color: var(--hl-tertiary-bg);
+}
+.achievements__progress-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--hl-accent-secondary) 0%, var(--hl-accent-primary) 100%); /* Gradiente na barra */
+}
+
+
+/* --- Theme Editor (se for customizável) --- */
+.theme-editor {
+  background-color: var(--hl-primary-bg);
+}
+.theme-editor__header {
+  background-color: var(--hl-secondary-bg); /* Header do editor */
+  border-bottom: 1px solid var(--hl-border-color);
+  padding: 12px 20px;
+}
+.theme-editor__header h1 {
+    font-size: var(--hl-font-size-large);
+    color: var(--hl-primary-text);
+}
+.theme-editor__editor { /* Área do editor de código (ex: Monaco) */
+  /* Estilos para o editor em si seriam complexos e dependem da lib usada */
+  /* Geralmente, eles têm suas próprias classes para temas */
+}
+.theme-editor__footer {
+  background-color: var(--hl-secondary-bg);
+  border-top: 1px solid var(--hl-border-color);
+  padding: 16px 20px;
+}
+.theme-editor__footer-actions .button { /* Botões no footer do editor */
+    /* Herdam estilos de .button */
+}
+
+
+/* --- Achievement Notification (Pop-up de Conquista) --- */
+/* Baseado na estrutura original, com nova paleta e toques modernos */
+.achievement-notification__outer-container {
+  border: 1px solid var(--hl-border-interactive); /* Borda mais sutil */
+  background: var(--hl-secondary-bg); /* Fundo da notificação */
+  border-radius: var(--hl-border-radius-large); /* Cantos suaves */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 0 1px rgba(30,34,48,0.7) inset; /* Sombra e borda interna */
+  overflow: hidden; /* Para o brilho não vazar */
+  /* Animações originais de entrada/saída */
+}
+.achievement-notification__container {
+  padding: 12px 18px 12px 12px; /* Padding interno */
+  background: transparent; /* Container interno transparente, cor no outer */
+}
+.achievement-notification--rare .achievement-notification__container::before { /* Brilho para raras */
+  background: linear-gradient(90deg, transparent, var(--hl-warning), transparent);
+  opacity: 0.2; /* Brilho mais sutil */
+  filter: blur(10px); /* Mais blur no brilho */
+}
+.achievement-notification--platinum .achievement-notification__outer-container { /* Destaque para platina */
+    border-color: var(--hl-accent-primary);
+    box-shadow: 0 8px 25px var(--hl-accent-glow-strong), 0 0 0 1px var(--hl-accent-glow) inset;
+}
+.achievement-notification--platinum .achievement-notification__container {
+  background: radial-gradient(circle at 30% 107%, var(--hl-accent-glow) 0%, transparent 40%), var(--hl-secondary-bg); /* Efeito de luz sutil */
+}
+
+.achievement-notification__icon { /* Ícone da conquista */
+  min-width: 68px; min-height: 68px; /* Ícone maior */
+  width: 68px; height: 68px;
+  border-radius: var(--hl-border-radius-base); /* Arredondamento consistente */
+  border: 1px solid var(--hl-border-interactive); /* Borda no ícone */
+}
+.achievement-notification--rare .achievement-notification__icon {
+  outline: 2px solid var(--hl-warning); /* Contorno para raras */
+  box-shadow: 0 0 12px rgba(255,184,0,0.4);
+}
+.achievement-notification--platinum .achievement-notification__icon {
+  outline: 2px solid var(--hl-accent-primary);
+  box-shadow: 0 0 12px var(--hl-accent-glow-strong);
+}
+
+.achievement-notification__text-container {
+  gap: 6px; /* Espaço entre título e descrição */
+}
+.achievement-notification__title {
+  font-size: var(--hl-font-size-medium); /* Título maior */
+  font-weight: 700;
+  color: var(--hl-primary-text);
+}
+.achievement-notification__description {
+  font-size: var(--hl-font-size-base);
+  color: var(--hl-secondary-text);
+  line-height: 1.4; /* Melhor legibilidade */
+}
+.achievement-notification__chip { /* "Pílula" com pontos/tipo */
+  padding: 4px 10px; /* Padding na pílula */
+  border-radius: var(--hl-border-radius-pill);
+  background: var(--hl-tertiary-bg);
+  height: 28px; /* Altura da pílula */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.achievement-notification__chip__icon {
+  width: 16px; height: 16px;
+}
+.achievement-notification__chip__icon path {
+  fill: var(--hl-secondary-text);
+}
+.achievement-notification__chip__label {
+  color: var(--hl-secondary-text);
+  font-weight: 600;
+  font-size: var(--hl-font-size-small);
+}
+/* Cores para pílula rara/platina */
+.achievement-notification--rare .achievement-notification__chip {
+  background: var(--hl-warning);
+}
+.achievement-notification--rare .achievement-notification__chip__icon path,
+.achievement-notification--rare .achievement-notification__chip__label {
+  color: #000; /* Texto escuro sobre fundo aviso */
+}
+.achievement-notification--platinum .achievement-notification__chip {
+  background: var(--hl-accent-primary);
+}
+.achievement-notification--platinum .achievement-notification__chip__icon path,
+.achievement-notification--platinum .achievement-notification__chip__label {
+  color: var(--hl-accent-text-on-bg);
+}
+
+/* --- Outros Componentes Menores --- */
+.bottom-panel { /* Painel inferior (versão, downloads) */
+  background-color: var(--hl-secondary-bg);
+  border-top: 1px solid var(--hl-border-color);
+  padding: 8px 24px; /* Padding aumentado */
+  height: 42px; /* Altura consistente */
+}
+.bottom-panel__downloads-button, .bottom-panel__version-button {
+  color: var(--hl-secondary-text);
+  font-size: var(--hl-font-size-small);
+  font-weight: 500;
+  border-bottom: 1px solid transparent; /* Para efeito no hover */
+}
+.bottom-panel__downloads-button:hover, .bottom-panel__version-button:hover {
+  color: var(--hl-accent-primary);
+  border-bottom-color: var(--hl-accent-primary);
+}
+
+/* --- User Friend Items --- */
+.user-friend-item__container {
+    background-color: var(--hl-secondary-bg);
+    border: 1px solid var(--hl-border-color);
+    border-radius: var(--hl-border-radius-base);
+    height: 60px; /* Altura aumentada */
+    min-height: 60px;
+}
+.user-friend-item__container:hover {
+    background-color: var(--hl-tertiary-bg);
+    border-color: var(--hl-border-interactive);
+}
+.user-friend-item__button {
+    color: var(--hl-secondary-text);
+    gap: 14px; /* Espaço entre avatar e nome */
+    padding: 0 12px; /* Padding interno */
+}
+.user-friend-item__display-name {
+    font-size: var(--hl-font-size-medium);
+    font-weight: 600;
+    color: var(--hl-primary-text);
+}
+.user-friend-item__accept-button:hover { color: var(--hl-success); }
+.user-friend-item__cancel-button:hover { color: var(--hl-error); }
+.user-friend-item__accept-button, .user-friend-item__cancel-button {
+    width: 32px; height: 32px; /* Ícones de ação maiores */
+    padding: 4px; /* Para centralizar o ícone */
+}
