@@ -1,0 +1,589 @@
+:root {
+    /* paleta */
+    --sunset-orange-deep: #E67E22;
+    --sunset-orange-light: #F39C12;
+    --city-silhouette-dark: #1C1C1C;
+    --sky-highlight-peach: #FAD7A0;
+    --night-sky-base: #0F1012;
+
+    /* vidro */
+    --glass-item-bg: rgba(28, 28, 28, 0.65);
+    --glass-item-blur: 7px;
+    --glass-item-border-color: rgba(230, 126, 34, 0.30);
+
+
+    --main-container-blur: 6px;
+
+    /* botões */
+    --glass-button-bg: rgba(230, 126, 34, 0.75);
+    --glass-button-blur: 5px;
+    --glass-button-hover-bg: rgba(243, 156, 18, 0.85);
+    --glass-button-border-color: var(--sunset-orange-light);
+    --text-on-button: #FFFFFF;
+
+    /* geral */
+    --text-on-dark-panel: var(--sky-highlight-peach);
+    --accent-glow-color: #E67E22A0;
+    --font-main: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    --font-title: 'Anton', 'Impact', sans-serif;
+
+    /* achievements */
+    --achiev-title-color: var(--text-on-button);
+    --achiev-title-shadow-color: rgba(15, 16, 18, 0.5);
+
+    /* partículas */
+    --particle-color1: rgba(243, 156, 18, 0.3);
+    --particle-color2: rgba(250, 215, 160, 0.2);
+}
+
+body {
+    margin: 0;
+    color: var(--text-on-dark-panel);
+    font-family: var(--font-main);
+    overflow: hidden;
+    position: relative;
+}
+
+#root {
+    background-color: var(--night-sky-base);
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+}
+
+/* imagem de fundo */
+#root::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.ibb.co/XkdLLbGX/nike.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    filter: blur(6px) brightness(0.85);
+    z-index: -1;
+}
+
+/* partículas animadas */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+}
+
+body::before {
+    width: 2px;
+    height: 2px;
+    background-color: var(--particle-color1);
+    box-shadow: 0 0 6px 1px var(--particle-color1);
+    left: 30%;
+    animation: subtleCityGlow 10s infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+body::after {
+    width: 3px;
+    height: 3px;
+    background-color: var(--particle-color2);
+    box-shadow: 0 0 8px 2px var(--particle-color2);
+    left: 65%;
+    animation: subtleCityGlow 12s infinite ease-in-out;
+    animation-delay: -3s;
+}
+
+@keyframes subtleCityGlow {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: translateY(0px) scale(0.7);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateY(-3px) scale(1);
+    }
+}
+
+/* title bar */
+.title-bar {
+    background-color: rgba(15, 16, 18, 0.4);
+    backdrop-filter: blur(4px);
+    padding: 10px 0;
+}
+
+.title-bar h4 {
+    visibility: hidden;
+}
+
+.title-bar::before {
+    content: "Dream it. Do it.";
+    font-family: var(--font-title);
+    font-size: 1.2em;
+    font-weight: 200;
+    color: var(--sky-highlight-peach);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px var(--city-silhouette-dark), 0 0 15px var(--sunset-orange-light);
+    display: block;
+    text-align: center;
+    width: 100%;
+
+}
+
+.title-bar::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 50px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 1020px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 16, 18, 0.2);
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--sunset-orange-deep), var(--sunset-orange-light));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--sunset-orange-light), var(--sunset-orange-deep));
+}
+
+
+.container__content,
+.home__content,
+.catalogue,
+.downloads__view,
+.settings__view {
+    background: transparent !important;
+    backdrop-filter: blur(var(--main-container-blur)) !important;
+    border-radius: 10px;
+    position: relative;
+    z-index: 5;
+}
+
+
+.header,
+.sidebar,
+.bottom-panel {
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    border: 1px solid var(--glass-item-border-color) !important;
+    color: var(--text-on-dark-panel) !important;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.content-sidebar,
+.settings-download-sources__item,
+.download-group__item,
+.achievements__item,
+.theme-card {
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    border: 1px solid var(--glass-item-border-color) !important;
+    color: var(--text-on-dark-panel) !important;
+    border-radius: 8px;
+    position: relative;
+    z-index: 11;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* layout e estilos */
+.header {
+    margin: 6px 10px 0 10px;
+    padding: 12px 18px;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    border-bottom: none !important;
+}
+
+.sidebar {
+    margin: 0 10px;
+    border-radius: 8px;
+}
+
+.container__content {
+    margin: 0 10px;
+    padding: 15px;
+    border-radius: 0;
+}
+
+.home__content,
+.catalogue,
+.downloads__view,
+.settings__view {
+    margin: 0 10px;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+}
+
+.bottom-panel {
+    margin: 0 10px 6px 10px;
+    border-radius: 0 0 8px 8px;
+    padding: 10px;
+    border-top: none !important;
+}
+
+.bottom-panel::after {
+    content: none;
+}
+
+/* botões */
+.button {
+    background: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    color: var(--text-on-button) !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    border-radius: 6px;
+    transition: transform 0.15s ease-out, background-color 0.2s ease;
+    padding: 0.65em 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 12;
+    letter-spacing: 0.8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: scale(1.03);
+    background: var(--glass-button-hover-bg) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.container__content .button--outline,
+.button--outline.requirement__button {
+    backdrop-filter: blur(var(--glass-item-blur));
+    background-color: rgba(28, 28, 28, 0.3) !important;
+    color: var(--sunset-orange-light) !important;
+    border: 1px solid var(--sunset-orange-deep) !important;
+    border-radius: 6px;
+    transition: transform 0.15s ease-out, background-color 0.2s ease;
+    padding: 0.65em 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 12;
+    letter-spacing: 0.8px;
+}
+
+.container__content .button--outline:hover,
+.button--outline.requirement__button:hover {
+    transform: scale(1.03);
+    background-color: rgba(28, 28, 28, 0.5) !important;
+    color: var(--sunset-orange) !important;
+    border-color: var(--sunset-orange-light) !important;
+}
+
+/* sidebar menu */
+.sidebar__menu-item-button {
+    color: var(--text-on-dark-panel);
+    font-weight: 500;
+    background-color: transparent;
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 10px 15px;
+    margin: 4px 8px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.sidebar__menu-item-button:hover {
+    background-color: rgba(230, 126, 34, 0.15);
+    transform: translateX(3px);
+}
+
+.sidebar__menu-item-button-label {
+    color: var(--text-on-dark-panel);
+    text-shadow: none;
+}
+
+.sidebar__section-title {
+    color: var(--sunset-orange-light);
+    font-weight: 600;
+    padding: 12px 15px 5px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85em;
+}
+
+/* perfil na sidebar */
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(135deg, var(--sunset-orange-deep) 0%, var(--city-silhouette-dark) 90%);
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin: 8px;
+    border: 1px solid rgba(243, 156, 18, 0.2);
+    z-index: 11;
+}
+
+.sidebar-profile__button {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    width: 100%;
+    padding: 0;
+}
+
+.sidebar-profile__button:hover {
+    opacity: 0.85;
+}
+
+.sidebar-profile__button-content {
+    display: flex;
+    align-items: center;
+    color: var(--text-on-dark-panel);
+    width: 100%;
+    gap: 10px;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--sunset-orange-light);
+}
+
+.profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sidebar-profile__button-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar-profile__button-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-on-dark-panel);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-profile__friends-button {
+    background: transparent;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-sizing: border-box;
+    margin-left: auto;
+    padding: 0;
+}
+
+.sidebar-profile__friends-button:hover {
+    transform: scale(1.1);
+}
+
+.sidebar-profile__friends-button svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-on-dark-panel);
+    transition: fill 0.2s ease;
+}
+
+.sidebar-profile__friends-button:hover svg {
+    fill: var(--sunset-orange-light);
+}
+
+/* avatar no perfil */
+.profile-hero__avatar-button {
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 90px;
+    min-width: 90px;
+    height: 90px;
+    min-height: 90px;
+    overflow: hidden !important;
+    border: 3px solid var(--sunset-orange-deep);
+    z-index: 12;
+}
+
+.profile-hero__avatar-button img,
+.profile-hero__avatar-button .profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+
+.game-item {
+    padding: 10px;
+    gap: 15px;
+    height: auto;
+}
+
+.game-item:hover {
+    transform: scale(1.015);
+    box-shadow: 0 0 12px var(--accent-glow-color);
+}
+
+.header__search {
+    width: auto;
+    min-width: 180px;
+    padding: 7px 12px;
+}
+
+.modal__content {
+    background: var(--city-silhouette-dark);
+    background-size: cover;
+    font-weight: bold;
+    color: var(--text-on-dark-panel);
+    border: 2px solid var(--sunset-orange-deep);
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+    z-index: 101;
+}
+
+.achievements__item {}
+
+.achievement-panel {
+    background-color: transparent;
+    color: var(--sky-highlight-peach);
+    border-color: var(--glass-item-border-color);
+}
+
+.toast {
+    z-index: 100;
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    color: var(--text-on-dark-panel) !important;
+    font-weight: bold;
+    border: 1px solid var(--glass-item-border-color) !important;
+    border-left: 4px solid var(--sunset-orange-deep) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 12px 18px;
+    position: relative;
+}
+
+.user-library-game__wrapper {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--city-silhouette-dark);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.user-library-game__wrapper:hover {
+    transform: scale(1.02);
+}
+
+
+/* Achievement Notification */
+.achievement-notification__outer-container {
+    z-index: 90;
+    background-color: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 20px var(--accent-glow-color);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-on-button);
+    font-family: inherit;
+}
+
+.achievement-notification__container {
+    background: transparent !important;
+    color: var(--text-on-button);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    position: relative;
+    z-index: 2;
+    gap: 15px;
+    min-width: 0;
+    border-radius: 10px;
+}
+
+.achievement-notification__outer-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    pointer-events: none;
+    box-shadow: 0 0 15px 1px var(--accent-glow-color);
+    z-index: 1;
+}
+
+.achievement-notification__title {
+    color: var(--text-on-button);
+    font-family: var(--font-title);
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+    font-size: 1em;
+    text-shadow: 1px 1px 1px var(--city-silhouette-dark);
+}
