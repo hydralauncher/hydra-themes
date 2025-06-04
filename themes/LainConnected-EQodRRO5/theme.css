@@ -109,7 +109,7 @@ body::before {
 }
 
 .title-bar {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif, system-ui;
     background-color: var(--bg-darker);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -204,6 +204,21 @@ body::before {
 }
 
 /* Botões */
+.button {
+    padding: 12px 20px;
+    background-color: var(--bg-darker);
+    border-radius: 30px;
+    border: solid 1px var(--border-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-primary);
+}
+
 .button--primary,
 .button--filled,
 .container__content .button:not(.button--outline):not(.button--text):not(.button--icon) {
@@ -254,27 +269,25 @@ body::before {
     border: 1px solid var(--border-light) !important;
 }
 
-.button {
-    padding: 12px 20px;
-    background-color: var(--bg-darker);
-    border-radius: 30px;
-    border: solid 1px var(--border-light);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--text-primary);
-}
-
 .container__content .button--outline {
     backdrop-filter: blur(10px);
     background-color: var(--bg-dark);
     border-radius: 30px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     border: 1px solid var(--border-light);
+}
+
+.game-item:hover,
+.text-field-container__text-field--dark:hover,
+.text-field-container__text-field--primary:hover,
+.button:hover {
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-hover);
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
 }
 
 /* Conteúdo */
@@ -386,19 +399,6 @@ body::before {
 }
 
 /* Hover states */
-.game-item:hover,
-.text-field-container__text-field--dark:hover,
-.text-field-container__text-field--primary:hover,
-.button:hover {
-    border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-hover);
-    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
-}
-
 .settings-download-sources__item:hover,
 .download-group__item:hover,
 .game-item:hover {
