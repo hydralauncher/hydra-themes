@@ -1,20 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
-    --color-background-base: rgba(23, 23, 27, 0.8);
-    --color-background-dark: rgb(0, 128, 128);
-    --color-background-button: rgb(20, 20, 20);
-    --color-background-scrollbar-thumb: rgb(0, 128, 128);
-    --color-newbutton: #17211ed0;
-    --color-all: rgb(0, 128, 128);
-    --color-text: #c7d5e0;
-    --color-shadow: rgba(0, 0, 0, 0.5);
-    --background-main: url("https://images7.alphacoders.com/133/1339712.png");
-    --font-used: "Roboto Condensed";
+    --color-background-base: rgba(15, 15, 15, 0.85);
+    --color-background-dark: rgb(0, 56, 0);
+    --color-background-button: rgb(20, 20, 20); 
+    --color-background-scrollbar-thumb: rgb(0, 255, 0);
+    --color-newbutton: #103410c9;
+    --color-all: rgb(16, 124, 16);
+    --color-text: #dfefff;
+    --color-shadow: rgba(0, 0, 0, 0.6);
+    --background-main: #0e0e10; 
+    --font-used: "Segoe UI", sans-serif;
 }
 
-/* Estilos globais */
+/* Extra */
+.title-bar h4::after {
+    content: "X";
+}
 body {
-    background: var(--background-main) no-repeat fixed;
+    background-color: var(--background-main);
     background-size: cover;
     font-family: var(--font-used);
     font-optical-sizing: auto;
@@ -2053,27 +2055,26 @@ main {
 /* Notificação */
 @keyframes pulseGlow {
     0% {
-        box-shadow: 0 0 5px -2px #008080, 0 0 15px -5px #008080;
+        box-shadow: 0 0 5px -2px rgb(0, 255, 0), 0 0 15px -5px rgb(0, 255, 0);
     }
     50% {
-        box-shadow: 0 0 8px 0px #008080, 0 0 30px -2px #008080;
+        box-shadow: 0 0 8px 0px rgb(0, 255, 0), 0 0 30px -2px rgb(0, 255, 0);
     }
     100% {
-        box-shadow: 0 0 5px -2px #008080, 0 0 15px -5px #008080;
+        box-shadow: 0 0 5px -2px rgb(0, 255, 0), 0 0 15px -5px rgb(0, 255, 0);
     }
 }
 
 .achievement-notification__outer-container {
-    background: url("https://images7.alphacoders.com/133/1339712.png") no-repeat;
+    background: #0e0e10;
     background-size: cover;
     border-radius: 8px;
     border: 0px;
     transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-
 .achievement-notification__container {
-    background-color: rgba(23, 23, 27, 0.8);
+    background-color: rgba(15, 15, 15, 0.85);
     border-radius: 8px;
     border: 1px solid transparent;
     transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
@@ -2081,97 +2082,97 @@ main {
 
 .achievement-notification__icon {
     border-radius: 8px;
-    border: 1px solid #008080;
+    border: 1px solid rgb(0, 255, 0);
     transition: outline-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     object-fit: cover;
 }
 
 .achievement-notification__title {
     font-weight: bold;
-    color: #c7d5e0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #dfefff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .achievement-notification__hidden-icon {
-    color: #008080;
+    color: rgb(0, 255, 0);
 }
 
 .achievement-notification__description {
     font-size: 0.85em;
-    color: #c0c0c0;
+    color: #dfefff;
 }
 
 .achievement-notification__chip {
-    background: rgba(23, 23, 27, 0.8);
+    background: rgb(20, 20, 20);
     border-radius: 15px 5px 15px 5px;
     font-size: 0.75em;
     font-weight: bold;
-    color: #c7d5e0;
-    border: 1px solid #008080;
+    color: #dfefff;
+    border: 1px solid rgb(0, 255, 0);
 }
 
 .achievement-notification__chip__label {
-    color: #c7d5e0;
+    color: #dfefff;
 }
 
 .achievement-notification__chip__icon path {
-    fill: #008080;
+    fill: rgb(0, 255, 0);
     transition: fill 0.4s ease-in-out;
 }
 
 /* RARE */
 .achievement-notification--rare .achievement-notification__container {
-    border-color: #008080;
+    border-color: rgb(0, 255, 0);
 }
 
 .achievement-notification--rare .achievement-notification__title {
-    color: #c7d5e0;
+    color: #dfefff;
 }
 
 .achievement-notification--rare .achievement-notification__icon {
     outline: none;
-    border-color: #008080;
+    border-color: rgb(0, 255, 0);
     animation: pulseGlow 2.5s infinite ease-in-out;
 }
 
 .achievement-notification--rare .achievement-notification__chip {
-    background: #008080;
-    color: #c7d5e0;
-    border-color: #008080;
+    background: rgb(0, 255, 0);
+    color: #000000;
+    border-color: rgb(0, 255, 0);
 }
 
 .achievement-notification--rare .achievement-notification__chip__icon path {
-    fill: #fff;
+    fill: #000000;
 }
 
 /* PLATINUM */
 .achievement-notification--platinum .achievement-notification__container {
-    border-color: #008080;
+    border-color: rgb(0, 255, 0);
     background: linear-gradient(
         145deg,
-        rgba(23, 23, 27, 0.8),
-        color-mix(in srgb, rgba(23, 23, 27, 0.8) 70%, #008080 30%)
+        rgba(15, 15, 15, 0.85),
+        color-mix(in srgb, rgba(15, 15, 15, 0.85) 70%, rgb(0, 255, 0) 30%)
     );
 }
 
 .achievement-notification--platinum .achievement-notification__title {
-    color: #c7d5e0;
+    color: #dfefff;
 }
 
 .achievement-notification--platinum .achievement-notification__icon {
     outline: none;
-    border: 1px solid #008080;
+    border: 1px solid rgb(0, 255, 0);
     animation: pulseGlow 2s infinite ease-in-out;
 }
 
 .achievement-notification--platinum .achievement-notification__chip {
-    background: #008080;
-    color: rgba(23, 23, 27, 0.8);
-    border: 1px solid color-mix(in srgb, #008080 70%, black 30%);
+    background: rgb(0, 255, 0);
+    color: rgba(15, 15, 15, 0.85);
+    border: 1px solid color-mix(in srgb, rgb(0, 255, 0) 70%, black 30%);
     font-weight: bold;
 }
 
 .achievement-notification--platinum .achievement-notification__chip__icon path {
-    fill: rgba(23, 23, 27, 0.8);
+    fill: rgba(15, 15, 15, 0.85);
 }
 
