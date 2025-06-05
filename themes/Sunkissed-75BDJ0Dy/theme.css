@@ -157,17 +157,8 @@ body::after {
 }
 
 .title-bar::after {
-    content: "SUNKISSED";
-    font-size: 8px;
-    font-weight: 700;
-    color: var(--blue-surf-lighter);
-    letter-spacing: 8px;
-    text-transform: uppercase;
+    content: "";
     display: block;
-    text-align: center;
-    width: 100%;
-    padding-top: 4px;
-    animation: titleGlowOrange 2s infinite alternate;
 }
 
 /* scrollbar */
@@ -497,6 +488,7 @@ body::after {
     border-radius: 10px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
     z-index: 101;
+    /* Acima de tudo */
 }
 
 .achievement-panel {
