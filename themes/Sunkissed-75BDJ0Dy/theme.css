@@ -56,8 +56,7 @@ body {
             var(--blue-surf-darker) -10%,
             var(--blue-surf) 40%,
             var(--sunkissed-orange) 90%,
-            var(--sunkissed-orange-darker) 110%
-        );
+            var(--sunkissed-orange-darker) 110%);
     background-size: 150% 150%, 100% 100%;
     background-position: 50% 100%, center;
     background-repeat: no-repeat;
@@ -152,7 +151,8 @@ body::after {
     }
 
     100% {
-        text-shadow: 0 0 10px var(--sunkissed-orange-lighter), 0 0 20px var(--sunkissed-orange-lighter), 0 0 25px #fff;
+        text-shadow: 0 0 5px var(--blue-surf-lighter), 0 0 8px var(--blue-surf-lighter), 0 0 10px #fff;
+        ;
     }
 }
 
@@ -166,8 +166,8 @@ body::after {
     display: block;
     text-align: center;
     width: 100%;
-    padding-top: 4px animation: someOtherGlow 2s infinite alternate;
-    text-shadow: 0 0 5px var(--blue-surf-lighter);
+    padding-top: 4px;
+    animation: titleGlowOrange 2s infinite alternate;
 }
 
 /* scrollbar */
@@ -497,11 +497,6 @@ body::after {
     border-radius: 10px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
     z-index: 101;
-    /* Acima de tudo */
-}
-
-.achievements__item {
-
 }
 
 .achievement-panel {

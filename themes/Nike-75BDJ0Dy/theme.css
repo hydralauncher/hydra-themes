@@ -117,6 +117,10 @@ body::after {
     background-color: rgba(15, 16, 18, 0.4);
     backdrop-filter: blur(4px);
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .title-bar h4 {
@@ -132,25 +136,17 @@ body::after {
     letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow: 1px 1px 2px var(--city-silhouette-dark), 0 0 15px var(--sunset-orange-light);
-    display: block;
-    text-align: center;
-    width: 100%;
-
 }
 
 .title-bar::after {
     content: "";
     display: block;
     width: 45px;
-    height: 50px;
+    height: 30px;
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
-    left: 1020px;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 /* scrollbar */
@@ -498,7 +494,6 @@ body::after {
     z-index: 101;
 }
 
-.achievements__item {}
 
 .achievement-panel {
     background-color: transparent;

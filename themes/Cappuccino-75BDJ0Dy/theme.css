@@ -424,9 +424,6 @@ body {
     z-index: 101;
 }
 
-.achievements__item {
-}
-
 .achievement-panel {
     background-color: transparent;
     color: var(--espresso-crema);

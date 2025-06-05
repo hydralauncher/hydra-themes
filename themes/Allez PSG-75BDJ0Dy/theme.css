@@ -640,8 +640,6 @@ h2.profile-hero__display-name {
     z-index: 101;
 }
 
-.achievements__item {}
-
 .achievement-panel {
     background-color: transparent;
     color: var(--psg-white);
