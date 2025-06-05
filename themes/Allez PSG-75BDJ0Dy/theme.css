@@ -517,7 +517,7 @@ h2.profile-hero__display-name {
 
 .profile-hero__avatar-button {
     padding: 0 !important;
-    border: none !important;
+    border: 3px solid var(--psg-blue-lighter) !important;
     background: transparent !important;
     border-radius: 50% !important;
     width: 96px;
@@ -529,7 +529,6 @@ h2.profile-hero__display-name {
     justify-content: center !important;
     cursor: pointer;
     overflow: hidden !important;
-    border: 3px solid var(--psg-blue-lighter) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
     position: relative;
     z-index: 1;

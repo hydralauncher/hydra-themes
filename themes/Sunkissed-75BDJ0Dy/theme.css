@@ -152,7 +152,6 @@ body::after {
 
     100% {
         text-shadow: 0 0 5px var(--blue-surf-lighter), 0 0 8px var(--blue-surf-lighter), 0 0 10px #fff;
-        ;
     }
 }
 

@@ -80,7 +80,6 @@ body {
     position: relative;
     z-index: 15;
     border-bottom: 1px solid var(--main-container-border-color);
-
 }
 
 .title-bar h4 {
