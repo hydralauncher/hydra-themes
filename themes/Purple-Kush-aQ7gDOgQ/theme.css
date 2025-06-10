@@ -8,7 +8,7 @@
                       /_/
   
              Awesome Theme by: Doppe
-                       V0.1
+                       V0.2
   =====================================================
 */
 
@@ -22,9 +22,9 @@
 
 /* Header */
 body {
-  background-image: url(https://raw.githubusercontent.com/Dop66/assets_background/refs/heads/main/purple_sat.png);
-  /* background-position: top;s */
+  background-image: url(https://github.com/Dop66/assets_background/blob/main/purple_sat.png?raw=true);
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .catalogue__content {
@@ -75,7 +75,6 @@ auto-update-sub-header,
   border-color: rgba(176, 123, 255, 0.637);
 }
 
-/* Sidebar */
 .sidebar {
   background: rgba(10, 10, 10, 0.884);
 }
@@ -117,30 +116,23 @@ auto-update-sub-header,
   margin-right: 10px;
 }
 
-/* Main content */
 .container__content {
   color: rgb(157, 127, 199);
 }
 
-/* Bottom panel */
 .bottom-panel {
   background: rgba(116, 45, 221, 0.637);
   border-top: solid 0px rgba(255, 255, 255, 0.15);
 }
 
-/* Toast */
-.toast {}
-
-/* Button */
 .button {
   border-radius: 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .button:hover {
   color: rgb(128, 77, 194);
   background-color: transparent;
-  border-radius: 0px;
-  font-size: 14px;
   border-color: transparent;
 }
 
@@ -159,7 +151,8 @@ auto-update-sub-header,
 
 .modal {
   background-color: #111111;
-  min-width: 1000px;
+  width: 90%;
+  max-width: 1000px;
 }
 
 .text-field-container__text-field {
