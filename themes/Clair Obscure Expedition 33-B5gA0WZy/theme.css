@@ -406,7 +406,7 @@ input:focus {
 }
 
 .achievement-notification__description {
-  color: orange;
+  color: var(--flame-orange);
   opacity: 0.95;
   text-shadow:
     0 0 6px rgba(192, 192, 192, 0.6),
