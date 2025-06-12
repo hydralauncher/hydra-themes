@@ -26,6 +26,7 @@
 
   --overlay-opac: 0.45;
   --panel-opac: 0.65;
+  --vintage-serif-stack: "Cinzel", "Garamond", "Baskerville", "Georgia", "Times New Roman", serif;
 }
 
 #root {
@@ -79,7 +80,7 @@ body::before {
 
 body {
   color: var(--text-main);
-  font-family: Cinzel, sans-serif;
+  font-family: var(--vintage-serif-stack);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
@@ -334,7 +335,7 @@ input:focus {
   position: relative;
   overflow: hidden;
   color: var(--frost-white);
-  font-family: Cinzel;
+  font-family: var(--vintage-serif-stack);
   animation: achievement-glow 3s ease-in-out infinite alternate;
 }
 
@@ -348,7 +349,7 @@ input:focus {
   gap: 16px;
   min-width: 0;
   border-radius: 14px;
-  font-family: Cinzel;
+  font-family: var(--vintage-serif-stack);
 }
 
 .achievement-notification__outer-container::before {
@@ -366,7 +367,7 @@ input:focus {
       transparent 70%);
   border-radius: 14px;
   pointer-events: none;
-  font-family: Cinzel;
+  font-family: var(--vintage-serif-stack);
 }
 
 .achievement-notification__outer-container::after {
@@ -394,7 +395,7 @@ input:focus {
 
 .achievement-notification__title {
   color: var(--frost-white);
-  font-family: Cinzel;
+  font-family: var(--vintage-serif-stack);
   font-weight: 800;
   margin-bottom: 2px;
   font-size: 1.1em;
