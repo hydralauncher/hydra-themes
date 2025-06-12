@@ -16,6 +16,9 @@ jobs:
 
       - name: Install Node.js
         uses: actions/setup-node@v4
+        
+      - name: Override registry
+        run: yarn config set registry "https://registry.npmjs.org"
 
       - uses: mskelton/setup-yarn@v3
 
