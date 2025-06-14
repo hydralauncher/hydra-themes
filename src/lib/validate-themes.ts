@@ -6,7 +6,8 @@ import pLimit from "p-limit";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
-const limit = pLimit(5);
+const MAX_CONCURRENT_REQUESTS = 5;
+const limit = pLimit(MAX_CONCURRENT_REQUESTS);
 
 const folders = fs.readdirSync(themesPath);
 
