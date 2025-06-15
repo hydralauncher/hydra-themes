@@ -99,10 +99,26 @@ section.sidebar__section:nth-child(2) ul li.sidebar__menu-item img {
 section.sidebar__section:nth-child(2) ul li.sidebar__menu-item--active img {
   transform: scale(1.9);
 }
+section.sidebar__section:nth-child(3) ul li img {
+  transform: scale(2.3);
+  transition: all .1s ease-in-out;
+}
+section.sidebar__section:nth-child(3) ul li.sidebar__menu-item {
+  aspect-ratio: 1;
+}
+section.sidebar__section:nth-child(3) ul li.sidebar__menu-item img {
+  margin: auto;
+}
+section.sidebar__section:nth-child(3) ul li.sidebar__menu-item--active img {
+  transform: scale(1.9);
+}
 .sidebar__menu-item:hover,.sidebar__menu-item--active {
   background-color: transparent;
 }
 section.sidebar__section:nth-child(2) ul li button {
+  padding: 0;
+}
+section.sidebar__section:nth-child(3) ul li button {
   padding: 0;
 }
 .sidebar__content {
