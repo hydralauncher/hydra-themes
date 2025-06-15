@@ -30,7 +30,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
       try {
         if (action === "unfavorite") {
-          await api.delete(`themes/${theme.id}/favorite`);
+          await api.put(`themes/${theme.id}/unfavorite`);
         } else {
           await api.put(`themes/${theme.id}/${action}`);
         }
@@ -158,7 +158,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         </div>
 
         <div className="flex flex-row items-center gap-2">
-          {theme.features.includes("achievement-notification") ? (
+          {theme.hasAchievementsSupport ? (
             <>
               <CheckCircle2Icon className="size-4 text-green-500" />
               <span className="text-xs text-muted-foreground">
