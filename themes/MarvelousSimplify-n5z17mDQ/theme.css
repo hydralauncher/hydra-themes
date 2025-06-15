@@ -1,0 +1,188 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/themes.html
+
+  Happy hacking!
+*/
+
+@keyframes download_anim {
+  0% {
+    background-position: -100vw;
+  }
+  50% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: -100vw;
+  }
+}
+
+@keyframes download_icon {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+@keyframes game-details__hero_scala {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#root .title-bar::after {
+  content: url(https://i.ibb.co/jkgRbz2N/f-1.png);
+  margin-left: 8px;
+  margin-top: 5px;
+}
+.downloads__groups .download-group:nth-child(1) ul.download-group__downloads li {
+  background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(27, 27, 27, 1) 50%, rgba(0, 0, 0, 1) 100%);
+  animation: download_anim 10s 1s infinite both;
+}
+.downloads__groups .download-group:nth-child(1) ul.download-group__downloads li .download-group__cover .download-group__cover-backdrop {
+  background: none;
+}
+.downloads__groups .download-group:nth-child(1) ul.download-group__downloads li .download-group__cover {
+  border: none;
+}
+.sidebar__container .text-field-container {
+  display: none;
+}
+.sidebar__container .sidebar__section-title {
+  display: none;
+}
+.sidebar__container .sidebar__play-button {
+  margin: auto;
+}
+.sidebar__container .sidebar__menu li span {
+  display: none;
+}
+.sidebar__container .sidebar__menu {
+  gap: unset;
+}
+.sidebar-profile .sidebar-profile__button-information {
+  display: none;
+}
+aside.sidebar {
+  width: 100px !important;
+  min-width: 100px !important;
+}
+.sidebar-profile .sidebar-profile__button {
+  display: none;
+}
+section.sidebar__section:nth-child(1) ul li {
+  margin: auto;
+}
+div.sidebar__content,.title-bar {
+  background-color: #000000;
+}
+section.sidebar__section:nth-child(2) ul li img {
+  transform: scale(2.3);
+  transition: all .1s ease-in-out;
+}
+section.sidebar__section:nth-child(2) ul li.sidebar__menu-item {
+  aspect-ratio: 1;
+}
+section.sidebar__section:nth-child(2) ul li.sidebar__menu-item img {
+  margin: auto;
+}
+section.sidebar__section:nth-child(2) ul li.sidebar__menu-item--active img {
+  transform: scale(1.9);
+}
+.sidebar__menu-item:hover,.sidebar__menu-item--active {
+  background-color: transparent;
+}
+section.sidebar__section:nth-child(2) ul li button {
+  padding: 0;
+}
+.sidebar__content {
+  margin-top: -10%;
+}
+.header__search {
+  background-color: #000000;
+  border: none;
+}
+.title-bar,.sidebar {
+  border: none;
+}
+.hero-panel-actions__container button:nth-child(1) {
+  background: #188802;
+}
+.hero-panel-actions__container button {
+  border-color: white;
+  color: white;
+}
+.header h3 {
+  color: transparent;
+  background: linear-gradient(139deg,rgba(227, 227, 227, 1) 0%, rgba(138, 138, 138, 1) 100%);
+  background-clip: text;
+  text-transform: uppercase;
+}
+.header {
+  padding: 5px 15px;
+  border: none;
+}
+.game-details__hero-image {
+  height: 372px;
+  animation: game-details__hero_scala .3s .0s normal both;
+}
+section.game-details__container .hero-panel {
+  margin-top: 72px;
+}
+section.game-details__container .game-details__hero-logo-backdrop {
+  margin-top: 72px;
+}
+.home__content .hero img {
+  opacity: 0;
+}
+.home__content .hero p {
+  color: transparent;
+  text-align: center;
+  max-width: 100%;
+}
+.home__content .hero p::after {
+  content: "\Atheme by dx.fr";
+  white-space: pre;
+  background: linear-gradient(139deg,rgba(227, 227, 227, 1) 0%, rgba(138, 138, 138, 1) 100%);
+  background-clip: text;
+}
+section.sidebar__section:nth-child(2) ul.sidebar__menu li.sidebar__menu-item:nth-child(1) {
+  margin-top: 15% !important;
+}
+.sidebar-profile__friends-button {
+  margin-left: calc(40% - 16px);
+  margin-top: -15px;
+  transform: scale(0.8);
+}
+.sidebar-profile {
+  height: 50px;
+  padding-bottom: 10px;
+}
+.downloads__groups .download-group:nth-child(1) ul.download-group__downloads li .download-group__cover .download-group__cover-backdrop img {
+  animation: download_icon 5s 1s infinite both;
+  border-radius: 20px;
+}
+.download-group__cover-content .badge {
+  display: none
+}
+
+.achievement-notification__container,.achievement-notification--platinum__container {
+  background: url(https://i.ibb.co/JW8r3vgh/5.png) !important;
+  background-position-x: -1vw;
+  background-position-y: -0.5vh;
+}
+
+.checkbox-field {
+  color: white;
+  cursor: pointer;
+}
