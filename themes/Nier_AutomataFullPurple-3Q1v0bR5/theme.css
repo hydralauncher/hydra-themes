@@ -476,11 +476,6 @@ h1, h2, h3, .game-title, .settings-title {
   }
 }
 
-@keyframes scrollGlow {
-  0% { box-shadow: 0 0 10px rgba(100, 200, 255, 0.5); }
-  100% { box-shadow: 0 0 20px rgba(100, 200, 255, 0.8); }
-}
-
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, 
     rgba(100, 200, 255, 1) 0%,
