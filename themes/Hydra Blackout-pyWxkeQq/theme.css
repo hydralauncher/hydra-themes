@@ -138,8 +138,19 @@ body {
 .sidebar__play-button--active .octicon-play{
     fill: var(--color-all);
 }
-.sidebar__menu::-webkit-scrollbar {
-    height: 4px;
+::-webkit-scrollbar {
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-all); 
 }
 
 .sidebar__menu-item {
@@ -221,17 +232,13 @@ body {
 }
 
 .profile-hero__user-information {
-    display: flex;
     flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
     margin: 40px auto;
     padding: 24px;
     border-radius: 16px;
     background-color: var(--color-shadow);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px var(--color-text);
     width: fit-content;
-    transition: all 0.3s ease;
 }
 
 .profile-hero__information,
@@ -254,9 +261,12 @@ body {
     width: fit-content;
     height: fit-content;
     border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
     order: 1;
+}
+.edit-profile-modal__form{
+    width: auto;
+    text-align: center;
+
 }
 
 .profile-hero__avatar-button .profile-avatar {
@@ -277,11 +287,9 @@ body {
 }
 
 .profile-hero__avatar-button .profile-avatar .profile-avatar__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 97%;
+    height: 97%;
     border-radius: 50%;
-    display: block;
 }
 
 .profile-hero__avatar-button::before {
@@ -332,15 +340,11 @@ body {
 
 /* === Destaque de jogo finalizado === */
 .user-library-game__wrapper:has(progress[value="1"]) {
-    border: 2px solid var(--color-all);
-    box-shadow: 0 0 12px var(--color-all);
-    border-radius: 12px;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    border: 2px solid rgb(255, 217, 0);
 }
 
 .user-library-game__wrapper:has(progress[value="1"]):hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 16px var(--color-all);
+    transform: scale(1.03);
 }
 
 /* Botões base e select-field option */
@@ -629,12 +633,6 @@ body {
     flex-direction: column;
     gap: 25px;
 }
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
 /* Barra de progresso */
 .hero-panel__progress-bar,
 .achievements-content__user-summary__container__stats__progress-bar {
@@ -1454,17 +1452,6 @@ main {
     box-shadow: 0px 4px 8px var(--color-shadow), 0 0 8px color-mix(in srgb, var(--color-all) 25%, transparent);
     border-color: var(--color-all);
 }
-
-.user-library-game__wrapper:has(progress[value="1"]) {
-    border-color: var(--color-all);
-    box-shadow: 0 0 10px var(--color-all), 0px 1px 4px var(--color-shadow);
-}
-
-.user-library-game__wrapper:has(progress[value="1"]):hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 15px var(--color-all), 0px 4px 8px var(--color-shadow);
-}
-
 .user-library-game__cover {
     display: block;
     width: 100%;
@@ -1554,6 +1541,10 @@ main {
     font-size: 0.8em;
     font-weight: bold;
     color: var(--color-all);
+    background-color: var(--color-background-base);
+    border-radius: 15%;
+    border: 1px solid var(--color-all);
+    padding: 2px;
 }
 
 /* === Barra de Progresso === */
@@ -2032,7 +2023,49 @@ main {
     background-color: var(--color-all);
     border-radius: 2px;
 }
+.dropdown-menu__content {
+    background-color: var(--color-shadow);
+    color: var(--color-text);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    font-family: var(--font-used), sans-serif;
+    z-index: 1000;
+    border: 1px solid var(--color-all);
+}
+.dropdown-menu__separator {
+    background-color: var(--color-all);
+    height: 1px;
+    margin: 0.5rem 0;
+}
+.dropdown-menu__item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
 
+.dropdown-menu__item:hover {
+    background-color: var(--color-background-base);
+    color: var(--color-all);
+}
+.dropdown-menu__item-icon {
+    margin-right: 0.75rem;
+    color: var(--color-all);
+    display: flex;
+    align-items: center;
+}
+.dropdown-menu__item-icon svg {
+    fill: currentColor;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.dropdown-menu__item:hover .dropdown-menu__item-icon svg {
+    fill: var(--color-all);
+}
 @media (max-width: 768px) {
     .download-group__cover {
         width: 50px;
