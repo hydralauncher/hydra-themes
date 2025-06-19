@@ -1019,7 +1019,7 @@ body {
     cursor: pointer;
 }
 
-.button button--primary {
+.button.button--primary {
     color: var(--text-primary);
 }
 
