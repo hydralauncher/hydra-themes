@@ -399,7 +399,7 @@ body {
     border-radius: 100%;
 }
 
-.select-field select-field--primary {
+.select-field.select-field--primary {
     border-radius: 100%;
 }
 
