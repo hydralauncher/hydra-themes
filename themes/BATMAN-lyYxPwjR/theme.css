@@ -1,0 +1,147 @@
+/* ==========================
+   Tema Batman Animado para Hydra Launcher (Ajuste de Imagens e Animações)
+   ========================== */
+
+/* Importando a fonte Bungee Spice */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+/* Imagem no topo separada da barra lateral */
+.top-image {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
+    background: url('https://media.tenor.com/v1y2j-1Q-tUAAAAi/pixel-art-pixel-art-batman.gif') no-repeat center center;
+    background-size: contain;
+}
+
+/* Header - topo do launcher */
+.header {
+    background-color: #000000;
+    color: #FFD700;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: flicker 1.5s infinite alternate, pulseGlow 3s infinite alternate;
+    background-image: url('https://t4.ftcdn.net/jpg/03/89/39/09/360_F_389390965_lwqVX10TBdFH2WMBH6GGF8pcNiOhzfnb.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    font-family: 'Bungee Spice', cursive;
+}
+
+/* Sidebar - barra lateral */
+.sidebar {
+    background-color: #1c1c1c;
+    color: #FFD700;
+    width: 250px;
+    padding: 0px;
+    border-right: 3px solid #FFD700;
+    animation: sidebarGlow 3s ease-in-out infinite alternate;
+    font-family: 'Bungee Spice', cursive;
+}
+
+/* Conteúdo principal */
+.container__content {
+    background-color: #121212;
+    color: #FFD700;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.3);
+    animation: fadeIn 1.2s ease-in, bounceIn 2s ease-in-out;
+    opacity: 0.8;
+    font-family: 'Bungee Spice', cursive;
+}
+
+/* Painel inferior */
+.bottom-panel {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+    color: #FFD700;
+    border-top: 2px solid #FFD700;
+    background-image: url('https://avatars.fastly.steamstatic.com/b3faf3da13ad4e4f83b68a18a04d59ad8a72d253_full.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    font-family: 'Bungee Spice', cursive;
+}
+
+.bottom-panel::after {
+    content: "DK";
+    position: absolute;
+    left: 54%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-family: 'Bungee Spice', cursive;
+    color: #FFD700;
+}
+
+/* Notificações (Toast) */
+.toast {
+    background-color: #FFD700;
+    color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5);
+    font-weight: bold;
+    animation: pulse 1s infinite alternate;
+    font-family: 'Bungee Spice', cursive;
+}
+
+/* Botões estilo Batman */
+.button {
+    background-color: #FFD700;
+    color: #000000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0px 0px 5px rgba(255, 215, 0, 0.5);
+    animation: glowEffect 2s infinite alternate;
+    font-family: 'Bungee Spice', cursive;
+}
+
+/* Efeito ao passar o mouse nos botões */
+.button:hover {
+    background-color: #cfa500;
+    transform: scale(1.2);
+}
+
+/* Animações */
+@keyframes flicker {
+    0% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0px 0px 5px rgba(255, 215, 0, 0.5); }
+    100% { box-shadow: 0px 0px 20px rgba(255, 215, 0, 1); }
+}
+
+@keyframes glowEffect {
+    0% { box-shadow: 0px 0px 5px rgba(255, 215, 0, 0.5); }
+    100% { box-shadow: 0px 0px 15px rgba(255, 215, 0, 1); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes sidebarGlow {
+    0% { box-shadow: inset 0px 0px 5px rgba(255, 215, 0, 0.2); }
+    100% { box-shadow: inset 0px 0px 10px rgba(255, 215, 0, 0.5); }
+}
