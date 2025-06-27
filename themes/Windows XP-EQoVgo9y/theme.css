@@ -1,0 +1,226 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo do fundo com a imagem de fundo */
+#root {
+  background: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG8ydnlpaHphdzd1eGRsNDFxejRmZGJjb2Ziemswa2VxNm5mMXAzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NzihiUKgtOnGZpsXLd/giphy.gif) no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #222222;
+}
+
+/* Estilo da barra de título */
+.title-bar {
+  position: relative;
+  text-align: center;
+  color: #000000;
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(255, 255, 255, .75);
+  border-radius: 0px;
+}
+
+.title-bar::after {
+  content: "Hydra XP";
+  letter-spacing: 2px;
+  color: #052036;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+h4 {
+  display: none;
+}
+
+/* Estilo dos elementos da interface */
+.sidebar,
+.container__content,
+.header,
+.bottom-panel,
+.game-item,
+.sidebar-profile,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.theme-card,
+.settings-download-sources__item,
+.toast,
+.checkbox-field__checkbox,
+.text-field-container__text-field--primary,
+.select-field select-field--primary,
+.sidebar-profile__friends-button,
+.settings__content,
+.button,
+.header__search,
+.catalogue__filters-container,
+.download-group__item {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #222222;
+  margin: 10px;
+  padding: 10px;
+}
+
+.bottom-panel {
+  border-radius: 0px;
+}
+
+.container {
+  border-radius: 20px;
+  margin-top: 2px;
+}
+
+.sidebar {
+  border-radius: 15px;
+}
+
+.sidebar__menu-item-button {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 10px;
+}
+
+.sidebar__menu-item-button-label {
+  color: #013259;
+}
+
+.sidebar__menu-item-button:hover {
+  background-color: rgba(135, 206, 235, 0.1);
+}
+
+.button {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(62, 98, 192, 0.3);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.15));
+  border: none;
+  color: white;
+}
+
+.button--primary:active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.header {
+  border-radius: 0;
+  background: rgba(255, 255, 255, .75);
+}
+
+.header__search {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  width: 390px;
+  padding: 10px;
+}
+
+.catalogue__filters-container {
+  background: rgba(255, 255, 255, 0.37);
+  border-radius: 18px;
+  width: 350px;
+  padding: 10px;
+}
+
+.header__search-input,
+.header__title,
+.user-stats__list-item,
+.recent-games__game-title,
+.recent-games__game-description,
+.sidebar-profile__button-title,
+.sidebar-profile__button-game-running-title,
+.friends-box__friend-name,
+.text-field-container__text-field-input--read-only,
+.select-field__label,
+.bottom-panel__downloads-button,
+.sidebar__menu-item-button-label,
+.sidebar__menu-item-button,
+.download-group__title,
+.game-item__details,
+.badge,
+.game-item__genres {
+  color: #222222;
+}
+
+.game-card__content .badge,
+.download-group__item .badge {
+  color: white;
+}
+
+.text-field-container__text-field--dark {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.game-details__container {
+  color: white;
+}
+
+.bottom-panel__version-button {
+  color: white;
+}
+
+.bottom-panel__version-button::after {
+  content: "- Theme by: V7nicius_";
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Novas alterações */
+.container__content,
+.sidebar,
+.game-item,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.theme-card,
+.settings-download-sources__item,
+.toast,
+.checkbox-field__checkbox,
+.text-field-container__text-field--primary,
+.select-field select-field--primary,
+.sidebar-profile__friends-button,
+.settings__content,
+.button,
+.header__search,
+.catalogue__filters-container,
+.download-group__item {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-card,
+.settings-download-sources__item,
+.toast,
+.checkbox-field__checkbox,
+.text-field-container__text-field--primary,
+.select-field select-field--primary,
+.sidebar-profile__friends-button,
+.settings__content,
+.button,
+.header__search,
+.catalogue__filters-container,
+.download-group__item {
+  background: rgba(255, 255, 255, 0.3);
+}
