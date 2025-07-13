@@ -186,47 +186,25 @@ body {
   height: 20px;
 }
 
-.home__header li:nth-of-type(1) button {
-  font-size: 0; /* Скрыть текст */
-  gap: 0;
-}
-
-.home__header li:nth-of-type(1) button::after {
-  content: "Сейчас популярно";
-  font-size: 14px; /* Вернуть размер для псевдоэлемента */
-  margin-left: 8px;
-}
-
 .home__header li:nth-of-type(2) button {
-  font-size: 0; /* Скрыть текст */
+  font-size: 0;
   gap: 0;
 }
 
 .home__header li:nth-of-type(2) button::after {
-  content: "Лучшие игры недели";
-  font-size: 14px; /* Вернуть размер для псевдоэлемента */
+  content: "Top games of the week";
+  font-size: 14px;
   margin-left: 8px;
 }
 
 .home__header li:nth-of-type(3) button {
-  font-size: 0; /* Скрыть текст */
+  font-size: 0;
   gap: 0;
 }
 
 .home__header li:nth-of-type(3) button::after {
-  content: "Игры с достижениями";
-  font-size: 14px; /* Вернуть размер для псевдоэлемента */
-  margin-left: 8px;
-}
-
-.home__header > button {
-  font-size: 0; /* Скрыть текст */
-  gap: 0;
-}
-
-.home__header button::after {
-  content: "Случайная игра";
-  font-size: 14px; /* Вернуть размер для псевдоэлемента */
+  content: "Games to beat";
+  font-size: 14px;
   margin-left: 8px;
 }
 
@@ -722,7 +700,7 @@ body {
 
 .hero-panel__progress-bar {
     bottom: auto;
-    height: 72px;
+    height: 80px;
 }
 
 /* Заполненная часть (WebKit) */
@@ -1216,20 +1194,6 @@ body {
   background: no-repeat center/contain;
   vertical-align: middle;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8.422 20.618C10.178 21.54 11.056 22 12 22V12L2.638 7.073l-.04.067C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709z'/%3E%3Cpath fill='%23fff' d='m17.577 4.432l-2-1.05C13.822 2.461 12.944 2 12 2c-.945 0-1.822.46-3.578 1.382l-2 1.05C4.318 5.536 3.242 6.1 2.638 7.072L12 12l9.362-4.927c-.606-.973-1.68-1.537-3.785-2.641' opacity='0.7'/%3E%3Cpath fill='%23fff' d='m21.403 7.14l-.041-.067L12 12v10c.944 0 1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.597-1.014.597-2.277.597-4.8v-.117c0-2.525 0-3.788-.597-4.802' opacity='0.5'/%3E%3C/svg%3E");
-}
-
-.sidebar__menu-item-button .octicon-download {
-  display: none !important;
-}
-
-.sidebar__menu-item-button:has(svg.octicon-download)::before {
-  content: " ";
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  background: no-repeat center/contain;
-  vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M22 16v-1c0-2.828 0-4.242-.879-5.12C20.242 9 18.828 9 16 9H8c-2.829 0-4.243 0-5.122.88C2 10.757 2 12.17 2 14.997V16c0 2.829 0 4.243.879 5.122C3.757 22 5.172 22 8 22h8c2.828 0 4.243 0 5.121-.878C22 20.242 22 18.829 22 16' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 1.25a.75.75 0 0 0-.75.75v10.973l-1.68-1.961a.75.75 0 1 0-1.14.976l3 3.5a.75.75 0 0 0 1.14 0l3-3.5a.75.75 0 1 0-1.14-.976l-1.68 1.96V2a.75.75 0 0 0-.75-.75' clip-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .sidebar__menu-item-button .octicon-download {
