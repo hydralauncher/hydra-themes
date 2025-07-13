@@ -1,3 +1,5 @@
+![HydraEPIC](/themes/HydraEPIC-oylDwv2y/screenshot.png)
+
 # HydraEPIC | Hydra Launcher
 
 - Modern theme in Epic Games style
