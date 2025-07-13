@@ -302,6 +302,7 @@ body {
 
 .sidebar__section {
   gap: 0;
+  padding-bottom: 0;
 }
 
 .header__back-button {
@@ -430,10 +431,6 @@ body {
   display: none;
 }
 
-.sidebar__section {
-  padding-bottom: 0;
-}
-
 .sidebar__section:nth-of-type(2) {
   height: 100%;
 }
@@ -560,6 +557,7 @@ body {
 
 .sidebar__section .text-field-container {
   align-items: center;
+  flex: 0;
 }
 
 .sidebar__section .text-field-container__text-field {
@@ -580,10 +578,6 @@ body {
 
 .sidebar__section .text-field-container__text-field-wrapper {
   width: 85%;
-}
-
-.sidebar__section .text-field-container {
-  flex: 0;
 }
 
 /* Gamepage */
@@ -993,7 +987,6 @@ body {
 }
 
 .profile-hero__hero-panel {
-  background-color: transparent !important;
   background: transparent !important;
   box-shadow: none;
   border: none;
