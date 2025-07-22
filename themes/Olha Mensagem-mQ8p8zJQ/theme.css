@@ -25,6 +25,7 @@ body {
 
 .sidebar {
   background-color: rgba(0, 0, 0, 0.863);
+   border: 1px solid var(--border-color);
 }
 .header,
 .container__content {
