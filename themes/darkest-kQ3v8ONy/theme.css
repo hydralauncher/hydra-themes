@@ -70,3 +70,7 @@
   .game-item__repackers {
     gap: 10px;
   }
+  .gallery-slider__animation-container,
+  .game-details__description {
+    width: 100%;
+  }
