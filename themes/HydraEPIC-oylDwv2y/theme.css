@@ -140,6 +140,26 @@ body {
   color: #8e919b;
 }
 
+.auto-update-sub-header__new-version-button {
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  background-color: var(--bg-card-primary);
+  padding: 10px;
+  border-radius: 20px;
+  color: #c0c1c7;
+}
+
+.auto-update-sub-header__new-version-button:hover {
+  text-decoration: none;
+}
+
+.auto-update-sub-header {
+  border: none;
+  background-color: var(--bg-card-secondary);
+  padding: 0 20px 20px 20px;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
@@ -167,7 +187,7 @@ body {
 .header {
   background-color: var(--bg-secondary);
   border: none;
-  padding: 20px 20px 40px 20px;
+  padding: 20px 20px 28px 20px;
 }
 
 /* Main content */
@@ -551,7 +571,7 @@ body {
 }
 
 .badge {
-  background-color: var(--bg-card-badge);
+  background-color: rgba(255, 255, 255, 0.05);
   border: none;
   border-radius: 16px;
   font-size: 12px;
@@ -1803,6 +1823,20 @@ body {
   display: inline-block;
   width: 1.2em;
   height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M13.53 8.47a.75.75 0 1 0-1.06 1.06l1.72 1.72H8a.75.75 0 0 0 0 1.5h6.19l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06z'/%3E%3C/svg%3E");
+}
+
+.auto-update-sub-header__new-version-button svg.auto-update-sub-header__new-version-icon {
+  display: none !important;
+}
+
+.auto-update-sub-header__new-version-button:has(svg.auto-update-sub-header__new-version-icon)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
   background: no-repeat center/contain;
   vertical-align: middle;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M13.53 8.47a.75.75 0 1 0-1.06 1.06l1.72 1.72H8a.75.75 0 0 0 0 1.5h6.19l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06z'/%3E%3C/svg%3E");
