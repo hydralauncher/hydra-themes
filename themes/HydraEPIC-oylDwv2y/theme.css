@@ -36,7 +36,6 @@
   --other-accent: #26bbff;
 }
 
-
 body {
   color: var(--text-primary);
   background-color: var(--bg-primary);
@@ -116,6 +115,10 @@ body {
   color: #dadbe1;
 }
 
+::placeholder {
+  font-weight: 600;
+}
+
 .header__search--focused {
   width: 300px;
 }
@@ -152,9 +155,12 @@ body {
   background-color: var(--scrollbar-thumb);
 }
 
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-thumb-hover);
+}
+
+.gallery-slider__preview::-webkit-scrollbar {
+  height: 8px;
 }
 
 /* Header */
@@ -547,6 +553,7 @@ body {
   border: none;
   border-radius: 16px;
   font-size: 12px;
+  font-weight: 400;
 }
 
 .catalogue__filters-container {
@@ -658,6 +665,7 @@ body {
   border: none;
   position: relative;
   margin-bottom: 20px;
+  background-color: var(--bg-card-primary);
 }
 
 @media (min-width: 1280px) {
@@ -736,19 +744,16 @@ body {
     height: 80px;
 }
 
-/* Заполненная часть (WebKit) */
 .hero-panel__progress-bar::-webkit-progress-value {
   background-color: var(--text-accent);
 }
 
-/* Заполненная часть для Firefox */
 .hero-panel__progress-bar::-moz-progress-bar {
   background-color: var(--text-accent);
 }
 
-/* Цвет для disabled состояния */
 .hero-panel__progress-bar--disabled::-webkit-progress-value {
-  background-color: #ff2626; /* Серый */
+  background-color: #ff2626;
 }
 
 .hero-panel__progress-bar--disabled::-moz-progress-bar {
@@ -758,6 +763,8 @@ body {
 .how-long-to-beat__category {
   border-radius: 20px;
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
 }
 
 .sidebar-section__content > .list > li > a {
@@ -792,6 +799,27 @@ body {
 .game-details__hero-panel-skeleton {
   border-radius: 20px;
   margin-bottom: 20px;
+  border: none;
+}
+
+.gallery-slider__preview-button,
+.gallery-slider__media,
+.game-details__description img {
+  border-radius: 20px;
+}
+
+.gallery-slider__preview-button {
+  border: none;
+}
+
+.game-details__hero-content {
+  flex-direction: row-reverse;
+  padding: 20px;
+  animation: forwards;
+}
+
+.game-details__cloud-sync-button {
+  animation: none;
 }
 
 /* Settings */
@@ -927,6 +955,41 @@ body {
 
 .settings-download-sources__navigate-button {
   color: var(--text-accent);
+}
+
+.text-field-container__error-label {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.game-options-modal__container {
+  gap: 20px;
+}
+
+.game-options-modal__danger-zone,
+.game-options-modal__section,
+.game-options-modal__executable-field,
+.game-options-modal__header,
+.game-options-modal__downloads,
+.game-options-modal__launch-options {
+  gap: 20px;
+}
+
+.game-options-modal__cloud-sync-hydra-cloud {
+  background: var(--other-accent);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.repacks-modal__repack-button {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.backdrop {
+  padding: 60px;
 }
 
 /* Downloads */
@@ -1353,6 +1416,20 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 16a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0-10c-.284 0-.474.34-.854 1.023l-.098.176c-.108.194-.162.29-.246.354c-.085.064-.19.088-.4.135l-.19.044c-.738.167-1.107.25-1.195.532s.164.577.667 1.165l.13.152c.143.167.215.25.247.354s.021.215 0 .438l-.02.203c-.076.785-.114 1.178.115 1.352c.23.174.576.015 1.267-.303l.178-.082c.197-.09.295-.135.399-.135s.202.045.399.135l.178.082c.691.319 1.037.477 1.267.303s.191-.567.115-1.352l-.02-.203c-.021-.223-.032-.334 0-.438s.104-.187.247-.354l.13-.152c.503-.588.755-.882.667-1.165c-.088-.282-.457-.365-1.195-.532l-.19-.044c-.21-.047-.315-.07-.4-.135c-.084-.064-.138-.16-.246-.354l-.098-.176C12.474 6.34 12.284 6 12 6' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='M6.714 17.323L7.351 15L8 13h8l.649 2l.637 2.323c.628 2.292.942 3.438.523 4.065c-.147.22-.344.396-.573.513c-.652.332-1.66-.193-3.675-1.243c-.67-.35-1.006-.524-1.362-.562a2 2 0 0 0-.398 0c-.356.038-.691.213-1.362.562c-2.015 1.05-3.023 1.575-3.675 1.243a1.5 1.5 0 0 1-.573-.513c-.42-.627-.105-1.773.523-4.065' opacity='0.5'/%3E%3C/svg%3E");
 }
 
+.hero-panel-actions__action svg.octicon-plus-circle {
+  display: none !important;
+}
+
+.hero-panel-actions__action:has(svg.octicon-plus-circle)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25z'/%3E%3C/svg%3E");
+}
+
 .hero-panel-actions__action svg.octicon-gear {
   display: none !important;
 }
@@ -1618,8 +1695,8 @@ body {
 .game-options-modal__executable-field .button--outline:has(svg.octicon-file)::before {
   content: " ";
   display: inline-block;
-  width: 1.6em;
-  height: 1.6em;
+  width: 1.4em;
+  height: 1.4em;
   background: no-repeat center/contain;
   vertical-align: middle;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M14 22h-4c-3.771 0-5.657 0-6.828-1.172S2 17.771 2 14v-4c0-3.771 0-5.657 1.172-6.828S6.239 2 10.03 2c.606 0 1.091 0 1.5.017q-.02.12-.02.244l-.01 2.834c0 1.097 0 2.067.105 2.848c.114.847.375 1.694 1.067 2.386c.69.69 1.538.952 2.385 1.066c.781.105 1.751.105 2.848.105h4.052c.043.534.043 1.19.043 2.063V14c0 3.771 0 5.657-1.172 6.828S17.771 22 14 22' clip-rule='evenodd' opacity='0.5'/%3E%3Cpath fill='%23fff' d='m11.51 2.26l-.01 2.835c0 1.097 0 2.066.105 2.848c.114.847.375 1.694 1.067 2.385c.69.691 1.538.953 2.385 1.067c.781.105 1.751.105 2.848.105h4.052q.02.232.028.5H22c0-.268 0-.402-.01-.56a5.3 5.3 0 0 0-.958-2.641c-.094-.128-.158-.204-.285-.357C19.954 7.494 18.91 6.312 18 5.5c-.81-.724-1.921-1.515-2.89-2.161c-.832-.556-1.248-.834-1.819-1.04a6 6 0 0 0-.506-.154c-.384-.095-.758-.128-1.285-.14z'/%3E%3C/svg%3E");
@@ -1882,7 +1959,7 @@ body {
 }
 
 .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
-  background-color: var(--other-accent); /* цвет заполненной части */
+  background-color: var(--other-accent);
   border-radius: 10px;
 }
 
