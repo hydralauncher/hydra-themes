@@ -964,7 +964,7 @@ body {
 }
 
 .theme-card__author::after {
-    content: "SRV6.ru with ❤️\A\A\AThis theme uses icons from the Iconify library — Solar Icons. \ASolar Icons are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. \A\AВ этой теме используются значки из библиотеки Iconify — Solar Icons. \AЗначки Solar доступны по международной лицензии Creative Commons Attribution 4.0 (CC BY 4.0).";
+    content: "SRV6.ru with ❤️\A\A\AThis theme uses icons from the Iconify library — Solar Icons. \ASolar Icons are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.";
     white-space: pre;
     font-size: 14px;
     display: block;
