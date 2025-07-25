@@ -499,11 +499,39 @@ body {
 }
 
 .sidebar__play-button {
-  display: none;
+  margin-bottom: 20px;
+}
+
+.sidebar__play-button::after {
+  content: "All Games";
+  display: block;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  color: var(--text-primary);
+  background-color: var(--bg-card-secondary);
+  font-weight: 800;
+  border-radius: 20px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: all ease 0.2s;
+}
+
+.sidebar__play-button:hover::after {
+  background-color: #1a1920;
+}
+
+.sidebar__play-button--active::after {
+  content: "Installed Games";
+  background-color: var(--bg-card-secondary);
+}
+
+.sidebar__play-button svg {
+  display: none !important;
 }
 
 .sidebar__section-header {
   justify-content: center;
+  flex-direction: column-reverse;
 }
 
 .react-loading-skeleton {
