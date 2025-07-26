@@ -101,21 +101,24 @@
   --shadow-dramatic: 0 var(--elevation-maximum) 64px rgba(0, 0, 0, 0.7);     /* Dialogs */
   
   /* 
-   * Backdrop blur intensity levels - Semantic naming for maintainability
-   * These values create a progressive blur hierarchy for depth perception
+   * Backdrop blur system - Consistent blur hierarchy based on 16px unit
+   * Progressive blur scale for optimal depth perception and performance
+   * Based on powers of 2 for smooth visual transitions
    */
-  --blur-radius-base: 32px;        /* Standard blur for most UI elements */
-  --blur-radius-enhanced: 48px;    /* Enhanced blur for prominent elements */
-  --blur-radius-maximum: 64px;     /* Maximum blur for modal overlays */
+  --blur-unit: 16px;                    /* Base blur unit for calculations */
+  --blur-minimal: calc(var(--blur-unit) * 1);     /* 16px - Subtle blur for subtle depth */
+  --blur-medium: calc(var(--blur-unit) * 2);      /* 32px - Standard blur for most UI elements */
+  --blur-strong: calc(var(--blur-unit) * 3);      /* 48px - Enhanced blur for prominent elements */
+  --blur-maximum: calc(var(--blur-unit) * 4);     /* 64px - Maximum blur for modal overlays */
   
   /* 
    * Advanced atmospheric backdrop effects
    * Hardware-accelerated filters for modern browser optimization
    * Saturation and brightness enhance glass material appearance
    */
-  --backdrop-blur: blur(var(--blur-radius-base)) saturate(180%) brightness(110%);
-  --backdrop-blur-strong: blur(var(--blur-radius-enhanced)) saturate(200%) brightness(115%);
-  --backdrop-blur-ultra: blur(var(--blur-radius-maximum)) saturate(220%) brightness(120%);
+  --backdrop-blur: blur(var(--blur-medium)) saturate(180%) brightness(110%);
+  --backdrop-blur-strong: blur(var(--blur-strong)) saturate(200%) brightness(115%);
+  --backdrop-blur-ultra: blur(var(--blur-maximum)) saturate(220%) brightness(120%);
   
   /* 
    * Border radius system - Semantic naming for consistent visual hierarchy
@@ -147,6 +150,14 @@
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.08) 30%,
     rgba(255, 255, 255, 0.02) 100%);
+    
+  /*
+   * ACCESSIBILITY: Improved color contrast ratios
+   * Ensures text meets WCAG contrast requirements against glass backgrounds
+   */
+  --text-high-contrast: rgba(255, 255, 255, 0.95);    /* 15.31:1 contrast ratio */
+  --text-medium-contrast: rgba(255, 255, 255, 0.85);  /* 11.2:1 contrast ratio */
+  --text-subtle-contrast: rgba(255, 255, 255, 0.75);  /* 8.9:1 contrast ratio */
 }
 
 /* Reset backgrounds for main containers */
@@ -320,31 +331,6 @@ html {
     var(--glass-mist) 100%) !important;
   border: 1.2px solid var(--border-medium);
   border-radius: 12px;
-}
-
-/* Sidebar keeps its original border radius */
-.sidebar {
-  background: linear-gradient(145deg, 
-    var(--glass-ultra-dark) 0%, 
-    var(--glass-cosmic) 20%, 
-    var(--glass-nebula) 45%,
-    var(--glass-cloud) 70%,
-    var(--glass-mist) 100%) !important;
-  border: 1.2px solid var(--border-medium);
-  border-radius: 0 0px var(--radius-medium) 0;
-  box-shadow: 
-    var(--shadow-soft),
-    var(--shadow-ultra-soft),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
-    inset 1px 0 0 rgba(255, 255, 255, 0.08),
-    inset -1px 0 0 rgba(0, 0, 0, 0.15);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
 }
 
 /* Advanced liquid glass rim lighting */
@@ -844,7 +830,11 @@ button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*=
     1px 0 3px rgba(0, 0, 0, 0.1),
     inset 1px 0 0 rgba(255, 255, 255, 0.12),
     inset -1px 0 0 rgba(0, 0, 0, 0.15);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -1539,16 +1529,6 @@ input[type="checkbox"]:checked::before {
 .game-item {
   min-height: 44px;  /* WCAG minimum touch target */
   min-width: 44px;   /* WCAG minimum touch target */
-}
-
-/*
- * ACCESSIBILITY: Improved color contrast ratios
- * Ensures text meets WCAG contrast requirements against glass backgrounds
- */
-:root {
-  --text-high-contrast: rgba(255, 255, 255, 0.95);    /* 15.31:1 contrast ratio */
-  --text-medium-contrast: rgba(255, 255, 255, 0.85);  /* 11.2:1 contrast ratio */
-  --text-subtle-contrast: rgba(255, 255, 255, 0.75);  /* 8.9:1 contrast ratio */
 }
 
 /* Apply high contrast text colors for critical UI elements */
