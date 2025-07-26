@@ -118,6 +118,24 @@
   --backdrop-blur-ultra: blur(var(--blur-radius-maximum)) saturate(220%) brightness(120%);
   
   /* 
+   * Border radius system - Semantic naming for consistent visual hierarchy
+   * Three-tier system: pills for buttons, medium for sidebar, minimal for content
+   */
+  --radius-minimal: 12px;          /* Content boxes, headers, small elements */
+  --radius-medium: 32px;           /* Sidebar, larger containers */
+  --radius-pill: 50px;             /* Buttons, interactive elements that should be pills */
+  
+  /* 
+   * Spacing system - Consistent spacing throughout the interface
+   * Based on 8px grid system for visual harmony
+   */
+  --spacing-xs: 2px;               /* Minimal spacing - fine adjustments */
+  --spacing-sm: 8px;               /* Small spacing - inner padding, tight margins */
+  --spacing-md: 12px;              /* Medium spacing - standard padding */
+  --spacing-lg: 16px;              /* Large spacing - section separation */
+  --spacing-xl: 24px;              /* Extra large spacing - major sections */
+  
+  /* 
    * TMZ liquid glass highlight gradients
    * Subtle gradients that enhance the glass material effect
    */
@@ -316,7 +334,7 @@ html {
     var(--glass-cloud) 70%,
     var(--glass-mist) 100%) !important;
   border: 1.2px solid var(--border-medium);
-  border-radius: 32px;
+  border-radius: 0 0px var(--radius-medium) 0;
   box-shadow: 
     var(--shadow-soft),
     var(--shadow-ultra-soft),
@@ -397,7 +415,7 @@ html {
     var(--glass-mist) 75%,
     var(--glass-vapor) 100%) !important;
   border: 1.2px solid var(--border-hover);
-  border-radius: 12px !important;
+  border-radius: var(--radius-minimal) !important;
   box-shadow: 
     var(--shadow-strong),
     var(--shadow-medium),
@@ -428,6 +446,16 @@ html {
 .download-group__item:hover::after {
   left: 120%;
 }
+
+/* Fix: Disable shimmer effect for profile content elements to prevent misaligned glow */
+[class*="profile-content"] *::after,
+[class*="profile-content"] *:hover::after,
+.profile-content__right-content *::after,
+.profile-content__right-content *:hover::after {
+  display: none !important;
+}
+
+
 
 /* Text field hover effects - cleaner */
 .text-field-container__text-field--dark:hover,
@@ -504,9 +532,9 @@ html {
 
 /* Sidebar menu items pill effect - only style the button */
 .sidebar__menu-item-button {
-  border-radius: 50px;  /* Changed to pill shape */
-  margin: 2px 8px;
-  padding: 8px 12px;
+  border-radius: var(--radius-pill);  /* Changed to pill shape */
+  margin: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
   transition: all 0.2s ease;
   cursor: pointer;
   pointer-events: auto;
@@ -534,12 +562,12 @@ html {
     rgba(255, 255, 255, 0.9) 50%,
     rgba(255, 255, 255, 0.85) 100%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
-  border-radius: 50px !important;
+  border-radius: var(--radius-pill) !important;
   color: var(--cosmic-black) !important;
   font-weight: 600 !important;
   box-shadow: 
-    0 4px 16px rgba(255, 255, 255, 0.15),
-    0 2px 8px rgba(255, 255, 255, 0.1),
+    0 4px var(--spacing-lg) rgba(255, 255, 255, 0.15),
+    0 var(--spacing-xs) var(--spacing-sm) rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(20px) saturate(180%);
@@ -615,6 +643,50 @@ html {
 }
 
 /* Apple-authentic liquid glass buttons */
+/* General button styles - ensure actual buttons are pills */
+.button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]),
+button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]),
+[class*="button"]:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="sidebar__help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]) {
+  border-radius: var(--radius-pill) !important;  /* Force actual buttons to be pills */
+}
+
+/* Ensure content boxes have proper 12px border radius */
+.game-item,
+.game-card,
+[class*="hero__content"],
+[class*="sidebar__help"],
+/* Content elements should have 12px border radius (exclude buttons) */
+[class*="help-button"]:not(.sidebar__help-button),
+[class*="gallery-slider"],
+[class*="sidebar-section"] {
+  border-radius: var(--radius-minimal) !important;  /* Content boxes should be 12px */
+}
+
+/* Sidebar help button should be a pill like menu items */
+.sidebar__help-button {
+  border-radius: var(--radius-pill) !important;  /* Pill shape like menu items */
+  margin: var(--spacing-xs) var(--spacing-sm) !important;      /* Match menu item spacing */
+  padding: var(--spacing-sm) var(--spacing-md) !important;    /* Match menu item padding */
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  border: none !important;         /* Remove any default border */
+  outline: none !important;        /* Remove any default outline */
+  background: transparent !important; /* No background when not hovered */
+}
+
+/* Sidebar help button hover effect matching refined button hover */
+.sidebar__help-button:hover {
+  background: linear-gradient(145deg,
+    var(--glass-mist) 0%,
+    var(--glass-vapor) 100%) !important;
+  border-radius: var(--radius-pill) !important;  /* Maintain pill shape */
+  box-shadow: 
+    var(--shadow-soft),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
 .container__content .button--outline {
   background: linear-gradient(135deg, 
     var(--glass-highlight)) !important;
@@ -768,7 +840,7 @@ html {
     var(--glass-cloud) 75%,
     var(--glass-mist) 100%) !important;
   border-right: 1.5px solid var(--border-medium);
-  border-radius: 0 32px 32px 0;
+  border-radius: 0 0px var(--radius-medium) 0;
   box-shadow: 
     8px 0 32px rgba(0, 0, 0, 0.35),
     4px 0 16px rgba(0, 0, 0, 0.2),
@@ -787,13 +859,17 @@ html {
     var(--glass-nebula) 50%,
     var(--glass-cloud) 100%) !important;
   border: 1.8px solid var(--border-medium);
-  border-radius: 50px;
+  border-radius: var(--radius-pill);
   color: var(--white);
-  padding: 14px 24px;
+  padding: 10px var(--spacing-xl);  /* Reduced vertical padding to prevent clipping */
   font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.01em;
+  line-height: 1.3;  /* Balanced line-height */
+  min-height: 44px;  /* Ensure minimum height for text space */
+  display: flex;
+  align-items: center;  /* Center text vertically */
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   box-shadow: 
     var(--shadow-soft),
