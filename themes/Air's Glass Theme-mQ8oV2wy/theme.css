@@ -1635,6 +1635,11 @@ input[type="checkbox"]:checked::before {
 }
 
 /* Apply high contrast text colors for critical UI elements */
+--text-high-contrast: #ffffff;    /* High contrast text for critical elements */
+  --text-medium-contrast: #e5e5ea;  /* Medium contrast for secondary text */
+  --text-subtle-contrast: #8e8e93;  /* Subtle contrast for decorative text */
+
+/* Apply high contrast text colors for critical UI elements */
 .sidebar__menu-item-text,
 .container__content h1,
 .container__content h2,
