@@ -76,6 +76,14 @@
   --text-secondary: #98989d;    /* Placeholder text - WCAG compliant */
   
   /* 
+   * Semantic text contrast levels - For consistent hierarchy
+   * Used throughout the theme for proper text contrast management
+   */
+  --text-high-contrast: #ffffff;    /* High contrast text for critical elements */
+  --text-medium-contrast: #e5e5ea;  /* Medium contrast for secondary text */
+  --text-subtle-contrast: #8e8e93;  /* Subtle contrast for decorative text */
+  
+  /* 
    * Atmospheric liquid glass materials - Very transparent for maximum background visibility
    * Alpha values optimized to show background image while maintaining UI functionality
    * Higher opacity = more prominent elements, lower = background elements
@@ -124,10 +132,14 @@
    * Based on powers of 2 for smooth visual transitions
    */
   --blur-unit: 16px;                    /* Base blur unit for calculations */
-  --blur-minimal: calc(var(--blur-unit) * 1);     /* 16px - Subtle blur for subtle depth */
-  --blur-medium: calc(var(--blur-unit) * 2);      /* 32px - Standard blur for most UI elements */
-  --blur-strong: calc(var(--blur-unit) * 3);      /* 48px - Enhanced blur for prominent elements */
-  --blur-maximum: calc(var(--blur-unit) * 4);     /* 64px - Maximum blur for modal overlays */
+  --blur-multiplier-minimal: 1;
+  --blur-multiplier-medium: 2;
+  --blur-multiplier-strong: 3;
+  --blur-multiplier-maximum: 4;
+  --blur-minimal: calc(var(--blur-unit) * var(--blur-multiplier-minimal));     /* 16px - Subtle blur for subtle depth */
+  --blur-medium: calc(var(--blur-unit) * var(--blur-multiplier-medium));      /* 32px - Standard blur for most UI elements */
+  --blur-strong: calc(var(--blur-unit) * var(--blur-multiplier-strong));      /* 48px - Enhanced blur for prominent elements */
+  --blur-maximum: calc(var(--blur-unit) * var(--blur-multiplier-maximum));     /* 64px - Maximum blur for modal overlays */
   
   /* 
    * Advanced atmospheric backdrop effects - Reduced blur for clearer background
