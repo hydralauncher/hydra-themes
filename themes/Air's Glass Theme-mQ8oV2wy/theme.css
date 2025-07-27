@@ -140,11 +140,11 @@
   
   /* 
    * Border radius system - Semantic naming for consistent visual hierarchy
-   * Three-tier system: pills for buttons, medium for sidebar, minimal for content
+   * Three-tier system: pills for small buttons, medium for sidebar, minimal for content
    */
-  --radius-minimal: 12px;          /* Content boxes, headers, small elements */
-  --radius-medium: 32px;           /* Sidebar, larger containers */
-  --radius-pill: 50px;             /* Buttons, interactive elements that should be pills */
+  --radius-minimal: 12px;          /* Content boxes, large buttons, containers */
+  --radius-medium: 32px;           /* Sidebar only */
+  --radius-pill: 50px;             /* Small buttons, interactive elements that should be pills */
   
   /* 
    * Spacing system - Consistent spacing throughout the interface
