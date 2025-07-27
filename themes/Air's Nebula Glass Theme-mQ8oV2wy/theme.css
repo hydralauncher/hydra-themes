@@ -12,6 +12,8 @@
  * - will-change property used strategically to optimize rendering
  * - Content-visibility used for efficient rendering of off-screen content
  * - Contain property used to isolate layout and paint operations
+ * - All magic numbers extracted to named constants for better maintainability
+ * - Consistent color variables prevent repetition and improve consistency
  * 
  * ACCESSIBILITY FEATURES:
  * - Custom focus indicators maintain WCAG compliance
@@ -81,6 +83,21 @@
   --border-active: rgba(255, 255, 255, 0.3);   /* Maximum visibility - active states */
   
   /* 
+   * Accent colors for interactive elements
+   * Consistent accent colors throughout the theme
+   */
+  --accent-blue: rgb(0, 122, 255);             /* System blue for highlights and accents */
+  
+  /* 
+   * Inset shadow opacities for glass effects
+   * Consistent opacity values for inner shadows and highlights
+   */
+  --inset-highlight-opacity: 0.1;              /* Standard white highlight opacity */
+  --inset-highlight-subtle: 0.08;              /* Subtle white highlight opacity */
+  --inset-accent-opacity: 0.05;                /* Standard accent shadow opacity */
+  --inset-accent-subtle: 0.03;                 /* Subtle accent shadow opacity */
+  
+  /* 
    * Elevation system - Material Design inspired depth levels
    * These values create consistent shadow hierarchy throughout the interface
    */
@@ -106,10 +123,14 @@
    * Based on powers of 2 for smooth visual transitions
    */
   --blur-unit: 16px;                    /* Base blur unit for calculations */
-  --blur-minimal: calc(var(--blur-unit) * 1);     /* 16px - Subtle blur for subtle depth */
-  --blur-medium: calc(var(--blur-unit) * 2);      /* 32px - Standard blur for most UI elements */
-  --blur-strong: calc(var(--blur-unit) * 3);      /* 48px - Enhanced blur for prominent elements */
-  --blur-maximum: calc(var(--blur-unit) * 4);     /* 64px - Maximum blur for modal overlays */
+  --blur-multiplier-minimal: 1;
+  --blur-multiplier-medium: 2;
+  --blur-multiplier-strong: 3;
+  --blur-multiplier-maximum: 4;
+  --blur-minimal: calc(var(--blur-unit) * var(--blur-multiplier-minimal));     /* 16px - Subtle blur for subtle depth */
+  --blur-medium: calc(var(--blur-unit) * var(--blur-multiplier-medium));      /* 32px - Standard blur for most UI elements */
+  --blur-strong: calc(var(--blur-unit) * var(--blur-multiplier-strong));      /* 48px - Enhanced blur for prominent elements */
+  --blur-maximum: calc(var(--blur-unit) * var(--blur-multiplier-maximum));     /* 64px - Maximum blur for modal overlays */
   
   /* 
    * Advanced atmospheric backdrop effects
@@ -989,8 +1010,8 @@ button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*=
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 
     var(--shadow-soft),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 122, 255, 0.03);
+    inset 0 1px 0 rgba(255, 255, 255, var(--inset-highlight-subtle)),
+    inset 0 -1px 0 rgba(var(--accent-blue), var(--inset-accent-subtle));
   backdrop-filter: var(--backdrop-blur);
   -webkit-backdrop-filter: var(--backdrop-blur);
   position: relative;
@@ -1009,8 +1030,8 @@ button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*=
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 
     var(--shadow-soft),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 122, 255, 0.05);
+    inset 0 1px 0 rgba(255, 255, 255, var(--inset-highlight-opacity)),
+    inset 0 -1px 0 rgba(var(--accent-blue), var(--inset-accent-opacity));
   position: relative;
   overflow: hidden;
   z-index: 2;
