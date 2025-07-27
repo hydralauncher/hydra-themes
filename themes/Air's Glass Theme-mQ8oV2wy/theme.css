@@ -123,11 +123,15 @@
    * Progressive blur scale for optimal depth perception and performance
    * Based on powers of 2 for smooth visual transitions
    */
+  --blur-multiplier-minimal: 1;
+  --blur-multiplier-medium: 2;
+  --blur-multiplier-strong: 3;
+  --blur-multiplier-maximum: 4;
   --blur-unit: 16px;                    /* Base blur unit for calculations */
-  --blur-minimal: calc(var(--blur-unit) * 1);     /* 16px - Subtle blur for subtle depth */
-  --blur-medium: calc(var(--blur-unit) * 2);      /* 32px - Standard blur for most UI elements */
-  --blur-strong: calc(var(--blur-unit) * 3);      /* 48px - Enhanced blur for prominent elements */
-  --blur-maximum: calc(var(--blur-unit) * 4);     /* 64px - Maximum blur for modal overlays */
+  --blur-minimal: calc(var(--blur-unit) * var(--blur-multiplier-minimal));     /* 16px - Subtle blur for subtle depth */
+  --blur-medium: calc(var(--blur-unit) * var(--blur-multiplier-medium));      /* 32px - Standard blur for most UI elements */
+  --blur-strong: calc(var(--blur-unit) * var(--blur-multiplier-strong));      /* 48px - Enhanced blur for prominent elements */
+  --blur-maximum: calc(var(--blur-unit) * var(--blur-multiplier-maximum));     /* 64px - Maximum blur for modal overlays */
   
   /* 
    * Advanced atmospheric backdrop effects - Reduced blur for clearer background
