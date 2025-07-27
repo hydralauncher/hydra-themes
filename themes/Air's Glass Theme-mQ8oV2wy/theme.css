@@ -1,5 +1,5 @@
 /* 
- * Hydra Cloud Launcher - AirTMZ Nebula Glass Theme (Background Image Version)
+ * Hydra Cloud Launcher - AirTMZ Glass Theme (Background Image Version)
  * Ultra-modern dark theme with atmospheric cloud-inspired liquid glass design
  * Created by: AirTMZ
  * Features: Customizable background images with atmospheric overlays, deep space blacks, cloud greys, floating elements, and premium glass effects
@@ -353,8 +353,11 @@ html {
 .home__content,
 .content-container,
 .main-content,
-[class*="__content"]:not([class*="hero"]),
-[class*="content__"]:not([class*="hero"]) {
+.sidebar__content,
+.modal__content,
+.dialog__content,
+.panel__content,
+.page__content {
   background: linear-gradient(145deg, 
     var(--glass-ultra-dark) 0%, 
     var(--glass-cosmic) 20%, 
@@ -374,7 +377,12 @@ html {
 .friends-box__box::before,
 .user-stats__box::before,
 .recent-games__box::before,
-.sidebar::before {
+.sidebar::before,
+.sidebar__content::before,
+.modal__content::before,
+.dialog__content::before,
+.panel__content::before,
+.page__content::before {
   content: '';
   position: absolute;
   top: 0;
@@ -397,7 +405,12 @@ html {
 .friends-box__box::after,
 .user-stats__box::after,
 .recent-games__box::after,
-.sidebar::after {
+.sidebar::after,
+.sidebar__content::after,
+.modal__content::after,
+.dialog__content::after,
+.panel__content::after,
+.page__content::after {
   content: '';
   position: absolute;
   top: 0;
