@@ -25,3 +25,5 @@ pnpm-debug.log*
 .idea/
 
 .vscode/settings.json
+.vs/hydra-themes/FileContentIndex/
+

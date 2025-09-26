@@ -1,0 +1,1201 @@
+:root {
+    --sunset-orange-light: #f8baff;  
+    --sky-highlight-peach: #fae6c0;
+
+    --glass-item-darker: #0e0b0b44;
+    --glass-item-bg: #0e0b0b21;
+    --glass-item-blur: 10px;
+    --glass-item-border-color: #89668d5b;
+    --main-container-blur: 5.5px;
+
+    --glass-button-bg: #00000013;
+    --glass-button-blur: 5px;
+    --glass-button-hover-bg: #00000013;
+    --text-on-button: #fae6c0;
+
+    --text-on-dark-panel: var(--sky-highlight-peach);
+    --accent-glow-color: #e9b97aa0;
+
+    --achiev-title-color: var(--text-on-button);
+    --achiev-title-shadow-color: #08090c80;
+
+    --particle-color1: rgba(224, 18, 243, 0.3);
+    --particle-color2: rgba(124, 18, 89, 0.2);
+    }
+    * {
+     font-size: 1em;
+     letter-spacing: 0.015em;
+     font-weight: bold;
+     }
+.modal__header { 
+ border-bottom: #f70f0f00;
+      }
+.download-group__cover-backdrop div.badge, .game-card__no-download-label { 
+ color: var(--sunset-orange-light);
+     }
+.game-item__cover{ 
+    border-right: transparent;
+ border-radius: 8px;
+}
+body {
+    margin: 0;
+    color: var(--text-on-dark-panel);
+    overflow: hidden;
+    position: relative;
+}
+.header {
+ width: 98.70%
+}
+header.header--is-windows {
+    width: auto;
+--glass-item-bg: #0e0b0b3f;
+}
+#root {
+    background-color: var(--night-sky-base);
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+}
+#root::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/SKD-bqAkQjhvrjayf/videoblocks-panoramic-view-of-tropical-landscape-with-palm-trees-and-sunset-summer-background-elegant-and-luxury-dynamic-80s-90s-retro-style-animation-footage_h5npl1kcb_thumbnail-1080_09.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    filter: blur(6px) brightness(0.85);
+    z-index: -1;
+}
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+}
+.downloads__no-downloads {
+  display: flex;
+  color: var(--sky-highlight-peach);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  }
+body::before {
+    width: 2px;
+    height: 2px;
+    background-color: var(--particle-color1);
+    box-shadow: 0 0 6px 1px var(--particle-color1);
+    left: 30%;
+    animation: subtleCityGlow 10s infinite ease-in-out;
+    animation-delay: 1s;
+}
+body::after {
+    width: 3px;
+    height: 3px;
+    background-color: var(--particle-color2);
+    box-shadow: 0 0 8px 2px var(--particle-color2);
+    left: 65%;
+    animation: subtleCityGlow 12s infinite ease-in-out;
+    animation-delay: -3s;
+}
+@keyframes subtleCityGlow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: translateY(0px) scale(0.7);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-3px) scale(1);
+    }
+}
+.title-bar {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(4px);
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 5px 2px #f8baff00;
+    border-radius: 4px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0)
+}
+.title-bar h4 {
+    visibility: hidden;
+}
+.theme-card__author__name {
+    font-size: small;
+}
+.title-bar::after {
+    content: "";
+    width: 25px;
+    height: 23px;
+    background: center/contain no-repeat url('https://www.iconsdb.com/icons/download/orange/star-8-256.png');
+    animation: crownSymSpinLock 10s ease-in-out infinite;
+    transform-origin: 50% 50%;
+}
+@keyframes crownSymSpinLock {
+    0% {
+        transform: rotate(0deg);
+        filter: drop-shadow(0 0 4px rgba(255,165,0,0.8))
+                drop-shadow(0 0 8px rgba(255,140,0,0.6));
+    }
+    20% {
+        transform: rotate(72deg);
+        filter: drop-shadow(0 0 6px rgba(255,200,0,1))
+                drop-shadow(0 0 14px rgba(255,165,0,0.9))
+                drop-shadow(0 0 20px rgba(255,100,0,0.8));
+    }
+    40% {
+        transform: rotate(144deg);
+        filter: drop-shadow(0 0 4px rgba(255,165,0,0.8))
+                drop-shadow(0 0 8px rgba(255,140,0,0.6));
+    }
+    60% {
+        transform: rotate(216deg);
+        filter: drop-shadow(0 0 6px rgba(255,200,0,1))
+                drop-shadow(0 0 14px rgba(255,165,0,0.9))
+                drop-shadow(0 0 20px rgba(255,100,0,0.8));
+    }
+    80% {
+        transform: rotate(288deg);
+        filter: drop-shadow(0 0 4px rgba(255,165,0,0.8))
+                drop-shadow(0 0 8px rgba(255,140,0,0.6));
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: drop-shadow(0 0 6px rgba(255,200,0,1))
+                drop-shadow(0 0 14px rgba(255,165,0,0.9))
+                drop-shadow(0 0 20px rgba(255,100,0,0.8));
+    }
+}
+::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    background-color: var(--main-container-blur)
+}
+.container__content,
+.home__content,
+.catalogue,
+.downloads__view,
+.settings__view {
+    background: #0e0b0b21 !important; 
+    border-bottom: #171717;
+    border-top: transparent !important;
+    border-radius: 10px;
+    position: relative;
+    z-index: 5;
+    }
+.achievement-panel,
+.achievements__list {
+    background: #0e0b0b21 !important; 
+    border-bottom: #171717;
+    border-top: transparent !important;
+    position: relative;
+    z-index: 5;
+
+
+}
+.header,
+.sidebar,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.settings-download-sources__item,
+.download-group__item,
+.achievements__item,
+.theme-card,
+.settings__container,
+.downloads__container {
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    color: var(--sky-highlight-peach) !important;
+    border: 1px solid rgba(255, 255, 255, 0);
+    position: relative;
+}
+.user-stats__section-header, .recent-games__section-header, .friends-box__section-header {
+    margin: 0;
+
+}
+  .recent-games__box {
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    color: var(--text-on-dark-panel) !important;
+    border: transparent;
+    border-color: #00000000;
+    position: relative;
+    }
+   .user-stats__box, .recent-games__box, .friends-box__box {
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+.header,
+.sidebar {
+    z-index: 10;
+    border: 2px;
+}
+.bottom-panel {
+        padding: 1px 1px;
+    width: auto;
+}
+.requirement__details strong {
+    color: var(--sky-highlight-peach) !important;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+.requirement__details {
+ padding: 2px;
+}
+.game-details__description ul.bb_ul li  {
+    color: #f8dbaf !important;
+    text-align: center;
+    text-shadow: 0 2px 2px #31291d, 0 2px 2px rgba(5, 0, 5, 0.521);
+    font-size: 1.1em;
+}
+.text-field-container__text-field--dark, .text-field-container__text-field:hover {
+border: #f3050500 !important;
+ }      
+.header {
+    margin: 0px 10px 0 10px;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    border-bottom: transparent !important;
+}
+.sidebar {
+    border-top-left-radius: 10px;  
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px; 
+    border-bottom-right-radius: 8px;   
+}
+.game-details__hero-image {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.game-details__hero-backdrop {
+background-color: rgba(40, 15, 12, 0) !important;
+}
+.recent-games__box, .friends-box__box, .user-stats__box {
+    border-top-left-radius: 8px;  
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px; 
+    border-bottom-right-radius: 8px; 
+    overflow: hidden;    
+}
+.user-stats__section-header h2, .recent-games__section-header h2, .friends-box__section-header h2, .friends-box__section-header span  {
+    margin: 0 0 17px;
+}
+.sidebar, ul.list  {
+    margin: 0 10px;
+}
+.container__content {
+    align-items: stretch;
+    display: flex;
+    margin: 0 10px;
+    border-radius: 0;
+    width: auto;
+        height: auto;
+}
+.settings__content {
+ height: 100%;
+ box-shadow: 0px 0px 15px 0px #00000000;
+border: transparent
+;
+}
+.downloads__view,
+.settings__view {
+    margin: 0 10px;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+}
+section.settings__container, section.container__content{
+    border-radius: 0 0 8px 8px;
+}
+.catalogue {
+    gap: 0.0;
+    margin: 0.0;
+    padding: 17;
+    border-radius: 0 0 8px 8px;
+}
+.hero, .hero__cards, .game-card  {
+    box-shadow: 0px 0px 15px 0px #00000000;
+        border: solid 1px rgba(255, 255, 255, 0);
+}
+.sidebar__content,
+.home__content {
+  flex: 1;
+  min-height: 0;
+}
+.home__content {
+    height: 22px;
+    gap: 0.28cm;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    }
+    .dropdown-menu__item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  font-size: 14px;
+   }
+.bottom-panel {
+    margin: auto;
+    padding: auto;
+    font-size: small;
+    font-weight: lighter;
+    border-radius: 0 0 8px 8px;
+    border-top: transparent !important;
+      background-color: #15151500;
+      backdrop-filter: #0000002d !important; 
+}
+.bottom-panel__version-button small::after,
+.bottom-panel__version-button, .bottom-panel__downloads-button, .bottom-panel__downloads-button small  {
+    content: "[ Theme by Kiwo.2 ]" ;
+    color: var(--sky-highlight-peach) !important;
+    text-shadow: 2px 3px 2px rgb(0, 0, 0);
+}
+    .home__title, .bottom-panel__version-button {
+     display: none;
+    }
+    .home__content h2 {
+     display:none;
+    }
+.button {
+    background: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    color: #f8baff !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    border-radius: 6px;
+    transition: transform 0.15s ease-out, background-color 0.2s ease;
+    padding: 0.65em 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 12;
+    letter-spacing: 0.8px;
+    box-shadow: 0 1px 3px #00000033;
+}
+.home__cards, .game-card, button.hero {
+        grid-template-columns: subgrid(4, 1fr);
+        border-radius: 7px 7px 7px !important;
+}
+.button:hover {
+    transform: scale(1.03);
+    background: var(--glass-button-hover-bg) !important;
+    box-shadow: 0px 2px 5px #14141459;
+}
+.sidebar__section:nth-of-type(2) > .sidebar__section-title::after {
+  content: "⭐";
+  padding: 4px;
+  font-size: 16px;
+  }
+ .octicon-heart, .octicon.octicon-heart-fill {
+   display: none !important;
+}
+.hero-panel-actions__action:nth-of-type(2)::before {
+  content: "⭐";
+  font-size: 16px;
+}
+.container__content .button--outline,
+.button--outline.requirement__button {
+    backdrop-filter: blur(var(--glass-item-blur));
+    background-color: #00000034 !important;
+    color: var(--sunset-orange-light) !important;
+    border-radius: 6px;
+    transition: transform 0.15s ease-out, background-color 0.2s ease;
+    padding: 0.65em 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 12;
+    letter-spacing: 0.8px;
+}
+.container__content .button--outline:hover {
+  transform: translateY(-6px) scale(1);
+  background: linear-gradient(135deg) 
+   !important;
+}
+.requirement__button-container .requirement__button:hover {
+  transform: translateY(3px) scale(1);
+  background: linear-gradient(135deg);
+    border-radius: 12px !important;
+}
+.sidebar__content {
+  height: 4px 4px;
+}
+.sidebar__menu-item-button {
+    color: var(--text-on-dark-panel);
+    font-weight: 500;
+    background-color: transparent;
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 10px 15px;
+    margin: 4px 8px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.filter-section__title {
+    font-size: 16px;
+    font-weight: bold;
+}
+.sidebar {
+border-radius: 8px
+}
+.header-filters-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+filter-section__count {
+    font-size: 15px;
+    font-weight: bold;
+}
+.theme-card__author {
+    font-weight: bold;
+    font-size: small;
+}
+.sidebar__menu-item-button:hover {
+    background-color: rgba(0, 0, 0, 0.178);
+    transform: translateX(3px);
+}
+.sidebar__menu-item-button-label {
+    color: var(--text-on-dark-panel);
+}
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin: 8px;
+    z-index: 11;
+}
+.sidebar-profile__button {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    width: 100%;
+    padding: 0;
+}
+.sidebar-profile__button:hover {
+        background-color: rgba(0, 0, 0, 0.178);
+            transition: transform 0.2s ease;
+}
+.sidebar-profile__button-content {
+    display: flex;
+    align-items: center;
+    color: var(--text-on-dark-panel);
+    width: 100%;
+    gap: 10px;
+}
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--sunset-orange-light);
+}
+.profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.sidebar-profile__button-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar-profile__button-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(245, 153, 248);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px rgba(253, 238, 187, 0.5);
+}
+.sidebar-profile__friends-button {
+    background: #00000000;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-sizing: border-box;
+    margin-left: auto;
+    padding: 0;
+}
+.sidebar-profile__friends-button:hover, .sidebar-section__button:hover, .link.list__item:hover, .dropdown-menu__item:hover {
+        background-color: rgba(0, 0, 0, 0.178);
+        
+        transition: all ease 0.2s;
+        border-radius: 8px;
+}
+.sidebar-profile__friends-button svg {
+    width: 16px;
+    height: 16px;
+    transition: fill 0.2s ease;
+}
+.achievement-panel__link {
+  color: transparent;
+}
+.sidebar-profile__friends-button:hover svg {
+    fill: var(--sunset-orange-light);
+}
+.profile-hero__avatar-button {
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(228, 122, 255, 0.4);
+    width: 90px;
+    min-width: 90px;
+    height: 90px;
+    min-height: 90px;
+    overflow: hidden !important;
+    border: 1.20px solid #dab0e2 ;
+    z-index: 12;
+}
+.profile-hero__hero-panel--transparent {
+        border-top: solid 1px rgba(255, 255, 255, 0);
+    background: #00000041 !important;
+    border-radius: 4px;
+    background-color: #292828;
+    }
+.profile-hero__avatar-button img,
+.profile-hero__avatar-button .profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+.game-item {
+    padding: 10px;
+    gap: 15px;
+    border-radius: 8px;
+    height: auto;
+}
+.game-item:hover {
+    transform: scale(1.015);
+    box-shadow: 0 0 12px var(--accent-glow-color);
+}
+.header__search {
+    width: 266px;
+    padding: 7px 12px; 
+}
+.modal__content {
+    font-weight: bold;
+    color: var(--text-on-dark-panel);
+    border-radius: 8px;
+    z-index: 101;
+}
+.achievement-panel {
+    background-color: transparent;
+    color: var(--sky-highlight-peach);
+    border-color: var(--glass-item-border-color);
+}
+.toast {
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    color: var(--text-on-dark-panel) !important;
+    font-weight: bold;
+    border: 1px solid var(--glass-item-border-color) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    position: flex;
+}
+.toast__icon--success {
+        color: rgba(150,255,150,1)
+    }
+.user-library-game__wrapper {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--city-silhouette-dark);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+.user-library-game__wrapper:hover {
+    transform: scale(1.02);
+}
+.achievement-notification__outer-container {
+    position: relative;
+    border: 1px solid var(--accent-glow-color);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.8),
+                0 0 20px var(--accent-glow-color);
+    overflow: hidden;
+    color: rgb(231, 175, 238) !important;
+    background: transparent !important;
+}
+.achievement-notification__outer-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(20, 20, 20, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: -1;
+}
+.achievement-notification__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    background: #0000006c !important;
+    color: var(--text-on-button);
+    border-color: var(--accent-glow-color, rgb(240, 228, 177)) !important;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+}
+
+.achievement-notification__description {
+    color: rgb(248, 195, 255) !important;
+}
+.download-group__cover-image {
+   z-index: 0.7 !important;
+    
+}
+.how-long-to-beat__category {
+    background: none;
+    border: none;
+    padding: 4px;
+}
+.how-long-to-beat__category-label, how-long-to-beat__category-label--bold {
+ vertical-align: bottom;
+ color: rgb(231, 175, 238) !important;
+}
+
+
+.achievement-notification__title {
+    color: var(--text-on-button);
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+    font-size: 1em;
+    text-shadow: 1px 1px 1px var(--city-silhouette-light);
+}
+.game-card__title,
+.how-long-to-beat__category,
+.sidebar-section__button,
+.list__item,
+.filter-item,
+.user-friend-item__display-name,
+.recent-games__game-title,
+.select-field__option,
+.theme-card__author,
+.user-stats__list-title,
+.friends-box__game-info,
+.repacks-modal__repack-title,
+.modal__close-button-icon,
+.sidebar__menu-item-button,
+.game-item__repackers,
+.download-settings-modal__hint-text,
+.game-item__details,
+.modal__header-title h3,
+.octicon-gear,
+.octicon-mail, 
+.octicon-key,
+.octicon-cloud,
+.game-card__specifics-item,
+.dropdown-menu__item-icon,
+.header__action-button:hover,
+.dropdown-menu__item-icon {
+    color: var(--sky-highlight-peach);
+}
+.text-field-container__text-field-input::placeholder,
+.text-field-container__text-field-input,
+.hero__description,
+.bb_ul,
+.how-long-to-beat__category-label,
+.subscription-required-button,
+.stats__section,
+.achievements__item-title + p,
+.achievement-panel__link--warning,
+.achievements-content__user-summary__container__stats,
+.game-details__description,
+.header__search-input::placeholder,
+.header__search-input,
+.head-er__search-input,
+.sidebar-section__chevron,
+.octicon-check,
+.filter-section__clear-button,
+.sidebar__section-title,
+.catalogue__filters__list,
+.hero-panel__content,
+.user-friend-modal__friend-code-button,
+.user-friend-modal__friend-code-button:hover,
+.download-group__title,
+.user-library-game__playtime,
+.friends-box__friend-name,
+.select-field__label,
+.settings-download-sources__navigate-button,
+.theme-card__header__title,
+.theme-card__author__name,
+.theme-card__author__name:hover,
+.user-stats__link--warning,
+.user-stats__stats-row,
+.repacks-modal__repack-info,
+.button.button--outline,
+.button.button--danger,
+.user-stats__list-description,
+.user-stats__link,
+.game-item__genres,
+.checkbox-field__label,
+.hero-panel__progress-bar hero-panel__progress-bar--disabled,
+.hero-panel__progress-bar,
+.modal__header-title,
+.dropdown-menu__group,
+.settings-general__common-redist-description,
+.sidebar-profile__friends-button svg,
+.octicon-home,
+.octicon-apps,
+.octicon-download,
+.octicon-gear,
+.user-friend-item__button,
+.settings-account__section small,
+.settings-account__section p,
+.achievements__item-points-value,
+.header__section.header__section--left .octicon-arrow-left,
+.achievements-content__comparison__container__subscription-required-,
+.modal__header h3 {
+    color: var(--sunset-orange-light); 
+    font-family: inherit;
+    opacity: 1;
+}
+.text-field-container__text-field-wrapper .octicon-file, button.button.button--primary .octicon-desktop-download, .settings-appearance__actions-left .octicon.octicon-globe
+     { 
+  color: var(--sky-highlight-peach); 
+}
+.profile-hero__display-name, .sidebar-profile__button-title {
+  color: var(--sunset-orange-light) !important;
+}
+strong, .bb_tag, li::marker {
+  color: #f6afff !important;
+}
+.button.button--outline.hero-panel-actions__action .octicon-gear {
+  color: var(--sky-highlight-peach) !important;
+}
+.sidebar__play-button svg {
+    --glow: rgba(150,255,150,1);
+    fill: var(--glow) !important;
+    transition: .3s ease;
+    animation: pulse 1.5s infinite alternate;
+}
+.sidebar-profile__friends-button-badge {
+    color: #292828;
+        background-color: var(--text-on-dark-panel);
+}
+.user-friend-item__cancel-button { 
+    color: #fa4c4c
+}
+.game-details__cloud-icon {
+          filter: drop-shadow(0 0 6px #81f753) brightness(1.2);
+}
+ .report-profile__button, .profile-hero__actions .octicon.octicon-sign-out, .settings-appearance__themes .octicon.octicon-trash, .button--danger.settings-appearance__button .octicon-trash, .settings-download-sources__header .octicon.octicon-trash, .settings-download-sources__item .octicon.octicon-no-entry, .octicon.octicon-blocked, .octicon.octicon-lock, .toast__icon--error, .dropdown-menu__content .octicon-trash, .achievements-content__comparison__container__subscription-required-button, .button.button--primary.report-profile__submit { 
+    color: #ff6464 !important;
+}
+.game-card__title { 
+   font-size: 14px;
+}
+.select-field--primary, .select-field--primary:hover, .link.friends-box__list-item:hover, .link.recent-games__list-item:hover, .user-stats__list-item:hover { 
+           background-color: #00000023 !important;
+           border: #00000000 !important;
+}
+.sidebar__play-button.sidebar__play-button--active svg {
+    --glow: #ff6464;
+}
+@keyframes pulse {
+    0%,100% {
+        filter: drop-shadow(0 0 6px var(--glow))
+                drop-shadow(0 0 14px var(--glow))
+                drop-shadow(0 0 22px var(--glow));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px var(--glow))
+                drop-shadow(0 0 20px var(--glow))
+                drop-shadow(0 0 28px var(--glow));
+    }
+}
+.hero__description {
+    color: var(--sunset-orange-light) !important;
+    font-family: Arial;
+    font-weight: bold;
+     text-shadow: 0px 0px 25px #c07bba81;
+}
+.user-library-game__overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.212) 20%, transparent 100%);
+    padding: 8px;
+}
+.filter-item {
+  background-color: rgba(0, 0, 0, 0.171);
+  border: solid 1px rgba(255, 255, 255, 0);
+  font-size: 12px;
+}
+.game-item__repackers .badge {
+  all: unset;
+  display: inline-block;
+  font-size: 12.3px;
+  padding: 4px 2.5px;
+}
+
+
+.sidebar__menu-item:hover,
+.sidebar__menu-item.sidebar__menu-item--active,
+.game-card__download-options * {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  color: inherit !important;
+}
+.game-card__download-options * {
+  color: #f8baff !important;
+  font-size: 11.5px;
+}
+.game-details__cloud-sync-button,
+.button--primary {
+  color: #f8baff 
+}
+section.settings__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.button.button--primary, .button.button--dark {
+     color: var(--sky-highlight-peach) !important;
+  background: none !important;
+  background-color: none !important;
+  border: none !important;
+  box-shadow: none !important; 
+}
+button.button.button--primary{
+    border: #14141459 !important;
+  color: #ffe1b5 !important;
+  transition: transform 0.12s ease-out; 
+}
+button.button.button--primary:hover {
+  border: #14141459 !important;
+  box-shadow: #14141459 !important;
+  transform: scale(0.95);
+  transition: transform 0.08s ease-in;
+}
+.link {
+  color: #f8baff !important;
+    opacity: 1;
+}
+.profile-hero__information small {
+  color: rgb(226, 206, 169) !important;
+  font-size: 13px;
+}
+.user-library-game__achievements-progress::-webkit-progress-value {
+  background-color: rgb(226, 206, 169);
+  box-shadow: 0 0 6px rgb(197, 134, 8);
+  transition: width 0.3s ease;
+}
+.requirement__button-container button:disabled {
+  color: #fff !important;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.button.button--primary {
+  background-color: #00000013 !important;
+  color: var(--sky-highlight-peach) !important;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.button.button--primary  {
+  color: #f7c0ff !important;
+  border: 1px solid transparent !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.hydra-cloud-modal__container .button.button--primary:hover {
+  border-color: #14141481 !important;
+  box-shadow: 0 0 4px #14141459 !important;
+}
+.button.button--primary:hover {
+  border-color: #14141481 !important;
+  box-shadow: 0 0 4px #14141459 !important;
+}
+.bb_paragraph br {
+  display: none;
+}
+video,
+.bb_video,
+.bb_gif {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: auto;
+}
+.game-details__description,
+.game-details__description i {
+        color: #f8dbaf !important;
+        text-align: center;
+    text-shadow: 0 2px 2px #31291d,
+     0 2px 2px rgba(5, 0, 5, 0.521);
+    font-size: 1.1em;
+}
+.bb_ul li {
+    color: #f8bcff !important;
+    font-family: Segoe UI;
+    font-weight: bold;
+    text-shadow: 0px 1px 3px #ef88fa00
+}
+.stats__section, .stats__category-title {
+ font-size: 1.0em;   
+ gap: 4.4px;
+}
+
+.game-details__description u {
+  text-decoration: none !important;
+  font-size: 1.1em;
+}
+.game-card__shop-icon, .user-friend-item__accept-button, .game-options-modal__executable-field-buttons svg {
+    color: rgb(167, 255, 132);
+    background-color: transparent;
+}
+.settings-download-sources__item-header div.badge {
+    color: rgb(252, 191, 253);
+    background-color: transparent;
+}
+.bb_paragraph i {
+  color: var(--sky-highlight-peach) !important;
+}
+.badge{
+    opacity: 1;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 0px 0.5px;
+  border: solid 1px #c0c1c700;
+  }
+ .game-options-modal__header-description, .game-options-modal__danger-zone-description {
+  color: var(--sky-highlight-peach) !important;
+  text-shadow: 1px 0 1px rgba(0, 0, 0, 0.678);
+    font-family: Arial;
+    text-align: left;
+    font-weight: bold;
+  }
+ p.bb_paragraph {
+  color: #fadcaa !important;
+  text-shadow: 0 2px 2px rgb(3 3 3);
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+}
+.hero-panel-playtime__download-detail, .hero-panel-playtime__downloads-link, .hero-panel-playtime__download-details  {
+  color: var(--sky-highlight-peach) !important;
+      text-decoration: none;
+  text-shadow: 0 0 4px rgba(250, 216, 153, 0),
+                 0 0 8px rgba(248, 180, 96, 0);
+}
+.edit-profile-modal__avatar-container { 
+background-color: #0e0b0b00;
+}
+ .edit-profile-modal__avatar-overlay { 
+ background-color: #0e0b0b00;
+   }
+.octicon.octicon-device-camera { 
+    background: linear-gradient
+        90deg,
+        #b97dc0 0%,
+        #ff5dc1 50%,
+        #eed8af 100%
+    }
+.link.list__item { 
+ color: var(--sky-highlight-peach) !important; 
+     opacity: 1;
+   }
+.hero-panel__progress-bar::-webkit-progress-value {
+    background: rgba(150, 255, 150, 1) !important; 
+    border-radius: 3px;
+        --glow: rgba(150, 255, 150, 1);
+    fill: var(--glow) !important;
+    filter: drop-shadow(0 0 6px var(--glow)) drop-shadow(0 4px 4px var(--glow)) drop-shadow(0 4px 4px var(--glow)) !important;
+    transition: .3s ease;
+}
+div.hero-panel {  
+    border-bottom: #00000000 !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+section.profile-hero__content-box, .profile-hero__user-information  {
+    background: linear-gradient(135deg, rgba(252, 6, 6, 0), rgba(189, 65, 28, 0)) !important;
+    border-radius: 5px;
+}
+
+.profile-hero__user-information {
+    background: #0e0b0b21 !important;
+    border-top: transparent;
+        border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        backdrop-filter: blur(15px);
+    }
+.hero-panel, .game-card__specifics-item svg  {  
+ color: #f8baff;
+        }
+progress[value]::-webkit-progress-value {
+ background: rgba(150, 255, 150, 1) !important; 
+    border-radius: 8px;
+    filter: drop-shadow(0px 0px 2px var(--glow))
+            drop-shadow(0px 0px 4px var(--glow)) !important;
+            --glow: rgba(150, 255, 150, 1);
+    transition: all 0.3s ease;
+}
+.achievements-content__user-summary__container__stats__progress-bar {
+    background: rgba(150, 255, 150, 0) !important;
+      background-color: #15151500;
+      backdrop-filter: #0000002d !important; 
+}
+.game-details__description-container, .dropdown-menu__content, .catalogue, aside.content, .profile-content__section, .home__content { 
+border-left: transparent;
+background: var(--main-container-blur);
+backdrop-filter: blur(var(--glass-item-blur)) !important;
+}
+.modal, div.modal  {
+    background-color: #0c0c0c8f !important;
+    border: solid 1px rgba(54, 50, 50, 0);   
+}
+.user-friend-item__container  {
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    background: #00000031;
+    border: solid 1px rgba(54, 50, 50, 0);   
+}
+.profile-content__section, .backdrop--windows {
+    background: #0e0b0b21 !important;
+    border-bottom: #171717;
+}
+.sidebar-section__button, .description-header { 
+ background-color: #00000000;
+  }
+.sidebar__section{ 
+     padding-bottom: 0px;
+   }
+ svg.octicon-check-circle-fill, .repacks-modal__repacks .badge, .octicon.octicon-check-circle, .octicon-plus-circle, .octicon-play, .octicon.octicon-check, .octicon.octicon-pencil, .octicon.octicon-check-circle, .download-settings-modal__downloader-icon, .hero-panel-actions__container svg.octicon.octicon-download, .backdrop.backdrop--windows .octicon.octicon-download, .octicon.octicon-sync, .octicon.octicon-device-camera, .game-item__plus-wrapper, .octicon.octicon-plus, .dropdown-menu__item-icon .octicon-download {
+    color: rgba(150,255,150,1);
+}
+ svg.octicon-x-circle-fill, .octicon-x, .modal__close-button-icon {
+    color: #ff6464;
+}
+.download-group__details .download-group__title-wrapper p {
+  color: #ff4c4c !important; 
+}
+
+   sidebar-section__content { 
+ background-color: auto;
+   }
+         .game-details__description-content { 
+        background-color: #0000002d;
+   border: 0px 0px 2cm;
+   }
+.content-sidebar {
+    position: auto;
+    width: auto;
+    background-color: #0000002d;
+    border-left-color: #0000002d;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+     border-left: solid 1px rgba(0, 0, 0, 0);
+}
+.text-field-container__text-field:focus,
+.text-field-container__text-field:focus-visible,
+.text-field-container__text-field:focus-within,
+.header__search {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+*:focus {
+    outline: none !important;
+}
+.select-field__option {
+    border-right: 4px solid;
+    border-color: transparent;
+    border-radius: 8px;
+    width: fit-content;
+    height: 100%;
+    outline: none;
+    color: #ffebc5;
+    cursor: default;
+    font-family: inherit;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    padding: 8px;
+    }
+.select-field .select-field--primary .select-field--focused {
+  border-color: #6fbd09;
+}
+.game-card__backdrop {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.685) 20%, transparent 85%);
+}
+  .user-library-game__playtime,  .user-library-game__stats-header {
+    background-color: var(--glass-item-darker) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    color: #f5affd !important;
+    text-shadow: 3px 2px 1px #0000009c;
+    border: transparent;
+    position: relative;
+    border-radius: 5px;
+   }
+.user-library-game__stats-header {
+     height: 20px;
+       padding-left: 5px;
+  padding-right: 5px;
+}
+.achievements-content__achievements-list__section__table-header__container--has-no-active-subscription {
+color: #00000000;
+display: none;
+}
+.hero-panel-actions__container .hero-panel-actions__action {
+    color: rgb(201, 253, 191);
+    background-color: transparent;
+}
+.achievement-panel__points-container, .achievement-panel__content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f8baff;
+}
