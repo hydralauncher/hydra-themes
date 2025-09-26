@@ -35,7 +35,7 @@
      }
 .game-item__cover{ 
     border-right: transparent;
- border-radius: 8px;
+    border-radius: 8px;
 }
 body {
     margin: 0;
@@ -233,8 +233,6 @@ body::after {
     position: relative;
     }
    .user-stats__box, .recent-games__box, .friends-box__box {
-   border-top-left-radius: 0;
-   border-top-right-radius: 0;
    border-radius: 8px;
    overflow: hidden;    
 }
@@ -547,7 +545,6 @@ filter-section__count {
 }
 .sidebar-profile__friends-button:hover, .sidebar-section__button:hover, .link.list__item:hover, .dropdown-menu__item:hover {
         background-color: rgba(0, 0, 0, 0.178);
-        
         transition: all ease 0.2s;
         border-radius: 8px;
 }
