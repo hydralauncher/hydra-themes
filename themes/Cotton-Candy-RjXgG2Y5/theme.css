@@ -199,7 +199,6 @@ body::after {
 
 
 }
-.header,
 .sidebar,
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
@@ -236,11 +235,8 @@ body::after {
    .user-stats__box, .recent-games__box, .friends-box__box {
    border-top-left-radius: 0;
    border-top-right-radius: 0;
-}
-.header {
-    z-index: 10;
-    border: 2px;
-
+   border-radius: 8px;
+   overflow: hidden;    
 }
 .requirement__details strong {
     color: var(--sky-highlight-peach) !important;
@@ -260,7 +256,7 @@ body::after {
 border: #f3050500 !important;
  }      
 .header {
-     width: 98.70%;
+    width: 98.70%;
     margin: 0px 10px 0 10px;
     padding: 12px 18px;
     text-transform: uppercase;
@@ -268,6 +264,12 @@ border: #f3050500 !important;
     font-weight: bold;
     border-radius: 8px 8px 0 0;
     border-bottom: transparent !important;
+    z-index: 10;
+    background-color: var(--glass-item-bg) !important;
+    backdrop-filter: blur(var(--glass-item-blur)) !important;
+    color: var(--sky-highlight-peach) !important;
+    border: 1px solid rgba(255, 255, 255, 0);
+    position: relative;
 }
 header.header--is-windows {
     width: auto;
@@ -278,13 +280,7 @@ header.header--is-windows {
     border-top-left-radius: 4px;
 }
 .game-details__hero-backdrop {
-background-color: rgba(40, 15, 12, 0) !important;
-}
-.recent-games__box,
- .friends-box__box, 
- .user-stats__box {
-    border-radius: 8px;
-    overflow: hidden;    
+background-color: rgba(40, 15, 12, 0) !important; 
 }
 .user-stats__section-header h2, .recent-games__section-header h2, .friends-box__section-header h2, .friends-box__section-header span  {
     margin: 0 0 17px;
@@ -349,17 +345,17 @@ section.settings__container, section.container__content{
   transition: background-color 0.1s ease-in-out;
   font-size: 14px;
    }
-.bottom-panel {
+   .bottom-panel {
     margin: auto;
-    padding: auto;
     font-size: small;
     font-weight: lighter;
     border-radius: 0 0 8px 8px;
     border-top: transparent !important;
-      background-color: #15151500;
-      backdrop-filter: #0000002d !important; 
-              padding: 1px 1px;
+    background-color: #15151500;
+    backdrop-filter: #0000002d !important;
+    padding: 1px 1px;
     width: auto;
+    /* AI False Flag, Intentional */
 }
 .bottom-panel__version-button small::after,
 .bottom-panel__version-button, .bottom-panel__downloads-button, .bottom-panel__downloads-button small  {
@@ -448,13 +444,13 @@ section.settings__container, section.container__content{
     font-size: 16px;
     font-weight: bold;
 }
-.sidebar {
-border-radius: 8px;
+   .sidebar {
+    border-radius: 8px;
     z-index: 10;
     border: 2px;
 
 }
-.header-filters-wrapper {
+    .header-filters-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -730,7 +726,6 @@ filter-section__count {
 }
 .text-field-container__text-field-input::placeholder,
 .text-field-container__text-field-input,
-.hero__description,
 .bb_ul,
 .how-long-to-beat__category-label,
 .subscription-required-button,
@@ -842,11 +837,10 @@ strong, .bb_tag, li::marker {
                 drop-shadow(0 0 28px var(--glow));
     }
 }
-.hero__description {
+    .hero__description {
     color: var(--sunset-orange-light) !important;
-    font-weight: bold;
-     text-shadow: 0px 0px 25px #c07bba81;
-     font: Arial;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 25px #c07bba81;
 }
 .user-library-game__overlay {
     position: absolute;
@@ -956,9 +950,9 @@ video,
      0 2px 2px rgba(5, 0, 5, 0.521);
     font-size: 1.1em;
 }
-.bb_ul li {
+    .bb_ul li {
     color: #f8bcff !important;
-    font: Arial;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-shadow: 0px 1px 3px #ef88fa00
 }
@@ -989,17 +983,17 @@ video,
   padding: 0px 0.5px;
   border: solid 1px #c0c1c700;
   }
- .game-options-modal__header-description, .game-options-modal__danger-zone-description {
-  color: var(--sky-highlight-peach) !important;
-  text-shadow: 1px 0 1px rgba(0, 0, 0, 0.678);
-    font: Arial;
+    .game-options-modal__header-description, .game-options-modal__danger-zone-description {
+    color: var(--sky-highlight-peach) !important;
+    text-shadow: 1px 0 1px rgba(0, 0, 0, 0.678);
+    font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     font-weight: bold;
   }
  p.bb_paragraph {
   color: #fadcaa !important;
   text-shadow: 0 2px 2px rgb(3 3 3);
-    font: Arial;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-weight: bold;
 }
@@ -1113,10 +1107,9 @@ backdrop-filter: blur(var(--glass-item-blur)) !important;
     position: auto;
     width: auto;
     background-color: #0000002d;
-    border-left-color: #0000002d;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-     border-left: solid 1px #00000000;
+    border-left: solid 1px #00000000;
 }
 .text-field-container__text-field:focus,
 .text-field-container__text-field:focus-visible,
