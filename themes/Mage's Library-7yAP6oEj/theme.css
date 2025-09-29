@@ -784,39 +784,9 @@ select option {
 
 
 
-.game-details__cloud-sync-button {
-  
-  display: inline-flex; 
-  align-items: center;
-  gap: 8px; 
-  margin-top: 15px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  color: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
 
-.game-details__cloud-sync-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
 
-.game-details__cloud-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.game-details__cloud-icon {
-  width: 18px; 
-  height: 18px;
-  margin-top: 3.5px;
-}
 
 
 .hero-panel {
@@ -2236,15 +2206,7 @@ padding: 15px;
   width: auto;
   isolation: isolate;
 }
-.user-friend-modal-add-friend__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
 
-.text-field-container {
-  width: 100%;
-}
 
 .user-friend-modal-add-friend__button {
   flex: 1;
