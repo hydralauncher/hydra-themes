@@ -734,6 +734,20 @@ body {
   margin: 10px 0;
 }
 
+.game-item__plus-wrapper {
+  right: 15px;
+  top: 15px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-item:hover .game-item__plus-wrapper--added {
+  opacity: 0.5 !important;
+}
+
 /* Search */
 
 .sidebar__section .text-field-container {
@@ -1140,6 +1154,10 @@ body {
 
 .settings-download-sources__navigate-button {
   color: var(--text-accent);
+}
+
+.settings-download-sources__navigate-button small {
+  font-weight: 500;
 }
 
 .text-field-container__error-label {
@@ -2197,11 +2215,13 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524'/%3E%3Cpath fill='%23fff' d='M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.339 1.181-5.245l.267-4.188c.1-1.577.15-2.366-.303-2.865c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.288-.303 2.865l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M9.425 11.482c.413-.044.78.273.821.707l.5 5.263c.041.433-.26.82-.671.864c-.412.043-.78-.273-.821-.707l-.5-5.263c-.041-.434.26-.821.671-.864m5.15 0c.412.043.713.43.671.864l-.5 5.263c-.04.434-.408.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.041-.433.409-.75.82-.707' clip-rule='evenodd'/%3E%3C/svg%3E");
 }
 
+.game-item__plus-wrapper svg.octicon-plus,
 .settings-download-sources__buttons-container .button--outline svg.octicon-plus-circle,
 .settings-appearance__button svg.octicon-plus {
   display: none !important;
 }
 
+.game-item__plus-wrapper:has(svg.octicon-plus)::before,
 .settings-download-sources__buttons-container .button--outline:has(svg.octicon-plus-circle)::before,
 .settings-appearance__button:has(svg.octicon-plus)::before {
   content: " ";
@@ -2395,4 +2415,18 @@ body {
   background: no-repeat center/contain;
   vertical-align: middle;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M2 16c0-2.828 0-4.243.879-5.121C3.757 10 5.172 10 8 10h8c2.828 0 4.243 0 5.121.879C22 11.757 22 13.172 22 16s0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004c.567.005 1.064.018 1.5.05V8a6.75 6.75 0 0 0-13.5 0v2.055a24 24 0 0 1 1.5-.051z'/%3E%3C/svg%3E");
+}
+
+.game-item__plus-wrapper--added svg.octicon-check {
+  display: none !important;
+}
+
+.game-item__plus-wrapper--added:has(svg.octicon-check)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M6.5 18v-.09c0-.865 0-1.659.087-2.304c.095-.711.32-1.463.938-2.08c.618-.619 1.37-.844 2.08-.94c.646-.086 1.44-.086 2.306-.086h.178c.866 0 1.66 0 2.305.087c.711.095 1.463.32 2.08.938c.619.618.844 1.37.94 2.08c.085.637.086 1.416.086 2.267c2.573-.55 4.5-2.812 4.5-5.52c0-2.47-1.607-4.572-3.845-5.337C17.837 4.194 15.415 2 12.476 2C9.32 2 6.762 4.528 6.762 7.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 9.53 2 11.426 2 13.765S3.919 18 6.286 18z' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 22c-1.886 0-2.828 0-3.414-.586S8 19.886 8 18s0-2.828.586-3.414S10.114 14 12 14s2.828 0 3.414.586S16 16.114 16 18s0 2.828-.586 3.414S13.886 22 12 22m1.805-3.084l-1.334 1.333a.667.667 0 0 1-.942 0l-1.334-1.333a.667.667 0 1 1 .943-.943l.195.195v-1.946a.667.667 0 0 1 1.334 0v1.946l.195-.195a.667.667 0 0 1 .943.943' clip-rule='evenodd'/%3E%3C/svg%3E");
 }
