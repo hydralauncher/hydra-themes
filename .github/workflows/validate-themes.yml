@@ -1,0 +1,27 @@
+name: Validate Themes
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on: pull_request
+
+jobs:
+  validate-themes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+
+      - uses: mskelton/setup-yarn@v3
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Validate themes
+        run: |
+          yarn validate-themes

@@ -1,27 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ThemeList } from "@/components/ui/theme-list";
-import themeList from "@/lib/themes.json";
-
-import { redis } from "@/lib/redis";
-
-const themes = await Promise.all(
-  themeList.map(async (theme) => {
-    const themeData = await redis.get(`theme:${theme.id}`).then((data) => {
-      if (!data) return { downloads: 0, favorites: 0 };
-      return JSON.parse(data);
-    });
-
-    return { ...theme, ...themeData };
-  }),
-);
 ---
 
 <Layout title="Hydra Themes">
-  <ThemeList client:load themes={themes} />
-
-  <!-- TODO: finish pagination -->
-  <!-- <div class="flex justify-center py-24 absolute bottom-0 w-full left-0">
-        <ThemePagination pagination={{ page: 1, perPage: 16, total: themes.length }} />
-    </div> -->
+  <ThemeList client:load />
 </Layout>

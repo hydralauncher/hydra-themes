@@ -2,18 +2,53 @@ import "dotenv/config";
 
 import fs from "node:fs";
 import path from "node:path";
-import type { Theme } from "./schemas/theme";
-import axios from "axios";
+import sharp from "sharp";
+import { api } from "./api";
+import postcss from "postcss";
+import selectorParser from "postcss-selector-parser";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
 
-const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
+const getThemeAchievementsSupport = async (
+  publicThemePath: string,
+): Promise<boolean> => {
+  try {
+    const result = postcss().process(
+      fs.readFileSync(path.join(publicThemePath, "theme.css"), "utf8"),
+    );
 
-if (!hydraHeaderSecret) {
-  throw new Error("HYDRA_HEADER_SECRET is not set");
-}
+    const classNames = new Set<string>();
+
+    const extractClasses = selectorParser((selectors) => {
+      selectors.walkClasses((classNode) => {
+        classNames.add(classNode.value);
+      });
+    });
+
+    result.root.walkRules((rule) => {
+      extractClasses.processSync(rule.selector);
+    });
+
+    for (const className of classNames) {
+      if (className.startsWith("achievement-notification")) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (err) {
+    console.error(
+      `Failed to get theme achievements support for ${publicThemePath}`,
+      err,
+    );
+
+    return false;
+  }
+};
+
+const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
 
 Promise.all(
   folders.map(async (folder) => {
@@ -21,7 +56,9 @@ Promise.all(
     const files = fs.readdirSync(folderPath);
 
     const cssFile = files.find((file) => file.endsWith(".css"));
-    const screenshotFile = files.find((file) => file.startsWith("screenshot"));
+    const screenshotFile = files.find((file) =>
+      file.toLowerCase().startsWith("screenshot"),
+    );
 
     if (!cssFile) {
       console.error(`No css file found for theme ${folder}`);
@@ -34,97 +71,74 @@ Promise.all(
     }
 
     const parts = folder.split("-");
-    const themeName = parts[0];
-    const authorCode = parts.at(-1);
+    const authorCode = parts.pop()?.trim();
+    const themeName = parts.join("-").trim();
 
-    const response = await axios.get(
-      `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "hydra-token": hydraHeaderSecret,
-        },
-      },
-    );
-
-    if (response.status !== 200) {
-      console.error(`Failed to fetch author ${authorCode}`);
-      return;
-    }
-
-    await axios
-      .post(
-        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
-        {},
-        {
+    if (hydraHeaderSecret) {
+      await api
+        .post(`badges/${authorCode}/theme`, {
           headers: {
-            "Content-Type": "application/json",
             "hydra-token": hydraHeaderSecret,
           },
-        },
-      )
-      .catch((err) => {
-        console.error(
-          `could not update user (${authorCode}) badge`,
-          err.message,
-          err.response?.data,
-        );
-      });
+        })
+        .catch((err) => {
+          console.error(
+            `could not update user (${authorCode}) badge`,
+            err.message,
+            err.response?.data,
+          );
+        });
+    }
 
-    const data = response.data as Theme["author"];
-
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
     );
 
-    const url = new URL(data.profileImageUrl);
-    url.search = "";
+    if (!fs.existsSync(publicThemePath)) {
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
 
-    data.profileImageUrl = url.toString();
+      fs.renameSync(
+        path.join(publicThemePath, cssFile),
+        path.join(publicThemePath, "theme.css"),
+      );
 
-    const fileExt = path.extname(data.profileImageUrl);
-    const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-      res.arrayBuffer(),
-    );
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(340, null, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(path.join(publicThemePath, "screenshot.webp"));
 
-    fs.writeFileSync(
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        `author${fileExt}`,
-      ),
-      Buffer.from(authorResponse),
-    );
+      if (screenshotFile !== "screenshot.webp") {
+        fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+      }
+    }
+
+    const hasAchievementsSupport =
+      await getThemeAchievementsSupport(publicThemePath);
 
     return {
-      id: `${authorCode}:${themeName}`,
       name: themeName,
-      author: data,
-      screenshotFile: screenshotFile,
-      cssFile: cssFile,
-      authorImage: `author${fileExt}`,
-      downloads: 0,
-      favorites: 0,
-    } as Theme;
+      authorId: authorCode,
+      hasAchievementsSupport,
+    };
   }),
-).then((themes) => {
-  console.log(`Generated ${themes.length} themes`);
+)
+  .then((themes) => themes.filter((theme) => theme))
+  .then(async (themes) => {
+    console.log(`Generated ${themes.length} themes`);
 
-  fs.writeFileSync(
-    path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
-  );
-});
+    if (hydraHeaderSecret) {
+      await api.post("themes", {
+        json: themes,
+        headers: {
+          "hydra-token": hydraHeaderSecret,
+        },
+      });
+    } else {
+      console.log("HYDRA_HEADER_SECRET is not set, skipping theme upload");
+    }
+  });

@@ -1,83 +1,89 @@
 import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
-import { DownloadIcon, HeartIcon } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import {
+  CheckCircle2Icon,
+  DownloadIcon,
+  HeartIcon,
+  XCircleIcon,
+} from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
+import { cn } from "@/lib/utils";
+import { compactNumber } from "@/lib/helpers";
+import { api } from "@/lib/api";
 
 export interface ThemeCardProps {
   theme: Theme;
 }
 
+const AVATAR_SIZE = 25;
+
 export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [favoriteCount, setFavoriteCount] = useState(theme.favorites);
-  const [downloadCount, setDownloadCount] = useState(theme.downloads);
+  const [isFavorite, setIsFavorite] = useState(theme.isFavorite);
+  const [favoriteCount, setFavoriteCount] = useState(theme.favoriteCount);
+  const [downloadCount, setDownloadCount] = useState(theme.downloadCount);
 
-  useEffect(() => {
-    const isFavorite = window.localStorage.getItem(
-      `theme_favorite:${theme.name}`,
-    );
-
-    setIsFavorite(isFavorite === "true");
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const performThemeAction = useCallback(
-    (action: string) => {
-      fetch("/api/theme", {
-        method: "PUT",
-        body: JSON.stringify({
-          themeId: theme.id,
-          action,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    async (action: "install" | "favorite" | "unfavorite") => {
+      setIsLoading(true);
+
+      try {
+        if (action === "unfavorite") {
+          await api.put(`themes/${theme.id}/unfavorite`);
+        } else {
+          await api.put(`themes/${theme.id}/${action}`);
+        }
+      } finally {
+        setIsLoading(false);
+      }
     },
     [theme],
   );
 
-  const installTheme = useCallback(() => {
+  const installTheme = useCallback(async () => {
     const searchParams = new URLSearchParams({
       theme: theme.name,
       authorId: theme.author.id,
       authorName: theme.author.displayName,
     });
 
-    window.open(
-      `hydralauncher://install-theme?${searchParams.toString()}`,
-      "_blank",
-    );
+    window.location.href = `hydralauncher://install-theme?${searchParams.toString()}`;
 
-    performThemeAction("install");
+    await performThemeAction("install");
     setDownloadCount(downloadCount + 1);
   }, [theme]);
 
-  const toggleFavorite = useCallback(() => {
+  const toggleFavorite = useCallback(async () => {
     const updatedIsFavorite = !isFavorite;
     setIsFavorite(updatedIsFavorite);
 
-    window.localStorage.setItem(
-      `theme_favorite:${theme.name}`,
-      updatedIsFavorite.toString(),
-    );
-
     if (isFavorite) {
-      performThemeAction("remove-favorite");
+      performThemeAction("unfavorite");
       setFavoriteCount(favoriteCount - 1);
       return;
     }
 
     performThemeAction("favorite");
     setFavoriteCount(favoriteCount + 1);
-  }, [isFavorite, favoriteCount, theme]);
+  }, [isFavorite, favoriteCount, performThemeAction, theme]);
+
+  const profileImageUrl = useMemo(() => {
+    if (!theme.author.profileImageUrl) return null;
+
+    const bucketObject = theme.author.profileImageUrl.split("/");
+
+    return `https://cdn.losbroxas.org/cdn-cgi/image/width=${AVATAR_SIZE},height=${AVATAR_SIZE},format=webp/${bucketObject.join("/")}`;
+  }, [theme.author.profileImageUrl]);
 
   return (
     <div className="group w-full rounded-xl border p-2 transition-all">
       <div className="h-48 w-full rounded-lg bg-muted/20">
         <img
-          src={`/themes/${theme.name.toLowerCase()}/${theme.screenshotFile}`}
+          src={`/themes/${theme.name.toLowerCase()}/screenshot.webp`}
           alt={theme.name}
           className="size-full rounded-lg object-cover"
+          loading="lazy"
         />
       </div>
 
@@ -90,14 +96,14 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           <div className="h-px flex-1 bg-muted/50"></div>
 
           <div className="flex items-center gap-2">
-            <DownloadIcon className="size-4 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">
-              {downloadCount}
-            </span>
-
             <HeartIcon className="size-4 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">
-              {favoriteCount}
+              {compactNumber(favoriteCount)}
+            </span>
+
+            <DownloadIcon className="size-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">
+              {compactNumber(downloadCount)}
             </span>
           </div>
         </div>
@@ -105,10 +111,17 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-              src={`/themes/${theme.name.toLowerCase()}/${theme.authorImage}`}
+              src={profileImageUrl ?? "/fallback-avatar.svg"}
               alt={theme.author.displayName}
-              className="size-6 rounded-full"
+              loading="lazy"
+              className={cn(
+                {
+                  "bg-muted/50 object-cover": profileImageUrl,
+                },
+                "size-6 rounded-full",
+              )}
             />
+
             <a
               href={`hydralauncher://profile?userId=${theme.author.id}`}
               className="cursor-pointer text-xs text-muted-foreground hover:underline"
@@ -118,17 +131,48 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
           </div>
 
           <div className="flex flex-row gap-2">
-            <Button variant="outline" size="icon" onClick={toggleFavorite}>
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-lg"
+              onClick={toggleFavorite}
+              aria-label="Toggle theme as favorite"
+              disabled={isLoading}
+            >
               <HeartIcon
                 fill={isFavorite ? "currentColor" : "none"}
                 className="size-4 text-muted-foreground"
               />
             </Button>
 
-            <Button variant="outline" size="default" onClick={installTheme}>
+            <Button
+              variant="outline"
+              size="default"
+              className="rounded-lg"
+              onClick={installTheme}
+              disabled={isLoading}
+            >
               Install
             </Button>
           </div>
+        </div>
+
+        <div className="flex flex-row items-center gap-2">
+          {theme.hasAchievementsSupport ? (
+            <>
+              <CheckCircle2Icon className="size-4 text-green-500" />
+              <span className="text-xs text-muted-foreground">
+                Supports Achievements
+              </span>
+            </>
+          ) : (
+            <>
+              <XCircleIcon className="size-4 text-red-500" />
+              <span className="text-xs text-muted-foreground">
+                Does not support Achievements
+              </span>
+            </>
+          )}
         </div>
       </div>
     </div>
