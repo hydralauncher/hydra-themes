@@ -1,0 +1,225 @@
+  .sidebar,
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: black !important; 
+  }
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+  
+    background-color: rgb(0, 0, 0) !important;
+
+    }
+
+  .container__content .button--outline {
+    background-color: rgb(0, 0, 0);
+  }
+
+
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background-color: rgb(0, 0, 0) !important;
+  }
+
+
+  .title-bar {
+    background-color: rgb(0, 0, 0);
+  }
+
+
+  .home__content {
+    background-color: rgb(0, 0, 0);
+  }
+
+  .bottom-panel {
+    background-color: rgb(0, 0, 0);
+  }
+
+  .content-sidebar{
+    background-color: #000000;
+  }
+  .gallery-slider__container{
+    background-color: #000000;
+  }
+
+  .game-details__description{
+    background-color: #000000;
+  }
+  .game-details__description-content{
+    background-color: #000000;
+  }
+  
+  .sidebar-section__button{
+    background-color: #1a1a1a;
+  }
+
+  .description-header{
+    background-color: #1a1a1a;
+  }
+
+
+.achievement-notification__container,
+.achievement-notification__outer-container {
+    box-sizing: border-box;
+    border: 1px solid #9b9b9b;
+    border-radius: 8px;
+}
+
+.achievement-notification__container {
+    background-color: #808080;
+    color: #000000;
+}
+
+.achievement-notification__icon {
+    border: 1px solid #c0c0c0;
+    animation: pulseGlowSilver 2s infinite ease-in-out;
+}
+
+.achievement-notification__chip {
+    border: 1px solid #c0c0c0;
+    color: #000000;
+    background: #a9a9a9;
+}
+
+.achievement-notification__chip__label {
+    color: #000000;
+}
+
+.achievement-notification__chip__icon path {
+    fill: #000000;
+}
+
+.achievement-notification__description {
+    color: #000000;
+}
+
+@keyframes pulseGlowSilver {
+    0% { box-shadow: 0 0 5px -2px #ffffff, 0 0 15px -5px #ffffff; }
+    50% { box-shadow: 0 0 8px 0px #ffffff, 0 0 30px -2px #ffffff; }
+    100% { box-shadow: 0 0 5px -2px #ffffff, 0 0 15px -5px #ffffff; }
+}
+
+.achievement-notification--rare .achievement-notification__container {
+    background-color: #ffc80093;
+    border-color: #ffd900bb;
+}
+
+.achievement-notification--rare .achievement-notification__title {
+    color: #000000;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+    border-color: #FFD700;
+    animation: pulseGlowRare 2.5s infinite ease-in-out;
+}
+
+.achievement-notification--rare .achievement-notification__chip {
+    background: #836f2c;
+    color: #FFD700;
+    border-color: #FFD700;
+}
+
+.achievement-notification--rare .achievement-notification__chip__label {
+    color: #FFD700;
+}
+
+.achievement-notification--rare .achievement-notification__chip__icon path {
+    fill: #FFD700;
+}
+
+@keyframes pulseGlowRare {
+    0% { box-shadow: 0 0 5px -2px #FFD700, 0 0 15px -5px #FFD700; }
+    50% { box-shadow: 0 0 8px 0px #FFD700, 0 0 30px -2px #FFD700; }
+    100% { box-shadow: 0 0 5px -2px #FFD700, 0 0 15px -5px #FFD700; }
+}
+
+.achievement-notification--platinum .achievement-notification__container {
+    background: linear-gradient(145deg, #1b2838, color-mix(in srgb, #1b2838 60%, #b0e0e6 40%));
+    border-color: #b0e0e6;
+}
+
+.achievement-notification--platinum .achievement-notification__title {
+    color: #b0e0e6;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+    border: 1px solid #b0e0e6;
+    animation: pulseGlowPlatinum 2s infinite ease-in-out;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+    background: #b0e0e6;
+    color: #1b2838;
+    border: 1px solid color-mix(in srgb, #66c0f4 70%, black 30%);
+    font-weight: bold;
+}
+
+.achievement-notification--platinum .achievement-notification__chip__label {
+    color: #1b2838;
+}
+
+.achievement-notification--platinum .achievement-notification__chip__icon path {
+    fill: #1b2838;
+}
+
+.achievement-notification--platinum .achievement-notification__description {
+    color: #ffffff;
+}
+
+@keyframes pulseGlowPlatinum {
+    0% { box-shadow: 0 0 5px -2px #b0e0e6, 0 0 15px -5px #b0e0e6; }
+    50% { box-shadow: 0 0 8px 0px #b0e0e6, 0 0 30px -2px #b0e0e6; }
+    100% { box-shadow: 0 0 5px -2px #b0e0e6, 0 0 15px -5px #b0e0e6; }
+}
+
+.achievement-notification--hidden .achievement-notification__container {
+    background-color: #0a0a0a;
+    border-color: #222;
+    color: #aaaaaa;
+}
+
+.achievement-notification--hidden .achievement-notification__title {
+    color: #888;
+    text-shadow: none;
+}
+
+.achievement-notification--hidden .achievement-notification__icon {
+    border: 1px solid #aaaaaa;
+    animation: pulseGlowPlatinum 2s infinite ease-in-out;
+}
+
+.achievement-notification--hidden .achievement-notification__icon {
+    border-color: #333;
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 0.8;
+}
+
+.achievement-notification--hidden .achievement-notification__chip {
+    background: #868686;
+    color: #000000;
+    border-color: #000000;
+}
+
+.achievement-notification--hidden .achievement-notification__chip__label {
+    color: #000000;
+}
+
+.achievement-notification--hidden .achievement-notification__chip__icon path {
+    fill: #000000;
+}
+
+.achievement-notification--hidden .achievement-notification__description {
+    color: #7e7e7e;
+}
