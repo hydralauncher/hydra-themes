@@ -35,12 +35,31 @@ Promise.all(
 
     const parts = folder.split("-");
     const authorCode = parts.pop()?.trim();
+    if (!authorCode)
+      throw new Error(
+        `❌ Invalid theme folder name ${folder} - missing author code`,
+      );
+    const themeName = parts.join("-").trim();
 
-    await api.get(`/users/${authorCode}`).catch(() => {
+    await api.get(`users/${authorCode}`).catch((err) => {
+      console.error(err);
       throw new Error(`❌ Failed to fetch author ${authorCode}`);
     });
+
+    return themeName;
   }),
 )
+  .then((themes) => {
+    // validate if theme name is unique
+    const uniqueThemes = new Set(themes);
+    if (uniqueThemes.size !== themes.length) {
+      throw new Error(
+        `❌ Found duplicate theme names: ${themes
+          .filter((theme, index) => themes.indexOf(theme) !== index)
+          .join(", ")}`,
+      );
+    }
+  })
   .then(() => console.log(`✅ Validated ${folders.length} themes`))
   .catch((err: Error) => {
     console.error(err.message);

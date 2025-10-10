@@ -1,0 +1,258 @@
+:root {
+    --almond-sky-blue: #70B8D3;
+    --almond-sky-lighter: #a0d2e8;
+    --almond-blossom-white: #F8F4E8;
+    --almond-blossom-pink-tint: #F5E0E0;
+    --almond-branch-dark: #4A403A;
+    --almond-branch-highlight: #776B60;
+
+    /* Cores */
+    --glass-panel-bg: rgba(74, 64, 58, 0.45);
+    --glass-panel-blur: 8px;
+    --glass-border-color: rgba(248, 244, 232, 0.25);
+
+    /* Botões */
+    --glass-button-bg: rgba(248, 244, 232, 0.65);
+    --glass-button-blur: 6px;
+    --glass-button-hover-bg: rgba(248, 244, 232, 0.85);
+    --glass-button-border-color: rgba(248, 244, 232, 0.4);
+
+    /* Texto */
+    --text-on-dark-panel: var(--almond-blossom-white);
+    --text-on-light-button: var(--almond-branch-dark);
+
+    /* Outros */
+    --accent-glow-color: #F8F4E890;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-title: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+
+    /* Achievement Notification */
+    --achiev-title-color: var(--text-on-light-button);
+    --achiev-title-shadow-color: rgba(74, 64, 58, 0.35);
+
+    --petal-blink-color1: var(--almond-blossom-white);
+    --petal-blink-color2: var(--almond-blossom-pink-tint);
+}
+
+body {
+    margin: 0;
+    color: var(--text-on-dark-panel);
+    font-family: var(--font-main);
+    overflow: hidden;
+    position: relative;
+}
+
+#root {
+    background-color: var(--almond-sky-blue);
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+}
+
+#root::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.imgur.com/rHCftdr.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    z-index: -1;
+    background-color: color-mix(in srgb, var(--almond-sky-blue) 30%, transparent);
+    background-blend-mode: overlay;
+}
+
+/* Pétalas */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+body::before {
+    /* Pétala/Brilho */
+    width: 10px;
+    height: 15px;
+    background-color: var(--petal-blink-color1);
+    box-shadow: 0 0 10px 4px var(--petal-blink-color1);
+    top: 15%;
+    left: 25%;
+    animation: fallingPetal 8s infinite ease-in-out;
+    animation-delay: 0s;
+}
+
+body::after {
+    /* Pétala/Brilho */
+    width: 12px;
+    height: 18px;
+    background-color: var(--petal-blink-color2);
+    box-shadow: 0 0 12px 5px var(--petal-blink-color2);
+    top: 50%;
+    left: 80%;
+    animation: fallingPetal 7s infinite ease-in-out;
+    animation-delay: -4s;
+}
+
+@keyframes fallingPetal {
+    0% {
+        transform: translateY(-20px) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(150px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: transparent !important;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+    background-color: var(--glass-panel-bg) !important;
+    backdrop-filter: blur(var(--glass-panel-blur)) !important;
+    border: 1px solid var(--glass-border-color) !important;
+    color: var(--text-on-dark-panel) !important;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.header {
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
+
+.header__search {
+    border: 1px solid var(--almond-blossom-white) !important;
+}
+
+.game-item:hover {
+    border-color: var(--almond-blossom-white) !important;
+    box-shadow: 0 0 10px var(--accent-glow-color);
+}
+
+.button,
+.container__content .button--outline {
+    background-color: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    color: var(--text-on-light-button) !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    padding: 0.7em 1.3em;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+}
+
+.button:hover,
+.container__content .button--outline:hover {
+    background-color: var(--glass-button-hover-bg) !important;
+    border-color: var(--almond-blossom-white) !important;
+}
+
+.toast {
+    background-color: var(--glass-panel-bg) !important;
+    backdrop-filter: blur(var(--glass-panel-blur)) !important;
+    color: var(--text-on-dark-panel) !important;
+    font-weight: bold;
+    border: 1px solid var(--glass-border-color) !important;
+    border-left: 4px solid var(--almond-blossom-white) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 12px 18px;
+    position: relative;
+    z-index: 20;
+}
+
+
+.bottom-panel::after {
+    content: none;
+}
+
+
+.achievement-notification__outer-container {
+    background-color: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15), 0 0 15px var(--accent-glow-color);
+    border-radius: 14px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-on-light-button);
+    font-family: inherit;
+    z-index: 15;
+}
+
+.achievement-notification__container {
+    background: transparent !important;
+    color: var(--text-on-light-button);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    position: relative;
+    z-index: 2;
+    gap: 16px;
+    min-width: 0;
+    border-radius: 14px;
+}
+
+.achievement-notification__outer-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 14px;
+    pointer-events: none;
+    box-shadow: 0 0 18px 2px var(--accent-glow-color);
+    z-index: 1;
+}
+
+.achievement-notification__title {
+    color: var(--achiev-title-color);
+    font-family: var(--font-title);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1px;
+    font-size: 1em;
+    text-shadow: 0 1px 2px var(--achiev-title-shadow-color);
+}
