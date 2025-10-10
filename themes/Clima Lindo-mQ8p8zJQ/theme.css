@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+
+:root {
+  --primary-color: #00c2ff;
+  --accent-color: #ffffff;
+  --text-color: #e3f6ff;
+  --background-overlay: rgba(0, 25, 50, 0.7);
+  --highlight-gradient: linear-gradient(135deg, #00c2ff 0%, #0049b2 100%);
+  --border-color: rgba(0, 194, 255, 0.3);
+}
+
+body {
+  color: var(--text-color);
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.5px;
+  background: url(https://i.imgur.com/wVdn5G8.jpeg) no-repeat center / cover, #000;
+  background-attachment: fixed;
+}
+
+#root {
+  background: transparent;
+}
+
+.sidebar,
+.header,
+.container__content {
+  background: transparent;
+  background-color: var(--background-overlay);
+   box-shadow: 0 0 15px rgba(0, 194, 255, 0.2);
+}
+.bottom-panel {
+  backdrop-filter: blur(10px);
+  background-color: var(--background-overlay);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.2);
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background-color: rgba(0, 25, 50, 0.7) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.container__content .button--outline {
+  background: var(--highlight-gradient);
+  color: var(--accent-color);
+  padding: 8px 20px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+.container__content .button--outline:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 25, 50, 0.5) !important;
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  border-radius: 10px;
+}
+
+.sidebar a,
+.header a {
+  color: var(--text-color);
+  transition: 0.3s;
+}
+.sidebar a:hover,
+.header a:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px #00c2ff;
+}
+
+input, textarea {
+  color: var(--accent-color);
+  background-color: rgba(0, 25, 50, 0.6);
+  border: 1px solid rgba(0, 194, 255, 0.3);
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+input::placeholder {
+  color: rgba(227, 246, 255, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 25, 50, 0.4);
+}
+
+.header__search {
+  border: none;
+}
+
+.bottom-panel {
+  border-top: 1px solid rgba(0, 194, 255, 0.2);
+}
+
+.game-item img {
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.2);
+  transition: 0.3s;
+}
+.game-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
+}
+
+.title-bar h4 {
+  visibility: hidden;
+}
+
+.title-bar::after {
+  content: "HYDRA LAUNCHER X CLIMA LINDO";
+  margin-left: -40px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  animation: titleGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0% {
+    opacity: 0.7;
+    text-shadow:
+      0 0 5px #00bfff,
+      0 0 10px #00bfff;
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px #00bfff,
+      0 0 20px #00bfff;
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow:
+      0 0 5px #00bfff,
+      0 0 10px #00bfff;
+  }
+}
