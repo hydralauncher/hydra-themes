@@ -1,0 +1,269 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Header */
+.header {
+  background-color: black;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: black;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+/* Main content */
+.container__content {
+  background: black !important;
+}
+
+/* Bottom panel */
+.bottom-panel {
+  background-color: black;
+}
+
+/* Toast */
+
+/* Conquistas */
+
+.achievement-notification__outer-container {
+  border-radius: 10px;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+}
+
+.achievement-notification__container {
+  background-color: black;
+}
+
+/* Button */
+.button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.checkbox-field__label {
+  color: rgba(255, 255, 255, 0.678);
+}
+
+.checkbox-field__label:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 2s ease-in-out infinite alternate;
+}
+
+.sidebar button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: #e63946;
+}
+
+.bottom-panel__version-button small::before {
+  content: "By pl2k_23 - ";
+  font-weight: bold;
+}
+
+.home__content {
+  background-color: black;
+}
+
+.header__search-input {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.header__action-button {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.text-field-container__text-field-input {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.title-bar {
+  background-color: black;
+}
+
+.container__content {
+  background-color: black;
+}
+
+.settings__container {
+  background-color: black;
+}
+
+.settings__content {
+  background-color: black;
+}
+
+.downloads__no-downloads {
+  background-color: black;
+}
+
+.catalogue {
+  background-color: black;
+}
+
+.gallery-slider__container {
+  background-color: black;
+}
+
+.game-details__description-content {
+  background-color: black;
+}
+
+.description-header {
+  background-color: black;
+}
+
+.sidebar-section__button {
+  background-color: black;
+}
+
+.sidebar-section__button:hover {
+  background-color: rgba(0, 0, 0, 0.726);
+}
+
+.content-sidebar {
+  background-color: black;
+}
+
+.button.button--outline {
+  background-color: black;
+}
+
+select:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 10px #0ff;
+}
+
+* {
+  transition: transform 0.2s ease;
+}
+
+select {
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 10px white;
+}
+
+.modal__header {
+  background-color: black;
+}
+
+.modal__content {
+  background-color: black;
+}
+
+.repacks-modal__repacks button:hover {
+  transform: scale(1.03);
+}
+
+.profile-content__main {
+  background-color: black;
+}
+
+.profile-content__section {
+  background-color: black;
+}
+
+.recent-games__box {
+  background-color: black;
+}
+
+.user-stats__box {
+  background-color: black;
+}
+
+.link.recent-games__list-item:hover {
+  transform: scale(1.03);
+}
+
+.game-item:hover {
+  transform: scale(1.02);
+}
+
+.game-item__plus-wrapper:hover {
+  animation: pulsar 2s ease-in-out infinite alternate;
+}
+
+.game-item {
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.199);
+}
+
+.settings-download-sources__item {
+  background-color: black;
+}
+
+.catalogue__filters-container {
+  background-color: black;
+}
+
+#root {
+  font-family: "Poppins", serif;
+}
+
+.download-group__right-content {
+  background-color: black;
+}
+
+/* Key Frames */
+
+@keyframes mexer {
+  0% { transform: translateX(0); }     /* posição inicial */
+  100% { transform: translateX(10px); } /* move 10px pro lado */
+}
+
+@keyframes pulsar {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3); /* aumenta levemente */
+    opacity: 0.8;           /* fica um pouco mais transparente */
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulsar_buttom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02); /* aumenta levemente */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* -------- */
