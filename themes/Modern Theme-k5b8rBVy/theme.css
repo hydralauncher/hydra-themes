@@ -16,6 +16,7 @@
 /* Main content */
 .container__content {
   background: black !important;
+  background-color: black;
 }
 
 /* Bottom panel */
