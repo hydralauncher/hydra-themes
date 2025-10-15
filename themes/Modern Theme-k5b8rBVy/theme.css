@@ -42,6 +42,40 @@
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.342);
+}
+
+.button.button--danger {
+  border: none;
+}
+
+.sidebar-profile__button-title {
+  color: rgb(240, 193, 75);
+  text-shadow:
+    0 0 1px rgb(240, 193, 75),
+    0 0 1px rgb(240, 193, 75),
+    0 0 1px rgb(240, 193, 75),
+    0 0 1px rgb(240, 193, 75);
+  animation: mexidinha_todos_os_lados 3s ease-in-out infinite alternate;
+}
+
+.sidebar-profile__button-content {
+  border: 1px rgba(255, 255, 255, 0.267) solid;
+  border-radius: 10px;
+  padding: 3px;
+  background-color: rgba(39, 39, 39, 0.603);
+}
+
+.sidebar-profile__friends-button {
+  border: 1px rgba(255, 255, 255, 0.267) solid;
+  border-radius: 10px;
+  padding: 3px;
+  background-color: rgba(39, 39, 39, 0.603);
+}
+
+.profile-avatar__image {
+  border-radius: 20px;
 }
 
 .checkbox-field__label {
@@ -77,7 +111,6 @@
 .sidebar button:hover {
   transform: scale(1.07);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-color: #e63946;
 }
 
 .bottom-panel__version-button small::before {
@@ -248,6 +281,27 @@ select {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes mexidinha_todos_os_lados {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(1px, 0px);
+  }
+  40% {
+    transform: translate(0px, 1px);
+  }
+  60% {
+    transform: translate(1px, 0px);
+  }
+  80% {
+    transform: translate(0px, 1px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
