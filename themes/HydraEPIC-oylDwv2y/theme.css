@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
 
 :root {
   /* === Primary zone (sidebar) === */
@@ -67,11 +67,15 @@ body {
 
 .title-bar h4 {
   color: var(--text-titlebar);
+  font-family: "Island Moments", cursive;
+  font-weight: 600;
+  font-size: 2em;
 }
 
 .title-bar h4::after {
+  font-family: "Island Moments", cursive;
+  font-weight: 600;
   content: "EPIC";
-  font-weight: 400;
   margin-left: 4px;
 }
 
@@ -999,7 +1003,7 @@ body {
 
 .subscription-required-button {
   color: var(--text-accent);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .requirement__button {
@@ -1007,7 +1011,7 @@ body {
 }
 
 .requirement__button-container {
-  padding: 10px;
+  padding: 20px 10px 10px 10px;
   gap: 10px;
 }
 
@@ -1343,6 +1347,25 @@ body {
   color: var(--text-secondary) !important;
 }
 
+.game-details__reviews-empty-message {
+  color: var(--text-primary);
+}
+
+.game-details__load-more-reviews {
+  background: var(--secondary-layer-3);
+  border: none;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.game-details__load-more-reviews:hover {
+  background: var(--secondary-layer-4);
+}
+
 /* Settings */
 
 .settings__content {
@@ -1443,6 +1466,7 @@ body {
 .theme-card__author {
   font-size: 14px;
   font-weight: 500;
+  margin-bottom: 200px;
 }
 
 .theme-card__author::before {
@@ -1451,22 +1475,76 @@ body {
     margin-right: 4px;
 }
 
-.theme-card__author::before {
-    content: "version 3.0 \A\A\AThis theme uses icons from the Iconify library — Solar Icons. \ASolar Icons are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.";
+.theme-card__author::after {
+    font-weight: 500;
+    font-size: 12PX;
+    content: "A complete theme redesign inspired by the modern Epic Games launcher.\A - Cohesive Design: A unified color palette and style across all elements and pages.\A - New Icon Set: All icons have been replaced for a fresh, modern look.\A - Quick Updates: The theme updates promptly following launcher updates.";
+    position: relative;
+    white-space: pre;
+    letter-spacing: 1px;
+    display: block;
+    color: var(--text-primary); 
+    margin-top: 20px; 
+}
+
+.theme-card__header::before {
+    font-family: "Island Moments", cursive;
+    font-weight: 600;
+    font-size: 4em;
+    content: "HydraEPIC v3.1";
+    position: relative;
+    white-space: pre;
+    letter-spacing: 1px;
+    display: block;
+    color: var(--text-accent);  
+}
+
+.theme-card__actions::after {
+    content: "Check status update";
+    text-transform: uppercase;
+    position: absolute;
+    white-space: pre;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    top: -120px;
+    left: 5px;
+    color: var(--text-secondary);
+}
+
+.theme-card__actions::before {
+    content: "HYDRA.SRV6.RU";
+    position: absolute;
+    white-space: pre;
+    font-size: 26px;
+    display: block;
+    background-color: var(--button-accent);
+    color: var(--button-text);
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    top: -90px;
+    left: 0;
+}
+
+.theme-card--active::after {
+    content: "\AThis theme uses icons from the Iconify library — Solar Icons. \ASolar Icons are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.";
+    color: var(--secondary-layer-4);
+    text-align: center;
+    position: absolute;
     white-space: pre;
     font-size: 14px;
     display: block;
-    margin: 00px 0 20px 0;
+    bottom: -80px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
-.theme-card__author::after {
-    content: "Check status update - ➡️➡️➡️ 𝗛𝗬𝗗𝗥𝗔.𝗦𝗥𝗩𝟔.𝗥𝗨 ⬅️⬅️⬅️";
-    white-space: pre;
-    font-size: 30px;
-    display: block;
-    margin: 20px 0 60px 0;
+.theme-card__header__title {
+  display: none;
 }
-
 
 .theme-card__author button {
   color: var(--text-accent);
@@ -3397,19 +3475,78 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M22 14v-2.202c0-2.632 0-3.949-.77-4.804a3 3 0 0 0-.224-.225C20.151 6 18.834 6 16.202 6h-.374c-1.153 0-1.73 0-2.268-.153a4 4 0 0 1-.848-.352C12.224 5.224 11.816 4.815 11 4l-.55-.55c-.274-.274-.41-.41-.554-.53a4 4 0 0 0-2.18-.903C7.53 2 7.336 2 6.95 2c-.883 0-1.324 0-1.692.07A4 4 0 0 0 2.07 5.257C2 5.626 2 6.068 2 6.95v7.3l.006 1.5c.027 2.636.191 4.104 1.166 5.078C4.343 22 6.229 22 10 22h4c3.771 0 5.657 0 6.828-1.172S22 17.771 22 14' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M9.316 11.394a.75.75 0 0 0-.882 1.213l2.26 1.643H2l.006 1.5h8.688l-2.26 1.643a.75.75 0 0 0 .882 1.214l4.125-3a.75.75 0 0 0 0-1.213z'/%3E%3C/svg%3E");
 }
 
-.hero-panel-playtime__play-time svg.hero-panel-playtime__manual-warning {
+.game-details__reviews-empty-icon svg.octicon-note {
   display: none !important;
 }
 
-.hero-panel-playtime__play-time:has(svg.hero-panel-playtime__manual-warning)::before {
+.game-details__reviews-empty-icon:has(svg.octicon-note)::before {
   content: " ";
   display: inline-block;
-  width: 1.4em;
-  height: 1.4em;
+  width: 1.6em;
+  height: 1.6em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10' opacity='0.5'/%3E%3Cpath fill='%2326bbff' d='M12 17.75a.75.75 0 0 0 .75-.75v-6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75M12 7a1 1 0 1 1 0 2a1 1 0 0 1 0-2'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 6.775a.825.825 0 0 0-.825.825v8.8a.825.825 0 0 0 1.65 0V7.6A.825.825 0 0 0 12 6.775m-4.4 2.2a.825.825 0 0 0-.825.825v4.4a.825.825 0 0 0 1.65 0V9.8a.825.825 0 0 0-.825-.825' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='M15.575 9.8a.825.825 0 0 1 1.65 0v4.4a.825.825 0 0 1-1.65 0z'/%3E%3C/svg%3E");
 }
+
+.game-language-section__cell svg.game-language-section__cross {
+  display: none !important;
+}
+
+.game-language-section__cell:has(svg.game-language-section__cross)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M8.97 8.97a.75.75 0 0 1 1.06 0L12 10.94l1.97-1.97a.75.75 0 1 1 1.06 1.06L13.06 12l1.97 1.97a.75.75 0 0 1-1.06 1.06L12 13.06l-1.97 1.97a.75.75 0 0 1-1.06-1.06L10.94 12l-1.97-1.97a.75.75 0 0 1 0-1.06'/%3E%3C/svg%3E");
+}
+
+.game-language-section__cell svg.game-language-section__check {
+  display: none !important;
+}
+
+.game-language-section__cell:has(svg.game-language-section__check)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10' opacity='0.5'/%3E%3Cpath fill='%2326bbff' d='M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0'/%3E%3C/svg%3E");
+}
+
+.hero-panel-playtime__play-time svg.hero-panel-playtime__manual-warning,
+.user-library-game__playtime svg.user-library-game__manual-playtime {
+  display: none !important;
+}
+
+.hero-panel-playtime__play-time:has(svg.hero-panel-playtime__manual-warning)::before,
+.user-library-game__playtime:has(svg.user-library-game__manual-playtime)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2s1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 5.638-4.239 8.375-6.899 9.536C13.38 21.842 13.02 22 12 22s-1.38-.158-2.101-.473C7.239 20.365 3 17.63 3 11.991z' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12 7.25a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0V8a.75.75 0 0 1 .75-.75M12 16a1 1 0 1 0 0-2a1 1 0 0 0 0 2'/%3E%3C/svg%3E");
+}
+
+.subscription-required-button svg.octicon-cloud-offline {
+  display: none !important;
+}
+
+.subscription-required-button:has(svg.octicon-cloud-offline)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M6.5 18v-.09c0-.865 0-1.659.087-2.304c.095-.711.32-1.463.938-2.08c.618-.619 1.37-.844 2.08-.94c.646-.086 1.44-.086 2.306-.086h.178c.866 0 1.66 0 2.305.087c.711.095 1.463.32 2.08.938c.619.618.844 1.37.94 2.08c.085.637.086 1.416.086 2.267c2.573-.55 4.5-2.812 4.5-5.52c0-2.47-1.607-4.572-3.845-5.337C17.837 4.194 15.415 2 12.476 2C9.32 2 6.762 4.528 6.762 7.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 9.53 2 11.426 2 13.765S3.919 18 6.286 18z' opacity='0.5'/%3E%3Cpath fill='%2326bbff' fill-rule='evenodd' d='M12 22c-1.886 0-2.828 0-3.414-.586S8 19.886 8 18s0-2.828.586-3.414S10.114 14 12 14s2.828 0 3.414.586S16 16.114 16 18s0 2.828-.586 3.414S13.886 22 12 22m-1.306-6.25a.667.667 0 0 0-.943.944L11.057 18l-1.306 1.306a.667.667 0 0 0 .943.943L12 18.943l1.306 1.306a.667.667 0 0 0 .943-.943L12.943 18l1.306-1.306a.667.667 0 0 0-.943-.943L12 17.057z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
 
 /* Badge profile */
 
