@@ -4,10 +4,49 @@ import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 import { api } from "./api";
+import postcss from "postcss";
+import selectorParser from "postcss-selector-parser";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
+
+const getThemeAchievementsSupport = async (
+  publicThemePath: string,
+): Promise<boolean> => {
+  try {
+    const result = postcss().process(
+      fs.readFileSync(path.join(publicThemePath, "theme.css"), "utf8"),
+    );
+
+    const classNames = new Set<string>();
+
+    const extractClasses = selectorParser((selectors) => {
+      selectors.walkClasses((classNode) => {
+        classNames.add(classNode.value);
+      });
+    });
+
+    result.root.walkRules((rule) => {
+      extractClasses.processSync(rule.selector);
+    });
+
+    for (const className of classNames) {
+      if (className.startsWith("achievement-notification")) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (err) {
+    console.error(
+      `Failed to get theme achievements support for ${publicThemePath}`,
+      err,
+    );
+
+    return false;
+  }
+};
 
 const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
 
@@ -78,9 +117,13 @@ Promise.all(
       }
     }
 
+    const hasAchievementsSupport =
+      await getThemeAchievementsSupport(publicThemePath);
+
     return {
       name: themeName,
       authorId: authorCode,
+      hasAchievementsSupport,
     };
   }),
 )
