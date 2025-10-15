@@ -108,6 +108,11 @@
   animation: pulsar_buttom 2s ease-in-out infinite alternate;
 }
 
+.octicon.octicon-three-bars:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 2s ease-in-out infinite alternate;
+}
+
 .sidebar button:hover {
   transform: scale(1.07);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -125,6 +130,23 @@
 .header__search-input {
   background-color: black;
   border-radius: 10px;
+}
+
+.auto-update-sub-header {
+  background-color: rgb(30, 30, 30);
+}
+
+.auto-update-sub-header__new-version-button {
+  transition: transform 0.5s ease;
+  text-shadow:
+    0 0 1px white,
+    0 0 1px white,
+    0 0 1px white,
+    0 0 1px white;
+}
+
+.auto-update-sub-header__new-version-button:hover {
+  transform: scale(1.05);
 }
 
 .header__action-button {
