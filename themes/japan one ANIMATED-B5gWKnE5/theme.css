@@ -1,0 +1,130 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/themes.html
+
+  Happy hacking!
+*/
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #9e9e9e;
+}
+
+#root {
+  background: url(https://files.catbox.moe/3e2vn6.gif)
+    #000;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Search Bar */
+.header .header__section .header__search {
+  backdrop-filter: blur(5px) !important;
+  background: rgba(0, 0, 0, 0.548) !important;
+}
+
+/* Sidebar Profile thingy */
+.sidebar-profile {
+  background: rgba(0, 0, 0, 0.349) !important;
+}
+
+/* Sidebar titles */
+.sidebar__section:nth-of-type(2) > .sidebar__section-title {
+  font-size: 0;
+  position: relative;
+}
+.sidebar__section:nth-of-type(2) > .sidebar__section-title::after {
+  content: "📌 Pined";
+  font-size: 14px;
+}
+
+.sidebar__section:nth-of-type(3) .sidebar__section-title {
+  font-size: 0;
+  position: relative;
+}
+.sidebar__section:nth-of-type(3) .sidebar__section-title::after {
+  content: "📚 Library";
+  font-size: 14px;
+}
+
+/* Favorite button */
+.octicon-heart {
+  display: none !important;
+}
+
+.hero-panel-actions__action:nth-of-type(2) {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 10px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  gap: 0 !important;
+}
+
+.hero-panel-actions__action:nth-of-type(2)::before {
+  content: "📌";
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Header */
+.header {
+  backdrop-filter: blur(5px) !important;
+  background: rgba(0, 0, 0, 0.548);
+}
+
+/* Sidebar */
+.sidebar {
+  backdrop-filter: blur(5px) !important;
+  background: rgba(0, 0, 0, 0.548) !important;
+}
+
+/* Main content */
+.container__content {}
+
+/* Bottom panel */
+.bottom-panel {}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
