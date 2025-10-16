@@ -1,0 +1,191 @@
+:root {
+  --cor-principal: #000000ff;
+  --cor-secundaria: #000000ff;
+  --cor-destaque: #ff0000ff;
+  --cor-texto: #ffffffff;
+  --cor-fundo-transparente: rgba(255, 0, 0, 0);
+}
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: var(--cor-fundo-transparente);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-destaque);
+}
+.sidebar {
+ background: transparent;
+ text-shadow: 2px 2px 2px #000;
+ color: #ff0000ff;
+ background-color: rgba(0, 0, 0, 0.0);
+}
+.sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
+ text-transform: uppercase;
+ color: #ffffffff;
+ text-shadow: 1px 1px 2px #000000;
+ background-color: rgba(255, 0, 0, 0);
+}
+.header {
+ color: #ff0000ff;
+  text-shadow: 2px 2px 2px #000000ff;
+ background: transparent;
+ background-color: rgba(0, 0, 0, 0.8);
+ backdrop-filter: blur(8px);
+}
+
+.container__content, .bottom-panel {
+  background: transparent;
+}
+
+body {
+ text-align: left;
+  text-shadow: 2px 2px 2px #000000ff;
+ color: #ff0000;
+ background: transparent;
+}
+
+#root {
+  background: url(https://wallpapers.com/images/hd/dark-attack-on-titan-logo-xwres7tzfb8er5al.jpg)
+    #000;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background: loop;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search {
+ color: #ffffffff;
+}
+.game-item {
+ text-shadow: 2px 2px 2px #000;
+ color: rgba(255, 255, 255, 1);
+}
+.settings__content
+{
+ text-shadow: 2px 2px 2px #000;
+ color: #ff0000ff;
+}
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar
+
+.container__content .button--outline {
+ backdrop-filter: blur(8px);
+ background-color: rgba(0, 0, 0, 0.45);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+ background-color: rgba(0, 0, 0, 0) !important;
+ backdrop-filter: blur(8px);
+ }
+
+.game-details__description {
+  background-color: rgba(255, 255, 255, 0);
+  text-shadow: 1px 1px 1px #000000ff;
+  color: #ffffffff;
+}
+
+.game-details__description-container {
+ background: transparent;
+ backdrop-filter: blur(8px);
+ background-color: rgba(0, 0, 0, 0);
+}
+.content-sidebar {
+ backdrop-filter: blur(8px);
+ background-color: rgba(0, 0, 0, 0.16);
+}
+.description-header {
+  backdrop-filter: blur(8px);
+ background-color: rgba(255, 0, 0, 0);
+}
+
+.hero-panel {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 0, 0, 0);
+}
+.settings__container {
+ background: transparent;
+ background-color: rgba(0, 0, 0, 0.0);
+}
+.settings__content {
+  backdrop-filter: blur(8px);
+ background-color: rgba(0, 0, 0, 0);
+}
+.button--outline {
+  backdrop-filter: blur(8px);
+ background-color: rgba(0, 0, 0, 0.4);
+}
+.theme-card {
+ backdrop-filter: blur(8px);
+ background-color: rgba(0, 0, 0, 0.4);
+}
+
+element.style
+.profile-hero__background-overlay--transparent {
+ background: transparent;
+ background-color: rgba(0, 0, 0, 0.13);
+}
+.profile-hero__hero-panel--transparent {
+  background: transparent;
+ background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+ background: transparent;
+ background-color: rgba(0, 0, 0, 0.2);
+}
+
+.repacks-modal__repack-button {
+  background: transparent;
+ background-color: rgba(0, 0, 0, 0.6);
+}
+
+.text-field-container__text-field--dark, .text-field-container__text-field--primary, .header__search {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.sidebar-section__button {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.title-bar {
+  background: transparent;
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.sidebar-profile__friends-button {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.title-bar, .sidebar, .header, .bottom-panel, .hero-panel, .content-sidebar {
+  border: none;
+}
+
+ .home__content {
+    background-color: rgba(112, 12, 12, 0);
+    backdrop-filter: blur(2px);
+  }
+
+ .bottom-panel {
+    background-color: rgba(0, 0, 0, 0);
+  }
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar,
+.home__content {
+  border-color: rgba(0, 0, 0, 0.5);
+}
