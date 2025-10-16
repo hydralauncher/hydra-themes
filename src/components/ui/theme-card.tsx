@@ -1,6 +1,11 @@
 import type { Theme } from "@/lib/schemas/theme";
 import { Button } from "./button";
-import { DownloadIcon, HeartIcon } from "lucide-react";
+import {
+  CheckCircle2Icon,
+  DownloadIcon,
+  HeartIcon,
+  XCircleIcon,
+} from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { compactNumber } from "@/lib/helpers";
@@ -25,7 +30,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
       try {
         if (action === "unfavorite") {
-          await api.delete(`themes/${theme.id}/favorite`);
+          await api.put(`themes/${theme.id}/unfavorite`);
         } else {
           await api.put(`themes/${theme.id}/${action}`);
         }
@@ -150,6 +155,24 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               Install
             </Button>
           </div>
+        </div>
+
+        <div className="flex flex-row items-center gap-2">
+          {theme.hasAchievementsSupport ? (
+            <>
+              <CheckCircle2Icon className="size-4 text-green-500" />
+              <span className="text-xs text-muted-foreground">
+                Supports Achievements
+              </span>
+            </>
+          ) : (
+            <>
+              <XCircleIcon className="size-4 text-red-500" />
+              <span className="text-xs text-muted-foreground">
+                Does not support Achievements
+              </span>
+            </>
+          )}
         </div>
       </div>
     </div>
