@@ -1,7 +1,7 @@
 .sidebar {
  background: transparent;
  text-shadow: 2px 2px 2px #000;
- color: #ff0000ff;
+ color: #ff0000ff; 
  background-color: rgba(0, 0, 0, 0.0);
 }
 .sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
@@ -11,7 +11,7 @@
  background-color: rgba(0, 0, 0, 0);
 }
 .header {
- color: #ff0000ff;
+ color: #ff0000ff; 
   text-shadow: 2px 2px 2px #000000ff;
  background: transparent;
  background-color: rgba(0, 0, 0, 0.8);
@@ -41,22 +41,22 @@ body {
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search {
- color: #ffffffff;
+ color: #ffffffff; 
 }
 .game-item {
  text-shadow: 2px 2px 2px #000;
- color: rgba(255, 255, 255, 1);
+ color: rgba(255, 255, 255, 1); 
 }
-.settings__content
+.settings__content 
 {
  text-shadow: 2px 2px 2px #000;
- color: #ff0000ff;
+ color: #ff0000ff; 
 }
 .catalogue__filters-container,
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
-.sidebar
+.sidebar 
 
 .container__content .button--outline {
  backdrop-filter: blur(8px);
@@ -71,9 +71,9 @@ body {
  }
 
 .game-details__description {
-  background: none;
-  background-color: rgba(255, 255, 255, 1);
- text-shadow: 2px 2px 2px #000000;
+  background-color: rgba(255, 255, 255, 0);
+  text-shadow: 1px 1px 1px #000000ff;
+  color: #ffffffff;
 }
 
 .game-details__description-container {
