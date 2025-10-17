@@ -32,7 +32,6 @@
   transition: transform 0.3s ease;
 }
 
-
 .catalogue__filters-container,
 .user-stats__box,
 .recent-games__box,
@@ -40,7 +39,6 @@
 .user-karma__box,
 .settings__content,
 .sidebar-section__content,
-.settings__content,
 .profile-hero__content-box,
 .profile-hero__hero-panel {
   background: rgba(0, 0, 0, 0.25) !important;
@@ -1299,7 +1297,6 @@ padding: 15px;
 .gallery-slider__container {
   position: relative;
   margin-top: 25px;;
-  margin-top: 25px; 
 }
 
 .gallery-slider__animation-container {
@@ -1469,31 +1466,6 @@ padding: 15px;
 .gallery-slider__preview-button:hover .gallery-slider__play-overlay svg,
 .gallery-slider__preview-button--active .gallery-slider__play-overlay svg {
   transform: scale(1.08);
-  gap: 8px;
-  margin-top: 15px;
-  overflow-x: auto; 
-  padding-bottom: 10px; 
-}
-
-.gallery-slider__preview-button {
-  background: none;
-  border: 2px solid transparent;
-  padding: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: border-color 0.3s ease, transform 0.3s ease;
-  flex-shrink: 0; 
-  overflow: hidden;
-}
-
-.gallery-slider__preview-button:hover {
-  transform: scale(1.03);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.gallery-slider__preview-button--active {
-  border-color: rgba(255, 255, 255, 0.7); 
-  transform: scale(1.03);
 }
 
 
