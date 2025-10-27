@@ -515,15 +515,18 @@
   z-index: 99;
   animation: randomizerGlow 9s ease-in-out infinite;
 }
+
 .button.button--outline.game-details__randomizer-button:hover {
   transform: translateX(-50%) translateY(-3px) scale(1.03);
   background: rgba(24, 38, 60, 0.55);
   border-color: rgba(195, 220, 255, 0.55);
   box-shadow: 0 24px 36px rgba(10, 15, 30, 0.45);
 }
+
 .button.button--outline.game-details__randomizer-button:before {
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.18), transparent);
 }
+
 @keyframes randomizerGlow {
   0%,
   100% {
@@ -535,6 +538,7 @@
     border-color: rgba(215, 235, 255, 0.55);
   }
 }
+
 
 
 .button.button--primary:disabled {
