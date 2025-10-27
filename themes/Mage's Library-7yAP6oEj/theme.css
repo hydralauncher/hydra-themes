@@ -503,16 +503,20 @@
 
 .button.button--outline.game-details__randomizer-button {
   position: fixed;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(15, 25, 40, 0.42);
   border-color: rgba(170, 200, 255, 0.35);
   color: rgba(235, 245, 255, 0.9);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: 0 18px 28px rgba(8, 12, 25, 0.38);
+  z-index: 99;
   animation: randomizerGlow 9s ease-in-out infinite;
 }
 .button.button--outline.game-details__randomizer-button:hover {
-  transform: translateY(-3px) scale(1.03);
+  transform: translateX(-50%) translateY(-3px) scale(1.03);
   background: rgba(24, 38, 60, 0.55);
   border-color: rgba(195, 220, 255, 0.55);
   box-shadow: 0 24px 36px rgba(10, 15, 30, 0.45);
