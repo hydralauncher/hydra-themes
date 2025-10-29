@@ -890,7 +890,6 @@ body {
 .game-details__hero {
   background-color: var(--secondary-layer-2) !important;
   margin-bottom: 20px;
-  background-color: transparent;
   border-radius: 20px;
 }
 
