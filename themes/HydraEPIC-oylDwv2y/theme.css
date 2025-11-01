@@ -115,7 +115,8 @@ body {
 }
 
 .button--outline {
-  background-color: inherit;
+  border: solid 1px transparent !important;
+  background-color: var(--secondary-layer-4) !important;
 }
 
 
@@ -183,10 +184,14 @@ body {
 }
 
 .settings-account__form small {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Skeleton */
+
+.how-long-to-beat__category-skeleton {
+  border: solid 1px transparent;
+}
 
 .game-details__skeleton .react-loading-skeleton {
   background: var(--secondary-layer-2);
@@ -313,6 +318,10 @@ body {
   content: "Games to beat";
   font-size: 14px;
   margin-left: 8px;
+}
+
+.home__header .button--outline {
+  background-color: var(--secondary-layer-2) !important;
 }
 
 .game-card {
@@ -996,6 +1005,10 @@ body {
   border-radius: 20px;
 }
 
+.game-language-section__cell {
+  font-size: 13px;
+}
+
 .game-language-section__cell--center:nth-child(3) {
   flex: 0 0 0px !important;
 }
@@ -1011,17 +1024,42 @@ body {
 }
 
 .subscription-required-button {
-  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
   font-weight: 600;
+  background-color: var(--secondary-layer-3);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.subscription-required-button:hover {
+  text-decoration: none;
+  background-color: var(--secondary-layer-4);
+}
+
+.star-rating__value {
+  font-size: 14px;
+}
+
+.stats__category p:nth-child(2) {
+  color: var(--text-secondary);
 }
 
 .requirement__button {
-  border: solid 1px var(--secondary-layer-3);
+  border: solid 1px transparent;
+  height: 20px;
+  min-height: 20px;
 }
 
 .requirement__button-container {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 20px 0px 20px;
   gap: 10px;
+}
+
+.requirement__details {
+  font-size: 13px;
 }
 
 .bb_ul {
@@ -1081,6 +1119,7 @@ body {
   padding: 20px;
   background-color: var(--secondary-layer-3);
   border: none;
+  font-size: 13px;
 }
 
 .sidebar-section__content {
@@ -1088,17 +1127,23 @@ body {
   max-height: none !important;
 }
 
-.sidebar-section__content > .list > li > a {
+.list__item {
   border-radius: 20px;
-}
-
-.sidebar-section__content > .list > li > a:hover {
-  border-radius: 20px;
+  padding: 20px;
   background-color: var(--secondary-layer-3);
+  border: none;
+  font-size: 13px;
 }
 
-.list__item-image {
-  border-radius: 20px;
+.list__item:hover {
+  background-color: var(--secondary-layer-4);
+}
+
+.sidebar-section__content > ul > .link {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .game-details__hero-buttons--right {
@@ -1125,7 +1170,7 @@ body {
 
 .hero-panel-actions__action {
   padding: 10px 20px;
-  border: solid 1px var(--secondary-layer-3);
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .hero-panel-actions__container {
@@ -1133,8 +1178,8 @@ body {
 }
 
 .hero-panel-actions__container .button--outline {
-  background-color: var();
-  border: solid 1px rgba(255, 255, 255, 0.15);
+  border: solid 1px transparent;
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .game-details__hero-panel-skeleton {
@@ -1155,10 +1200,10 @@ body {
 }
 
 .game-details__hero-content {
-  flex-direction: row-reverse;
+  display: flex;
   padding: 10px 10px 0 10px;
   animation: forwards;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .game-details__randomizer-button {
@@ -1236,7 +1281,7 @@ body {
 .game-details__star-rating {
   background-color: var(--secondary-layer-4);
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px;
   height: 40px;
 }
 
@@ -1391,6 +1436,25 @@ body {
   background: var(--secondary-layer-4);
 }
 
+.game-details__hero-image[src=""] {
+  visibility: hidden;
+}
+
+.game-details__hero:has(img.game-details__hero-image[src=""])::after {
+  content: "NO IMG :(";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+  background: var(--secondary-layer-2);
+  border-radius: 20px;
+  z-index: 1;
+}
+
 /* Settings */
 
 .settings__content {
@@ -1516,7 +1580,7 @@ body {
     font-family: "Island Moments", cursive;
     font-weight: 600;
     font-size: 4em;
-    content: "HydraEPIC v3.2";
+    content: "HydraEPIC v3.3";
     position: relative;
     white-space: pre;
     letter-spacing: 1px;
@@ -1626,6 +1690,14 @@ body {
   font-weight: 500;
 }
 
+.game-options-modal__danger-zone-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 5px));
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
 .game-options-modal__cloud-sync-hydra-cloud {
   background: var(--button-accent);
   padding: 4px 10px;
@@ -1634,7 +1706,7 @@ body {
 }
 
 .repacks-modal__repack-button {
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .backdrop {
@@ -1695,7 +1767,7 @@ body {
   border-radius: 20px;
   border: none;
   padding: 10px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .settings-debrid__beta-badge {
@@ -2040,18 +2112,19 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 20px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .edit-profile-modal__avatar-overlay {
   border-radius: 20px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .profile-avatar {
   background-color: var(--secondary-layer-3);
   border-radius: 20px;
   border: none;
+  cursor: default;
 }
 
 .profile-hero__user-information .profile-avatar {
@@ -2069,6 +2142,11 @@ body {
   border-radius: 24px;
   border: none;
   background-color: var(--secondary-layer-3);
+}
+
+.friends-box__list-item .profile-avatar::before {
+  width: 1.4em !important;
+  height: 1.4em !important;
 }
 
 .report-profile__button {
@@ -2102,6 +2180,36 @@ body {
 .hydra-cloud-modal__container,
 .edit-profile-modal__form {
   width: auto;
+}
+
+.user-friend-modal__friend-code-button {
+  color: var(--text-accent);
+}
+
+.user-friend-modal__header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.user-friend-modal__friend-code-button {
+  font-size: 20px;
+  animation: pulse 3s infinite;
+}
+
+.user-friend-modal__friend-code-button:hover {
+  color: var(--text-accent);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+}
+
+.user-friend-modal-add-friend__actions {
+  gap: 10px;
 }
 
 .sidebar-adding-custom-game-modal__container,
@@ -2210,7 +2318,7 @@ body {
 /* Modal */
 
 .modal {
-  background-color: var(--secondary-layer-2);
+  background-color: var(--primary-layer-1);
   border-radius: 20px;
   border: none;
   min-width: 600px;
@@ -2224,7 +2332,7 @@ body {
 .modal__header {
   border: none;
   border-radius: 20px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .modal__header-title p {
@@ -2261,7 +2369,7 @@ body {
 .modal__content .game-options-modal__launch-options,
 .modal__content .checkbox-field,
 .modal__content .game-options-modal__section {
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
   padding: 20px;
   border-radius: 20px;
   gap: 22px;
@@ -2500,10 +2608,6 @@ body {
   background-color: var(--secondary-layer-3);
 }
 
-.achievements__item-image {
-  border-radius: 20px;
-}
-
 .achievements__item-points {
   color: var(--text-accent);
 }
@@ -2522,6 +2626,42 @@ body {
 .achievements-content__achievements-list__section__table-header__container--has-no-active-subscription,
 .achievements-content__comparison {
   display: none;
+}
+
+/* Badge profile */
+
+.profile-hero__badges img[alt="THEME_CREATOR"] {
+  opacity: 0 !important;
+  position: relative !important;
+  z-index: 1;
+  pointer-events: all !important;
+  width: 160px !important;
+  height: 34px !important;
+}
+
+.profile-hero__badges:has(img[alt="THEME_CREATOR"])::after {
+  content: "Theme Creator";
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px 8px 38px;
+  background-color: var(--badge-accent);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--badge-color);
+  white-space: nowrap;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%231da4e0' d='M10.847 21.934C5.867 21.362 2 17.133 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.157-3.283 4.733-6.086 4.37c-1.618-.209-3.075-.397-3.652.518c-.395.626.032 1.406.555 1.929a1.673 1.673 0 0 1 0 2.366c-.523.523-1.235.836-1.97.751' opacity='0.5'/%3E%3Cpath fill='%231da4e0' d='M11.085 7a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0M6.5 13a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m11 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-3-4.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 22px;
+}
+
+.profile-hero__badges:has(img[alt="THEME_CREATOR"]):hover::after {
+  background-color: var(--badge-accent-hover);
 }
 
 /* Icons */
@@ -3614,48 +3754,11 @@ body {
 .subscription-required-button:has(svg.octicon-cloud-offline)::before {
   content: " ";
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.6em;
+  height: 1.6em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M6.5 18v-.09c0-.865 0-1.659.087-2.304c.095-.711.32-1.463.938-2.08c.618-.619 1.37-.844 2.08-.94c.646-.086 1.44-.086 2.306-.086h.178c.866 0 1.66 0 2.305.087c.711.095 1.463.32 2.08.938c.619.618.844 1.37.94 2.08c.085.637.086 1.416.086 2.267c2.573-.55 4.5-2.812 4.5-5.52c0-2.47-1.607-4.572-3.845-5.337C17.837 4.194 15.415 2 12.476 2C9.32 2 6.762 4.528 6.762 7.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 9.53 2 11.426 2 13.765S3.919 18 6.286 18z' opacity='0.5'/%3E%3Cpath fill='%2326bbff' fill-rule='evenodd' d='M12 22c-1.886 0-2.828 0-3.414-.586S8 19.886 8 18s0-2.828.586-3.414S10.114 14 12 14s2.828 0 3.414.586S16 16.114 16 18s0 2.828-.586 3.414S13.886 22 12 22m-1.306-6.25a.667.667 0 0 0-.943.944L11.057 18l-1.306 1.306a.667.667 0 0 0 .943.943L12 18.943l1.306 1.306a.667.667 0 0 0 .943-.943L12.943 18l1.306-1.306a.667.667 0 0 0-.943-.943L12 17.057z' clip-rule='evenodd'/%3E%3C/svg%3E");
-}
-
-
-/* Badge profile */
-
-.profile-hero__badges img[alt="THEME_CREATOR"] {
-  opacity: 0 !important;
-  position: relative !important;
-  z-index: 1;
-  pointer-events: all !important;
-  width: 160px !important;
-  height: 34px !important;
-}
-
-.profile-hero__badges:has(img[alt="THEME_CREATOR"])::after {
-  content: "Theme Creator";
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px 8px 38px;
-  background-color: var(--badge-accent);
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--badge-color);
-  white-space: nowrap;
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%231da4e0' d='M10.847 21.934C5.867 21.362 2 17.133 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.157-3.283 4.733-6.086 4.37c-1.618-.209-3.075-.397-3.652.518c-.395.626.032 1.406.555 1.929a1.673 1.673 0 0 1 0 2.366c-.523.523-1.235.836-1.97.751' opacity='0.5'/%3E%3Cpath fill='%231da4e0' d='M11.085 7a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0M6.5 13a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m11 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-3-4.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 22px;
-}
-
-.profile-hero__badges:has(img[alt="THEME_CREATOR"]):hover::after {
-  background-color: var(--badge-accent-hover);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M22 14.353C22 17.472 19.442 20 16.286 20h-5.787a7.5 7.5 0 0 1 7.487-11.853q.119.422.17.868C20.392 9.78 22 11.881 22 14.353' clip-rule='evenodd' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12.476 4C9.32 4 6.762 6.528 6.762 9.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 11.53 2 13.426 2 15.765S3.919 20 6.286 20H10.5a7.5 7.5 0 0 1 7.487-11.853l-.047-.158C17.224 5.68 15.048 4 12.476 4'/%3E%3C/svg%3E");
 }
 
 .user-stats__list-description svg.octicon-trophy {
@@ -3684,4 +3787,46 @@ body {
   background: no-repeat center/contain;
   vertical-align: middle;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 16c-5.76 0-6.78-5.74-6.96-10.294c-.051-1.266-.076-1.9.4-2.485c.475-.586 1.044-.682 2.183-.874A26.4 26.4 0 0 1 12 2c1.784 0 3.253.157 4.377.347c1.139.192 1.708.288 2.184.874s.45 1.219.4 2.485C18.781 10.26 17.761 16 12.001 16' opacity='0.5'/%3E%3Cpath fill='%23fff' d='m17.64 12.422l2.817-1.565c.752-.418 1.128-.627 1.336-.979C22 9.526 22 9.096 22 8.235v-.073c0-1.043 0-1.565-.283-1.958s-.778-.558-1.768-.888L19 5l-.017.085q-.008.283-.022.621c-.088 2.225-.377 4.733-1.32 6.716M5.04 5.706c.087 2.225.376 4.733 1.32 6.716l-2.817-1.565c-.752-.418-1.129-.627-1.336-.979S2 9.096 2 8.235v-.073c0-1.043 0-1.565.283-1.958s.778-.558 1.768-.888L5 5l.017.087q.008.281.022.62'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M5.25 22a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='M15.458 21.25H8.542l.297-1.75a1 1 0 0 1 .98-.804h4.361a1 1 0 0 1 .98.804z' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12 16q-.39 0-.75-.034v2.73h1.5v-2.73A8 8 0 0 1 12 16'/%3E%3C/svg%3E");
+}
+
+.profile-avatar svg.octicon-person {
+  display: none !important;
+}
+
+.profile-avatar:has(svg.octicon-person)::before {
+  content: " ";
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='6' r='4' fill='%23fff'/%3E%3Cpath fill='%23fff' d='M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.game-card__specifics-item svg.octicon-people {
+  display: none !important;
+}
+
+.game-card__specifics-item:has(svg.octicon-people)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M19.717 20.362C21.143 19.585 22 18.587 22 17.5c0-1.152-.963-2.204-2.546-3C17.623 13.58 14.962 13 12 13s-5.623.58-7.454 1.5C2.963 15.296 2 16.348 2 17.5s.963 2.204 2.546 3C6.377 21.42 9.038 22 12 22c3.107 0 5.882-.637 7.717-1.638' opacity='0.6'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M9.25 4a2.75 2.75 0 1 1 5.5 0a2.75 2.75 0 0 1-5.5 0' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='m8.223 11.574l-2.175-.725a1.532 1.532 0 0 1 .805-2.952l1.898.407l.21.044a15 15 0 0 0 6.288-.044l1.897-.407a1.532 1.532 0 0 1 .806 2.952l-2.175.725c-.263.088-.394.132-.493.193a1 1 0 0 0-.466.986c.016.115.066.244.165.503l1.247 3.242a1.473 1.473 0 0 1-2.654 1.26L12 15l-1.576 2.757a1.473 1.473 0 0 1-2.654-1.26l1.247-3.241c.1-.259.149-.388.165-.503a1 1 0 0 0-.466-.986c-.099-.061-.23-.105-.493-.193'/%3E%3C/svg%3E");
+}
+
+.game-card__specifics-item svg.octicon-download {
+  display: none !important;
+}
+
+.game-card__specifics-item:has(svg.octicon-download)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M22 16v-1c0-2.828 0-4.242-.879-5.12C20.242 9 18.828 9 16 9H8c-2.829 0-4.243 0-5.122.88C2 10.757 2 12.17 2 14.997V16c0 2.829 0 4.243.879 5.122C3.757 22 5.172 22 8 22h8c2.828 0 4.243 0 5.121-.878C22 20.242 22 18.829 22 16' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 1.25a.75.75 0 0 0-.75.75v10.973l-1.68-1.961a.75.75 0 1 0-1.14.976l3 3.5a.75.75 0 0 0 1.14 0l3-3.5a.75.75 0 1 0-1.14-.976l-1.68 1.96V2a.75.75 0 0 0-.75-.75' clip-rule='evenodd'/%3E%3C/svg%3E");
 }
