@@ -278,7 +278,7 @@ select {
 .sidebar__menu-item--active {
   color: #4169E1;
   font-weight: bold;
-  background-color: #1e394dff;
+  background-color: rgb(30, 57, 77);
   text-shadow:
     0 0 1px #4169E1,
     0 0 1px #4169E1,
@@ -395,7 +395,7 @@ select {
 }
 
 .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value { 
-  background-color: #76c5b8ff;;
+  background-color: #76c5b8ff;
 }
 
 .recent-games__box {
