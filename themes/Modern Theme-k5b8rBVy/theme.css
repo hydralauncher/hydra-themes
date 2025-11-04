@@ -243,6 +243,161 @@ select {
   background-color: black;
 }
 
+.sidebar__menu-item {
+  display: inline-block;
+  position: relative;
+  color: #c5c7ca;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar__menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4169E1;
+  transition: width 0.4s;
+}
+
+.sidebar__menu-item:hover {
+  color: #4169E1;
+  text-shadow:
+    0 0 1px #4169E1,
+    0 0 1px #4169E1,
+    0 0 1px #4169E1,
+    0 0 1px #4169E1;
+}
+
+.sidebar__menu-item:hover::after {
+  width: 100%;
+}
+
+.sidebar__menu-item--active {
+  color: #4169E1;
+  font-weight: bold;
+  background-color: rgb(30, 57, 77);
+  text-shadow:
+    0 0 1px #4169E1,
+    0 0 1px #4169E1,
+    0 0 1px #4169E1,
+    0 0 1px #4169E1;
+}
+
+.game-details__vote-button.game-details__vote-button--downvote {
+  background-color: #b3203f;
+}
+
+.game-details__vote-button.game-details__vote-button--upvote {
+  background-color: rgb(2, 117, 2);
+}
+
+.game-details__vote-button.game-details__vote-button--downvote:hover {
+  background-color: #b3203f;
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 2s ease-in-out infinite alternate;
+}
+
+.game-details__vote-button.game-details__vote-button--upvote:hover {
+  background-color: rgb(2, 117, 2);
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 1s ease-in-out infinite alternate;
+}
+
+.game-language-section__content {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-language-section__row {
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 4px; /* espaçamento entre linhas */
+}
+
+.game-language-section__row:hover {
+  background-color: rgba(53, 53, 53, 1);
+}
+
+.game-language-section__header-item {
+  border: 1px solid rgba(255, 255, 255, 0.795);
+  border-radius: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  font-size: 13px;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.795),
+    0 0 1px rgba(255, 255, 255, 0.795),
+    0 0 1px rgba(255, 255, 255, 0.795),
+    0 0 1px rgba(255, 255, 255, 0.795);
+}
+
+.octicon.octicon-check.game-language-section__check {
+  color: rgba(0, 179, 0, 1);
+}
+
+.octicon.octicon-x.game-language-section__cross {
+  color: red;
+}
+
+.game-details__edit-custom-game-button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.342);
+}
+
+.game-details__cloud-sync-button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.342);
+}
+
+.game-details__edit-custom-game-button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-details__cloud-sync-button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.achievements__list {
+  background-color: rgba(15, 15, 15, 1);
+}
+
+.achievements__item {
+  border-radius: 10px;
+  background-color: rgba(38, 38, 38, 1);
+  color: #cacacaff;
+}
+
+.achievements__item-title {
+  text-shadow:
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff;
+}
+
+.achievements__item-points-value {
+  color: #76c5b8ff;
+}
+
+.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value { 
+  background-color: #76c5b8ff;
+}
+
 .recent-games__box {
   background-color: black;
 }
