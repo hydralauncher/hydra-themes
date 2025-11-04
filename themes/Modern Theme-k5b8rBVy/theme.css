@@ -95,7 +95,7 @@
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.2);
-  transition: left 0.5s;
+  transition: left 0.3s;
 }
 
 .button:hover::before {
@@ -319,6 +319,90 @@ select {
   height: 40px;
   border-radius: 10px;
   margin-bottom: 4px; /* espaçamento entre linhas */
+}
+
+.bottom-panel__downloads-button:hover {
+  border: none;
+  text-shadow:
+    0 0 1px #a3a3a3ff,
+    0 0 1px #a3a3a3ff,
+    0 0 1px #a3a3a3ff,
+    0 0 1px #a3a3a3ff;
+}
+
+.user-reviews__review-item {
+  background-color: #303030ff;
+  padding: 10px;
+}
+
+.user-reviews__vote-button {
+  background-color: #b3203f;
+}
+
+.user-reviews__vote-button.user-reviews__vote-button--active {
+  background-color: rgb(2, 117, 2);
+}
+
+.user-reviews__vote-button:hover {
+  background-color: #b3203f;
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 2s ease-in-out infinite alternate;
+}
+
+.user-reviews__vote-button.user-reviews__vote-button--active:hover {
+  background-color: rgb(2, 117, 2);
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 1s ease-in-out infinite alternate;
+}
+
+.user-reviews__delete-review-button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border-width: 2px;
+}
+
+.user-reviews__delete-review-button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulsar_buttom 3s ease-in-out infinite alternate;
+}
+
+.user-reviews__review-score-stars {
+  background-color: rgba(197, 194, 0, 1);
+  color: white;
+}
+
+.user-reviews__game-title.user-reviews__game-title--clickable {
+  letter-spacing: 0.8px;
+  font-size: 14px;
+  text-shadow:
+    0 0 1px white,
+    0 0 1px white,
+    0 0 1px white,
+    0 0 1px white;
+}
+
+.user-reviews__game-title.user-reviews__game-title--clickable:hover {
+  text-decoration: none;
+  text-shadow: none;
+  transform: scale(1.01);
+  color: rgba(255, 255, 255, 0.884);
+}
+
+.user-reviews__review-playtime {
+  background-color: #4d67b6ff;
+  color: rgba(255, 255, 255, 0.884);
+}
+
+.user-reviews__review-date {
+  color: rgba(255, 255, 255, 0.884);
+}
+
+.profile-content__tab-underline {
+  transition: left 0.3s ease;
 }
 
 .game-language-section__row:hover {
