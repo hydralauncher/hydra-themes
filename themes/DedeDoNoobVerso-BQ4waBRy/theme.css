@@ -25,12 +25,7 @@ body {
 }
 
 /* Container principal (#root) onde o fundo é aplicado */
-#root {
-    /* Cor de fallback caso a imagem não carregue (vermelho) */
-    background: #ff0000ff url("https://4kwallpapers.com/images/walls/thumbs_3t/14812.jpg")
-        no-repeat center center; /* Define o fundo: URL da imagem, sem repetição, centralizada */
-    background-size: cover; /* Garante que a imagem cubra todo o espaço */
-}
+
 
 /* ========================================================= */
 /* === EFEITO GLASS MORPHISM (VIDRO FOSCO) EM CONTAINERS === */
@@ -104,7 +99,7 @@ body {
     background-color: rgba(0, 0, 0, 0.25) !important; /* Fundo escuro semi-transparente */
     border-radius: 20px; /* Cantos bem arredondados */
     /* Cria uma sombra 3D (levanta o card) e um glow escuro */
-    box-shadow: 
+    box-shadow:
         0 4px 0 rgba(0, 0, 0, 0.7), /* Sombra preta (simula profundidade) */
         0 0 12px rgba(0, 0, 0, 1); /* Glow escuro (sombra forte) */
     transform: translateY(0); /* Posição inicial (sem estar "levantado") */
@@ -878,25 +873,25 @@ html::before {
 
 /* Menu lateral (botões) */
 .sidebar__menu-item-button {
-    background-color: rgba(0, 0, 0, 0.65) !important; /* escurece o fundo */
+    background-color: rgba(0, 0, 0, 0.85) !important; /* escurece o fundo */
     color: #fff !important;
 }
 
 /* Hover - mantém contraste */
 .sidebar__menu-item:hover .sidebar__menu-item-button {
-    background-color: rgba(0, 0, 0, 0.85) !important;
+    background-color: rgba(0, 0, 0, 1) !important;
 }
 
 /* Botões outline do conteúdo principal */
 .container__content .button--outline {
-    background-color: rgba(0, 0, 0, 0.55) !important;
+    background-color: rgba(0, 0, 0, 1) !important;
 }
 
 /* Cards de jogos */
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-    background-color: rgba(0, 0, 0, 0.75) !important; /* mais sólido */
+    background-color: rgba(0, 0, 0, 1) !important; /* mais sólido */
 }
 
 /* Campos da loja e modais */
@@ -904,7 +899,7 @@ html::before {
 .theme-store-main,
 .theme-store-overlay,
 .modal {
-    background: rgba(0, 0, 0, 0.55) !important;
+    background: rgba(0, 0, 0, 1) !important;
 }
 
 /* HUD principal */
@@ -912,6 +907,6 @@ html::before {
 .container__content,
 .bottom-panel,
 .sidebar {
-    background: rgba(0, 0, 0, 0.55) !important;
+    background: rgba(0, 0, 0, 0.88) !important;
     backdrop-filter: blur(5px) !important;
 }
