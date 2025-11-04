@@ -1,3 +1,18 @@
+
+
+
+  /*
+    Here you can edit CSS for your theme and apply it on Hydra.
+    There are a few classes already in place, you can use them to style the launcher.
+
+    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+    or how to publish your theme in the theme store, you can check the docs:
+    https://docs.hydralauncher.gg/
+
+    Happy hacking!
+  */
+
+
 /* ========================================================= */
 /* === CONFIGURAÇÕES GERAIS E FUNDO DA APLICAÇÃO (BODY) === */
 /* ========================================================= */
@@ -324,13 +339,13 @@ body {
     width: 100%;
     padding: 8px 12px;
     border: none;
-    background-color: rgba(50, 50, 50, 0.3); /* Fundo inativo */
+    background-color: rgba(12, 1, 1, 0.61); /* Fundo inativo */
     color: #ffffff;
     font-weight: 600;
     border-radius: 12px; /* Bordas arredondadas */
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.4); /* Leve glow inicial */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.93); /* Leve glow inicial */
 }
 
 /* Ícone dentro do botão */
@@ -352,23 +367,23 @@ body {
 /* Hover - Efeito Neon Pulse (Brilho que pulsa) */
 .sidebar__menu-item:hover .sidebar__menu-item-button {
     background-color: rgba(30, 30, 30, 0.8); /* Fundo escuro */
-    color: #ff4655; /* Cor do texto neon */
+    color: #ff0015ff; /* Cor do texto neon */
     transform: scale(1.05); /* Leve aumento */
     border-radius: 12px;
     /* Glow neon intenso */
-    box-shadow: 0 0 10px #ff4655, 0 0 20px #ff4655, 0 0 30px #ff4655;
+    box-shadow: 0 0 10px #ff0015ff, 0 0 20px #ff0015ff, 0 0 30px #ff0015ff;
     animation: pulseGlow 1.2s infinite alternate; /* Aplica a animação de pulsação */
 }
 
 /* Ícone no Hover */
 .sidebar__menu-item:hover .sidebar__menu-item-button svg {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 6px #ff4655);
+    filter: drop-shadow(0 0 6px #ff0015ff);
 }
 
 /* Item Ativo (Selecionado) */
 .sidebar__menu-item--active .sidebar__menu-item-button {
-    color: #ffffff;
+    color: #ff0000ff;
     border-radius: 12px;
     box-shadow: 0 0 6px #ff4655; /* Glow mais suave quando ativo */
 }
@@ -741,4 +756,162 @@ body {
 .game-card__title {
     color: #fff;
     font-weight: bold;
+}
+/* ========================================================= */
+/* === PERSONAGEM DO VALORANT (SOBREPOSIÇÃO) ============= */
+/* ========================================================= */
+
+
+
+/* ===================================================== */
+/* PERSONAGEM ESQUERDO (::before) — totalmente ajustável */
+/* ===================================================== */
+body::before {
+    content: '';
+    position: fixed;
+
+    /* 👉 Ajuste livre */
+    top: 520px;      /* Subir/Descer */
+    left: -100px;      /* Esquerda/Direita */
+
+    opacity: 0.3;
+    transition: all 0.5s ease;
+    pointer-events: none;
+
+    background-image: url('https://cdn.discordapp.com/attachments/1001451908340383840/1434861659901657198/1000.png?ex=6909de8e&is=69088d0e&hm=fb8495a608913f17a7ecb16c4cecafa7f4a81f03976b4a0a06a833eb77e48f68&');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 550px; /* ajuste tamanho */
+    height: 850px;
+
+    z-index: 9999;
+    filter: drop-shadow(0 0 10px rgba(255, 70, 85, 0.5));
+    animation: float 4s ease-in-out infinite;
+}
+
+body::before:hover {
+    opacity: 5;
+    filter: drop-shadow(0 0 15px #ffffffff) drop-shadow(0 0 25px rgba(255, 70, 85, 1));
+}
+
+
+/* ===================================================== */
+/* PERSONAGEM DIREITO (::after) — totalmente ajustável  */
+/* ===================================================== */
+body::after {
+    content: '';
+    position: fixed;
+
+    /* 👉 Ajuste livre */
+    top: 520px;      /* Subir/Descer */
+    right: -120px;     /* Esquerda/Direita */
+
+    opacity: 0.3;
+    transition: all 0.5s ease;
+    pointer-events: none;
+
+    background-image: url('https://images-ext-1.discordapp.net/external/fYHii8Rc-RJldgVcw1emeHGCVhFL6lD7th8FpJ700IQ/%3Fcb%3D20220810202811/https/static.wikia.nocookie.net/valorant/images/9/90/Phoenix_Artwork_Full.png/revision/latest/scale-to-width-down/1000?format=webp&width=714&height=648');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 550px; /* ajuste tamanho */
+    height: 850px;
+
+    z-index: 9999;
+    filter: drop-shadow(0 0 10px rgba(255, 70, 85, 0.5));
+    animation: float 4s ease-in-out infinite;
+}
+
+body::after:hover {
+    opacity: 5;
+    filter: drop-shadow(0 0 15px #ffffff) drop-shadow(0 0 25px rgba(255, 70, 85, 1));
+}
+
+
+/* Esconde em telas menores */
+@media (max-width: 1000px) {
+    body::before,
+    body::after {
+        display: none;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+//* CORREDOR NO RODAPÉ — direita → esquerda */
+html::before {
+    content: '';
+    position: fixed;
+
+    bottom: 0;
+    right: -350px; /* começa fora da tela à direita */
+
+    width: 350px;
+    height: 200px;
+
+    pointer-events: none;
+    z-index: 999999;
+
+    background-image: url('https://blinkink-web.files.svdcdn.com/production/legacy/Valorant_gif4.gif?dm=1708524727');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    /* Aqui já está a animação corrigida */
+    animation: correr 7s linear infinite;
+}
+
+@keyframes correr {
+    0% {
+        transform: translateX(350px); /* aparece pelo lado direito */
+    }
+    100% {
+        transform: translateX(-120vw); /* vai saindo pelo lado esquerdo */
+    }
+}*//
+/* ========================= */
+/* ✅ MELHORIA DE VISIBILIDADE DOS BOTÕES E PAINÉIS */
+/* ========================= */
+
+/* Menu lateral (botões) */
+.sidebar__menu-item-button {
+    background-color: rgba(0, 0, 0, 0.65) !important; /* escurece o fundo */
+    color: #fff !important;
+}
+
+/* Hover - mantém contraste */
+.sidebar__menu-item:hover .sidebar__menu-item-button {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Botões outline do conteúdo principal */
+.container__content .button--outline {
+    background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Cards de jogos */
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+    background-color: rgba(0, 0, 0, 0.75) !important; /* mais sólido */
+}
+
+/* Campos da loja e modais */
+.theme-store-wrapper,
+.theme-store-main,
+.theme-store-overlay,
+.modal {
+    background: rgba(0, 0, 0, 0.55) !important;
+}
+
+/* HUD principal */
+.header,
+.container__content,
+.bottom-panel,
+.sidebar {
+    background: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(5px) !important;
 }
