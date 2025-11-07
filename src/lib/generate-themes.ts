@@ -48,6 +48,19 @@ const getThemeAchievementsSupport = async (
   }
 };
 
+const hasCustomAchievementSound = (themePath: string): boolean => {
+  const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
+  
+  for (const extension of supportedExtensions) {
+    const soundFilePath = path.join(themePath, `achievement${extension}`);
+    if (fs.existsSync(soundFilePath)) {
+      return true;
+    }
+  }
+  
+  return false;
+};
+
 const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
 
 Promise.all(
@@ -138,11 +151,13 @@ Promise.all(
 
     const hasAchievementsSupport =
       await getThemeAchievementsSupport(publicThemePath);
+    const hasAchievementSound = hasCustomAchievementSound(publicThemePath);
 
     return {
       name: themeName,
       authorId: authorCode,
       hasAchievementsSupport,
+      hasCustomAchievementSound: hasAchievementSound,
     };
   }),
 )

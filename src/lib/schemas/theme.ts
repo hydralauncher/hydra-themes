@@ -13,6 +13,7 @@ export const themeSchema = z.object({
   downloadCount: z.number().min(0),
   favoriteCount: z.number().min(0),
   hasAchievementsSupport: z.boolean(),
+  hasCustomAchievementSound: z.boolean(),
   isFavorite: z.boolean(),
   isInstalled: z.boolean(),
 });

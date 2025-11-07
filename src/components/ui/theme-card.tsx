@@ -173,21 +173,32 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
             </div>
           </div>
 
-          <div className="flex flex-row items-center gap-2">
-            {theme.hasAchievementsSupport ? (
-              <>
+          <div className="flex flex-col gap-2">
+            {theme.hasCustomAchievementSound && (
+              <div className="flex flex-row items-center gap-2">
                 <CheckCircle2Icon className="size-4 text-green-500" />
                 <span className="text-xs text-muted-foreground">
-                  Supports Achievements
+                  Custom Achievement Sound
                 </span>
-              </>
-            ) : (
-              <>
+              </div>
+            )}
+            
+            {theme.hasAchievementsSupport && (
+              <div className="flex flex-row items-center gap-2">
+                <CheckCircle2Icon className="size-4 text-green-500" />
+                <span className="text-xs text-muted-foreground">
+                  Custom Achievement
+                </span>
+              </div>
+            )}
+            
+            {!theme.hasCustomAchievementSound && !theme.hasAchievementsSupport && (
+              <div className="flex flex-row items-center gap-2">
                 <XCircleIcon className="size-4 text-red-500" />
                 <span className="text-xs text-muted-foreground">
                   Does not support Achievements
                 </span>
-              </>
+              </div>
             )}
           </div>
         </div>
