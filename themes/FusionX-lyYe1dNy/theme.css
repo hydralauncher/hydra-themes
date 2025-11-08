@@ -1,0 +1,823 @@
+/**
+ * @name FusionX
+ * @author Inspired by sakasakiking's Playnite FusionX Theme
+ * @version 1.0
+ * @description A beautiful and consistently designed theme inspired by the FusionX Playnite theme - featuring a modern dark blue aesthetic with vibrant accent gradients.
+ * @source https://github.com/sakasakiking/FusionX
+*/
+
+:root {
+  /* Main Colors - Deep Blue Theme */
+  --main-color: #2C3A67;
+  --main-color-dark: #0D1225;
+  --hover-color: #247BA0;
+  
+  /* Accent Colors - Bright Blue with Purple */
+  --accent-blue: #0379FF;
+  --accent-blue-light: #2C8FFF;
+  --accent-purple: #AD00FF;
+  --accent-tone: #FFCC00;
+  
+  /* Background Colors */
+  --background-dark: #212121;
+  --background-darker: #1e1e1e;
+  --background-panel: #2C2C2C;
+  --popup-background: #212121;
+  --popup-border: #2E2E2E;
+  
+  /* Text Colors */
+  --text-primary: rgba(255, 255, 255, 0.8);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-bright: #FFFFFF;
+  
+  /* Control Colors */
+  --control-background: rgba(255, 255, 255, 0.09);
+  --control-hover: rgba(255, 255, 255, 0.14);
+  --control-active: rgba(255, 255, 255, 0.22);
+  --control-border: rgba(255, 255, 255, 0.09);
+  
+  /* Utility Colors */
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --separator-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, var(--main-color) 0%, var(--main-color-dark) 100%);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', 'Trebuchet MS', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+/* Title Bar */
+.title-bar {
+  background: linear-gradient(180deg, var(--main-color) 0%, var(--main-color-dark) 100%);
+  border-bottom: 1px solid var(--separator-color);
+}
+
+/* Header */
+.header {
+  background-color: var(--main-color-dark);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.header__search {
+  background-color: var(--control-background);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+}
+
+.header__search:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+}
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(180deg, var(--main-color-dark) 0%, #0a0e1e 100%);
+  color: var(--text-secondary);
+  border-right: 1px solid var(--separator-color);
+}
+
+.sidebar__menu-item {
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.sidebar__menu-item:hover {
+  background-color: var(--control-hover);
+  color: var(--text-bright);
+}
+
+.theme-card--active,
+.sidebar__menu-item--active {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.2) 0%, rgba(173, 0, 255, 0.1) 100%);
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-tone);
+  border-radius: 8px;
+}
+
+.sidebar__help-button {
+  color: var(--accent-tone);
+}
+
+/* Sidebar Profile - positioned at bottom with floating effect */
+.sidebar-profile {
+  margin: 0.5rem 0;
+  order: 999;
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.12) 0%, rgba(173, 0, 255, 0.08) 100%);
+  border: 1px solid rgba(3, 121, 255, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(3, 121, 255, 0.2);
+  transition: all 0.3s ease;
+  width: 90%;
+  height: 4rem;
+  padding: 4px;
+  gap: 8px;
+  align-self: center;
+}
+
+.sidebar-profile:hover {
+  border-color: rgba(3, 121, 255, 0.5);
+}
+
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-profile__friends-button {
+  background-color: var(--control-background);
+  border-radius: 8px;
+  margin-right: 4px;
+}
+
+.sidebar-profile__friends-button:hover {
+  background-color: var(--control-hover);
+}
+
+.sidebar-profile__friends-button svg {
+  fill: var(--accent-blue);
+}
+
+/* Profile Hero (User Profile Page) */
+.profile-hero__user-information {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.15) 0%, rgba(173, 0, 255, 0.1) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px 8px 0 0;
+  padding: 16px;
+}
+
+.profile-hero__content-box {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%) !important;
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  align-self: center !important;  
+  margin: 24px;
+}
+
+.profile-hero__hero-panel {
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-dark) 100%) !important;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Fix orange background in profile - replace with theme gradient */
+.profile-hero__user-information,
+.profile-hero {
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-dark) 100%) !important;
+}
+
+.profile-content__background {
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-dark) 100%) !important;
+}
+
+.profile-content__main {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border-radius: 8px;
+  border: 1px solid var(--control-border);
+  padding: 16px;
+}
+
+.profile-content__main:hover {
+  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.12) 0%, rgba(173, 0, 255, 0.08) 100%);
+}
+
+/* Profile Avatar - Can be customized with gradient or image */
+.profile-avatar {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  border-radius: 50%;
+  border: 2px solid var(--accent-blue);
+  /* To use a custom image instead of gradient:
+     1. Remove the background gradient above
+     2. Add your image URL like this:
+     background-image: url('YOUR_IMAGE_URL_HERE.png');
+     background-size: cover;
+     background-position: center;
+  */
+}
+
+.profile-avatar__image {
+  border-radius: 50%;
+}
+
+.sidebar-section__button {
+  background: linear-gradient(180deg, var(--main-color-dark) 0%, #0a0e1e 100%);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* Main Container */
+.container,
+.container__content {
+  background: linear-gradient(180deg, var(--main-color-dark) 0%, #0a0e1e 100%);
+}
+
+main {
+  background-color: var(--background-darker);
+  color: var(--text-primary);
+}
+
+/* Buttons */
+.button--primary {
+  background: linear-gradient(135deg, #188EFF 0%, #AD00FF 100%);
+  color: var(--text-bright);
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button--primary:hover {
+  background: linear-gradient(135deg, #46A5FF 0%, #BD33FF 100%);
+  box-shadow: 0 4px 12px rgba(24, 142, 255, 0.4);
+}
+
+.button--outline {
+  color: var(--text-bright);
+  border: 1px solid var(--control-border);
+  background-color: transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.button--outline:hover {
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  background-color: var(--control-hover);
+}
+
+.button--dark {
+  background-color: var(--control-background);
+  border-radius: 8px;
+}
+
+.button--dark:hover {
+  background-color: var(--control-hover);
+}
+
+/* Bottom Panel */
+.bottom-panel {
+  background-color: var(--main-color-dark);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--separator-color);
+}
+
+.bottom-panel__version-button {
+  color: var(--text-secondary);
+}
+
+.bottom-panel__downloads-button {
+  color: var(--accent-blue);
+}
+
+/* Game Items */
+.game-item {
+  background-color: transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.game-item:hover {
+  background-color: var(--control-hover);
+}
+
+.game-item__genres {
+  color: var(--text-secondary);
+}
+
+/* Catalogue Filters */
+.catalogue__filters-container {
+  background-color: transparent;
+}
+
+.filter-item {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.filter-item:hover {
+  border-color: var(--accent-blue);
+  background-color: var(--control-hover);
+}
+
+.filter-item--active {
+  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.2) 0%, rgba(173, 0, 255, 0.1) 100%);
+}
+
+/* Text Fields */
+.text-field-container__text-field-input {
+  background-color: var(--control-background);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+}
+
+.text-field-container__text-field-input:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+}
+
+.text-field-container__text-field {
+  background-color: transparent;
+}
+
+/* Checkboxes */
+.checkbox-field {
+  color: var(--text-secondary);
+}
+
+.checkbox-field__checkbox {
+  color: var(--accent-tone);
+}
+
+.checkbox-field__input {
+  background-color: var(--control-background);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+}
+
+/* Badges */
+.badge {
+  color: var(--text-secondary);
+  border: 1px solid var(--control-border);
+  background-color: var(--control-background);
+  border-radius: 6px;
+}
+
+/* Game Details - Match profile page styling */
+.description-header {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.12) 0%, rgba(173, 0, 255, 0.08) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.game-details__description-content {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.game-details__description-container {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.game-details__reviews-section {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.game-details__cloud-sync-button {
+  color: var(--text-primary);
+  border: 1px solid var(--accent-blue);
+  border-radius: 8px;
+}
+
+.game-card {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.game-card:hover {
+  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.12) 0%, rgba(173, 0, 255, 0.08) 100%);
+  box-shadow: 0 4px 12px rgba(3, 121, 255, 0.3);
+}
+
+/* Lists - Match profile page styling */
+.list {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.how-long-to-beat__categories-list {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+/* Stats and Requirements */
+.stats__section {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.requirement__details {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.bb_ul {
+  margin-left: 24px;
+}
+
+.requirement__button {
+  background-color: var(--control-background);
+  border-radius: 8px;
+}
+
+.requirement__button-container {
+  gap: 4px;
+  padding: 6px 8px;
+}
+
+/* Hero Panel */
+.hero-panel {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.hero-panel__content {
+  color: var(--text-primary);
+}
+
+/* User Stats Boxes */
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.user-karma__box,
+.content-sidebar {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  padding: 8px;
+}
+
+.user-karma__box {
+  padding: 16px;
+}
+
+.user-stats__box:hover,
+.recent-games__box:hover,
+.friends-box__box:hover,
+.user-karma__box:hover {
+  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.12) 0%, rgba(173, 0, 255, 0.08) 100%);
+}
+
+/* User Karma Specific Styling */
+.user-karma__section-header h2 {
+  color: var(--text-bright);
+}
+
+.user-karma__description,
+.user-karma__info-text {
+  color: var(--text-primary);
+}
+
+.user-karma__stats-row {
+  color: var(--text-secondary);
+}
+
+/* Modals */
+.modal__header {
+  background-color: var(--main-color-dark);
+  border-bottom: 1px solid var(--separator-color);
+}
+
+.modal__content {
+  background: linear-gradient(180deg, var(--main-color-dark) 0%, var(--background-darker) 100%);
+}
+
+/* Downloads */
+.download-group__right-content {
+  background-color: var(--main-color-dark);
+  border-radius: 8px;
+}
+
+.download-group__title {
+  color: var(--accent-blue);
+}
+
+.hero-panel-playtime__downloads-link {
+  color: var(--accent-blue);
+}
+
+/* Dropdowns */
+.dropdown-menu__group {
+  background-color: var(--popup-background);
+  color: var(--text-primary);
+  border: 1px solid var(--popup-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+.dropdown-menu__content {
+  background-color: var(--popup-background);
+}
+
+/* Select Field / Dropdown */
+.select-field {
+  background-color: var(--control-background);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+
+.select-field__option {
+  background-color: var(--popup-background);
+  color: var(--text-primary);
+  border-radius: 4px;
+}
+
+.select-field__option:hover {
+  background-color: var(--control-hover);
+  color: var(--text-bright);
+}
+
+.select-field__option option {
+  background-color: var(--popup-background);
+  color: var(--text-primary);
+}
+
+/* Settings */
+.settings__content {
+  background-color: transparent;
+}
+
+.settings-download-sources__item {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+/* Achievement Panel */
+.achievement-panel {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.achievements__list {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+.achievements-content__achievements-list {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+/* Achievement Items with Rarity-based Backgrounds */
+.achievement-item {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 121, 255, 0.3);
+}
+
+/* Default/Bronze Achievement */
+.achievement-item--default,
+.achievement-item[data-rarity="default"],
+.achievement-item[data-rarity="bronze"] {
+  background: linear-gradient(135deg, 
+    rgba(139, 69, 19, 0.15) 0%, 
+    rgba(101, 67, 33, 0.1) 100%
+  );
+  border-color: rgba(139, 69, 19, 0.3);
+}
+
+.achievement-item--default:hover,
+.achievement-item[data-rarity="default"]:hover,
+.achievement-item[data-rarity="bronze"]:hover {
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+  border-color: rgba(139, 69, 19, 0.5);
+}
+
+/* Gold Achievement */
+.achievement-item--gold,
+.achievement-item[data-rarity="gold"] {
+  background: linear-gradient(135deg, 
+    rgba(255, 204, 0, 0.15) 0%, 
+    rgba(218, 165, 32, 0.1) 100%
+  );
+  border-color: rgba(255, 204, 0, 0.4);
+}
+
+.achievement-item--gold:hover,
+.achievement-item[data-rarity="gold"]:hover {
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.5), 0 0 20px rgba(255, 204, 0, 0.2);
+  border-color: rgba(255, 204, 0, 0.6);
+}
+
+/* Platinum Achievement */
+.achievement-item--platinum,
+.achievement-item[data-rarity="platinum"] {
+  background: linear-gradient(135deg, 
+    rgba(173, 0, 255, 0.18) 0%, 
+    rgba(138, 43, 226, 0.12) 100%
+  );
+  border-color: rgba(173, 0, 255, 0.5);
+}
+
+.achievement-item--platinum:hover,
+.achievement-item[data-rarity="platinum"]:hover {
+  box-shadow: 0 4px 12px rgba(173, 0, 255, 0.6), 0 0 20px rgba(173, 0, 255, 0.3);
+  border-color: rgba(173, 0, 255, 0.7);
+}
+
+/* Hidden Achievement */
+.achievement-item--hidden,
+.achievement-item[data-rarity="hidden"] {
+  background: linear-gradient(135deg, 
+    rgba(64, 64, 64, 0.2) 0%, 
+    rgba(32, 32, 32, 0.15) 100%
+  );
+  border-color: rgba(128, 128, 128, 0.3);
+}
+
+.achievement-item--hidden:hover,
+.achievement-item[data-rarity="hidden"]:hover {
+  box-shadow: 0 4px 12px rgba(128, 128, 128, 0.4);
+  border-color: rgba(128, 128, 128, 0.5);
+}
+
+/* Achievement Progress Chip/Badge */
+.achievement-item__chip,
+.achievement__chip,
+.achievement-progress__chip {
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-dark) 100%);
+  border: 1px solid var(--control-border);
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: var(--text-bright);
+}
+
+/* Notifications / Toast */
+.toast {
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-dark) 100%);
+  border: 1px solid var(--accent-blue);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(3, 121, 255, 0.4), 0 0 30px rgba(3, 121, 255, 0.2);
+  color: var(--text-bright);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.toast:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3, 121, 255, 0.5), 0 0 40px rgba(3, 121, 255, 0.3);
+}
+
+.toast--success {
+  border-color: #78ffa0;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--main-color) 80%, #78ffa0 20%), 
+    color-mix(in srgb, var(--main-color-dark) 80%, #78ffa0 20%)
+  );
+  box-shadow: 0 4px 16px rgba(120, 255, 160, 0.4), 0 0 30px rgba(120, 255, 160, 0.2);
+}
+
+.toast--success:hover {
+  box-shadow: 0 6px 20px rgba(120, 255, 160, 0.5), 0 0 40px rgba(120, 255, 160, 0.3);
+}
+
+.toast--error {
+  border-color: #ff6b6b;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--main-color) 80%, #ff6b6b 20%), 
+    color-mix(in srgb, var(--main-color-dark) 80%, #ff6b6b 20%)
+  );
+  box-shadow: 0 4px 16px rgba(255, 107, 107, 0.4), 0 0 30px rgba(255, 107, 107, 0.2);
+}
+
+.toast--error:hover {
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5), 0 0 40px rgba(255, 107, 107, 0.3);
+}
+
+.toast--warning {
+  border-color: var(--accent-tone);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--main-color) 80%, #FFCC00 20%), 
+    color-mix(in srgb, var(--main-color-dark) 80%, #FFCC00 20%)
+  );
+  box-shadow: 0 4px 16px rgba(255, 204, 0, 0.4), 0 0 30px rgba(255, 204, 0, 0.2);
+}
+
+.toast--warning:hover {
+  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5), 0 0 40px rgba(255, 204, 0, 0.3);
+}
+
+.toast--info {
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 16px rgba(3, 121, 255, 0.4), 0 0 30px rgba(3, 121, 255, 0.2);
+}
+
+.toast--info:hover {
+  box-shadow: 0 6px 20px rgba(3, 121, 255, 0.5), 0 0 40px rgba(3, 121, 255, 0.3);
+}
+
+/* Achievement Notifications */
+.achievement-notification__container {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.1) 0%, rgba(173, 0, 255, 0.08) 100%);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+/* Rare Achievement */
+.achievement-notification--rare .achievement-notification__icon {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 15px rgba(3, 121, 255, 0.5);
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* Platinum Achievement */
+.achievement-notification--platinum .achievement-notification__container {
+  background: linear-gradient(135deg, 
+    rgba(173, 0, 255, 0.15) 0%, 
+    rgba(3, 121, 255, 0.12) 100%
+  );
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  border: 1px solid var(--accent-purple);
+  box-shadow: 0 0 20px rgba(173, 0, 255, 0.6);
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* Pulse glow animation for rare/platinum achievements */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(3, 121, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(3, 121, 255, 0.8);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, var(--main-color-dark) 0%, var(--background-darker) 100%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--control-background);
+  border-radius: 24px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+}
+
+/* Links and Small Text */
+a {
+  color: var(--accent-blue);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-blue-light);
+}
+
+small {
+  color: var(--text-tertiary);
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-bright);
+  font-weight: 600;
+}

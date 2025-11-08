@@ -38,10 +38,10 @@ const getThemeAchievementsSupport = async (
     }
 
     return false;
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(
-      `Failed to get theme achievements support for ${publicThemePath}`,
-      err,
+      `Failed to parse CSS for ${publicThemePath}`,
+      (err as Error).message
     );
 
     return false;
@@ -107,14 +107,33 @@ Promise.all(
         path.join(publicThemePath, "theme.css"),
       );
 
-      await sharp(path.join(folderPath, screenshotFile))
-        .resize(340, null, { fit: "inside" })
-        .toFormat("webp")
-        .toFile(path.join(publicThemePath, "screenshot.webp"));
-
       if (screenshotFile !== "screenshot.webp") {
         fs.unlinkSync(path.join(publicThemePath, screenshotFile));
       }
+    }
+
+    const thumbnailPath = path.join(publicThemePath, "screenshot.webp");
+    const fullscreenPath = path.join(publicThemePath, "screenshot-full.webp");
+
+    // Generate thumbnail version (for card display)
+    await sharp(path.join(folderPath, screenshotFile))
+      .resize(340, null, { fit: "inside" })
+      .toFormat("webp")
+      .toFile(thumbnailPath);
+
+    const sourceStats = fs.statSync(path.join(folderPath, screenshotFile));
+    const fullscreenStats = fs.existsSync(fullscreenPath)
+      ? fs.statSync(fullscreenPath)
+      : null;
+
+    if (
+      !fullscreenStats ||
+      sourceStats.mtimeMs > fullscreenStats.mtimeMs
+    ) {
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(1920, null, { fit: "inside", withoutEnlargement: true })
+        .toFormat("webp")
+        .toFile(fullscreenPath);
     }
 
     const hasAchievementsSupport =
