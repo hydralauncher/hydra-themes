@@ -173,22 +173,42 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
             </div>
           </div>
 
-          <div className="flex flex-row items-center gap-2">
-            {theme.hasAchievementsSupport ? (
-              <>
-                <CheckCircle2Icon className="size-4 text-green-500" />
-                <span className="text-xs text-muted-foreground">
-                  Supports Achievements
-                </span>
-              </>
-            ) : (
-              <>
-                <XCircleIcon className="size-4 text-red-500" />
-                <span className="text-xs text-muted-foreground">
-                  Does not support Achievements
-                </span>
-              </>
-            )}
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-row items-center gap-2">
+              {theme.hasAchievementsSupport ? (
+                <>
+                  <CheckCircle2Icon className="size-4 text-green-500" />
+                  <span className="text-xs text-muted-foreground">
+                    Custom Achievement
+                  </span>
+                </>
+              ) : (
+                <>
+                  <XCircleIcon className="size-4 text-red-500" />
+                  <span className="text-xs text-muted-foreground">
+                    Does not support Achievements
+                  </span>
+                </>
+              )}
+            </div>
+            
+            <div className="flex flex-row items-center gap-2">
+              {theme.hasAchievementSoundSupport ? (
+                <>
+                  <CheckCircle2Icon className="size-4 text-green-500" />
+                  <span className="text-xs text-muted-foreground">
+                    Custom Achievement Sound
+                  </span>
+                </>
+              ) : (
+                <>
+                  <XCircleIcon className="size-4 text-red-500" />
+                  <span className="text-xs text-muted-foreground">
+                    Does not support Achievement Sound
+                  </span>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
