@@ -178,7 +178,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
               <>
                 <CheckCircle2Icon className="size-4 text-green-500" />
                 <span className="text-xs text-muted-foreground">
-                  {theme.hasCustomAchievementSound
+                  {theme.hasAchievementSoundSupport
                     ? "Custom Achievement & Sound"
                     : "Custom Achievement"}
                 </span>

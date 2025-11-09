@@ -48,7 +48,7 @@ const getThemeAchievementsSupport = async (
   }
 };
 
-const hasCustomAchievementSound = (themePath: string): boolean => {
+const hasAchievementSoundSupport = (themePath: string): boolean => {
   const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
   
   for (const extension of supportedExtensions) {
@@ -151,13 +151,12 @@ Promise.all(
 
     const hasAchievementsSupport =
       await getThemeAchievementsSupport(publicThemePath);
-    const hasAchievementSound = hasCustomAchievementSound(publicThemePath);
 
     return {
       name: themeName,
       authorId: authorCode,
       hasAchievementsSupport,
-      hasCustomAchievementSound: hasAchievementSound,
+      hasAchievementSoundSupport: hasAchievementSoundSupport(publicThemePath),
     };
   }),
 )
