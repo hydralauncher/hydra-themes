@@ -7,8 +7,10 @@ import {
   XCircleIcon,
   X,
   Maximize2Icon,
+  Volume2Icon,
+  Pause
 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { compactNumber } from "@/lib/helpers";
 import { api } from "@/lib/api";
@@ -27,6 +29,31 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isPlayingSound, setIsPlayingSound] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const stopAchievementSound = useCallback(() => {
+    const audio = audioRef.current as (HTMLAudioElement & {
+      __hydraStopHandler?: () => void;
+    }) | null;
+    if (audio) {
+      if (audio.__hydraStopHandler) {
+        audio.removeEventListener("ended", audio.__hydraStopHandler);
+        audio.removeEventListener("error", audio.__hydraStopHandler);
+        delete audio.__hydraStopHandler;
+      }
+      audio.pause();
+      audio.currentTime = 0;
+      audioRef.current = null;
+    }
+    setIsPlayingSound(false);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      stopAchievementSound();
+    };
+  }, [stopAchievementSound]);
 
   const performThemeAction = useCallback(
     async (action: "install" | "favorite" | "unfavorite") => {
@@ -80,8 +107,57 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     return `https://cdn.losbroxas.org/cdn-cgi/image/width=${AVATAR_SIZE},height=${AVATAR_SIZE},format=webp/${bucketObject.join("/")}`;
   }, [theme.author.profileImageUrl]);
 
-  const thumbnailUrl = `/themes/${theme.name.toLowerCase()}/screenshot.webp`;
-  const fullscreenUrl = `/themes/${theme.name.toLowerCase()}/screenshot-full.webp`;
+  const themeSlug = theme.name.toLowerCase();
+  const thumbnailUrl = `/themes/${themeSlug}/screenshot.webp`;
+  const fullscreenUrl = `/themes/${themeSlug}/screenshot-full.webp`;
+  const hasAchievementSoundSupport = theme.hasAchievementSoundSupport;
+
+  const playAchievementSound = useCallback(async () => {
+    if (!hasAchievementSoundSupport) {
+      return;
+    }
+
+    if (isPlayingSound) {
+      stopAchievementSound();
+      return;
+    }
+
+    const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
+    const themeBasePath = `/themes/${themeSlug}/achievement`;
+
+    for (const extension of supportedExtensions) {
+      const audio = new Audio(`${themeBasePath}${extension}`);
+      const handleStop = () => {
+        audio.removeEventListener("ended", handleStop);
+        audio.removeEventListener("error", handleStop);
+        delete (audio as HTMLAudioElement & { __hydraStopHandler?: () => void })
+          .__hydraStopHandler;
+        stopAchievementSound();
+      };
+
+      audio.addEventListener("ended", handleStop, { once: true });
+      audio.addEventListener("error", handleStop, { once: true });
+      (audio as HTMLAudioElement & { __hydraStopHandler?: () => void }).__hydraStopHandler =
+        handleStop;
+
+      try {
+        audioRef.current = audio;
+        await audio.play();
+        setIsPlayingSound(true);
+        return;
+      } catch {
+        audio.removeEventListener("ended", handleStop);
+        audio.removeEventListener("error", handleStop);
+        delete (audio as HTMLAudioElement & { __hydraStopHandler?: () => void })
+          .__hydraStopHandler;
+        audioRef.current = null;
+        setIsPlayingSound(false);
+        continue;
+      }
+    }
+
+    stopAchievementSound();
+  }, [hasAchievementSoundSupport, isPlayingSound, stopAchievementSound, themeSlug]);
 
   return (
     <>
@@ -93,14 +169,51 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
             className="size-full rounded-lg object-cover"
             loading="lazy"
           />
-          <button
-            className="absolute bottom-2 right-2 flex items-center gap-1.5 rounded-md bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-2.5 py-1.5 text-xs text-white shadow-lg transition-colors cursor-pointer"
-            onClick={() => setIsPreviewOpen(true)}
-            aria-label="View in fullscreen"
-          >
-            <Maximize2Icon className="size-3.5" />
-            <span>View in fullscreen</span>
-          </button>
+          <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2">
+            {hasAchievementSoundSupport ? (
+              <button
+                type="button"
+                className="flex items-center gap-1.5 rounded-md bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-2.5 py-1.5 text-xs text-white shadow-lg transition-colors cursor-pointer"
+                onClick={playAchievementSound}
+                aria-label={
+                  isPlayingSound
+                    ? "Stop achievement sound preview"
+                    : "Preview achievement sound"
+                }
+              >
+                <div className="relative size-3.5">
+                  <Volume2Icon 
+                    className={cn(
+                      "absolute inset-0 size-3.5 transition-all duration-300",
+                      isPlayingSound 
+                        ? "opacity-0 scale-0 rotate-90" 
+                        : "opacity-100 scale-100 rotate-0"
+                    )} 
+                  />
+                  <Pause 
+                    className={cn(
+                      "absolute inset-0 size-3.5 transition-all duration-300",
+                      isPlayingSound 
+                        ? "opacity-100 scale-100 rotate-0" 
+                        : "opacity-0 scale-0 -rotate-90"
+                    )} 
+                  />
+                </div>
+                <span>{isPlayingSound ? "Stop sound" : "Preview sound"}</span>
+              </button>
+            ) : (
+              <span aria-hidden="true" />
+            )}
+            <button
+              type="button"
+              className="flex items-center gap-1.5 rounded-md bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-2.5 py-1.5 text-xs text-white shadow-lg transition-colors cursor-pointer"
+              onClick={() => setIsPreviewOpen(true)}
+              aria-label="View in fullscreen"
+            >
+              <Maximize2Icon className="size-3.5" />
+              <span>View in fullscreen</span>
+            </button>
+          </div>
         </div>
 
         <div className="mt-2 flex w-full flex-col gap-4 p-2">
@@ -193,7 +306,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
             </div>
             
             <div className="flex flex-row items-center gap-2">
-              {theme.hasAchievementSoundSupport ? (
+              {hasAchievementSoundSupport ? (
                 <>
                   <CheckCircle2Icon className="size-4 text-green-500" />
                   <span className="text-xs text-muted-foreground">
