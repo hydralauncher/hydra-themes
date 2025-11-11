@@ -183,6 +183,10 @@
   background-color: black;
 }
 
+.game-details__review-date {
+  color: rgba(255, 255, 255, 0.780);
+}
+
 .game-details__description-content {
   background-color: black;
 }
@@ -291,7 +295,7 @@ select {
 }
 
 .game-details__vote-button.game-details__vote-button--upvote {
-  background-color: rgb(2, 117, 2);
+  background-color: rgb(2, 127, 2);
 }
 
 .game-details__vote-button.game-details__vote-button--downvote:hover {
@@ -331,8 +335,14 @@ select {
 }
 
 .user-reviews__review-item {
-  background-color: #303030ff;
-  padding: 10px;
+  background-color: #292929ff;
+  padding: 14px;
+}
+
+.game-details__review-item {
+  background-color: #282828ff;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .user-reviews__vote-button {
@@ -340,7 +350,7 @@ select {
 }
 
 .user-reviews__vote-button.user-reviews__vote-button--active {
-  background-color: rgb(2, 117, 2);
+  background-color: rgba(2, 117, 2, 1);
 }
 
 .user-reviews__vote-button:hover {
@@ -403,6 +413,14 @@ select {
 
 .profile-content__tab-underline {
   transition: left 0.3s ease;
+}
+
+.library-filter-options__tab-underline {
+  transition: left 0.3s ease;
+}
+
+.library-game-card__overlay:hover {
+  transform: scale(1.04);
 }
 
 .game-language-section__row:hover {
@@ -480,6 +498,12 @@ select {
 
 .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value { 
   background-color: #76c5b8ff;
+}
+
+.button.button--dark.repacks-modal__repack-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: none !important;
 }
 
 .recent-games__box {
