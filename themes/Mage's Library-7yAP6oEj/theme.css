@@ -572,7 +572,6 @@
   backdrop-filter: blur(16px);
   box-shadow: 0 18px 28px rgba(8, 12, 25, 0.38);
   z-index: 99;
-  z-index: 99;
   animation: randomizerGlow 9s ease-in-out infinite;
 }
 
@@ -3026,14 +3025,14 @@ padding: 15px;
 }
 
 .library-filter-options__tab:hover {
-  color: rgba(245, 250, 255, 0.95);
-  background: rgba(255, 255, 255, 0.08);
+  color: rgba(245, 250, 255, 0.98);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .library-filter-options__tab--active {
-  color: rgba(245, 250, 255, 0.95);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  color: rgba(245, 250, 255, 0.98);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 /* Tab Badge */
@@ -3045,24 +3044,24 @@ padding: 15px;
   height: 20px;
   padding: 0 6px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 600;
   font-size: 0.75rem;
 }
 
 .library-filter-options__tab:hover .library-filter-options__tab-badge {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.5);
   color: white;
 }
 
 .library-filter-options__tab--active .library-filter-options__tab-badge {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(255, 255, 255, 0.6);
   color: white;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* Tab Underline */
@@ -3104,22 +3103,22 @@ padding: 15px;
   justify-content: center;
   padding: 10px 12px;
   border: none;
-  background: transparent;
-  color: rgba(225, 235, 255, 0.68);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(225, 235, 255, 0.85);
   border-radius: 8px;
   cursor: pointer;
   position: relative;
 }
 
 .library-view-options__option:hover {
-  color: rgba(245, 250, 255, 0.95);
-  background: rgba(255, 255, 255, 0.08);
+  color: rgba(245, 250, 255, 0.98);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .library-view-options__option.active {
-  color: rgba(245, 250, 255, 0.95);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  color: rgba(245, 250, 255, 0.98);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
 }
 
 .library-view-options__option .octicon {
