@@ -6,6 +6,7 @@ import {
   Trophy,
   Heart,
   Flame,
+  Volume2,
 } from "lucide-react";
 import { Button } from "./button";
 import { ThemeSorting } from "./sorting";
@@ -124,6 +125,11 @@ export function ThemeList() {
               label: "Achievements",
               icon: <Trophy />,
               value: "achievements",
+            },
+            {
+              label: "Sound",
+              icon: <Volume2 />,
+              value: "sound",
             },
           ]}
           selectedValue={sort}

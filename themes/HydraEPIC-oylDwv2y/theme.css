@@ -18,17 +18,19 @@
   --text-secondary: #ffffff;
   --text-muted: #353537;
   --text-accent: #26bbff;
-  --text-titlebar: var(--primary-layer-3);
 
   /* === Accent colors === */
   --button-text: #ffffff;
-  --button-accent: #1da4e0;
-  --button-hover: #26bbff;
+  --button-accent: #26bbff;
+  --button-hover: #1da4e0;
 
   /* === Badge colors === */
   --badge-color: #1da4e0;
   --badge-accent: hsla(198, 77%, 50%, 0.2);
   --badge-accent-hover: hsla(198, 77%, 50%, 0.3);
+
+  /* === Titlebar === */
+  --titlebar: #2b2a36;
 
   /* === Scrollbar === */
   --scrollbar-thumb: #353537;
@@ -66,17 +68,25 @@ body {
 }
 
 .title-bar h4 {
-  color: var(--text-titlebar);
-  font-family: "Island Moments", cursive;
-  font-weight: 600;
-  font-size: 2em;
+  display: none;
 }
 
-.title-bar h4::after {
-  font-family: "Island Moments", cursive;
+.title-bar::before {
+  color: var(--titlebar);
   font-weight: 600;
-  content: "EPIC";
-  margin-left: 4px;
+  font-size: 15px;
+  content: "HydraEPIC";
+  margin-right: 4px;
+}
+
+.title-bar::after {
+  border: 1px solid var(--titlebar);
+  color: var(--titlebar);
+  border-radius: 20px;
+  padding: 2px 5px;
+  font-weight: 600;
+  font-size: 11px;
+  content: "v3.5";
 }
 
 .button {
@@ -116,7 +126,8 @@ body {
 }
 
 .button--outline {
-  background-color: inherit;
+  border: solid 1px transparent !important;
+  background-color: var(--secondary-layer-4) !important;
 }
 
 
@@ -184,10 +195,24 @@ body {
 }
 
 .settings-account__form small {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Skeleton */
+
+.how-long-to-beat__category-skeleton {
+  border: solid 1px transparent;
+}
+
+.game-details__skeleton .react-loading-skeleton {
+  background: var(--secondary-layer-2);
+}
+
+.react-loading-skeleton::after,
+.react-loading-skeleton,
+.game-details__skeleton {
+  border-radius: 20px !important;
+}
 
 .react-loading-skeleton {
   background-color: var(--secondary-layer-2);
@@ -197,7 +222,7 @@ body {
 .react-loading-skeleton::after {
   background-image: none;
   background-color: var(--react-loading);
-  border-radius: 20px;
+  border-radius: 20px !important;
   animation-name: pulse-opacity;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
@@ -304,6 +329,16 @@ body {
   content: "Games to beat";
   font-size: 14px;
   margin-left: 8px;
+}
+
+.home__header .button--outline {
+  background-color: var(--secondary-layer-2) !important;
+}
+
+.game-card__content {
+  gap: 12px;
+  transform: translateY(38px);
+  padding: 20px;
 }
 
 .game-card {
@@ -849,6 +884,162 @@ body {
   width: 85%;
 }
 
+/* Library */
+
+.library__content {
+  padding: 0 20px 40px 20px;
+}
+
+.library-game-card-large {
+  height: 210px;
+}
+
+.library-game-card-large__background,
+.library-game-card__wrapper {
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.library-game-card-large {
+  border: none;
+}
+
+.library-game-card-large,
+.library-game-card-large__background,
+.library-game-card-large__gradient,
+.library-game-card-large__overlay {
+  border-radius: 20px;
+}
+
+.library-game-card__overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 20%, transparent 100%);
+    padding: 8px;
+}
+
+.library-game-card-large__playtime,
+.library-game-card__playtime {
+      background-color: var(--secondary-layer-3);
+    border: none;
+    border-radius: 16px;
+    font-size: 12px;
+    color: var(--text-primary);
+    padding: 4px 8px 4px 4px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-weight: 600;
+    box-shadow: none;
+    height: 28px;
+}
+
+.library-game-card-large__achievements,
+.library-game-card__achievements {
+  padding: 5px;
+  font-weight: 600;
+}
+
+.library-game-card__wrapper[src=""] {
+  visibility: hidden;
+}
+
+.library-game-card__wrapper:has(img.library-game-card__game-image[src=""])::after {
+  content: "NO IMG :(";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+  background: var(--secondary-layer-2);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.library-filter-options__tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  border: none;
+  width: 100%;
+}
+
+.library__controls-left {
+  border-bottom: none;
+  margin-right: 20px;
+}
+
+.library-filter-options__tab-underline {
+  display: none;
+}
+
+.library-filter-options__tab-wrapper {
+  width: 100%;
+}
+
+.library-filter-options__tab {
+  background-color: var(--secondary-layer-2);
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 20px;
+  gap: 10px;
+  transition: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.library-filter-options__tab:hover {
+  background-color: var(--secondary-layer-3);
+}
+
+.library-filter-options__tab--active {
+  color: var(--text-secondary);
+  background-color: var(--secondary-layer-3);
+}
+
+.library-view-options__options {
+  gap: 20px;
+}
+
+.library-view-options__option.active {
+  background-color: var(--button-accent);
+}
+
+.library-view-options__option {
+  justify-content: center;
+  background-color: var(--secondary-layer-2);
+  border-radius: 20px;
+  height: 46px;
+  width: 46px;
+}
+
+.library-view-options__option.active svg, .library-view-options__option.active svg * {
+    fill: var(--button-text);
+    color: var(--button-text);
+}
+
+.library__games-list,
+.library__games-grid {
+  gap: 20px;
+}
+
+@container app-container (min-width: 900px) {
+    .library__games-list--large {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* Gamepage */
 
 .game-details__hero-image-skeleton {
@@ -864,6 +1055,7 @@ body {
   background-color: var(--secondary-layer-3);
   border: none;
   border-radius: 20px;
+  margin: 40px 0;
 }
 
 .description-header {
@@ -878,8 +1070,8 @@ body {
 }
 
 .game-details__hero {
+  background-color: var(--secondary-layer-2) !important;
   margin-bottom: 20px;
-  background-color: transparent;
   border-radius: 20px;
 }
 
@@ -925,8 +1117,7 @@ body {
   border-radius: 25px;
   border: none;
   position: relative;
-  margin-bottom: 20px;
-  background-color: var(--secondary-layer-2);
+  background-color: #1a19208a;
   box-shadow: none;
 }
 
@@ -987,6 +1178,10 @@ body {
   border-radius: 20px;
 }
 
+.game-language-section__cell {
+  font-size: 13px;
+}
+
 .game-language-section__cell--center:nth-child(3) {
   flex: 0 0 0px !important;
 }
@@ -1002,17 +1197,42 @@ body {
 }
 
 .subscription-required-button {
-  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
   font-weight: 600;
+  background-color: var(--secondary-layer-3);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.subscription-required-button:hover {
+  text-decoration: none;
+  background-color: var(--secondary-layer-4);
+}
+
+.star-rating__value {
+  font-size: 14px;
+}
+
+.stats__category p:nth-child(2) {
+  color: var(--text-secondary);
 }
 
 .requirement__button {
-  border: solid 1px var(--secondary-layer-3);
+  border: solid 1px transparent;
+  height: 20px;
+  min-height: 20px;
 }
 
 .requirement__button-container {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 20px 0px 20px;
   gap: 10px;
+}
+
+.requirement__details {
+  font-size: 13px;
 }
 
 .bb_ul {
@@ -1037,7 +1257,7 @@ body {
 }
 
 .hero-panel p:last-child {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: 12px !important;
 }
 
@@ -1072,6 +1292,7 @@ body {
   padding: 20px;
   background-color: var(--secondary-layer-3);
   border: none;
+  font-size: 13px;
 }
 
 .sidebar-section__content {
@@ -1079,17 +1300,23 @@ body {
   max-height: none !important;
 }
 
-.sidebar-section__content > .list > li > a {
+.list__item {
   border-radius: 20px;
-}
-
-.sidebar-section__content > .list > li > a:hover {
-  border-radius: 20px;
+  padding: 20px;
   background-color: var(--secondary-layer-3);
+  border: none;
+  font-size: 13px;
 }
 
-.list__item-image {
-  border-radius: 20px;
+.list__item:hover {
+  background-color: var(--secondary-layer-4);
+}
+
+.sidebar-section__content > ul > .link {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .game-details__hero-buttons--right {
@@ -1102,6 +1329,7 @@ body {
   padding: 10px 10px;
   border: none;
   animation: none;
+  background-color: #1a19208a;
 }
 
 .game-details__cloud-sync-button {
@@ -1110,11 +1338,12 @@ body {
   padding: 10px 20px;
   border: none;
   animation: none;
+  background-color: #1a19208a;
 }
 
 .hero-panel-actions__action {
   padding: 10px 20px;
-  border: solid 1px var(--secondary-layer-3);
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .hero-panel-actions__container {
@@ -1122,8 +1351,8 @@ body {
 }
 
 .hero-panel-actions__container .button--outline {
-  background-color: var();
-  border: solid 1px rgba(255, 255, 255, 0.15);
+  border: solid 1px transparent;
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .game-details__hero-panel-skeleton {
@@ -1144,9 +1373,10 @@ body {
 }
 
 .game-details__hero-content {
-  flex-direction: row-reverse;
-  padding: 20px;
+  display: flex;
+  padding: 10px 10px 0 10px;
   animation: forwards;
+  justify-content: space-between;
 }
 
 .game-details__randomizer-button {
@@ -1224,7 +1454,7 @@ body {
 .game-details__star-rating {
   background-color: var(--secondary-layer-4);
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px;
   height: 40px;
 }
 
@@ -1242,8 +1472,21 @@ body {
   border: none;
   border-radius: 20px;
   padding: 20px;
-  margin-top: 20px;
   margin-bottom: 0;
+}
+
+.game-details__review-translation-toggle {
+  background-color: var(--secondary-layer-4);
+  padding: 8px 18px;
+  border-radius: 20px;
+}
+
+.game-details__review-translation-toggle:hover {
+  text-decoration: none;
+}
+
+.game-details__reviews-container {
+  gap: 20px;
 }
 
 .game-details__reviews-badge {
@@ -1256,6 +1499,29 @@ body {
   border: none;
   padding: 0;
   margin-top: 10px;
+}
+
+.game-details__review-meta-row {
+  gap: 10px;
+}
+
+.game-details__review-header {
+  gap: 10px;
+}
+
+.game-details__review-playtime,
+.game-details__review-score-stars {
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+}
+
+.game-details__delete-review-button span {
+  font-weight: 500;
 }
 
 .game-details__delete-review-button,
@@ -1366,6 +1632,25 @@ body {
   background: var(--secondary-layer-4);
 }
 
+.game-details__hero-image[src=""] {
+  visibility: hidden;
+}
+
+.game-details__hero:has(img.game-details__hero-image[src=""])::after {
+  content: "NO IMG :(";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+  background: var(--secondary-layer-2);
+  border-radius: 20px;
+  z-index: 1;
+}
+
 /* Settings */
 
 .settings__content {
@@ -1391,9 +1676,8 @@ body {
 }
 
 .theme-card__actions__left button {
-  background-color: transparent;
-  border: solid 1px rgba(255, 255, 255, 0.15);
-  color: var(--text-gray-light);
+  border: solid 1px transparent !important;
+  background-color: var(--secondary-layer-4) !important;
 }
 
 .theme-card__actions__left button:hover {
@@ -1491,7 +1775,7 @@ body {
     font-family: "Island Moments", cursive;
     font-weight: 600;
     font-size: 4em;
-    content: "HydraEPIC v3.1";
+    content: "HydraEPIC v3.5";
     position: relative;
     white-space: pre;
     letter-spacing: 1px;
@@ -1601,6 +1885,14 @@ body {
   font-weight: 500;
 }
 
+.game-options-modal__danger-zone-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 5px));
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
 .game-options-modal__cloud-sync-hydra-cloud {
   background: var(--button-accent);
   padding: 4px 10px;
@@ -1609,7 +1901,7 @@ body {
 }
 
 .repacks-modal__repack-button {
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .backdrop {
@@ -1670,7 +1962,7 @@ body {
   border-radius: 20px;
   border: none;
   padding: 10px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .settings-debrid__beta-badge {
@@ -1683,6 +1975,11 @@ body {
   border-radius: 20px;
   border: none;
   padding: 20px;
+}
+
+.settings-debrid__collapse-button:hover {
+  background-color: var(--secondary-layer-3);
+  border-radius: 20px;
 }
 
 /* Downloads */
@@ -1806,16 +2103,100 @@ body {
   align-items: flex-end;
 }
 
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"])::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #6147f3ff;
+    mix-blend-mode: multiply;
+    opacity: 0.2;
+    pointer-events: none;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) {
+    background: url("https://srv6.ru/assets/p1.gif") center/cover no-repeat !important;
+    height: 600px;
+}
+
+.profile-hero__content-box .profile-hero__avatar-button:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]),
+.profile-hero__content-box .profile-avatar:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) {
+    width: 130px !important;
+    height: 130px !important;
+    transition: none !important;
+    filter: grayscale(100%); /* Current draft standard */
+    -webkit-filter: grayscale(100%); /* New WebKit */
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+}
+
+.profile-hero__content-box .profile-hero__user-information:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) {
+    height: 100%;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) .profile-hero__display-name {
+    font-weight: 200;
+    font-size: 6em;
+    color: #696969;
+    letter-spacing: 2px;
+}
+
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) .profile-hero__current-game-wrapper {
+    color: #818181;
+}
+
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) .profile-hero__display-name-container {
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) .profile-hero__badges:has(img[alt="THEME_CREATOR"])::after {
+  content: "HydraEPIC Creator";
+  filter: grayscale(100%); /* Current draft standard */
+  -webkit-filter: grayscale(100%); /* New WebKit */
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+}
+
+.profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) .profile-hero__hero-panel {
+  filter: grayscale(100%); /* Current draft standard */
+  -webkit-filter: grayscale(100%); /* New WebKit */
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+}
+
+.profile-hero__content-box:has(img.profile-hero__background-image) {
+  height: 400px;
+}
+
+.profile-hero__background-image {
+  border-radius: 20px;
+}
+
 .profile-hero__hero-panel {
   background: transparent !important;
   box-shadow: none;
   border: none;
   border-radius: 20px;
   backdrop-filter: none;
+  z-index: 2;
 }
 
 .profile-hero__user-information {
   padding: 20px;
+}
+
+.profile-hero__background-overlay {
+  background: none;
+  display: flex;
+  align-items: flex-end;
 }
 
 .profile-hero__avatar-button {
@@ -1832,7 +2213,7 @@ body {
 .profile-hero__display-name-container {
   color: #fff;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .user-karma__section-header,
@@ -1868,6 +2249,19 @@ body {
 
 .user-library-game__wrapper {
   border-radius: 20px;
+  min-height: 100%;
+}
+
+.user-library-game__game-image:not([src]) {
+  visibility: hidden;
+}
+
+.user-library-game__overlay {
+  z-index: 2;
+}
+
+.profile-content__games-grid {
+  gap: 20px;
 }
 
 @container app-container (min-width: 900px) {
@@ -1875,6 +2269,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @container (min-width: 1300px) {
   .profile-content__games-grid {
     grid-template-columns: repeat(6, 1fr);
@@ -1963,6 +2358,10 @@ body {
   background-color: var(--secondary-layer-3);
 }
 
+.recent-games__game-image {
+  border-radius: 10px;
+}
+
 .user-stats__link {
   font-size: 14px;
   font-weight: 500;
@@ -1977,29 +2376,28 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 20px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .edit-profile-modal__avatar-overlay {
   border-radius: 20px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .profile-avatar {
   background-color: var(--secondary-layer-3);
   border-radius: 20px;
   border: none;
+  cursor: default;
 }
 
 .profile-hero__user-information .profile-avatar {
   background-color: var(--secondary-layer-3);
-  border: solid 1px transparent;
   border-radius: 24px;
   transition: all ease 0.3s;
 }
 
 .profile-hero__user-information .profile-avatar:hover {
-  border: solid 1px var(--text-gray-mid);
   border-radius: 24px;
   transition: all ease 0.3s;
 }
@@ -2008,6 +2406,11 @@ body {
   border-radius: 24px;
   border: none;
   background-color: var(--secondary-layer-3);
+}
+
+.friends-box__list-item .profile-avatar::before {
+  width: 1.4em !important;
+  height: 1.4em !important;
 }
 
 .report-profile__button {
@@ -2041,6 +2444,36 @@ body {
 .hydra-cloud-modal__container,
 .edit-profile-modal__form {
   width: auto;
+}
+
+.user-friend-modal__friend-code-button {
+  color: var(--text-accent);
+}
+
+.user-friend-modal__header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.user-friend-modal__friend-code-button {
+  font-size: 20px;
+  animation: pulse 3s infinite;
+}
+
+.user-friend-modal__friend-code-button:hover {
+  color: var(--text-accent);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+}
+
+.user-friend-modal-add-friend__actions {
+  gap: 10px;
 }
 
 .sidebar-adding-custom-game-modal__container,
@@ -2099,6 +2532,7 @@ body {
   gap: 10px;
   transition: none;
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 
@@ -2116,17 +2550,21 @@ body {
   color: var(--text-secondary);
 }
 
-.profile-content__games-grid:first-child {
+.profile-content__tab-panel > div:nth-child(2) > div:nth-child(1) {
+  margin-bottom: 20px !important;
+}
+
+.profile-content__tab-panel > div:nth-child(2) > div:nth-child(1) > .profile-content__games-grid {
   background-color: var(--secondary-layer-2);
   padding: 20px;
   border-radius: 20px;
 }
 
-.profile-content__games-grid:first-child {
+.profile-content__tab-panel > div:nth-child(2) > div:nth-child(1) > .profile-content__games-grid {
   position: relative;
 }
 
-.profile-content__games-grid:first-child::before {
+.profile-content__tab-panel > div:nth-child(2) > div:nth-child(1) > .profile-content__games-grid::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -2141,10 +2579,159 @@ body {
   pointer-events: none;
 }
 
+.user-library-game__stats {
+  padding: 5px;
+  font-weight: 600;
+}
+
+.profile-content__tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  border: none;
+}
+
+.profile-content__tab-underline {
+  display: none;
+}
+
+.profile-content__tab-wrapper {
+  width: 100%;
+}
+
+.profile-content__tab {
+  background-color: var(--secondary-layer-2);
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 20px;
+  gap: 10px;
+  transition: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-content__tab:hover {
+  background-color: var(--secondary-layer-3);
+}
+
+.profile-content__tab--active {
+  color: var(--text-secondary);
+  background-color: var(--secondary-layer-3);
+}
+
+.user-reviews__list {
+  gap: 20px;
+}
+
+
+.user-reviews__review-item {
+  background: var(--secondary-layer-2);
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 0;
+}
+
+.user-reviews__review-date {
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.user-reviews__game-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.user-reviews__game-details {
+  gap: 15px;
+}
+
+.user-reviews__review-display-name--clickable {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.user-reviews__review-content {
+  color: var(--text-primary);
+}
+
+.user-reviews__review-votes {
+  gap: 10px;
+}
+
+.user-reviews__review-translation-toggle {
+  background-color: var(--secondary-layer-3);
+  padding: 8px 18px;
+  border-radius: 20px;
+}
+
+.user-reviews__review-translation-toggle:hover {
+  text-decoration: none;
+}
+
+.user-reviews__review-actions {
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.user-reviews__delete-review-button span {
+  font-weight: 500;
+}
+
+.user-reviews__delete-review-button:hover,
+.user-reviews__vote-button:hover {
+  color: var(--text-secondary);
+  background-color: var(--secondary-layer-3);
+  transform: none !important;
+}
+
+.user-reviews__delete-review-button,
+.user-reviews__vote-button {
+  color: var(--text-secondary);
+  background-color: var(--secondary-layer-3);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 16px;
+  gap: 10px;
+  transform: none !important;
+}
+
+.user-reviews__vote-button span {
+  font-weight: 500;
+}
+
+.user-reviews__review-meta-row {
+  gap: 10px;
+}
+
+.user-reviews__review-header {
+  gap: 10px;
+}
+
+.user-reviews__review-playtime,
+.user-reviews__review-score-stars {
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+}
+
+.user-reviews__delete-review-button span {
+  font-weight: 500;
+}
+
 /* Modal */
 
 .modal {
-  background-color: var(--secondary-layer-2);
+  background-color: var(--primary-layer-1);
   border-radius: 20px;
   border: none;
   min-width: 600px;
@@ -2158,7 +2745,7 @@ body {
 .modal__header {
   border: none;
   border-radius: 20px;
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
 }
 
 .modal__header-title p {
@@ -2167,15 +2754,22 @@ body {
 }
 
 .user-friend-modal__container {
-  gap: 30px;
+  gap: 20px;
 }
 
 .user-friend-item__container {
   border-radius: 20px;
+  border: none;
+  background-color: var(--primary-layer-2);
+}
+
+.user-friend-item__container:hover {
+  background-color: var(--primary-layer-3);
 }
 
 .user-friend-modal-list {
   overflow-y: auto;
+  gap: 10px;
 }
 
 .user-friend-modal__tabs {
@@ -2190,12 +2784,17 @@ body {
   right: 10px;
 }
 
+.user-friend-modal-list .profile-avatar:has(svg.octicon-person)::before {
+  width: 26px;
+  height: 26px;
+}
+
 .modal__content .game-options-modal__danger-zone,
 .modal__content .game-options-modal__downloads,
 .modal__content .game-options-modal__launch-options,
 .modal__content .checkbox-field,
 .modal__content .game-options-modal__section {
-  background-color: var(--secondary-layer-3);
+  background-color: var(--primary-layer-2);
   padding: 20px;
   border-radius: 20px;
   gap: 22px;
@@ -2434,10 +3033,6 @@ body {
   background-color: var(--secondary-layer-3);
 }
 
-.achievements__item-image {
-  border-radius: 20px;
-}
-
 .achievements__item-points {
   color: var(--text-accent);
 }
@@ -2448,6 +3043,50 @@ body {
 
 .achievements__item-content p {
   color: var(--text-primary);
+}
+
+/* Achievments Hidden */
+
+.achievements-content__achievements-list__section__table-header,
+.achievements-content__achievements-list__section__table-header__container--has-no-active-subscription,
+.achievements-content__comparison {
+  display: none;
+}
+
+/* Badge profile */
+
+.profile-hero__badges img[alt="THEME_CREATOR"] {
+  opacity: 0 !important;
+  position: relative !important;
+  z-index: 1;
+  pointer-events: all !important;
+  width: 160px !important;
+  height: 34px !important;
+}
+
+.profile-hero__badges:has(img[alt="THEME_CREATOR"])::after {
+  content: "Theme Creator";
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px 8px 38px;
+  background-color: var(--badge-accent);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--badge-color);
+  white-space: nowrap;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%231da4e0' d='M10.847 21.934C5.867 21.362 2 17.133 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.157-3.283 4.733-6.086 4.37c-1.618-.209-3.075-.397-3.652.518c-.395.626.032 1.406.555 1.929a1.673 1.673 0 0 1 0 2.366c-.523.523-1.235.836-1.97.751' opacity='0.5'/%3E%3Cpath fill='%231da4e0' d='M11.085 7a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0M6.5 13a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m11 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-3-4.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 22px;
+}
+
+.profile-hero__badges:has(img[alt="THEME_CREATOR"]):hover::after {
+  background-color: var(--badge-accent-hover);
 }
 
 /* Icons */
@@ -2470,6 +3109,20 @@ body {
 }
 
 .sidebar__menu-item-button:has(svg.octicon-apps)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M10.537 21.674a3.45 3.45 0 0 0 2.926 0C17.447 19.812 20 14.606 20 10.144C20 5.645 16.418 2 12 2s-8 3.646-8 8.143c0 4.462 2.553 9.67 6.537 11.531' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 6.25a3.75 3.75 0 1 0 2.07 6.877l.898.902a.75.75 0 0 0 1.064-1.057l-.902-.907A3.75 3.75 0 0 0 12 6.25m0 1.5a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.sidebar__menu-item-button .octicon-book {
+  display: none !important;
+}
+
+.sidebar__menu-item-button:has(svg.octicon-book)::before {
   content: " ";
   display: inline-block;
   width: 1.5em;
@@ -2899,11 +3552,15 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M19.717 20.362C21.143 19.585 22 18.587 22 17.5c0-1.152-.963-2.204-2.546-3C17.623 13.58 14.962 13 12 13s-5.623.58-7.454 1.5C2.963 15.296 2 16.348 2 17.5s.963 2.204 2.546 3C6.377 21.42 9.038 22 12 22c3.107 0 5.882-.637 7.717-1.638' opacity='0.6'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M9.25 4a2.75 2.75 0 1 1 5.5 0a2.75 2.75 0 0 1-5.5 0' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='m8.223 11.574l-2.175-.725a1.532 1.532 0 0 1 .805-2.952l1.898.407l.21.044a15 15 0 0 0 6.288-.044l1.897-.407a1.532 1.532 0 0 1 .806 2.952l-2.175.725c-.263.088-.394.132-.493.193a1 1 0 0 0-.466.986c.016.115.066.244.165.503l1.247 3.242a1.473 1.473 0 0 1-2.654 1.26L12 15l-1.576 2.757a1.473 1.473 0 0 1-2.654-1.26l1.247-3.241c.1-.259.149-.388.165-.503a1 1 0 0 0-.466-.986c-.099-.061-.23-.105-.493-.193'/%3E%3C/svg%3E");
 }
 
+.library-game-card-large__playtime svg.octicon-clock,
+.library-game-card__playtime svg.octicon-clock,
 .user-stats__list-description svg.octicon-clock,
 .user-library-game__playtime svg.octicon-clock {
   display: none !important;
 }
 
+.library-game-card-large__playtime:has(svg.octicon-clock)::before,
+.library-game-card__playtime:has(svg.octicon-clock)::before,
 .user-stats__list-description:has(svg.octicon-clock)::before,
 .user-library-game__playtime:has(svg.octicon-clock)::before {
   content: " ";
@@ -3157,10 +3814,12 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z'/%3E%3C/svg%3E");
 }
 
+.user-reviews__vote-button svg.lucide-thumbs-up,
 .game-details__vote-button svg.lucide-thumbs-up {
   display: none !important;
 }
 
+.user-reviews__vote-button:has(svg.lucide-thumbs-up)::before,
 .game-details__vote-button:has(svg.lucide-thumbs-up)::before {
   content: " ";
   display: inline-block;
@@ -3181,10 +3840,12 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='m20.27 16.265l.705-4.08a1.666 1.666 0 0 0-1.64-1.95h-5.182a.833.833 0 0 1-.821-.969l.663-4.045a4.8 4.8 0 0 0-.09-1.973a1.64 1.64 0 0 0-1.093-1.137l-.145-.047a1.35 1.35 0 0 0-.993.068c-.34.164-.588.463-.68.818l-.476 1.834a7.6 7.6 0 0 1-.656 1.679c-.416.777-1.058 1.4-1.725 1.975l-1.44 1.24a1.67 1.67 0 0 0-.572 1.406l.813 9.393A1.666 1.666 0 0 0 8.596 22h4.649c3.481 0 6.452-2.426 7.024-5.735'/%3E%3Cpath fill='%2326bbff' fill-rule='evenodd' d='M2.968 9.485a.75.75 0 0 1 .78.685l.97 11.236a1.237 1.237 0 1 1-2.468.107V10.234a.75.75 0 0 1 .718-.749' clip-rule='evenodd' opacity='0.5'/%3E%3C/svg%3E");
 }
 
+.user-reviews__vote-button svg.lucide-thumbs-down,
 .game-details__vote-button svg.lucide-thumbs-down {
   display: none !important;
 }
 
+.user-reviews__vote-button:has(svg.lucide-thumbs-down)::before,
 .game-details__vote-button:has(svg.lucide-thumbs-down)::before {
   content: " ";
   display: inline-block;
@@ -3205,10 +3866,12 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='m20.27 8.485l.705 4.08a1.666 1.666 0 0 1-1.64 1.95h-5.182a.833.833 0 0 0-.821.969l.663 4.045a4.8 4.8 0 0 1-.09 1.974c-.14.533-.551.962-1.093 1.136l-.145.047a1.35 1.35 0 0 1-.993-.068a1.26 1.26 0 0 1-.68-.818l-.476-1.834a7.6 7.6 0 0 0-.656-1.679c-.416-.777-1.058-1.4-1.725-1.975l-1.44-1.24a1.67 1.67 0 0 1-.572-1.406l.813-9.393A1.666 1.666 0 0 1 8.596 2.75h4.649c3.481 0 6.452 2.426 7.024 5.735'/%3E%3Cpath fill='%2326bbff' fill-rule='evenodd' d='M2.968 15.265a.75.75 0 0 0 .78-.685l.97-11.236a1.237 1.237 0 1 0-2.468-.107v11.279a.75.75 0 0 0 .718.75' clip-rule='evenodd' opacity='0.5'/%3E%3C/svg%3E");
 }
 
+.user-reviews__delete-review-button svg.lucide-trash,
 .game-details__delete-review-button svg.octicon-trash {
   display: none !important;
 }
 
+.user-reviews__delete-review-button:has(svg.lucide-trash)::before,
 .game-details__delete-review-button:has(svg.octicon-trash)::before {
   content: " ";
   display: inline-block;
@@ -3540,46 +4203,279 @@ body {
 .subscription-required-button:has(svg.octicon-cloud-offline)::before {
   content: " ";
   display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M22 14.353C22 17.472 19.442 20 16.286 20h-5.787a7.5 7.5 0 0 1 7.487-11.853q.119.422.17.868C20.392 9.78 22 11.881 22 14.353' clip-rule='evenodd' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12.476 4C9.32 4 6.762 6.528 6.762 9.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 11.53 2 13.426 2 15.765S3.919 20 6.286 20H10.5a7.5 7.5 0 0 1 7.487-11.853l-.047-.158C17.224 5.68 15.048 4 12.476 4'/%3E%3C/svg%3E");
+}
+
+.user-stats__list-description svg.octicon-trophy {
+  display: none !important;
+}
+
+.user-stats__list-description:has(svg.octicon-trophy)::before {
+  content: " ";
+  display: inline-block;
   width: 1.5em;
   height: 1.5em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M6.5 18v-.09c0-.865 0-1.659.087-2.304c.095-.711.32-1.463.938-2.08c.618-.619 1.37-.844 2.08-.94c.646-.086 1.44-.086 2.306-.086h.178c.866 0 1.66 0 2.305.087c.711.095 1.463.32 2.08.938c.619.618.844 1.37.94 2.08c.085.637.086 1.416.086 2.267c2.573-.55 4.5-2.812 4.5-5.52c0-2.47-1.607-4.572-3.845-5.337C17.837 4.194 15.415 2 12.476 2C9.32 2 6.762 4.528 6.762 7.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 9.53 2 11.426 2 13.765S3.919 18 6.286 18z' opacity='0.5'/%3E%3Cpath fill='%2326bbff' fill-rule='evenodd' d='M12 22c-1.886 0-2.828 0-3.414-.586S8 19.886 8 18s0-2.828.586-3.414S10.114 14 12 14s2.828 0 3.414.586S16 16.114 16 18s0 2.828-.586 3.414S13.886 22 12 22m-1.306-6.25a.667.667 0 0 0-.943.944L11.057 18l-1.306 1.306a.667.667 0 0 0 .943.943L12 18.943l1.306 1.306a.667.667 0 0 0 .943-.943L12.943 18l1.306-1.306a.667.667 0 0 0-.943-.943L12 17.057z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 16c-5.76 0-6.78-5.74-6.96-10.294c-.051-1.266-.076-1.9.4-2.485c.475-.586 1.044-.682 2.183-.874A26.4 26.4 0 0 1 12 2c1.784 0 3.253.157 4.377.347c1.139.192 1.708.288 2.184.874s.45 1.219.4 2.485C18.781 10.26 17.761 16 12.001 16' opacity='0.5'/%3E%3Cpath fill='%23fff' d='m17.64 12.422l2.817-1.565c.752-.418 1.128-.627 1.336-.979C22 9.526 22 9.096 22 8.235v-.073c0-1.043 0-1.565-.283-1.958s-.778-.558-1.768-.888L19 5l-.017.085q-.008.283-.022.621c-.088 2.225-.377 4.733-1.32 6.716M5.04 5.706c.087 2.225.376 4.733 1.32 6.716l-2.817-1.565c-.752-.418-1.129-.627-1.336-.979S2 9.096 2 8.235v-.073c0-1.043 0-1.565.283-1.958s.778-.558 1.768-.888L5 5l.017.087q.008.281.022.62'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M5.25 22a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='M15.458 21.25H8.542l.297-1.75a1 1 0 0 1 .98-.804h4.361a1 1 0 0 1 .98.804z' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12 16q-.39 0-.75-.034v2.73h1.5v-2.73A8 8 0 0 1 12 16'/%3E%3C/svg%3E");
 }
 
-
-/* Badge profile */
-
-.profile-hero__badges img[alt="THEME_CREATOR"] {
-  opacity: 0 !important;
-  position: relative !important;
-  z-index: 1;
-  pointer-events: all !important;
-  width: 160px !important;
-  height: 34px !important;
+.library-game-card-large__achievements-gap svg.octicon-trophy,
+.library-game-card__achievements-gap svg.octicon-trophy,
+.user-library-game__stats-item svg.octicon-trophy {
+  display: none !important;
 }
 
-.profile-hero__badges:has(img[alt="THEME_CREATOR"])::after {
-  content: "Theme Creator";
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px 8px 38px;
-  background-color: var(--badge-accent);
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--badge-color);
-  white-space: nowrap;
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%231da4e0' d='M10.847 21.934C5.867 21.362 2 17.133 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.157-3.283 4.733-6.086 4.37c-1.618-.209-3.075-.397-3.652.518c-.395.626.032 1.406.555 1.929a1.673 1.673 0 0 1 0 2.366c-.523.523-1.235.836-1.97.751' opacity='0.5'/%3E%3Cpath fill='%231da4e0' d='M11.085 7a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0M6.5 13a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m11 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m-3-4.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 22px;
+.library-game-card-large__achievements-gap:has(svg.octicon-trophy)::before,
+.library-game-card__achievements-gap:has(svg.octicon-trophy)::before,
+.user-library-game__stats-item:has(svg.octicon-trophy)::before {
+  content: " ";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 16c-5.76 0-6.78-5.74-6.96-10.294c-.051-1.266-.076-1.9.4-2.485c.475-.586 1.044-.682 2.183-.874A26.4 26.4 0 0 1 12 2c1.784 0 3.253.157 4.377.347c1.139.192 1.708.288 2.184.874s.45 1.219.4 2.485C18.781 10.26 17.761 16 12.001 16' opacity='0.5'/%3E%3Cpath fill='%23fff' d='m17.64 12.422l2.817-1.565c.752-.418 1.128-.627 1.336-.979C22 9.526 22 9.096 22 8.235v-.073c0-1.043 0-1.565-.283-1.958s-.778-.558-1.768-.888L19 5l-.017.085q-.008.283-.022.621c-.088 2.225-.377 4.733-1.32 6.716M5.04 5.706c.087 2.225.376 4.733 1.32 6.716l-2.817-1.565c-.752-.418-1.129-.627-1.336-.979S2 9.096 2 8.235v-.073c0-1.043 0-1.565.283-1.958s.778-.558 1.768-.888L5 5l.017.087q.008.281.022.62'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M5.25 22a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='M15.458 21.25H8.542l.297-1.75a1 1 0 0 1 .98-.804h4.361a1 1 0 0 1 .98.804z' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12 16q-.39 0-.75-.034v2.73h1.5v-2.73A8 8 0 0 1 12 16'/%3E%3C/svg%3E");
 }
 
-.profile-hero__badges:has(img[alt="THEME_CREATOR"]):hover::after {
-  background-color: var(--badge-accent-hover);
+.profile-avatar svg.octicon-person {
+  display: none !important;
+}
+
+.profile-avatar:has(svg.octicon-person)::before {
+  content: " ";
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='6' r='4' fill='%23fff'/%3E%3Cpath fill='%23fff' d='M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.game-card__specifics-item svg.octicon-people {
+  display: none !important;
+}
+
+.game-card__specifics-item:has(svg.octicon-people)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M19.717 20.362C21.143 19.585 22 18.587 22 17.5c0-1.152-.963-2.204-2.546-3C17.623 13.58 14.962 13 12 13s-5.623.58-7.454 1.5C2.963 15.296 2 16.348 2 17.5s.963 2.204 2.546 3C6.377 21.42 9.038 22 12 22c3.107 0 5.882-.637 7.717-1.638' opacity='0.6'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M9.25 4a2.75 2.75 0 1 1 5.5 0a2.75 2.75 0 0 1-5.5 0' clip-rule='evenodd'/%3E%3Cpath fill='%23fff' d='m8.223 11.574l-2.175-.725a1.532 1.532 0 0 1 .805-2.952l1.898.407l.21.044a15 15 0 0 0 6.288-.044l1.897-.407a1.532 1.532 0 0 1 .806 2.952l-2.175.725c-.263.088-.394.132-.493.193a1 1 0 0 0-.466.986c.016.115.066.244.165.503l1.247 3.242a1.473 1.473 0 0 1-2.654 1.26L12 15l-1.576 2.757a1.473 1.473 0 0 1-2.654-1.26l1.247-3.241c.1-.259.149-.388.165-.503a1 1 0 0 0-.466-.986c-.099-.061-.23-.105-.493-.193'/%3E%3C/svg%3E");
+}
+
+.game-card__specifics-item svg.octicon-download {
+  display: none !important;
+}
+
+.game-card__specifics-item:has(svg.octicon-download)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M22 16v-1c0-2.828 0-4.242-.879-5.12C20.242 9 18.828 9 16 9H8c-2.829 0-4.243 0-5.122.88C2 10.757 2 12.17 2 14.997V16c0 2.829 0 4.243.879 5.122C3.757 22 5.172 22 8 22h8c2.828 0 4.243 0 5.121-.878C22 20.242 22 18.829 22 16' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 1.25a.75.75 0 0 0-.75.75v10.973l-1.68-1.961a.75.75 0 1 0-1.14.976l3 3.5a.75.75 0 0 0 1.14 0l3-3.5a.75.75 0 1 0-1.14-.976l-1.68 1.96V2a.75.75 0 0 0-.75-.75' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.profile-content__tab-wrapper:first-child .profile-content__tab::before {
+  content: " ";
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8.422 20.618C10.178 21.54 11.056 22 12 22V12L2.638 7.073l-.04.067C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709z'/%3E%3Cpath fill='%23fff' d='m17.577 4.432l-2-1.05C13.822 2.461 12.944 2 12 2c-.945 0-1.822.46-3.578 1.382l-2 1.05C4.318 5.536 3.242 6.1 2.638 7.072L12 12l9.362-4.927c-.606-.973-1.68-1.537-3.785-2.641' opacity='0.7'/%3E%3Cpath fill='%23fff' d='m21.403 7.14l-.041-.067L12 12v10c.944 0 1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.597-1.014.597-2.277.597-4.8v-.117c0-2.525 0-3.788-.597-4.802' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.profile-content__tab-wrapper:last-child .profile-content__tab::before {
+  content: " ";
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M11.58 4.776c.695-1.77 1.043-2.656 1.769-2.765c.726-.11 1.35.63 2.6 2.109l.323.382c.355.42.532.63.774.75c.24.12.518.137 1.074.17l.506.029c1.955.114 2.932.172 3.271.81c.34.64-.184 1.438-1.231 3.033l-.271.413c-.298.453-.447.68-.487.939s.033.52.179 1.043l.133.477c.513 1.842.77 2.762.253 3.266c-.517.505-1.465.258-3.361-.235l-.49-.127c-.54-.14-.809-.21-1.075-.17s-.499.185-.964.476l-.424.265c-1.638 1.024-2.456 1.536-3.115 1.208c-.659-.327-.72-1.277-.845-3.177l-.033-.492c-.035-.54-.053-.81-.177-1.044s-.34-.406-.774-.75l-.395-.312C7.294 9.865 6.53 9.26 6.64 8.554s1.02-1.047 2.839-1.729l.47-.176c.518-.194.776-.29.965-.475c.19-.185.288-.437.486-.94z'/%3E%3Cpath fill='%23fff' d='M5.31 9.593C2.873 11.92 1.275 15.806 2.331 22c.943-2.603 3.526-4.76 6.581-6.047c-.106-.593-.154-1.317-.204-2.08l-.039-.595a22 22 0 0 0-.032-.43l-.086-.071l-.268-.215l-.475-.376c-.694-.55-1.34-1.06-1.783-1.532c-.253-.269-.536-.624-.715-1.061m5.037 5.83l-.015-.114l.056.101z' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.user-reviews__review-playtime svg.octicon-clock,
+.game-details__review-playtime svg.octicon-clock {
+  display: none !important;
+}
+
+.user-reviews__review-playtime:has(svg.octicon-clock)::before,
+.game-details__review-playtime:has(svg.octicon-clock)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M12 7.25a.75.75 0 0 1 .75.75v3.69l2.28 2.28a.75.75 0 1 1-1.06 1.06l-2.5-2.5a.75.75 0 0 1-.22-.53V8a.75.75 0 0 1 .75-.75' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.user-reviews__review-score-stars svg.lucide-star,
+.game-details__review-score-stars svg.lucide-star {
+  display: none !important;
+}
+
+.user-reviews__review-score-stars:has(svg.lucide-star)::before,
+.game-details__review-score-stars:has(svg.lucide-star)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M9.153 5.408C10.42 3.136 11.053 2 12 2s1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182s.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506s-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452s-.674.15-1.328.452l-.596.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882S3.58 8.328 6.04 7.772l.636-.144c.699-.158 1.048-.237 1.329-.45s.46-.536.82-1.182z'/%3E%3C/svg%3E");
+}
+
+.theme-card__actions__right button svg.octicon-pencil {
+  display: none !important;
+}
+
+.theme-card__actions__right button:has(svg.octicon-pencil)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M20.849 8.713a3.932 3.932 0 0 0-5.562-5.561l-.887.887l.038.111a8.75 8.75 0 0 0 2.093 3.32a8.75 8.75 0 0 0 3.43 2.13z' opacity='0.5'/%3E%3Cpath fill='%23fff' d='m14.439 4l-.039.038l.038.112a8.75 8.75 0 0 0 2.093 3.32a8.75 8.75 0 0 0 3.43 2.13l-8.56 8.56c-.578.577-.867.866-1.185 1.114a6.6 6.6 0 0 1-1.211.748c-.364.174-.751.303-1.526.561l-4.083 1.361a1.06 1.06 0 0 1-1.342-1.341l1.362-4.084c.258-.774.387-1.161.56-1.525q.309-.646.749-1.212c.248-.318.537-.606 1.114-1.183z'/%3E%3C/svg%3E");
+}
+
+.theme-card__actions__right button svg.octicon-trash {
+  display: none !important;
+}
+
+.theme-card__actions__right button:has(svg.octicon-trash)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524'/%3E%3Cpath fill='%23fff' d='M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.339 1.181-5.245l.267-4.188c.1-1.577.15-2.366-.303-2.865c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.288-.303 2.865l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M9.425 11.482c.413-.044.78.273.821.707l.5 5.263c.041.433-.26.82-.671.864c-.412.043-.78-.273-.821-.707l-.5-5.263c-.041-.434.26-.821.671-.864m5.15 0c.412.043.713.43.671.864l-.5 5.263c-.04.434-.408.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.041-.433.409-.75.82-.707' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.settings-account__actions button svg.octicon-key {
+  display: none !important;
+}
+
+.settings-account__actions button:has(svg.octicon-key)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M22 8.293c0 3.476-2.83 6.294-6.32 6.294c-.636 0-2.086-.146-2.791-.732l-.882.878c-.519.517-.379.669-.148.919c.096.105.208.226.295.399c0 0 .735 1.024 0 2.049c-.441.585-1.676 1.404-3.086 0l-.294.292s.881 1.025.147 2.05c-.441.585-1.617 1.17-2.646.146l-1.028 1.024c-.706.703-1.568.293-1.91 0l-.883-.878c-.823-.82-.343-1.708 0-2.05l7.642-7.61s-.735-1.17-.735-2.78c0-3.476 2.83-6.294 6.32-6.294S22 4.818 22 8.293' clip-rule='evenodd' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M17.885 8.294a2.2 2.2 0 0 1-2.204 2.195a2.2 2.2 0 0 1-2.204-2.195a2.2 2.2 0 0 1 2.204-2.196a2.2 2.2 0 0 1 2.204 2.196'/%3E%3C/svg%3E");
+}
+
+.settings-account__actions button svg.octicon-mail {
+  display: none !important;
+}
+
+.settings-account__actions button:has(svg.octicon-mail)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M14.2 3H9.8C5.652 3 3.577 3 2.289 4.318S1 7.758 1 12s0 6.364 1.289 7.682S5.652 21 9.8 21h4.4c4.148 0 6.223 0 7.511-1.318S23 16.242 23 12s0-6.364-1.289-7.682S18.348 3 14.2 3' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M19.128 8.033a.825.825 0 0 0-1.056-1.268l-2.375 1.98c-1.026.855-1.738 1.447-2.34 1.833c-.582.375-.977.5-1.357.5s-.774-.125-1.357-.5c-.601-.386-1.314-.978-2.34-1.834L5.928 6.765a.825.825 0 0 0-1.056 1.268l2.416 2.014c.975.812 1.765 1.47 2.463 1.92c.726.466 1.434.762 2.25.762c.814 0 1.522-.296 2.249-.763c.697-.448 1.487-1.107 2.462-1.92z'/%3E%3C/svg%3E");
+}
+
+.settings-account__subscription-button svg.octicon-cloud {
+  display: none !important;
+}
+
+.settings-account__subscription-button:has(svg.octicon-cloud)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M22 14.353C22 17.472 19.442 20 16.286 20h-5.787a7.5 7.5 0 0 1 7.487-11.853q.119.422.17.868C20.392 9.78 22 11.881 22 14.353' clip-rule='evenodd' opacity='0.5'/%3E%3Cpath fill='%23fff' d='M12.476 4C9.32 4 6.762 6.528 6.762 9.647c0 .69.125 1.35.354 1.962a4.4 4.4 0 0 0-.83-.08C3.919 11.53 2 13.426 2 15.765S3.919 20 6.286 20H10.5a7.5 7.5 0 0 1 7.487-11.853l-.047-.158C17.224 5.68 15.048 4 12.476 4'/%3E%3C/svg%3E");
+}
+
+.text-field-container__text-field-wrapper button svg.octicon-no-entry {
+  display: none !important;
+}
+
+.text-field-container__text-field-wrapper button:has(svg.octicon-no-entry)::before {
+  content: " ";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M3 6.524c0-.395.327-.714.73-.714h4.788c.006-.842.098-1.995.932-2.793A3.68 3.68 0 0 1 12 2a3.68 3.68 0 0 1 2.55 1.017c.834.798.926 1.951.932 2.793h4.788c.403 0 .73.32.73.714a.72.72 0 0 1-.73.714H3.73A.72.72 0 0 1 3 6.524'/%3E%3Cpath fill='%23fff' d='M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.339 1.181-5.245l.267-4.188c.1-1.577.15-2.366-.303-2.865c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5s-.404 1.288-.303 2.865l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886' opacity='0.5'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M9.425 11.482c.413-.044.78.273.821.707l.5 5.263c.041.433-.26.82-.671.864c-.412.043-.78-.273-.821-.707l-.5-5.263c-.041-.434.26-.821.671-.864m5.15 0c.412.043.713.43.671.864l-.5 5.263c-.04.434-.408.75-.82.707c-.413-.044-.713-.43-.672-.864l.5-5.264c.041-.433.409-.75.82-.707' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.settings-general__volume-slider-wrapper svg.octicon-unmute {
+  display: none !important;
+}
+
+.settings-general__volume-slider-wrapper:has(svg.octicon-unmute)::before {
+  content: " ";
+  display: inline-block;
+  width: 20px !important;
+  min-width: 20px;
+  height: 20px;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M2.003 11.716c.037-1.843.056-2.764.668-3.552a3 3 0 0 1 .413-.431c.752-.636 1.746-.636 3.733-.636c.71 0 1.065 0 1.403-.092q.105-.03.209-.067c.33-.121.627-.33 1.22-.746c2.338-1.645 3.508-2.467 4.489-2.11c.188.069.37.168.533.29c.848.635.913 2.115 1.042 5.073c.048 1.096.08 2.034.08 2.555s-.032 1.46-.08 2.555c-.13 2.958-.194 4.438-1.042 5.073a2.1 2.1 0 0 1-.533.29c-.982.357-2.15-.465-4.49-2.11c-.592-.416-.889-.625-1.22-.746a3 3 0 0 0-.208-.067c-.338-.092-.693-.092-1.403-.092c-1.987 0-2.98 0-3.733-.636a3 3 0 0 1-.413-.43c-.612-.79-.63-1.71-.668-3.552a14 14 0 0 1 0-.57'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M19.49 5.552a.66.66 0 0 1 .97.094l-.53.471l.53-.47h.002v.002l.004.004l.007.009l.078.112a5 5 0 0 1 .187.305c.149.265.339.652.526 1.171C21.64 8.291 22 9.851 22 12s-.36 3.71-.736 4.75c-.187.52-.377.907-.526 1.172a5 5 0 0 1-.265.417l-.007.009l-.003.003l-.001.002s-.001.001-.531-.47l.53.471a.66.66 0 0 1-.972.094a.77.77 0 0 1-.091-1.03l.003-.005l.028-.04a3 3 0 0 0 .126-.208c.11-.195.264-.506.422-.943c.314-.871.643-2.252.643-4.222c0-1.969-.329-3.35-.643-4.222a6 6 0 0 0-.422-.942a3 3 0 0 0-.126-.207l-.028-.041l-.003-.004' clip-rule='evenodd' opacity='0.4'/%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M17.757 8.416c.333-.197.753-.07.938.286l-.603.357l.603-.357l.001.002l.002.003l.003.007l.01.018l.024.053q.028.063.07.17c.053.145.12.35.185.62c.13.54.252 1.337.252 2.425c0 1.089-.122 1.886-.252 2.426c-.065.27-.132.475-.186.619a3 3 0 0 1-.094.223l-.009.018l-.003.007l-.002.003v.002s-.001.001-.604-.356l.603.357c-.185.355-.605.483-.938.286c-.33-.196-.45-.638-.272-.991l.004-.01l.035-.085c.032-.086.08-.23.13-.438c.1-.416.208-1.09.208-2.06c0-.971-.108-1.645-.208-2.061a4 4 0 0 0-.165-.523l-.004-.01c-.179-.354-.058-.796.272-.991' clip-rule='evenodd' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+.library-view-options__option svg.octicon-square {
+  display: none !important;
+}
+
+.library-view-options__option:has(svg.octicon-square)::before {
+  content: " ";
+  display: inline-block;
+  width: 20px !important;
+  min-width: 20px;
+  height: 20px;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath fill='%23fff' d='M6 8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zm0 13a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zm0 13a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM19 8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2zm0 13a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2zm0 13a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2zM32 8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2zm0 13a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2zm0 13a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2z'/%3E%3C/svg%3E");
+}
+
+.library-view-options__option svg.octicon-apps {
+  display: none !important;
+}
+
+.library-view-options__option:has(svg.octicon-apps)::before {
+  content: " ";
+  display: inline-block;
+  width: 20px !important;
+  min-width: 20px;
+  height: 20px;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M204 240H68a36 36 0 0 1-36-36V68a36 36 0 0 1 36-36h136a36 36 0 0 1 36 36v136a36 36 0 0 1-36 36m240 0H308a36 36 0 0 1-36-36V68a36 36 0 0 1 36-36h136a36 36 0 0 1 36 36v136a36 36 0 0 1-36 36M204 480H68a36 36 0 0 1-36-36V308a36 36 0 0 1 36-36h136a36 36 0 0 1 36 36v136a36 36 0 0 1-36 36m240 0H308a36 36 0 0 1-36-36V308a36 36 0 0 1 36-36h136a36 36 0 0 1 36 36v136a36 36 0 0 1-36 36'/%3E%3C/svg%3E");
+}
+
+.library-view-options__option svg.octicon-rows {
+  display: none !important;
+}
+
+.library-view-options__option:has(svg.octicon-rows)::before {
+  content: " ";
+  display: inline-block;
+  width: 20px !important;
+  min-width: 20px;
+  height: 20px;
+  background: no-repeat center/contain;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='%23fff' d='M8.066 26.066h39.867c3.587 0 5.391-1.757 5.391-5.367v-8.953c0-3.586-1.804-5.32-5.39-5.32H8.065c-3.586 0-5.39 1.734-5.39 5.32V20.7c0 3.61 1.804 5.367 5.39 5.367m0 23.508h39.867c3.587 0 5.391-1.734 5.391-5.343v-8.977c0-3.563-1.804-5.32-5.39-5.32H8.065c-3.586 0-5.39 1.757-5.39 5.32v8.977c0 3.609 1.804 5.343 5.39 5.343'/%3E%3C/svg%3E");
 }
