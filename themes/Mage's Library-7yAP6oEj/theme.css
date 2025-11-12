@@ -578,7 +578,7 @@
 
 
 .button.button--outline.game-details__randomizer-button:hover {
-  transform: translateX(50%) translateX(-50%) translateY(-3px) scale(1.03);
+  transform: translateX(50%) translateY(-3px) scale(1.03);
   background: rgba(24, 38, 60, 0.55);
   border-color: rgba(195, 220, 255, 0.55);
   box-shadow: 0 24px 36px rgba(10, 15, 30, 0.45);
