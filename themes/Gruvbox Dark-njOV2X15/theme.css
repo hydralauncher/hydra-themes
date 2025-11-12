@@ -544,3 +544,6 @@ body::after {
   border: 1px solid rgba(215,153,33,0.4);
   box-shadow: 0 0 6px rgba(215,153,33,0.3);
 }
+.library-game-card__achievement-percentage {
+  margin-top: 2px;
+}
