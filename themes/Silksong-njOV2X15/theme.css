@@ -348,7 +348,7 @@ body::after {
   border-radius: 7px;
   box-shadow:
     inset 0 1px 0 rgba(182, 89, 94, 0.18),
-    0 0 12オンラインpx rgba(0, 0, 0, 0.45);
+    0 0 12px rgba(0, 0, 0, 0.45);
   transition: all 0.35s ease;
 }
 .checkbox-field__input:checked + .checkbox-field__checkbox {
@@ -540,10 +540,6 @@ body::after {
 }
 * {
   scrollbar-width: thin;
-}
-scrollbar {
-  -moz-appearance: none !important;
-  appearance: none !important;
 }
 ::-moz-scrollbar-button {
   display: none !important;
