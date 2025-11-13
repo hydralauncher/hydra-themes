@@ -1798,10 +1798,10 @@ body {
 }
 
 .theme-card__actions::before {
-    content: "HYDRA.SRV6.RU";
+    content: "HydraMods.cc";
     position: absolute;
     white-space: pre;
-    font-size: 26px;
+    font-size: 30.5px;
     display: block;
     background-color: var(--button-accent);
     color: var(--button-text);
