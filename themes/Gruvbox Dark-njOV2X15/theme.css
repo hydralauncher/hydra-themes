@@ -48,9 +48,7 @@ body::after {
 
 .container__content {
   background: var(--bg-light);
-  padding: 16px;
   backdrop-filter: none;
-  border: 1px solid var(--border-color);
   box-shadow: none;
   animation: none;
 }
@@ -546,4 +544,30 @@ body::after {
 }
 .library-game-card__achievement-percentage {
   margin-top: 2px;
+}
+.sidebar__game-badge {
+  background: rgba(215, 153, 33, .25);
+  border: 1px solid rgba(152, 139, 26, 0.4);
+  color: #d79921;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+::-webkit-scrollbar-button {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+.text-field-container__text-field {
+  border-radius: 12px;
+  border: none;
+}
+* {
+  scrollbar-width: thin;
+}
+::-moz-scrollbar-button {
+  display: none !important;
 }
