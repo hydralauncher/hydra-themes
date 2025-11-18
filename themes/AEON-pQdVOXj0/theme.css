@@ -2764,7 +2764,6 @@ body {
   margin-top: 10px;
 }
 .user-reviews__delete-review-button:hover,
-.user-reviews__delete-review-button:hover,
 .user-reviews__vote-button:hover {
   color: var(--text-secondary);
   background-color: rgba(255, 255, 255, 0.05);
