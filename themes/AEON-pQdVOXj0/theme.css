@@ -86,12 +86,7 @@ body {
 }
 
 .title-bar h4 {
-  font-family: "Poppins", sans-serif;
-  position: absolute;
-  display: block;
-  top: 5px;
-  left: 25px;
-  transform: none;
+  display: none;
 }
 
 .title-bar::before {
@@ -109,7 +104,7 @@ body {
   padding: 2px 5px;
   font-weight: 600;
   font-size: 11px;
-  content: "Beta v1.7";
+  content: "Beta v1.5";
 }
 
 .button {
@@ -949,52 +944,30 @@ body {
 .sidebar__section .text-field-container {
   align-items: center;
   flex: 0;
-  
 }
 
 .sidebar__section .text-field-container__text-field {
-  display: flex;
-  align-items: center;
-  padding: 8px 14px;
-  border: 1px solid var(--text-muted);
-  border-radius: 9999px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  margin-bottom: 16px
-  
-}
-
-.sidebar__section .text-field-container__text-field:hover {
-  border-color: var(--text-accent);
-}
-
-.sidebar__section .text-field-container__text-field:focus-within {
-  border-color: var(--text-accent);
+  border: none;
+  background-color: transparent;
+  border-top: 2px solid var(--text-muted);
+  border-radius: 0px;
+  margin-bottom: 20px;
 }
 
 .sidebar__section .text-field-container__text-field-input {
-  flex: 1;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 0;
-  background: transparent;
-  border: none;
-  outline: none;
-  text-align: left; 
-  color: var(--text-accet);
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 18px;
-  padding-left: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21 21-4.34-4.34'%3E%3C/path%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3C/svg%3E");
+  text-align: center;
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 0px;
 }
 
-
 .text-field-container__text-field-input::placeholder {
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .sidebar__section .text-field-container__text-field-wrapper {
-  width: 95%;
+  width: 85%;
 }
 
 /* Library */
@@ -1035,7 +1008,7 @@ body {
 
 .library-game-card-large__playtime,
 .library-game-card__playtime {
-    background-color: var(--secondary-layer-3);
+      background-color: var(--secondary-layer-3);
     border: none;
     border-radius: 16px;
     font-size: 12px;
@@ -1878,29 +1851,21 @@ body {
 }
 
 .theme-card__author::after {
-    font-weight: 400;
-    font-size: 12px;
-    content:
-    "Beta 1.7 – Changelog:\A\A"
-    "• New search bar design.\A"
-    "• Sidebar spacing fixes.\A"
-    "• Restored the default Hydra Cloud header.\A"
-    "• Partial icon updates (Lucide) — ongoing.\A"
-    "• General responsiveness adjustments.\A"
-    "• Preparation for upcoming modules.";
+    font-weight: 500;
+    font-size: 12PX;
+    content: "A modern, premium theme for development environments.\A - Cohesive Design: A unified color palette and style across all elements and pages.\A - Modern Icons: All icons have been optimized for clarity and modern aesthetics using Lucide React.\A - Continuously Updated: The theme updates with the latest design trends and best practices.";
     position: relative;
     white-space: pre;
+    letter-spacing: 1px;
     display: block;
-    color: var(--text-primary);
-    margin-top: 10px;
-    line-height: 1.5;
-    opacity: 0.9;
+    color: var(--text-primary); 
+    margin-top: 20px; 
 }
 
 .theme-card__header::before {
     font-weight: 600;
     font-size: 4em;
-    content: "AEON";
+    content: "AEON Beta v1.5";
     position: relative;
     white-space: pre;
     letter-spacing: 1px;
@@ -3218,7 +3183,7 @@ body {
   height: 1.5em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8'/%3E%3Cpath d='M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'%3E%3C/path%3E%3Cpath d='M9 21v-5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .sidebar__menu-item-button .octicon-apps {
@@ -3302,7 +3267,7 @@ body {
   height: 2em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 19-7-7 7-7'/%3E%3Cpath d='M19 12H5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='19' y1='12' x2='5' y2='12'%3E%3C/line%3E%3Cpolyline points='12 19 5 12 12 5'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
 .home__icon-wrapper .home__flame-icon {
@@ -3316,7 +3281,7 @@ body {
   height: 20px;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.5 14.5A2.5 2.5 0 0 0 12 12.5q.5 0 1-.5a2 2 0 1 1 0-4 2.5 2.5 0 0 0-2.5 2.5'%3E%3C/path%3E%3Cpath d='M12.5 12.5A2.5 2.5 0 0 0 15 10.5c.823 0 1.5-.67 1.5-1.5a2 2 0 0 1 4 0 2.5 2.5 0 0 1-2.5 2.5'%3E%3C/path%3E%3Cpath d='M12 20v-8.5'%3E%3C/path%3E%3Ccircle cx='12' cy='20' r='2'%3E%3C/circle%3E%3C/svg%3E");
 }
 
 .home__icon-wrapper .home__stars-icon {
@@ -3330,8 +3295,7 @@ body {
   height: 20px;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72'/%3E%3Cpath d='m14 7 3 3'/%3E%3Cpath d='M5 6v4'/%3E%3Cpath d='M19 14v4'/%3E%3Cpath d='M10 2v2'/%3E%3Cpath d='M7 8H3'/%3E%3Cpath d='M21 16h-4'/%3E%3Cpath d='M11 3H9'/%3E%3C/svg%3E");
-
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpolygon points='12 2 15.09 10.26 24 10.26 17.55 15.52 19.64 23.78 12 18.52 4.36 23.78 6.45 15.52 0 10.26 8.91 10.26'%3E%3C/polygon%3E%3C/svg%3E");
 }
 
 .home__header li:nth-of-type(2) button::before {
@@ -3341,7 +3305,7 @@ body {
   height: 20px;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978'/%3E%3Cpath d='M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978'/%3E%3Cpath d='M18 9h1.5a1 1 0 0 0 0-5H18'/%3E%3Cpath d='M4 22h16'/%3E%3Cpath d='M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z'/%3E%3Cpath d='M6 9H4.5a1 1 0 0 1 0-5H6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v4m8-4v4M3 4.5A1.5 1.5 0 0 1 4.5 3h15A1.5 1.5 0 0 1 21 4.5v15A1.5 1.5 0 0 1 19.5 21h-15A1.5 1.5 0 0 1 3 19.5v-15z'%3E%3C/path%3E%3Cpath d='M3 8h18'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .home__header li:nth-of-type(3) button::before {
@@ -3351,7 +3315,7 @@ body {
   height: 20px;
   background: no-repeat center/contain;
   vertical-align: middle;
- background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='6' x2='10' y1='11' y2='11'/%3E%3Cline x1='8' x2='8' y1='9' y2='13'/%3E%3Cline x1='15' x2='15.01' y1='12' y2='12'/%3E%3Cline x1='18' x2='18.01' y1='10' y2='10'/%3E%3Cpath d='M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9h12M9 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4'%3E%3C/path%3E%3Cpath d='M12 7v6l4-2'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .hero-panel-actions__action svg.octicon-plus-circle {
@@ -4062,7 +4026,7 @@ body {
   height: 1.6em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 10v12'/%3E%3Cpath d='M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 10h4.764a2 2 0 0 1 1.789 2.894l-3.646 7.073A2 2 0 0 1 15.118 22H6a2 2 0 0 1-2-2v-7a4 4 0 0 1 4-4h3m0-5v6'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .user-karma__description svg.lucide-award {
@@ -4306,7 +4270,7 @@ body {
   height: 1.6em;
   background: no-repeat center/contain;
   vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a38bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-check-icon lucide-check'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2326bbff' d='M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10' opacity='0.5'/%3E%3Cpath fill='%2326bbff' d='M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0'/%3E%3C/svg%3E");
 }
 
 .hero-panel-playtime__play-time svg.hero-panel-playtime__manual-warning,
@@ -4612,7 +4576,7 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='%23fff' d='M8.066 26.066h39.867c3.587 0 5.391-1.757 5.391-5.367v-8.953c0-3.586-1.804-5.32-5.39-5.32H8.065c-3.586 0-5.39 1.734-5.39 5.32V20.7c0 3.61 1.804 5.367 5.39 5.367m0 23.508h39.867c3.587 0 5.391-1.734 5.391-5.343v-8.977c0-3.563-1.804-5.32-5.39-5.32H8.065c-3.586 0-5.39 1.757-5.39 5.32v8.977c0 3.609 1.804 5.343 5.39 5.343'/%3E%3C/svg%3E");
 }
 
-
+/* Library search - pill input with Lucide search icon */
 .library__controls-left .text-field-container__text-field--primary {
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 999px;
@@ -4634,5 +4598,4 @@ body {
   height: 100%;
   width: 100%;
 }
-
 
