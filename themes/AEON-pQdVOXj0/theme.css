@@ -479,7 +479,7 @@ body {
   right: 30px;
   top: -60px;
   
-  backrgound: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(9999px);
   border: solid 0.1px #424249;
   border-radius: 9999px;
