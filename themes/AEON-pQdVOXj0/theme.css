@@ -128,13 +128,12 @@ body {
 
 .button {
   padding: 15px 20px;
-  border-radius: 20px;
   font-weight: 600;
+  border-radius:9999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: transparent;
   color: var(--button-text);
   transition: all 0.3s ease;
-  border-radius:9999px;
 }
 
 .button--primary {
@@ -2731,7 +2730,7 @@ body {
 .sort-options__option.active {
   background-color: var(--secondary-layer-2);
   color: var(--text-primary);
-  border-color: var(--button-hover);;
+  border-color: var(--button-hover);
 }
 
 .profile-content__tab-panel > div:nth-child(2) > div:nth-child(1) {
@@ -3174,7 +3173,6 @@ body {
   border-radius: 9999px;
   padding: 4px 10px;
   font-weight: 500;
-  color: white;
 }
 
 /* Container */
