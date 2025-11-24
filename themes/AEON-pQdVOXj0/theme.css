@@ -489,7 +489,7 @@ body {
   right: 30px;
   top: -60px;
   
-  backrgound: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(9999px);
   border: solid 1px var(--secondary-layer-4);
   border-radius: 9999px;
@@ -1215,7 +1215,6 @@ body {
   padding: 14px 20px;
   border-radius: 9999px;
   gap: 10px;
-  transition: none;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -1614,7 +1613,6 @@ body {
 }
 
 .hero-panel-actions__container .button--outline {
-  border: solid 1px ;
   background-color: rgba(0, 0, 0, 0.2) !important;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -2044,7 +2042,6 @@ body {
 .theme-card__author::before {
   content: "Development";
   font-size: 14px;
-  margin-bottom: 3px;
   opacity: 0.75;
   margin: 5px;
   letter-spacing: 0.3px;
@@ -2858,7 +2855,6 @@ body {
   border-color: #424249;
   border-radius: 9999px;
   gap: 10px;
-  transition: none;
   display: flex;
   justify-content: center;
   width: 25%;
