@@ -597,8 +597,8 @@
   .sidebar__help-button {
     border: solid 1px var(--secondary-layer-3);
     background-color: transparent;
-    border-radius: 99px;
-    width: 90%;
+    border-radius: 13px;
+    width: 89%;
     margin-left: 12px;
     transition: 
       border-color 0.25s ease,
@@ -762,7 +762,7 @@
     background-color: transparent;
     border: 1px solid rgba(255,255,255,0.04);
     margin-bottom: 10px;
-    max-width: 83%;
+    max-width: 85%;
     margin-left: 20px
   }
 
@@ -1343,9 +1343,9 @@
   }
 
   .game-details__description-toggle {
-    background-color: transparent;
+    background-color: var(--secondary-layer-1);
     border: solid 1px;
-    border-color: var(--border-hover)!important;
+    border-color: var(--secondary-layer-3)!important;
     border-radius: 9999px; 
     padding: 16px 48px;
     margin-top: 40px;
@@ -1356,6 +1356,7 @@
 
   .game-details__description-toggle:hover {
     background-color: rgba(178, 155, 255, 0.06)!important;
+    border-color: var(--border-hover)!important;
   }
 
 
@@ -1821,7 +1822,7 @@
   .game-details__vote-button {
     color: var(--text-secondary);
     background-color: transparent;
-    border-radius: 22px;
+    border-radius: 9999px;
     padding: 10px 16px;
     gap: 10px;
     transition: all 0.3s ease;
@@ -1830,8 +1831,8 @@
   .game-details__delete-review-button:hover,
   .game-details__vote-button:hover {
     color: var(--text-secondary);
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(178, 155, 255, 0.06)!important;
+    border-color: var(--border-hover);
   }
 
   .game-details__review-star--filled.game-details__review-score--red,
@@ -1888,23 +1889,34 @@
   }
 
   .review-sort-options__option {
-    background-color: var(--secondary-layer-3);
+    background-color: var(--secondary-layer-1);
+    border: solid 1px var(--secondary-layer-3);
     color: var(--text-primary);
     font-weight: 500;
     padding: 14px 20px;
-    border-radius: 20px;
+    border-radius: 999px;
     gap: 8px;
-    transition: none;
+    transition: 
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background-color 0.25s ease;
     display: flex;
     width: 100%;
   }
 
   .review-sort-options__separator {
-    display: none;
+    display: block;
+  }
+
+  .review-sort-options__option:hover {
+    border-color: var(--border-hover);
+    background-color: rgba(178, 155, 255, 0.06)!important;
   }
 
   .review-sort-options__option.active {
-    color: var(--text-secondary) !important;
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background-color: rgba(178, 155, 255, 0.06)!important;
   }
 
   .game-details__reviews-empty-message {
@@ -2510,8 +2522,8 @@
   }
 
   .profile-hero__content-box:has(.profile-avatar__image[src="https://cdn.losbroxas.org/1488cc51-af69-46e7-a092-cd5a3f83dbd6.jpeg"]) .profile-hero__hero-panel {
-    filter: grayscale(100%); /* Current draft standard */
-    -webkit-filter: grayscale(100%); /* New WebKit */
+    filter: grayscale(100%); 
+    -webkit-filter: grayscale(100%); 
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
   }
@@ -4580,6 +4592,8 @@
     display: none !important;
   }
 
+  
+
   .context-menu__item-icon:has(svg.octicon-play)::before {
     content: " ";
     display: inline-block;
@@ -5015,3 +5029,35 @@
     height: 100%;
     width: 100%;
   }
+
+  .text-field-container__toggle-password-button svg.octicon-eye {
+    display: none !important;
+  }
+
+  .text-field-container__toggle-password-button:has(svg.octicon-eye)::before {
+    content: " ";
+    display: inline-block;
+    width: 20px !important;
+    min-width: 20px;
+    height: 20px;
+    background: no-repeat center/contain;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+  }
+
+  .text-field-container__toggle-password-button svg.octicon-eye-closed {
+    display: none !important;
+  }
+
+  .text-field-container__toggle-password-button:has(svg.octicon-eye-closed)::before {
+    content: " ";
+    display: inline-block;
+    width: 20px !important;
+    min-width: 20px;
+    height: 20px;
+    background: no-repeat center/contain;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-eye-off-icon lucide-eye-off'%3E%3Cpath d='M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49'/%3E%3Cpath d='M14.084 14.158a3 3 0 0 1-4.242-4.242'/%3E%3Cpath d='M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143'/%3E%3Cpath d='m2 2 20 20'/%3E%3C/svg%3E");
+  }
+
+ 
