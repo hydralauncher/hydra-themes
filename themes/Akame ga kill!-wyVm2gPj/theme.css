@@ -167,3 +167,15 @@ body {
 .achievement-notification__container {
   background-color: transparent;
 }
+.achievement-notification__outer-container {
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F549%2F549452.jpg&f=1&nofb=1&ipt=b31e5684fe7fd16083cffe0dec0255f256c3c5ec95ca0b741aad27000f303425);
+  -webkit-text-fill-color: #ff0000;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #000;
+}
+
+.achievement-notification__container {
+  background-color: transparent;
+{
