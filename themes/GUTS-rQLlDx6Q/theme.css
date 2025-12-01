@@ -12,26 +12,20 @@
 
   /* Header */
   .header {}
-
   /* Sidebar */
   .sidebar {}
-
   /* Main content */
   .container__content {}
-
   /* Bottom panel */
   .bottom-panel {}
-
   /* Toast */
   .toast {}
-
   /* Button */
   .button {}
-
 body {
     margin: 0;
     color: #f0efef;
-    font-family: Trajan-Regular;
+    font-family: Arial, sans-serif;
 
   }
 
@@ -94,6 +88,5 @@ body {
     backdrop-filter: blur(2px);
   }
 
-  .bottom-panel {
     background-color: rgba(74, 73, 77, 0.25);
   }
