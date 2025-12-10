@@ -46,7 +46,6 @@ body { /* верхний левый угол - Hydra */
  background: transparent;
 }
 
-.text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .header__search {
  color: #ffffffff;
@@ -55,7 +54,7 @@ body { /* верхний левый угол - Hydra */
  text-shadow: 1px 1px 1px #000;
  color: rgba(255, 255, 255, 1);
 }
-.settings__content
+
 {
  text-shadow: 1px 1px 1px #000000ff;
  color: #a7a7a7ff;
