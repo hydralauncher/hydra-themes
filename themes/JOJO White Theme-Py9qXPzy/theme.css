@@ -1,0 +1,104 @@
+/* GLOBAL */
+body {
+  color: #d1d1d1;
+  font-weight: 400;
+}
+
+#root {
+  background: url(https://images6.alphacoders.com/571/thumb-1920-571002.jpg) #0e0e0e;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* MAIN UI AREAS */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: rgba(45, 45, 45, 0.45) !important; /* darker gray */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(110, 110, 110, 0.12);
+}
+
+.title-bar {
+  background: rgba(40, 40, 40, 0.35);
+  border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+}
+
+/* CARDS / LIST ITEMS */
+.game-item,
+.settings__content,
+.settings-download-sources__item,
+.download-group__item,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background: rgba(60, 60, 60, 0.35) !important;
+  border: 1px solid rgba(100, 100, 100, 0.18);
+  border-radius: 6px;
+}
+
+.game-item:hover,
+.settings-download-sources__item:hover,
+.download-group__item:hover {
+  border-color: rgba(180, 180, 180, 0.35);
+}
+
+/* SEARCH & TEXT INPUTS */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search {
+  background: rgba(80, 80, 80, 0.35) !important;
+  border: 1px solid rgba(140, 140, 140, 0.2);
+  color: #e2e2e2;
+}
+
+/* BUTTONS */
+.button--outline {
+  background-color: rgba(100, 100, 100, 0.25);
+  border: 1px solid rgba(160, 160, 160, 0.25);
+  color: #eeeeee;
+  transition: all 0.2s ease;
+}
+
+.button--outline:hover {
+  background-color: rgba(110, 110, 110, 0.35);
+  border-color: rgba(200, 200, 200, 0.35);
+}
+
+/* POPUPS & UI FLOATERS */
+.dropdown-menu,
+.modal-content,
+.tooltip,
+.notification,
+.search-box {
+  background: rgba(50, 50, 50, 0.40) !important;
+  border: 1px solid rgba(130, 130, 130, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+/* BOTTOM PANEL */
+.bottom-panel {
+  background-color: rgba(40, 40, 40, 0.4);
+  border-top: 1px solid rgba(150, 150, 150, 0.1);
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(60, 60, 60, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 140, 140, 0.35);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 180, 180, 0.45);
+}
