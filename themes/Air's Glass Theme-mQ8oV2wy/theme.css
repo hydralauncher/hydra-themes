@@ -1759,3 +1759,11 @@ input[type="checkbox"]:checked::before {
   padding: 8px 16px !important;
   box-sizing: border-box !important;
 }
+
+/* Achievement Notification - Simple Glass Style */
+.notification-achievement,
+*[class*="achievement"][class*="notification"],
+*[class*="achievement-toast"] {
+  border-radius: 6px !important;
+  -webkit-backdrop-filter: var(--backdrop-blur) !important;
+}
