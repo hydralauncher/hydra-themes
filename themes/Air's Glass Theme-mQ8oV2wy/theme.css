@@ -169,10 +169,9 @@
   
   /* 
    * Border radius system - Semantic naming for consistent visual hierarchy
-   * Three-tier system: pills for small buttons, medium for sidebar, minimal for content
+   * Two-tier system: pills for small interactive elements, minimal for everything else
    */
-  --radius-minimal: 12px;          /* Content boxes, large buttons, containers */
-  --radius-medium: 32px;           /* Sidebar only */
+  --radius-minimal: 12px;          /* Content boxes, large buttons, containers, game covers */
   --radius-pill: 50px;             /* Small buttons, interactive elements that should be pills */
   
   /* 
@@ -370,7 +369,7 @@ html {
   50% { transform: translateX(10px) translateY(-5px); }  /* Minimal transform values for performance */
 }
 
-/* Premium AirTMZ cloud liquid glass UI elements */
+/* AirTMZ cloud liquid glass UI elements */
 .text-field-container__text-field--dark,
 .text-field-container__text-field--primary,
 .game-item,
@@ -726,9 +725,9 @@ html {
 
 /* Apple-authentic liquid glass buttons */
 /* General button styles - ensure actual buttons are pills */
-.button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]),
-button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]),
-[class*="button"]:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="sidebar__help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]) {
+.button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]),
+button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]),
+[class*="button"]:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="sidebar__help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]) {
   border-radius: var(--radius-pill) !important;  /* Force actual buttons to be pills */
 }
 
@@ -924,7 +923,7 @@ button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*=
     var(--glass-cloud) 75%,
     var(--glass-mist) 100%) !important;
   border-right: 1.5px solid var(--border-medium);
-  border-radius: 0 0px var(--radius-medium) 0;
+  border-radius: 0 0px var(--radius-minimal) 0;
   box-shadow: 
     8px 0 32px rgba(0, 0, 0, 0.35),
     4px 0 16px rgba(0, 0, 0, 0.2),
@@ -1743,4 +1742,20 @@ input[type="checkbox"]:checked::before {
 .container__content .metadata,
 .container__content .version {
   color: var(--text-subtle-contrast);
+}
+
+/* Size-based border radius system - intelligent sizing based on element purpose */
+/* Large elements (game cards, covers, content boxes) get minimal radius */
+*[class*="game"][class*="cover"],
+*[class*="game"][class*="card"], 
+*[class*="cover"]:not([class*="button"]),
+*[class*="card"]:not([class*="button"]) {
+  border-radius: var(--radius-minimal) !important;  /* 12px for larger game elements */
+}
+
+/* Fix padding for sort options pills to prevent text touching edges */
+.sort-options__options,
+*[class*="sort-options"] *[class*="option"] {
+  padding: 8px 16px !important;
+  box-sizing: border-box !important;
 }
