@@ -8,6 +8,7 @@
   --kcd-iron: #1a1a1a;
   --kcd-parchment: #e3dac1;
   --kcd-overlay: rgba(10, 5, 0, 0.85);
+  
   --font-title: 'Cinzel Decorative', serif;
   --font-body: 'Crimson Text', serif;
 }
@@ -53,21 +54,6 @@ body {
   border-left: 3px solid var(--kcd-gold);
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
   padding-left: 15px;
-}
-
-.sidebar .text-field-container__text-field {
-  font-family: var(--font-title);
-  color: var(--kcd-gold);
-  background-color: #000 !important;
-  border: 1px solid var(--kcd-gold);
-  border-radius: 2px;
-  box-shadow: inset 0 0 10px #000;
-  color: var(--kcd-parchment);
-}
-
-.sidebar .text-field-container__text-field:focus-within {
-  border-color: var(--kcd-gold-bright);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .header {

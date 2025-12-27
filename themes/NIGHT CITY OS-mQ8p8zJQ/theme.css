@@ -57,19 +57,6 @@ body {
   text-shadow: 2px 0 var(--cp-red);
 }
 
-.sidebar .text-field-container__text-field {
-  font-family: var(--cp-font);
-  text-transform: uppercase;
-  background-color: #000 !important;
-  border: 1px solid #444;
-  border-radius: 0px;
-  clip-path: polygon(0 0, 100% 0, 100% 70%, 95% 100%, 0 100%);
-}
-
-.sidebar .text-field-container__text-field:focus-within {
-  border-color: var(--cp-cyan);
-}
-
 .header {
   background-color: var(--cp-bg-dark) !important;
   border-bottom: 2px solid var(--cp-red);
@@ -87,6 +74,7 @@ body {
 
 .header__search:focus-within {
   border-color: var(--cp-cyan);
+  box-shadow: -4px 4px 0px var(--cp-red);
 }
 
 .header__search input {
