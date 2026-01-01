@@ -57,7 +57,7 @@ body {
 
 .sidebar .text-field-container__text-field {
   font-family: var(--font-title);
-  color: var(--kcd-gold);
+  color: #d4af37;
   background-color: #000 !important;
   border: 1px solid var(--kcd-gold);
   border-radius: 2px;
