@@ -4,10 +4,62 @@ import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 import { api } from "./api";
+import postcss from "postcss";
+import selectorParser from "postcss-selector-parser";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
+
+const getThemeAchievementsSupport = async (
+  publicThemePath: string,
+): Promise<boolean> => {
+  try {
+    const result = postcss().process(
+      fs.readFileSync(path.join(publicThemePath, "theme.css"), "utf8"),
+    );
+
+    const classNames = new Set<string>();
+
+    const extractClasses = selectorParser((selectors) => {
+      selectors.walkClasses((classNode) => {
+        classNames.add(classNode.value);
+      });
+    });
+
+    result.root.walkRules((rule) => {
+      extractClasses.processSync(rule.selector);
+    });
+
+    for (const className of classNames) {
+      if (className.startsWith("achievement-notification")) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (err: unknown) {
+    console.error(
+      `Failed to parse CSS for ${publicThemePath}`,
+      (err as Error).message,
+    );
+
+    return false;
+  }
+};
+
+const hasAchievementSoundSupport = (themePath: string): boolean => {
+  const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
+
+  for (const extension of supportedExtensions) {
+    const soundFilePath = path.join(themePath, `achievement${extension}`);
+    if (fs.existsSync(soundFilePath)) {
+      return true;
+    }
+  }
+
+  return false;
+};
 
 const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
 
@@ -37,9 +89,13 @@ Promise.all(
 
     if (hydraHeaderSecret) {
       await api
-        .post(`badges/${authorCode}/theme`, {
+        .post(`badges/unlock`, {
           headers: {
             "hydra-token": hydraHeaderSecret,
+          },
+          json: {
+            userId: authorCode,
+            badge: "THEME_CREATOR",
           },
         })
         .catch((err) => {
@@ -68,19 +124,40 @@ Promise.all(
         path.join(publicThemePath, "theme.css"),
       );
 
-      await sharp(path.join(folderPath, screenshotFile))
-        .resize(340, null, { fit: "inside" })
-        .toFormat("webp")
-        .toFile(path.join(publicThemePath, "screenshot.webp"));
-
       if (screenshotFile !== "screenshot.webp") {
         fs.unlinkSync(path.join(publicThemePath, screenshotFile));
       }
     }
 
+    const thumbnailPath = path.join(publicThemePath, "screenshot.webp");
+    const fullscreenPath = path.join(publicThemePath, "screenshot-full.webp");
+
+    // Generate thumbnail version (for card display)
+    await sharp(path.join(folderPath, screenshotFile))
+      .resize(340, null, { fit: "inside" })
+      .toFormat("webp")
+      .toFile(thumbnailPath);
+
+    const sourceStats = fs.statSync(path.join(folderPath, screenshotFile));
+    const fullscreenStats = fs.existsSync(fullscreenPath)
+      ? fs.statSync(fullscreenPath)
+      : null;
+
+    if (!fullscreenStats || sourceStats.mtimeMs > fullscreenStats.mtimeMs) {
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(1920, null, { fit: "inside", withoutEnlargement: true })
+        .toFormat("webp")
+        .toFile(fullscreenPath);
+    }
+
+    const hasAchievementsSupport =
+      await getThemeAchievementsSupport(publicThemePath);
+
     return {
       name: themeName,
       authorId: authorCode,
+      hasAchievementsSupport,
+      hasAchievementSoundSupport: hasAchievementSoundSupport(publicThemePath),
     };
   }),
 )
