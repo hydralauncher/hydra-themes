@@ -149,6 +149,7 @@ body::before {
 }
 
 .workwonders-feedback-button {
+  border: 1px solid var(--color-primary-dim) !important;
   background-color: var(--color-bg-lighter) !important;
   color: var(--color-primary) !important;
 }
@@ -165,6 +166,7 @@ div.game-language-section__cell.game-language-section__cell--language,
 svg.octicon.octicon-x.game-language-section__cross,
 svg.octicon.octicon-check.game-language-section__check,
 div.game-card__specifics-item,
+.hero__description,
 span {
   color: #ffffffff !important;
 }
