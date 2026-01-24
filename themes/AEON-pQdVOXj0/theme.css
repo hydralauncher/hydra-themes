@@ -680,9 +680,27 @@
   }
 
   .header__back-button {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+    border: solid 1px #323232;
+    border-radius: 9999px;
+    padding: 2px;
+    transition: 
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background-color 0.25s ease;
   }
+
+  .header__back-button:hover {
+    border-color: var(--border-hover);
+    background-color: rgba(178, 155, 255, 0.06)!important;
+
+  }
+  
+  h3.header__title {
+    margin-left: 8px
+  }
+
 
   /* Sidebar Top */
 
@@ -839,7 +857,6 @@
   }
 
   .profile-avatar__image {
-  
     cursor: pointer;
   }
 
@@ -1124,14 +1141,21 @@
   }
 
   .sidebar__section .text-field-container__text-field-wrapper {
-    width: 30%; 
+    width: 28%; 
     transition: width 0.35s cubic-bezier(.25, .8, .25, 1);
   }
 
   .sidebar__section .text-field-container__text-field-wrapper:has(.text-field-container__text-field-input:focus) {
     width: 95%;
   }
+   
 
+   .header__back-button {
+    border: solid 1px #323232;
+    border-radius: 9999px;
+    padding: 2px
+    
+   }
 
 
   /* Library */
@@ -1666,7 +1690,7 @@
   .gallery-slider__preview-button,
   .gallery-slider__media,
   .game-details__description img {
-    border-radius: 20px;
+    border-radius: 8px;
   }
 
   .gallery-slider__preview-button {
@@ -3245,6 +3269,15 @@
 
   /* Notify */
 
+  .notification-item {
+    border-radius: 20px
+  }
+  
+  .notification-item__dismiss{
+    margin-right: 13px;
+    margin-top: 8px;
+  }
+
   .achievement-notification {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -4821,8 +4854,8 @@
   .profile-avatar:has(svg.octicon-person)::before {
     content: " ";
     display: inline-block;
-    width: 5em;
-    height: 5em;
+    width: 35px;
+    height: 35px;
     background: no-repeat center/contain;
     vertical-align: middle;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3Cpath d='M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662'/%3E%3C/svg%3E");
