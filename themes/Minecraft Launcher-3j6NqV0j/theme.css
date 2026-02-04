@@ -1,0 +1,302 @@
+/* MINECRAFT LAUNCHER FULL STYLE - FINAL EDITION */
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+* {
+    font-family: 'Silkscreen', sans-serif !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    transition: none !important;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: #1c1c1c !important;
+    margin: 0;
+    color: #ffffff;
+    transform: scale(0.95);
+    transform-origin: top left;
+    width: 105.3%;
+    height: 105.3%;
+}
+
+html {
+    zoom: 0.8;
+    background-color: #1c1c1c;
+}
+
+.header {
+    background-color: #2b2b2b !important;
+    border-bottom: 4px solid #000 !important;
+    padding: 16px 24px;
+}
+
+.sidebar {
+    background-color: #232323 !important;
+    width: 260px;
+    border-right: 4px solid #000;
+}
+
+.sidebar * {
+    text-transform: uppercase;
+}
+
+.sidebar__menu-item {
+    padding: 16px 18px;
+    font-size: 16px;
+    border-bottom: 3px solid #000;
+    cursor: pointer;
+}
+
+.sidebar__menu-item:hover {
+    background-color: #3a3a3a !important;
+}
+
+.sidebar__menu-item--active {
+    background-color: #4caf50 !important;
+    color: #000 !important;
+}
+
+.container__content {
+    background-color: #1e1e1e !important;
+    padding: 24px;
+}
+
+.button,
+.button--outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #4a4a4a !important;
+    color: #ffffff !important;
+    border: 4px solid #000 !important;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    box-shadow:
+        inset -4px -4px 0px #212121,
+        inset 4px 4px 0px #8b8b8b !important;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.button:hover,
+.button--outline:hover {
+    background-color: #5a5a5a !important;
+    box-shadow:
+        inset -4px -4px 0px #313131,
+        inset 4px 4px 0px #9b9b9b !important;
+}
+
+.button--primary,
+.button-primary {
+    background-color: #5ac54f !important;
+    font-size: 20px;
+    padding: 14px 48px;
+    box-shadow:
+        inset -4px -4px 0px #3b8c34,
+        inset 4px 4px 0px #9bf59b !important;
+}
+
+.button--primary:hover {
+    background-color: #66e059 !important;
+    box-shadow:
+        inset -4px -4px 0px #45a03c,
+        inset 4px 4px 0px #b2ffb2 !important;
+}
+
+.button:active,
+.button--primary:active {
+    transform: translateY(2px);
+    box-shadow:
+        inset 4px 4px 0px #212121,
+        inset -4px -4px 0px #8b8b8b !important;
+}
+
+.button--primary:active {
+    box-shadow:
+        inset 4px 4px 0px #3b8c34,
+        inset -4px -4px 0px #9bf59b !important;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button {
+    position: relative;
+    padding-left: 54px;
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button svg {
+    display: none;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    background: #000;
+    box-shadow:
+        3px 0 0 #000, 0 3px 0 #000, 3px 3px 0 #000,
+        12px 0 0 #000, 15px 0 0 #000, 12px 3px 0 #000, 15px 3px 0 #000,
+        6px 6px 0 #000, 9px 6px 0 #000,
+        3px 9px 0 #000, 6px 9px 0 #000, 9px 9px 0 #000, 12px 9px 0 #000,
+        3px 12px 0 #000, 12px 12px 0 #000,
+        -3px -3px 0 transparent, 0px -3px 0 transparent, 3px -3px 0 transparent, 6px -3px 0 transparent, 9px -3px 0 transparent, 12px -3px 0 transparent, 15px -3px 0 transparent, 18px -3px 0 transparent,
+        -3px 0px 0 transparent, 6px 0px 0 transparent, 9px 0px 0 transparent, 18px 0px 0 transparent,
+        -3px 3px 0 transparent, 6px 3px 0 transparent, 9px 3px 0 transparent, 18px 3px 0 transparent,
+        -3px 6px 0 transparent, 0px 6px 0 transparent, 3px 6px 0 transparent, 12px 6px 0 transparent, 15px 6px 0 transparent, 18px 6px 0 transparent,
+        -3px 9px 0 transparent, 0px 9px 0 transparent, 15px 9px 0 transparent, 18px 9px 0 transparent,
+        -3px 12px 0 transparent, 0px 12px 0 transparent, 6px 12px 0 transparent, 9px 12px 0 transparent, 15px 12px 0 transparent, 18px 12px 0 transparent,
+        -3px 15px 0 transparent, 0px 15px 0 transparent, 3px 15px 0 transparent, 6px 15px 0 transparent, 9px 15px 0 transparent, 12px 15px 0 transparent, 15px 15px 0 transparent, 18px 15px 0 transparent;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button::before {
+    animation: mc-glow-large 2.5s infinite ease-in-out;
+}
+
+@keyframes mc-glow-large {
+    0%, 100% { filter: drop-shadow(0 0 3px rgba(76, 175, 79, 0.4)); }
+    50% { filter: drop-shadow(0 0 7px rgba(0, 255, 8, 0.7)); }
+}
+
+.hero, .game-card, .game-item {
+    background-color: #2a2a2a !important;
+    border: 4px solid #000 !important;
+}
+
+.hero__backdrop { border: 4px solid #000 !important; }
+
+h1, h2, h3, h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p, span, small { color: #d0d0d0 !important; }
+
+.bottom-panel {
+    background-color: #2b2b2b !important;
+    border-top: 4px solid #000 !important;
+}
+
+.hero-panel-actions__separator {
+    width: 4px;
+    background-color: #000;
+    margin: 0 4px;
+    height: 40px;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb {
+    background-color: #4caf50;
+    border: 3px solid #000;
+}
+::-webkit-scrollbar-track { background-color: #1c1c1c; }
+
+.home__title-icon {
+  width: 25px;
+  height: 25px;
+  background-image: url("https://media.tenor.com/TpZ5dQKpk7YAAAAj/fire-minecraft.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.home__title-flame-icon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home__icon-wrapper {
+  width: 16px;
+  height: 16px;
+  background-image: url("https://media.tenor.com/TpZ5dQKpk7YAAAAj/fire-minecraft.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: pixelated;
+}
+
+.home__icon-wrapper img {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.button.button--outline.hero-panel-actions__action {
+  color: #3bd16f;
+  border: 2px solid #3bd16f;
+  background: rgba(0, 0, 0, 0.25);
+  image-rendering: pixelated;
+}
+
+.button.button--outline.hero-panel-actions__action:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 0 2px #146b33;
+}
+
+.achievement-notification__outer-container {
+    font-family: 'Silkscreen', sans-serif !important;
+    background: #4a4a4a !important;
+    border: 4px solid #000 !important;
+    color: #ffffff !important;
+    box-shadow: 
+        inset -4px -4px 0px #212121, 
+        inset 4px 4px 0px #8b8b8b !important;
+    cursor: pointer;
+    width: fit-content;
+    min-width: 0;
+    image-rendering: pixelated;
+}
+
+.achievement-notification__outer-container:hover {
+    background-color: #5a5a5a !important;
+}
+
+.achievement-notification__icon {
+    border-right: 4px solid #000 !important;
+    image-rendering: pixelated;
+    background-color: #2b2b2b;
+}
+
+.achievement-notification__container {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 8px 16px;
+}
+
+.achievement-notification__container::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 4px; 
+    height: 100%;
+    background: #4caf50;
+    box-shadow: 2px 0 0 #000;
+}
+
+.achievement-notification__title {
+    font-family: 'Silkscreen', sans-serif !important;
+    color: #ffff00 !important; 
+    text-shadow: 2px 2px 0px #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.achievement-notification__description {
+    font-family: 'Silkscreen', sans-serif !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 0px #000;
+    font-size: 12px;
+}
