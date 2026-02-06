@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.sidebar,
+::-webkit-scrollbar,
+.header,
+.container__content,
+.settings__content,
+.title-bar,
+.settings-download-sources__item,
+.game-details__description-container,
+.bottom-panel{
+  background: transparent;
+}
+
+.profile-section__content,
+.sidebar-section__button,
+body{
+  --primary-color: #17202bff;
+  --secundary-color: #0e141a;
+  background-color: var(--primary-color);
+}
+
+.game-item,
+.catalogue__filters-container,
+.download-group__simple-card,
+.profile-section__header{
+  border-radius: 10px 10px 0 0;
+  background-color: var(--primary-color);
+  transition: background-color 0.5s;
+}
+
+.download-group__simple-card:hover,
+.sidebar-section__content,
+.game-item:hover{
+  background-color: var(--secundary-color);
+}
+
+.download-group__simple-actions{
+  margin-right: 10px;
+}
+
+#root{
+  background-image: url(https://i.imgur.com/Ys7Gcol.jpeg);
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.header,
+.settings__content,
+.bottom-panel,
+.title-bar,
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.sidebar{
+  border: none;
+}
+
+.header__search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field,
+.sidebar-profile__notification-button,
+.toast,
+.button{
+  background: transparent;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.button--dark:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button--primary{
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.button--primary:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.game-details__hero img,
+.game-card,
+.game-item,
+.hero{
+  border-radius: 10px;
+}
+
+.game-details__hero,
+.hero{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  width: 99%;
+}
+
+.title-bar h4{
+  display: none;
+}
+
+.title-bar::after{
+  content: "Vintage Fog - Theme";
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #fff,
+    0 0 60px #fff;
+}
+
+.profile-content__games-grid li{
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-profile__notification-button,
+.button--outline{
+  border-radius: 999px;
+}
+
+.description-header{
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+
+.game-details__description-content{
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast,
+.header__search-input::placeholder {
+  color: #E9F1F7 !important;
+}
+
+.achievement-panel,
+.achievements__list{
+  background: transparent !important;
+  backdrop-filter: blur(10px);
+  border: none;
+}
+
+.achievement-notification__outer-container {
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid #816C61 !important;
+  border-radius: 5px; 
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
+.achievement-notification__icon { 
+  background:rgba(0 ,0 ,0 , 0.5) !important;
+  border:1px solid #816C61 !important; 
+}
+
+.achievement-notification__title { 
+  color: #E9F1F7 !important;
+}
+
+.achievement-notification__description { 
+  color: #E7DFC6 !important;
+}
