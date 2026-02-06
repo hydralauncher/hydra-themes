@@ -76,7 +76,7 @@ body{
 
 .button--primary{
   color: #fff;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(84, 84, 84, 0.3);
 }
 
 .button--primary:hover{
@@ -104,7 +104,7 @@ body{
 
 .title-bar::after{
   content: "Vintage Fog - Theme";
-  font-family: "Montserrat";
+  font-family: Montserrat, Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: #fff;
