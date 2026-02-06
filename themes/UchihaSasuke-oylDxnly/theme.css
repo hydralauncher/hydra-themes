@@ -1,0 +1,149 @@
+.sidebar {
+  background: transparent;
+  text-shadow: 2px 2px 2px #000;
+  color: #9c27b0; /* Cambiado a púrpura */
+  background-color: rgba(0, 0, 0, 0.0);
+}
+.sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.header {
+  color: #9c27b0; /* Cambiado a púrpura */
+  text-shadow: 2px 2px 2px #000;
+  background: transparent;
+  background-color: transparent; rgba(0, 0, 0, 0.8)
+  backdrop-filter: transparent; blur(8px);
+}
+
+.container__content, .bottom-panel {
+  background: transparent;
+}
+
+body {
+  text-align: left;
+  text-shadow: 2px 2px 2px #000;
+  color: #ffffff;
+  background: transparent;
+}
+
+#root {
+  background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/16a7edfb-c676-4af9-b14d-7fbe5a218f81/d3e7sw8-a380ea95-a4c0-4bcd-98e0-7e0766a39737.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2YTdlZGZiLWM2NzYtNGFmOS1iMTRkLTdmYmU1YTIxOGY4MVwvZDNlN3N3OC1hMzgwZWE5NS1hNGMwLTRiY2QtOThlMC03ZTA3NjZhMzk3MzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.GlMiiHPSrErBNWC7-TJHIUfK6A2DDyfRWig9yULPNew)
+    #000;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background: loop;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search {
+  color: #9c27b0; /* Cambiado a púrpura */
+}
+.game-item {
+  text-shadow: 2px 2px 2px #000;
+  color: #9c27b0; /* Cambiado a púrpura */
+}
+.settings__content 
+{
+  text-shadow: 2px 2px 2px #000;
+  color: #9c27b0; /* Cambiado a púrpura */
+}
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar 
+
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: transparent; blur(8px);
+}
+
+.game-details__description-container {
+  background: transparent;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.content-sidebar {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.description-header {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.hero-panel {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.settings__container {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+.settings__content {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.0);
+}
+.button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.theme-card {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+element.style
+.profile-hero__background-overlay--transparent {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.profile-hero__hero-panel--transparent {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.repacks-modal__repack-button {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.text-field-container__text-field--dark, .text-field-container__text-field--primary, .header__search {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.sidebar-section__button {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.title-bar {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.sidebar-profile__friends-button {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.title-bar, .sidebar, .header, .bottom-panel, .hero-panel, .content-sidebar {
+  border: none;
+}
