@@ -1,0 +1,123 @@
+/* Configuração do fundo e layout */
+body {
+  font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+  background-color: #000000; /* Fundo preto para destacar o ciano */
+  color: #00bcd4; /* Texto em ciano */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Fundo do root com um gradiente ciano */
+#root {
+  background: linear-gradient(180deg, rgba(0, 188, 212, 0.1), rgba(0, 188, 212, 0.3)), url(https://via.placeholder.com/150) center/cover no-repeat;
+  background-color: #121212; /* Cor de fundo escuro para dar destaque ao ciano */
+  height: 100vh;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Efeito de bordas e sombras para os elementos */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent; /* Fundo transparente para destacar o ciano */
+  border: 2px solid #00bcd4; /* Borda ciano */
+  box-shadow: 0 4px 6px rgba(0, 188, 212, 0.3); /* Sombra suave com ciano */
+  padding: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animação suave de transição */
+.sidebar:hover,
+.header:hover,
+.container__content:hover,
+.bottom-panel:hover {
+  transform: scale(1.05);
+}
+
+/* Campos de texto com borda ciano e animação */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+  border: 2px solid #00bcd4; /* Borda ciano */
+  color: #00bcd4; /* Texto ciano */
+  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.5); /* Efeito de sombra com ciano */
+  padding: 20px;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.text-field-container__text-field--dark:focus,
+.text-field-container__text-field--primary:focus,
+.header__search:focus {
+  border-color: #03a9f4; /* Alteração de borda em foco */
+  box-shadow: 0 0 8px #03a9f4;
+  outline: none;
+}
+
+/* Botões com borda e animação */
+.container__content .button--outline {
+  background-color: transparent;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de animação no botão */
+.container__content .button--outline:hover {
+  transform: scale(1.05);
+  background-color: #00bcd4;
+  color: #121212;
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.6); /* Efeito glow */
+}
+
+/* Itens de lista e fontes de conteúdo */
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: #00bcd4;
+  border: 2px solid #00bcd4;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Animação ao passar o mouse */
+.settings-download-sources__item:hover,
+.download-group__item:hover,
+.game-item:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 188, 212, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.5);
+}
+
+/* Animação para as transições do site */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Aplica a animação fade-in ao carregar */
+#root {
+  animation: fadeIn 1s ease-in-out;
+}
