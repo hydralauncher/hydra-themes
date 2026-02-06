@@ -1,0 +1,101 @@
+
+  /*
+Tema:Sally Face
+Feito Por:Arthur Gonçalves Ferreira(SunSunny02)
+Algumas Coisas foi Feito pelo ChatGPT
+  */
+
+
+  body {
+    margin: 0;
+    color: #15ff00ff;
+    font-family: Poppins, sans-serif;
+
+  }
+
+
+  #root {
+    background: #190783
+      url("https://i.pinimg.com/1200x/0d/83/10/0d8310a19c584f927a429fc7bb94e923.jpg")
+      no-repeat center center;
+    background-size: cover;
+    }
+
+
+  .sidebar,
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: transparent !important; 
+    background-color: rgba(107, 165, 255, 0.15);
+    border: 1px solid #6ba5ff;
+    border-radius: 14px;
+    color: #00c3ffff;
+    padding: 8px 16px;
+    transition: 0.3s ease;
+  }  
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+
+    background-color: rgba(39, 12, 112, 0.25) !important;
+    backdrop-filter: blur(1px);
+
+    }
+
+  .container__content .button--outline {
+    backdrop-filter: blur(6px);
+    background-color: rgba(39, 12, 112, 0.25);
+  }
+
+
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background-color: rgba(39, 12, 112, 0.25) !important;
+  }
+
+
+  .title-bar {
+    background-color: #190783;
+  }
+
+
+  .home__content {
+    background-color: rgba(39, 12, 112, 0.25);
+    backdrop-filter: blur(2px);
+  }
+
+ .button:hover {
+  background-color: rgba(181, 138, 255, 0.3);
+  border-color: #b58aff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(181, 138, 255, 0.4);
+}
+
+  .navbar, .sidebar {
+  backdrop-filter: blur(1px);
+  background-color: rgba(20, 20, 30, 0.6);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(107, 165, 255, 0.1);
+}  
+  
+  h1, h2, h3 {
+  color: #c038ffff;
+  text-shadow: 0 0 8px rgba(181, 138, 255, 0.3);
+}
+
+  p, span, a {
+  color: #00ccffff;
+}

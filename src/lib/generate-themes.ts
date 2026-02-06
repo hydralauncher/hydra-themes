@@ -2,18 +2,66 @@ import "dotenv/config";
 
 import fs from "node:fs";
 import path from "node:path";
-import type { Theme } from "./schemas/theme";
-import axios from "axios";
+import sharp from "sharp";
+import { api } from "./api";
+import postcss from "postcss";
+import selectorParser from "postcss-selector-parser";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
 
-const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
+const getThemeAchievementsSupport = async (
+  publicThemePath: string,
+): Promise<boolean> => {
+  try {
+    const result = postcss().process(
+      fs.readFileSync(path.join(publicThemePath, "theme.css"), "utf8"),
+    );
 
-if (!hydraHeaderSecret) {
-  throw new Error("HYDRA_HEADER_SECRET is not set");
-}
+    const classNames = new Set<string>();
+
+    const extractClasses = selectorParser((selectors) => {
+      selectors.walkClasses((classNode) => {
+        classNames.add(classNode.value);
+      });
+    });
+
+    result.root.walkRules((rule) => {
+      extractClasses.processSync(rule.selector);
+    });
+
+    for (const className of classNames) {
+      if (className.startsWith("achievement-notification")) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (err: unknown) {
+    console.error(
+      `Failed to parse CSS for ${publicThemePath}`,
+      (err as Error).message,
+    );
+
+    return false;
+  }
+};
+
+const hasAchievementSoundSupport = (themePath: string): boolean => {
+  const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
+
+  for (const extension of supportedExtensions) {
+    const soundFilePath = path.join(themePath, `achievement${extension}`);
+    if (fs.existsSync(soundFilePath)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
 
 Promise.all(
   folders.map(async (folder) => {
@@ -39,100 +87,92 @@ Promise.all(
     const authorCode = parts.pop()?.trim();
     const themeName = parts.join("-").trim();
 
-    const response = await axios.get(
-      `https://hydra-api-us-east-1.losbroxas.org/themes/users/${authorCode}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "hydra-token": hydraHeaderSecret,
-        },
-      },
-    );
-
-    if (response.status !== 200) {
-      console.error(`Failed to fetch author ${authorCode}`);
-      return;
-    }
-
-    await axios
-      .post(
-        `https://hydra-api-us-east-1.losbroxas.org/badge/${authorCode}/theme`,
-        {},
-        {
+    if (hydraHeaderSecret) {
+      await api
+        .post(`badges/unlock`, {
           headers: {
-            "Content-Type": "application/json",
             "hydra-token": hydraHeaderSecret,
           },
-        },
-      )
-      .catch((err) => {
-        console.error(
-          `could not update user (${authorCode}) badge`,
-          err.message,
-          err.response?.data,
-        );
-      });
-
-    const data = response.data as Theme["author"];
-
-    fs.cpSync(
-      path.join(folderPath),
-      path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-      ),
-      { recursive: true },
-    );
-
-    let authorImage = null;
-    try {
-      const url = new URL(data.profileImageUrl);
-      url.search = "";
-      data.profileImageUrl = url.toString();
-
-      const authorResponse = await fetch(data.profileImageUrl).then((res) =>
-        res.arrayBuffer(),
-      );
-
-      const authorImagePath = path.join(
-        import.meta.dirname,
-        "..",
-        "..",
-        "public",
-        "themes",
-        themeName.toLowerCase(),
-        'author.png'
-      );
-
-      fs.writeFileSync(
-        authorImagePath,
-        Buffer.from(authorResponse)
-      );
-      authorImage = 'author.png';
-    } catch (error) {
-      console.error(`Failed to fetch author image for ${authorCode}`, error);
+          json: {
+            userId: authorCode,
+            badge: "THEME_CREATOR",
+          },
+        })
+        .catch((err) => {
+          console.error(
+            `could not update user (${authorCode}) badge`,
+            err.message,
+            err.response?.data,
+          );
+        });
     }
 
-    return {
-      id: `${authorCode}:${themeName}`,
-      name: themeName,
-      author: data,
-      screenshotFile: screenshotFile,
-      cssFile: cssFile,
-      authorImage: authorImage,
-      downloads: 0,
-      favorites: 0,
-    } as Theme;
-  }),
-).then((themes) => {
-  console.log(`Generated ${themes.length} themes`);
+    const publicThemePath = path.join(
+      import.meta.dirname,
+      "..",
+      "..",
+      "public",
+      "themes",
+      themeName.toLowerCase(),
+    );
 
-  fs.writeFileSync(
-    path.join(import.meta.dirname, "themes.json"),
-    JSON.stringify(themes),
-  );
-});
+    if (!fs.existsSync(publicThemePath)) {
+      fs.cpSync(path.join(folderPath), publicThemePath, { recursive: true });
+
+      fs.renameSync(
+        path.join(publicThemePath, cssFile),
+        path.join(publicThemePath, "theme.css"),
+      );
+
+      if (screenshotFile !== "screenshot.webp") {
+        fs.unlinkSync(path.join(publicThemePath, screenshotFile));
+      }
+    }
+
+    const thumbnailPath = path.join(publicThemePath, "screenshot.webp");
+    const fullscreenPath = path.join(publicThemePath, "screenshot-full.webp");
+
+    // Generate thumbnail version (for card display)
+    await sharp(path.join(folderPath, screenshotFile))
+      .resize(340, null, { fit: "inside" })
+      .toFormat("webp")
+      .toFile(thumbnailPath);
+
+    const sourceStats = fs.statSync(path.join(folderPath, screenshotFile));
+    const fullscreenStats = fs.existsSync(fullscreenPath)
+      ? fs.statSync(fullscreenPath)
+      : null;
+
+    if (!fullscreenStats || sourceStats.mtimeMs > fullscreenStats.mtimeMs) {
+      await sharp(path.join(folderPath, screenshotFile))
+        .resize(1920, null, { fit: "inside", withoutEnlargement: true })
+        .toFormat("webp")
+        .toFile(fullscreenPath);
+    }
+
+    const hasAchievementsSupport =
+      await getThemeAchievementsSupport(publicThemePath);
+
+    return {
+      name: themeName,
+      authorId: authorCode,
+      hasAchievementsSupport,
+      hasAchievementSoundSupport: hasAchievementSoundSupport(publicThemePath),
+    };
+  }),
+)
+  .then((themes) => themes.filter((theme) => theme))
+  .then(async (themes) => {
+    console.log(`Generated ${themes.length} themes`);
+
+    if (hydraHeaderSecret) {
+      await api.post("themes", {
+        json: themes,
+        headers: {
+          "hydra-token": hydraHeaderSecret,
+        },
+      });
+    } else {
+      console.log("HYDRA_HEADER_SECRET is not set, skipping theme upload");
+    }
+  });

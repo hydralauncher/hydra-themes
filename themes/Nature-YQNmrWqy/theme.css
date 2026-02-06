@@ -1,0 +1,737 @@
+#root, body, .app, #app-container, .main-layout, .container, .page-container, .game-details__wrapper {
+    background: url("https://i.imgur.com/7gx8zMM.jpeg") center center / cover no-repeat fixed !important;
+    background-color: transparent !important;
+}
+
+.header, .sidebar, .container__content, .game-details, .hero-container, 
+.bottom-panel, div[class*="background"], .game-details__description-container,
+.settings__container, .settings__content, .settings__categories,
+.downloads__container, .downloads__groups, .catalogue, .catalogue__content {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.game-details__hero {
+    margin: 20px !important;
+    width: calc(100% - 40px) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: transparent !important;
+}
+
+.download-group__simple-card {
+    background: rgba(0, 0, 0, 0) !important;
+    backdrop-filter: blur(0px) !important;
+    -webkit-backdrop-filter: blur(0px) !important;
+    border-radius: 15px !important;
+    border: 0px solid rgba(255, 255, 255, 0) !important;
+    overflow: hidden !important;
+}
+
+.hero,
+[class*="hero"][class*="home"] {
+    margin: 20px !important;
+    width: calc(100% - 40px) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.profile-hero__content-box {
+    margin: 20px !important;
+    width: calc(100% - 40px) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.sidebar-section__content {
+    background: rgba(0,0,0,0.0) !important; 
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+}
+.profile-section__content {
+    background: rgba(0,0,0,0.0) !important; 
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+} 
+
+.game-details__hero-logo-backdrop, 
+.game-details__hero-content,
+.hero-panel__container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    bottom: 0 !important;
+}
+
+.hero-panel__actions .button,
+.game-details__hero-buttons .button,
+.hero-panel-actions__action {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.hero-panel__actions .button:hover,
+.game-details__hero-buttons .button:hover {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.hero-panel, .hero-panel__content, .hero-panel__actions {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+.game-details__section, 
+.game-details__achievements, 
+.description-header {
+    background-color: rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+}
+.title-bar {
+    background-color: rgba(10, 35, 81, 0);
+    backdrop-filter: blur(3px);
+    padding: px 0;
+    position: relative;
+    z-index: 15;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.title-bar h4 {
+    visibility: hidden;
+}
+
+.title-bar::before {
+    content: "\"Don't wait. The time will never be just right.\" — Napoleon Hill ";
+}
+.title-bar::after {
+    content: none;
+}
+
+.gallery-slider__container {
+    width: 100% !important; 
+    max-width: 100% !important;
+    margin: 0 auto 0px auto !important;
+    background: transparent !important; 
+    border: none !important;
+    padding: 0 !important;
+}
+
+.gallery-slider__viewport {
+    width: 100% !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    background: rgba(0,0,0,0.3) !important; 
+    aspect-ratio: 16/10 !important; 
+}
+
+.gallery-slider__media {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.gallery-slider__preview {
+    display: flex !important;
+    justify-content: flex-start !important; 
+    gap: 10px !important;
+    padding: 15px 0 !important;
+    width: 100% !important;
+    overflow-x: auto !important; 
+    scroll-behavior: smooth !important;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 2%, #000 98%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 2%, #000 98%, transparent 100%) !important;
+}
+
+.gallery-slider__preview-button {
+    flex-shrink: 0 !important; 
+    width: 160px !important; 
+    height: 90px !important;
+    border-radius: 10px !important;
+    opacity: 0.6 !important;
+    transition: all 0.2s !important;
+    border: 1px solid transparent !important;
+}
+
+.gallery-slider__preview-button--active {
+    opacity: 1 !important;
+    border-color: white !important;
+    transform: scale(1.05) !important;
+}
+
+.gallery-slider__preview-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+.game-details__reviews-section {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.game-details__reviews-container {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.game-details__review-item {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.game-details__star--filled,
+.game-details__review-star--filled,
+.star-rating__star--filled {
+    color: rgba(255, 208, 0, 0.95) !important;
+    fill: rgba(255, 208, 0, 0.95) !important;
+}
+
+.game-details__star--filled svg,
+.game-details__review-star--filled svg,
+.star-rating__star--filled svg {
+    color: rgba(255, 208, 0, 0.95) !important;
+    fill: rgba(255, 208, 0, 0.95) !important;
+}
+
+.game-details__review-score-select--green {
+    color: rgba(255, 208, 0, 0.95) !important;
+    fill: rgba(255, 208, 0, 0.95) !important;
+}
+
+.review-prompt-banner {
+    backdrop-filter: blur(100px) !important;
+}
+.game-details__review-input-container, .game-details__review-input-header {
+    background: rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(100px) !important;
+}
+
+* {
+    color: white !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+input::placeholder,
+.text-field-container__text-field-input::placeholder,
+input,
+.text-field-container__text-field-input {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.sidebar-section {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-bottom: 15px !important;
+    transition: all 0.3s ease !important;
+}
+.profile-section {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-bottom: 15px !important;
+    transition: all 0.3s ease !important;
+}
+.sidebar-section__button {
+    background: transparent !important;
+    border: none !important;
+    padding: 12px 15px !important;
+    width: 100% !important;
+    outline: none !important;
+}
+.profile-section__header {
+    background: transparent !important;
+    border: none !important;
+    padding: 0px 0px !important;
+    width: 100% !important;
+    outline: none !important;
+}
+
+.sidebar-section__content {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    padding: 0 15px !important;
+    margin: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    pointer-events: none !important;
+}
+
+.sidebar-section:focus-within .sidebar-section__content {
+    max-height: 800px !important;
+    opacity: 1 !important;
+    padding: 15px !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.sidebar-section__chevron {
+    transform: rotate(-90deg) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.sidebar-section:focus-within .sidebar-section__chevron {
+    transform: rotate(0deg) !important;
+}
+
+.sidebar-section__content > * {
+    background: transparent !important;
+}
+
+.list, .list__item, .how-long-to-beat__categories-list,
+.how-long-to-beat__category, .requirement__details,
+.game-language-section, .stats__section, .sidebar__section {
+    background: transparent !important;
+}
+.profile-section__content {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    padding: 0 15px !important;
+    margin: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    pointer-events: none !important;
+}
+
+.profile-section:focus-within .profile-section__content {
+    max-height: 800px !important;
+    opacity: 1 !important;
+    padding: 15px !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.profile-section__chevron {
+    transform: rotate(-90deg) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.profile-section:focus-within .profile-section__chevron {
+    transform: rotate(0deg) !important;
+}
+
+.profile-section__content > * {
+    background: transparent !important;
+}
+
+.requirement__button-container {
+    padding: 20px !important;
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 15px !important;
+}
+
+.requirement__button {
+    border: none !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+.requirement__button.button--primary {
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 
+                0 0 40px rgba(255, 255, 255, 0.2) !important;
+}
+
+.requirement__details {
+    padding: 20px !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.header__search,
+.text-field-container__text-field {
+    background: rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.header__search-input {
+    background: transparent !important;
+    border: none !important;
+}
+
+.sidebar-profile__notification-button {
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#workwonders-feedback-button,
+.workwonders-feedback-button {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+}
+
+.settings-general,
+.settings__categories button,
+.select-field,
+.checkbox-field {
+    background: transparent !important;
+}
+
+.button--primary, .button--outline, .button {
+    border-radius: 50px !important;
+    backdrop-filter: blur(8px) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.2s ease !important;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+::-webkit-scrollbar { display: none !important; }
+* { scrollbar-width: none !important; }
+
+.modal, [class*="dialog"] {
+    background-color: rgba(0, 0, 0, 0.44) !important;
+    backdrop-filter: none !important;
+    padding: 12px !important; 
+    max-height: 80vh !important; 
+}
+
+.modal__content {
+    background-color: transparent !important;
+    max-height: calc(80vh - 100px) !important; 
+    overflow-y: auto !important;
+}
+
+.settings-download-sources__item {
+    background-color: transparent !important;
+    backdrop-filter: blur(25px) !important;
+    padding: 10px !important; 
+}
+
+.repacks-modal,
+.repacks-modal__content {
+    max-height: 70vh !important; 
+}
+
+.repacks-modal__repack-button {
+    border-radius: 8px !important;
+    padding: 8px 12px !important; 
+}
+
+.game-details__review-score-stars {
+    backdrop-filter: blur(100px) !important;
+}
+.game-details__review-playtime {
+    backdrop-filter: blur(100px) !important;
+}
+.game-details__vote-button {
+    backdrop-filter: blur(100px) !important;
+}
+.game-details__load-more-reviews {
+    backdrop-filter: blur(25px) !important;
+}
+.modal__header {
+    background-color: transparent !important;
+    padding: 10px !important; 
+}
+
+.popover, .notification,
+[role="dialog"] {
+    background-color: rgba(0, 0, 0, 0.13) !important;
+    backdrop-filter: blur(25px) !important;
+    border-radius: 20px !important;
+    border: 0px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.download-group {
+    background: transparent !important;
+}
+
+.download-group--completed .download-group__simple-card {
+    background: rgba(0, 0, 0, 0) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 15px !important;
+    margin: 10px !important;
+}
+
+.download-group:first-child,
+.downloads__groups > div:first-child,
+.download-group--queued,
+.download-group--downloading {
+    margin: 20px !important;
+    padding: 20px !important;
+    border-radius: 20px !important;
+    background: rgba(0, 0, 0, 0) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 40px) !important;
+}
+
+.download-group__simple-thumbnail,
+.download-group__simple-thumbnail img {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.download-group__simple-info,
+.download-group__simple-actions {
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.game-details__hero-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent) !important;
+}
+
+.catalogue__filters-container,
+.filter-section {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.game-item {
+    background: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 15px !important;
+    border: 0px solid rgba(255, 255, 255, 0.1) !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    padding: 20px 15px
+}
+
+.game-item:hover {
+    background: rgba(0, 0, 0, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-4px) !important;
+}
+
+.game-item__cover { border-radius: 12px !important; }
+.game-item__details { background: transparent !important; }
+.catalogue__pagination-container { background: transparent !important; }
+.pagination { background: transparent !important; }
+
+.badge {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+}
+
+.sort-options__option {
+    position: relative !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+    background: transparent !important;
+}
+
+.sort-options__option:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.sort-options__option.active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 
+                inset 0 0 10px rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.sort-options__option.active span {
+    font-weight: 600 !important;
+}
+
+.sort-options__option.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 6px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 4px !important;
+    height: 4px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+.review-sort-options__option {
+    position: relative !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+    background: transparent !important;
+}
+
+.review-sort-options__option:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.review-sort-options__option.active,
+.review-sort-options__toggle-option.active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 
+                inset 0 0 10px rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.review-sort-options__option.active span,
+.review-sort-options__toggle-option.active span {
+    font-weight: 600 !important;
+}
+
+.review-sort-options__option.active::before,
+.review-sort-options__toggle-option.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 6px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 4px !important;
+    height: 4px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+.sort-options__separator,
+.review-sort-options__separator {
+    opacity: 0.3 !important;
+    margin: 0 4px !important;
+}
+
+.gallery-slider__container {
+    width: 75% !important; 
+    max-width: 1000px !important; 
+    margin: 0 auto 30px auto !important;
+    background: rgba(0, 0, 0, 0) !important;
+    backdrop-filter: blur(0px) !important;
+    border-radius: 20px !important;
+    border: px solid rgba(255, 255, 255, 0) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.gallery-slider__viewport {
+    width: 100% !important;
+    background: black !important; 
+    aspect-ratio: 16/9 !important;
+}
+
+.gallery-slider__media {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: auto !important;
+}
+
+.gallery-slider__preview {
+    display: flex !important;
+    gap: 12px !important;
+    padding: 20px 15px !important; 
+    width: 100% !important;
+    overflow-x: auto !important; 
+    scroll-behavior: smooth !important;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%) !important;
+}
+
+.gallery-slider__preview::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0) !important;
+    margin: 0px !important;
+}
+
+.gallery-slider__preview-button {
+    flex-shrink: 0 !important;
+    width: 120px !important; 
+    height: 68px !important;  
+    border-radius: 8px !important;
+    opacity: 0.5 !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid transparent !important;
+}
+
+.gallery-slider__preview-button--active {
+    opacity: 1 !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    transform: translateY(-2px) !important;
+}
+
+[class*="skeleton"],
+[class*="loading"],
+[class*="placeholder"],
+.skeleton,
+.loading-skeleton,
+.shimmer {
+    background: rgba(255, 255, 255, 0.02) !important;
+    
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    
+    background-image: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.08) 50%, 
+        transparent 100%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: chill-shimmer 3s infinite linear !important; 
+    
+    border-radius: 12px !important;
+    box-shadow: none !important;
+}
+
+@keyframes chill-shimmer {
+    0% {
+        background-position: 200% 0;
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        background-position: -200% 0;
+        opacity: 0.3;
+    }
+}

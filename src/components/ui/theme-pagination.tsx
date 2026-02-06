@@ -1,75 +1,89 @@
-// import {
-//   Pagination,
-//   PaginationContent,
-//   PaginationEllipsis,
-//   PaginationItem,
-//   PaginationLink,
-//   PaginationNext,
-//   PaginationPrevious,
-// } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
-// import type { PaginationSchema } from "@/lib/schemas/pagination";
+import type { PaginationSchema } from "@/lib/schemas/pagination";
 
-// const getTotalPages = (total: number, perPage: number) => {
-//   return Math.ceil(total / perPage);
-// };
+export interface ThemePaginationProps {
+  pagination: PaginationSchema;
+  onPageChange: (page: number) => void;
+}
 
-// export const ThemePagination = ({
-//   pagination,
-// }: {
-//   pagination: PaginationSchema;
-// }) => {
-//   const totalPages = getTotalPages(pagination.total, pagination.perPage);
+const getTotalPages = (total: number, perPage: number) => {
+  return Math.ceil(total / perPage);
+};
 
-//   return (
-//     <Pagination>
-//       <PaginationContent>
-//         <PaginationItem>
-//           <PaginationPrevious href="#" />
-//         </PaginationItem>
+export function ThemePagination({
+  pagination,
+  onPageChange,
+}: ThemePaginationProps) {
+  const totalPages = getTotalPages(pagination.total, pagination.perPage);
 
-//         {pagination.page > 3 && (
-//           <>
-//             <PaginationItem>
-//               <PaginationLink href="#">1</PaginationLink>
-//             </PaginationItem>
-//             <PaginationItem>
-//               <PaginationEllipsis />
-//             </PaginationItem>
-//           </>
-//         )}
+  if (totalPages < 2) return null;
 
-//         {Array.from({ length: 4 }).map((_, i) => {
-//           const pageNumber = pagination.page - 1 + i;
-//           if (pageNumber > 0 && pageNumber <= totalPages) {
-//             return (
-//               <PaginationItem key={pageNumber}>
-//                 <PaginationLink
-//                   href="#"
-//                   isActive={pageNumber === pagination.page}
-//                 >
-//                   {pageNumber}
-//                 </PaginationLink>
-//               </PaginationItem>
-//             );
-//           }
-//         })}
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious
+            onClick={() => onPageChange(pagination.page - 1)}
+            disabled={pagination.page === 1}
+          />
+        </PaginationItem>
 
-//         {pagination.page < totalPages - 3 && (
-//           <>
-//             <PaginationItem>
-//               <PaginationEllipsis />
-//             </PaginationItem>
-//             <PaginationItem>
-//               <PaginationLink href="#">{totalPages}</PaginationLink>
-//             </PaginationItem>
-//           </>
-//         )}
+        {pagination.page > 3 && (
+          <>
+            <PaginationItem>
+              <PaginationLink onClick={() => onPageChange(1)}>1</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          </>
+        )}
 
-//         <PaginationItem>
-//           <PaginationNext href="#" />
-//         </PaginationItem>
-//       </PaginationContent>
-//     </Pagination>
-//   );
-// };
+        {Array.from({ length: 4 }).map((_, i) => {
+          const pageNumber = pagination.page - 1 + i;
+          if (pageNumber > 0 && pageNumber <= totalPages) {
+            return (
+              <PaginationItem key={pageNumber}>
+                <PaginationLink
+                  isActive={pageNumber === pagination.page}
+                  onClick={() => onPageChange(pageNumber)}
+                >
+                  {pageNumber}
+                </PaginationLink>
+              </PaginationItem>
+            );
+          }
+        })}
+
+        {pagination.page < totalPages - 3 && (
+          <>
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink onClick={() => onPageChange(totalPages)}>
+                {totalPages}
+              </PaginationLink>
+            </PaginationItem>
+          </>
+        )}
+
+        <PaginationItem>
+          <PaginationNext
+            onClick={() => onPageChange(pagination.page + 1)}
+            disabled={pagination.page === totalPages}
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
+}
