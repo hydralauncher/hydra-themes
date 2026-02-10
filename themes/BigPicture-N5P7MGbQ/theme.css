@@ -74,7 +74,6 @@ body::after {
   height: 100vh;
   width: 100vw;
   top: 0;
-  /* background: var(--background-image); */
   opacity: 0.05;
   z-index: -1;
 }
@@ -107,7 +106,6 @@ h3 {
 .text-field-container__text-field--dark,
 .notification-item,
 .theme-card,
-.text-field-container__text-field,
 .catalogue__filters-container,
 [class=select-field__option],
 .profile-section  {
@@ -481,10 +479,6 @@ body:has(.header__back-button--enabled) .title-bar {
   }
 }
 
-.sidebar-profile__notification-button {
-  background: transparent;
-}
-
 body:has(.notifications) .sidebar-profile__notification-button,
 body:has(.profile__wrapper) .sidebar-profile__button {
   background: rgba(255,255,255,0.1);
@@ -492,6 +486,7 @@ body:has(.profile__wrapper) .sidebar-profile__button {
 
 .sidebar-profile__notification-button {
   position: relative;
+  background: transparent;
 }
 
 .sidebar-profile__notification-button-badge {
@@ -878,11 +873,6 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
 
 /* Biblioteca */
 
-.library-view-options__option {
-  &.active {
-
-  }
-}
 
 
 /* Downloads Page */
@@ -1013,10 +1003,6 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   margin-right: 0px !important;
   font-size: 20px;
   font-weight: 200;
-}
-
-.octicon octicon-copy {
-  
 }
 
 .profile-hero__actions {
