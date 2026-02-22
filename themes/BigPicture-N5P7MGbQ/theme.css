@@ -40,6 +40,7 @@
   --header-size: 56px;
   --header-itens: 3;
   --header-calc: (100% - (var(--header-size) * var(--header-itens)));
+  --header-index: 3;
 
   --background-image: url("https://images8.alphacoders.com/632/thumb-1920-632051.png");
 }
@@ -47,11 +48,12 @@
 ::-webkit-scrollbar {
   height: 8px;
   background: transparent;
-} 
+}
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background: var(--bg-1-025)
+  background: var(--bg-1-025);
+  cursor: grab;
 }
 
 ::-webkit-scrollbar-track,
@@ -82,6 +84,7 @@ h3 {
   font-size: 20px !important;
 }
 
+.hero-panel,
 .context-menu,
 .settings-download-sources__item,
 .text-field-container__text-field,
@@ -151,7 +154,7 @@ input[type="range" i]
   position: absolute;
   top: 0;
   left: calc(var(--header-top) * (-1));
-  z-index: 5;
+  z-index: calc(var(--header-index) + 1);
   height: var(--header-top);
   width: var(--header-top);
   color: transparent;
@@ -179,32 +182,62 @@ body:has(.header__back-button--enabled) .title-bar {
 
 .title-bar {
   display: flex;
-  gap: 8px;
+  padding: 0 0 0 16px;
+  gap: 0;
   background: rgba(255,255,255,0.05);
   border: 0;
   transition: padding-left 0.2s linear;
 }
 
 .title-bar::before {
+  -webkit-app-region: no-drag;
   content: "";
   height: 20px;
   width: 20px;
-  background-image: url("data:image/svg+xml;utf8,<svg width='43' height='40' viewBox='0 0 43 40' fill='none' xmlns='http://www.w3.org/2000/svg'>    <path d='M25.3145 28.2903L24.0265 29.0775H18.9735L17.6855 28.2903L16.7442 26.4207L16.3479 24.6494L16.8433 22.337L16.3479 20.4182L14.2673 19.7786L12.3848 17.909L13.0288 12.9397L11.6417 9.5941L14.1187 7.42927V4.87085L15.2085 4.23124H17.8341L21.5 4.87085L25.1659 4.23124H27.7915L28.8813 4.87085V7.42927L31.3583 9.5941L29.9712 12.9397L30.6152 17.909L28.7327 19.7786L26.6521 20.4182L26.1567 22.337L26.6521 24.6494L26.2558 26.4207L25.3145 28.2903Z' fill='white'/>    <path d='M15.7039 22.1894L15.5058 21.353L13.4747 22.337L10.1555 20.9102L6.48963 19.8278L2.62558 20.2706L0.445853 22.1894L0 25.0431L1.33756 28.9299L2.62558 31.6359L5.20161 33.5547L7.18318 33.0627L9.8583 30.1599V27.0603L8.96659 24.9939V27.7491L7.18318 30.0615H4.26037L2.03111 27.6999L2.72465 24.4034L6.09332 22.829L10.106 23.7638L13.2765 25.0923L15.0104 24.4034L15.7039 22.1894Z' fill='white'/>    <path d='M27.2961 22.2386L27.4942 21.4022L29.5253 22.3862L32.8445 20.9594L36.5104 19.877L40.3744 20.3198L42.5541 22.2386L43 25.0923L41.6624 28.9791L40.3744 31.6851L37.7984 33.6039L35.8168 33.1119L33.1417 30.2091V27.1095L34.0334 25.0431V27.7983L35.8168 30.1107H38.7396L40.9689 27.7491L40.2753 24.4526L36.9067 22.8782L32.894 23.813L29.7235 25.1415L27.9896 24.4526L27.2961 22.2386Z' fill='white'/>    <path d='M16.9424 28.6347L15.9021 26.6667L14.2177 27.6999L12.9297 28.6347L11.0968 31.3899L10.5023 33.9975L10.9977 36.3592L12.5334 38.3764L15.9516 40L18.28 39.262L19.8157 37.7368L20.3606 36.1624L20.0138 32.9643L19.5184 31.7343L18.28 31.0455L18.7753 32.7675V35.3752L17.091 36.9988H15.0599L13.4251 35.3752L12.9793 32.8659L15.159 30.5535L17.3387 28.7823L16.9424 28.6347Z' fill='white'/>    <path d='M26.3548 28.5855L27.3952 26.6175L29.0795 27.6507L30.3675 28.5855L32.2005 31.3407L32.7949 33.9483L32.2995 36.31L30.7638 38.3272L27.3456 39.9508L25.0173 39.2128L23.4816 37.6876L22.9366 36.1132L23.2834 32.9151L23.7788 31.6851L25.0173 30.9963L24.5219 32.7183V35.326L26.2062 36.9496H28.2373L29.8721 35.326L30.318 32.8167L28.1382 30.5043L25.9585 28.7331L26.3548 28.5855Z' fill='white'/>    <path d='M26.9493 1.86962L26.4539 3.29643H27.841L28.5346 3.69004L28.7823 1.82042L29.9217 0L26.9493 1.86962Z' fill='white'/>    <path d='M15.5058 1.86962L16.0012 3.29643H14.6141L13.9205 3.69004L13.6728 1.82042L12.5334 0L15.5058 1.86962Z' fill='white'/>    <path d='M13.0783 6.69127V4.08364L11.2454 6.00246L11.9389 7.62608L13.0783 6.69127Z' fill='white'/>    <path d='M29.2281 6.69127V4.08364L31.0611 6.00246L30.3675 7.62608L29.2281 6.69127Z' fill='white'/>    <path d='M6.09332 15.941L7.48041 14.3665L7.03456 16.0394L5.39977 17.8106L2.13018 18.0566L0.792627 17.2202L0.346774 14.7109L1.18894 11.8573L2.2788 9.4957L4.16129 7.97048L6.44009 8.16728L8.91705 10.0369L10.4528 12.7429L11.5922 15.3506L11.2949 17.2694L9.95737 16.7282L8.71889 14.0221L7.03456 11.5129L4.26037 10.5781L2.03111 12.1525L2.13018 14.7109L3.81452 16.3346L6.09332 15.941Z' fill='white'/>    <path d='M36.3122 15.9902L34.9251 14.4157L35.371 16.0886L37.0058 17.8598L40.2753 18.1058L41.6129 17.2694L42.0588 14.7601L41.2166 11.9065L40.1267 9.5449L38.2442 8.01968L35.9654 8.21648L33.4885 10.0861L31.9528 12.7921L30.8134 15.3998L31.1106 17.3186L32.4482 16.7774L33.6866 14.0713L35.371 11.5621L38.1452 10.6273L40.3744 12.2017L40.2753 14.7601L38.591 16.3838L36.3122 15.9902Z' fill='white'/>    </svg>");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: -webkit-linear-gradient(0deg, var(--bg-1-100) 50%, var(--accent-2-100) 50%);
+  background-size: 200%;
+  background-position: 0%;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg width='43' height='40' viewBox='0 0 43 40' fill='none' xmlns='http://www.w3.org/2000/svg'>    <path d='M25.3145 28.2903L24.0265 29.0775H18.9735L17.6855 28.2903L16.7442 26.4207L16.3479 24.6494L16.8433 22.337L16.3479 20.4182L14.2673 19.7786L12.3848 17.909L13.0288 12.9397L11.6417 9.5941L14.1187 7.42927V4.87085L15.2085 4.23124H17.8341L21.5 4.87085L25.1659 4.23124H27.7915L28.8813 4.87085V7.42927L31.3583 9.5941L29.9712 12.9397L30.6152 17.909L28.7327 19.7786L26.6521 20.4182L26.1567 22.337L26.6521 24.6494L26.2558 26.4207L25.3145 28.2903Z' fill='currentColor'/>    <path d='M15.7039 22.1894L15.5058 21.353L13.4747 22.337L10.1555 20.9102L6.48963 19.8278L2.62558 20.2706L0.445853 22.1894L0 25.0431L1.33756 28.9299L2.62558 31.6359L5.20161 33.5547L7.18318 33.0627L9.8583 30.1599V27.0603L8.96659 24.9939V27.7491L7.18318 30.0615H4.26037L2.03111 27.6999L2.72465 24.4034L6.09332 22.829L10.106 23.7638L13.2765 25.0923L15.0104 24.4034L15.7039 22.1894Z' fill='currentColor'/>    <path d='M27.2961 22.2386L27.4942 21.4022L29.5253 22.3862L32.8445 20.9594L36.5104 19.877L40.3744 20.3198L42.5541 22.2386L43 25.0923L41.6624 28.9791L40.3744 31.6851L37.7984 33.6039L35.8168 33.1119L33.1417 30.2091V27.1095L34.0334 25.0431V27.7983L35.8168 30.1107H38.7396L40.9689 27.7491L40.2753 24.4526L36.9067 22.8782L32.894 23.813L29.7235 25.1415L27.9896 24.4526L27.2961 22.2386Z' fill='currentColor'/>    <path d='M16.9424 28.6347L15.9021 26.6667L14.2177 27.6999L12.9297 28.6347L11.0968 31.3899L10.5023 33.9975L10.9977 36.3592L12.5334 38.3764L15.9516 40L18.28 39.262L19.8157 37.7368L20.3606 36.1624L20.0138 32.9643L19.5184 31.7343L18.28 31.0455L18.7753 32.7675V35.3752L17.091 36.9988H15.0599L13.4251 35.3752L12.9793 32.8659L15.159 30.5535L17.3387 28.7823L16.9424 28.6347Z' fill='currentColor'/>    <path d='M26.3548 28.5855L27.3952 26.6175L29.0795 27.6507L30.3675 28.5855L32.2005 31.3407L32.7949 33.9483L32.2995 36.31L30.7638 38.3272L27.3456 39.9508L25.0173 39.2128L23.4816 37.6876L22.9366 36.1132L23.2834 32.9151L23.7788 31.6851L25.0173 30.9963L24.5219 32.7183V35.326L26.2062 36.9496H28.2373L29.8721 35.326L30.318 32.8167L28.1382 30.5043L25.9585 28.7331L26.3548 28.5855Z' fill='currentColor'/>    <path d='M26.9493 1.86962L26.4539 3.29643H27.841L28.5346 3.69004L28.7823 1.82042L29.9217 0L26.9493 1.86962Z' fill='currentColor'/>    <path d='M15.5058 1.86962L16.0012 3.29643H14.6141L13.9205 3.69004L13.6728 1.82042L12.5334 0L15.5058 1.86962Z' fill='currentColor'/>    <path d='M13.0783 6.69127V4.08364L11.2454 6.00246L11.9389 7.62608L13.0783 6.69127Z' fill='currentColor'/>    <path d='M29.2281 6.69127V4.08364L31.0611 6.00246L30.3675 7.62608L29.2281 6.69127Z' fill='currentColor'/>    <path d='M6.09332 15.941L7.48041 14.3665L7.03456 16.0394L5.39977 17.8106L2.13018 18.0566L0.792627 17.2202L0.346774 14.7109L1.18894 11.8573L2.2788 9.4957L4.16129 7.97048L6.44009 8.16728L8.91705 10.0369L10.4528 12.7429L11.5922 15.3506L11.2949 17.2694L9.95737 16.7282L8.71889 14.0221L7.03456 11.5129L4.26037 10.5781L2.03111 12.1525L2.13018 14.7109L3.81452 16.3346L6.09332 15.941Z' fill='currentColor'/>    <path d='M36.3122 15.9902L34.9251 14.4157L35.371 16.0886L37.0058 17.8598L40.2753 18.1058L41.6129 17.2694L42.0588 14.7601L41.2166 11.9065L40.1267 9.5449L38.2442 8.01968L35.9654 8.21648L33.4885 10.0861L31.9528 12.7921L30.8134 15.3998L31.1106 17.3186L32.4482 16.7774L33.6866 14.0713L35.371 11.5621L38.1452 10.6273L40.3744 12.2017L40.2753 14.7601L38.591 16.3838L36.3122 15.9902Z' fill='currentColor'/>    </svg>");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  transition: all 0.1s 0s linear;
 }
 
 .title-bar::after {
+  -webkit-app-region: no-drag;
   content: "BigPicture";
   font-size: 12px; 
   font-weight: 100;
   color: var(--bg-1-025);
-  padding-left: 8px;
+  padding-left: 4px;
+}
+
+.title-bar h4 {
+  -webkit-app-region: no-drag;
+  background: -webkit-linear-gradient(0deg, var(--bg-1-100) 50%, var(--accent-2-100) 50%, var(--accent-1-100) 75%);
+  background-size: 200%;
+  background-position: 0%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: none;
+  transition: all 0.2s 0.1s linear;
+  padding: 0 8px; 
+}
+
+.title-bar:hover h4 {
+  background-position: 100%;
+  transition: all 0.2s 0s linear;
+}
+
+.title-bar:hover::before {
+  background-position: 100%;
+  transition: all 0.1s 0.2s linear;
 }
 
 .header__search {
   position: fixed;
+  z-index: var(--header-index);
   left: 0;
   top: var(--header-top);
   padding: 0;
@@ -380,6 +413,7 @@ body:has(.header__back-button--enabled) .title-bar {
 
 .sidebar__container {
   position: fixed;
+  z-index: var(--header-index);
   width: 100%;
   left: 0;
 }
@@ -387,7 +421,7 @@ body:has(.header__back-button--enabled) .title-bar {
 .sidebar__content {
   width: 100%;
   padding: 0;
-  z-index:9
+  z-index: var(--header-index);
 }
 
 .sidebar__menu {
@@ -421,8 +455,20 @@ body:has(.header__back-button--enabled) .title-bar {
   display: none;
 }
 
-.sidebar__section:nth-of-type(2) {
+.sidebar__section:not(:nth-of-type(1)) {
   display: none;
+}
+
+body:has(.game-details__wrapper) {
+  & .sidebar {
+    height: 0;
+    margin: 0 ;
+    padding: 0;
+  }
+
+  & .sidebar__menu-item:not(:nth-of-type(5)) {
+    display: none;
+  }
 }
 
 .sidebar__menu:nth-child(1) > .sidebar__menu-item:nth-of-type(5),
@@ -431,6 +477,7 @@ body:has(.header__back-button--enabled) .title-bar {
   --header-pos: calc(var(--header-calc) + var(--size) * (var(--pos) - 1));
   left: var(--header-pos);
   position: fixed;
+  z-index: var(--header-index);
   display: flex;
   top: var(--header-top);
   padding: 0;
@@ -524,10 +571,20 @@ body:has(.profile__wrapper) .sidebar-profile__button {
 }
 
 /* Main content */
+
+body:has(.game-details__wrapper) main {
+  margin-top: 0;
+}
+
 main {
   margin-top: var(--header-size);
   display: flex;
   flex-direction: column;
+}
+
+#scrollableDiv::-webkit-scrollbar:vertical,
+#scrollableDiv > section::-webkit-scrollbar:vertical {
+  display: none !important;
 }
 
 .header {
@@ -563,6 +620,7 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   width: 100%;
   margin: 16px;
   border: none;
+  box-shadow: none;
 }
 
 .hero__content {
@@ -624,7 +682,7 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   overflow: visible;
   flex-grow: 1;
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: max-content 1fr;
   background: transparent;
   position: relative;
   gap: 8px;
@@ -663,6 +721,7 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   width: 100%;
   height: 100%;
   transition: transform 0.2s ease-in-out;
+  border: 0;
 }
 
 .game-item__details {
@@ -725,8 +784,8 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
 }
 
 .game-card__cover {
-  background-color: #3c3737ff;
-  opacity: 1;
+  background-color: var(--gradient-1-100);
+  color: var(--bg-1-050);
 }
 
 .game-card:hover .game-card__content {
@@ -916,7 +975,7 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
 
 .download-group__simple-card {
   border-radius: 0;
-  padding: 16px;
+  padding: 16px 38px 16px 16px;
 }
 
 .download-group__simple-card:hover {
@@ -1010,6 +1069,146 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   flex-direction: column;
 }
 
+/* Game Details */
+
+.game-details__container {
+  display: grid;
+  grid-template-rows: max-content auto;
+}
+
+.game-details__hero {
+  height: 100%
+}
+
+.game-details__hero-image {
+  height: 40vh;
+  border-radius: 0;
+  position: static;
+}
+
+.game-details__hero-content {
+  position: static;
+  padding: 0;
+  align-items: center;
+}
+
+.game-details__game-logo {
+  position: absolute;
+  object-position: center;
+  top: -16px;
+  left: 16px;
+  translate: 0 -100%;
+  filter: drop-shadow(0 0 32px white) drop-shadow(0 0 8px black);
+}
+
+.game-details__hero-logo-backdrop {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  padding: 16px;
+  height: max-content;
+}
+
+.game-details__hero-panel {
+  padding: 0;
+  grid-column:1;
+}
+
+.game-details__hero-panel .hero-panel {
+  padding: 0;
+  height: max-content;
+  min-height: max-content;
+  border-radius: 0;
+  gap: 16px;
+  flex-direction: row-reverse;
+  backdrop-filter: none;
+}
+
+.hero-panel-actions__separator {
+  display: none;
+}
+
+.game-details__hero-logo-backdrop .button,
+.game-details__hero-buttons--right .game-details__edit-custom-game-button,
+.game-details__hero-buttons--right .game-details__cloud-sync-button {
+  box-shadow: none;
+  border: none;
+  background: var(--bg-1-025);
+  border: 0;
+  font-size: 20px;
+  gap: 16px;
+
+  &:hover {
+    background: var(--bg-1-050);
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px
+  }
+}
+
+.game-details__hero-panel .hero-panel button {
+  &:nth-of-type(1) { /* Play button */
+    justify-content: start;
+    padding: 8px 24px ;
+    width: calc(var(--header-size) * 4) !important;
+    &:hover {
+      background: #59BF40;
+    }
+  }
+
+  &:nth-of-type(4) {
+    width: var(--header-size);
+    font-size: 0;
+    gap: 0;
+  }
+}
+
+.game-details__hero-buttons {
+  margin: 0;
+}
+
+.game-details__hero-buttons--right .game-details__cloud-sync-button {
+  position: absolute;
+  translate: 0 calc(-100% + (-16px * 2));
+  right: 16px;
+  padding: 8px 24px;
+  background: var(--bg-2-050) !important;
+  text-wrap: nowrap;
+
+  &:hover {
+    background: var(--bg-1-025) !important;
+  }
+}
+
+.game-details__hero-panel .hero-panel button:nth-of-type(2),
+.game-details__hero-panel .hero-panel button:nth-of-type(4),
+.game-details__hero-buttons--right .game-details__edit-custom-game-button {
+  --pos: 1;
+  --size: var(--header-size);
+  --header-pos: calc( (var(--size) * (var(--pos) - 1)) + (var(--pos) * 16px));
+  position: absolute;
+  translate: 0%;
+  right: var(--header-pos);
+}
+
+.game-details__hero-panel .hero-panel button:nth-of-type(4) { --pos: 1 }
+.game-details__hero-panel .hero-panel button:nth-of-type(2) { --pos: 2 }
+.game-details__hero-buttons--right .game-details__edit-custom-game-button { --pos: 3 }
+
+.button:has(> svg > [d="m11.294.984 3.722 3.722a1.75 1.75 0 0 1-.504 2.826l-1.327.613a3.089 3.089 0 0 0-1.707 2.084l-.584 2.454c-.317 1.332-1.972 1.8-2.94.832L5.75 11.311 1.78 15.28a.749.749 0 1 1-1.06-1.06l3.969-3.97-2.204-2.204c-.968-.968-.5-2.623.832-2.94l2.454-.584a3.08 3.08 0 0 0 2.084-1.707l.613-1.327a1.75 1.75 0 0 1 2.826-.504ZM6.283 9.723l2.732 2.731a.25.25 0 0 0 .42-.119l.584-2.454a4.586 4.586 0 0 1 2.537-3.098l1.328-.613a.25.25 0 0 0 .072-.404l-3.722-3.722a.25.25 0 0 0-.404.072l-.613 1.328a4.584 4.584 0 0 1-3.098 2.537l-2.454.584a.25.25 0 0 0-.119.42l2.731 2.732Z"]) {
+  display: none; /* Pin Button */
+}
+
+.game-details__description-container {
+  background: transparent;
+}
+
+.game-details__description-container * {
+   background: transparent;
+}
+
 /* General */
 
 .button--outline {
@@ -1035,6 +1234,7 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   color: var(--bg-2-100)
 }
 
+.game-details__hero-buttons > button,
 .library-view-options__option,
 .notification-item__picture,
 .button {
@@ -1045,6 +1245,14 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   min-height: var(--header-size);
   min-width: var(--header-size);
   justify-content: center;
+}
+
+.sidebar-section__content {
+  transition: all ease 0.3s;
+}
+
+.subscription-required-button {
+  color: var(--accent-2-100);
 }
 
 #scrollableDiv > section > div {
@@ -1067,3 +1275,90 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
   background: var(--bg-1-050);
 }
 
+.text-field-container__text-field, 
+.select-field {
+  height: var(--header-size);
+}
+
+.text-field-container__text-field input {
+  padding: 0 16px;
+}
+
+.select-field {
+  position: relative;
+}
+
+.select-field select {
+  padding: 0 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 40px;
+  color-scheme: dark;
+}
+
+.select-field select::-webkit-scrollbar {
+  background: var(--gradient-1-100);
+}
+
+.select-field::after {
+  content: "⮟";
+  color: var(--bg-1-100);
+  position: absolute;
+  right: 16px;
+  transform: rotateZ(-90deg);
+  pointer-events: none;
+  transition: transform 0.2s linear;
+}
+
+.select-field:has(select:open)::after {
+  transform: rotateZ(0);
+}
+
+.backdrop--windows {
+  height: unset;
+  top: var(--header-top);
+  bottom: 0;
+  padding: var(--header-top);
+  z-index: calc(var(--header-index) + 1);
+  background-color: var(--bg-2-075);
+}
+
+.modal {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.modal__header {
+  padding: 0;
+  border-radius: 2px 2px 0 0;
+  background: var(--gradient-2-100);
+  border: 0;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.modal__header-title {
+  padding: 16px;
+}
+
+.modal__close-button {
+  height: 100%;
+  aspect-ratio: 1/1;
+
+  &:hover {
+    background: var(--gradient-1-100);
+  }
+}
+
+.modal__content {
+  background: var(--gradient-1-100);
+  border-radius: 0 0 4px 4px;
+}
+
+.game-options-modal__cloud-sync-hydra-cloud {
+  background: linear-gradient(-45deg, var(--accent-2-100), var(--accent-1-100));
+  color: var(--gradient-1-100);
+  padding: 2px 8px;
+}
