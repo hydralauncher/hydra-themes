@@ -1132,7 +1132,6 @@ body:not(:has(.settings__content, .notifications)) .header__section.header__sect
 .game-details__hero-buttons--right .game-details__edit-custom-game-button,
 .game-details__hero-buttons--right .game-details__cloud-sync-button {
   box-shadow: none;
-  border: none;
   background: var(--bg-1-025);
   border: 0;
   font-size: 20px;
