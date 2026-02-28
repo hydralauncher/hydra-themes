@@ -60,13 +60,6 @@
     opacity: 1;
   }
 }
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 * {
   outline: none;
 }
@@ -118,13 +111,6 @@
   border-radius: 0;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 body {
   background: linear-gradient(-45deg, #0e141b, #0b1016);
 }
@@ -143,13 +129,6 @@ h3 {
   font-size: 20px !important;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 ::-webkit-scrollbar {
   height: 8px;
   background: transparent;
@@ -171,13 +150,6 @@ h3 {
   display: none;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .header__back-button {
   opacity: 1;
   position: absolute;
@@ -274,13 +246,6 @@ body:has(.header__back-button--enabled) .title-bar {
   transition: all 0.1s 0.2s linear;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .header__search {
   position: fixed;
   z-index: 3;
@@ -549,13 +514,6 @@ body:has(.profile__wrapper) .sidebar-profile__button {
   border: 0;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .sidebar {
   background: transparent;
   border: none;
@@ -718,13 +676,6 @@ body:has(.profile__wrapper) .sidebar-profile__button {
   display: none;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 body:has(.game-details__wrapper) main {
   margin-top: 0;
 }
@@ -761,13 +712,6 @@ main {
   text-transform: uppercase;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .bottom-panel {
   background: rgba(255, 255, 255, 0.05) !important;
   padding: 0 32px;
@@ -833,13 +777,6 @@ main {
   display: none !important;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .home__content {
   display: grid;
   grid-template-rows: 1fr min-content min-content;
@@ -968,13 +905,6 @@ main {
   display: none;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .catalogue__games-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1067,13 +997,6 @@ main {
   backdrop-filter: none;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .library__content {
   padding: 0;
 }
@@ -1264,13 +1187,6 @@ main {
   transform: none;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .game-options-modal__sidebar {
   background-color: rgba(255, 255, 255, 0);
 }
@@ -1414,13 +1330,6 @@ main {
   background: transparent;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .download-group__header-title-group {
   gap: 0;
 }
@@ -1493,13 +1402,6 @@ main {
   background: rgba(255, 255, 255, 0.5) !important;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .settings__content {
   background: transparent;
   border: 0;
@@ -1536,13 +1438,6 @@ input[type=range i] {
   background: rgba(11, 16, 22, 0.5) !important;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .profile-hero__content-box, .profile-hero__hero-panel {
   background: transparent !important;
   border: 0;
@@ -1604,13 +1499,6 @@ input[type=range i] {
   flex-direction: column;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .backdrop--windows {
   height: unset;
   top: 34px;
@@ -1652,13 +1540,6 @@ input[type=range i] {
   border-radius: 0 0 4px 4px;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .game-details__hero-buttons > button,
 .library-view-options__option,
 .notification-item__picture,
@@ -1715,13 +1596,6 @@ input[type=range i] {
   color: #4cb4ff;
 }
 
-/*
- * Big Picture - Hydra Theme
- * https://github.com/viniponteslima/hydra-BigPicture
- *
- * Compiled from SCSS — do not edit directly.
- * Version 26.02
- */
 .text-field-container__text-field,
 .select-field {
   height: 56px;
