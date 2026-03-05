@@ -1,0 +1,50 @@
+
+/* By Anaya from Hydra */
+body {
+    margin: 0;
+    color: #1279929a;
+    font-family: Arial, sans-serif;
+
+  }
+
+
+  #root {
+    background: #2f168ad7
+      url("https://images.wallpapersden.com/image/download/giyuu-tomioka-demon-slayer_bGZqZ2uUmZqaraWkpJRmbmdlrWZlbWU.jpg")
+      no-repeat center center;
+    background-size: cover;
+    }
+
+
+  .sidebar,
+  .header,
+  .bottom-panel,
+  .container__content,
+  .container__content * {
+    background: transparent !important; 
+    color: #2600ffff !important;
+
+  }
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+
+    background-color: rgba(33, 47, 90, 0.81) !important;
+    backdrop-filter: blur(8px);
+
+    }
+
+  .container__content .button--outline {
+    backdrop-filter: blur(6px);
+    background-color: rgba(2, 1, 66, 0.48);
+  }

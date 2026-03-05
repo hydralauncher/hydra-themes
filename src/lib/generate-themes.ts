@@ -41,7 +41,7 @@ const getThemeAchievementsSupport = async (
   } catch (err: unknown) {
     console.error(
       `Failed to parse CSS for ${publicThemePath}`,
-      (err as Error).message
+      (err as Error).message,
     );
 
     return false;
@@ -50,14 +50,14 @@ const getThemeAchievementsSupport = async (
 
 const hasAchievementSoundSupport = (themePath: string): boolean => {
   const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
-  
+
   for (const extension of supportedExtensions) {
     const soundFilePath = path.join(themePath, `achievement${extension}`);
     if (fs.existsSync(soundFilePath)) {
       return true;
     }
   }
-  
+
   return false;
 };
 
@@ -89,9 +89,13 @@ Promise.all(
 
     if (hydraHeaderSecret) {
       await api
-        .post(`badges/${authorCode}/theme`, {
+        .post(`badges/unlock`, {
           headers: {
             "hydra-token": hydraHeaderSecret,
+          },
+          json: {
+            userId: authorCode,
+            badge: "THEME_CREATOR",
           },
         })
         .catch((err) => {
@@ -139,10 +143,7 @@ Promise.all(
       ? fs.statSync(fullscreenPath)
       : null;
 
-    if (
-      !fullscreenStats ||
-      sourceStats.mtimeMs > fullscreenStats.mtimeMs
-    ) {
+    if (!fullscreenStats || sourceStats.mtimeMs > fullscreenStats.mtimeMs) {
       await sharp(path.join(folderPath, screenshotFile))
         .resize(1920, null, { fit: "inside", withoutEnlargement: true })
         .toFormat("webp")
