@@ -1,0 +1,214 @@
+/*
+By Rip_Sonic
+Hope You Like It :)
+*/
+
+#root {
+  background: url(https://initiate.alphacoders.com/content_requests/1821269-final.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Title Bar */
+
+.title-bar {
+  background: transparent;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.title-bar::after {
+  content: "By Rip_Sonic";
+  color: rgba(0, 119, 255, 1);
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.title-bar {
+  background: transparent;
+  backdrop-filter: blur(8px);
+  font-size: 0; /* esconde o texto */
+  color: transparent;
+}
+
+/* Header */
+.header {
+  background-color: rgba(255, 0, 0, 0);
+  backdrop-filter: blur(8px);
+}
+
+/* Sidebar */
+.sidebar, .context-menu {
+  background-color: rgba(255, 0, 0, 0);
+  backdrop-filter: blur(8px);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  background-color: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+}
+
+::-webkit-scrollbar, ::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.sidebar-profile__notification-button {
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.header__search {
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.text-field-container__text-field--dark {
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar__menu-item--active {
+  background-color: transparent;
+  position: relative;
+}
+
+.sidebar__menu-item--active::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0, 119, 255, 0.8), transparent);
+  border-radius: 4px;
+  animation: cv-channel-select .3s ease-in-out;
+  z-index: -1;
+}
+
+/* Main content */
+
+.library-game-card__wrapper {
+  border: 1px solid rgba(249, 255, 169, 1);
+  box-shadow: 0 0 8px rgba(249, 255, 169, 0.8),
+              0 0 16px rgba(249, 255, 169, 0.4),
+              0 0 32px rgba(249, 255, 169, 0.2);
+}
+
+.sidebar-section {
+  background-color: rgba(0, 119, 255, 0);
+  color: rgba(0, 119, 255, 1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.sidebar-section__header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 4px;
+  rary-game-card__overlay  background-color: #f7f7f700;
+    transition: background-color 0.2s ease;
+}
+
+.search-dropdown__item:hover, .search-dropdown__item--active {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.filter-section__count {
+  color: rgba(247, 255, 133, 1)
+}
+
+.filter-section, .game-item, .sidebar-section, .game-details__review-item, .description-header, .download-group__simple-card, .settings__content, .settings-download-sources__item, .profile-section, .user-library-game__wrapper, .button--dark, .modal {
+  border: 1px solid rgba(0, 153, 255, 1);
+  box-shadow: 0 0 8px rgba(0, 153, 255, 0.8),
+              0 0 16px rgba(0, 153, 255, 0.4),
+              0 0 32px rgba(0, 153, 255, 0.2);
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar-section__content, .select-field--primary, .select-field__option, .search-dropdown, .filter-section, .filter-section__button, .filter-section__content, .filter-section__item, .checkbox-field__checkbox, .download-group__simple-card, .settings__content, .settings__sidebar, .text-field-container__text-field--primary, .settings-download-sources__item, .profile-section, .profile-section__header, .profile-section__content, .modal, .button--dark, .game-options-modal__sidebar, .repacks-modal__repacks {
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar-section__button {
+  color: rgba(0, 119, 255, 1);
+}
+
+.game-language-section__cell {
+  color: rgba(0, 119, 255, 1);
+}
+
+.game-language-section__check, .download-group__progress-size, .download-group__progress-percentage {
+  color: rgba(74, 255, 58, 1);
+}
+
+.download-group__progress-fill {
+  background-color: rgba(74, 255, 58, 1);
+}
+
+.game-language-section__cross, .download-group__glass-btn {
+  color:rgba(255, 0, 0, 1);
+}
+
+.game-language-section__header-item {
+  color: rgba(255, 236, 126, 1)
+}
+
+.how-long-to-beat__category-label {
+  color: rgba(255, 236, 126, 1)
+}
+
+.star-rating__star--filled, .star-rating__value {
+  color: rgba(255, 243, 173, 1)
+}
+
+.game-details__description-container, .hero-panel, .achievement-panel, .achievements__list, .achievements-content__achievements-list__section__container {
+  background: transparent;
+}
+
+.achievements__item {
+  border: 1px solid rgba(249, 255, 169, 1);
+  box-shadow: 0 0 8px rgba(249, 255, 169, 0.8),
+              0 0 16px rgba(249, 255, 169, 0.4),
+              0 0 32px rgba(249, 255, 169, 0.2);
+}
+
+.description-header, .achievements__item, .sidebar-section__header {
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.game-details__review-item {
+  backdrop-filter: blur(8px)
+}
+
+.container__content {
+  background-color: rgba(255, 0, 0, 0);
+  background: transparent;
+}
+
+/* Bottom panel */
+.bottom-panel {
+  background-color: rgba(255, 0, 0, 0);
+  backdrop-filter: blur(8px);
+}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
