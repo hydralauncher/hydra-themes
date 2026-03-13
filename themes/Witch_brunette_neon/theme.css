@@ -1,0 +1,212 @@
+/*
+  Neon Witch Toxic Green Theme for Hydra Launcher
+  Author: Pir0 & AI Nika 🧙‍♀️
+*/
+
+/* ===================== */
+/* Global colors */
+:root {
+    --toxic-green: #39ff14;
+    --neon-green: #00ff88;
+}
+
+/* ===================== */
+/* Global text */
+* {
+    color: var(--toxic-green);
+    text-shadow: 0 0 4px rgba(57,255,20,0.6);
+}
+
+/* ===================== */
+/* Background on whole launcher */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        url("https://github.com/Pir0-666/theme/blob/main/witch_brunette_neon.png?raw=true")
+        center top / cover no-repeat fixed;
+}
+
+/* ===================== */
+/* Header */
+.header {
+    background: rgba(3,26,13,0.35);
+    border-bottom: 1px solid var(--neon-green);
+    animation: neonPulse 3s infinite ease-in-out;
+}
+
+/* ===================== */
+/* Sidebar */
+.sidebar {
+    background: rgba(5,11,8,0.35);
+    border-right: 1px solid rgba(0,255,136,0.25);
+}
+
+/* ===================== */
+/* Sidebar menu items — прозорий фон + hover ефекти + пульсація при hover */
+.sidebar__menu .sidebar__menu-item {
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.sidebar__menu .sidebar__menu-item:hover {
+    background: rgba(0,0,0,0.35);
+    box-shadow: 0 0 15px rgba(57,255,20,0.7);
+    transform: translateY(-2px);
+    animation: neonPulse 3s infinite ease-in-out;
+}
+
+/* ===================== */
+/* Bottom panel */
+.bottom-panel {
+    background: rgba(0,10,5,0.35);
+    border-top: 1px solid var(--neon-green);
+    animation: neonPulse 3s infinite ease-in-out;
+}
+
+/* ===================== */
+/* Main content */
+.container__content {
+    position: relative;
+    background: transparent;
+    box-shadow: inset 0 0 40px rgba(0,255,136,0.2);
+}
+
+/* ===================== */
+/* HUD scanlines */
+.container__content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(57,255,20,0.05) 1px,
+            transparent 1px
+        );
+    background-size: 100% 4px;
+    mix-blend-mode: overlay;
+}
+
+/* ================================================= */
+/* GAME INFO — REAL FIX (NO SCROLL BREAK) */
+.game-details__description-container {
+    position: relative;
+    background: transparent !important;
+}
+
+.game-details__description-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+}
+
+/* ===================== */
+/* Scrollbar (неон, але нативний) */
+.game-details__description-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.game-details__description-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.game-details__description-container::-webkit-scrollbar-thumb {
+    background: rgba(57,255,20,0.6);
+    border-radius: 4px;
+}
+
+/* ===================== */
+/* Catalogue games — прозорий фон + hover + пульсація при hover */
+.catalogue__games-container .game-item {
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.catalogue__games-container .game-item:hover {
+    background: rgba(0,0,0,0.35);
+    box-shadow: 0 0 15px rgba(57,255,20,0.7);
+    transform: translateY(-2px);
+    animation: neonPulse 3s infinite ease-in-out;
+}
+
+/* ===================== */
+/* Library games — прозорий фон + hover + пульсація при hover */
+.library__games-grid.library__games-grid--compact .library-game-card__wrapper,
+.library__games-grid.library__games-grid--grid .library-game-card__wrapper {
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.library__games-grid.library__games-grid--compact .library-game-card__wrapper:hover,
+.library__games-grid.library__games-grid--grid .library-game-card__wrapper:hover {
+    background: rgba(0,0,0,0.35);
+    box-shadow: 0 0 15px rgba(57,255,20,0.7);
+    transform: translateY(-2px);
+    animation: neonPulse 3s infinite ease-in-out;
+}
+
+/* ===================== */
+/* Settings content — прозорий фон */
+.settings__content {
+    background: rgba(0,0,0,0.18);
+    border-radius: 8px;
+}
+
+/* ===================== */
+/* Buttons */
+.button {
+    background: rgba(57,255,20,0.12);
+    border: 1px solid var(--toxic-green);
+    box-shadow: 0 0 12px rgba(57,255,20,0.5);
+    animation: neonPulse 3s infinite ease-in-out;
+    transition: all 0.25s ease;
+}
+
+.button:hover {
+    background: var(--toxic-green);
+    color: #000;
+}
+
+/* ===================== */
+/* Neon pulse animation */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 6px rgba(57,255,20,0.4);
+    }
+    50% {
+        box-shadow:
+            0 0 18px rgba(57,255,20,0.9),
+            0 0 40px rgba(57,255,20,0.6);
+    }
+    100% {
+        box-shadow: 0 0 6px rgba(57,255,20,0.4);
+    }
+}
+
+/* ===================== */
+/* Glitch effect */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    25% { transform: translate(-1px, 1px); }
+    50% { transform: translate(1px, -1px); }
+    75% { transform: translate(-1px, 0); }
+    100% { transform: translate(0); }
+}
+
+.header:hover,
+.toast:hover {
+    animation: glitch 0.2s steps(2, end) infinite;
+}
