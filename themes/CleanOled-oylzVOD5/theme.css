@@ -138,3 +138,12 @@ body {
 .achievement-notification__container {
   background: linear-gradient(90deg, #3d3f41ff 10%, #101214ff 100%);
 }
+
+.profile-avatar {
+    border-radius: 20px;
+}
+
+.profile-hero__avatar-button {
+    border-radius: 50px;
+}
+
