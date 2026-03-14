@@ -565,11 +565,6 @@ h6 {
 }
 
 
-.library-game-card__wrapper:hover {
-  box-shadow: var(--shadow-md);
-  border-color: #cbd5e1;
-}
-
 
 .library-game-card__playtime {
 
@@ -2149,7 +2144,7 @@ h6 {
 }
 
 .text-field-container__text-field-input {
-  color: var(--text-primary);
+
   font-weight: 500;
   width: 100%;
   padding: 10px 16px;
@@ -2429,9 +2424,6 @@ h6 {
   border: solid 1px var(--border-color);
 }
 
-.header__search-input {
-  color: var(--text-primary);
-}
 
 .header__search-input::placeholder {
   color: var(--text-muted);
@@ -2909,9 +2901,6 @@ h6 {
 }
 
 .library-view-options__option {
-
-  border: 1px solid var(--border-color);
-
 
   display: flex;
   align-items: center;
