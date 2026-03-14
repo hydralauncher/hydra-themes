@@ -1,0 +1,140 @@
+
+/* CleanOled */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.game-item__compatibility-logo {
+  display: none;
+}
+
+.subscription-required-button {
+  display: none;
+}
+
+.sidebar {
+  background-color: #000000ff;
+}
+
+.bottom-panel {
+  background-color: #000000ff;
+}
+
+.scrollableDiv {
+  background-color: #000000ff;
+}
+
+.home__content {
+  background-color: #000000ff;
+}
+
+.header {
+  background-color: #000000ff;
+}
+
+.sidebar-profile__notification-button {
+  background-color: #000000ff;
+}
+
+.header__search {
+  background-color: #000000ff;
+}
+
+.catalogue {
+  background-color: #000000ff;
+}
+
+.game-item {
+  background-color: #050505ff;
+}
+
+.game-details__description-container {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    background: linear-gradient(0deg, #050505ff 50%, #000000ff 100%);
+    padding: 12px;
+    gap: 12px;
+}
+
+.description-header {
+  background: linear-gradient(0deg, #000000ff 50%, #0a0a0aff 100%);
+}
+
+.sidebar-section {
+  background-color: #000000ff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.sidebar-section__header {
+  background: linear-gradient(0deg, #030303ff 50%, #0a0a0aff 100%);
+}
+
+.sidebar-section__content {
+  background: linear-gradient(0deg,  #0a0a0aff 50%,  #050505ff 100%);
+}
+
+.sidebar__menu-item--active {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button-label {
+  color: rgba(0, 0, 0, 1);
+}
+
+.sidebar__menu-item--active span {
+  color: rgba(0, 0, 0, 1);
+}
+
+.sidebar__menu-item--active svg {
+  color: rgba(0, 0, 0, 1);
+}
+
+.container__content {
+  background: linear-gradient(0deg, #000000ff 50%, #050505ff 100%);
+}
+
+.settings__sidebar {
+  background: linear-gradient(0deg, #000000ff 50%, #050505ff 100%);
+}
+
+.settings__panel {
+  background: linear-gradient(0deg, #000000ff 50%, #050505ff 100%);
+}
+
+.settings-appearance__themes {
+  background: linear-gradient(0deg, #000000ff 50%, #000000ff 100%);
+}
+
+.theme-card theme-card--active {
+  background: linear-gradient(0deg, #000000ff 50%, #000000ff 100%);
+}
+
+.achievement-notification__outer-container {
+  background: #000000c9;
+  border: 1px solid #2c2c2cff;
+  border-radius: 7px;
+  color: #ffffffff;
+  box-shadow: 0 0 15px #0000002d;
+  backdrop-filter: blur(5px);
+  transition: all 0.25s ease ;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 0vw;
+}
+
+.achievement-notification__icon {
+  border-radius: 7px;
+}
+
+.achievement-notification__container {
+  background: linear-gradient(90deg, #3d3f41ff 10%, #101214ff 100%);
+}

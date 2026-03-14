@@ -119,7 +119,7 @@
 }
 
 .bottom-panel__version-button small::before {
-  content: "By pl2k_23 - ";
+  content: "Modern Theme (By RavenSt) - ";
   font-weight: bold;
 }
 
@@ -545,6 +545,52 @@ select {
 
 .download-group__right-content {
   background-color: black;
+}
+
+.download-group__simple-card {
+  background-color: rgba(32, 32, 32, 1);
+  padding: 5px;
+}
+
+.download-group__simple-card:hover {
+  transform: scale(1.01);
+}
+
+.notifications__tab-underline {
+  transition: left 0.3s ease;
+}
+
+.friends-box__add-friend-button {
+  text-decoration: none;
+  background-color: gray;
+  border-radius: 10px;
+  padding: 7px;
+  color: white;
+  text-shadow:
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff;
+}
+
+.friends-box__add-friend-button:hover {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  background-color: rgba(128, 128, 128, 0.692);
+  transform: scale(1.01);
+}
+
+.badges-box__item:hover {
+  transform: scale(1.01);
+}
+
+.user-stats__list-item:hover {
+  background-color: black;
+}
+
+.download-group__simple-actions > button:hover {
+  transform: scale(1.07) !important;
 }
 
 /* Key Frames */
