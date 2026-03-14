@@ -103,13 +103,6 @@ body {
   font-weight: 600;
 }
 
-/* Sidebar (Боковая панель) */
-.sidebar {
-  background-color: var(--bg-sidebar);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-right: 1px solid var(--border-color);
-}
 
 .sidebar__menu-item-button {
   color: var(--text-secondary);
@@ -191,10 +184,11 @@ body {
 
 /* Header (Шапка контента) */
 .header {
-  background-color: var(--bg-sidebar);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-header);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: solid 1px var(--border-color);
+  color: var(--text-primary);
 }
 
 .header__title {
@@ -235,8 +229,7 @@ body {
   box-shadow: 0 0 0 3px var(--accent-light);
 }
 
-.header__search-input,
-.text-field-container__text-field-input {
+.header__search-input {
   color: var(--text-primary);
   font-weight: 500;
 }
@@ -256,11 +249,6 @@ body {
   background: var(--bg-main);
 }
 
-/* Bottom Panel / Footer */
-.bottom-panel {
-  background-color: var(--bg-panel);
-  border-top: 1px solid var(--border-color);
-}
 
 .bottom-panel__downloads-button,
 .bottom-panel__version-button {
@@ -328,9 +316,6 @@ body {
   font-weight: 600;
 }
 
-.notifications__tab:hover {
-  color: var(--text-primary);
-}
 
 .notifications__tab--active {
   color: var(--accent-primary);
@@ -416,14 +401,17 @@ h6 {
 .game-item {
   display: flex;
   flex-direction: row;
-  background-color: var(--bg-panel);
-  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
   overflow: hidden;
   position: relative;
   height: 120px;
+
+
+  background-color: var(--bg-panel);
+  border-color: var(--border-color);
+  color: var(--text-primary);
 }
 
 .game-item:hover {
@@ -514,8 +502,7 @@ h6 {
 }
 
 .filter-section__button {
-  background-color: transparent;
-  color: var(--text-primary);
+
   display: flex;
   align-items: center;
   width: 100%;
@@ -523,6 +510,9 @@ h6 {
   border: none;
   cursor: pointer;
   text-align: left;
+
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
 }
 
 .filter-section__button:hover {
@@ -574,18 +564,6 @@ h6 {
   color: var(--text-primary);
 }
 
-.checkbox-field__checkbox.checked {
-  background-color: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: white;
-}
-
-/* Library Game Cards */
-.library-game-card__wrapper {
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-color);
-}
 
 .library-game-card__wrapper:hover {
   box-shadow: var(--shadow-md);
@@ -616,23 +594,12 @@ h6 {
 }
 
 
-/* View Options */
-.library-view-options__option {
-  background: var(--bg-panel);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-}
 
 .library-view-options__option:hover {
   background: var(--bg-hover);
   color: var(--text-primary);
 }
 
-.library-view-options__option.active {
-  background: var(--accent-light);
-  color: var(--accent-primary);
-  border-color: var(--accent-primary);
-}
 
 /* Pagination */
 .pagination__button {
@@ -853,6 +820,8 @@ h6 {
   aspect-ratio: 16/9;
   position: relative;
   height: 380px;
+
+
 }
 
 .game-card:hover {
@@ -896,6 +865,7 @@ h6 {
   align-items: center;
   gap: 8px;
   transform: translateY(0px);
+  color: var(--text-primary);
 }
 
 .game-card__shop-icon {
@@ -1092,29 +1062,10 @@ h6 {
   overflow: hidden;
 }
 
-.library-view-options__option {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: transparent;
-  border: none;
-  border-right: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
 .library-view-options__option:last-child {
   border-right: none;
 }
 
-
-.library-view-options__option.active {
-  background: var(--accent-light);
-  color: var(--accent-primary);
-}
 
 .library__collections {
   display: flex;
@@ -1145,28 +1096,12 @@ h6 {
   color: var(--text-primary);
 }
 
-.library__collection-item--active {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: white;
-}
-
 .library__collection-item--active:hover {
   background: var(--accent-primary);
   color: white;
 }
 
-.library__collection-count {
-  background: var(--bg-hover);
-  padding: 2px 6px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 600;
-}
 
-.library__collection-item--active .library__collection-count {
-  background: rgba(255, 255, 255, 0.2);
-}
 
 .library__empty {
   display: flex;
@@ -1218,19 +1153,6 @@ h6 {
   gap: 16px;
 }
 
-.library-game-card__wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2/3;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-  background: var(--bg-panel);
-  cursor: pointer;
-  padding: 0;
-  display: block;
-}
 
 .library-game-card__wrapper:hover {
   box-shadow: var(--shadow-md);
@@ -1584,13 +1506,15 @@ h6 {
 }
 
 .game-details__description-toggle {
-  color: var(--accent-primary);
   font-weight: 600;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 8px 0;
   text-align: left;
+
+  color: var(--accent-primary);
+  border-color: var(--border-color);
 }
 
 
@@ -2124,6 +2048,8 @@ h6 {
   gap: 8px;
   width: 280px;
   flex-shrink: 0;
+  background-color: var(--bg-main);
+  border-right: 1px solid var(--border-color);
 }
 
 .settings__sidebar-button {
@@ -2223,6 +2149,8 @@ h6 {
 }
 
 .text-field-container__text-field-input {
+  color: var(--text-primary);
+  font-weight: 500;
   width: 100%;
   padding: 10px 16px;
   background: transparent;
@@ -2408,34 +2336,13 @@ h6 {
 }
 
 
-
-.header {
-  background-color: var(--bg-header);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: solid 1px var(--border-color);
-  color: var(--text-primary);
-}
-
 .bottom-panel {
   background-color: var(--bg-panel);
   border-top: solid 1px var(--border-color);
 }
 
-.game-card {
-  background-color: var(--bg-panel);
-  box-shadow: var(--shadow-md);
-  border: solid 1px var(--border-color);
-}
 
 
-.game-card__title-container {
-  color: var(--text-primary);
-}
-
-.game-card__specifics-item {
-  color: var(--text-alt);
-}
 
 .button--primary {
   background-color: var(--accent-primary);
@@ -2505,7 +2412,6 @@ h6 {
 }
 
 .sidebar__menu-item--active {
-  background-color: var(--accent-light);
   color: var(--accent-primary);
   font-weight: 600;
 
@@ -2514,10 +2420,6 @@ h6 {
   box-shadow: var(--shadow-sm);
 }
 
-
-.sidebar__section-toggle {
-  color: var(--text-muted);
-}
 
 
 
@@ -2535,27 +2437,13 @@ h6 {
   color: var(--text-muted);
 }
 
-.header__action-button {
-  color: var(--text-muted);
-}
 
 .header__action-button:hover {
   color: var(--text-primary);
 }
 
-.header__back-button {
-  color: var(--text-secondary);
-}
 
-.header__back-button:hover {
-  color: var(--accent-primary);
-  background-color: var(--accent-light);
-}
 
-.bottom-panel__downloads-button,
-.bottom-panel__version-button {
-  color: var(--text-secondary);
-}
 
 
 /* Fix text colors that might have been missed */
@@ -2575,10 +2463,6 @@ h6 {
   background: linear-gradient(transparent, var(--bg-main));
 }
 
-.game-details__description-toggle {
-  color: var(--accent-primary);
-  border-color: var(--border-color);
-}
 
 .game-details__description-toggle:hover {
   background-color: var(--accent-light);
@@ -2586,11 +2470,6 @@ h6 {
 }
 
 
-
-.filter-section__button {
-  background-color: var(--bg-panel);
-  color: var(--text-primary);
-}
 
 
 .filter-item {
@@ -2607,11 +2486,6 @@ h6 {
   color: var(--danger-text);
 }
 
-.game-item {
-  background-color: var(--bg-panel);
-  border-color: var(--border-color);
-  color: var(--text-primary);
-}
 
 
 .game-item__cover-placeholder {
@@ -2714,16 +2588,8 @@ h6 {
 }
 
 
-.settings__sidebar {
-  background-color: var(--bg-main);
-  border-right: 1px solid var(--border-color);
-}
 
 
-.settings__sidebar-button:hover {
-  background-color: var(--bg-hover);
-  color: var(--text-primary);
-}
 
 
 .settings-appearance__themes__theme {
@@ -2782,9 +2648,6 @@ h6 {
   background: var(--accent-primary);
 }
 
-.select-field {
-  border: 1px solid var(--border-color);
-}
 
 .select-field--primary {
   background-color: var(--bg-panel);
@@ -2794,14 +2657,7 @@ h6 {
   background-color: var(--bg-main);
 }
 
-.select-field__option {
-  background-color: var(--bg-panel);
-  color: var(--text-primary);
-}
 
-.select-field__label {
-  color: var(--text-secondary);
-}
 
 .toast {
   background-color: var(--bg-panel);
@@ -2884,6 +2740,18 @@ h6 {
 }
 
 .library-game-card__wrapper {
+
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  background: var(--bg-panel);
+  cursor: pointer;
+  padding: 0;
+  display: block;
+
   box-shadow: var(--shadow-sm);
 }
 
@@ -3041,16 +2909,30 @@ h6 {
 }
 
 .library-view-options__option {
+
+  border: 1px solid var(--border-color);
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-right: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s;
+
   background: var(--bg-hover);
   color: var(--text-secondary);
 }
 
-.library-view-options__option:hover {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-}
 
 .library-view-options__option.active {
+
+  border-color: var(--accent-primary);
+
+
   color: var(--accent-primary);
   background: var(--accent-light);
 }
@@ -3094,10 +2976,14 @@ h6 {
 .library__collection-count {
   background-color: var(--bg-active);
   color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .library__collection-item--active .library__collection-count {
-  background-color: white;
+  background-color: var(--bg-panel);
   color: var(--accent-primary);
 }
 
@@ -3226,10 +3112,6 @@ h6 {
 }
 
 
-/* Fix for text inputs */
-.text-field-container__text-field-input {
-  color: var(--text-primary);
-}
 
 /* Fix for dropdowns */
 .dropdown-menu__content {
