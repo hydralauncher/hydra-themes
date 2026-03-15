@@ -1,0 +1,84 @@
+#root {
+  /* custom vars */
+  --primaryColor: rgba(23, 212, 171, 0.1);
+
+  /* bg babe */
+  background-image: 
+    linear-gradient(rgba(12, 12, 12, 0.57), transparent, rgba(12, 12, 12, 0.57)), 
+    url(https://i.imgur.com/WbNG2wK.jpeg)
+  ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* standard text */
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--primaryColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(238, 61, 135, 0.4);
+}
+
+.header__search,
+.settings-download-sources__item,
+.recent-games__box,
+.friends-box__box,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.user-stats__box {
+  background-color: var(--primaryColor);
+  border-radius: 8px;
+}
+
+.header {
+  background-color: var(--primaryColor) !important;
+  backdrop-filter: blur(20px);
+}
+
+.sidebar {
+  background-color: var(--primaryColor) !important;
+  backdrop-filter: blur(20px);}
+
+
+.container__content {
+  background: transparent;
+}
+
+
+.game-item,
+.download-group__item {
+  background-color: var(--primaryColor);
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px #00000042;
+  backdrop-filter: blur(2px);
+}
+
+.game-item:hover {
+  background-color: rgba(23, 212, 171, 0.21);
+  backdrop-filter: blur(4px);
+}
+
+.catalogue__filters-container {
+  background-color: var(--primaryColor) !important;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px #00000042;
+  backdrop-filter: blur(2px);
+}
+
+
+.bottom-panel {
+  background-color: var(--primaryColor) !important;
+  backdrop-filter: blur(20px);
+}
+
+.settings__content {
+  background-color: var(--primaryColor) !important;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px #00000042;
+  backdrop-filter: blur(2px)
+}

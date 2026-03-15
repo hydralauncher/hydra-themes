@@ -5,11 +5,16 @@ import {
   DownloadIcon,
   HeartIcon,
   XCircleIcon,
+  X,
+  Maximize2Icon,
+  Volume2Icon,
+  Pause
 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { compactNumber } from "@/lib/helpers";
 import { api } from "@/lib/api";
+import { Dialog, DialogContent, DialogPortal, DialogOverlay } from "./dialog";
 
 export interface ThemeCardProps {
   theme: Theme;
@@ -23,6 +28,32 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
   const [downloadCount, setDownloadCount] = useState(theme.downloadCount);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isPlayingSound, setIsPlayingSound] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const stopAchievementSound = useCallback(() => {
+    const audio = audioRef.current as (HTMLAudioElement & {
+      __hydraStopHandler?: () => void;
+    }) | null;
+    if (audio) {
+      if (audio.__hydraStopHandler) {
+        audio.removeEventListener("ended", audio.__hydraStopHandler);
+        audio.removeEventListener("error", audio.__hydraStopHandler);
+        delete audio.__hydraStopHandler;
+      }
+      audio.pause();
+      audio.currentTime = 0;
+      audioRef.current = null;
+    }
+    setIsPlayingSound(false);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      stopAchievementSound();
+    };
+  }, [stopAchievementSound]);
 
   const performThemeAction = useCallback(
     async (action: "install" | "favorite" | "unfavorite") => {
@@ -76,105 +107,259 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
     return `https://cdn.losbroxas.org/cdn-cgi/image/width=${AVATAR_SIZE},height=${AVATAR_SIZE},format=webp/${bucketObject.join("/")}`;
   }, [theme.author.profileImageUrl]);
 
+  const themeSlug = theme.name.toLowerCase();
+  const thumbnailUrl = `/themes/${themeSlug}/screenshot.webp`;
+  const fullscreenUrl = `/themes/${themeSlug}/screenshot-full.webp`;
+  const hasAchievementSoundSupport = theme.hasAchievementSoundSupport;
+
+  const playAchievementSound = useCallback(async () => {
+    if (!hasAchievementSoundSupport) {
+      return;
+    }
+
+    if (isPlayingSound) {
+      stopAchievementSound();
+      return;
+    }
+
+    const supportedExtensions = [".wav", ".mp3", ".ogg", ".m4a"];
+    const themeBasePath = `/themes/${themeSlug}/achievement`;
+
+    for (const extension of supportedExtensions) {
+      const audio = new Audio(`${themeBasePath}${extension}`);
+      const handleStop = () => {
+        audio.removeEventListener("ended", handleStop);
+        audio.removeEventListener("error", handleStop);
+        delete (audio as HTMLAudioElement & { __hydraStopHandler?: () => void })
+          .__hydraStopHandler;
+        stopAchievementSound();
+      };
+
+      audio.addEventListener("ended", handleStop, { once: true });
+      audio.addEventListener("error", handleStop, { once: true });
+      (audio as HTMLAudioElement & { __hydraStopHandler?: () => void }).__hydraStopHandler =
+        handleStop;
+
+      try {
+        audioRef.current = audio;
+        await audio.play();
+        setIsPlayingSound(true);
+        return;
+      } catch {
+        audio.removeEventListener("ended", handleStop);
+        audio.removeEventListener("error", handleStop);
+        delete (audio as HTMLAudioElement & { __hydraStopHandler?: () => void })
+          .__hydraStopHandler;
+        audioRef.current = null;
+        setIsPlayingSound(false);
+        continue;
+      }
+    }
+
+    stopAchievementSound();
+  }, [hasAchievementSoundSupport, isPlayingSound, stopAchievementSound, themeSlug]);
+
   return (
-    <div className="group w-full rounded-xl border p-2 transition-all">
-      <div className="h-48 w-full rounded-lg bg-muted/20">
-        <img
-          src={`/themes/${theme.name.toLowerCase()}/screenshot.webp`}
-          alt={theme.name}
-          className="size-full rounded-lg object-cover"
-          loading="lazy"
-        />
-      </div>
-
-      <div className="mt-2 flex w-full flex-col gap-4 p-2">
-        <div className="flex items-center justify-between gap-2">
-          <h4 className="inline-flex flex-row items-center gap-1 text-xs font-medium uppercase text-muted-foreground">
-            <span>{theme.name}</span>
-          </h4>
-
-          <div className="h-px flex-1 bg-muted/50"></div>
-
-          <div className="flex items-center gap-2">
-            <HeartIcon className="size-4 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">
-              {compactNumber(favoriteCount)}
-            </span>
-
-            <DownloadIcon className="size-4 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">
-              {compactNumber(downloadCount)}
-            </span>
-          </div>
+    <>
+      <div className="group w-full rounded-xl border p-2 transition-all">
+        <div className="h-48 w-full rounded-lg bg-muted/20 relative">
+          <img
+            src={thumbnailUrl}
+            alt={theme.name}
+            className="size-full rounded-lg object-cover"
+            loading="lazy"
+          />
+          <button
+            className="absolute bottom-2 right-2 flex items-center gap-1.5 rounded-md bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-2.5 py-1.5 text-xs text-white shadow-lg transition-colors cursor-pointer"
+            onClick={() => setIsPreviewOpen(true)}
+            aria-label="View in fullscreen"
+          >
+            <Maximize2Icon className="size-3.5" />
+            <span>View in fullscreen</span>
+          </button>
         </div>
 
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <img
-              src={profileImageUrl ?? "/fallback-avatar.svg"}
-              alt={theme.author.displayName}
-              loading="lazy"
-              className={cn(
-                {
-                  "bg-muted/50 object-cover": profileImageUrl,
-                },
-                "size-6 rounded-full",
-              )}
-            />
+        <div className="mt-2 flex w-full flex-col gap-4 p-2">
+          <div className="flex items-center justify-between gap-2">
+            <h4 className="inline-flex flex-row items-center gap-1 text-xs font-medium uppercase text-muted-foreground">
+              <span>{theme.name}</span>
+            </h4>
 
-            <a
-              href={`hydralauncher://profile?userId=${theme.author.id}`}
-              className="cursor-pointer text-xs text-muted-foreground hover:underline"
-            >
-              {theme.author.displayName}
-            </a>
+            <div className="h-px flex-1 bg-muted/50"></div>
+
+            <div className="flex items-center gap-2">
+              <HeartIcon className="size-4 text-muted-foreground" />
+              <span className="text-xs text-muted-foreground">
+                {compactNumber(favoriteCount)}
+              </span>
+
+              <DownloadIcon className="size-4 text-muted-foreground" />
+              <span className="text-xs text-muted-foreground">
+                {compactNumber(downloadCount)}
+              </span>
+            </div>
           </div>
 
-          <div className="flex flex-row gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-lg"
-              onClick={toggleFavorite}
-              aria-label="Toggle theme as favorite"
-              disabled={isLoading}
-            >
-              <HeartIcon
-                fill={isFavorite ? "currentColor" : "none"}
-                className="size-4 text-muted-foreground"
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <img
+                src={profileImageUrl ?? "/fallback-avatar.svg"}
+                alt={theme.author.displayName}
+                loading="lazy"
+                className={cn(
+                  {
+                    "bg-muted/50 object-cover": profileImageUrl,
+                  },
+                  "size-6 rounded-full",
+                )}
               />
-            </Button>
 
-            <Button
-              variant="outline"
-              size="default"
-              className="rounded-lg"
-              onClick={installTheme}
-              disabled={isLoading}
-            >
-              Install
-            </Button>
+              <a
+                href={`hydralauncher://profile?userId=${theme.author.id}`}
+                className="cursor-pointer text-xs text-muted-foreground hover:underline"
+              >
+                {theme.author.displayName}
+              </a>
+            </div>
+
+            <div className="flex flex-row gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-lg"
+                onClick={toggleFavorite}
+                aria-label="Toggle theme as favorite"
+                disabled={isLoading}
+              >
+                <HeartIcon
+                  fill={isFavorite ? "currentColor" : "none"}
+                  className="size-4 text-muted-foreground"
+                />
+              </Button>
+
+              <Button
+                variant="outline"
+                size="default"
+                className="rounded-lg"
+                onClick={installTheme}
+                disabled={isLoading}
+              >
+                Install
+              </Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-row items-center gap-2">
+              {theme.hasAchievementsSupport ? (
+                <>
+                  <CheckCircle2Icon className="size-4 text-green-500" />
+                  <span className="text-xs text-muted-foreground">
+                    Custom Achievement
+                  </span>
+                </>
+              ) : (
+                <>
+                  <XCircleIcon className="size-4 text-red-500" />
+                  <span className="text-xs text-muted-foreground">
+                    Does not support Achievements
+                  </span>
+                </>
+              )}
+            </div>
+            
+            <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row items-center gap-2">
+                {hasAchievementSoundSupport ? (
+                  <>
+                    <CheckCircle2Icon className="size-4 text-green-500" />
+                    <span className="text-xs text-muted-foreground">
+                      Custom Achievement Sound
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <XCircleIcon className="size-4 text-red-500" />
+                    <span className="text-xs text-muted-foreground">
+                      Does not support Achievement Sound
+                    </span>
+                  </>
+                )}
+              </div>
+              
+              {hasAchievementSoundSupport && (
+                <button
+                  type="button"
+                  className="flex items-center gap-1.5 rounded-md hover:bg-muted border border-muted px-2 py-1 text-xs text-muted-foreground transition-colors cursor-pointer"
+                  onClick={playAchievementSound}
+                  aria-label={
+                    isPlayingSound
+                      ? "Stop achievement sound preview"
+                      : "Preview achievement sound"
+                  }
+                >
+                  <div className="relative size-3">
+                    <Volume2Icon 
+                      className={cn(
+                        "absolute inset-0 size-3 transition-all duration-300",
+                        isPlayingSound 
+                          ? "opacity-0 scale-0 rotate-90" 
+                          : "opacity-100 scale-100 rotate-0"
+                      )} 
+                    />
+                    <Pause 
+                      className={cn(
+                        "absolute inset-0 size-3 transition-all duration-300",
+                        isPlayingSound 
+                          ? "opacity-100 scale-100 rotate-0" 
+                          : "opacity-0 scale-0 -rotate-90"
+                      )} 
+                    />
+                  </div>
+                  <span>Preview</span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
-
-        <div className="flex flex-row items-center gap-2">
-          {theme.hasAchievementsSupport ? (
-            <>
-              <CheckCircle2Icon className="size-4 text-green-500" />
-              <span className="text-xs text-muted-foreground">
-                Supports Achievements
-              </span>
-            </>
-          ) : (
-            <>
-              <XCircleIcon className="size-4 text-red-500" />
-              <span className="text-xs text-muted-foreground">
-                Does not support Achievements
-              </span>
-            </>
-          )}
-        </div>
       </div>
-    </div>
+
+      <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
+        <DialogPortal>
+          <DialogOverlay className="bg-black/40" />
+          <button
+            onClick={() => setIsPreviewOpen(false)}
+            className="fixed right-4 top-4 z-[100] rounded-full bg-black/60 hover:bg-black/80 p-2 text-white transition-all backdrop-blur-sm cursor-pointer focus:outline-none pointer-events-auto"
+            aria-label="Close preview"
+          >
+            <X className="size-5" />
+          </button>
+        </DialogPortal>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] !w-auto !h-auto p-0 !bg-transparent !border-none !shadow-none [&>button]:hidden !grid [&+*]:!hidden !translate-x-[-50%] !translate-y-[-50%] !z-[60] items-center justify-center">
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+            [data-radix-dialog-content] ~ [data-radix-dialog-overlay],
+            [data-radix-dialog-content] + [data-radix-dialog-overlay] {
+              display: none !important;
+            }
+          `,
+            }}
+          />
+          <img
+            src={fullscreenUrl}
+            alt={theme.name}
+            className="max-w-[95vw] max-h-[95vh] w-auto h-auto object-contain block"
+            onError={(e) => {
+              // Fallback to thumbnail if fullscreen version doesn't exist
+              const target = e.target as HTMLImageElement;
+              if (target.src !== thumbnailUrl) {
+                target.src = thumbnailUrl;
+              }
+            }}
+          />
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
