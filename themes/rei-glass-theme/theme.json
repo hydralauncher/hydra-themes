@@ -1,8 +1,7 @@
 {
   "name": "Rei Glass Theme",
-  "author": "pro82xw",
-  "version": "1.0",
-  "description": "Blurred Rei wallpaper glass theme for Hydra Launcher",
-  "css": "theme.css",
-  "preview": "preview.png"
+  "author": "cinarsavas",
+  "version": "1.0.0",
+  "description": "Glass UI theme with Rei wallpaper",
+  "css": "theme.css"
 }
