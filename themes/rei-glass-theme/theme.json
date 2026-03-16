@@ -1,7 +1,7 @@
 {
-  "name": "Rei Glass Theme",
+  "name": "rei-glass-theme",
   "author": "cinarsavas",
   "version": "1.0.0",
-  "description": "Glass UI theme with Rei wallpaper",
+  "description": "Glass themed Hydra UI with Rei wallpaper",
   "css": "theme.css"
 }
