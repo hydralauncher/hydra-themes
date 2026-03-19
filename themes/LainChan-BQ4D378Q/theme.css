@@ -158,7 +158,7 @@ body { /* верхний левый угол - Hydra */
     background-color: rgba(0, 0, 0, 0);
 }
 
-.sidebar-section__content, .select-field--primary, .select-field__option, .search-dropdown, .filter-section, .filter-section__button, .filter-section__content, .filter-section__item, .checkbox-field__checkbox, .settings__content, .settings__sidebar, .text-field-container__text-field--primary, .settings-download-sources__item, .profile-section, .modal, .game-options-modal__sidebar, .repacks-modal__repacks {
+.sidebar-section__content, .select-field--primary, .select-field__option, .filter-section, .filter-section__button, .filter-section__content, .filter-section__item, .checkbox-field__checkbox, .settings__content, .settings__sidebar, .text-field-container__text-field--primary, .settings-download-sources__item, .profile-section, .modal, .game-options-modal__sidebar, .repacks-modal__repacks {
     background: transparent;
     backdrop-filter: blur(8px);
 }
