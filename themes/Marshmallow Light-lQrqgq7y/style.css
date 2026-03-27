@@ -1,0 +1,92 @@
+.workwonders-widget-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  /* add blur to background */
+  backdrop-filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.workwonders-widget-container--hidden {
+  opacity: 0;
+  display: none;
+}
+
+.workwonders-widget-iframe {
+  width: 400px;
+  height: 500px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.workwonders-changelog-iframe {
+  width: 642px;
+  height: 672px;
+}
+
+.workwonders-feedback-iframe {
+  width: 500px;
+  height: 470px;
+}
+
+.workwonders-changelog-mini-container {
+  backdrop-filter: none;
+  right: 0;
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  top: inherit;
+  left: inherit;
+  justify-content: end;
+  align-items: end;
+}
+
+.workwonders-feedback-button {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 150%;
+  z-index: 9998;
+  cursor: pointer;
+  background-color: #1a1a1a;
+  color: #f1f7fc;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+.workwonders-feedback-button-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.workwonders-widget-container#workwonders-knowledge-container {
+  justify-content: flex-end;
+}
+
+.workwonders-knowledge-iframe {
+  height: 100%;
+}
+
