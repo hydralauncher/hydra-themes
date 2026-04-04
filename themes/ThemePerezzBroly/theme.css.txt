@@ -1,0 +1,361 @@
+
+
+/* Fondos transparentes generales (pero NO el sidebar) */
+.header, .container__content, .bottom-panel {
+  background: transparent !important;
+}
+
+/* Color global del texto */
+* {
+  color: #ffffffff !important;
+}
+
+/* Fondo principal */
+#root {
+  background: url(https://i.imgur.com/DYhvdvm.jpeg) no-repeat center center / cover !important;
+}
+
+/* Inputs, buscadores y filtros transparentes */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.catalogue__filters-container {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Evitar que el catálogo herede el fondo del sidebar */
+.catalogue,
+.catalogue__list,
+.catalogue__item,
+.catalogue__item img,
+.game-item,
+.game-item__image,
+.game-item__cover {
+  background: none !important;
+  background-color: transparent !important;
+  object-fit: cover !important;
+}
+
+/* Restaurar el fondo del sidebar */
+.sidebar {
+  background: url(https://i.imgur.com/QFsCJNX.jpeg) no-repeat center center / cover !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.settings-download-sources__item,
+.download-group__item {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Botones outline */
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.filters,
+.filters__container,
+.filters__section {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.top-panel,
+.header,
+.header__container,
+.header__wrapper,
+.header__content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.container__content::before,
+.container__content::after {
+  background: transparent !important;
+}
+
+/* Quitar fondo negro del borde superior */
+.app__header,
+.main-header,
+.title-bar,
+.window-draggable-region,
+.header,
+.header__container,
+.header__wrapper,
+.header__content,
+.top-panel {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Fondo con imagen para la ventana de repacks */
+.modal,
+.modal__content,
+.download-options,
+.download-options__container {
+  background: url(https://i.imgur.com/jqgWF8N.png) no-repeat center center / cover !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* No borrar el sidebar dentro de Ajustes */
+.settings .container__content > div *:not(.sidebar):not(.sidebar *) {
+  background: transparent !important;
+}
+
+/* NO tocar el sidebar dentro de Ajustes */
+.settings *:not(.sidebar):not(.sidebar *) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Fondo transparente para toda la sección de Ajustes */
+.settings,
+.settings__content,
+.settings__sidebar,
+.settings__header {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Forzar transparencia total en TODA la ventana de descargas */
+.modal,
+.modal *,
+.modal__content,
+.modal__content *,
+.download-options,
+.download-options *,
+.download-options__container,
+.download-options__container * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Eliminar overlays ocultos */
+.modal::before,
+.modal::after,
+.modal__content::before,
+.modal__content::after,
+.download-options::before,
+.download-options::after,
+.download-options__container::before,
+.download-options__container::after {
+  content: none !important;
+  background: transparent !important;
+}
+
+/* Mantener el fondo GIF SOLO en el contenedor principal */
+.modal,
+.modal__content {
+  background: url(https://i.imgur.com/jqgWF8N.png) no-repeat center center / cover !important;
+}
+
+/* Quitar el recuadro negro detrás de cada repack */
+.settings-download-sources__item,
+.download-group__item {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Color específico para el texto del panel de descargas */
+.download-options,
+.download-options *,
+.settings-download-sources__item,
+.settings-download-sources__item *,
+.download-group__item,
+.download-group__item * {
+  color: #000000ff !important;
+}
+
+.download-options * {
+  text-shadow: 0 0 8px rgba(0, 255, 234, 0.6) !important;
+}
+
+/* Color definitivo SOLO para el texto del panel de descargas */
+.modal .download-options *,
+.modal .settings-download-sources__item *,
+.modal .download-group__item *,
+.modal .download-options,
+.modal .settings-download-sources__item,
+.modal .download-group__item {
+  color: #00ffee !important;
+  -webkit-text-fill-color: #00ffee !important;
+}
+
+/* Romper cualquier blend-mode o filter del texto */
+.modal .download-options *,
+.modal .settings-download-sources__item *,
+.modal .download-group__item * {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  opacity: 1 !important;
+  color: #00ffee !important;
+  -webkit-text-fill-color: #00ffee !important;
+}
+
+/* Hacer transparente el panel de Géneros y Etiquetas */
+.filters,
+.filters *,
+.filters__container,
+.filters__container *,
+.filters__section,
+.filters__section *,
+.filters__genres,
+.filters__genres *,
+.filters__tags,
+.filters__tags *,
+.filters__header,
+.filters__header * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Eliminar overlays ocultos */
+.filters::before,
+.filters::after,
+.filters__container::before,
+.filters__container::after,
+.filters__section::before,
+.filters__section::after {
+  content: none !important;
+  background: transparent !important;
+}
+
+/* Panel derecho: Géneros y Etiquetas totalmente transparentes */
+.catalogue__filters-container,
+.catalogue__filters-container *,
+.filters,
+.filters *,
+.filters__section,
+.filters__section *,
+.filters__tags,
+.filters__tags *,
+.filters__genres,
+.filters__genres * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Hacer transparente el panel de información del juego */
+.game-details,
+.game-details *,
+.game-details__container,
+.game-details__container *,
+.game-details__header,
+.game-details__header *,
+.game-details__content,
+.game-details__content *,
+.game-details__info,
+.game-details__info * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Quitar overlays o sombras internas */
+.game-details::before,
+.game-details::after,
+.game-details__container::before,
+.game-details__container::after,
+.game-details__content::before,
+.game-details__content::after {
+  content: none !important;
+  background: transparent !important;
+}
+
+/* Habilitar pseudo-elementos dentro del panel */
+.download-options {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Imagen personalizada dentro del panel de Opciones de descarga */
+.download-options::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 180px;
+  height: 180px;
+  background: url(https://i.imgur.com/jqgWF8N.png) no-repeat center center / cover;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Contenedor principal del panel */
+.modal,
+.modal__content,
+.modal__body,
+.modal-download-options,
+.download-options-page {
+  background: url(https://i.imgur.com/oYM9RaQ.gif) no-repeat center center / cover !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Cualquier wrapper interno que tape el fondo */
+.modal > div,
+.modal__content > div,
+.modal__body > div,
+.modal-download-options > div,
+.download-options-page > div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* ============================
+   IMAGEN SOLO EN LA ZONA DE PERFIL DEL SIDEBAR
+   ============================ */
+
+.sidebar {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* ============================
+   IMAGEN SOLO EN LA ZONA DE PERFIL DEL SIDEBAR
+   ============================ */
+ {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Imagen arriba del perfil SIN TAPAR "Inicio" */
+ .sidebar::before{
+  content: "" !important;
+  position: absolute;
+  top: -10px; /* sube la imagen para que no invada el menú */
+  left: 0;
+  width: 100%;
+  height: 80px; /* antes 110px → demasiado grande */
+  background: url(https://i.imgur.com/LONVrMn.jpeg) no-repeat center center / cover;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+/* Asegurar que el contenido del sidebar quede por encima */
+ {
+  position: relative !important;
+  z-index: 1 !important;
+  background: transparent !important;
+}

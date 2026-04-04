@@ -1,0 +1,7 @@
+{
+  "name": "Broly Ultra Theme",
+  "author": "Perezz",
+  "version": "1.0.0",
+  "supportsAchievements": false,
+  "supportsAchievementSound": false
+}
