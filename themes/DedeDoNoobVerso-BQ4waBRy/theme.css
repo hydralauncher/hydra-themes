@@ -19,9 +19,9 @@
 
 /* Configurações básicas do texto e cor de fundo */
 body {
-    margin: 0; /* Remove margens padrão do navegador */
-    color: #e6d7d7ff; /* Define a cor padrão do texto (quase branco/cinza claro) */
-    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    margin: 0;
+    color: #e6d7d7; /* Normalizado */
+    font-family: Arial, sans-serif;
 }
 
 /* Container principal (#root) onde o fundo é aplicado */
@@ -36,17 +36,16 @@ body {
 .header,
 .container__content,
 .bottom-panel {
-    background: rgba(255, 0, 0, 0.14) !important; /* Fundo semi-transparente vermelho (muito claro) */
-    backdrop-filter: blur(2px); /* Efeito de desfoque/vidro fosco por trás do elemento */
-    border-radius: 8px; /* Cantos arredondados */
+    background: rgba(0, 0, 0, 0.88) !important; /* Estilo consolidado: fundo escuro */
+    backdrop-filter: blur(5px) !important;
+    border-radius: 8px;
 }
 
-/* Containers da Home e Painel Inferior (fundo ligeiramente diferente) */
-.home__content,
-.bottom-panel {
-    background-color: rgba(15, 15, 15, 0.25); /* Fundo escuro semi-transparente */
-    backdrop-filter: blur(2px); /* Efeito de desfoque/vidro fosco */
-    border-radius: 6px; /* Cantos arredondados */
+/* Containers da Home */
+.home__content {
+    background-color: rgba(15, 15, 15, 0.25);
+    backdrop-filter: blur(2px);
+    border-radius: 6px;
 }
 
 /* ========================================================= */
@@ -96,16 +95,15 @@ body {
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
-    background-color: rgba(0, 0, 0, 0.25) !important; /* Fundo escuro semi-transparente */
-    border-radius: 20px; /* Cantos bem arredondados */
-    /* Cria uma sombra 3D (levanta o card) e um glow escuro */
+    background-color: rgba(0, 0, 0, 1) !important; /* Cor consolidada */
+    border-radius: 20px;
     box-shadow:
-        0 4px 0 rgba(0, 0, 0, 0.7), /* Sombra preta (simula profundidade) */
-        0 0 12px rgba(0, 0, 0, 1); /* Glow escuro (sombra forte) */
-    transform: translateY(0); /* Posição inicial (sem estar "levantado") */
-    transition: transform 0.25s, box-shadow 0.25s; /* Transição suave */
-    color: #ffffffff !important; /* Cor do texto branca */
-    text-shadow: 0 0 20px #0004ff8a; /* Sombra de texto (leve glow azul) */
+        0 4px 0 rgba(0, 0, 0, 0.7),
+        0 0 12px rgba(0, 0, 0, 1);
+    transform: translateY(0);
+    transition: transform 0.25s, box-shadow 0.25s;
+    color: #ffffff !important;
+    text-shadow: 0 0 20px #0004ff8a;
 }
 
 /* Efeito ao passar o mouse (Hover) nos cards */
@@ -256,8 +254,8 @@ body {
 .theme-store-main,
 .theme-store-overlay,
 .modal {
-    background: rgba(15, 15, 15, 0.15) !important; /* Fundo escuro semi-transparente */
-    backdrop-filter: blur(4px) !important; /* Desfoque mais forte */
+    background: rgba(0, 0, 0, 1) !important; /* Consolidado */
+    backdrop-filter: blur(4px) !important;
     box-shadow: none !important;
     border-radius: 10px;
 }
@@ -468,7 +466,7 @@ body {
 .text-field-container__text-field-input:focus {
     border-color: #ff4655;
     box-shadow: 0 0 10px #ff4655, 0 0 15px #ff4655;
-    color: #ffffffff;
+    color: #ffffff;
 }
 
 /* ========================================================= */
@@ -622,12 +620,12 @@ body {
 
 /* Placeholder da busca */
 .header__search-input::placeholder {
-    color: #ffffffff;
+    color: #ffffff;
 }
 
 /* Hover no input (efeito de cor de texto) */
 .header__search:hover .header__search-input {
-    color: #ffffffff;
+    color: #ffffff;
 }
 
 /* Botão de lupa */
@@ -786,8 +784,8 @@ body::before {
 }
 
 body::before:hover {
-    opacity: 5;
-    filter: drop-shadow(0 0 15px #ffffffff) drop-shadow(0 0 25px rgba(255, 70, 85, 1));
+    opacity: 1;
+    filter: drop-shadow(0 0 15px #ffffff) drop-shadow(0 0 25px rgba(255, 70, 85, 1));
 }
 
 
@@ -819,7 +817,7 @@ body::after {
 }
 
 body::after:hover {
-    opacity: 5;
+    opacity: 1;
     filter: drop-shadow(0 0 15px #ffffff) drop-shadow(0 0 25px rgba(255, 70, 85, 1));
 }
 
@@ -837,7 +835,7 @@ body::after:hover {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
-//* CORREDOR NO RODAPÉ — direita → esquerda */
+/* CORREDOR NO RODAPÉ — direita → esquerda */
 html::before {
     content: '';
     position: fixed;
@@ -866,47 +864,7 @@ html::before {
     100% {
         transform: translateX(-120vw); /* vai saindo pelo lado esquerdo */
     }
-}*//
-/* ========================= */
-/* ✅ MELHORIA DE VISIBILIDADE DOS BOTÕES E PAINÉIS */
-/* ========================= */
-
-/* Menu lateral (botões) */
-.sidebar__menu-item-button {
-    background-color: rgba(0, 0, 0, 0.85) !important; /* escurece o fundo */
-    color: #fff !important;
 }
 
-/* Hover - mantém contraste */
-.sidebar__menu-item:hover .sidebar__menu-item-button {
-    background-color: rgba(0, 0, 0, 1) !important;
-}
+/* Final do arquivo - Limpeza concluída */
 
-/* Botões outline do conteúdo principal */
-.container__content .button--outline {
-    background-color: rgba(0, 0, 0, 1) !important;
-}
-
-/* Cards de jogos */
-.settings-download-sources__item,
-.download-group__item,
-.game-item {
-    background-color: rgba(0, 0, 0, 1) !important; /* mais sólido */
-}
-
-/* Campos da loja e modais */
-.theme-store-wrapper,
-.theme-store-main,
-.theme-store-overlay,
-.modal {
-    background: rgba(0, 0, 0, 1) !important;
-}
-
-/* HUD principal */
-.header,
-.container__content,
-.bottom-panel,
-.sidebar {
-    background: rgba(0, 0, 0, 0.88) !important;
-    backdrop-filter: blur(5px) !important;
-}
