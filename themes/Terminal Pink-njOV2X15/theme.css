@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap");
+
+:root {
+  --theme-rgb-background-color: 42, 8, 38;       /* deep magenta-black */
+  --theme-rgb-text-color: 255, 85, 200;         /* electric hot pink */
+  --theme-rgb-glow: 255, 40, 180;               /* intense neon glow */
+  --theme-rgb-active-bg: 255, 60, 220;          /* screaming pink highlight */
+  --theme-rgb-active-text: 20, 0, 15;           /* near-black magenta */
+  --theme-rgb-scanline: 180, 70, 150;           /* dusty pink scanlines */
+  --theme-opacity: 0.96;
+  --theme-opacity-glow: 0.86;
+}
+
+#root::before, .modal::before, body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    repeating-linear-gradient(180deg, rgba(var(--theme-rgb-scanline),0.3) 0px, rgba(var(--theme-rgb-scanline),0.2) 4px, transparent 4px, transparent 8px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(var(--theme-rgb-scanline),0.07) 3px, rgba(var(--theme-rgb-scanline),0.07) 5px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(var(--theme-rgb-scanline),0.06) 1px, rgba(var(--theme-rgb-scanline),0.06) 2px),
+    radial-gradient(ellipse at 50% 0%, rgba(80,0,60,.18), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(80,0,60,.18), transparent 60%);
+  background-size: 100% 800%, 100% 8px, 4px 100%, 100% 100%, 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: .73;
+  animation: scanlines 25s linear infinite;
+}
+
+@keyframes scanlines { 0% { background-position-y: 800%, 0, 0, 0, 0; } 100% { background-position-y: 0, 0, 0, 0, 0; } }
+
+#root::after, .modal::after, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(90deg, transparent, rgba(255,40,180,.07), transparent), rgba(180,70,150,.08);
+  animation: flicker .12s infinite alternate;
+  mix-blend-mode: screen;
+}
+
+@keyframes flicker { 0%,100%{opacity:.93} 15%{opacity:.86} 35%{opacity:.96} 60%{opacity:.88} 85%{opacity:.94} }
+
+@keyframes crt-glow {
+  0%,100% { text-shadow: 0 0 8px rgba(var(--theme-rgb-glow),.6); }
+  50%     { text-shadow: 0 0 24px rgba(var(--theme-rgb-glow),.95), 0 0 48px rgba(var(--theme-rgb-glow),.5); }
+}
+
+* { border-radius:0 !important; }
+
+body, .modal, .sidebar, .header, .container__content { background:rgb(var(--theme-rgb-background-color))!important; }
+
+.modal, .sidebar, .header, .container__content,
+.achievement-panel, .achievements__list, .title-bar {
+  font-family:"Share Tech Mono",monospace;
+  box-shadow: inset 0 0 30px rgba(0,0,0,.8), 0 0 40px rgba(60,0,50,.7);
+}
+
+.modal *, .sidebar *, .header *, .container__content *, .button,
+.text-field-container__text-field-input, .header__search-input,
+.library-view-options__option, .achievements__item, .sidebar__menu-item,
+.game-item__title, .library-game-card__achievement-percentage {
+  color:rgba(var(--theme-rgb-text-color),var(--theme-opacity))!important;
+  text-shadow:0 0 7px rgba(var(--theme-rgb-glow),var(--theme-opacity-glow));
+}
+
+/* Active & hover = full neon blast */
+.sidebar .sidebar__menu-item--active, .sidebar .sidebar__menu-item:hover,
+.library-view-options__option.active, .library-view-options__option:hover,
+.button--primary, .button:hover, .game-item:hover, .achievements__item:hover,
+.button--primary *, .button:hover *, .sidebar__menu-item--active *, .sidebar__menu-item:hover * {
+  background:rgba(var(--theme-rgb-active-bg),0.96)!important;
+  color:rgb(var(--theme-rgb-active-text))!important;
+  text-shadow:0 0 28px rgba(var(--theme-rgb-glow),1)!important;
+  animation:crt-glow 1.4s infinite ease-in-out;
+}
+
+.button, .text-field-container__text-field, .header__search,
+.library-view-options__option, .game-item, .filter-item, .badge {
+  border:1px solid rgba(var(--theme-rgb-text-color),0.9)!important;
+}
+
+::-webkit-scrollbar-thumb {
+  background:rgba(var(--theme-rgb-text-color),0.94)!important;
+  box-shadow:0 0 20px rgba(var(--theme-rgb-glow),1)!important;
+}
+::-webkit-scrollbar-thumb:hover { background:rgba(var(--theme-rgb-glow),1)!important; }
+
+/* Achievement Popup – Pure Miami Vice */
+.achievement-notification__outer-container {
+  background:rgba(42,8,38,0.96)!important;
+  border:1px solid rgba(255,85,200,0.95)!important;
+  box-shadow:0 0 30px rgba(255,40,180,0.9), 0 8px 50px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,40,180,0.2)!important;
+}
+.achievement-notification__outer-container:hover {
+  transform:translateY(-6px)!important;
+  box-shadow:0 0 70px rgba(255,40,180,1), 0 14px 80px rgba(0,0,0,0.9)!important;
+}
+.achievement-notification__icon img, .achievement-notification__icon svg { filter:drop-shadow(0 0 28px #ff28b4)!important; }
+.achievement-notification__container::before { background:#ff28b4; box-shadow:0 0 60px #ff28b4!important; }
+.achievement-notification__title { color:#ff55c8!important; text-shadow:0 0 28px #ff28b4, 0 0 56px rgba(255,40,180,0.9)!important; animation:crt-glow 1.8s infinite ease-in-out!important; }
+.achievement-notification__description { color:#ff85d0!important; text-shadow:0 0 12px rgba(255,40,180,0.7)!important; }
+.achievement-notification__points {
+  background:rgba(255,85,200,0.3)!important; color:#200018!important;
+  border:1px solid rgba(255,40,180,0.9)!important;
+  box-shadow:0 0 36px rgba(255,40,180,0.95), inset 0 0 16px rgba(0,0,0,0.6)!important;
+  text-shadow:0 0 20px #ff28b4!important;
+}
