@@ -1,7 +1,7 @@
-{
-  "name": "Broly Ultra Theme",
+"id": "theme-Perezz-oylGkNYj"
+
   "author": "Perezz",
+  "description": "Tema personalizado creado por Perezz.",
   "version": "1.0.0",
-  "supportsAchievements": false,
-  "supportsAchievementSound": false
+  "css": "theme.css"
 }
