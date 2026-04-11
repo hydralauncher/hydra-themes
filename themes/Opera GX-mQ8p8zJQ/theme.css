@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&display=swap');
+
+:root {
+  --gx-bg: #251F33;               
+  --gx-bg-panel: rgba(37, 31, 51, 0.8);   
+  --gx-text: #E3DFEC;               
+  --gx-text-muted: #BBBBBB;         
+  --gx-accent: #FA1E4E;            
+  --gx-border: rgba(250, 30, 78, 0.3);    
+  --gx-blur: blur(10px);  
+  --gx-shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: var(--gx-bg);
+  color: var(--gx-text);
+  font-family: 'Oxanium', 'Titillium Web', 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-rendering: geometricPrecision;
+}
+
+#root {
+  background-color: var(--gx-bg);
+  position: relative;
+}
+
+#root::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+                              rgba(250, 30, 78, 0.1),
+                              transparent 70%);
+  pointer-events: none;
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar,
+.settings-download-sources__item,
+.download-group__item {
+  background-color: var(--gx-bg-panel) !important;
+  backdrop-filter: var(--gx-blur);
+  border: 1px solid var(--gx-border);
+  box-shadow: 0 0 15px var(--gx-shadow-dark);
+  transition: all 0.3s ease;
+}
+
+.container__content .button--outline {
+  background-color: rgba(37, 31, 51, 0.6);
+  color: var(--gx-accent);
+  border: 1px solid var(--gx-accent);
+  transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.container__content .button--outline:hover {
+  background-color: rgba(250, 30, 78, 0.2);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px var(--gx-accent);
+}
+
+.game-item:hover,
+.settings__content:hover,
+.friends-box__box:hover,
+.user-stats__box:hover,
+.recent-games__box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--gx-accent);
+}
+
+.header {
+  background: linear-gradient(to right,
+                              rgba(37, 31, 51, 0.9),
+                              rgba(25, 19, 38, 0.9));
+  border-bottom: 1px solid var(--gx-border);
+  box-shadow: 0 0 20px rgba(250, 30, 78, 0.2);
+}
+
+.sidebar {
+  border-right: 1px solid var(--gx-border);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gx-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(250, 30, 78, 0.8);
+}
+
+::selection {
+  background-color: var(--gx-accent);
+  color: #FFFFFF;
+}
+
+@keyframes gxPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(250, 30, 78, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(250, 30, 78, 0.4);
+  }
+}
+
+.header,
+.sidebar {
+  animation: gxPulse 6s ease-in-out infinite;
+}

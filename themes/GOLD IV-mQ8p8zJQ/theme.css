@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+  --gta-gold: #e5a00d;
+  --gta-gold-dim: #b87e00;
+  --gta-bg-dark: #0a0a0a;
+  --gta-bg-glass: rgba(0, 0, 0, 0.85);
+  --gta-bg-overlay: rgba(0, 0, 0, 0.6);
+  --gta-text-main: #ffffff;
+  --gta-font-title: 'Oswald', sans-serif;
+  --gta-font-body: 'Roboto Condensed', sans-serif;
+}
+
+body {
+  font-family: var(--gta-font-body);
+  color: var(--gta-text-main);
+  background-color: #000;
+  letter-spacing: 0.5px;
+}
+
+#root {
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.3), #000),
+    url('https://i.imgur.com/DR5gvDj.jpeg') no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+
+.sidebar {
+  background-color: var(--gta-bg-glass) !important;
+  border-right: 1px solid #333;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar__item {
+  font-family: var(--gta-font-title);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: #888;
+  margin: 5px 10px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar__item:hover,
+.sidebar__item--active {
+  background: linear-gradient(90deg, var(--gta-gold), var(--gta-gold-dim)) !important;
+  color: #000 !important;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(229, 160, 13, 0.4);
+  transform: scale(1.02);
+  border-left: 4px solid #fff;
+}
+
+.sidebar__item i, 
+.sidebar__item svg {
+  color: inherit;
+}
+
+.sidebar .text-field-container__text-field {
+  font-family: var(--gta-font-body);
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid #444;
+  border-radius: 0;
+}
+
+.sidebar .text-field-container__text-field:focus-within {
+  border-color: var(--gta-gold);
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 0 10px rgba(229, 160, 13, 0.3);
+}
+
+.header {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)) !important;
+  border-bottom: 2px solid var(--gta-gold);
+  height: 70px;
+}
+
+.header__search {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid #444;
+  border-radius: 0;
+  color: var(--gta-gold);
+}
+
+.header__search:focus-within {
+  border-color: var(--gta-gold);
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 0 10px rgba(229, 160, 13, 0.3);
+}
+
+.header__search input {
+  font-family: var(--gta-font-body);
+  text-transform: uppercase;
+}
+
+.container__content {
+  background: transparent;
+}
+
+.game-item {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #333;
+  padding: 5px;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.game-item:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  border-color: var(--gta-gold);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8), 0 0 15px rgba(229, 160, 13, 0.2);
+}
+
+.game-item__title {
+  font-family: var(--gta-font-title);
+  color: var(--gta-text-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  text-shadow: 1px 1px 2px black;
+}
+
+.button--primary,
+.game-details-actions__button--primary {
+  background: var(--gta-gold) !important;
+  color: #000 !important;
+  font-family: var(--gta-font-title);
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--gta-gold);
+  border-radius: 0;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  transition: all 0.2s;
+}
+
+.button--primary:hover {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+.button--outline {
+  background: transparent !important;
+  border: 2px solid #ffffffff !important;
+  color: #ffffffff !important;
+  font-family: var(--gta-font-title);
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+.button--outline:hover {
+  border-color: var(--gta-gold) !important;
+  color: var(--gta-gold) !important;
+  background: rgba(0,0,0,0.8) !important;
+}
+
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background-color: rgba(10, 10, 10, 0.95) !important;
+  border: 1px solid #333;
+  border-top: 3px solid var(--gta-gold);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  border-radius: 2px;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary {
+  background-color: #000 !important;
+  border: 1px solid #444;
+  color: var(--gta-gold);
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gta-gold);
+  border: 2px solid #111;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fff;
+}
+
+.linear-progress__bar {
+  background-color: var(--gta-gold) !important;
+  box-shadow: 0 0 10px var(--gta-gold);
+}
+
+.download-group__item,
+.settings-download-sources__item {
+  background-color: rgba(20, 20, 20, 0.8) !important;
+  border-bottom: 1px solid #333;
+}

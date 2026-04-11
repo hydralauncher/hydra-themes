@@ -1,0 +1,380 @@
+/* === DISASSEMBLY DRONE HUD v5.0 === */
+
+:root {
+  --jcj-yellow: #FFD700;
+  --jcj-red: #FF4136;
+  --jcj-dark: rgba(10, 10, 10, 0.2);
+  --jcj-accent: rgba(255, 200, 61, 0.3);
+  --jcj-text: #FFFFFF;
+  --jcj-glow: rgba(255, 215, 0, 0.5);
+}
+
+/* === ОСНОВНОЙ СТИЛЬ === */
+body {
+  background: url('https://i.imgur.com/DeaeIS3.jpeg') no-repeat center/cover fixed;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* === ПРОЗРАЧНЫЕ ПАНЕЛИ === */
+.header, .sidebar, .container__content, .bottom-panel {
+  background: rgba(15, 15, 20, 0.15) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--jcj-accent);
+  box-shadow: 0 0 15px var(--jcj-glow);
+}
+
+/* === ШАПКА === */
+.header {
+  border-bottom: 1px solid var(--jcj-yellow);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header::before {
+  content: "JCJENSON";
+  color: var(--jcj-yellow);
+  font-size: 1.5em;
+  text-shadow: 0 0 10px var(--jcj-glow);
+  letter-spacing: 3px;
+}
+
+/* === БОКОВАЯ ПАНЕЛЬ === */
+.sidebar {
+  border-right: 1px solid var(--jcj-yellow);
+  width: 200px;
+  color: var(--jcj-text);
+}
+
+/* === ОСНОВНОЙ КОНТЕНТ === */
+.container__content {
+  margin: 15px;
+  padding: 20px;
+  border-radius: 5px;
+  color: var(--jcj-text);
+}
+
+/* === ДИАГОНАЛЬНАЯ СКАНИРУЮЩАЯ ПОЛОСА === */
+.scan-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.scan-line {
+  position: absolute;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--jcj-yellow) 45%,
+    transparent 55%
+  );
+  animation: diagonalScan 4s linear infinite;
+  transform: rotate(20deg);
+  opacity: 0.7;
+}
+
+@keyframes diagonalScan {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(20deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(20deg); }
+}
+
+/* === ПРОЗРАЧНЫЕ КНОПКИ === */
+.button {
+  background: rgba(58, 74, 95, 0.3) !important;
+  border: 1px solid var(--jcj-yellow) !important;
+  color: var(--jcj-yellow) !important;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background: rgba(232, 44, 44, 0.3) !important;
+  text-shadow: 0 0 5px var(--jcj-yellow);
+}
+
+/* === НИЖНЯЯ ПАНЕЛЬ === */
+.bottom-panel {
+  border-top: 1px solid var(--jcj-yellow);
+  padding: 8px 15px;
+  color: var(--jcj-text);
+  font-size: 0.7em;
+}
+
+/* === ЭФФЕКТЫ === */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVGhD7cExAQAwDMCg+zfdm1gIO3kJHZkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGZ0B0Q8VUvTjT5kAAAAASUVORK5CYII=');
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+
+/* === ШАПКА === */
+.header {
+  background: linear-gradient(to right, 
+    rgba(0,0,0,0.8) 0%, 
+    rgba(58,74,95,0.9) 50%, 
+    rgba(0,0,0,0.8) 100%);
+  border-bottom: 1px solid var(--jcj-yellow);
+  box-shadow: 0 0 25px var(--jcj-glow);
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"><text x="0" y="35" font-family="Orbitron" font-size="30" fill="%23FFC83D">JCJENSON</text></svg>') no-repeat;
+  width: 200px;
+  height: 50px;
+  filter: drop-shadow(0 0 5px rgba(255,200,61,0.7));
+}
+
+.header::after {
+  content: "CORPORATE TERMINAL SEARCH v4.2:";
+  position: absolute;
+  right: 270px;
+  color: var(--jcj-yellow);
+  font-size: 0.9em;
+  letter-spacing: 2px;
+}
+
+/* === БОКОВАЯ ПАНЕЛЬ === */
+.sidebar {
+  background: var(--panel-bg);
+  border-right: 1px solid var(--jcj-yellow);
+  width: 250px;
+  padding: 15px;
+  color: var(--jcj-yellow);
+  position: relative;
+}
+
+.sidebar::after {
+  content: "DISASSEMBLY DRONE OS v3.1.4";
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 0.8em;
+  color: var(--jcj-rust);
+}
+
+/* === ОСНОВНОЕ СОДЕРЖИМОЕ === */
+.container__content {
+  background: var(--panel-bg);
+  border: 1px solid var(--jcj-yellow);
+  border-radius: 0;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 
+    inset 0 0 15px rgba(0,0,0,0.5),
+    0 0 30px var(--jcj-glow);
+  position: relative;
+  overflow: hidden;
+  color: #E6E6E6;
+}
+
+/* Эффект поврежденного экрана */
+.container__content::before {
+  content: "Error";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(255,200,61,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,200,61,0.03) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+/* === ДИАГОНАЛЬНАЯ СКАНИРУЮЩАЯ ПОЛОСА === */
+.scan-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.scan-line {
+  position: absolute;
+  width: 150%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--jcj-yellow) 10%,
+    var(--jcj-yellow) 90%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px var(--jcj-yellow);
+  animation: diagonalScan 3s linear infinite;
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+
+@keyframes diagonalScan {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.scan-line::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 200, 61, 0.1) 50%,
+    transparent 100%
+  );
+}
+
+/* === КНОПКИ === */
+.button {
+  background: linear-gradient(to bottom, 
+    var(--jcj-steel) 0%,
+    #2A3545 100%);
+  border: 1px solid var(--jcj-yellow);
+  color: var(--jcj-yellow);
+  padding: 12px 25px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 
+    0 0 10px rgba(0,0,0,0.5),
+    inset 0 0 5px rgba(255,200,61,0.2);
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, 
+    #3A4A5F 0%,
+    #1E2630 100%);
+  box-shadow: 
+    0 0 15px var(--jcj-glow),
+    inset 0 0 10px rgba(255,200,61,0.3);
+  transform: translateY(-1px);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,200,61,0) 0%,
+    rgba(255,200,61,0) 45%,
+    rgba(255,200,61,0.3) 50%,
+    rgba(255,200,61,0) 55%,
+    rgba(255,200,61,0) 100%
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+
+.button:hover::after {
+  left: 100%;
+}
+
+/* === УВЕДОМЛЕНИЯ === */
+.toast {
+  background: rgba(232,44,44,0.9);
+  border-left: 4px solid var(--jcj-yellow);
+  color: white;
+  padding: 15px;
+  position: relative;
+}
+
+.toast::before {
+  content: "WARNING";
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 0.7em;
+  color: rgba(255,255,255,0.7);
+}
+
+.toast::after {
+  content: "JCJENSON SECURITY ALERT";
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 0.7em;
+  color: var(--jcj-yellow);
+}
+
+/* === НИЖНЯЯ ПАНЕЛЬ === */
+.bottom-panel {
+  background: linear-gradient(to right, 
+    rgba(0,0,0,0.9) 0%,
+    rgba(58,74,95,0.9) 50%,
+    rgba(0,0,0,0.9) 100%);
+  border-top: 1px solid var(--jcj-yellow);
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--jcj-yellow);
+  font-size: 0.8em;
+}
+
+.bottom-panel::before {
+  content: "PROPERTY OF JCJENSON CORPORATION | UNAUTHORIZED ACCESS WILL BE TERMINATED";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* === ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ === */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVGhD7cExAQAwDMCg+zfdm1gIO3kJHZkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGZ0B0Q8VUvTjT5kAAAAASUVORK5CYII=');
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1000;
+}
+/* === ПРОЗРАЧНЫЕ ПАНЕЛИ === */
+.header, .sidebar, .container__content, .bottom-panel {
+  background: rgba(15, 15, 20, 0.15) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--jcj-accent);
+  box-shadow: 0 0 15px var(--jcj-glow);
+}

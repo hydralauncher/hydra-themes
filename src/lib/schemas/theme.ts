@@ -3,15 +3,19 @@ import { z } from "zod";
 export const themeSchema = z.object({
   id: z.string(),
   name: z.string().min(3).max(56),
-  screenshotFile: z.string().min(3).max(256),
-  cssFile: z.string().min(3).max(256),
+  screenshotFileName: z.string().min(3).max(256),
+  cssFileName: z.string().min(3).max(256),
   author: z.object({
     id: z.string(),
     displayName: z.string(),
     profileImageUrl: z.string().nullable(),
   }),
-  downloads: z.number().min(0),
-  favorites: z.number().min(0),
+  downloadCount: z.number().min(0),
+  favoriteCount: z.number().min(0),
+  hasAchievementsSupport: z.boolean(),
+  hasAchievementSoundSupport: z.boolean(),
+  isFavorite: z.boolean(),
+  isInstalled: z.boolean(),
 });
 
 export type Theme = z.infer<typeof themeSchema>;

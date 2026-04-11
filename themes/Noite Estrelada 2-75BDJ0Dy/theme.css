@@ -1,0 +1,243 @@
+:root {
+    --color-deep-blue-sky: #0d1c3d;
+    --color-swirl-blue: #3c6994;
+    --color-star-yellow: #ffdd4a;
+    --color-dark-tree-mountain: #2c3e50;
+    --color-village-light: #f0e68c;
+
+    
+    --glass-panel-bg: rgba(13, 28, 61, 0.45);
+    --glass-panel-blur: 8px;
+    --glass-border-color: rgba(240, 230, 140, 0.15);
+
+
+    --glass-button-bg: rgba(238, 220, 142, 0.55);
+    --glass-button-blur: 6px;
+    --glass-button-hover-bg: #586bc2;
+
+
+
+    --text-on-glass: var(--color-village-light);
+    --text-on-button: var(--color-deep-blue-sky);
+
+
+    --accent-glow-color: #ffdd4a70;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-title: 'Georgia', serif;
+
+    --achiev-title-color: var(--text-on-button);
+    --achiev-title-shadow-color: rgba(13, 28, 61, 0.35);
+
+    --star-blink-color1: var(--color-star-yellow);
+    --star-blink-color2: var(--color-village-light);
+}
+
+body {
+    margin: 0;
+    color: var(--text-on-glass);
+    font-family: var(--font-main);
+    overflow: hidden;
+    position: relative;
+}
+
+#root {
+    background-color: var(--color-deep-blue-sky);
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+}
+
+#root::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.imgur.com/7hAiZz6.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.15);
+    background-blend-mode: multiply;
+}
+
+/* Estrelas Piscantes Animadas */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 8px 3px var(--star-blink-color1);
+
+}
+
+body::before {
+    /* Estrela 1 */
+    width: 3px;
+    height: 3px;
+    background-color: var(--star-blink-color1);
+    top: 20%;
+    left: 30%;
+    animation: blinkStar 3s infinite ease-in-out;
+    animation-delay: 1.5s;
+}
+
+body::after {
+    /* Estrela 2 */
+    width: 4px;
+    height: 4px;
+    background-color: var(--star-blink-color2);
+    top: 60%;
+    left: 75%;
+    animation: blinkStar 2.5s infinite ease-in-out;
+    animation-delay: 1.2s;
+}
+
+
+@keyframes blinkStar {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: transparent !important;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+    background-color: var(--glass-panel-bg) !important;
+    backdrop-filter: blur(var(--glass-panel-blur)) !important;
+    border: 1px solid var(--glass-border-color) !important;
+    color: var(--text-on-glass) !important;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.header {
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
+
+.header__search {
+    border: 1px solid var(--color-star-yellow) !important;
+}
+
+.game-item:hover {
+    border-color: var(--color-star-yellow) !important;
+    box-shadow: 0 0 10px var(--accent-glow-color);
+}
+
+.button,
+.container__content .button--outline {
+    background-color: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    color: var(--text-on-button) !important;
+    border: 1px solid var(--color-star-yellow) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    padding: 0.7em 1.3em;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+}
+
+.button:hover,
+.container__content .button--outline:hover {
+    background-color: var(--glass-button-hover-bg) !important;
+    border-color: var(--color-star-yellow) !important;
+}
+
+.toast {
+    background-color: var(--glass-panel-bg) !important;
+    backdrop-filter: blur(var(--glass-panel-blur)) !important;
+    color: var(--text-on-glass) !important;
+    font-weight: bold;
+    border: 1px solid var(--glass-border-color) !important;
+    border-left: 4px solid var(--color-star-yellow) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 12px 18px;
+    position: relative;
+    z-index: 20;
+}
+
+.achievement-notification__outer-container {
+    background-color: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    border: 1px solid var(--color-star-yellow) !important;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15), 0 0 15px var(--accent-glow-color);
+    border-radius: 14px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-on-button);
+    font-family: inherit;
+    z-index: 15;
+}
+
+.achievement-notification__container {
+    background: transparent !important;
+    color: var(--text-on-button);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    position: relative;
+    z-index: 2;
+    gap: 16px;
+    min-width: 0;
+    border-radius: 14px;
+}
+
+.achievement-notification__outer-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 14px;
+    pointer-events: none;
+    box-shadow: 0 0 18px 2px var(--accent-glow-color);
+    z-index: 1;
+
+}
+
+.achievement-notification__title {
+    color: var(--achiev-title-color);
+    font-family: var(--font-title);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1px;
+    font-size: 1em;
+    text-shadow: 0 1px 2px var(--achiev-title-shadow-color);
+}

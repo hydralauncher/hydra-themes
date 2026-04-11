@@ -1,0 +1,149 @@
+/* Tema Sasuke para Hydra Launcher */
+
+/* Cores principais */
+:root {
+  --cor-principal: #0d051b9d;
+  --cor-secundaria: #311B92;
+  --cor-destaque: #E040FB;
+  --cor-texto: #FFFFFF;
+  --cor-fundo-transparente: rgba(50, 20, 120, 0.6);
+}
+
+body {
+  margin: 0;
+  color: var(--cor-texto);
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  background: var(--cor-secundaria) url("https://i.ytimg.com/vi/kXHF8irXj70/maxresdefault.jpg") no-repeat center center; /* Imagem do Sasuke */
+  background-size: cover;
+}
+
+/* Header */
+.header {}
+
+/* Sidebar */
+.sidebar {}
+
+/* Main content */
+.container__content {}
+
+/* Bottom panel */
+.bottom-panel {}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent !important;
+}
+
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: var(--cor-fundo-transparente) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--cor-destaque);
+}
+
+
+.container__content .button--outline {
+  backdrop-filter: blur(6px);
+  background-color: var(--cor-fundo-transparente);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-destaque);
+}
+
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: var(--cor-fundo-transparente) !important;
+  border-bottom: 1px solid var(--cor-destaque);
+}
+
+
+.title-bar {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+}
+
+
+.home__content {
+  background-color: var(--cor-fundo-transparente);
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--cor-destaque);
+}
+
+
+.bottom-panel {
+  background-color: var(--cor-fundo-transparente);
+  border-top: 1px solid var(--cor-destaque);
+}
+
+
+.button {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--cor-destaque);
+}
+
+
+a {
+  color: var(--cor-destaque);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cor-destaque);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar,
+.home__content {
+  border-color: rgba(224, 64, 251, 0.5);
+}
+
+
+.header h1, .sidebar h2 {
+  text-shadow: 0 0 5px var(--cor-destaque), 0 0 10px var(--cor-destaque);
+}
