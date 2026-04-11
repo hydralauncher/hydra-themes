@@ -211,8 +211,8 @@
 /*Mais alguns botões*/
   .button--outline, .button--primary, .user-friend-modal-add-friend__button{
     /*background-color: transparent;*/
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    background: rgba(0, 255, 255, 0.15);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    background: rgba(255, 0, 0, 0.15);
   }
 
 /*Caixa de adicionar amigos*/
@@ -238,7 +238,7 @@
 
 /*Botões vermelhos*/
   .button--danger {
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.582);
+    box-shadow: 0 0 15px rgba(241, 0, 0, 0.582);
   }
 
 /*Transparencia em mais algumas caixas*/
