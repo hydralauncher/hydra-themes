@@ -1,0 +1,744 @@
+/* ========================================================= */
+/* === CONFIGURAÇÕES GERAIS E FUNDO DA APLICAÇÃO (BODY) === */
+/* ========================================================= */
+
+/* Configurações básicas do texto e cor de fundo */
+body {
+    margin: 0; /* Remove margens padrão do navegador */
+    color: #e6d7d7ff; /* Define a cor padrão do texto (quase branco/cinza claro) */
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+}
+
+/* Container principal (#root) onde o fundo é aplicado */
+#root {
+    /* Cor de fallback caso a imagem não carregue (vermelho) */
+    background: #ff0000ff url("https://4kwallpapers.com/images/walls/thumbs_3t/14812.jpg")
+        no-repeat center center; /* Define o fundo: URL da imagem, sem repetição, centralizada */
+    background-size: cover; /* Garante que a imagem cubra todo o espaço */
+}
+
+/* ========================================================= */
+/* === EFEITO GLASS MORPHISM (VIDRO FOSCO) EM CONTAINERS === */
+/* ========================================================= */
+
+/* Sidebar, Cabeçalho, Conteúdo Principal e Painel Inferior */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: rgba(255, 0, 0, 0.14) !important; /* Fundo semi-transparente vermelho (muito claro) */
+    backdrop-filter: blur(2px); /* Efeito de desfoque/vidro fosco por trás do elemento */
+    border-radius: 8px; /* Cantos arredondados */
+}
+
+/* Containers da Home e Painel Inferior (fundo ligeiramente diferente) */
+.home__content,
+.bottom-panel {
+    background-color: rgba(15, 15, 15, 0.25); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(2px); /* Efeito de desfoque/vidro fosco */
+    border-radius: 6px; /* Cantos arredondados */
+}
+
+/* ========================================================= */
+/* === ESTILIZAÇÃO DE CAMPOS DE INPUT E ITENS DE LISTA === */
+/* ========================================================= */
+
+/* Aplica fundo semi-transparente a diversos elementos internos (filtros, caixas de estatísticas, etc.) */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+    background-color: rgba(255, 0, 0, 0.08) !important; /* Fundo semi-transparente (vermelho muito claro) */
+    backdrop-filter: blur(2px); /* Efeito de desfoque/vidro fosco */
+    border-radius: 6px; /* Cantos arredondados */
+}
+
+/* ========================================================= */
+/* === BOTÕES DE OUTLINE (Borda e Fundo Transparente) ====== */
+/* ========================================================= */
+
+/* Estilo padrão dos botões "outline" dentro do conteúdo principal */
+.container__content .button--outline {
+    background-color: rgba(64, 62, 168, 0.25); /* Fundo sutilmente azul/roxo semi-transparente */
+    border: 2px solid rgba(255, 70, 85, 0.7); /* Borda sólida neon vermelho/rosa */
+    color: #fff; /* Cor do texto branca */
+    font-weight: 900; /* Texto em negrito */
+    transition: 0.25s; /* Transição suave para hover */
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.container__content .button--outline:hover {
+    background: rgba(255, 70, 85, 0.4); /* Fundo mais forte (neon) */
+    box-shadow: 0 0 12px #ff4655; /* Sombra/Glow neon vermelho */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* ========================================================= */
+/* === ITENS DE LOJA / DOWNLOAD / JOGOS (Cards com Sombra 3D) */
+/* ========================================================= */
+
+/* Estilo padrão para cards de jogos/itens */
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+    background-color: rgba(0, 0, 0, 0.25) !important; /* Fundo escuro semi-transparente */
+    border-radius: 20px; /* Cantos bem arredondados */
+    /* Cria uma sombra 3D (levanta o card) e um glow escuro */
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.7), /* Sombra preta (simula profundidade) */
+        0 0 12px rgba(0, 0, 0, 1); /* Glow escuro (sombra forte) */
+    transform: translateY(0); /* Posição inicial (sem estar "levantado") */
+    transition: transform 0.25s, box-shadow 0.25s; /* Transição suave */
+    color: #ffffffff !important; /* Cor do texto branca */
+    text-shadow: 0 0 20px #0004ff8a; /* Sombra de texto (leve glow azul) */
+}
+
+/* Efeito ao passar o mouse (Hover) nos cards */
+.settings-download-sources__item:hover,
+.download-group__item:hover,
+.game-item:hover {
+    transform: translateY(-6px) scale(1.05); /* Levanta mais o card e aumenta levemente */
+    /* Sombra/Glow neon mais intenso */
+    box-shadow:
+        0 8px 12px rgba(255, 70, 85, 0.9), /* Sombra vermelha (para cima) */
+        0 0 18px rgba(255, 70, 85, 0.8); /* Glow neon intenso */
+}
+
+/* ========================================================= */
+/* === BARRA DE TÍTULO SUPERIOR COM ÍCONE HYDRA ANIMADO === */
+/* ========================================================= */
+
+/* Contêiner da barra de título */
+.title-bar {
+    background-color: #ff4e08a4; /* Fundo laranja semi-transparente */
+    height: 40px;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente (texto + ícone) */
+    overflow: hidden; /* Esconde o texto/ícone enquanto se move para dentro/fora */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo do título (h4) */
+.title-bar h4 {
+    margin: 0;
+    color: #000000; /* Cor do texto preta */
+    text-shadow: 0 0 6px rgba(0,0,0,0.25);
+    line-height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Aplica a animação: nome, duração, tipo, repetição */
+    animation: slideTitle 4s ease-in-out infinite;
+}
+
+/* Ícone do Hydra (pseudo-elemento ::before) */
+.title-bar h4::before {
+    content: ""; /* Cria o conteúdo antes do texto */
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background-image: url("https://hydrathemes.shop/_astro/hydra-logo.GR_KBiDN.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    /* Aplica a mesma animação do texto (sincronizada) */
+    animation: slideTitle 4s ease-in-out infinite;
+}
+
+/* Keyframes (Passos da Animação) do Título e Ícone */
+@keyframes slideTitle {
+    /* 0% (Início): Fora da tela, à direita, transparente */
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    /* 20% (Entrada): Entra na tela */
+    20% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /* 80% (Permanência): Permanece na tela */
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /* 100% (Saída): Sai da tela, à esquerda, transparente */
+    100% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+/* Pausa animação ao passar o mouse sobre a barra de título */
+.title-bar:hover h4,
+.title-bar:hover h4::before {
+    animation-play-state: paused;
+}
+
+/* ========================================================= */
+/* === BOTÃO DE PERFIL LATERAL (Seção do seu nome) ======== */
+/* ========================================================= */
+
+/* Botão principal do perfil (fundo e borda arredondada) */
+.sidebar-profile__button {
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil transparente */
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+}
+
+/* Fundo mais forte ao passar o mouse */
+.sidebar-profile__button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contêiner de informações (essencial para que o texto que se move não "vaze") */
+.sidebar-profile__button-information {
+    overflow: hidden; /* Esconde o texto que ultrapassa os limites */
+}
+
+/* Nome do perfil (o texto em si) - Efeito de Movimento */
+.sidebar-profile__button-title {
+    white-space: nowrap; /* Impede a quebra de linha (mantém o texto em uma linha) */
+    animation: slideProfileName 8s ease-in-out infinite; /* Aplica a animação */
+    position: relative;
+    display: inline-block; /* Permite que o elemento se mova (transform) */
+}
+
+/* Keyframes (Passos da Animação) do Nome do Perfil */
+@keyframes slideProfileName {
+    /* 0% (Início): Fora da tela, à direita, transparente */
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    /* 10% (Entrada): Entra na tela */
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /* 80% (Permanência): Permanece na tela */
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /* 100% (Saída): Sai da tela, à esquerda, transparente */
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+/* ========================================================= */
+/* === LOJA DE TEMAS / MODAIS (Janelas Flutuantes) ======== */
+/* ========================================================= */
+
+/* Aplica fundo de "vidro fosco" a modais e loja de temas */
+.theme-store-wrapper,
+.theme-store-main,
+.theme-store-overlay,
+.modal {
+    background: rgba(15, 15, 15, 0.15) !important; /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(4px) !important; /* Desfoque mais forte */
+    box-shadow: none !important;
+    border-radius: 10px;
+}
+
+/* Garante que o conteúdo DENTRO dos modais/loja seja transparente e branco */
+.theme-store-wrapper *,
+.theme-store-main *,
+.theme-store-overlay *,
+.modal * {
+    background: transparent !important; /* Fundo transparente para todos os elementos internos */
+    color: #fff !important; /* Cor do texto branca */
+}
+
+/* Botões gerais na loja de temas */
+.theme-store .button,
+.button {
+    background: rgba(255, 70, 85, 0.2) !important; /* Fundo neon sutil */
+    border: 2px solid rgba(255, 70, 85, 0.7) !important; /* Borda neon */
+    color: #fff !important;
+    font-weight: 900;
+    transition: 0.25s;
+}
+
+/* Hover nos botões gerais */
+.theme-store .button:hover,
+.button:hover {
+    background: rgba(255, 70, 85, 0.4) !important;
+    box-shadow: 0 0 12px #ff4655 !important;
+    transform: scale(1.05) !important;
+}
+
+/* ========================================================= */
+/* === SCROLLBARS (Barra de Rolagem em Modais/Loja) ======= */
+/* ========================================================= */
+
+/* Largura da barra de rolagem */
+.modal::-webkit-scrollbar,
+.theme-store::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Trilha (fundo) da barra de rolagem */
+.modal::-webkit-scrollbar-track,
+.theme-store::-webkit-scrollbar-track {
+    background: rgba(15, 15, 15, 0.1);
+}
+
+/* "Polegar" (a barra que você arrasta) */
+.modal::-webkit-scrollbar-thumb,
+.theme-store::-webkit-scrollbar-thumb {
+    background: rgba(255, 70, 85, 0.3); /* Cor neon transparente */
+    border-radius: 4px;
+}
+
+/* ========================================================= */
+/* === SIDEBAR - MENU LATERAL (Botões de Navegação) ======= */
+/* ========================================================= */
+
+/* Lista de itens do menu */
+.sidebar__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar__menu-item {
+    margin-bottom: 6px;
+}
+
+/* Estilo padrão do botão de menu */
+.sidebar__menu-item-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgba(50, 50, 50, 0.3); /* Fundo inativo */
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 12px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.4); /* Leve glow inicial */
+}
+
+/* Ícone dentro do botão */
+.sidebar__menu-item-button svg {
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    fill: currentColor;
+}
+
+/* Texto do botão */
+.sidebar__menu-item-button span {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+}
+
+/* Hover - Efeito Neon Pulse (Brilho que pulsa) */
+.sidebar__menu-item:hover .sidebar__menu-item-button {
+    background-color: rgba(30, 30, 30, 0.8); /* Fundo escuro */
+    color: #ff4655; /* Cor do texto neon */
+    transform: scale(1.05); /* Leve aumento */
+    border-radius: 12px;
+    /* Glow neon intenso */
+    box-shadow: 0 0 10px #ff4655, 0 0 20px #ff4655, 0 0 30px #ff4655;
+    animation: pulseGlow 1.2s infinite alternate; /* Aplica a animação de pulsação */
+}
+
+/* Ícone no Hover */
+.sidebar__menu-item:hover .sidebar__menu-item-button svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px #ff4655);
+}
+
+/* Item Ativo (Selecionado) */
+.sidebar__menu-item--active .sidebar__menu-item-button {
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 6px #ff4655; /* Glow mais suave quando ativo */
+}
+
+/* Hover em Item Ativo (mantém o efeito de pulsação) */
+.sidebar__menu-item--active:hover .sidebar__menu-item-button {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #ff4655;
+    transform: scale(1.05);
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ff4655, 0 0 20px #ff4655, 0 0 30px #ff4655;
+    animation: pulseGlow 1.2s infinite alternate;
+}
+
+.sidebar__menu-item--active:hover .sidebar__menu-item-button svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px #ff4655);
+}
+
+/* Keyframes (Passos da Animação) de Pulsação do Neon */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px #ff4655, 0 0 20px #ff4655, 0 0 30px #ff4655;
+    }
+    50% { /* Meio do ciclo (brilho máximo) */
+        box-shadow: 0 0 12px #ff4655, 0 0 24px #ff4655, 0 0 36px #ff4655;
+    }
+    100% {
+        box-shadow: 0 0 10px #ff4655, 0 0 20px #ff4655, 0 0 30px #ff4655;
+    }
+}
+
+/* ========================================================= */
+/* === SIDEBAR - CAMPO DE BUSCA LATERAL ==================== */
+/* ========================================================= */
+
+/* Container geral do campo de busca */
+.text-field-container {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Wrapper interno */
+.text-field-container__text-field-wrapper {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Estilo da caixa de texto/fundo */
+.text-field-container__text-field {
+    position: relative;
+    background-color: rgba(30, 30, 30, 0.5); /* Fundo semi-transparente escuro */
+    backdrop-filter: blur(4px); /* Efeito vidro */
+    border-radius: 12px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 70, 85, 0.3); /* Borda suave neon */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 70, 85, 0.2);
+}
+
+/* Input real */
+.text-field-container__text-field-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: #fff; /* Texto branco */
+    font-size: 14px;
+    outline: none; /* Remove a borda padrão de foco do navegador */
+}
+
+/* Placeholder (texto de dica) */
+.text-field-container__text-field-input::placeholder {
+    color: rgba(255, 255, 255, 1); /* Placeholder branco sólido */
+    font-weight: 500;
+}
+
+/* Hover - efeito neon */
+.text-field-container__text-field:hover {
+    border-color: #ff4655; /* Borda fica neon */
+    box-shadow: 0 0 8px #ff4655, 0 0 12px #ff4655; /* Glow mais forte */
+}
+
+/* Focus (quando você clica para digitar) - efeito neon mais intenso */
+.text-field-container__text-field-input:focus {
+    border-color: #ff4655;
+    box-shadow: 0 0 10px #ff4655, 0 0 15px #ff4655;
+    color: #ffffffff;
+}
+
+/* ========================================================= */
+/* === SIDEBAR - BOTÕES DE AÇÃO NA BIBLIOTECA (+ e Play) === */
+/* ========================================================= */
+
+/* Contêiner de botões da seção */
+.sidebar__section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botões de ação (+ e play) */
+.sidebar__add-button,
+.sidebar__play-button {
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo leve transparente */
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ícones dentro dos botões */
+.sidebar__add-button svg,
+.sidebar__play-button svg {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff; /* Cor inicial branca */
+    transition: all 0.25s ease;
+}
+
+/* Hover - Ícones (muda cor e aplica efeito pulsar) */
+.sidebar__add-button:hover svg,
+.sidebar__play-button:hover svg {
+    fill: #ff4655; /* Cor neon vermelha */
+    transform: scale(1.3); /* Aumenta o ícone */
+    /* Glow neon com drop-shadow */
+    filter: drop-shadow(0 0 6px #ff4655) drop-shadow(0 0 12px #ff4655);
+    animation: pulse 0.6s infinite alternate; /* Aplica a pulsação */
+}
+
+/* Fundo do botão no hover */
+.sidebar__add-button:hover,
+.sidebar__play-button:hover {
+    background-color: rgba(255, 70, 85, 0.2);
+}
+
+/* Keyframes (Passos da Animação) de Pulsação do Ícone */
+@keyframes pulse {
+    0% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 4px #ff4655) drop-shadow(0 0 8px #ff4655);
+    }
+    100% {
+        transform: scale(1.35);
+        filter: drop-shadow(0 0 8px #ff4655) drop-shadow(0 0 16px #ff4655);
+    }
+}
+
+/* ========================================================= */
+/* === HEADER - TÍTULO "INÍCIO" e BUSCA ==================== */
+/* ========================================================= */
+
+/* Container da seção esquerda (seta + título) */
+.header__section--left {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 8px; /* Espaço entre a seta e o título */
+    flex-wrap: wrap;
+}
+
+/* Botão de voltar (seta) */
+.header__back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, color 0.25s ease;
+    display: flex;
+    align-items: center;
+    padding: 9px; /* Aumenta a área de clique */
+    color: #ffffff;
+}
+
+/* Hover na seta */
+.header__back-button:hover {
+    transform: scale(1.1);
+    color: #ff4655; /* Muda a cor da seta para neon */
+}
+
+/* Estilo do Título "Início" */
+.header__title {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 2px solid #ff4655; /* Borda estática neon */
+    box-shadow: 0 0 6px #ff4655, 0 0 12px #ff4655; /* Glow neon */
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    transition: color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover no título "Início" (apenas muda o glow) */
+.header__title:hover {
+    color: #ff7777;
+    box-shadow: 0 0 8px #ff7777, 0 0 16px #ff7777;
+}
+
+/* Responsividade básica para telas pequenas */
+@media (max-width: 600px) {
+    .header__section--left {
+        justify-content: center;
+    }
+    .header__title {
+        font-size: 14px;
+    }
+    .header__back-button svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Contêiner da busca */
+.header__search {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3); /* Fundo leve transparente */
+    border-radius: 8px;
+    padding: 4px 8px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.6);
+    transition: all 0.25s ease;
+}
+
+/* Input de busca */
+.header__search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    padding: 4px 6px;
+    transition: all 0.25s ease;
+}
+
+/* Placeholder da busca */
+.header__search-input::placeholder {
+    color: #ffffffff;
+}
+
+/* Hover no input (efeito de cor de texto) */
+.header__search:hover .header__search-input {
+    color: #ffffffff;
+}
+
+/* Botão de lupa */
+.header__action-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+/* Hover na lupa */
+.header__action-button:hover svg {
+    fill: #ff4655; /* Muda cor para neon */
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 4px #ff4655); /* Glow neon */
+}
+
+/* ========================================================= */
+/* === BOTÃO HERO (Card Grande de Destaque) ================ */
+/* ========================================================= */
+
+.hero {
+    position: relative;
+    display: block;
+    border: 2px solid #ff4655; /* Borda neon estática */
+    border-radius: 16px;
+    overflow: hidden;
+    /* Glow neon inicial */
+    box-shadow: 0 0 8px #ff4655, 0 0 16px #ff4655;
+    background-color: #111;
+    padding: 0;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover no Hero (aumenta glow e faz leve zoom) */
+.hero:hover {
+    box-shadow: 0 0 12px #ff7777, 0 0 24px #ff7777;
+    transform: scale(1.02);
+}
+
+/* Imagem de fundo */
+.hero__media {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+/* Conteúdo sobreposto (logo e descrição) */
+.hero__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinha o conteúdo na parte inferior */
+    color: #fff;
+}
+
+/* Logo */
+.hero__logo {
+    margin-bottom: 8px;
+    width: 250px;
+    max-width: 80%;
+    transition: transform 0.3s ease;
+}
+
+/* Descrição */
+.hero__description {
+    font-size: 14px;
+    line-height: 1.3;
+    color: #fff;
+    text-shadow: 0 0 4px #ff4655, 0 0 8px #ff4655; /* Glow neon no texto */
+    margin: 0;
+}
+
+/* Hover na logo (dentro do Hero) */
+.hero:hover .hero__logo {
+    transform: scale(1.05);
+}
+
+/* ========================================================= */
+/* === TÍTULO ESTÁTICO (em Cards de Jogo/Item) ============= */
+/* ========================================================= */
+
+/* Contêiner do título com borda neon e fundo translúcido */
+.game-card__title-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    height: 24px;
+    padding: 2px 6px;
+    border: 2px solid #ff080883; /* Borda neon (vermelho) */
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.3); /* Fundo escuro */
+    /* Glow neon ao redor do contêiner */
+    box-shadow:
+        0 0 5px #ff080883,
+        0 0 10px #ff080883,
+        0 0 20px #ff080883,
+        0 0 30px #ff080883;
+}
+
+/* Ícone Hydra antes do título */
+.game-card__title-container::before {
+    content: url('https://hydrathemes.shop/_astro/hydra-logo.GR_KBiDN.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Título estático */
+.game-card__title {
+    color: #fff;
+    font-weight: bold;
+}

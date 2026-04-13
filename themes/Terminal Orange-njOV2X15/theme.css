@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap");
+
+:root {
+  --theme-rgb-background-color: 28, 18, 10;     /* deep warm brown-black */
+  --theme-rgb-text-color: 255, 180, 80;        /* classic amber phosphor */
+  --theme-rgb-glow: 255, 160, 40;              /* intense orange glow */
+  --theme-rgb-active-bg: 255, 140, 0;          /* bright amber highlight */
+  --theme-rgb-active-text: 20, 10, 0;          /* near-black for contrast */
+  --theme-rgb-scanline: 180, 110, 50;          /* dusty orange-brown scanlines */
+  --theme-opacity: 0.94;
+  --theme-opacity-glow: 0.82;
+}
+
+#root::before, .modal::before, body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    repeating-linear-gradient(180deg, rgba(var(--theme-rgb-scanline),0.3) 0px, rgba(var(--theme-rgb-scanline),0.2) 4px, transparent 4px, transparent 8px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(var(--theme-rgb-scanline),0.08) 3px, rgba(var(--theme-rgb-scanline),0.08) 5px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(var(--theme-rgb-scanline),0.06) 1px, rgba(var(--theme-rgb-scanline),0.06) 2px),
+    radial-gradient(ellipse at 50% 0%, rgba(0,0,0,.12), transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,0,0,.12), transparent 50%);
+  background-size: 100% 800%, 100% 8px, 4px 100%, 100% 100%, 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: .7;
+  animation: scanlines 24s linear infinite;
+}
+
+@keyframes scanlines { 0% { background-position-y: 800%, 0, 0, 0, 0; } 100% { background-position-y: 0, 0, 0, 0, 0; } }
+
+#root::after, .modal::after, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(90deg, transparent, rgba(255,140,0,.05), transparent), rgba(180,110,50,.08);
+  animation: flicker .12s infinite alternate;
+  mix-blend-mode: screen;
+}
+
+@keyframes flicker { 0%,100%{opacity:.9} 10%{opacity:.82} 20%{opacity:.9} 30%{opacity:.78} 50%{opacity:1} 90%{opacity:.88} }
+
+@keyframes crt-glow { 0%,100%{text-shadow:0 0 6px rgba(var(--theme-rgb-glow),.5)} 50%{text-shadow:0 0 16px rgba(var(--theme-rgb-glow),.8), 0 0 28px rgba(var(--theme-rgb-glow),.4)} }
+
+* { border-radius:0 !important;}
+
+body, .modal, .sidebar, .header, .container__content { background:rgb(var(--theme-rgb-background-color))!important; }
+
+.modal, .sidebar, .header, .container__content, .game-details__description-container,
+.achievement-panel, .achievements__list, .library-view-options__option, .title-bar {
+  font-family:"Share Tech Mono",monospace;
+  box-shadow:inset 0 0 20px rgba(0,0,0,.6),0 0 30px rgba(0,0,0,.8);
+}
+
+.header h1, .header__title, .title-bar { font-family:"Orbitron",monospace!important; font-weight:900; letter-spacing:1px; }
+
+.modal *, .sidebar *, .header *, .container__content *, .button, .text-field-container__text-field-input,
+.header__search-input, .select-field__option, .library-view-options__option, .achievements__item,
+.filter-item, .badge, .sidebar__menu-item, .game-item__title, .library-game-card__achievement-percentage {
+  color:rgba(var(--theme-rgb-text-color),var(--theme-opacity))!important;
+  text-shadow:0 0 5px rgba(var(--theme-rgb-glow),var(--theme-opacity-glow));
+}
+
+.sidebar .sidebar__menu-item--active, .sidebar .sidebar__menu-item--active *,
+.sidebar .sidebar__menu-item[aria-current="page"], .sidebar .sidebar__menu-item[aria-current="page"] *,
+.library-view-options__option.active, .library-view-options__option.active *,
+.library-view-options__option[aria-selected="true"], .library-view-options__option[aria-selected="true"] *,
+.button--primary, .button--primary *, .button[aria-pressed="true"], .button[aria-pressed="true"] * {
+  background:rgba(var(--theme-rgb-active-bg),0.95)!important;
+  color:rgb(var(--theme-rgb-active-text))!important;
+  text-shadow:0 0 12px rgba(var(--theme-rgb-glow),.9)!important;
+  animation:crt-glow 1.5s infinite ease-in-out;
+}
+
+.button:hover, .button:hover *, .sidebar .sidebar__menu-item:hover, .sidebar .sidebar__menu-item:hover *,
+.library-view-options__option:hover, .library-view-options__option:hover *,
+.game-item:hover, .game-item:hover *, .filter-item:hover, .filter-item:hover *,
+.achievements__item:hover, .achievements__item:hover * {
+  background:rgba(var(--theme-rgb-text-color),1)!important;
+  color:rgb(var(--theme-rgb-active-text))!important;
+  text-shadow:0 0 14px rgba(var(--theme-rgb-glow),1)!important;
+}
+
+.button, .text-field-container__text-field, .header__search, .library-view-options__option,
+.game-item, .filter-item, .badge, .user-stats__box, .recent-games__box, .friends-box__box {
+  border:1px solid rgba(var(--theme-rgb-text-color),var(--theme-opacity))!important;
+}
+
+::-webkit-scrollbar { width:6px !important; height:6px !important; }
+::-webkit-scrollbar-track { background:transparent !important; }
+::-webkit-scrollbar-thumb {
+  background:rgba(var(--theme-rgb-text-color),0.9) !important;
+  border:none !important;
+  box-shadow:0 0 10px rgba(var(--theme-rgb-glow),0.9) !important;
+}
+::-webkit-scrollbar-thumb:hover { background:rgba(var(--theme-rgb-glow),1) !important; }
+
+progress,
+input[type="range"],
+.settings-general__volume-slider,
+.download-group__progress-fill,
+.library-game-card__achievement-bar,
+.library-game-card__achievement-progress {
+  background:rgba(0,0,0,0.6) !important;
+  border:1px solid rgba(var(--theme-rgb-text-color),0.7) !important;
+  box-shadow:inset 0 0 10px rgba(0,0,0,0.7) !important;
+}
+
+progress::-webkit-progress-value,
+.download-group__progress-fill,
+.library-game-card__achievement-progress,
+.library-game-card__achievement-bar > div[style*="width"] {
+  box-shadow:0 0 14px rgba(var(--theme-rgb-glow),0.4), 0 0 24px rgba(var(--theme-rgb-glow),0.7) !important;
+  animation:crt-glow 2s infinite ease-in-out !important;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+.settings-general__volume-slider::-webkit-slider-thumb {
+  background:rgba(var(--theme-rgb-glow),0.98) !important;
+  box-shadow:0 0 14px rgba(var(--theme-rgb-glow),1) !important;
+}
+
+::placeholder, .user-stats__box .label, .subtext {
+  color:rgba(var(--theme-rgb-scanline),.7)!important;
+  text-shadow:none!important;
+}
+
+/* Achievement Popup – Classic Amber */
+.achievement-notification__outer-container {
+  background:rgba(28,18,10,0.95)!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  border:1px solid rgba(255,180,80,0.9)!important;
+  box-shadow:0 0 14px rgba(255,160,40,0.7),0 4px 24px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,160,40,0.2)!important;
+}
+
+.achievement-notification__outer-container:hover { 
+  transform:translateY(-4px)!important; 
+  box-shadow:0 0 28px rgba(255,160,40,1),0 8px 36px rgba(0,0,0,0.9)!important; 
+}
+
+.achievement-notification__icon { 
+  background:rgba(0,0,0,0.35)!important;
+  border-right:1px solid rgba(255,180,80,0.5)!important; 
+}
+
+.achievement-notification__icon img, .achievement-notification__icon svg { 
+  filter:drop-shadow(0 0 14px #ffac32)!important; 
+}
+
+.achievement-notification__container::before { 
+  content:"";position:absolute;top:0;left:0;width:6px;height:100%;background:#ffac32;box-shadow:0 0 24px #ffac32!important; 
+}
+
+.achievement-notification__title { 
+  color:#ffb450!important;text-shadow:0 0 12px #ffac32,0 0 24px rgba(255,160,40,0.7)!important;animation:crt-glow 2s infinite ease-in-out!important; 
+}
+
+.achievement-notification__description { 
+  color:#ffc880!important;text-shadow:0 0 6px rgba(255,160,40,0.5)!important; 
+}
+
+.achievement-notification__points { 
+  background:rgba(255,180,80,0.3)!important;color:#1c1208!important;border:1px solid rgba(255,160,40,0.8)!important;
+  box-shadow:0 0 16px rgba(255,160,40,0.8),inset 0 0 10px rgba(0,0,0,0.5)!important;text-shadow:0 0 10px #ffac32!important; 
+}
