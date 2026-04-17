@@ -41,6 +41,8 @@
   background: url(https://i.imgur.com/QFsCJNX.jpeg) no-repeat center center / cover !important;
   position: relative !important;
   z-index: 2 !important;
+  position: relative !important;
+  overflow: visible !important;
 }
 
 .settings-download-sources__item,
@@ -158,7 +160,6 @@
 }
 
 /* Quitar el recuadro negro detrás de cada repack */
-.settings-download-sources__item,
 .download-group__item {
   background: transparent !important;
   background-color: transparent !important;
@@ -319,23 +320,6 @@
   border: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
-}
-
-/* ============================
-   IMAGEN SOLO EN LA ZONA DE PERFIL DEL SIDEBAR
-   ============================ */
-
-.sidebar {
-  position: relative !important;
-  overflow: visible !important;
-}
-
-/* ============================
-   IMAGEN SOLO EN LA ZONA DE PERFIL DEL SIDEBAR
-   ============================ */
- {
-  position: relative !important;
-  overflow: visible !important;
 }
 
 /* Imagen arriba del perfil SIN TAPAR "Inicio" */
