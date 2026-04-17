@@ -1,0 +1,81 @@
+:root {
+  --bg-image: url(https://files.catbox.moe/fwdvdv.gif);
+  --main-color: #00ccff;
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #bcdcff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+/* ФОН (ЧЁТКИЙ, БЕЗ РАЗМЫТИЯ) */
+#root {
+  background: var(--bg-image) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.55) !important; /* прозрачный, но без blur */
+  border-radius: 10px;
+  border: 1px solid rgba(0, 204, 255, 0.25);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.game-item:hover {
+  transform: scale(1.03);
+  box-shadow: 
+    0 0 10px var(--main-color),
+    0 0 20px rgba(50, 56, 63, 0.56);
+}
+
+.container__content .button--outline,
+.button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--main-color);
+  color: #001018;
+  box-shadow:
+    0 0 8px var(--main-color),
+    0 0 16px var(--main-color),
+    0 0 24px rgba(50, 56, 63, 0.56);
+  transform: scale(1.05);
+}
+
+.toast {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  box-shadow: 0 0 10px var(--main-color);
+}

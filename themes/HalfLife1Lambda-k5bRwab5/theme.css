@@ -11,8 +11,8 @@
 
 /* Caixa de titulo superior */
   .header {
-    color: cyan !important; /* Aplica a cor neon azul ao texto do header */
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.8); /* Efeito de brilho neon */
+    color: orange !important; /* Aplica a cor neon azul ao texto do header */
+    text-shadow: 0 0 5px rgba(251, 142, 0, 0.8); /* Efeito de brilho neon */
     font-family: 'Orbitron', sans-serif;
     backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0.5);
@@ -21,10 +21,10 @@
 
     .header__search {
       background: rgba(0, 0, 0, 0.295);
-      border: 2px solid rgba(255, 0, 0, 0.5);
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.562);
-      color: cyan !important;
-      text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+      border: 2px solid rgba(251, 142, 0, 0.8);
+      box-shadow: 0 0 8px rgba(251, 142, 0, 0.8);
+      color: orange !important;
+      text-shadow: 0 0 5px rgba(255, 208, 0, 0.8);
       padding: 10px 15px;
       margin: 10px 0;
       font-size: 12px;
@@ -40,7 +40,7 @@
     height: 100vh;*/
     background-color: rgba(0, 0, 0, 0.425) !important;
     /*border-right: 2px solid rgba(0, 255, 255, 0.5);*/
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.7);
     backdrop-filter: blur(7px);
     left: 0;
     top: 0;
@@ -48,15 +48,15 @@
     flex-direction: column;
     padding: 7px;
     font-family: 'Orbitron', sans-serif;
-    color: cyan;
-    text-shadow: 0 0 7px rgba(0, 255, 255, 0.8);
+    color: orange;
+    text-shadow: 0 0 7px rgba(255, 153, 0, 0.8);
   }
 
     .sidebar button {
-      background: rgba(0, 255, 255, 0.1); /* Fundo translúcido azul neon */
-      border: 1px solid rgba(0, 255, 255, 0.7);
-      color: cyan !important;
-      text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+      background: rgba(255, 187, 0, 0.1); /* Fundo translúcido azul neon */
+      border: 1px solid rgba(255, 187, 0, 0.7);
+      color: orange !important;
+      text-shadow: 0 0 5px rgba(255, 196, 0, 0.8);
       padding: 8px 10px;
       margin: 4px 0;
       font-size: 12px;
@@ -64,20 +64,20 @@
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 5px;
-      box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+      box-shadow: 0 0 6px rgba(255, 196, 0, 0.582);
     /*animation: neonBlink 1s infinite alternate, neonBackground 1s infinite alternate;*/
     }
 
     .sidebar button:hover {
-      background: rgba(0, 255, 255, 0.4);
-      box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+      background: rgba(255, 187, 0, 0.4);
+      box-shadow: 0 0 10px rgb(255, 196, 0);
     }
 
     .sidebar input[type="text"] {
       background: transparent;
-      border: 2px solid rgba(255, 0, 0, 0.5);
+      border: 2px solid rgba(255, 187, 0, 0.5);
       color: rgb(255, 255, 255) !important;
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.562);
+      box-shadow: 0 0 8px rgba(255, 153, 0, 0.562);
       padding: 10px;
       border-radius: 5px;
       outline: none;
@@ -85,13 +85,13 @@
     }
 
     .sidebar input[type="text"]:focus {
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-      border-color: rgb(255, 0, 0);
+      box-shadow: 0 0 20px rgba(255, 145, 0, 0.8);
+      border-color: rgb(255, 145, 0);
     }
 
 /*Papel de parede configs*/
   #root {
-    background: url(https://wallpapercave.com/wp/wp2897676.jpg)
+    background: url(https://i.imgur.com/bCxq1zA.jpeg)
     #00000000;
      background-position: top;
    /*background-repeat: no-repeat;*/
@@ -99,8 +99,8 @@
 
 /*Textos*/
   body {
-    color: cyan;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.75);
+    color: orange;
+    text-shadow: 0 0 8px rgba(255, 174, 0, 0.75);
   }
 
 /* Papel de parede principal */
@@ -113,9 +113,9 @@
   .bottom-panel {
     background: rgba(0, 0, 0, 0.322);
     backdrop-filter: blur(4px);
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.582);
+    box-shadow: 0 0 12px rgba(255, 187, 0, 0.582);
     border-radius: 5px;
-    border: 1px solid rgba(0, 255, 255, 0.7);    
+    border: 1px solid rgba(255, 196, 0, 0.7);    
   }
 
 /* Toast */
@@ -123,7 +123,7 @@
 
 /*Caixa de conquistas*/
   .achievement-notification__outer-container {
-    background: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l4dDY5a3AyczFzcTg5aG04NDkyenJxbGlsdmdiM2t2YjRmNzl0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7GlhhHLETEHdxkDF6q/giphy.gif);
+    background: url(https://media1.tenor.com/m/lOOrRXcfdz4AAAAC/games-half-life.gif);
     background-position: right;
     background-size: 40%;
     background-repeat: no-repeat;
@@ -131,12 +131,12 @@
   }
 
     .achievement-notification__container{
-      background: rgba(0, 255, 255, 0.1);
+      background: rgba(255, 187, 0, 0.1);
       backdrop-filter: blur(1px);
-      border: 1px solid rgba(0, 255, 255, 0.7);
+      border: 1px solid rgba(255, 174, 0, 0.7);
       border-radius: 5px;
       text-shadow: 0 0 8px rgb(255, 255, 255);
-      box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+      box-shadow: 0 0 6px rgba(255, 196, 0, 0.582);
     }
 
     .achievement-notification__container *{
@@ -158,8 +158,8 @@
 
 /*Bordas neon em algumas caixas*/
   .settings-download-sources__item, .recent-games__box, .user-stats__box,.theme-card,.settings__content{
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 115, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 115, 0, 0.582);
   }
   
 /*Biblioteca de jogos do usuário*/
@@ -170,8 +170,8 @@
 
 /* Botões */
   .button {
-    color: cyan;
-    text-shadow: 0 0 7px rgba(0, 255, 255, 0.8);
+    color: orange;
+    text-shadow: 0 0 7px rgba(255, 115, 0, 0.8);
   }
 
  /*Efeito de hover ao passar mouse no botão*/
@@ -181,36 +181,36 @@
 
 /*Caixa de download*/
   .download-group__item {
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 115, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 145, 0, 0.582);
   }
 
 
 /*Caixa de jogos tela principal*/
   .game-card {
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 115, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 102, 0, 0.582);
   }
 
 /*Esqueci kk*/
   .hero {
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 102, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 94, 0, 0.582);
   }
 
 /*Caixa dos botões*/
   .container__content .button--outline {
     backdrop-filter: blur(8px);
-    background: rgba(0, 255, 255, 0.15); /* Fundo translúcido azul neon*/
+    background: rgba(255, 136, 0, 0.15); /* Fundo translúcido azul neon*/
   /*background-color: rgba(0, 0, 0, 0.5);*/
-    border: 1px solid rgba(0, 255, 255, 0.7);  
+    border: 1px solid rgba(255, 136, 0, 0.7);  
   }
 
 /*Mais alguns botões*/
   .button--outline, .button--primary, .user-friend-modal-add-friend__button{
     /*background-color: transparent;*/
-    border: 1px solid rgba(255, 0, 0, 0.7);
-    background: rgba(255, 0, 0, 0.15);
+    border: 1px solid rgba(255, 115, 0, 0.7);
+    background: rgba(255, 153, 0, 0.15);
   }
 
 /*Caixa de adicionar amigos*/
@@ -224,19 +224,19 @@
 
 /*Caixa de games catalogo*/
   .game-item{
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 102, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 102, 0, 0.582);
   }
 
 /*Caixa de filtros catalogo*/
   .catalogue__filters-container{
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 115, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 102, 0, 0.582);
   }
 
 /*Botões vermelhos*/
   .button--danger {
-    box-shadow: 0 0 15px rgba(241, 0, 0, 0.582);
+    box-shadow: 0 0 15px rgba(241, 116, 0, 0.582);
   }
 
 /*Transparencia em mais algumas caixas*/
@@ -254,7 +254,7 @@
 
 /*Mudo o texto no canto inferior direito*/
   .bottom-panel__version-button::after {
-    content: " Pick up That Can";
+    content: " Unforseen Consequences";
   }
 
   .bottom-panel__version-button * {
@@ -263,7 +263,7 @@
 
 /*Mudar nome do app*/
   h4::after {
-    content: " Combine Union";
+    content: " LAMBDA TEAM";
   }
 
 /*@keyframes neonBackground {

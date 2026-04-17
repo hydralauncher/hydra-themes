@@ -1,4 +1,6 @@
-/*
+
+
+  /*
     Here you can edit CSS for your theme and apply it on Hydra.
     There are a few classes already in place, you can use them to style the launcher.
 
@@ -11,8 +13,8 @@
 
 /* Caixa de titulo superior */
   .header {
-    color: cyan !important; /* Aplica a cor neon azul ao texto do header */
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.8); /* Efeito de brilho neon */
+    color: white !important; /* Aplica a cor neon azul ao texto do header */
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Efeito de brilho neon */
     font-family: 'Orbitron', sans-serif;
     backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0.5);
@@ -24,7 +26,7 @@
       border: 2px solid rgba(255, 0, 0, 0.5);
       box-shadow: 0 0 8px rgba(255, 0, 0, 0.562);
       color: cyan !important;
-      text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+      text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
       padding: 10px 15px;
       margin: 10px 0;
       font-size: 12px;
@@ -39,8 +41,8 @@
     /*width: 250px;
     height: 100vh;*/
     background-color: rgba(0, 0, 0, 0.425) !important;
-    /*border-right: 2px solid rgba(0, 255, 255, 0.5);*/
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    /*border-right: 2px solid rgba(255, 0, 0, 0.5);*/
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
     backdrop-filter: blur(7px);
     left: 0;
     top: 0;
@@ -48,15 +50,15 @@
     flex-direction: column;
     padding: 7px;
     font-family: 'Orbitron', sans-serif;
-    color: cyan;
-    text-shadow: 0 0 7px rgba(0, 255, 255, 0.8);
+    color: white;
+    text-shadow: 0 0 7px rgba(255, 0, 0, 0.8);
   }
 
     .sidebar button {
-      background: rgba(0, 255, 255, 0.1); /* Fundo translúcido azul neon */
-      border: 1px solid rgba(0, 255, 255, 0.7);
-      color: cyan !important;
-      text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+      background: rgba(255, 0, 0, 0.1); /* Fundo translúcido azul neon */
+      border: 1px solid rgba(255, 0, 0, 0.7);
+      color: white !important;
+      text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
       padding: 8px 10px;
       margin: 4px 0;
       font-size: 12px;
@@ -64,13 +66,13 @@
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 5px;
-      box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+      box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
     /*animation: neonBlink 1s infinite alternate, neonBackground 1s infinite alternate;*/
     }
 
     .sidebar button:hover {
-      background: rgba(0, 255, 255, 0.4);
-      box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+      background: rgba(255, 0, 0, 0.4);
+      box-shadow: 0 0 10px rgb(255, 0, 0);
     }
 
     .sidebar input[type="text"] {
@@ -91,16 +93,16 @@
 
 /*Papel de parede configs*/
   #root {
-    background: url(https://wallpapercave.com/wp/wp2897676.jpg)
+    background: url(https://wallpapercave.com/wp/nWMlDM6.jpg)
     #00000000;
-     background-position: top;
+     background-position: center;
    /*background-repeat: no-repeat;*/
   }
 
 /*Textos*/
   body {
-    color: cyan;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.75);
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.75);
   }
 
 /* Papel de parede principal */
@@ -113,9 +115,9 @@
   .bottom-panel {
     background: rgba(0, 0, 0, 0.322);
     backdrop-filter: blur(4px);
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.582);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.58);
     border-radius: 5px;
-    border: 1px solid rgba(0, 255, 255, 0.7);    
+    border: 1px solid rgba(255, 0, 0, 0.7);    
   }
 
 /* Toast */
@@ -123,20 +125,20 @@
 
 /*Caixa de conquistas*/
   .achievement-notification__outer-container {
-    background: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l4dDY5a3AyczFzcTg5aG04NDkyenJxbGlsdmdiM2t2YjRmNzl0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7GlhhHLETEHdxkDF6q/giphy.gif);
+    background: url(https://static.wikia.nocookie.net/left4dead/images/4/4c/Saferoom_door.jpg/revision/latest?cb=20081220150805);
     background-position: right;
-    background-size: 40%;
+    background-size: 20%;
     background-repeat: no-repeat;
     color: #000;
   }
 
     .achievement-notification__container{
-      background: rgba(0, 255, 255, 0.1);
+      background: rgba(255, 0, 0, 0.1);
       backdrop-filter: blur(1px);
-      border: 1px solid rgba(0, 255, 255, 0.7);
+      border: 1px solid rgba(255, 0, 0, 0.7);
       border-radius: 5px;
       text-shadow: 0 0 8px rgb(255, 255, 255);
-      box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+      box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
     }
 
     .achievement-notification__container *{
@@ -158,8 +160,8 @@
 
 /*Bordas neon em algumas caixas*/
   .settings-download-sources__item, .recent-games__box, .user-stats__box,.theme-card,.settings__content{
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
   }
   
 /*Biblioteca de jogos do usuário*/
@@ -170,8 +172,8 @@
 
 /* Botões */
   .button {
-    color: cyan;
-    text-shadow: 0 0 7px rgba(0, 255, 255, 0.8);
+    color: white;
+    text-shadow: 0 0 7px rgba(255, 0, 0, 0.8);
   }
 
  /*Efeito de hover ao passar mouse no botão*/
@@ -181,29 +183,29 @@
 
 /*Caixa de download*/
   .download-group__item {
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
   }
 
 
 /*Caixa de jogos tela principal*/
   .game-card {
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
   }
 
 /*Esqueci kk*/
   .hero {
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
   }
 
 /*Caixa dos botões*/
   .container__content .button--outline {
     backdrop-filter: blur(8px);
-    background: rgba(0, 255, 255, 0.15); /* Fundo translúcido azul neon*/
+    background: rgba(255, 0, 0, 0.15); /* Fundo translúcido azul neon*/
   /*background-color: rgba(0, 0, 0, 0.5);*/
-    border: 1px solid rgba(0, 255, 255, 0.7);  
+    border: 1px solid rgba(255, 0, 0, 0.7);  
   }
 
 /*Mais alguns botões*/
@@ -224,14 +226,14 @@
 
 /*Caixa de games catalogo*/
   .game-item{
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
   }
 
 /*Caixa de filtros catalogo*/
   .catalogue__filters-container{
-    border: 1px solid rgba(0, 255, 255, 0.7);
-    box-shadow: 0 0 6px rgba(0, 255, 255, 0.582);
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.58);
   }
 
 /*Botões vermelhos*/
@@ -254,7 +256,7 @@
 
 /*Mudo o texto no canto inferior direito*/
   .bottom-panel__version-button::after {
-    content: " Pick up That Can";
+    content: " Safe House Ahead!";
   }
 
   .bottom-panel__version-button * {
@@ -263,17 +265,17 @@
 
 /*Mudar nome do app*/
   h4::after {
-    content: " Combine Union";
+    content: " Left 4 Dead";
   }
 
 /*@keyframes neonBackground {
     0% {
-        background: rgba(0, 255, 255, 0.15);
+        background: rgba(255, 0, 0, 0.15);
     }
     50% {
-        background: rgba(0, 255, 255, 0.17);
+        background: rgba(255, 0, 0, 0.17);
     }
     100% {
-        background: rgba(0, 255, 255, 0.2);
+        background: rgba(255, 0, 0, 0.2);
     }
 }*/
