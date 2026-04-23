@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 /*
-  Omni Theme for Hydra Launcher
-  
+Omni Theme for Hydra Launcher
+
+  Create by Vitanho98
+  Modifier by Dark1015m
+
   Created with 💙 for the Hydra community
   My GitHub: https://github.com/Vitanho98
 */
@@ -246,7 +249,7 @@ body {
     border-radius: 12px;
     padding: 24px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--grid-gap);
     box-shadow: var(--shadow-elevation);
     transition: var(--transition-smooth);
@@ -291,7 +294,7 @@ body {
     border: 1px solid var(--border-subtle);
     transition: var(--transition-smooth);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 16px;
 }
 
