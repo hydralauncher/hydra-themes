@@ -2806,9 +2806,9 @@ svg.game-card__shop-icon {
 }
 
 .profile-hero__actions .button--danger {
-    background: rgba(255, 80, 80, 0.14) !important;
-    border-color: rgba(255, 80, 80, 0.32) !important;
-    color: #ffd6d6 !important;
+    background: #7a1f1f !important;
+    border-color: #ff5050 !important;
+    color: #ffffff !important;
 }
 
 .profile-hero__actions .button--danger:hover {
@@ -3237,8 +3237,8 @@ svg.octicon.octicon-pin-slash {
 }
 
 .sidebar__game-badge {
-    background-color: rgba(192, 255, 20, 0.16);
-    color: #f8ffe8;
+    background-color: #3a4d0a;
+    color: #ffffff;
     box-shadow: initial;
-    border: 1px solid rgba(192, 255, 20, 0.35);
+    border: 1px solid #c0ff14;
 }
