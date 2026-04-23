@@ -15,7 +15,6 @@
     --geist-foreground: #ffffff;
 
     /* Cores de destaque */
-    /* --green-primary-color: #16b195; */
     --green-primary-color: #c0ff14;
     --green-secundary-color: #a1ff14;
 
@@ -99,7 +98,6 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    /* background-image: url("..."); */
     background-size: 100%;
     background-position: center;
     background-repeat: repeat;
@@ -116,22 +114,9 @@ body::before {
     height: 100vh !important;
 }
 
-.container__content {
-    padding: 112px 0 0 0;
-}
-
 .settings__container {
     padding: 0;
     height: 100%;
-}
-
-.modal {
-    max-height: 85%;
-}
-
-.backdrop {
-    z-index: 9999;
-    backdrop-filter: blur(7px);
 }
 
 .fullscreen-media-modal__overlay {
@@ -236,7 +221,6 @@ svg.lucide.lucide-award {
     backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
-    border: initial !important;
     height: 460px;
     justify-content: flex-end;
 }
@@ -272,7 +256,7 @@ svg.lucide.lucide-award {
 
 .button--primary:disabled {
     background-color: #f0f1f7;
-    color: gray;
+    color: #333333;
 }
 
 .button--outline {
@@ -295,7 +279,6 @@ svg.lucide.lucide-award {
 .text-field-container__text-field {
     background-color: var(--accents-1);
     border: 0.1rem solid var(--accents-2);
-    border-radius: 6px;
     transition: all 0.2s ease;
     color: var(--geist-foreground);
     border-radius: var(--border-radius);
@@ -321,7 +304,7 @@ svg.lucide.lucide-award {
 
 .sidebar__collection-count {
     background-color: rgba(255, 255, 255, 0.04);
-    color: gray;
+    color: #333333;
 }
 
 /* ==========================================================================
@@ -502,14 +485,10 @@ body:has(.profile-hero__background-overlay .profile-avatar__image[alt="NOAHdnz"]
     background-position: center -186px !important;
     background-repeat: no-repeat !important;
     border: initial !important;
-    height: 460px;
-}
-
-.profile-hero__content-box:has(.profile-hero__background-image) {
     height: 600px;
 }
 
-body:has(.profile-hero__background-overlay .profile-avatar__image[alt="NOAHdnz"]) .profile-hero__content-box {
+.profile-hero__content-box:has(.profile-hero__background-image) {
     height: 600px;
 }
 
@@ -562,7 +541,6 @@ body:has(.profile-hero__background-overlay .profile-avatar__image[alt="NOAHdnz"]
 }
 
 .hero-panel__progress-bar {
-    margin-top: auto;
     width: 100%;
     height: 4px;
     margin-top: 12px;
@@ -1097,7 +1075,8 @@ body:has(.library__content) .sidebar__content>.sidebar__section:nth-of-type(3) {
 }
 
 .container__content {
-    background: #0d0d0d;
+   background: #0d0d0d;
+   padding: 112px 0 0 0;
 }
 
 .library__content {
@@ -1140,7 +1119,7 @@ body:has(.library__content) .sidebar__content>.sidebar__section:nth-of-type(3) {
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.04);
     border: none;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 1);
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
@@ -1364,10 +1343,6 @@ body:has(.library__content) .sidebar__content>.sidebar__section:nth-of-type(3) {
     padding-bottom: 35px;
 }
 
-.game-item:hover {
-    box-shadow: initial;
-}
-
 .game-item__content-link {
     display: grid;
     grid-template-columns: 1fr;
@@ -1448,7 +1423,7 @@ body:has(.library__content) .sidebar__content>.sidebar__section:nth-of-type(3) {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
     gap: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    background: trasparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -1621,13 +1596,8 @@ svg.game-card__shop-icon {
     -webkit-backdrop-filter: blur(8px);
     color: rgba(255, 255, 255, 0.8);
     border: solid 1px rgba(255, 255, 255, 0.15);
-
-    color: white;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: none;
-    background: transparent;
-    padding: 4px;
 }
 
 .user-library-game__pin-button:hover {
@@ -1750,11 +1720,6 @@ svg.game-card__shop-icon {
    DETAILS PAGE / GAME DETAILS
    ========================================================================== */
 
-.hero {
-    box-shadow: initial;
-    height: 50vh !important;
-}
-
 .bb_img_ctn {
     display: block;
     width: 100%;
@@ -1858,8 +1823,6 @@ svg.game-card__shop-icon {
 }
 
 .game-details__description-content {
-    min-height: initial;
-    overflow-x: initial;
     min-height: 0;
     height: auto;
     overflow-x: hidden;
@@ -2196,7 +2159,6 @@ svg.game-card__shop-icon {
 }
 
 .profile-section__content {
-    /* min-height: 328px !important; */
     background: initial !important;
 }
 
@@ -2344,6 +2306,8 @@ svg.game-card__shop-icon {
     text-align: left;
     isolation: isolate;
     cursor: pointer;
+    box-shadow: initial;
+    height: 50vh !important;
 }
 
 .hero__backdrop {
@@ -2845,7 +2809,7 @@ svg.game-card__shop-icon {
 }
 
 .profile-hero__actions .button--danger {
-    background: rgba(255, 80, 80, 0.12) !important;
+    background: rgba(255, 80, 80, 0.5) !important;
     border-color: rgba(255, 80, 80, 0.3) !important;
     color: #ff6b6b !important;
 }
@@ -3060,6 +3024,7 @@ svg.game-card__shop-icon {
     background: rgba(0, 0, 0, 0.65) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    max-height: 85%;
 }
 
 .modal__header,
@@ -3113,6 +3078,8 @@ svg.game-card__shop-icon {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    z-index: 9999;
+    backdrop-filter: blur(7px);
 }
 
 .backdrop--closing {
@@ -3273,7 +3240,7 @@ svg.octicon.octicon-pin-slash {
 }
 
 .sidebar__game-badge {
-    background-color: rgba(192, 255, 20, 0.15);
+    background-color: rgba(192, 255, 20, 0.5);
     color: #c0ff14;
     box-shadow: initial;
     border: 1px solid rgba(192, 255, 20, 0.5);
