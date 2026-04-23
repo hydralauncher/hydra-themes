@@ -4,27 +4,69 @@
     - Couleurs : Rouge profond, Or, Brun sombre
     - Support des Succès (Achievements) et Notifications
     - Titre laissé par défaut
+
+    =========================================
+    TABLE DES MATIÈRES
+    =========================================
+    1. VARIABLES CSS & ROOT
+    2. PANNEAUX PRINCIPAUX & CONTENEURS
+    3. MENUS, BOÎTES ET LISTES
+    4. BOUTONS ET INTERACTIONS
+    5. CARTES DE JEUX
+    6. MENU LATÉRAL ET AMIS
+    7. TEXTES ET DÉTAILS
+    8. MODALS (Fenêtres pop-up)
+    9. TOASTS & NOTIFICATIONS DE SUCCÈS
+    10. PAGE DES SUCCÈS
+    11. SCROLLBAR ET BAS DE PAGE
+    12. PARAMÈTRES (SETTINGS) ET CHARGEMENT
+    =========================================
 */
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
+/* ==========================================================================
+   1. VARIABLES CSS & ROOT
+   ========================================================================== */
+:root {
+  /* Couleurs principales */
+  --color-red: #b33539;
+  --color-red-rgb: 179, 53, 57;
+  --color-gold: #d4af37;
+  --color-gold-rgb: 212, 175, 55;
+  --color-text-light: #e8d0d0;
+  --color-text-white: #ffffff;
+
+  /* Couleurs de fond */
+  --color-bg-main: #1a1012;
+  --color-bg-dark-rgb: 26, 16, 18;
+  --color-bg-panel-rgb: 45, 25, 28;
+  --color-bg-brown-rgb: 30, 18, 20;
+
+  /* Standard Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-red) transparent;
+}
+
 #root {
   font-family: "JetBrains Mono", monospace;
-  background: url("https://i.pinimg.com/736x/60/32/f7/6032f7c872c41bb1a0e4205d9d0fe51a.jpg") #1a1012;
+  background: url("https://i.pinimg.com/736x/60/32/f7/6032f7c872c41bb1a0e4205d9d0fe51a.jpg") var(--color-bg-main);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-/* PANNEAUX PRINCIPAUX */
-.sidebar,
-.header,
-.bottom-panel {
-  background-color: rgba(26, 16, 18, 0.6) !important;
+/* ==========================================================================
+   2. PANNEAUX PRINCIPAUX & CONTENEURS
+   ========================================================================== */
+#root .sidebar,
+#root .header,
+#root .bottom-panel {
+  background-color: rgba(var(--color-bg-dark-rgb), 0.6) !important;
   backdrop-filter: blur(8px);
   box-shadow: inset 0 0 30px 10px rgba(0, 0, 0, 0.5);
-  border-right: 1px solid rgba(212, 175, 55, 0.2); /* Ligne or subtile */
+  border-right: 1px solid rgba(var(--color-gold-rgb), 0.2);
 }
 
 .container__content {
@@ -32,9 +74,11 @@
   box-shadow: inset 0 0 30px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* MENUS, BOÎTES ET LISTES */
+/* ==========================================================================
+   3. MENUS, BOÎTES ET LISTES
+   ========================================================================== */
 .text-field-container__text-field-input {
-  color: #fff;
+  color: var(--color-text-white);
 }
 
 .text-field-container__text-field--dark,
@@ -42,79 +86,95 @@
 .header__search,
 .game-item,
 .settings__content,
-.catalogue__filters-container,
 .friends-box__box,
 .user-stats__box,
 .recent-games__box,
+.profile-section__content,
 .sidebar,
+.filter-section__button,
 .achievement-panel,
 .achievements__list {
-  background-color: rgba(45, 25, 28, 0.6) !important;
+  background-color: rgba(var(--color-bg-panel-rgb), 0.6) !important;
   backdrop-filter: blur(8px);
-  color: #fff;
-  border: 1px solid rgba(179, 53, 57, 0.3); /* Ligne rouge subtile */
+  color: var(--color-text-white);
+  border: 1px solid rgba(var(--color-red-rgb), 0.3);
   border-radius: 8px;
 }
 
 .settings-download-sources__item,
 .download-group__item,
+.settings__content .settings__sidebar,
+.sidebar-profile__notification-button,
+.catalogue__filters-container,
+.workwonders-feedback-button,
+.profile-section__header,
+.filter-section__content,
+.filter-section,
 .game-item {
-  background-color: rgba(26, 16, 18, 0.8) !important;
-  color: #fff;
+  background-color: rgba(var(--color-bg-dark-rgb), 0.8) !important;
+  color: var(--color-text-white);
   border-radius: 8px;
 }
 
-/* BOUTONS ET INTERACTIONS */
+/* ==========================================================================
+   4. BOUTONS ET INTERACTIONS
+   ========================================================================== */
 button {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #fff;
+  color: var(--color-text-white);
+  border-radius: 5px;
 }
 
 button:hover {
-  box-shadow: inset #b33539 0 0 20px 20px !important;
-  transform: scale(0.95);
-  color: #fff !important;
+  box-shadow: inset var(--color-red) 0 0 20px 20px !important;
+  transform: scale(1);
+  color: var(--color-text-white) !important;
+  border-radius: 5px;
 }
 
 .container__content .button--outline {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.5);
-  color: #d4af37;
-  border-color: #b33539;
+  color: var(--color-gold);
+  border-color: var(--color-red);
 }
 
 .button {
-  background-color: rgba(179, 53, 57, 0.2);
-  border: 1px solid #d4af37;
+  background-color: rgba(var(--color-red-rgb), 0.2);
+  border: 1px solid var(--color-gold);
   padding: 10px 20px;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
   cursor: pointer;
-  color: #ffffff;
+  color: var(--color-text-white);
 }
 
-/* CARTES DE JEUX */
+/* ==========================================================================
+   5. CARTES DE JEUX
+   ========================================================================== */
 .game-card {
   position: relative;
   width: 360px;
   height: 170px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: rgba(26, 16, 18, 0.6);
+  background-color: rgba(var(--color-bg-dark-rgb), 0.6);
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
   border: 1px solid transparent;
 }
 
 .game-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 15px rgba(179, 53, 57, 0.4); /* Lueur rouge */
-  border: 1px solid #d4af37; /* Bordure Or */
+  box-shadow: 0 4px 15px rgba(var(--color-red-rgb), 0.4);
+  border-color: var(--color-gold);
 }
 
-/* MENU LATÉRAL ET AMIS */
+/* ==========================================================================
+   6. MENU LATÉRAL ET AMIS
+   ========================================================================== */
 .sidebar button {
-  color: #ffffff;
+  color: var(--color-text-white);
 }
 
 .sidebar-profile__friends-button {
@@ -135,11 +195,12 @@ button:hover {
 .sidebar-profile__friends-button svg {
   width: 18px;
   height: 18px;
-  fill: #e8d0d0;
+  fill: var(--color-text-light);
+  transition: fill 0.3s ease;
 }
 
 .sidebar-profile__friends-button:hover svg {
-  fill: #b33539;
+  fill: var(--color-red);
 }
 
 .sidebar-section__button {
@@ -147,470 +208,486 @@ button:hover {
   padding: 16px 16px;
   align-items: center;
   background-color: transparent;
-  color: #e8d0d0;
+  color: var(--color-text-light);
   width: 100%;
   cursor: pointer;
-  transition: all ease 0.2s;
+  transition: color 0.2s ease;
   gap: 8px;
   font-size: 17px;
   font-weight: bold;
 }
 
 .sidebar-section__button:hover {
-  color: #d4af37;
+  color: var(--color-gold);
 }
 
-/* TEXTES ET DÉTAILS */
+/* ==========================================================================
+   7. TEXTES ET DÉTAILS
+   ========================================================================== */
 .description-header {
-  background-color: rgba(179, 53, 57, 0.15);
+  background-color: rgba(var(--color-red-rgb), 0.15);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(var(--color-gold-rgb), 0.3);
 }
 
 .game-details__description {
   font-size: 1.1em;
   line-height: 1.5;
-  color: #e8d0d0;
+  color: var(--color-text-light);
 }
 
 .game-details__description-container {
-  background: rgba(26, 16, 18, 0.5);
+  background: rgba(var(--color-bg-dark-rgb), 0.5);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
   border-radius: 8px;
 }
 
 .content-sidebar {
   width: 300px;
-  background-color: rgba(26, 16, 18, 0.5);
+  background-color: rgba(var(--color-bg-dark-rgb), 0.5);
   padding: 20px;
   border-radius: 8px;
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(179, 53, 57, 0.3);
+  border: 1px solid rgba(var(--color-red-rgb), 0.3);
 }
 
-/* MODALS (Fenêtres pop-up) */
+/* ==========================================================================
+   8. MODALS (Fenêtres pop-up)
+   ========================================================================== */
 .modal {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   transition: opacity 0.3s ease;
-  background-color: rgba(26, 16, 18, 0.9);
-  border: 1px solid #d4af37;
+  background-color: rgba(var(--color-bg-dark-rgb), 0.9);
+  border: 1px solid var(--color-gold);
   border-radius: 8px;
   width: 700px;
   margin: 100px auto;
   position: relative;
-  color: #ffffff;
+  color: var(--color-text-white);
 }
 
- /* ==========================================================================
-   TOASTS & NOTIFICATIONS DE SUCCÈS (ACHIEVEMENTS) - HU TAO EDITION
+/* ==========================================================================
+   9. TOASTS & NOTIFICATIONS DE SUCCÈS (ACHIEVEMENTS)
    ========================================================================== */
+.toast {
+  padding: 20px;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid rgba(var(--color-gold-rgb), 0.5) !important;
+  border-radius: 16px;
+  background-color: rgba(var(--color-bg-brown-rgb), 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 12px rgba(var(--color-red-rgb), 0.3) !important;
+}
 
-  /* ================== TOAST CLASSIQUE ================== */
-  .toast {
-    padding: 20px;
-    bottom: 20px;
-    right: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.5) !important; /* Bordure Or */
-    border-radius: 16px;
-    background-color: rgba(30, 18, 20, 0.95) !important; /* Brun sombre Hu Tao */
-    backdrop-filter: blur(10px) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 12px rgba(179, 53, 57, 0.3) !important;
-  }
+.toast__progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  overflow: hidden;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: rgba(var(--color-red-rgb), 0.2);
+}
 
-  .toast__progress {
-    width: 100%;
-    height: 8px;
-    border-radius: 9999px;
-    overflow: hidden;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: rgba(179, 53, 57, 0.2); /* Fond jauge rouge transparent */
-  }
+.toast__progress::-moz-progress-bar,
+.toast__progress::-webkit-progress-value {
+  border-radius: 20px;
+  background-color: var(--color-red) !important;
+  box-shadow: 0 0 5px rgba(var(--color-gold-rgb), 0.5);
+}
 
-  .toast__progress::-moz-progress-bar,
-  .toast__progress::-webkit-progress-value {
-    border-radius: 20px;
-    background-color: #b33539 !important; /* Remplissage Rouge Hu Tao */
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
-  }
+.toast__progress::-webkit-progress-bar {
+  border-radius: 20px;
+  background-color: transparent !important;
+}
+
+.toast__content {
+  padding: 0 0 20px 0;
+  color: var(--color-text-light) !important;
+}
+
+.achievements-placeholder {
+  background-color: rgba(var(--color-bg-brown-rgb), 0.8);
+  border-radius: 20px;
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
+}
+
+.achievements-placeholder h3 {
+  font-size: 14px;
+  color: var(--color-gold);
+}
+
+.achievement-notification {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  width: 360px;
+  height: 140px;
+}
+
+.achievement-notification__outer-container {
+  border-radius: 20px;
+  border: none;
+  box-shadow: none;
+}
+
+.achievement-notification__dark-overlay,
+.achievement-notification__icon {
+  border-radius: 15px !important;
+}
+
+/* Animations génériques */
+@keyframes ntf-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ntf-shine-swipe {
+  0%   { transform: translateX(0) rotate(24deg); opacity: 0; }
+  25%  { opacity: 0.25; }
+  100% { transform: translateX(260%) rotate(24deg); opacity: 0; }
+}
+
+@keyframes ntf-shimmer {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* Notification succès : Défaut (Rouge) */
+.achievement-notification__icon {
+  background: none;
+}
+
+.achievement-notification__trophy-overlay {
+  background: var(--color-red);
+  opacity: 0.85;
+}
+
+.achievement-notification__chip {
+  background: rgba(var(--color-red-rgb), 0.4);
+  border: 1px solid #b33539;
+  backdrop-filter: blur(3px);
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-weight: 500;
+}
+
+.achievement-notification__chip__icon path { 
+  fill: var(--color-gold);
+}
+
+.achievement-notification__chip__label { 
+  color: var(--color-text-white); 
+  font-weight: 500; 
+  letter-spacing: 0.2px; 
+}
+
+.achievement-notification__container {
+  /* L'émoji est défini en premier (couche supérieure), suivi du dégradé (couche inférieure) */
+  background: 
+    url("https://cdn3.emoji.gg/emojis/5216-hutaoyay.png") no-repeat right 8px bottom 8px / 32px 32px,
+    linear-gradient(94deg, #2d1419 -35%, #4a191f 100%);
   
-  .toast__progress::-webkit-progress-bar {
-    border-radius: 20px;
-    background-color: transparent !important;
-  }
+  border: 1px solid rgba(var(--color-red-rgb), 0.5);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: ntf-fade-in 250ms ease-out;
+}
 
-  .toast__content {
-    padding: 0 0 20px 0;
-    color: #e8d0d0 !important;
-  }
+.achievement-notification__container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60px;
+  width: 29px;
+  height: 134px;
+  opacity: 0.2;
+  background: var(--color-gold);
+  filter: blur(8px);
+  transform: rotate(36deg);
+  animation: ntf-shine-swipe 450ms ease-in-out 1350ms;
+}
 
-  /* ================== SUCCÈS - PAGE ET PANNEAUX ================== */
-  .achievements-placeholder {
-    background-color: rgba(30, 18, 20, 0.8);
-    border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
+/* Notification succès : Rare (Or) */
+.achievement-notification--rare .achievement-notification__icon {
+  background: none; 
+}
 
-  .achievements-placeholder h3 {
-    font-size: 14px;
-    color: #d4af37;
-  }
-  
-  .achievement-notification {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    width: 360px;
-    height: 140px;
-  }
+.achievement-notification--rare .achievement-notification__trophy-overlay {
+  background: var(--color-gold);
+}
 
-  .achievement-notification__outer-container {
-    border-radius: 20px;
-    border: none;
-    box-shadow: none;
-  }
+.achievement-notification--rare .achievement-notification__chip {
+  background: rgba(var(--color-red-rgb), 0.4);
+  border: 1px solid #d4af37;
+  backdrop-filter: blur(3px);
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-weight: 500;
+}
 
-  .achievement-notification__dark-overlay,
-  .achievement-notification__icon {
-    border-radius: 15px !important;
-  }
+.achievement-notification--rare .achievement-notification__container {
+  background: 
+    url("https://cdn3.emoji.gg/emojis/5216-hutaoyay.png") no-repeat right 8px bottom 8px / 32px 32px,
+    linear-gradient(94deg, #382c16 -35%, #59441a 100%);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 0 15px rgba(var(--color-gold-rgb), 0.3);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: ntf-fade-in 250ms ease-out;
+}
 
-  /* ================== ANIMATIONS GÉNÉRIQUES ================== */
-  @keyframes ntf-fade-in {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+.achievement-notification--rare .achievement-notification__container::before {
+  content: "";
+  position: absolute;
+  top: -45%;
+  left: -140px;
+  width: 160px;
+  height: 300px;
+  background: linear-gradient(
+    130deg,
+    rgba(var(--color-gold-rgb), 0) 0%,
+    rgba(var(--color-gold-rgb), 0.35) 45%,
+    rgba(var(--color-gold-rgb), 0) 100%
+  );
+  transform: rotate(24deg);
+  opacity: 0;
+  animation: ntf-shine-swipe 700ms ease 220ms forwards;
+}
 
-  @keyframes ntf-shine-swipe {
-    0%   { transform: translateX(0) rotate(24deg); opacity: 0; }
-    25%  { opacity: 0.25; }
-    100% { transform: translateX(260%) rotate(24deg); opacity: 0; }
-  }
+.achievement-notification--rare .achievement-notification__container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(255,255,255,0) 20%,
+    rgba(var(--color-gold-rgb), 0.15) 38%,
+    rgba(var(--color-gold-rgb), 0.30) 50%,
+    rgba(var(--color-gold-rgb), 0.15) 62%,
+    rgba(255,255,255,0) 80%
+  );
+  transform: translateX(-120%);
+  animation: ntf-shimmer 2.2s ease-in-out 500ms forwards;
+  pointer-events: none;
+}
 
-  @keyframes ntf-shimmer {
-    0%   { transform: translateX(-120%); }
-    100% { transform: translateX(120%); }
-  }
+/* Notification succès : Platinum */
+.achievement-notification--platinum .achievement-notification__icon {
+  background: var(--color-bg-main);
+  border-radius: 14px;
+  padding: 6px;
+  border: 1px solid var(--color-red);
+}
 
-  /* ================== NOTIFICATION SUCCÈS : DÉFAUT (ROUGE HU TAO) ================== */
-  .achievement-notification__icon {
-    background: none;
-  }
+.achievement-notification--platinum .achievement-notification__trophy-overlay {
+  background: linear-gradient(145deg, var(--color-red), #ff4d4d);
+  border-radius: 50%;
+}
 
-  .achievement-notification__trophy-overlay {
-    background: #b33539; /* Rouge Hu Tao */
-    opacity: 0.85;
-  }
+.achievement-notification--platinum .achievement-notification__chip {
+  background: rgba(var(--color-red-rgb), 0.4);
+  border: 1px solid #ff4d4d;
+  backdrop-filter: blur(3px);
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-weight: 500;
+}
 
-  .achievement-notification__chip {
-    background: rgba(179, 53, 57, 0.45);
-    border: 1px solid rgba(212, 175, 55, 0.3); /* Ligne Or */
-  }
+.achievement-notification--platinum .achievement-notification__container {
+  background: 
+    url("https://cdn3.emoji.gg/emojis/5216-hutaoyay.png") no-repeat right 8px bottom 8px / 32px 32px,
+    linear-gradient(95deg, #1a0f11 0%, #3a181c 55%, #5a1d22 100%);
+  border: 1px solid #ff4d4d;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(var(--color-red-rgb), 0.6);
+  animation: ntf-fade-in 250ms ease-out;
+}
 
-  .achievement-notification__chip__icon path { 
-    fill: #d4af37; /* Icône Or */
-  }
+.achievement-notification--platinum .achievement-notification__container::before {
+  content: "";
+  position: absolute;
+  top: -45%;
+  left: -140px;
+  width: 160px;
+  height: 300px;
+  background: linear-gradient(
+    130deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255, 77, 77, 0.4) 45%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(24deg);
+  opacity: 0;
+  animation: ntf-shine-swipe 700ms ease 220ms forwards;
+}
 
-  .achievement-notification__chip__label { 
-    color: #fff; 
-    font-weight: 500; 
-    letter-spacing: 0.2px; 
-  }
+.achievement-notification--platinum .achievement-notification__container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(255,255,255,0) 20%,
+    rgba(255,100,100,0.15) 38%,
+    rgba(255,100,100,0.30) 50%,
+    rgba(255,100,100,0.15) 62%,
+    rgba(255,255,255,0) 80%
+  );
+  transform: translateX(-120%);
+  animation: ntf-shimmer 2.2s ease-in-out 500ms forwards;
+  pointer-events: none;
+}
 
-  .achievement-notification__container {
-    background: linear-gradient(94deg, #2d1419 -35%, #4a191f 100%); /* Dégradé rouge sombre */
-    border: 1px solid rgba(179, 53, 57, 0.5);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    animation: ntf-fade-in 250ms ease-out;
-  }
+/* ==========================================================================
+   10. PAGE DES SUCCÈS
+   ========================================================================== */
+.achievements-content__user-summary__container h1 {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-gold);
+}
 
-  .achievement-notification__container::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -60px;
-    width: 29px;
-    height: 134px;
-    opacity: 0.2;
-    background: #d4af37; /* Shine Or */
-    filter: blur(8px);
-    transform: rotate(36deg);
-    animation: ntf-shine-swipe 450ms ease-in-out 1350ms;
-  }
-  
-  /* ================== NOTIFICATION SUCCÈS : RARE (OR GENSHIN) ================== */
-  .achievement-notification--rare .achievement-notification__icon {
-    background: none; 
-  }
+.achievements-content__profile-avatar {
+  border-radius: 20px;
+  height: 80px;
+  width: 80px;
+  border: 2px solid var(--color-gold);
+}
 
-  .achievement-notification--rare .achievement-notification__trophy-overlay {
-    background: #d4af37; /* Or Genshin Pur */
-  }
+.achievements-content__achievements-list__section__container__hero__content,
+.achievements-content__achievements-list__section__container__achievements-summary-wrapper {
+  padding: 20px;
+}
 
-  .achievement-notification--rare .achievement-notification__chip {
-    background: rgba(212, 175, 55, 0.45);
-    border: 1px solid rgba(212, 175, 55, 0.8);
-  }
+.achievements-content__user-summary {
+  padding: 0px;
+}
 
-  .achievement-notification--rare .achievement-notification__container {
-    background: linear-gradient(94deg, #382c16 -35%, #59441a 100%); /* Dégradé Brun/Or Sombre */
-    border: 1px solid #d4af37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    animation: ntf-fade-in 250ms ease-out;
-  }
+.achievements__item-hidden-icon {
+  color: var(--color-red);
+  margin-right: 5px;
+}
 
-  .achievement-notification--rare .achievement-notification__container::before {
-    content: "";
-    position: absolute;
-    top: -45%;
-    left: -140px;
-    width: 160px;
-    height: 300px;
-    background: linear-gradient(
-      130deg,
-      rgba(212, 175, 55, 0) 0%,
-      rgba(212, 175, 55, 0.35) 45%, /* Shine Or intense */
-      rgba(212, 175, 55, 0) 100%
-    );
-    transform: rotate(24deg);
-    opacity: 0;
-    animation: ntf-shine-swipe 700ms ease 220ms forwards;
-  }
+.achievements__item-hidden-icon svg {
+  height: 16px;
+  width: 16px;
+}
 
-  .achievement-notification--rare .achievement-notification__container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      100deg,
-      rgba(255,255,255,0) 20%,
-      rgba(212,175,55,0.15) 38%,
-      rgba(212,175,55,0.30) 50%,
-      rgba(212,175,55,0.15) 62%,
-      rgba(255,255,255,0) 80%
-    );
-    transform: translateX(-120%);
-    animation: ntf-shimmer 2.2s ease-in-out 500ms forwards;
-    pointer-events: none;
-  }
+.achievements__container,
+.achievements-content__achievements-list__section {
+  padding: 0 20px 60px 20px;
+}
 
-  /* ================== NOTIFICATION SUCCÈS : PLATINUM (SANG & FEU) ================== */
-  .achievement-notification--platinum .achievement-notification__icon {
-    background: #1a0f11;
-    border-radius: 14px;
-    padding: 6px;
-    border: 1px solid #b33539;
-  }
+.achievements-content__achievements-list__section__container {
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background: rgba(var(--color-bg-brown-rgb), 0.8);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
+}
 
-  .achievement-notification--platinum .achievement-notification__trophy-overlay {
-    background: linear-gradient(145deg, #b33539, #ff4d4d); /* Dégradé rouge éclatant */
-    border-radius: 50%;
-  }
+.achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
+  background-color: var(--color-red);
+  border-radius: 10px;
+}
 
-  .achievement-notification--platinum .achievement-notification__chip {
-    background: rgba(179, 53, 57, 0.4);
-    border: 1px solid #ff4d4d;
-    backdrop-filter: blur(3px);
-    border-radius: 9999px;
-    padding: 4px 10px;
-    font-weight: 500;
-  }
+.achievement-panel {
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
+  margin-bottom: 20px;
+  border-radius: 20px;
+  gap: 10px;
+  background-color: rgba(var(--color-bg-brown-rgb), 0.8);
+}
 
-  .achievement-notification--platinum .achievement-notification__container {
-    background: linear-gradient(
-      95deg,
-      #1a0f11 0%,
-      #3a181c 55%,
-      #5a1d22 100%
-    ); /* Dégradé Sang très sombre vers rouge vif */
-    border: 1px solid #ff4d4d;
-    border-radius: 18px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(179, 53, 57, 0.6);
-    animation: ntf-fade-in 250ms ease-out;
-  }
+.achievement-panel__content {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
 
-  .achievement-notification--platinum .achievement-notification__container::before {
-    content: "";
-    position: absolute;
-    top: -45%;
-    left: -140px;
-    width: 160px;
-    height: 300px;
-    background: linear-gradient(
-      130deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255, 77, 77, 0.4) 45%, /* Shine Rouge vif */
-      rgba(255,255,255,0) 100%
-    );
-    transform: rotate(24deg);
-    opacity: 0;
-    animation: ntf-shine-swipe 700ms ease 220ms forwards;
-  }
+.achievement-panel__link--warning {
+  color: var(--color-red);
+  font-weight: 500;
+  font-size: 12px;
+}
 
-  .achievement-notification--platinum .achievement-notification__container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      100deg,
-      rgba(255,255,255,0) 20%,
-      rgba(255,100,100,0.15) 38%,
-      rgba(255,100,100,0.30) 50%,
-      rgba(255,100,100,0.15) 62%,
-      rgba(255,255,255,0) 80%
-    );
-    transform: translateX(-120%);
-    animation: ntf-shimmer 2.2s ease-in-out 500ms forwards;
-    pointer-events: none;
-  }
+.achievement-panel__link {
+  border-bottom: solid 1px transparent;
+  color: var(--color-gold);
+}
 
-  /* ================== PAGE DES SUCCÈS ================== */
-  .achievements-content__user-summary__container h1 {
-    font-weight: 600;
-    font-size: 16px;
-    color: #d4af37;
-  }
+.achievement-panel__link:hover {
+  text-decoration: none;
+  border-bottom: solid 1px var(--color-red);
+}
 
-  .achievements-content__profile-avatar {
-    border-radius: 20px;
-    height: 80px;
-    width: 80px;
-    border: 2px solid #d4af37;
-  }
+.achievements__list {
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgba(var(--color-bg-brown-rgb), 0.8);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
+}
 
-  .achievements-content__achievements-list__section__container__hero__content,
-  .achievements-content__achievements-list__section__container__achievements-summary-wrapper {
-    padding: 20px;
-  }
+.achievements__item {
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
 
-  .achievements-content__user-summary {
-    padding: 0px;
-  }
+.achievements__item:hover {
+  border-radius: 20px;
+  background-color: rgba(var(--color-red-rgb), 0.2);
+  border-color: var(--color-gold);
+  transform: translateX(3px);
+}
 
-  .achievements__item-hidden-icon {
-    color: #b33539;
-    margin-right: 5px;
-  }
+.achievements__item-points {
+  color: var(--color-gold);
+}
 
-  .achievements__item-hidden-icon svg {
-    height: 16px;
-    width: 16px;
-  }
+.achievements__item-points path {
+  fill: var(--color-gold);
+}
 
-  .achievements__container,
-  .achievements-content__achievements-list__section {
-    padding: 0 20px 60px 20px;
-  }
+.achievements__item-content p {
+  color: var(--color-text-light);
+}
 
-  .achievements-content__achievements-list__section__container {
-    margin-bottom: 20px;
-    border-radius: 20px;
-    background: rgba(30, 18, 20, 0.8); /* Brun sombre */
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
+/* Achievments Hidden */
+.achievements-content__achievements-list__section__table-header,
+.achievements-content__achievements-list__section__table-header__container--has-no-active-subscription,
+.achievements-content__comparison {
+  display: none;
+}
 
-  .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
-    background-color: #b33539;
-    border-radius: 10px;
-  }
-
-  .achievement-panel {
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    margin-bottom: 20px;
-    border-radius: 20px;
-    gap: 10px;
-    background-color: rgba(30, 18, 20, 0.8);
-  }
-
-  .achievement-panel__content {
-    font-size: 16px;
-    font-weight: 600;
-    color: #e8d0d0;
-  }
-
-  .achievement-panel__link--warning {
-    color: #b33539;
-    font-weight: 500;
-    font-size: 12px;
-  }
-
-  .achievement-panel__link {
-    border-bottom: solid 1px transparent;
-    color: #d4af37;
-  }
-
-  .achievement-panel__link:hover {
-    text-decoration: none;
-    border-bottom: solid 1px #b33539;
-  }
-
-  .achievements__list {
-    border-radius: 20px;
-    padding: 20px;
-    background-color: rgba(30, 18, 20, 0.8);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
-
-  .achievements__item {
-    border-radius: 20px;
-    padding: 20px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-  }
-
-  .achievements__item:hover {
-    border-radius: 20px;
-    background-color: rgba(179, 53, 57, 0.2);
-    border-color: #d4af37;
-    transform: translateX(3px);
-  }
-
-  .achievements__item-points {
-    color: #d4af37;
-  }
-
-  .achievements__item-points path {
-    fill: #d4af37;
-  }
-
-  .achievements__item-content p {
-    color: #e8d0d0;
-  }
-
-  /* Achievments Hidden */
-  .achievements-content__achievements-list__section__table-header,
-  .achievements-content__achievements-list__section__table-header__container--has-no-active-subscription,
-  .achievements-content__comparison {
-    display: none;
-  }
-
-/* SCROLLBAR ET BAS DE PAGE */
+/* ==========================================================================
+   11. SCROLLBAR ET BAS DE PAGE
+   ========================================================================== */
 ::-webkit-scrollbar {
   width: 9px;
   background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #b33539;
+  background-color: var(--color-red);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #d4af37;
+  background-color: var(--color-gold);
 }
 
 .bottom-panel {
   width: 100%;
-  border-top: solid 1px rgba(212, 175, 55, 0.3);
+  border-top: solid 1px rgba(var(--color-gold-rgb), 0.3);
   background-color: transparent;
   padding: 4px 16px;
   display: flex;
@@ -627,7 +704,7 @@ button:hover {
   display: block;
   text-align: center;
   font-size: 14px;
-  color: #d4af37;
+  color: var(--color-gold);
 }
 
 .bottom-panel__version-button small[data-featurebase-changelog="true"] {
@@ -635,7 +712,7 @@ button:hover {
 }
 
 .bottom-panel__downloads-button {
-  color: #d4af37;
+  color: var(--color-gold);
   border-bottom: solid 1px transparent;
 }
 
@@ -647,21 +724,20 @@ button:hover {
   -webkit-app-region: drag;
   width: 100%;
   padding: 16px 24px;
-  color: #ffffff;
-  border-bottom: solid 1px rgba(212, 175, 55, 0.3);
-  background-color: rgba(26, 16, 18, 0.5);
+  color: var(--color-text-white);
+  border-bottom: solid 1px rgba(var(--color-gold-rgb), 0.3);
+  background-color: rgba(var(--color-bg-dark-rgb), 0.5);
   backdrop-filter: blur(8px);
 }
-/* ==========================================================================
-   PARAMÈTRES (SETTINGS) ET CHARGEMENT (SKELETON) - HU TAO EDITION
-   ========================================================================== */
 
-/* --- 1. Conteneurs principaux des Paramètres --- */
+/* ==========================================================================
+   12. PARAMÈTRES (SETTINGS) ET CHARGEMENT (SKELETON)
+   ========================================================================== */
 .settings__content {
-  background-color: rgba(30, 18, 20, 0.85) !important; /* Brun sombre semi-transparent */
+  background-color: rgba(var(--color-bg-brown-rgb), 0.85) !important;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
   border-radius: 20px;
   font-weight: 500;
   gap: 26px;
@@ -670,22 +746,22 @@ button:hover {
 
 .settings-download-sources__item,
 .theme-card {
-  background-color: rgba(45, 25, 28, 0.7); /* Rouge/Brun plus clair */
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background-color: rgba(var(--color-bg-panel-rgb), 0.7);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.15);
   border-radius: 35px;
   padding: 20px;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .settings-download-sources__item:hover,
 .theme-card:hover {
-  border-color: #d4af37;
-  box-shadow: 0 0 10px rgba(179, 53, 57, 0.3);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 10px rgba(var(--color-red-rgb), 0.3);
 }
 
 .settings-general__section-title {
   margin-top: 26px;
-  color: #d4af37; /* Titres en Or */
+  color: var(--color-gold);
 }
 
 .settings-general,
@@ -701,14 +777,13 @@ button:hover {
   gap: 10px;
 }
 
-/* --- 2. Sous-menus et Formulaires --- */
 .settings-general,
 .settings-torbox__form,
 .settings-real-debrid__form,
 .settings-account__form .settings-account__section,
 .settings-account__blocked-user {
-  background-color: rgba(45, 25, 28, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background-color: rgba(var(--color-bg-panel-rgb), 0.7);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.15);
   padding: 20px;
   border-radius: 25px;
   gap: 22px;
@@ -719,20 +794,20 @@ button:hover {
 }
 
 .settings-download-sources__item-header h2 {
-  color: #ffffff;
+  color: var(--color-text-white);
 }
 
 .settings-download-sources__navigate-button,
 .settings-real-debrid__create-account,
 .settings-torbox__create-account {
-  color: #d4af37 !important; /* Liens en Or */
+  color: var(--color-gold) !important;
   transition: color 0.2s ease;
 }
 
 .settings-download-sources__navigate-button:hover,
 .settings-real-debrid__create-account:hover,
 .settings-torbox__create-account:hover {
-  color: #b33539 !important; /* Devient rouge au survol */
+  color: var(--color-red) !important;
 }
 
 .settings-download-sources__navigate-button small {
@@ -746,17 +821,16 @@ button:hover {
 }
 
 .settings-debrid__collapse-button:hover {
-  background-color: rgba(179, 53, 57, 0.2);
+  background-color: rgba(var(--color-red-rgb), 0.2);
   border-radius: 20px;
 }
 
 .settings-debrid__beta-badge {
-  background: #b33539; /* Badge "Beta" en Rouge Hu Tao */
-  color: #fff;
+  background: var(--color-red);
+  color: var(--color-text-white);
 }
 
-/* --- 3. Remplacement des Icônes (Couleurs adaptées) --- */
-/* Icônes générales en blanc/gris clair (%23fff) */
+/* Remplacement des Icônes avec mask-image */
 .settings-general__common-redist-button svg.octicon-desktop-download,
 .hero-panel-actions__action svg.octicon-download,
 .settings-appearance__button svg.octicon-globe,
@@ -774,45 +848,78 @@ button:hover {
 
 .settings-general__common-redist-button:has(svg.octicon-desktop-download)::before,
 .hero-panel-actions__action:has(svg.octicon-download)::before {
-  content: " "; display: inline-block; width: 1.5em; height: 1.5em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  content: " "; display: inline-block; width: 1.5em; height: 1.5em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
 }
 .settings-appearance__button:has(svg.octicon-globe)::before {
-  content: " "; display: inline-block; width: 1.6em; height: 1.6em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3Cpath d='M3.103 6.034h17.794'/%3E%3Cpath d='M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z'/%3E%3C/svg%3E");
+  content: " "; display: inline-block; width: 1.6em; height: 1.6em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3Cpath d='M3.103 6.034h17.794'/%3E%3Cpath d='M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+  transition: background-color 0.2s ease;
 }
+.settings-appearance__button:hover:has(svg.octicon-globe)::before {
+  background-color: var(--color-red);
+}
+
 .game-item__plus-wrapper:has(svg.octicon-plus)::before,
 .settings-download-sources__buttons-container .button--outline:has(svg.octicon-plus-circle)::before,
 .settings-appearance__button:has(svg.octicon-plus)::before {
-  content: " "; display: inline-block; width: 1.6em; height: 1.6em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'%3E%3C/path%3E%3Cpath d='M12 5v14'%3E%3C/path%3E%3C/svg%3E");
+  content: " "; display: inline-block; width: 1.6em; height: 1.6em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'%3E%3C/path%3E%3Cpath d='M12 5v14'%3E%3C/path%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+  transition: background-color 0.2s ease;
 }
-.settings-download-sources__header .button--outline:has(svg.octicon-sync)::before {
-  content: " "; display: inline-block; width: 1.6em; height: 1.6em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8'%3E%3C/path%3E%3Cpath d='M21 3v5h-5'%3E%3C/path%3E%3Cpath d='M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16'%3E%3C/path%3E%3Cpath d='M3 21v-5h5'%3E%3C/path%3E%3C/svg%3E");
-}
-.settings-account__unblock-button:has(svg.octicon-x-circle-fill)::before {
-  content: " "; display: inline-block; width: 2em; height: 2em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='M15 9l-6 6M9 9l6 6'%3E%3C/path%3E%3C/svg%3E");
-}
-.settings-account__actions button:has(svg.octicon-key)::before {
-  content: " "; display: inline-block; width: 1.5em; height: 1.5em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z'/%3E%3Ccircle cx='16.5' cy='7.5' r='.5' fill='%23fff'/%3E%3C/svg%3E");
-}
-.settings-account__actions button:has(svg.octicon-mail)::before {
-  content: " "; display: inline-block; width: 1.5em; height: 1.5em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7'/%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3C/svg%3E");
-}
-.settings-account__subscription-button:has(svg.octicon-cloud)::before {
-  content: " "; display: inline-block; width: 1.5em; height: 1.5em; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'/%3E%3Cpath d='M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5'/%3E%3C/svg%3E");
-}
-.settings-general__volume-slider-wrapper:has(svg.octicon-unmute)::before {
-  content: " "; display: inline-block; width: 20px !important; min-width: 20px; height: 20px; background: no-repeat center/contain; vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z'/%3E%3Cpath d='M16 9a5 5 0 0 1 0 6'/%3E%3Cpath d='M19.364 18.364a9 9 0 0 0 0-12.728'/%3E%3C/svg%3E");
+.settings-appearance__button:hover:has(svg.octicon-plus)::before {
+  background-color: var(--color-red);
 }
 
-/* Icônes de suppression (Rouge Hu Tao : %23b33539) */
+.settings-download-sources__header .button--outline:has(svg.octicon-sync)::before {
+  content: " "; display: inline-block; width: 1.6em; height: 1.6em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8'%3E%3C/path%3E%3Cpath d='M21 3v5h-5'%3E%3C/path%3E%3Cpath d='M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16'%3E%3C/path%3E%3Cpath d='M3 21v-5h5'%3E%3C/path%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+}
+
+.settings-account__unblock-button:has(svg.octicon-x-circle-fill)::before {
+  content: " "; display: inline-block; width: 2em; height: 2em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='M15 9l-6 6M9 9l6 6'%3E%3C/path%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+}
+
+.settings-account__actions button:has(svg.octicon-key)::before {
+  content: " "; display: inline-block; width: 1.5em; height: 1.5em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z'/%3E%3Ccircle cx='16.5' cy='7.5' r='.5' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+}
+
+.settings-account__actions button:has(svg.octicon-mail)::before {
+  content: " "; display: inline-block; width: 1.5em; height: 1.5em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7'/%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+}
+
+.settings-account__subscription-button:has(svg.octicon-cloud)::before {
+  content: " "; display: inline-block; width: 1.5em; height: 1.5em; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'/%3E%3Cpath d='M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+}
+
+.settings-general__volume-slider-wrapper:has(svg.octicon-unmute)::before {
+  content: " "; display: inline-block; width: 20px !important; min-width: 20px; height: 20px; vertical-align: middle;
+  background-color: var(--color-text-white);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z'/%3E%3Cpath d='M16 9a5 5 0 0 1 0 6'/%3E%3Cpath d='M19.364 18.364a9 9 0 0 0 0-12.728'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+}
+
+/* Icônes de suppression */
 .settings-download-sources__buttons-container .button--danger svg.octicon-trash,
 .settings-appearance__button svg.octicon-trash {
   display: none !important;
@@ -824,20 +931,26 @@ button:hover {
   display: inline-block;
   width: 1.6em;
   height: 1.6em;
-  background: no-repeat center/contain;
   vertical-align: middle;
-  /* Stroke passé en #b33539 */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23b33539' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'/%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E");
+  background-color: var(--color-red);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'/%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;
+  transition: background-color 0.2s ease;
 }
 
-/* --- 4. BLOC REFRESH / SKELETON (Écran de chargement) --- */
+.settings-download-sources__buttons-container .button--danger:hover:has(svg.octicon-trash)::before,
+.settings-appearance__button:hover:has(svg.octicon-trash)::before {
+  background-color: var(--color-text-white);
+}
+
+/* BLOC REFRESH / SKELETON (Écran de chargement) */
 .how-long-to-beat__category-skeleton {
   border: solid 1px transparent;
 }
 
 .game-details__skeleton .react-loading-skeleton,
 .react-loading-skeleton {
-  background-color: rgba(45, 25, 28, 0.6) !important; /* Fond brun/rouge */
+  background-color: rgba(var(--color-bg-panel-rgb), 0.6) !important;
   border-radius: 20px !important;
 }
 
@@ -846,10 +959,10 @@ button:hover {
   border-radius: 20px !important;
 }
 
-/* Animation de pulsation Rouge/Sombre pendant que la page charge */
+/* Animation de pulsation */
 .react-loading-skeleton::after {
   background-image: none;
-  background-color: rgba(179, 53, 57, 0.4); /* Pulsation Rouge Hu Tao */
+  background-color: rgba(var(--color-red-rgb), 0.4);
   border-radius: 20px !important;
   animation-name: pulse-opacity;
   animation-duration: 1.2s;
@@ -862,10 +975,6 @@ button:hover {
 }
 
 @keyframes pulse-opacity {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 1;
-  }
+  0%   { opacity: 0.2; }
+  100% { opacity: 1; }
 }
