@@ -312,6 +312,31 @@ body {
     border-radius: 20px !important;
 }
 
+.achievement-notification--rare .achievement-notification__container::before,
+.achievement-notification--rare .achievement-notification__container::after,
+.achievement-notification--platinum .achievement-notification__container::before,
+.achievement-notification--platinum .achievement-notification__container::after {
+    display: none !important;
+}
+
+.achievement-notification--hidden .achievement-notification__container {
+    background: linear-gradient(135deg, rgba(10, 12, 18, 0.95) 0%, rgba(15, 18, 25, 0.95) 100%) !important;
+    border: 1px dashed rgba(255, 255, 255, 0.3) !important;
+    box-shadow: none !important;
+}
+
+.achievement-notification--hidden .achievement-notification__icon {
+    filter: grayscale(100%) opacity(0.8) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__hidden-icon {
+    background: rgba(10, 12, 18, 0.8) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__text-container {
+    opacity: 0.9 !important;
+}
+
 .achievement-notification--rare .achievement-notification__container {
     background: linear-gradient(135deg, rgba(20, 15, 38, 0.95) 0%, rgba(35, 20, 45, 0.95) 100%) !important;
     border-color: rgba(180, 80, 255, 0.5) !important;
