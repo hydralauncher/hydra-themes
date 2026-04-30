@@ -2,6 +2,7 @@
   "name": "hydra-themes-astro",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "yarn@4.9.1",
   "scripts": {
     "dev": "yarn generate-themes && astro dev",
     "build": "yarn generate-themes && astro build",
