@@ -118,7 +118,10 @@ Hope You Like It :)
     flex-direction: column;
     padding: 20px 16px;
     gap: 4px;
-  rary-game-card__overlay  background-color: #f7f7f700;
+}
+
+.library-game-card__overlay {
+    background-color: #f7f7f700;
     transition: background-color 0.2s ease;
 }
 

@@ -87,6 +87,6 @@ body {
     background-color: rgba(97, 96, 100, 0.25);
     backdrop-filter: blur(2px);
   }
-
+  .bottom-panel {
     background-color: rgba(74, 73, 77, 0.25);
   }

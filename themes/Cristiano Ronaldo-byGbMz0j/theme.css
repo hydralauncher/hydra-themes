@@ -14,8 +14,8 @@
   color: #ff0000;
   text-shadow: 2px 2px 2px #000;
   background: transparent;
-  background-color: transparent; rgba(0, 0, 0, 0.8)
-  backdrop-filter: transparent; blur(8px);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
 }
 
 .container__content, .bottom-panel {
@@ -67,7 +67,7 @@ body {
 .download-group__item,
 .game-item {
   background-color: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: transparent; blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .game-details__description-container {
@@ -147,6 +147,5 @@ element.style
 .title-bar, .sidebar, .header, .bottom-panel, .hero-panel, .content-sidebar {
   border: none;
 }
-
 
 
