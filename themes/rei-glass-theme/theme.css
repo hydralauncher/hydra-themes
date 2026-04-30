@@ -1,0 +1,29 @@
+body {
+    background-image: url("rei.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* blur layer */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(6px);
+}
+
+/* make text black */
+
+* {
+    color: black !important;
+}
+
+/* readable panels */
+
+.sidebar,
+.card,
+.header {
+    background: rgba(255,255,255,0.65) !important;
+}
