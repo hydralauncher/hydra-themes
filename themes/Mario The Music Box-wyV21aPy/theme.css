@@ -1,0 +1,112 @@
+
+  /*
+Tema:Mario The Music Box
+Feito Por:Arthur Gonçalves Ferreira(SunSunny02)
+Algumas Coisas foi Feito pelo ChatGPT
+  */
+
+  /* Button */
+  .button {
+  background-color: #460202ff !important;
+  border: 1px solid rgba(107, 3, 3, 0.84);
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff1313ff !important;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(92, 87, 87, 0.62),
+    rgba(228, 228, 228, 0.67) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.2;
+}
+* {
+  font-family: 'Omori_game', monospace !important;
+    font-size: 14px;
+}
+
+ #root {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0.1)),
+    url("https://wallpapercave.com/wp/wp11250754.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+
+  .sidebar {
+  background-color: rgba(228, 0, 0, 1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: transparent !important; 
+  }
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item {
+  background-color: rgba(15, 0, 0, 0.6) !important;
+  transition: 0.3s ease;
+}
+
+.game-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+
+    background-color: rgba(8, 6, 102, 0.27) !important;
+    backdrop-filter: blur(1px);
+
+    }
+
+  .container__content .button--outline {
+    backdrop-filter: blur(1px);
+    background-color: rgba(39, 12, 112, 0.7);
+  }
+
+
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background-color: rgba(17, 66, 226, 0.34) !important;
+  }
+
+
+  .title-bar {
+    background-color: #080222c2;
+  }
+
+
+  .home__content {
+    background-color: rgba(39, 12, 112, 0.25);
+    backdrop-filter: blur(1px);
+  }
+
+  .bottom-panel {
+    background-color: rgba(39, 12, 112, 0.25);
+  }

@@ -295,12 +295,12 @@ small[data-featurebase-changelog="true"]::after {
   border-radius: 5px;
   color: #00ff00;
   box-shadow:
-    0 0 10px #c4188ab3;
+    0 0 10px #c4188ab3,
     0 0 25px #c4188ab3;
   backdrop-filter: blur(6px);
   transition: all 0.3s ease-in-out;
 
-  position:;       /* permite posicionamento relativo à janela */
+  position: fixed; /* permite posicionamento relativo à janela */
   top: 0px;             /* distância do topo */
   right: 20px;           /* afasta do lado direito */
   width: 330px;          /* largura da notificação */
