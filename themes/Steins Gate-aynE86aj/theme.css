@@ -209,25 +209,25 @@ button[data-featurebase-changelog="true"] small::after {
   pointer-events: none !important;
   text-shadow: none !important;
 }
-\:root {
-/\* Paleta principal \*/
-\--color-bg-main: #ffa600;
-\--color-bg-overlay: rgba(112, 60, 12, 0.25);
-\--color-bg-card: rgba(112, 85, 12, 0.25);
-\--color-bg-panel: rgba(255, 145, 0, 0.25);
+:root {
+/* Paleta principal */
+--color-bg-main: #ffa600;
+--color-bg-overlay: rgba(112, 60, 12, 0.25);
+--color-bg-card: rgba(112, 85, 12, 0.25);
+--color-bg-panel: rgba(255, 145, 0, 0.25);
 
-\--color-orange: rgba(255, 140, 0, 0.8);
-\--color-orange-light: rgba(0, 255, 42, 0.6);
-\--color-orange-strong: rgba(255, 115, 0, 0.473);
-\--color-white: #ffc400;
-\--blur-soft: blur(2px);
-\--blur-strong: blur(6px);
+--color-orange: rgba(255, 140, 0, 0.8);
+--color-orange-light: rgba(0, 255, 42, 0.6);
+--color-orange-strong: rgba(255, 115, 0, 0.473);
+--color-white: #ffc400;
+--blur-soft: blur(2px);
+--blur-strong: blur(6px);
 
-\--transition-fast: 0.2s ease;
+--transition-fast: 0.2s ease;
 }
 
-/\* Reset */
-/* importa a fonte Steins;Gate \*/
+/* Reset */
+/* importa a fonte Steins;Gate */
 @font-face {
 font-family: 'SteinsGate';
 src: url('./fonts/SteinsGate.woff2') format('woff2'),
@@ -238,7 +238,7 @@ font-style: normal;
 font-display: swap;
 }
 
-/\* estilo do body \*/
+/* estilo do body */
 body {
 margin: 0;
 color: var(--color-white);
@@ -249,27 +249,27 @@ no-repeat center center;
 background-size: cover;
 }
 
-\#root {
+#root {
 background: transparent;
 }
 
-/\* Layout base \*/
+/* Layout base */
 .sidebar,
 .header,
-.container\_\_content,
+.container__content,
 .bottom-panel {
 background: transparent !important;
 }
 
-.text-field-container\_\_text-field--dark,
-.text-field-container\_\_text-field--primary,
-.header\_\_search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
 .game-item,
-.settings\_\_content,
-.catalogue\_\_filters-container,
-.friends-box\_\_box,
-.user-stats\_\_box,
-.recent-games\_\_box,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
 .sidebar {
 background-color: var(--color-bg-overlay) !important;
 backdrop-filter: var(--blur-soft);
@@ -277,8 +277,8 @@ border-radius: 8px;
 transition: background var(--transition-fast);
 }
 
-.settings-download-sources\_\_item,
-.download-group\_\_item,
+.settings-download-sources__item,
+.download-group__item,
 .game-item {
 background-color: var(--color-bg-card) !important;
 border-radius: 6px;
@@ -289,15 +289,15 @@ background-color: #ff91003a;
 backdrop-filter: var(--blur-soft);
 }
 
-/\* Painel inferior e home \*/
-.home\_\_content,
+/* Painel inferior e home */
+.home__content,
 .bottom-panel {
 background-color: var(--color-bg-panel);
 backdrop-filter: var(--blur-soft);
 border-top: 1px solid rgba(255, 165, 0, 0.2);
 }
 
-/\* Botões \*/
+/* Botões */
 .button {
 border: none;
 border-radius: 8px;
@@ -308,29 +308,29 @@ cursor: pointer;
 transition: background var(--transition-fast), border var(--transition-fast), transform var(--transition-fast);
 }
 
-.button\:hover {
+.button:hover {
 transform: scale(1.03);
 }
 
-.container\_\_content .button--outline {
+.container__content .button--outline {
 backdrop-filter: var(--blur-strong);
 background-color: var(--color-orange-strong);
 border: 1px solid var(--color-orange);
 color: var(--color-white);
 }
 
-.container\_\_content .button--outline\:hover {
+.container__content .button--outline:hover {
 background-color: var(--color-orange);
 border-color: white;
 }
 
-/\* Botão alternativo \*/
+/* Botão alternativo */
 .button--primary {
 background: linear-gradient(45deg, orange, darkorange);
 box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
 }
 
-.button--primary\:hover {
+.button--primary:hover {
 background: linear-gradient(45deg, #ffae42, #ff7300);
 }
 
@@ -339,21 +339,21 @@ background-color: rgba(255, 0, 0, 0.6);
 border: 1px solid rgba(255, 0, 0, 0.8);
 }
 
-.button--danger\:hover {
+.button--danger:hover {
 background-color: rgba(255, 0, 0, 0.8);
 border-color: white;
 }
 
-/\* Exemplo de sombra ao passar o mouse em caixas \*/
-.settings\_\_content\:hover,
-.catalogue\_\_filters-container\:hover,
-.friends-box\_\_box\:hover,
-.user-stats\_\_box\:hover,
-.recent-games\_\_box\:hover {
+/* Exemplo de sombra ao passar o mouse em caixas */
+.settings__content:hover,
+.catalogue__filters-container:hover,
+.friends-box__box:hover,
+.user-stats__box:hover,
+.recent-games__box:hover {
 box-shadow: 0 0 12px rgba(255, 165, 0, 0.3);
 }
 
-/\* Toasts \*/
+/* Toasts */
 .toast {
 background-color: rgba(0, 0, 0, 0.6);
 color: var(--color-white);
@@ -362,8 +362,8 @@ border-radius: 6px;
 backdrop-filter: var(--blur-soft);
 }
 
-/\* começa aqui */
-button\[data-featurebase-changelog="true"] {
+/* começa aqui */
+button[data-featurebase-changelog="true"] {
 all: unset;
 cursor: pointer;
 padding: 6px 10px;
@@ -372,12 +372,12 @@ border-radius: 5px;
 display: inline-block;
 margin-top: px;
 }
-button\[data-featurebase-changelog="true"] small\[data-featurebase-changelog="true"] {
+button[data-featurebase-changelog="true"] small[data-featurebase-changelog="true"] {
 font-size: 0;
 color: transparent;
-position\:relative;
+position: relative;
 }
-button\[data-featurebase-changelog="true"] small::after {
+button[data-featurebase-changelog="true"] small::after {
 content: "--== By: Yzakyii ==--";
 position: absolute center;
 top: 0;
@@ -389,10 +389,10 @@ font-weight: normal;
 font-size: 13px;
 white-space: nowrap;
 user-select: text;
-text-shadow: none; /* efeito neon removido \*/
+text-shadow: none; /* efeito neon removido */
 }
 
-/\* Título da title-bar \*/
+/* Título da title-bar */
 .title-bar h4 {
 position: relative;
 color: transparent !important;
@@ -401,8 +401,8 @@ user-select: none;
 pointer-events: none;
 }
 
-\:root {
-\--title-name-color: #ffa600;
+:root {
+--title-name-color: #ffa600;
 }
 
 .title-bar h4::after {
@@ -418,7 +418,9 @@ font-weight: 600 !important;
 white-space: nowrap !important;
 pointer-events: none !important;
 text-shadow: none !important;
-}.achievement-notification__outer-container {
+}
+
+.achievement-notification__outer-container {
   background: url(https://64.media.tumblr.com/86944af26f5ca28b84c16018184a125a/tumblr_olgl0xFpY51ufsyoco1_540.gif) no-repeat center center;
   background-size: cover;
   padding: 0px;
@@ -430,7 +432,7 @@ text-shadow: none !important;
   backdrop-filter: blur(6px);
   transition: all 0.3s ease-in-out;
 
-  position:;       /* permite posicionamento relativo à janela */
+  position: fixed; /* permite posicionamento relativo à janela */
   top: 0px;             /* distância do topo */
   right: 20px;           /* afasta do lado direito */
   width: 330px;          /* largura da notificação */

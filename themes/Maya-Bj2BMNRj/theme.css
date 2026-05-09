@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+	font-family: 'Manrope','Plus Jakarta Sans', sans-serif;
+}
+
+.header {  }
+
+.sidebar {
+	background: #040404;
+	border: 0;
+}
+
+.container__content {  }
+
+.bottom-panel {  }
+
+.toast {  }
+
+.button {
+	border-radius: 100px;
+	border: solid 1px rgba(255, 255, 255, 0.15);
+	font-weight: 700;
+}
+
+.button--primary,
+.button--primary:hover {
+	background: #00F7FF;
+	color: #101010;
+	padding: 4px 20px;
+}
+
+.button--outline {
+	padding: 4px 20px;
+}
+
+.button--primary .octicon {
+	color: #101010;
+}
+
+.header__title {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.hero,
+.hero-panel {
+	border: none;
+}
+
+.badge {
+	border-radius: 100px;
+	border: solid 1px rgba(255, 255, 255, 0.15);
+	font-weight: 300;
+}
+
+.game-card {
+	border-radius: 10px;
+	border: solid 1px rgba(255, 255, 255, 0.05);
+}
+
+.game-card__title{
+	text-shadow: 2px 2px 2px #000000;
+}
+
+.title-bar {
+	background: #000000;
+	letter-spacing: 5px;
+}
+
+.title-bar h4 {
+	color: #00F7FF;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	background: #1EA9EA;
+	background-image: linear-gradient(150deg,rgba(30, 169, 234, 1) 0%, rgba(13, 240, 205, 1) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.game-item {
+	gap: 25px;
+}
+
+.game-item,
+.catalogue__filters-container,
+.sidebar-section {
+	border-radius: 10px;
+}
+
+.game-card__title,
+.game-item {
+	font-weight: 700;
+	color: #00F7FF;
+}
+
+.game-item__genres {
+	font-weight: 500;
+}
+
+.game-card__backdrop {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 20%, transparent 100%);
+}
+
+.game-details__description .bb_paragraph {
+	text-align: left !important;
+	margin-bottom:15px;
+}
+
+.game-item__details {
+	gap: 10px;
+	font-size: 1.3em;
+}
+
+.game-item__cover {
+	width: 250px;
+}
+
+.game-item__cover-wrapper {
+	height: 120px;
+	width: 250px;
+}
+
+.catalogue__games-container {
+	gap: 15px;
+}
+
+.profile-avatar {
+	border-radius: 100px;
+	border: none;
+}
+
+.profile-hero__avatar-button,
+.library-view-options__option {
+	border-radius: 100px;
+}
+
+.octicon,
+.lucide {
+	color: #00F7FF;
+}
+
+.profile-content__tab--active,
+.sidebar-profile__button-title,
+.subscription-required-button,
+.sidebar-section__button,
+.sidebar__section-title,
+.home__title,
+.header__title,
+.header__title h3,
+.repacks-modal__repack-title,
+.modal__header-title h3,
+.review-sort-options__option.active,
+.review-sort-options__option.active:hover,
+.game-details__review-display-name--clickable,
+.filter-section__title,
+.library-filter-options__tab--active,
+.notifications__tab--active,
+.settings__content h2,
+.download-group__simple-title,
+.achievements__item-points-value,
+.achievements-content__user-summary__container,
+.game-details__description .bb_tag,
+.notification-item--unread .notification-item__title,
+.notifications__tab--active:hover,
+.notification-item__title,
+.theme-card__header__title,
+.sort-options__option.active,
+.text-field-container__text-field-input--read-only,
+.user-stats__link--warning,
+.achievement-panel__link--warning,
+.repacks-modal__new-badge,
+.library__collection-count,
+.library__collection-item--active {
+	color: #00F7FF;
+}
+
+.filter-section__title {
+	font-weight: 600;
+}
+
+.sidebar__menu-item--active .octicon,
+.settings__sidebar-button--active .octicon,
+.settings__sidebar-button--active .lucide {
+	color: #101010;
+}
+
+.sidebar__menu-item--active,
+.sidebar__menu-item--active:hover,
+.settings__sidebar-button--active,
+.settings__sidebar-button--active:hover {
+	background: #00F7FF !important;
+	color: #101010 !important;
+}
+
+.profile-content__tab-underline,
+.library-filter-options__tab-underline,
+.library-view-options__option.active,
+.notifications__tab-underline {
+	background: #00F7FF;
+}
+
+.sidebar__menu-item {
+	border-radius: 100px;
+}
+
+.sidebar__menu-item-button {
+	max-height: 36px;
+	border-radius: 100px;
+	padding: 10px 20px;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	letter-spacing: 0.5px;
+}
+
+.sidebar-profile__button-title {
+	letter-spacing: 0.5px;
+}
+
+.settings__sidebar-button:hover {
+	background: rgba(255, 255, 255, 0.03);
+}
+
+.settings__sidebar-button--active,
+.settings__sidebar-button--active:hover {
+	color: #101010;
+}
+
+.settings__sidebar-button {
+	padding: 10px 20px 10px 15px;
+	border-radius: 100px;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	letter-spacing: 0.5px;
+}
+
+.sidebar__menu-item:hover {
+	background: #101010;
+}
+
+.sidebar-profile__button {
+	border-radius: 100px;
+	background: #121212;
+}
+
+.library__collection-item {
+	border-radius: 100px;
+	background: #0d0d0d;
+}
+
+.library__collection-item--active {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-profile__button:hover {
+	border-radius: 100px;
+}
+
+.sidebar-profile__notification-button {
+	width: 69px;
+	height: 51px;
+}
+
+.sidebar__game-badge {
+	border: none;
+	font-weight: 700;
+	box-shadow: none;
+	border-radius: 100px;
+}
+
+.text-field-container__text-field,
+.header__search {
+	border-radius: 100px;
+}
+
+.text-field-container__text-field-input{
+	padding: 8px 20px;
+}
+.text-field-container__text-field:hover {
+	border: solid 1px rgba(255, 255, 255, 0.09);
+}
+
+.header__action-button {
+	padding: 8px 10px 8px 15px;
+}
+
+.button--danger .octicon {
+	color: #ffffff;
+}
+
+.repacks-modal__repack-button {
+	border-radius: 10px !important;
+	border: solid 1px rgba(255, 255, 255, 0.07)!important;
+}
+
+.requirement__button {
+	border-radius: 0px !important;
+}
+
+.game-details__description-toggle {
+	border-radius: 100px;
+	padding: 8px 20px;
+}
+
+.game-details__review-score-stars,
+.game-details__review-playtime{
+	border-radius: 100px;
+	padding: 4px 10px;
+	font-weight: 300;
+}
+
+.game-details__review-item {
+	border: solid 1px rgba(255, 255, 255, 0.09);
+	padding: 25px;
+	border-radius: 10px;
+}
+
+.game-details__review-actions {
+	border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.game-details__vote-button--active,
+.game-details__vote-button--active:hover {
+	background: #00F7FF;
+	color: #101010;
+	font-weight: 700;
+}
+
+.hero-panel-actions__action:first-child,
+.hero-panel-actions__action:first-child .octicon {
+	background: #00F7FF;
+	color: #101010;
+	transition: 0.5s;
+}
+
+.hero-panel-actions__action:first-child:hover {
+	box-shadow: 0px 0px 10px 0px #00F7FF;
+}
+
+.game-details__edit-custom-game-button,
+.game-details__cloud-sync-button {
+	border-radius: 100px;
+}
+
+.game-details__cloud-sync-button {
+	padding: 12px 20px;
+	font-weight: 700;
+}
+
+.hero-panel {
+	padding: 16px 30px;
+}
+
+.hero-panel,
+.game-details__hero-image {
+	border-radius: 0;
+}
+
+.description-header {
+	border-radius: 10px;
+}
+
+.game-details__hero-content {
+	padding: 25px;
+}
+
+.game-details__hero-panel {
+	padding: 0;
+}
+
+.game-details__review-star--filled,
+.game-details__review-playtime svg {
+	color: #00F7FF;
+}
+
+.settings__categories button {
+	padding: 4px 20px;
+}
+
+.download-group__simple-action-btn,
+.download-group__simple-action-btn:hover,
+.download-group__simple-menu-btn {
+	padding: 10px;
+}
+
+.game-details__load-more-reviews:hover {
+	border: 1px solid #00F7FF;
+	color: #00F7FF;
+}
+
+.game-details__review-content p {
+	margin-bottom: 15px;
+}
+
+.edit-profile-modal__avatar-overlay:hover {
+	border-radius: 100px;
+}
+
+.user-library-game__playtime,
+.library-game-card__playtime {
+	padding: 4px 10px;
+	border-radius: 100px;
+}
+
+.profile-content__section-badge,
+.game-details__reviews-badge,
+.download-group__glass-btn,
+.notifications__tab-badge,
+.download-group__header-count {
+	border-radius: 100px;
+}
+
+.library-filter-options__tab--active .library-filter-options__tab-badge,
+.sidebar-profile__notification-button-badge,
+.notifications__tab--active .notifications__tab-badge,
+.sidebar__game-badge {
+	background: #00F7FF;
+	color: #101010;
+}
+
+.sidebar__collection-count {
+	text-align: center;
+	font-weight: 300;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 4.5px 6px 4px 6px;
+	height: auto;
+	min-width: auto;
+	color: #ffffff;
+}
+
+.sidebar__menu-item--active .sidebar__collection-count {
+	background: rgba(0, 0, 0, 0.3);
+	color: #101010;
+	font-weight: 600;
+}
+
+.library__collection-count {
+	text-align: center;
+	font-weight: 700;
+	background: #00F7FF;
+	color: #101010;
+	padding: 4px 6px;
+	height: auto;
+	min-width: auto;
+}
+
+.settings__content {
+	box-shadow: none;
+	border-radius: 15px;
+}
+
+.profile-hero__hero-panel {
+	background: none !important;
+}
+
+.download-group__simple-list {
+	gap: 0;
+}
+
+.download-group__simple-card {
+	padding: 15px 0;
+	border-radius: 0;
+}
+
+.hero-panel-playtime__download-details, .hero-panel-playtime__download-details a {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 0.9em;
+	font-weight: 700;
+	color: #ffffff;
+}
+
+.modal__header,
+.modal__content {
+	padding: 25px;
+}
+
+.sidebar__section-title {
+	letter-spacing: 2px;
+}
+
+.filter-section__orb {
+	background: #00F7FF !important;
+}
+
+.home__buttons-list .button--primary {
+	box-shadow: 0px 0px 10px 0px #00F7FF;
+}
+
+.checkbox-field__checkbox.checked {
+	background-color: #0d0d0d;
+	transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+	border: solid 1px rgba(255, 255, 255, 0.08);
+}
+
+.select-field:hover,
+.checkbox-field__checkbox:hover:not(:has(input:disabled)) {
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.repacks-modal__new-badge {
+	border-radius: 100px;
+	background: none;
+	border: 1px solid #00F7FF;
+}
+
+.download-group__simple-action-btn .lucide {
+	color: #101010;
+}
+
+.game-options-modal__sidebar-button {
+	border-radius: 100px;
+	padding: 10px 15px;
+}
+
+.game-options-modal__sidebar {
+	border-radius: 15px;
+}
+
+.modal {
+	border-radius: 15px;
+}
+
+.repacks-modal__repack-info {
+	font-weight: 300;
+}
+
+.repacks-modal__repack-title {
+	font-weight: 600;
+}
+
+.theme-card__header__title {
+	font-weight: 700;
+}
+
+.filter-section__orb {
+	height: 7px;
+	width: 7px;
+	border-radius: 100%;
+}
+
+.filter-section__header-count {
+	border-radius: 100px;
+	padding: 3px 10px;
+}
+
+.select-field__option,
+.select-field {
+	border-radius: 100px;
+	padding: 4px 8px;
+}
+
+.profile-hero__content-box {
+	background: #191919 !important;
+}
+
+.profile-hero__hero-panel {
+	box-shadow: none;
+	border: 0;
+	background: #151515 !important;
+	}
