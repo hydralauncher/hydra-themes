@@ -1,0 +1,112 @@
+/* ==========================================
+   CAMADA DE FUNDO GERAL (ALNEWARE NEBULA)
+   ========================================== */
+body {
+    color: #e0e0e0 !important;
+    background-color: transparent !important;
+}
+
+#root {
+    /* Use o link direto fornecido anteriormente para a imagem limpa */
+    background: url('https://i.imgur.com/CAO6juO.png') #000000 !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+}
+
+/* ==========================================
+   TRANSPARÊNCIA GERAL DAS CAMADAS
+   ========================================== */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+main,
+section,
+.main-layout {
+    background: transparent !important;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* ==========================================
+   JANELAS DE CONTEÚDO (FUMÊ ESCURO PARA LEITURA)
+   ========================================== */
+/* Seleciona o fundo de todas as caixas de opções internas */
+[class*="Settings"] section,
+[class*="settings"],
+.settings__content,
+.catalogue__filters-container,
+.text-field-container__text-field--dark,
+.game-item {
+    background-color: rgba(10, 10, 14, 0.65) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(160, 32, 240, 0.25) !important;
+    border-radius: 8px !important;
+}
+
+/* Garante que sub-contêineres de scroll não acumulem opacidade */
+div[class*="Scroll"], 
+div[class*="Container"],
+div[class*="content"] {
+    background-color: transparent !important;
+}
+
+/* Acabamento das bordas de LED do setup */
+.header { border-bottom: 2px solid #00d4ff !important; }
+.bottom-panel { border-top: 2px solid #00d4ff !important; }
+.sidebar { border-right: 1px solid #a020f0 !important; }
+.header__search { border: 1px solid rgba(0, 212, 255, 0.4) !important; }
+
+/* ==========================================
+   SISTEMA DE ILUMINAÇÃO DE BOTÕES (CORRIGIDO)
+   ========================================= */
+
+/* 4.1 - ESTADO PADRÃO GLOBAL (BOTÕES DISCRETOS) */
+/* Aplica-se a botões laterais e botões internos de abas */
+.sidebar a, 
+.sidebar button,
+.sidebar [class*="Button"],
+[class*="Settings"] button,
+.settings__content button,
+.button {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #b3b3b3 !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    transition: all 0.25s ease-in-out !important;
+    border: none !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+}
+
+/* 4.2 - ESTADO HOVER (ACENDE AO PASSAR O MOUSE) */
+/* Corrigido para incluir botões/abas de navegação interna */
+.sidebar a:hover, 
+.sidebar button:hover,
+[class*="Settings"] button:hover, /* Alvo: Botões internos de abas */
+.settings__content button:hover,  /* Alvo: Botões em "Geral", "Downloads" */
+.button:hover,
+[class*="active"], 
+[aria-current="page"] {
+    /* Ativa o degradê Alienware fixo */
+    background: linear-gradient(45deg, #a020f0, #00d4ff) !important;
+    color: #ffffff !important;
+    box-shadow: 0px 4px 12px rgba(0, 212, 255, 0.4) !important;
+    filter: brightness(1.2) !important;
+}
+
+/* 4.3 - ESTADO ATIVO (FIXA A COR NA ABA ATUAL) */
+/* Garante que o indicador visual fique na página selecionada */
+.sidebar [class*="active"],
+.sidebar [aria-current="page"],
+[class*="Settings"] [class*="active"],
+.settings__content [class*="active"] {
+    background: linear-gradient(45deg, #a020f0, #00d4ff) !important;
+    color: #ffffff !important;
+    box-shadow: 0px 4px 12px rgba(0, 212, 255, 0.4) !important;
+}
