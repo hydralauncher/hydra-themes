@@ -90,16 +90,15 @@ body { /* верхний левый угол - Hydra */
 }
 .content-sidebar {
     backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.42);
+    background-color: transparent !important;
 }
 .description-header { /* строка - выпущено 16 фев. 2012 г. */
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.42);
 }
-
 .hero-panel {
     backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.01);
+    background-color: rgba(0, 0, 0, 0);
 }
 .settings__container {
     background: transparent;
@@ -158,7 +157,59 @@ body { /* верхний левый угол - Hydra */
     background-color: rgba(0, 0, 0, 0);
 }
 
-.sidebar-section__content, .select-field--primary, .select-field__option, .filter-section, .filter-section__button, .filter-section__content, .filter-section__item, .checkbox-field__checkbox, .settings__content, .settings__sidebar, .text-field-container__text-field--primary, .settings-download-sources__item, .profile-section, .modal, .game-options-modal__sidebar, .repacks-modal__repacks {
+.sidebar-section__content, .filter-section, .filter-section__button, .filter-section__content, .filter-section__item, .checkbox-field__checkbox, .settings__content, .settings__sidebar, .text-field-container__text-field--primary, .settings-download-sources__item, .profile-section, .modal, .game-options-modal__sidebar, .repacks-modal__repacks {
     background: transparent;
     backdrop-filter: blur(8px);
+}
+
+.select-field {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(8px);
+    color: #ffffff !important;
+}
+
+.select-field__option:hover,
+.select-field--primary:hover,
+.select-field:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* на случай если это нативный <select> */
+select, option {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+}
+
+[class*="select-field"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+[class*="select-field"]:hover {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+select,
+[class*="select-field"] select {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+    width: auto !important;
+}
+
+select:hover,
+[class*="select-field"] select:hover {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+option {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+.sidebar-section__header,
+.sidebar-section__content,
+.sidebar-section__button {
+    background-color: transparent !important;
 }
