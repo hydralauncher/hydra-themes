@@ -1,0 +1,122 @@
+/*
+{
+  "name": "Alienware Nebula",
+  "author": "Fernando Gantonacci",
+  "version": "1.0.1",
+  "description": "Tema escuro com iluminação Alienware",
+  "license": "MIT"
+}
+*/
+
+:root {
+  /* ==========================================
+     BLOCO DE VARIÁVEIS (OBRIGATÓRIO PARA O ROBÔ DO GITHUB)
+     ========================================== */
+  --bg-sidebar: rgba(10, 10, 14, 0.75);
+  --bg-header: rgba(10, 10, 14, 0.6);
+  --bg-hover: rgba(0, 212, 255, 0.2);
+  --bg-active: rgba(160, 32, 240, 0.3);
+  --bg-input: #0d0d13;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b3b3b3;
+  --text-muted: #71717a;
+  --text-alt: #00d4ff;
+  --accent-primary: #a020f0;
+  --accent-hover: #00d4ff;
+  --accent-light: rgba(0, 212, 255, 0.2);
+  --border-color: rgba(160, 32, 240, 0.4);
+  --border-light: rgba(0, 212, 255, 0.3);
+  --glass-blur: blur(12px);
+  --radius-md: 12px;
+}
+
+/* ==========================================
+   FORÇAMENTO DO PAPEL DE PAREDE E TRANSPARÊNCIAS
+   ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url('https://i.imgur.com/CAO6juO.png') !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+/* Força a transparência total nas camadas do Hydra para revelar o fundo */
+#root, 
+.main-layout, 
+main, 
+.container__content,
+.sidebar,
+.header,
+.bottom-panel,
+div[class*="Scroll"], 
+div[class*="Container"],
+div[class*="content"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ==========================================
+   PAINÉIS E JANELAS INTERNAS (FUMÊ COM BORRÃO)
+   ========================================== */
+[class*="Settings"] section,
+[class*="settings"],
+.settings__content,
+.catalogue__filters-container,
+.text-field-container__text-field--dark,
+.game-item {
+  background-color: rgba(10, 10, 14, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(160, 32, 240, 0.35) !important;
+  border-radius: 8px !important;
+}
+
+/* ==========================================
+   LINHAS DE LED (ACABAMENTO NEON DO SETUP)
+   ========================================== */
+.header { border-bottom: 2px solid #00d4ff !important; }
+.bottom-panel { border-top: 2px solid #00d4ff !important; }
+.sidebar { border-right: 1px solid #a020f0 !important; }
+.header__search { border: 1px solid rgba(0, 212, 255, 0.4) !important; }
+
+/* ==========================================
+   SISTEMA DE BOTÕES (ESTILO ALIENWARE)
+   ========================================== */
+
+/* Botões em estado normal (Discretos) */
+.sidebar a, 
+.sidebar button,
+.sidebar [class*="Button"],
+[class*="Settings"] button,
+.settings__content button,
+.button {
+  background: transparent !important;
+  color: #b3b3b3 !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  transition: all 0.25s ease-in-out !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+
+/* Botões ao passar o mouse (Hover) e Abas Ativas (Neon) */
+.sidebar a:hover, 
+.sidebar button:hover,
+[class*="Settings"] button:hover, 
+.settings__content button:hover,  
+.button:hover,
+[class*="active"], 
+[aria-current="page"] {
+  background: linear-gradient(45deg, #a020f0, #00d4ff) !important;
+  color: #ffffff !important;
+  box-shadow: 0px 4px 12px rgba(0, 212, 255, 0.5) !important;
+  filter: brightness(1.2) !important;
+}
