@@ -1,0 +1,295 @@
+/* Hydra Launcher HUD — Tema “Kirby Pink” com ícones Pokémon */
+/* Arquivo: hydra-launcher-hud-pokemon.css */
+
+:root {
+  /* Theme colors & assets */
+  --bg-gif: url('https://media1.tenor.com/m/9F0m7jUgJ40AAAAd/wallpaper.gif');
+  --overlay: rgba(6, 6, 6, 0.55);
+  --panel-bg: rgba(20, 20, 20, 0.46);
+  --muted-panel: rgba(0, 0, 0, 0.18);
+  --kirby-pink-100: rgba(255, 192, 203, 0.14);
+  --kirby-pink-200: rgba(255, 105, 180, 0.25);
+  --kirby-pink-300: rgba(255, 105, 180, 0.6);
+  --text: #ffffff;
+  --text-secondary: #ffeef6;
+  --accent: #ff99cc;
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  --radius: 12px;
+  --transition-speed: 200ms;
+  --transition-ease: cubic-bezier(.2, .9, .2, 1);
+  --font-stack: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --cursor-url: '';
+  
+  /* Icons sprite / folder – você irá substituir pelos seus ícones Pokémon */
+  --icon-folder: url('path/to/your/pokemon-icons.svg');
+  --icon-size: 24px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-stack);
+  font-weight: 300;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  background-image: var(--bg-gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  overflow-y: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Glass-panel style */
+.panel {
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition-speed) var(--transition-ease),
+              box-shadow var(--transition-speed) var(--transition-ease),
+              border-color var(--transition-speed) var(--transition-ease);
+}
+
+/* Respect user’s reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Header / Sidebar / Content */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: transparent; /* Tornando o header transparente */
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  /* opcional: sombra leve para destacar sobre o vídeo de fundo */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar {
+  width: 220px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.18);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 16px;
+}
+
+.container__content {
+  flex: 1 1 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.bottom-panel {
+  background: rgba(255,182,193,0.06);
+  border-top: 1px solid rgba(255,255,255,0.03);
+  padding: 10px 12px;
+}
+
+.panel--hoverable:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Typography tweaks */
+.header .title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.small { font-size: 12px; opacity: 0.9; }
+.muted { opacity: 0.8; color: var(--text-secondary); }
+
+/* Buttons — unified, accessible and animated */
+.button {
+  --pad-vertical: 10px;
+  --pad-horizontal: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: var(--pad-vertical) var(--pad-horizontal);
+  min-height: 38px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  background: var(--kirby-pink-100);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  transition: transform var(--transition-speed) var(--transition-ease),
+              box-shadow var(--transition-speed) var(--transition-ease),
+              background var(--transition-speed) var(--transition-ease),
+              border-color var(--transition-speed) var(--transition-ease);
+}
+
+.button:focus {
+  outline: 2px solid rgba(255,255,255,0.12);
+  outline-offset: 2px;
+}
+
+.button:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: var(--kirby-pink-200);
+  border-color: var(--glass-border-strong);
+  box-shadow: 0 18px 40px rgba(255,105,180,0.14);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@keyframes subtleGradient {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(-10deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+.button--animated {
+  animation: subtleGradient 5s linear infinite;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(255,105,180,0.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 480ms cubic-bezier(.2,.8,.2,1), opacity 320ms ease;
+  pointer-events: none;
+}
+.button:active::after {
+  transform: translate(-50%, -50%) scale(36);
+  opacity: 1;
+  transition: transform 200ms cubic-bezier(.2,.8,.2,1), opacity 360ms ease;
+}
+
+/* Sidebar button tweaks */
+.sidebar .button {
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.sidebar .button:hover {
+  box-shadow: 0 18px 40px rgba(255,105,180,0.16);
+}
+
+/* Toasts / Notifications */
+.toast {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(30,30,30,0.64);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* Cursor / Hydra mode */
+body.hydra {
+  cursor: var(--cursor-url, auto), auto;
+  animation: hydraEntry 420ms cubic-bezier(.2,.9,.2,1);
+}
+@keyframes hydraEntry {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Responsive helpers */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .app-root { padding: 12px; }
+}
+
+@media (max-width: 420px) {
+  .header .title { font-size: 16px; }
+  .button { font-size: 12px; padding: 8px 12px; }
+}
+
+
+/* === ICONES POKÉMON no canto superior esquerdo === */
+/* Supondo que a área de ícones seja algo como .header .icon-menu ou .sidebar .logo etc */
+/* Você precisa inspecionar via DevTools para ver a classe exata usada pelo Hydra */
+
+.header .logo,
+.header .icon-menu {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-image: var(--icon-folder);
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* escolha a posição dentro da sprite ou use individual SVGs */
+  background-position: 0 0; /* ajuste conforme sprite */
+}
+
+/* Se quiser diferentes estados (hover, ativo) */
+.header .logo:hover {
+  background-position: 0 -var(--icon-size); /* se sprite vertical */
+  filter: drop-shadow(0 0 4px var(--accent));
+}
+
+/* Se quiser múltiplos ícones para menu, favoritos, configurações */
+.header .icon-favorites {
+  background-position: -var(--icon-size) 0;
+}
+.header .icon-settings {
+  background-position: -2*var(--icon-size) 0;
+}
+
+
+.header {
+  background: rgba(20,20,20,0.20); /* leve vítreo */
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(12px);
+}
