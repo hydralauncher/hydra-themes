@@ -10,7 +10,6 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 #root{
-    //background-image:url('https://images.steamusercontent.com/ugc/493519450183038303/0AA1FD6FE0DC7D21F2E785642F982D941425111E/');
     background-image:url('https://images.steamusercontent.com/ugc/2502394419258491679/4D455E8FE7737FAFF87A7C10B011305869C2FC67/');
     background-attachment:fixed;
     background-position:center top;
@@ -20,7 +19,6 @@
 
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
   font-style: normal;
   font-variation-settings:"wdth" 100;
 
