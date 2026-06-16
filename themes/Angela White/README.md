@@ -2,4 +2,4 @@
 
 Tema personalizado para Hydra.
 
-Autor: Seu nome
+Autor: ORIGNI
