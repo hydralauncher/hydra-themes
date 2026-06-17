@@ -3,7 +3,7 @@ body {
   color: #00e1ffc7;
 }
 #root {
-  background: url('https://media.discordapp.net/attachments/1515798411264262307/1515808918356623702/Angela_Whiteyogayoga_pantscleavage.jpg?ex=6a31ac10&is=6a305a90&hm=05f0f21fc30dfa0ee1c45ec2a2ef3d5cfb7c9bdbde5bd61d22c8b20791764c1e&=&format=webp') no-repeat center center fixed;
+  background: url(https://raw.githubusercontent.com/SAVIAAAA/hydra-themes/refs/heads/main/themes/Angela%20White/Angela_Whiteyogayoga_pantscleavage.jpg) no-repeat center center fixed;
   background-size: cover;
   background-color: #000000;
 
@@ -71,7 +71,7 @@ h1, h2, h3, h4 {
 
 .title-bar::after {
   content: "ANGELA WHITE";
-  margin-left: 500px;
+  margin-left: 550px;
   font-size: 16px;
   font-weight: 700;
   font-family: Amostely Signature;
@@ -114,7 +114,7 @@ h1, h2, h3, h4 {
 }
 
 .achievement-notification__outer-container {
-    background: url("https://media.discordapp.net/attachments/1515798411264262307/1515798450720211095/Angela_White.png.jpeg?ex=6a31a250&is=6a3050d0&hm=13f3b4584715d0a3580c43f21ae915bcdb6bee43c6455450f4044c85ed91fb8a&=&format=webp") no-repeat;
+    background: url("https://raw.githubusercontent.com/SAVIAAAA/hydra-themes/refs/heads/main/themes/Angela%20White/Angela_White.png.jpeg") no-repeat;
     background-size: cover;
     background-position: 50% 35% ;
     border-radius: 8px;
