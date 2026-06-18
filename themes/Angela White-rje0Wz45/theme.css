@@ -1,5 +1,5 @@
 body {
-  font-family: Alpine Regular;
+  font-family: "Alpine Regular", sans-serif;
   color: #00e1ffc7;
 }
 #root {
@@ -74,7 +74,7 @@ h1, h2, h3, h4 {
   margin-left: 550px;
   font-size: 16px;
   font-weight: 700;
-  font-family: Amostely Signature;
+  font-family: "Amostely Signature", sans-serif;
   color: #00fff2;
   letter-spacing: 5px;
   text-transform: uppercase;
