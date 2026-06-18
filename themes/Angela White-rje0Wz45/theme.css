@@ -1,0 +1,243 @@
+body {
+  font-family: "Alpine Regular", sans-serif;
+  color: #00e1ffc7;
+}
+#root {
+  background: url(https://raw.githubusercontent.com/SAVIAAAA/hydra-themes/refs/heads/main/themes/Angela%20White-rje0Wz45/Angela_Whiteyogayoga_pantscleavage.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-color: #000000;
+
+}
+h1, h2, h3, h4 {
+  color: #00eeffb2;
+}
+.sidebar, .sidebar a, .sidebar span, .sidebar div {
+  color: #00fff2c2 !important;
+}
+.sidebar {
+  color: #00c3ffce;
+  background-color: rgba(0, 0, 0, 0.849) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 242, 0.685);
+}
+.header {
+  border: 1px solid rgba(0, 217, 255, 0.774);
+  backdrop-filter: blur(10px);
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.container__content {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.container__content .game-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 12px #00ffeaa6;
+}
+.bottom-panel {
+  border: 1px solid rgba(0, 225, 255, 0.788);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.container__content .button--outline:hover {
+  background-color: #00e1ff;
+  color: #000;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(0, 247, 255, 0.342);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ffdda4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.title-bar h4 {
+  visibility: hidden;
+}
+
+.title-bar::after {
+  content: "ANGELA WHITE";
+  margin-left: 550px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Amostely Signature", sans-serif;
+  color: #00fff2;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+
+  text-shadow: 0 0 5px #002fff,
+               0 0 10px #00aeff,
+               0 0 15px #00ffbf;
+
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #0059ff,
+                 0 0 10px #00ffea,
+                 0 0 15px #0044ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #0084ff,
+                 0 0 20px #00ffb3,
+                 0 0 30px #40ffef;
+  }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 5px -2px rgb(0, 255, 221), 0 0 15px -5px rgb(0, 151, 156);
+    }
+    50% {
+        box-shadow: 0 0 8px 0px rgb(0, 255, 191), 0 0 30px -2px rgb(2, 247, 255);
+    }
+    100% {
+        box-shadow: 0 0 5px -2px rgb(0, 255, 179), 0 0 15px -5px rgb(0, 163, 136);
+    }
+}
+
+.achievement-notification__outer-container {
+    background: url("https://raw.githubusercontent.com/SAVIAAAA/hydra-themes/refs/heads/main/themes/Angela%20White-rje0Wz45/Angela_White.png.jpeg") no-repeat;
+    background-size: cover;
+    background-position: 50% 35% ;
+    border-radius: 8px;
+    border: 0px;
+    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.achievement-notification__container {
+    background-color: rgba(23, 23, 27, 0.8);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+.achievement-notification__icon {
+    border-radius: 8px;
+    border: 1px solid rgb(0, 128, 128);
+    transition: outline-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    object-fit: cover;
+}
+
+.achievement-notification__title {
+    font-weight: bold;
+    color: #c7d5e0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.achievement-notification__hidden-icon {
+    color: rgb(0, 255, 242);
+}
+
+.achievement-notification__description {
+    font-size: 0.85em;
+    color: #c0c0c0;
+}
+
+.achievement-notification__chip {
+    background: rgba(23, 23, 27, 0.8);
+    border-radius: 15px 5px 15px 5px;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: #c7d5e0;
+    border: 1px solid rgb(0, 255, 234);
+}
+
+.achievement-notification__chip__label {
+    color: #c7d5e0;
+}
+
+.achievement-notification__chip__icon path {
+    fill: rgb(255, 255, 255);
+    transition: fill 0.4s ease-in-out;
+}
+
+/* RARE */
+.achievement-notification--rare .achievement-notification__container {
+    border-color: rgb(0, 255, 200);
+}
+
+.achievement-notification--rare .achievement-notification__title {
+    color: #00d9ff;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+    outline: none;
+    border-color: rgb(0, 255, 242);
+    animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.achievement-notification--rare .achievement-notification__chip {
+    background: rgb(0, 0, 0);
+    color: #c7d5e0;
+    border-color: rgb(0, 247, 255);
+}
+
+.achievement-notification--rare .achievement-notification__chip__icon path {
+    fill: #fff;
+}
+
+/* PLATINUM */
+.achievement-notification--platinum .achievement-notification__container {
+    border-color: rgb(0, 255, 234);
+    background: linear-gradient(
+        145deg,
+        rgba(23, 23, 27, 0.8),
+        color-mix(in srgb, rgba(23, 23, 27, 0.8) 70%, rgb(0, 255, 213) 30%)
+    );
+}
+
+.achievement-notification--platinum .achievement-notification__title {
+    color: #c7d5e0;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+    background: rgb(0, 0, 0);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid color-mix(in srgb, rgb(0, 255, 200) 70%, black 30%);
+    font-weight: bold;
+}
+
+.achievement-notification--platinum .achievement-notification__chip__icon path {
+    fill: rgb(255, 255, 255);
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 153, 255, 0.1);
+  color: #fff;
+  border: 1px solid #00ffff93;
+  transition: 0.3s ease;
+}
