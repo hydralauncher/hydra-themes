@@ -70,16 +70,18 @@ h1, h2, h3, h4 {
 }
 
 .title-bar::after {
-  content: "ANGELA WHITE";
-  margin-left: 550px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: "Amostely Signature", sans-serif;
-  color: #00fff2;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  display: inline-block;
-  vertical-align: middle;
+ content: "ANGELA WHITE";
+ position: absolute;
+ left: 600px;
+ top: 2px;
+ font-size: 16px;
+ font-weight: 700;
+ font-family: "Amostely Signature", sans-serif;
+ color: #00fff2;
+ letter-spacing: 5px;
+ text-transform: uppercase;
+ display: inline-block;
+ vertical-align: middle;
 
   text-shadow: 0 0 5px #002fff,
                0 0 10px #00aeff,
