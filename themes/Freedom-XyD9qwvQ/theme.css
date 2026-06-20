@@ -10,7 +10,7 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 #root{
-    background-image:url('https://i.imgur.com/kMneMTV.jpeg');
+    background-image:url('https://images.steamusercontent.com/ugc/2502394419258491679/4D455E8FE7737FAFF87A7C10B011305869C2FC67/');
     background-attachment:fixed;
     background-position:center top;
     background-size:cover;
@@ -75,6 +75,7 @@ li.sidebar__menu-item:hover{
   border-radius:0px;
 }
 
+/* removed redundant/empty duplicate selector */
 li.sidebar__menu-item.sidebar__menu-item--active{
   background-color:var(--theme2-color); 
   border-radius:0px;
