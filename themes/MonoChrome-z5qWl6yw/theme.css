@@ -7,7 +7,7 @@
   --bg: #0b0b0b;
   --surface: #131313;
   --surface-2: #1a1a1a;
-  --surface-hover: #232323;
+  /* --surface-hover: #232323; */ /* remove or wire up if hover surface tinting is desired */
 
   --line: #f2f0eb;
   --line-dim: rgba(242, 240, 235, 0.35);
