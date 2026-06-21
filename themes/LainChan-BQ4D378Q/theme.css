@@ -1,63 +1,81 @@
 #root { /* фотография */
-  background: url(https://i.pinimg.com/originals/2d/79/a2/2d79a22c6a7902c41866fe4badebe98e.gif)
+    background: url(https://i.pinimg.com/originals/2d/79/a2/2d79a22c6a7902c41866fe4badebe98e.gif)
     #000000ff;
-  background-size: 112.5%;
+    background-size: 112.5%;
 }
 :root {
-  --cor-principal: #000000ff;
-  --cor-secundaria: #000000ff;
-  --cor-destaque: #a7a7a7ff;
-  --cor-texto: #ffffffff;
-  --cor-fundo-transparente: rgba(0, 0, 0, 0.42)
+    --cor-principal: #000000ff;
+    --cor-secundaria: #000000ff;
+    --cor-destaque: #ffffff;
+    --cor-texto: #ffffffff;
+    --cor-fundo-transparente: rgba(0, 0, 0, 0.42)
 }
 .container__content .button--outline {
-  backdrop-filter: blur(8px);
-  background-color: var(--cor-fundo-transparente);
-  color: var(--cor-texto);
-  border: 1px solid var(--cor-destaque);
+    backdrop-filter: blur(8px);
+    background-color: var(--cor-fundo-transparente);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-destaque);
 }
 .sidebar {
- background: transparent;
- text-shadow: 1px 1px 1px #000;
- color: #a7a7a7ff;
- background-color: rgba(0, 0, 0, 0.0);
+    background: transparent;
+    text-shadow: 1px 1px 1px #000;
+    color: #a7a7a7ff;
+    background-color: rgba(0, 0, 0, 0.0);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
 }
 .sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
- text-transform: uppercase;
- color: #ffffffff;
- text-shadow: 0px 0px 0px #ffffffff;
- background-color: #00000020;
+    text-transform: uppercase;
+    color: #ffffffff;
+    text-shadow: 0px 0px 0px #ffffffff;
+    background-color: #00000020;
+}
+.sidebar__menu-item:hover,
+.sidebar__menu-item-button:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-left: 2px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff !important;
+}
+.sidebar__menu-item.active,
+.sidebar__menu-item-button.active {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    border-left: 2px solid #ffffff;
+    color: #ffffff !important;
 }
 .header { /* верхняя строка - настройки, загрузки и т.д. */
-color: #a7a7a7ff;
-text-shadow: 1px 1px 1px #000000ff;
- background: transparent;
- background-color: rgba(0, 0, 0, 0.08);
- backdrop-filter: blur(8px);
+    color: #a7a7a7ff;
+    text-shadow: 1px 1px 1px #000000ff;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .container__content, .bottom-panel {
-  background: transparent;
+    background: transparent;
 }
 
 body { /* верхний левый угол - Hydra */
- text-align: left;
-  text-shadow: 2px 2px 2px #000000ff;
- color: #a7a7a7ff;
- background: transparent;
+    text-align: left;
+    text-shadow: 2px 2px 2px #000000ff;
+    color: #a7a7a7ff;
+    background: transparent;
 }
 
 .text-field-container__text-field--primary,
 .header__search {
- color: #ffffffff;
+    color: #ffffffff;
 }
 .game-item {
- text-shadow: 1px 1px 1px #000;
- color: rgba(255, 255, 255, 1);
+    text-shadow: 1px 1px 1px #000;
+    color: rgba(255, 255, 255, 1);
+}
+.game-item:hover {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 {
- text-shadow: 1px 1px 1px #000000ff;
- color: #a7a7a7ff;
+    text-shadow: 1px 1px 1px #000000ff;
+    color: #a7a7a7ff;
 }
 .catalogue__filters-container,
 .friends-box__box,
@@ -66,94 +84,240 @@ body { /* верхний левый угол - Hydra */
 .sidebar
 
 .container__content .button--outline {
- backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.45);
+}
+.container__content .button--outline:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .settings-download-sources__item,
 .download-group__item,
 .game-item {
- background-color: rgba(0, 0, 0, 0.16) !important;
- backdrop-filter: blur(8px);
- }
+    background-color: rgba(0, 0, 0, 0.16) !important;
+    backdrop-filter: blur(8px);
+}
 
 .game-details__description {
-background-color: rgba(255, 255, 255, 0);
-  text-shadow: 1px 1px 1px #000000ff;
-  color: #ffffffff;
+    background-color: rgba(255, 255, 255, 0);
+    text-shadow: 1px 1px 1px #000000ff;
+    color: #ffffffff;
 }
 
 .game-details__description-container {
- background: transparent;
- backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0);
+    background: transparent;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0);
 }
 .content-sidebar {
- backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(8px);
+    background-color: transparent !important;
 }
 .description-header { /* строка - выпущено 16 фев. 2012 г. */
-  backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.42);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
 }
-
 .hero-panel {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.01);
+    background: transparent !important;
+    backdrop-filter: none !important;
+    background-color: transparent !important;
+}
+.hero-panel__information,
+.hero-panel__game-info,
+.hero-panel__playtime {
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+.hero-panel p,
+.hero-panel span,
+.hero-panel strong,
+.hero-panel small,
+.hero-panel div {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0 0 8px rgba(0,0,0,0.9);
 }
 .settings__container {
- background: transparent;
- background-color: rgba(0, 0, 0, 0);
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0);
 }
 .settings__content {
-  backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0);
 }
 .button--outline {
-  backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0);
 }
 .theme-card {
- backdrop-filter: blur(8px);
- background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .profile-hero__hero-panel--transparent {
-  background: transparent;
- background-color: rgba(0, 0, 0, 0.09);
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.09);
 }
 .modal {
- background: transparent;
- background-color: rgba(0, 0, 0, 0.2);
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .repacks-modal__repack-button {
-  background: transparent;
- background-color: rgba(0, 0, 0, 0.6);
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .text-field-container__text-field--dark, .text-field-container__text-field--primary, .header__search {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.44); /* строка поиск */
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.44); /* строка поиск */
 }
 .sidebar-section__button {
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.2);
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .title-bar { /* самая верхняя строка (надпись - Hydra) */
-  background: transparent;
-  background-color: rgba(255, 0, 0, 0);
+    background: transparent;
+    background-color: rgba(255, 0, 0, 0);
 }
 .sidebar-profile__friends-button { /* значок - друзья */
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.42);
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.42);
 }
 .title-bar, .sidebar, .header, .bottom-panel, .hero-panel, .content-sidebar {
-  border: none;
+    border: none;
 }
 
- .home__content {
+.home__content {
     background-color: rgba(112, 12, 12, 0);
     backdrop-filter: blur(2px);
-  }
+}
 
- .bottom-panel { /* самая нижняя строка - нет активных загрузок */
+.bottom-panel { /* самая нижняя строка - нет активных загрузок */
     background-color: rgba(0, 0, 0, 0);
-  }
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-section__content, .filter-section, .filter-section__button, .filter-section__content, .filter-section__item, .checkbox-field__checkbox, .settings__content, .settings__sidebar, .text-field-container__text-field--primary, .settings-download-sources__item, .profile-section, .modal, .game-options-modal__sidebar, .repacks-modal__repacks {
+    background: transparent;
+    backdrop-filter: blur(8px);
+}
+
+.select-field {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(8px);
+    color: #ffffff !important;
+}
+
+.select-field__option:hover,
+.select-field--primary:hover,
+.select-field:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* на случай если это нативный <select> */
+select, option {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+}
+
+[class*="select-field"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+[class*="select-field"]:hover {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+select,
+[class*="select-field"] select {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+    width: auto !important;
+}
+
+select:hover,
+[class*="select-field"] select:hover {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+option {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+.sidebar-section__header,
+.sidebar-section__content,
+.sidebar-section__button {
+    background-color: transparent !important;
+}
+
+/* Плавные переходы */
+.sidebar__menu-item, .sidebar__menu-item-button,
+.game-item, .button--outline, .container__content .button--outline,
+.sidebar-section__button, .settings-download-sources__item {
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+                color 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
+}
+
+/* Hover scale на game-item */
+.game-item:hover {
+    transform: scale(1.02);
+}
+.game-item {
+    will-change: transform;
+}
+
+/* Выделение текста */
+::selection {
+    background: rgba(255,255,255,0.25);
+    color: #ffffff;
+}
+
+/* Поиск в фокусе */
+.header__search:focus,
+.text-field-container__text-field--primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.3),
+                0 0 8px rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.4) !important;
+}
+
+/* Сглаживание шрифта */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Разделители секций сайдбара */
+.sidebar-section {
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    padding-top: 6px;
+    margin-top: 6px;
+}
+.sidebar-section__header {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.35) !important;
+    text-transform: uppercase;
+}
+
+.container__content .button--outline,
+.button--outline {
+    background-color: rgba(0, 0, 0, 0.55) !important;
+}
+.container__content .button--outline:hover,
+.button--outline:hover {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
