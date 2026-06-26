@@ -23,6 +23,7 @@ body{
 .game-item,
 .catalogue__filters-container,
 .download-group__simple-card,
+.notification-item--unread,
 .profile-section__header{
   border-radius: 10px 10px 0 0;
   background-color: var(--primary-color);
@@ -45,10 +46,12 @@ body{
   background-repeat: no-repeat;
 }
 
+.settings__sidebar,
 .header,
 .settings__content,
 .bottom-panel,
 .title-bar,
+.console-card,
 .sidebar {
   background-color: rgba(0, 0, 0, 0.5)
 }
@@ -102,7 +105,7 @@ body{
   display: none;
 }
 
-.title-bar::after{
+.title-bar::before{
   content: "Vintage Fog - Theme";
   font-family: Montserrat, Arial, sans-serif;
   font-weight: 500;
@@ -168,4 +171,15 @@ body{
 
 .achievement-notification__description { 
   color: #E7DFC6 !important;
+}
+
+.modal{
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.sidebar-profile__button{
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
 }
