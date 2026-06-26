@@ -658,6 +658,27 @@ input[type="text"] {
   transform: scale(1.03);
 }
 
+.game-item-classics:hover {
+  transform: scale(1.04);
+}
+
+.game-item-classics__plus-wrapper:hover {
+  animation: pulsar_buttom 2s ease-in-out infinite alternate;
+}
+
+.sidebar-profile__dropdown-item {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.342);
+}
+
+.sidebar-profile__dropdown-item:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Key Frames */
 
 @keyframes mexer {
