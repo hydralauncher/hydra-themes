@@ -75,7 +75,7 @@ li.sidebar__menu-item:hover{
   border-radius:0px;
 }
 
-/* removed redundant/empty duplicate selector */
+li.sidebar__menu-item.sidebar__menu-item{}
 li.sidebar__menu-item.sidebar__menu-item--active{
   background-color:var(--theme2-color); 
   border-radius:0px;
