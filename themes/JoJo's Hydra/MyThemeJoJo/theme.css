@@ -1,0 +1,149 @@
+
+  /*
+    Here you can edit CSS for your theme and apply it on Hydra.
+    There are a few classes already in place, you can use them to style the launcher.
+
+    If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+    or how to publish your theme in the theme store, you can check the docs:
+    https://docs.hydralauncher.gg/
+
+    Happy hacking!
+  */
+
+  /* Header */
+  .header {}
+
+  /* Sidebar */
+  .sidebar {}
+
+  /* Main content */
+  .container__content {}
+
+  /* Bottom panel */
+  .bottom-panel {}
+
+  /* Toast */
+  .toast {}
+
+  /* Button */
+  .button {}
+
+body {
+    margin: 0;
+    color: #f0efef;
+    font-family: Arial, sans-serif;
+
+  }
+
+
+  #root {
+    background: #020000ff
+      url("https://wallpapers.com/images/hd/johnny-joestar-blue-ombre-aa25hcsn38v0hb93.jpg")
+      no-repeat center center;
+    background-size: cover;
+    }
+
+
+  .sidebar,
+  .header,
+  .container__content,
+  .bottom-panel {
+    background: transparent !important; 
+  }
+
+
+  .text-field-container__text-field--dark,
+  .text-field-container__text-field--primary,
+  .header__search,
+  .game-item,
+
+  .settings__content,
+  .catalogue__filters-container,
+  .friends-box__box,
+  .user-stats__box,
+  .recent-games__box,
+  .sidebar {
+
+    background-color: rgba(27, 171, 238, 0.23)5) !important;
+    backdrop-filter: blur(8px);
+
+    }
+
+  .container__content .button--outline {
+    backdrop-filter: blur(6px);
+    background-color: rgba(54, 159, 177, 0.61);
+  }
+
+
+  .settings-download-sources__item,
+  .download-group__item,
+  .game-item {
+    background-color: rgba(31, 128, 219, 0.37) !important;
+  }
+
+
+  .title-bar {
+  /* O primeiro valor é a direção, os seguintes são as cores */
+  background: linear-gradient(to right, #183574bb, #a43acebb);
+}
+
+
+  .home__content {
+    background-color: rgba(21, 89, 216, 0.11);
+    backdrop-filter: blur(2px);
+  }
+
+  .bottom-panel {
+    background-color: rgba(28, 131, 216, 0.53);
+  }
+
+
+/* Passo 4: Barra de busca e campos de texto */
+input, .search-bar {
+    border: 1px solid #5b13e0cb !important;
+}
+
+/* Passo 1: Deixa o cabeçalho original vazio e transparente */
+[class*="title-bar"], .title-bar, [class*="brandName"] {
+    color: transparent !important;
+    font-size: 0 !important;
+    position: relative !important;
+}
+
+/* Passo 2: Esconde o ícone (o desenho) do Hydra que fica atrás do nome */
+[class*="title-bar"] svg, [class*="logo"], .title-bar__logo {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* Passo 3: Cria o seu nome NEON de forma independente */
+[class*="title-bar"]::after {
+    content: "JoJo's Hydra" !important;
+    position: absolute !important;
+    left: 20px !important; /* Ajusta a posição da esquerda */
+    top: 50% !important;   /* Centraliza no topo */
+    transform: translateY(-50%) !important;
+    
+    /* Cores e Brilho Neon */
+    color: #4dc7ffff !important;
+    text-shadow: 0 0 5px #a043d6ff, 0 0 10px #4d85ffff, 0 0 20px #742cc7ff !important;
+    
+    /* Estilo da letra */
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    visibility: visible !important;
+    letter-spacing: 1px;
+}
+
+/* 1. Força a Comic Sans em todas as variáveis do Hydra */
+:root {
+    --font-primary: "Comic Sans MS", "Comic Sans", cursive !important;
+    --font-secondary: "Comic Sans MS", "Comic Sans", cursive !important;
+    --font-family: "Comic Sans MS", "Comic Sans", cursive !important;
+}
+
+/* 2. Força em absolutamente todos os elementos de texto */
+*, body, html, span, p, div, h1, h2, h3, h4, h5, h6, button, input, a {
+    font-family: "Comic Sans MS", "Comic Sans", cursive !important;
+}
