@@ -37,14 +37,14 @@
   );
   --gradient-text: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
 
-  /* Space Asset Library â€” hÃ­brido NASA + CSS */
+  /* Space Asset Library ├óÔé¼ÔÇØ h├â┬¡brido NASA + CSS */
   --space-void: #000000;
   --space-deep: #020108;
 
   --img-nebula-deep: url("https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg");
   --img-nebula-alt: url("https://images-assets.nasa.gov/image/PIA03519/PIA03519~orig.jpg");
 
-  /* Mythical Hydra mascot — neon SVG (5 heads + star crown), pure CSS data URI */
+  /* Mythical Hydra mascot ÔÇö neon SVG (5 heads + star crown), pure CSS data URI */
   --img-hydra: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBmaWxsPSJub25lIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdCb2R5IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBmZmYwIiBzdG9wLW9wYWNpdHk9IjAuOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjYjgyOWZmIiBzdG9wLW9wYWNpdHk9IjAuODUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjAwZDQiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImdHbG93IiB4MT0iMCUiIHkxPSIxMDAlIiB4Mj0iMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYTNmZiIgc3RvcC1vcGFjaXR5PSIwLjMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjAwZDQiIHN0b3Atb3BhY2l0eT0iMC41NSIvPjwvbGluZWFyR3JhZGllbnQ+PGZpbHRlciBpZD0ibmVvbiIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgcmVzdWx0PSJiIi8+PGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJiIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPjwvZmlsdGVyPjwvZGVmcz48IS0tIHN0YXJzIGFyb3VuZCBoeWRyYSAtLT48ZyBmaWxsPSIjMDBmZmYwIiBvcGFjaXR5PSIwLjg1Ij48Y2lyY2xlIGN4PSI2MCIgY3k9IjcwIiByPSIxLjgiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSI0MCIgcj0iMS4yIi8+PGNpcmNsZSBjeD0iNTIwIiBjeT0iNTUiIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjU4MCIgY3k9IjkwIiByPSIxLjIiLz48Y2lyY2xlIGN4PSI5MCIgY3k9IjIwMCIgcj0iMSIvPjxjaXJjbGUgY3g9IjU2MCIgY3k9IjE4MCIgcj0iMS40Ii8+PGNpcmNsZSBjeD0iNDAiIGN5PSIzMDAiIHI9IjEuMyIvPjxjaXJjbGUgY3g9IjYwMCIgY3k9IjI4MCIgcj0iMSIvPjwvZz48ZyBmaWxsPSIjZmYwMGQ0IiBvcGFjaXR5PSIwLjciPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjMwIiByPSIxIi8+PGNpcmNsZSBjeD0iNDUwIiBjeT0iMzUiIHI9IjEuNiIvPjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwIiByPSIxLjIiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjE1MCIgcj0iMSIvPjwvZz48IS0tIGJvZHkgLyB0b3JzbyBiYXNlIC0tPjxlbGxpcHNlIGN4PSIzMjAiIGN5PSI0MDAiIHJ4PSIxMTAiIHJ5PSI1NSIgZmlsbD0idXJsKCNnR2xvdykiIG9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0yNjAgMzgwIEMyNTAgMzIwIDI3MCAyODAgMzAwIDI1MCBDMzEwIDMwMCAzMzAgMzAwIDM0MCAyNTAgQzM3MCAyODAgMzkwIDMyMCAzODAgMzgwIFoiIGZpbGw9InVybCgjZ0JvZHkpIiBvcGFjaXR5PSIwLjM1IiBmaWx0ZXI9InVybCgjbmVvbikiLz48cGF0aCBkPSJNMjgwIDM5MCBDMjc1IDM0MCAyOTAgMzAwIDMxMCAyNzAgQzMyMCAzMTAgMzQwIDMxMCAzNTAgMjcwIEMzNzAgMzAwIDM4NSAzNDAgMzgwIDM5MCBaIiBzdHJva2U9InVybCgjZ0JvZHkpIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIGZpbHRlcj0idXJsKCNuZW9uKSIvPjwhLS0gbmVjayBMMSAtLT48cGF0aCBkPSJNMzAwIDI3MCBDMjQwIDI0MCAxODAgMjAwIDE1MCAxNDAgQzE0MCAxMjAgMTQ1IDk1IDE2NSA5MCBDMTg1IDg1IDE5NSAxMDUgMjAwIDEyNSBDMjEwIDE2NSAyNTAgMjEwIDMwNSAyNTAiIHN0cm9rZT0idXJsKCNnQm9keSkiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIiBmaWx0ZXI9InVybCgjbmVvbikiLz48IS0tIG5lY2sgTDIgLS0+PHBhdGggZD0iTTMxMCAyNjUgQzI1MCAyMTAgMjEwIDE2MCAxOTUgMTAwIEMxODggNzUgMjAwIDU1IDIyNSA1NSBDMjUwIDU1IDI1NSA4MCAyNTUgMTAwIEMyNTUgMTUwIDI4MCAyMDAgMzIwIDI1MCIgc3Ryb2tlPSJ1cmwoI2dCb2R5KSIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIGZpbHRlcj0idXJsKCNuZW9uKSIvPjwhLS0gbmVjayBjZW50ZXIgLS0+PHBhdGggZD0iTTMyMCAyNTUgQzMyMCAyMDAgMzI1IDE0MCAzMzAgOTAgQzMzMiA3MCAzNDUgNTUgMzY1IDYwIEMzODUgNjUgMzkwIDkwIDM4NSAxMTAgQzM3NSAxNjAgMzUwIDIxMCAzMjUgMjU1IiBzdHJva2U9InVybCgjZ0JvZHkpIiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgZmlsdGVyPSJ1cmwoI25lb24pIi8+PCEtLSBuZWNrIFIyIC0tPjxwYXRoIGQ9Ik0zMzAgMjY1IEMzOTAgMjEwIDQzMCAxNjAgNDQ1IDEwMCBDNDUyIDc1IDQ0MCA1NSA0MTUgNTUgQzM5MCA1NSAzODUgODAgMzg1IDEwMCBDMzg1IDE1MCAzNjAgMjAwIDMyMCAyNTAiIHN0cm9rZT0idXJsKCNnQm9keSkiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIiBmaWx0ZXI9InVybCgjbmVvbikiLz48IS0tIG5lY2sgUjEgLS0+PHBhdGggZD0iTTM0MCAyNzAgQzQwMCAyNDAgNDYwIDIwMCA0OTAgMTQwIEM1MDAgMTIwIDQ5NSA5NSA0NzUgOTAgQzQ1NSA4NSA0NDUgMTA1IDQ0MCAxMjUgQzQzMCAxNjUgMzkwIDIxMCAzMzUgMjUwIiBzdHJva2U9InVybCgjZ0JvZHkpIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgZmlsdGVyPSJ1cmwoI25lb24pIi8+PCEtLSBoZWFkcyAtLT48IS0tIGhlYWQgTDEgLS0+PGVsbGlwc2UgY3g9IjE2OCIgY3k9Ijg4IiByeD0iMjgiIHJ5PSIyMCIgZmlsbD0iIzBhMDAxNCIgc3Ryb2tlPSIjMDBmZmYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsdGVyPSJ1cmwoI25lb24pIiB0cmFuc2Zvcm09InJvdGF0ZSgtMjUgMTY4IDg4KSIvPjxjaXJjbGUgY3g9IjE3NSIgY3k9IjgyIiByPSI0IiBmaWxsPSIjMDBmZmYwIi8+PGNpcmNsZSBjeD0iMTc1IiBjeT0iODIiIHI9IjEuNSIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNDUgOTUgTDEyNSAxMDAgTDE0NSAxMDUiIHN0cm9rZT0iI2ZmMDA1NSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PCEtLSBoZWFkIEwyIC0tPjxlbGxpcHNlIGN4PSIyMjgiIGN5PSI1MiIgcng9IjI2IiByeT0iMTgiIGZpbGw9IiMwYTAwMTQiIHN0cm9rZT0iIzAwYTNmZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbHRlcj0idXJsKCNuZW9uKSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEwIDIyOCA1MikiLz48Y2lyY2xlIGN4PSIyMzUiIGN5PSI0OCIgcj0iMy41IiBmaWxsPSIjMDBhM2ZmIi8+PGNpcmNsZSBjeD0iMjM1IiBjeT0iNDgiIHI9IjEuMiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0yMDggNjAgTDE5MCA2MiBMMjA4IDY4IiBzdHJva2U9IiNmZjAwNTUiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPjwhLS0gaGVhZCBjZW50ZXIgLS0+PGVsbGlwc2UgY3g9IjM2OCIgY3k9IjYyIiByeD0iMzAiIHJ5PSIyMiIgZmlsbD0iIzBhMDAxNCIgc3Ryb2tlPSIjZmYwMGQ0IiBzdHJva2Utd2lkdGg9IjMiIGZpbHRlcj0idXJsKCNuZW9uKSIvPjxjaXJjbGUgY3g9IjM3OCIgY3k9IjU2IiByPSI0LjUiIGZpbGw9IiNmZjAwZDQiLz48Y2lyY2xlIGN4PSIzNzgiIGN5PSI1NiIgcj0iMS44IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTM0NSA3MiBMMzIwIDc4IEwzNDUgODQiIHN0cm9rZT0iI2ZmZTYwMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMzU1IDQ4IEwzNjUgMzUgTDM3NSA0OCIgc3Ryb2tlPSIjYjgyOWZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48IS0tIGhlYWQgUjIgLS0+PGVsbGlwc2UgY3g9IjQxMiIgY3k9IjUyIiByeD0iMjYiIHJ5PSIxOCIgZmlsbD0iIzBhMDAxNCIgc3Ryb2tlPSIjYjgyOWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsdGVyPSJ1cmwoI25lb24pIiB0cmFuc2Zvcm09InJvdGF0ZSgxMCA0MTIgNTIpIi8+PGNpcmNsZSBjeD0iNDIwIiBjeT0iNDgiIHI9IjMuNSIgZmlsbD0iI2I4MjlmZiIvPjxjaXJjbGUgY3g9IjQyMCIgY3k9IjQ4IiByPSIxLjIiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzk1IDYyIEwzNzggNjYgTDM5NSA3MCIgc3Ryb2tlPSIjZmYwMDU1IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48IS0tIGhlYWQgUjEgLS0+PGVsbGlwc2UgY3g9IjQ3MiIgY3k9Ijg4IiByeD0iMjgiIHJ5PSIyMCIgZmlsbD0iIzBhMDAxNCIgc3Ryb2tlPSIjMDBmZmYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsdGVyPSJ1cmwoI25lb24pIiB0cmFuc2Zvcm09InJvdGF0ZSgyNSA0NzIgODgpIi8+PGNpcmNsZSBjeD0iNDgwIiBjeT0iODIiIHI9IjQiIGZpbGw9IiMwMGZmZjAiLz48Y2lyY2xlIGN4PSI0ODAiIGN5PSI4MiIgcj0iMS41IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQ1MCA5OCBMNDMwIDEwNSBMNDUwIDEwOCIgc3Ryb2tlPSIjZmYwMDU1IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48IS0tIGNyb3duIHN0YXJzIG9uIGNlbnRlciBoZWFkIC0tPjxwYXRoIGQ9Ik0zNjAgMzggTDM2MyA0NSBMMzcwIDQ1IEwzNjQgNTAgTDM2NiA1NyBMMzYwIDUzIEwzNTQgNTcgTDM1NiA1MCBMMzUwIDQ1IEwzNTcgNDUgWiIgZmlsbD0iI2ZmZTYwMCIgb3BhY2l0eT0iMC45NSIvPjxwYXRoIGQ9Ik0zOTAgMzYgTDM5MiA0MSBMMzk4IDQxIEwzOTMgNDUgTDM5NSA1MCBMMzkwIDQ3IEwzODUgNTAgTDM4NyA0NSBMMzgyIDQxIEwzODggNDEgWiIgZmlsbD0iIzAwZmZmMCIgb3BhY2l0eT0iMC45Ii8+PC9zdmc+");
 
   --cosmos-drift-fast: 22s;
@@ -513,7 +513,7 @@
 }
 
 /* ==========================================================================
-   3. Base layers â€” cosmos hÃ­brido (NASA, buraco negro, sol, lua, estrelas)
+   3. Base layers ├óÔé¼ÔÇØ cosmos h├â┬¡brido (NASA, buraco negro, sol, lua, estrelas)
    ========================================================================== */
 
 html {
@@ -692,7 +692,7 @@ body::after {
 }
 
 /* ==========================================================================
-   4. Layout chrome â€” title bar, sidebar, header, bottom panel
+   4. Layout chrome ├óÔé¼ÔÇØ title bar, sidebar, header, bottom panel
    ========================================================================== */
 
 .title-bar {
@@ -886,7 +886,7 @@ body::after {
 }
 
 /* ==========================================================================
-   5. Interactive UI â€” cards, buttons, inputs, modals, filters
+   5. Interactive UI ├óÔé¼ÔÇØ cards, buttons, inputs, modals, filters
    ========================================================================== */
 
 .text-field-container__text-field--dark,
@@ -1408,12 +1408,12 @@ a:hover {
 }
 
 /* ==========================================================================
-   9. Extended UI â€” home, downloads, hero, badges, progress, notifications
+   9. Extended UI ├óÔé¼ÔÇØ home, downloads, hero, badges, progress, notifications
    ========================================================================== */
 
 ::selection {
-  background: rgba(0, 255, 240, 0.35);
-  color: #fff;
+  background: rgba(0, 255, 240, 0.45);
+  color: #0a0014;
 }
 
 .title-bar__controls button {
@@ -1700,10 +1700,6 @@ progress,
   pointer-events: none;
 }
 
-.header {
-  position: relative;
-}
-
 .achievements-content__user-summary__container__stats__progress-bar::-webkit-progress-value {
   background: var(--gradient-border) !important;
   background-size: 200% 100% !important;
@@ -1732,7 +1728,7 @@ progress,
 }
 
 /* ==========================================================================
-   10. Accessibility â€” reduced motion
+   10. Accessibility ├óÔé¼ÔÇØ reduced motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
