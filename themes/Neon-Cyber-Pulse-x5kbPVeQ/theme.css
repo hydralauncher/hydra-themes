@@ -319,7 +319,7 @@
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(0, -14px, 0) scale(1.035);
+    transform: translate3d(0, -8px, 0) scale(1.015);
   }
 }
 @keyframes neonPulse {
@@ -675,14 +675,14 @@ body::after {
     );
   background-repeat: no-repeat, repeat, repeat;
   background-position:
-    bottom -2% center,
+    bottom 4% center,
     0 0,
     0 0;
   background-size:
-    min(460px, 52vw) auto,
+    min(260px, 28vw) auto,
     300px 300px,
     auto;
-  opacity: 0.96;
+  opacity: 0.88;
   mix-blend-mode: screen;
   will-change: transform, opacity, filter;
   animation:
@@ -1435,7 +1435,7 @@ a:hover {
 
 ::selection {
   background: rgba(0, 255, 240, 0.45);
-  color: #0a0014;
+  color: #fff;
 }
 
 .title-bar__controls button {
