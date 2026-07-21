@@ -1,0 +1,177 @@
+/* ==========================
+   Tema PlayStation 2 para Hydra Launcher (Preto, Cinza e Azul - Transparente)
+   ========================== */
+
+/* Importando a fonte Bungee Spice */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+/* Configuração geral */
+body {
+    color: #e0e0e0;
+    background: url('https://preview.redd.it/vsprmxbhzaj81.png?auto=webp&s=f44361fa1cc8085a51394eeddcb72c52e4f98a05') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Bungee Spice', cursive;
+}
+
+#root {
+    background: transparent;
+}
+
+/* Fundo com vídeo do YouTube */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background iframe {
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* Logo da Sony no topo */
+.sony-logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: auto;
+}
+
+/* Logo animada PlayStation no topo */
+.playstation-logo {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 50px;
+    height: auto;
+}
+
+/* Novo espaço para imagem na parte inferior direita */
+.image-placeholder {
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+    background: url('https://media.tenor.com/bw1Q8nqaA7YAAAAi/112.gif') no-repeat center center;
+    background-size: contain;
+    border: 1px solid #939fc2;
+    border-radius: 5px;
+}
+
+/* Header - topo do launcher */
+.header {
+    background: rgba(20, 20, 20, 0.5);
+    color: #939fc2;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px rgba(147, 159, 194, 0.6);
+    border-bottom: 2px solid #939fc2;
+    position: relative;
+    text-align: left;
+    background-image: url('https://media.tenor.com/3js1tPP2ej0AAAAj/playstation-svg.gif');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+}
+
+/* Sidebar - barra lateral */
+.sidebar {
+    background: rgba(30, 30, 30, 0.5);
+    color: #939fc2;
+    width: 250px;
+    padding: 0px;
+    border-right: 3px solid #939fc2;
+    box-shadow: 0px 0px 15px rgba(147, 159, 194, 0.3);
+    text-shadow: 0px 0px 15px #939fc2;
+    animation: glow 1.5s infinite alternate;
+    font-size: 20px;
+    font-family: 'Bungee Spice', cursive;
+    position: relative;
+}
+
+/* Adicionando imagem na barra lateral */
+.sidebar::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: url('https://media.tenor.com/-pAGB1QL15wAAAAi/crash-bandicoot-crash.gif') no-repeat center;
+    background-size: contain;
+    margin: 10px auto;
+}
+
+/* Conteúdo principal */
+.container__content {
+    background: rgba(40, 40, 40, 0.5);
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(147, 159, 194, 0.3);
+    animation: fadeIn 1.2s ease-in;
+}
+
+/* Painel inferior */
+.bottom-panel {
+    background: rgba(20, 20, 20, 0.5);
+    padding: 10px;
+    text-align: center;
+    color: #939fc2;
+    border-top: 2px solid #939fc2;
+    text-shadow: 0px 0px 10px rgba(147, 159, 194, 0.6);
+    background-image: url('https://avatars.fastly.steamstatic.com/b3faf3da13ad4e4f83b68a18a04d59ad8a72d253_full.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+}
+
+.bottom-panel::after {
+    content: "DK";
+    position: absolute;
+    left: 54%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-family: 'Bungee Spice', cursive;
+    color: #939fc2;
+}
+
+/* Botões estilo PS2 */
+.button {
+    background: rgba(50, 50, 50, 0.5);
+    color: #ffffff;
+    padding: 10px 15px;
+    border: 1px solid #939fc2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0px 0px 10px rgba(147, 159, 194, 0.3);
+}
+
+/* Efeito ao passar o mouse nos botões */
+.button:hover {
+    background: rgba(70, 70, 70, 0.7);
+    color: #939fc2;
+    transform: scale(1.1);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0px 0px 10px #939fc2; }
+    100% { text-shadow: 0px 0px 25px #939fc2; }
+}
