@@ -31,6 +31,37 @@ body {
     background: transparent;
 }
 
+/* --- Контрастный белый текст с тенью по всему приложению --- */
+p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
+    color: #ffffff;
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Счётчики на белом фоне — оставляем тёмный текст без тени */
+.library__collection-count,
+.sidebar__collection-count {
+    color: #2b2b2b !important;
+    text-shadow: none !important;
+}
+
+/* Кнопки --primary со светлым фоном — тёмный текст вместо белого */
+.button--primary {
+    color: #121212 !important;
+    text-shadow: none !important;
+}
+
+/* Кнопка облачного сохранения — плотнее фон, чтобы не просвечивала картинка */
+.game-details__cloud-sync-button {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(8px);
+}
+
 /* --- Background Image --- */
 #root {
     background:
@@ -126,6 +157,13 @@ body {
     color: #ffffff !important;
 }
 
+/* Названия игр в сайдбаре — обычным шрифтом, без капса */
+.sidebar__section--games .sidebar__menu-item,
+.sidebar__section--games .sidebar__menu-item-button,
+.sidebar__section--games .sidebar__menu-item-button-label {
+    text-transform: none;
+}
+
 .sidebar-section {
     border-top: 0.5px solid rgba(255,255,255,0.07);
     padding-top: 6px;
@@ -168,21 +206,66 @@ body {
     backdrop-filter: blur(2px);
 }
 
+/* --- Badges (источники: DODI, FitGirl и т.д.) --- */
+.badge {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: none !important;
+}
+
+/* --- Library View Options (переключатель вида) --- */
+.library-view-options__option {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    transition: all 0.18s ease;
+}
+
+.library-view-options__option:hover,
+.library-view-options__option.active {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.library-view-options__option svg,
+.library-view-options__option path,
+.library-view-options__option.active svg,
+.library-view-options__option.active path {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* --- Library Collection Buttons --- */
+.library__collection-item {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    transition: all 0.18s ease;
+}
+
+.library__collection-item:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
 /* --- Buttons --- */
 .container__content .button--outline,
 .button--outline {
     backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.65) !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
     color: var(--cor-texto);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     transition: all 0.25s ease;
 }
 
 .container__content .button--outline:hover,
 .button--outline:hover {
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.6);
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
@@ -200,10 +283,6 @@ body {
     background-color: rgba(255, 255, 255, 0.07) !important;
     border: 1px solid rgba(255, 255, 255, 0.15);
     transform: scale(1.02);
-}
-
-.game-item {
-    will-change: transform;
 }
 
 /* --- Game Details --- */
@@ -289,6 +368,15 @@ body {
     backdrop-filter: blur(8px);
 }
 
+.profile-section__header {
+    transition: backdrop-filter 0.25s ease, background-color 0.25s ease;
+}
+
+.profile-section__header:hover {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 /* --- Settings Page --- */
 .settings__container {
     background: transparent;
@@ -331,6 +419,8 @@ body {
 .catalogue__filters-container {
     text-shadow: 1px 1px 1px #000000;
     color: #a7a7a7;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.45);
 }
 
 .filter-section,
@@ -339,6 +429,11 @@ body {
 .filter-section__item {
     background: transparent;
     backdrop-filter: blur(8px);
+}
+
+.filter-section__header-count {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #ffffff !important;
 }
 
 /* --- Text Fields --- */
@@ -363,23 +458,14 @@ body {
 
 /* --- Checkboxes & Radio --- */
 .checkbox-field__checkbox,
+.checkbox-field__input,
 input[type="checkbox"],
 input[type="radio"] {
-    accent-color: #ffffff !important;
-    opacity: 1 !important;
-    filter: none !important;
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    border: 2px solid rgba(255, 255, 255, 0.4) !important;
-    width: 16px !important;
-    height: 16px !important;
-    cursor: pointer !important;
-}
-
-.checkbox-field__checkbox:checked,
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-    background-color: #ffffff !important;
-    border-color: #ffffff !important;
+    background: transparent;
+    backdrop-filter: blur(8px);
+    accent-color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #ffffff;
 }
 
 .checkbox-field__label,
@@ -390,11 +476,9 @@ label {
 
 /* --- Select Dropdowns --- */
 .select-field {
-    background-color: rgba(0, 0, 0, 0.75) !important;
+    background-color: rgba(0, 0, 0, 0.85) !important;
     backdrop-filter: blur(8px);
     color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 4px;
 }
 
 .select-field__option:hover,
@@ -404,19 +488,44 @@ label {
     color: #ffffff !important;
 }
 
-select {
+/* на случай если это нативный <select> */
+select, option {
     background-color: rgba(0, 0, 0, 0.85) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-select:hover {
+select,
+[class*="select-field"] select {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    color: #ffffff !important;
+    width: auto !important;
+}
+
+select:hover,
+[class*="select-field"] select:hover {
     background-color: rgba(0, 0, 0, 0.85) !important;
 }
 
 option {
     background-color: #1a1a1a !important;
     color: #ffffff !important;
+}
+
+/* --- Filter Dropdown (Платформы/Сортировать по на странице профиля) --- */
+.filter-dropdown__trigger {
+    background-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+.filter-dropdown__menu {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* --- Search Dropdown (недавние поиски) --- */
+.search-dropdown,
+.search-dropdown__section {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 /* --- Modals --- */
