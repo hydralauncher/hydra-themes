@@ -1,0 +1,1299 @@
+/*
+==================================
+YE LIVE WORLD TOUR
+Inspired by Nature Theme
+==================================
+*/
+
+:root{
+
+    --glass: rgba(255,255,255,.04);
+    --glass-hover: rgba(255,255,255,.08);
+
+    --border: rgba(255,255,255,.05);
+
+    --text: rgba(255,255,255,.95);
+    --muted: rgba(255,255,255,.75);
+
+    --accent: rgba(140,255,255,.9);
+
+}
+
+/* =======================
+BACKGROUND
+======================= */
+
+#root{
+
+    background-image:
+    url("https://idsb.tmgrup.com.tr/ly/uploads/images/2026/05/31/443449.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+#root::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.10),
+            rgba(0,0,0,.35)
+        );
+
+    pointer-events:none;
+
+}
+
+/* =======================
+TEXT
+======================= */
+
+body{
+
+    color:var(--text);
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+}
+
+/* =======================
+HYDRA + QUOTE
+======================= */
+
+/* Remove o ::after antigo */
+.title-bar::after{
+    display: none !important;
+}
+
+/* Estiliza o title-bar como flex container */
+.title-bar {
+    display: flex !important;
+    align-items: center !important;
+    padding: 6px 12px !important;
+    gap: 10px !important;
+}
+
+/* H4 (Hydra) - fica primeiro */
+.title-bar h4 {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    order: 0 !important;
+}
+
+/* Botão Big Picture - fica em segundo */
+.title-bar__big-picture {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 3px 10px !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    border-radius: 6px !important;
+    color: rgba(255,255,255,.85) !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: background .2s ease !important;
+    order: 1 !important;
+    margin-left: 4px !important;
+}
+
+.title-bar__big-picture:hover {
+    background: rgba(255,255,255,.15) !important;
+}
+
+.title-bar__big-picture svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Cria um elemento vazio com a frase usando ::after no title-bar */
+.title-bar::after {
+    content: '"Nothing in life is promised except death." — Ye' !important;
+    color: rgba(255,255,255,.78) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: .2px !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    order: 2 !important;
+    margin-right: auto !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 500px !important;
+}
+
+/* =======================
+HEADER
+======================= */
+
+.header{
+
+    background:
+        rgba(255,255,255,.015)
+        !important;
+
+    backdrop-filter:
+        blur(4px);
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+/* =======================
+SIDEBAR
+======================= */
+
+.sidebar{
+
+    background:
+        rgba(255,255,255,.015)
+        !important;
+
+    backdrop-filter:
+        blur(3px);
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    scrollbar-width:none !important;
+
+}
+
+.sidebar::-webkit-scrollbar{
+
+    display:none !important;
+
+}
+
+.sidebar *{
+
+    scrollbar-width:none !important;
+
+}
+
+.sidebar *::-webkit-scrollbar{
+
+    display:none !important;
+
+}
+
+/* remove fundos herdados */
+
+.sidebar__menu-item{
+
+    background:
+        transparent
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+.sidebar__menu-item:hover{
+
+    background:
+        transparent
+        !important;
+
+}
+
+/* =======================
+PROFILE
+======================= */
+
+.profile-avatar__image{
+
+    border-radius:50%;
+
+    border:
+        2px solid
+        rgba(255,255,255,.08);
+
+}
+
+/* =======================
+SIDEBAR BUTTONS
+======================= */
+
+.sidebar__menu-item-button{
+
+    background:
+        transparent
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    border-radius:18px;
+
+    transition:
+        background .2s ease,
+        border .2s ease,
+        transform .2s ease;
+
+}
+
+.sidebar__menu-item-button:hover{
+
+    background:
+        rgba(255,255,255,.03)
+        !important;
+
+    transform:
+        translateX(2px);
+
+}
+
+.sidebar__menu-item--active
+.sidebar__menu-item-button{
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+}
+
+
+/* =======================
+CONTENT
+======================= */
+
+.container__content{
+
+    background:
+        transparent
+        !important;
+
+    padding-top:8px;
+
+    backdrop-filter:none;
+
+}
+
+/* =======================
+SEARCH
+======================= */
+
+.header__search,
+.text-field-container__text-field--dark{
+
+    background:
+        rgba(255,255,255,.05)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-radius:16px;
+
+}
+
+/* =======================
+BUTTONS
+======================= */
+
+.button{
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-radius:16px;
+
+    backdrop-filter:
+        blur(8px);
+
+    transition:.3s;
+
+}
+
+.button:hover{
+
+    background:
+        rgba(255,255,255,.06);
+
+    transform:
+        translateY(-1px);
+
+}
+
+/* =======================
+HOME BANNER
+======================= */
+
+.hero,
+.featured-game,
+.home__featured-game{
+
+    max-width:92%;
+
+    margin:20px auto;
+
+    border-radius:24px !important;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.20);
+
+}
+
+/* =======================
+POPULAR BUTTONS
+======================= */
+
+.chip,
+.filter-chip{
+
+    background:
+        rgba(255,255,255,.04);
+
+    backdrop-filter:
+        blur(8px);
+
+    border-radius:999px;
+
+}
+
+/* =======================
+CATALOG CARDS
+======================= */
+
+.game-item,
+.catalogue__game,
+.theme-card{
+
+    background:
+        rgba(255,255,255,.025)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:18px;
+
+    transition:.25s ease;
+
+}
+
+.game-item img,
+.catalogue__game img,
+.theme-card img{
+
+    transition:
+        transform .35s ease;
+
+}
+
+.game-item:hover img,
+.catalogue__game:hover img,
+.theme-card:hover img{
+
+    transform:
+        scale(1.03);
+
+}
+
+.game-item:hover,
+.catalogue__game:hover,
+.theme-card:hover{
+
+    background:
+        rgba(255,255,255,.04)
+        !important;
+
+}
+
+/* =======================
+CATALOG FILTERS
+======================= */
+
+.catalogue__filters-container{
+
+    background:
+        transparent
+        !important;
+
+    backdrop-filter:
+        none
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    scrollbar-width:none;
+
+}
+
+.catalogue__filters-container::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.catalogue__filters-container *{
+
+    background:
+        transparent
+        !important;
+
+}
+
+/* =======================
+FILTER GROUPS
+======================= */
+
+.catalogue__filters-container section,
+.catalogue__filters-group{
+
+    background:
+        rgba(255,255,255,.01)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.02);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+}
+
+/* =======================
+FILTER TITLES
+======================= */
+
+.catalogue__filters-container h3,
+.catalogue__filters-container h4{
+
+    color:
+        rgba(255,255,255,.92);
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+/* =======================
+FILTER OPTIONS
+======================= */
+
+.checkbox-field{
+
+    padding:8px 6px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:.2s ease;
+
+}
+
+.checkbox-field:hover{
+
+    background:
+        rgba(255,255,255,.03);
+
+    border-radius:10px;
+
+}
+
+.checkbox-field:last-child{
+
+    border-bottom:none;
+
+}
+
+/* =======================
+YEAR SLIDER
+======================= */
+
+input[type="range"]{
+
+    accent-color:
+        rgba(140,255,255,.9);
+
+}
+
+input[type="range"]::-webkit-slider-runnable-track{
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.15);
+
+}
+
+input[type="range"]::-webkit-slider-thumb{
+
+    margin-top:-4px;
+
+}
+
+/* =======================
+DROPDOWNS
+======================= */
+
+.select-field,
+.select-field__wrapper,
+.dropdown,
+.dropdown-menu{
+
+    background:
+        rgba(255,255,255,.03)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-radius:14px;
+
+}
+
+/* =======================
+INPUTS
+======================= */
+
+input,
+select{
+
+    background:
+        rgba(255,255,255,.03)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-radius:12px;
+
+}
+
+/* =======================
+PAGINATION
+======================= */
+
+.pagination,
+.catalogue__pagination{
+
+    justify-content:center !important;
+
+    transform:
+        translateX(-240px);
+
+}
+
+/* =======================
+SETTINGS
+======================= */
+
+.settings__content{
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    border-radius:20px;
+
+}
+
+.settings__sidebar-button{
+
+    border-radius:12px;
+
+}
+
+/* =======================
+TOAST
+======================= */
+
+.toast{
+
+    background:
+        rgba(0,0,0,.30);
+
+    backdrop-filter:
+        blur(8px);
+    border-radius: 16px;
+
+}
+
+/* =======================
+BOTTOM BAR
+======================= */
+
+.bottom-panel{
+
+    background:
+        rgba(255,255,255,.015);
+
+    backdrop-filter:
+        blur(4px);
+
+    border:none !important;
+
+}
+
+/* =======================
+GLOBAL SCROLLBAR
+======================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+        rgba(255,255,255,.12);
+
+    border-radius:999px;
+
+}
+
+/* =======================
+DOWNLOADS
+======================= */
+
+.download-group,
+.download-item,
+.download{
+
+    border-radius:22px !important;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    margin-bottom:10px;
+
+}
+
+/* reduz altura */
+
+.download-group{
+
+    transform:
+        scale(.96);
+
+    transform-origin:
+        top center;
+
+}
+
+.download-item{
+
+    min-height:auto !important;
+
+}
+
+/* =======================
+DOWNLOAD PROGRESS
+======================= */
+
+.progress-bar,
+.download-progress-bar{
+
+    height:6px !important;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar__fill,
+.download-progress-bar__fill{
+
+    background:
+        rgba(140,255,255,.9)
+        !important;
+
+}
+
+/* =======================
+DOWNLOAD STATS
+======================= */
+
+.download-speed,
+.download-status,
+.download-info{
+
+    font-size:12px;
+
+    color:
+        rgba(255,255,255,.75);
+
+}
+
+/* =======================
+QUEUED / PAUSED DOWNLOADS
+======================= */
+
+.download-group--queued{
+
+    background:
+        transparent
+        !important;
+
+    backdrop-filter:
+        none
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+.download-group--queued .download-group__simple-card{
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    backdrop-filter:
+        blur(4px)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+}
+
+/* =======================
+QUEUED SPACING FIX
+======================= */
+
+.download-group--queued .download-group__simple-actions{
+
+    margin-left:12px;
+
+}
+
+.download-group--queued .download-group__simple-progress{
+
+    padding-right:16px;
+
+}
+
+/* =======================
+DOWNLOAD ACTIONS
+======================= */
+
+.download-group__simple-actions{
+
+    padding-right:12px;
+
+}
+
+/* =======================
+SETTINGS SIDEBAR
+======================= */
+
+.settings__sidebar{
+
+    background:
+        transparent
+        !important;
+
+    backdrop-filter:
+        none
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+/* botões */
+
+.settings__sidebar-button{
+
+    background:
+        transparent
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    border-radius:14px;
+
+    transition:.2s ease;
+
+}
+
+/* hover igual ao menu principal */
+
+.settings__sidebar-button:hover{
+
+    background:
+        rgba(255,255,255,.03)
+        !important;
+
+}
+
+/* remove destaque forte do ativo */
+
+.settings__sidebar-button--active{
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+}
+
+/* =======================
+GAME DETAILS
+======================= */
+
+.game-details__container{
+
+    max-width:92%;
+
+    margin:auto;
+
+}
+
+/* HERO */
+
+.game-details__hero{
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.25);
+
+}
+
+/* painel da direita */
+
+.hero-panel{
+
+    background:
+        rgba(0,0,0,.20);
+
+    backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+
+    border-radius:22px;
+
+}
+
+/* descrição */
+
+.game-details__description-container{
+
+    margin-top:18px;
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:22px;
+
+    padding:20px;
+
+}
+
+/* screenshots */
+
+.gallery-slider__viewport{
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.gallery-slider__media{
+
+    border-radius:20px;
+
+}
+
+/* miniaturas */
+
+.gallery-slider__preview-button{
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    opacity:.75;
+
+    transition:.2s ease;
+
+}
+
+.gallery-slider__preview-button:hover{
+
+    opacity:1;
+
+    transform:translateY(-2px);
+
+}
+
+.gallery-slider__preview-button--active{
+
+    border:
+        2px solid
+        rgba(140,255,255,.8);
+
+}
+
+/* botões laterais */
+
+.gallery-slider__button{
+
+    background:
+        rgba(0,0,0,.30);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:none;
+
+    border-radius:50%;
+
+}
+
+/* reviews */
+
+.game-details__review-item{
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    margin-bottom:12px;
+
+}
+
+.game-details__review-item:hover{
+
+    background:
+        rgba(255,255,255,.03);
+
+}
+
+/* nota */
+
+.game-details__reviews-badge{
+
+    background:
+        rgba(140,255,255,.12);
+
+    border:
+        1px solid
+        rgba(140,255,255,.25);
+
+    border-radius:999px;
+
+    padding:4px 10px;
+
+}
+
+.game-details__hero-image{
+
+    filter:
+        saturate(.9)
+        brightness(.85);
+
+}
+
+/* Sidebar inteira */
+.content-sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* Cards */
+.sidebar-section{
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    transition:.25s ease;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.18);
+}
+
+/* Remove o efeito de levantar */
+.sidebar-section:hover{
+    border-color:rgba(255,255,255,.08);
+}
+
+/* Cabeçalho */
+.sidebar-section__header{
+    background:rgba(255,255,255,.015);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+
+.sidebar-section__button{
+    padding:16px 18px;
+
+    font-weight:600;
+    letter-spacing:.2px;
+}
+
+/* Conteúdo interno */
+.sidebar-section__content{
+    background:transparent;
+}
+
+/* Lista de conquistas */
+.list{
+    padding:8px;
+}
+
+.list__item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:10px;
+
+    background:rgba(255,255,255,.02);
+
+    border:1px solid rgba(255,255,255,.04);
+    border-radius:12px;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    transition:.2s ease;
+}
+
+.list__item:hover{
+    background:rgba(255,255,255,.04);
+    border-color:rgba(255,255,255,.08);
+}
+
+.list__item-image{
+    width:48px;
+    height:48px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+}
+
+.list__item-image--locked{
+    filter:grayscale(.8);
+    opacity:.7;
+}
+
+.list__item p{
+    font-size:.92rem;
+    font-weight:500;
+}
+
+/* Botão de assinatura */
+.subscription-required-button{
+    width:100%;
+
+    margin-bottom:10px;
+    padding:12px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:12px;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    transition:.2s ease;
+}
+
+.subscription-required-button:hover{
+    background:rgba(255,255,255,.05);
+}
+
+/* Link "Ver todas as conquistas" */
+.list > .link:last-child{
+    display:block;
+
+    margin-top:12px;
+    padding:10px 12px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.02);
+
+    border:1px solid rgba(255,255,255,.04);
+    border-radius:12px;
+
+    transition:.2s ease;
+}
+
+.list > .link:last-child:hover{
+    background:rgba(255,255,255,.04);
+}
+
+.title-bar{
+    background: rgba(255,255,255,.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 12px;
+}
+
+.description-header{
+    background: rgba(255,255,255,.015) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 14px;
+
+    padding: 12px 16px;
+}
+
+.profile-content__right-content {
+  background: transparent !important;
+}
+
+.profile-content__right-content .profile-section {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.profile-content__right-content .profile-section__header,
+.profile-content__right-content .profile-section__content {
+  background: transparent !important;
+}
+
+/* opcional: remover "cards" internos */
+.profile-content__right-content * {
+  background-color: transparent;
+}
+
+.sort-options__container{
+    background: rgba(255,255,255,.03) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+
+    padding: 10px 12px;
+}
