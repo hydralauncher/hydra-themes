@@ -33,13 +33,13 @@ body {
 
 /* --- Контрастный белый текст с тенью по всему приложению --- */
 p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
-    color: #ffffff;
+    color: #ffffff !important;
     text-shadow:
         -1px -1px 0 #000,
          1px -1px 0 #000,
         -1px  1px 0 #000,
          1px  1px 0 #000,
-         0 0 8px rgba(0, 0, 0, 0.9);
+         0 0 8px rgba(0, 0, 0, 0.9) !important;
 }
 
 /* Счётчики на белом фоне — оставляем тёмный текст без тени */
@@ -60,6 +60,14 @@ p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
     background-color: rgba(0, 0, 0, 0.75) !important;
     color: #ffffff !important;
     backdrop-filter: blur(8px);
+}
+
+/* Кнопка "Пересканировать библиотеку" — такой же стиль, как у облачного сохранения */
+.emulator-detail__hero-actions .button--primary {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(8px);
+    text-shadow: none !important;
 }
 
 /* --- Background Image --- */
@@ -102,20 +110,27 @@ p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
     background-color: transparent !important;
 }
 
+/* Бейдж "Hydra Cloud" рядом с логотипом — на случай неточного попадания в класс */
+.title-bar [class*="cloud"],
+[class*="title-bar"] [class*="cloud"] {
+    color: #16a34a !important;
+    opacity: 1 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
 /* --- Header --- */
 .header {
     color: rgb(211, 210, 210);
     text-shadow: 1px 1px 1px #000000;
     background: transparent;
     background-color: rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .header__search {
     color: #ffffff;
     background: transparent;
-    background-color: rgba(0, 0, 0, 0.44);
+    background-color: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     transition: all 0.25s ease;
@@ -141,7 +156,8 @@ p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
 .sidebar__menu-item, .sidebar__menu-item-button, .sidebar__menu-item-button-label {
     text-transform: uppercase;
     color: #ffffffff;
-    text-shadow: 0px 0px 0px #ffffffff;
+    font-weight: 600;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.35), 1px 1px 2px rgba(0, 0, 0, 0.8);
     background-color: #00000020;
 }
 .sidebar__menu-item:hover,
@@ -157,17 +173,22 @@ p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
     color: #ffffff !important;
 }
 
-/* Названия игр в сайдбаре — обычным шрифтом, без капса */
-.sidebar__section--games .sidebar__menu-item,
-.sidebar__section--games .sidebar__menu-item-button,
-.sidebar__section--games .sidebar__menu-item-button-label {
-    text-transform: none;
+/* Названия игр в сайдбаре — обычным шрифтом, без капса, лёгкая тень для контраста */
+.sidebar__menu-item:has(.sidebar__game-icon) .sidebar__menu-item-button-label,
+.sidebar__menu-item-button:has(.sidebar__game-icon) {
+    text-transform: none !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9), 0 0 4px rgba(255, 255, 255, 0.15) !important;
 }
 
 .sidebar-section {
     border-top: 0.5px solid rgba(255,255,255,0.07);
     padding-top: 6px;
     margin-top: 6px;
+    background-color: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(8px);
 }
 .sidebar-section__header {
     font-size: 10px;
@@ -364,17 +385,23 @@ p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
 }
 
 .profile-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+.profile-section__content {
+    background: transparent;
+    backdrop-filter: blur(8px);
+}
+
+.user-stats__box {
     background: transparent;
     backdrop-filter: blur(8px);
 }
 
 .profile-section__header {
-    transition: backdrop-filter 0.25s ease, background-color 0.25s ease;
-}
-
-.profile-section__header:hover {
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 /* --- Settings Page --- */
@@ -461,17 +488,43 @@ p, span, h1, h2, h3, h4, h5, h6, strong, small, li, label, button {
 .checkbox-field__input,
 input[type="checkbox"],
 input[type="radio"] {
-    background: transparent;
-    backdrop-filter: blur(8px);
     accent-color: #ffffff;
     cursor: pointer;
     border: 1px solid #ffffff;
+}
+
+.checkbox-field__icon {
+    filter: invert(1) brightness(2);
+    opacity: 1 !important;
 }
 
 .checkbox-field__label,
 label {
     color: rgba(255, 255, 255, 0.9) !important;
     cursor: pointer !important;
+}
+
+/* --- Вкладки эмулятора (Эмулятор / Папки ROM / Резервные копии) --- */
+.emulator-detail__tabs {
+    background-color: rgba(0, 0, 0, 0.55);
+    border-radius: 6px;
+}
+
+[class*="emulator-detail__tab"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+[class*="emulator-detail__tab"][aria-selected="true"] {
+    font-weight: 600 !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px;
+}
+
+.emulator-detail p,
+.emulator-detail small {
+    color: #F0F1F7 !important;
 }
 
 /* --- Select Dropdowns --- */
