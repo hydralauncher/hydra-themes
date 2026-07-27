@@ -119,7 +119,7 @@
 }
 
 .bottom-panel__version-button small::before {
-  content: "By pl2k_23 - ";
+  content: "Modern Theme (By RavenSt) - ";
   font-weight: bold;
 }
 
@@ -196,11 +196,11 @@
 }
 
 .sidebar-section__button {
-  background-color: black;
+  background-color: rgba(24, 24, 24, 1);
 }
 
 .sidebar-section__button:hover {
-  background-color: rgba(0, 0, 0, 0.726);
+  background-color: rgba(24, 24, 24, 1);
 }
 
 .content-sidebar {
@@ -215,7 +215,7 @@ select:hover {
   cursor: pointer;
   transform: scale(1.05);
   transition: transform 0.2s ease;
-  box-shadow: 0 0 10px #0ff;
+  box-shadow: 0 0 6px #0ff;
 }
 
 * {
@@ -224,7 +224,7 @@ select:hover {
 
 select {
   transition: transform 0.2s ease;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 5px white;
 }
 
 .modal__header {
@@ -545,6 +545,138 @@ select {
 
 .download-group__right-content {
   background-color: black;
+}
+
+.download-group__simple-card {
+  background-color: rgba(32, 32, 32, 1);
+  padding: 5px;
+}
+
+.download-group__simple-card:hover {
+  transform: scale(1.01);
+}
+
+.notifications__tab-underline {
+  transition: left 0.3s ease;
+}
+
+.friends-box__add-friend-button {
+  text-decoration: none;
+  background-color: gray;
+  border-radius: 10px;
+  padding: 7px;
+  color: white;
+  text-shadow:
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff,
+    0 0 1px #cacacaff;
+}
+
+.friends-box__add-friend-button:hover {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  background-color: rgba(128, 128, 128, 0.692);
+  transform: scale(1.01);
+}
+
+.badges-box__item:hover {
+  transform: scale(1.01);
+}
+
+.user-stats__list-item:hover {
+  background-color: black;
+}
+
+.download-group__simple-actions > button:hover {
+  transform: scale(1.07) !important;
+}
+
+.select-field__option {
+  box-shadow: 0 0 5px white;
+}
+
+.select-field__option:hover {
+  box-shadow: 0 0 6px #0ff;
+}
+
+.release-year-section__range {
+  color: blue;
+}
+
+.filter-section {
+  border-color: rgba(128, 128, 128, 0.350);
+}
+
+.filter-section__button {
+  background-color: rgba(24, 24, 24, 1);
+  transition: transform 0.3s ease;
+}
+
+.filter-section__button:hover {
+  transform: scale(1.03);
+}
+
+.sidebar-section__header {
+  background-color: rgba(24, 24, 24, 1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-section__header:hover {
+  transform: scale(1.03);
+}
+
+.game-options-modal__sidebar-button {
+  background-color: rgba(25, 25, 25, 1);
+  border: 1px solid rgb(100, 100, 100);
+  border-radius: 10px;
+  margin: 5px;
+  margin-left: 1px;
+  transition: transform 0.4s ease;
+}
+
+.game-options-modal__sidebar-button:hover {
+  transform: scale(1.03);
+}
+
+input[type="text"] {
+  cursor: text;
+}
+
+.settings__sidebar-button {
+  background-color: rgba(25, 25, 25, 1);
+  border: 1px solid rgb(100, 100, 100);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 5px;
+  margin-left: 1px;
+  transition: transform 0.4s ease;
+}
+
+.settings__sidebar-button:hover {
+  transform: scale(1.03);
+}
+
+.game-item-classics:hover {
+  transform: scale(1.04);
+}
+
+.game-item-classics__plus-wrapper:hover {
+  animation: pulsar_buttom 2s ease-in-out infinite alternate;
+}
+
+.sidebar-profile__dropdown-item {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.342);
+}
+
+.sidebar-profile__dropdown-item:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Key Frames */

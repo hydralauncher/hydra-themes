@@ -1,0 +1,236 @@
+
+:root {
+  --bg-image: url(https://i.ibb.co/39jy5BvZ/Ye-Shunguang-M6-No-Text4-K.png);
+
+  /* Основные цвета */
+  --white-color: #f5f5f5;
+  --red-color: #ff3b3b;
+
+  /* Свечение */
+  --white-glow: rgba(255, 255, 255, 0.5);
+  --red-glow: rgba(255, 59, 59, 0.55);
+}
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: var(--white-color);
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+#root {
+  background: var(--bg-image) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(15, 15, 15, 0.72) !important;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 59, 59, 0.25);
+
+  transition: 0.25s;
+}
+
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(15, 15, 15, 0.58) !important;
+
+  border-radius: 10px;
+}
+
+/* Hover */
+.game-item:hover,
+.friends-box__box:hover,
+.user-stats__box:hover,
+.recent-games__box:hover {
+  transform: scale(1.02);
+
+  background-color: rgba(255, 255, 255, 0.05) !important;
+
+  box-shadow:
+    0 0 10px var(--white-glow),
+    0 0 16px var(--red-glow);
+}
+
+
+
+.button,
+.container__content .button--outline,
+.button--primary {
+  background-color: rgba(20, 20, 20, 0.55);
+
+  border: 1px solid var(--red-color);
+
+  color: var(--white-color);
+
+  border-radius: 10px;
+
+  transition: 0.25s;
+
+  text-shadow:
+    0 0 5px var(--white-glow);
+}
+
+/* Hover */
+.button:hover,
+.button--primary:hover,
+.container__content .button--outline:hover {
+  background-color: var(--red-color);
+
+  color: white;
+
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 8px var(--white-glow),
+    0 0 16px var(--red-glow);
+}
+
+
+
+.game-card__backdrop,
+.game-card,
+.hero,
+.user-library-game__cover,
+.settings__content,
+.theme-card,
+.user-stats__box,
+.modal,
+.button,
+.repacks-modal__repack-button,
+.badge,
+.filter-item {
+  border-radius: 10px;
+}
+
+
+.sidebar__menu-item {
+  margin: 4px 10px;
+
+  border-radius: 10px;
+
+  padding: 6px;
+
+  border: 1px solid rgba(255, 59, 59, 0.3);
+
+  transition: 0.25s;
+}
+
+.sidebar__menu-item:hover {
+  background-color: rgba(255, 59, 59, 0.08);
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 0 10px var(--white-glow),
+    0 0 16px var(--red-glow);
+}
+
+
+.header__search {
+  border-radius: 10px;
+  padding: 8px;
+}
+
+
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--white-color),
+    var(--red-color)
+  );
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.1);
+}
+
+
+
+.toast {
+  background: rgba(15, 15, 15, 0.92);
+
+  border: 1px solid var(--red-color);
+
+  color: var(--white-color);
+
+  box-shadow:
+    0 0 8px var(--white-glow),
+    0 0 14px var(--red-glow);
+}
+
+
+
+
+.pagination__button {
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.pagination__button:hover {
+  transform: scale(1.05);
+}
+
+
+
+.hero-panel__progress-bar {
+  background: linear-gradient(
+    to right,
+    var(--white-color) 0%,
+    var(--red-color) 100%
+  );
+
+  box-shadow:
+    0 0 8px var(--white-glow),
+    0 0 16px var(--red-glow);
+}

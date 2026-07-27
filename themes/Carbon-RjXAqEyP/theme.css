@@ -1,0 +1,494 @@
+/* ==========================================================================
+                                GitHub @leoosilvp
+========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+    --geist-background: #000000;
+    --geist-foreground: #ffffff;
+    --accents-1: rgba(17, 17, 17, 0.8);
+    --accents-2: rgba(51, 51, 51, 0.8);
+    --accents-3: rgba(68, 68, 68, 0.8);
+    --accents-4: rgba(136, 136, 136, 0.8);
+    --accents-5: rgba(153, 153, 153, 0.8);
+    --glass-bg: #000000be;
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(5px);
+    --color-background-base: var(--glass-bg);
+    --color-background-dark: rgba(10, 10, 10, 0.9);
+    --color-background-button: var(--geist-foreground);
+    --color-background-scrollbar-thumb: var(--accents-2);
+    --color-newbutton: var(--accents-1);
+    --color-all: var(--geist-foreground);
+    --color-text: #888888;
+    --color-text-primary: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.8);
+    --background-main: transparent;
+    --border-radius: 6px;
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/043/509/997/non_2x/vr-hud-futuristic-interface-grid-line-and-dot-head-up-display-similar-pattern-digital-ui-screen-mesh-gui-digital-hi-tech-visor-backdrop-template-fui-sci-fi-dashboard-eps-display-black-and-white-vector.jpg);
+    background-size: 700px;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar { 
+    display: flex;
+    width: 5px;
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb { 
+    background: transparent; 
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover { 
+    background: var(--accents-2); 
+}
+
+#root {
+    height: 100vh !important;
+}
+
+.container__content {
+    padding: 100px 5px 0 10px;
+    background: #0000001a;
+}
+
+.sidebar {
+    position: fixed;
+    top: 35px;
+    left: 0;
+    height: fit-content !important;
+    min-width: 100vw !important;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 0 10px;
+    background: #0f0f0f;
+    backdrop-filter: var(--glass-blur);
+    border: none;
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 100;
+}
+
+.sidebar__handle,
+.sidebar__bottom-buttons,
+.sidebar__section:not(:first-child) {
+    display: none !important;
+}
+
+.sidebar__container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar__content,
+.sidebar__section {
+    padding: 0;
+}
+
+.sidebar__menu {
+    flex-direction: row;
+    gap: 0px;
+}
+
+.sidebar__menu-item {
+    padding: 0;
+}
+
+.sidebar__menu-item:hover {
+    background: transparent !important;
+}
+
+.sidebar__menu-item-button {
+    padding: 5px 12px 12px 12px;
+    border-radius: 0px;
+    color: var(--accents-5);
+    border-bottom: 2px solid transparent;
+    font-size: 0.85rem;
+    font-weight: 300;
+    background: transparent !important;
+    gap: 7px;
+    transition: all 0.2s ease;
+}
+
+.sidebar__menu-item-button:hover {
+    color: var(--geist-foreground);
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+.sidebar__menu-item--active {
+    background: transparent !important;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button {
+    color: var(--geist-foreground);
+    border-bottom: 2px solid #fff;
+}
+
+.sidebar-profile {
+    margin-left: auto;
+    align-items: center;
+    padding: 0;
+}
+
+.sidebar-profile__button {
+    padding: 0;
+    color: var(--geist-foreground);
+}
+
+.sidebar-profile__button:hover {
+    background: none;
+}
+
+.sidebar-profile__button-content {
+    display: block;
+}
+
+.sidebar-profile__button-title {
+    display: none;
+}
+
+.profile-avatar {
+    padding: 0px !important;
+    background: var(--accents-1);
+    border-radius: 50%;
+    border: 1.5px solid transparent !important;
+}
+
+.profile-avatar:hover {
+    border-color: var(--geist-success) !important;
+}
+
+.profile-avatar__image {
+    border-radius: 50%;
+    transition: border-color 0.2s ease;
+}
+
+.sidebar-profile__notification-button {
+    min-width: 35px !important;
+    min-height: 35px !important;
+    height: fit-content;
+    background-color: transparent;
+    border: 1px solid var(--accents-3);
+    border-radius: 50%;
+    color: var(--accents-4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.sidebar-profile__notification-button:hover {
+    color: var(--geist-foreground);
+    background-color: var(--accents-1);
+    border-color: var(--accents-4);
+}
+
+.sidebar-profile__notification-button-badge {
+    position: absolute;
+    top: -1px;
+    right: -0.5px;
+    background: #0f0f0f;
+    color: var(--geist-foreground);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accents-3);
+}
+
+.text-field-container {
+    order: 1; 
+    width: 300px;
+}
+
+.text-field-container__text-field {
+    background-color: var(--accents-1);
+    border: 1px solid var(--accents-2);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.text-field-container__text-field:focus-within {
+    border-color: var(--geist-success);
+    background-color: var(--geist-background);
+}
+
+.text-field-container__text-field-input {
+    font-size: 14px;
+    height: 36px;
+}
+
+.text-field-container__text-field {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--accents-2);
+    color: var(--geist-foreground);
+    border-radius: var(--border-radius);
+    padding: 10px 14px;
+    font-family: var(--font-sans);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.text-field-container__text-field:focus {
+    border-color: var(--accents-5);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--accents-5);
+}
+
+.header--is-windows {
+    position: absolute;
+    top: 37.5px;
+    left: 10px;
+    z-index: 1000;
+    width: 91%;
+    height: 40px;
+    margin: 0;
+    padding: 0 0 0 10px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.header__title--has-back-button {
+    transform: none !important;
+}
+
+.header__back-button--enabled {
+    display: none;
+}
+
+.header__section--left {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+}
+
+.header__title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 1rem;
+}
+
+.header__title::before {
+    content: '/';
+    opacity: 0.3;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.header__search {
+    display: flex;
+    align-items: center;
+    width: 210px;
+    height: 35px;
+    border-radius: 7px;
+    -webkit-app-region: no-drag;
+}
+
+.game-item, 
+.recent-games__box, 
+.user-stats__box, 
+.friends-box__box, 
+.download-group__item, 
+.theme-card, 
+.achievement-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-item:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.button {
+    height: 38px;
+    padding: 0 16px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accents-2);
+    background: var(--geist-background);
+    color: var(--color-text);
+}
+
+.button:hover {
+    border-color: var(--geist-foreground);
+    color: var(--geist-foreground);
+    background: var(--accents-1);
+}
+
+.button--primary {
+    background: var(--geist-foreground);
+    color: var(--geist-background);
+    border-color: var(--geist-foreground);
+}
+
+.button--primary:hover {
+    background: transparent;
+    color: var(--geist-foreground);
+}
+
+.profile-hero__content-box {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.profile-hero__avatar-button:hover .profile-avatar {
+    border-color: var(--geist-foreground) !important;
+    transform: scale(1.05);
+}
+
+.modal, 
+.toast {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+h1, h2, h3, h4 {
+    color: var(--geist-foreground);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.title-bar {
+    height: 40px !important;
+    min-height: 10px;
+    background: #000;
+    padding: 0 10px;
+}
+
+.title-bar h4 {
+    display: flex;
+    align-items: center;
+}
+
+.title-bar h4::before {
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    background: url('https://cdn2.steamgriddb.com/icon/0adbfc15ded7e9d183c206ecf5681b15.ico') center / contain no-repeat;
+}
+
+.list__item {
+    border-bottom: 1px solid var(--glass-border);
+    padding: 14px;
+    transition: background 0.2s ease;
+}
+
+.list__item:hover {
+    background: var(--accents-1);
+}
+
+@keyframes geistFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(8px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.game-item, 
+.modal, 
+.toast {
+    animation: geistFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.achievement-notification__outer-container {
+  background: #000000c9;
+  border: 1px solid #2c2c2cff;
+  border-radius: 5px;
+  color: #ffffffff;
+  box-shadow: 0 0 15px #0000002d;
+  backdrop-filter: blur(5px);
+  transition: all 0.25s ease ;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 0vw;
+}
+
+.achievement-notification__outer-container:hover {
+  box-shadow: 0 0 15px #ffffff29;
+}
+.achievement-notification__icon {
+  border-right: 1px solid #ffffff38;
+}
+
+.achievement-notification__container {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.achievement-notification__container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: #fff;
+  box-shadow: 0 0 15px #797979ff;
+}
+.achievement-notification__title {
+  color: #fff;
+  text-shadow: 0 0 8px #ffffff3b
+}
+
+.achievement-notification__description {
+  color: #969696ff;
+}

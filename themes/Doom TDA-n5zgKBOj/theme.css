@@ -1,0 +1,101 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/themes.html
+
+  Happy hacking!
+*/
+
+/* Header */
+@import url('https://fonts.cdnfonts.com/css/doom-2016-left');
+body,
+.sidebar-profile__button-title,
+.sidebar__menu-item-button,
+.sidebar__section-title,
+.hero__description,
+.game-card__title,
+.game-card__no-download-label,
+.home__buttons-list,
+.sidebar-section__button,
+.bottom-panel__downloads-button,
+.settings__sidebar-button {
+  font-family: 'Doom 2016 Left', sans-serif;
+  letter-spacing: 3px;
+}
+ 
+.header {
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: center;
+  background-image:url(https://images.steamusercontent.com/ugc/958600702481582442/324292798ACCD39FFB18B69BF10F93A98B32AA0B/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true);
+  color: red;
+}
+
+/* Sidebar */
+.sidebar {
+  background-size:cover;
+  background-position-x: 50%;
+  background-image: url(https://preview.redd.it/some-doom-wallpapers-i-edited-v0-7fpqdr6tx4og1.jpg?width=1080&crop=smart&auto=webp&s=4b74235cdc3f95b7e9860f4dc28d2f0177ed5721);
+}
+.sidebar__menu-item{
+  background-color: red;
+  opacity: 0.7;
+}
+
+.game-item,
+.filter-section__content{
+  background-color: red;
+}
+
+.game-item:hover{
+  background-color: rgb(213, 113, 113);
+  transition-duration: 0.3s;
+  opacity: 1;
+}
+
+.sidebar__menu-item:hover{
+  background-color: rgb(213, 113, 113);
+  transition-duration: 0.3s;
+  opacity: 1;
+}
+
+.sidebar__section-toggle,
+.sidebar__menu-item-button,
+.catalogue__header-summary,
+.library__controls-row,
+.notifications__tab,
+.notifications__content-wrapper,
+.library__collection-item,
+.downloads__no-downloads,
+.library__empty,
+.profile-content__section,
+.profile-content__tab,
+.sort-options__option {
+  text-shadow: 1px 1px 1px black;
+}
+
+.library__collection-item {
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+.library-view-options__option.active{
+  background-color: red;
+}
+
+.library-view-options__option {
+  background-color: black;
+}
+
+.library-view-options__option:hover{
+  background-color: red;
+}
+/* Main content */
+.container__content {
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://cdnb.artstation.com/p/assets/images/images/089/139/397/original/john-patrick-ganas-doom-process.gif?1750155122);
+}

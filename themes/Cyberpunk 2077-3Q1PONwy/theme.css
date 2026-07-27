@@ -10,7 +10,7 @@
   
   .bottom-panel {
   background-color: #000000;
-  color: #36a269
+  color: #36a269;
   }
   
   .container, .container__content {
@@ -23,8 +23,7 @@
   }
   
   body {
-  font-family: 
-    --font: 'figtree';;
+  font-family: 'Figtree', sans-serif;
   color: #DCC9BC;
   font-weight: 500;
   }

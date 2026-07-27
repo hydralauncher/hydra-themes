@@ -725,9 +725,9 @@ html {
 
 /* Apple-authentic liquid glass buttons */
 /* General button styles - ensure actual buttons are pills */
-.button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]),
-button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]),
-[class*="button"]:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="sidebar__help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]) {
+.button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]):not([class*="thumbnail"]),
+button:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]):not([class*="thumbnail"]),
+[class*="button"]:not(.game-item):not([class*="content"]):not([class*="card"]):not([class*="hero"]):not([class*="help"]):not([class*="sidebar__help"]):not([class*="gallery-slider"]):not([class*="sidebar-section"]):not([class*="repack"]):not([class*="user-library-game"]):not([class*="thumbnail"]) {
   border-radius: var(--radius-pill) !important;  /* Force actual buttons to be pills */
 }
 
@@ -1758,4 +1758,12 @@ input[type="checkbox"]:checked::before {
 *[class*="sort-options"] *[class*="option"] {
   padding: 8px 16px !important;
   box-sizing: border-box !important;
+}
+
+/* Achievement Notification - Simple Glass Style */
+.notification-achievement,
+*[class*="achievement"][class*="notification"],
+*[class*="achievement-toast"] {
+  border-radius: 6px !important;
+  -webkit-backdrop-filter: var(--backdrop-blur) !important;
 }

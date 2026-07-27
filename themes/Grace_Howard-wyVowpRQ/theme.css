@@ -1,0 +1,191 @@
+/* =========================
+   🔧 НАСТРОЙКИ
+   ========================= */
+
+:root {
+  --bg-image: url(https://i.redd.it/why-grace-always-has-her-grippers-out-v0-ag91abq7xfbd1.jpg?width=2048&format=pjpg&auto=webp&s=3ed3e2393974b2e6afd558a764421a3fb67fbce8);
+  --main-color: #ffb347;
+}
+
+
+/* =========================
+   🌌 ОСНОВА
+   ========================= */
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #fff3e0;
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+
+/* =========================
+   🎬 АНИМАЦИЯ
+   ========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   🖼️ ФОН
+   ========================= */
+
+#root {
+  background: var(--bg-image) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/* =========================
+   🧱 ПАНЕЛИ
+   ========================= */
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(20, 10, 0, 0.72) !important;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 179, 71, 0.25);
+  transition: 0.25s;
+}
+
+
+/* =========================
+   🎮 КАРТОЧКИ
+   ========================= */
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(20, 10, 0, 0.58) !important;
+  border-radius: 10px;
+}
+
+/* Hover */
+.game-item:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 10px var(--main-color),
+    0 0 20px rgba(255, 179, 71, 0.5);
+}
+
+
+/* =========================
+   🔘 КНОПКИ
+   ========================= */
+
+.button,
+.container__content .button--outline {
+  background-color: rgba(30, 15, 0, 0.45);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.button:hover {
+  background-color: var(--main-color);
+  color: #1a0d00;
+  box-shadow:
+    0 0 8px var(--main-color),
+    0 0 16px rgba(255, 179, 71, 0.6);
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   🔲 СКРУГЛЕНИЯ
+   ========================= */
+
+.game-card__backdrop,
+.game-card,
+.hero,
+.user-library-game__cover,
+.settings__content,
+.theme-card,
+.user-stats__box,
+.modal,
+.button,
+.repacks-modal__repack-button,
+.badge {
+  border-radius: 10px;
+}
+
+
+/* =========================
+   📜 SIDEBAR
+   ========================= */
+
+.sidebar__menu-item {
+  margin: 4px 10px;
+  border-radius: 10px;
+  padding: 6px;
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  transition: 0.25s;
+}
+
+.sidebar__menu-item:hover {
+  background-color: rgba(255, 179, 71, 0.1);
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(255, 179, 71, 0.5);
+}
+
+
+/* =========================
+   🔍 SEARCH
+   ========================= */
+
+.header__search {
+  border-radius: 10px;
+  padding: 8px;
+}
+
+
+/* =========================
+   📜 SCROLLBAR
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 10px;
+}
+
+
+/* =========================
+   🔔 УВЕДОМЛЕНИЯ
+   ========================= */
+
+.toast {
+  background: rgba(20, 10, 0, 0.9);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}

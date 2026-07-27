@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 #root {
-  background: url(https://i.imgur.com/vTc3NGb.png) #041019;
+  background: url(background.png) #041019;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .achievement-notification__outer-container {
-  background: url(https://i.imgur.com/vTc3NGb.png);
+  background: url(background.png);
   background-position: top;
   background-size: cover;
   color: #000000;
