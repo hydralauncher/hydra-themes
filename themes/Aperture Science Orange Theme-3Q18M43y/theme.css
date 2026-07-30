@@ -1,0 +1,4584 @@
+/* ═══════════════════════════════════════════════════════════════
+ *   HydraLauncher — Aperture Science Orange Theme
+ *   Эстетика Portal™ от Valve
+ *   ═══════════════════════════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap");
+
+/* ── Цветовая палитра Aperture ──────────────────────────────
+ *   Активный/выделенный:  #ffaa44 — яркий, светлый оранж
+ *   Обычный текст:        #cc6600 — тёмный оранжевый
+ *   Вторичный текст:      #aa5500 — приглушённый
+ *   Фон панелей:          #0a0a0c
+ *   Основной фон:         #060608
+ *   ────────────────────────────────────────────────────────── */
+
+:root {
+    --a-orange: #ffaa44;
+    --a-orange-rgb: 255, 170, 68;
+    --a-orange-dark: #cc6600;
+    --a-orange-dark-rgb: 204, 102, 0;
+    --a-orange-muted: #aa5500;
+    --a-orange-darker: #885500;
+    --a-orange-deep: #774400;
+    --a-orange-bg: #0a0a0c;
+    --a-orange-bg-rgb: 10, 10, 12;
+    --a-body: #060608;
+    --a-glow: 0 0 6px rgba(var(--a-orange-rgb), 0.3);
+    --a-glow-strong: 0 0 14px rgba(var(--a-orange-rgb), 0.5);
+    --a-border: rgba(var(--a-orange-rgb), 0.08);
+    --a-border-hover: rgba(var(--a-orange-rgb), 0.2);
+    --a-border-active: rgba(var(--a-orange-rgb), 0.35);
+    --a-bg-subtle: rgba(var(--a-orange-rgb), 0.04);
+    --a-bg-hover: rgba(var(--a-orange-rgb), 0.08);
+    --a-bg-active: rgba(var(--a-orange-rgb), 0.12);
+}
+
+/* ── CRT Scanline Overlay — Aperture Test Chamber ──────────── */
+#root::before,
+.modal::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background:
+    repeating-linear-gradient(180deg,
+                              rgba(var(--a-orange-rgb), 0.06) 0px,
+                              transparent 1px,
+                              transparent 3px,
+                              rgba(var(--a-orange-rgb), 0.03) 3px,
+                              transparent 4px
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    animation: a-scanlines 12s linear infinite;
+}
+
+@keyframes a-scanlines {
+    0% { background-position-y: 0; }
+    100% { background-position-y: 100%; }
+}
+
+/* ── Universal text: orange monospace ──────────────────────── */
+* {
+    font-family: "Share Tech Mono", "Consolas", monospace !important;
+    border-radius: 0 !important;
+}
+
+body,
+#root {
+background: var(--a-body) !important;
+color: var(--a-orange-dark) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.sidebar__menu-item--active,
+.settings__sidebar-button--active,
+.modal__header-title,
+.header__title {
+    text-shadow: var(--a-glow);
+}
+
+/* ── All interactive elements get Test Chamber press ────────── */
+button:active,
+.button:active,
+[class*="button"]:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.05s cubic-bezier(0.33, 1, 0.68, 1) !important;
+}
+
+button,
+.button,
+[class*="button"] {
+    transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease !important;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible,
+a:focus-visible {
+    animation: a-portal-ring 1.5s ease-in-out infinite !important;
+}
+
+/* ── Panels & backgrounds ──────────────────────────────────── */
+.sidebar,
+.header,
+.bottom-panel,
+.settings__content,
+.settings__panel {
+    background: var(--a-orange-bg) !important;
+}
+
+.settings__sidebar {
+    background: #08080a !important;
+}
+
+.modal {
+    background: #0c0c10 !important;
+    border: 1px solid var(--a-border-hover) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 16px rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.backdrop {
+    background: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* ── Universal text colors via container ───────────────────── */
+.sidebar *,
+.header *,
+.bottom-panel *,
+.settings__content *,
+.modal *,
+.container__content *,
+.game-card *,
+.profile-content__tab,
+.game-details__review-item *,
+.achievements__item *,
+.filter-item,
+.badge,
+.game-item__title,
+.library-game-card__achievement-percentage {
+    color: var(--a-orange-dark) !important;
+    text-shadow: 0 0 3px rgba(var(--a-orange-rgb), 0.15);
+}
+
+/* ── Secondary/muted text ──────────────────────────────────── */
+.settings-appearance__themes__theme__author,
+.header__search-input::placeholder,
+.game-details__review-char-counter,
+.game-details__reviews-header,
+.game-details__editor-button:disabled,
+.sidebar__online-count,
+.search-dropdown__section-header,
+.setup-modal__download-card-desc,
+.friends-window__game-info small,
+.settings-general__network-interface-hint,
+.settings-behavior__proton-description {
+    color: var(--a-orange-muted) !important;
+}
+
+/* ── Active / selected ─────────────────────────────────────── */
+.sidebar__menu-item--active,
+.settings__sidebar-button--active,
+.emulator-detail__tab--active,
+.profile-content__tab--active,
+.library-category-filter__option--active,
+.library-view-options__option.active,
+.radio-field--selected *,
+.download-settings-modal__downloader-item--selected * {
+    color: var(--a-orange) !important;
+}
+
+.sidebar__menu-item--active {
+    background: var(--a-bg-active) !important;
+    border-right: 2px solid var(--a-orange);
+}
+
+.settings__sidebar-button--active {
+    background: var(--a-bg-active) !important;
+    border-left: 2px solid var(--a-orange);
+}
+
+/* ── Hover ─────────────────────────────────────────────────── */
+.sidebar__menu-item:hover,
+.settings__sidebar-button:hover,
+.library-category-filter__option:hover,
+.header__action-button:hover,
+.bottom-panel__downloads-button:hover,
+.emulator-detail__tab:hover,
+.game-card:hover .game-card__title,
+.game-item:hover *,
+.filter-item:hover *,
+.achievements__item:hover * {
+    color: var(--a-orange) !important;
+}
+
+.sidebar__menu-item:hover,
+.settings__sidebar-button:hover,
+.game-item:hover,
+.achievements__item:hover,
+.download-settings-modal__downloader-item:hover {
+    background: var(--a-bg-hover) !important;
+}
+
+/* ── Borders ───────────────────────────────────────────────── */
+.game-card,
+.header__search,
+.settings-context-panel__divider,
+.modal__divider,
+.settings__sidebar,
+.settings__content,
+.settings-appearance__themes__theme,
+.theme-card,
+.filter-item,
+.badge,
+.user-stats__box {
+    border-color: var(--a-border) !important;
+}
+
+.game-card:hover,
+.settings-appearance__themes__theme:hover {
+    border-color: var(--a-border-hover) !important;
+}
+
+.header__search--focused,
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--a-border-active) !important;
+}
+
+/* ── Scrollbars — Aperture Energy Rails ────────────────────── */
+::-webkit-scrollbar { width: 6px !important; height: 6px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
+::-webkit-scrollbar-thumb {
+    background: rgba(var(--a-orange-rgb), 0.6) !important;
+    box-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.4) !important;
+    border: none !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--a-orange-rgb), 0.9) !important;
+}
+
+/* ── Aperture Animations ───────────────────────────────────── */
+@keyframes a-segment-glow {
+    0%, 100% { box-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.3); }
+    50%      { box-shadow: 0 0 14px rgba(var(--a-orange-rgb), 0.5); }
+}
+
+@keyframes a-portal-ring {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(var(--a-orange-rgb), 0.3); }
+    50%      { box-shadow: 0 0 0 4px rgba(var(--a-orange-rgb), 0.6); }
+}
+
+@keyframes a-energy-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes a-availability-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* ── Segmented progress ― Aperture Energy Cell ─────────────── */
+.a-segment-track {
+    background: repeating-linear-gradient(90deg,
+                                          rgba(var(--a-orange-rgb), 0.08) 0px,
+                                          rgba(var(--a-orange-rgb), 0.08) 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+}
+
+.a-segment-fill {
+    background: repeating-linear-gradient(90deg,
+                                          #ff8800 0px,
+                                          var(--a-orange) 4px,
+                                          #ff8800 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    animation: a-segment-glow 2s ease-in-out infinite !important;
+}
+
+.header__search--focused,
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--a-border-active) !important;
+}
+
+.settings-context-panel__divider {
+    border-top-color: var(--a-border) !important;
+}
+
+.profile-content__tabs {
+    border-bottom-color: var(--a-border) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   ПОИСК / ИНПУТЫ
+ *   ═══════════════════════════════════════════════════════════════ */
+
+.header__search {
+    background-color: #0e0e12 !important;
+    border-color: var(--a-border) !important;
+}
+
+.header__search-input::placeholder {
+    color: rgba(170, 85, 0, 0.4) !important;
+}
+
+input, textarea, select {
+    color: var(--a-orange-dark) !important;
+    background-color: #0e0e12 !important;
+    border-color: var(--a-border-hover) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--a-border-active) !important;
+    box-shadow: 0 0 0 2px var(--a-border) !important;
+    outline: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   КНОПКИ
+ *   ═══════════════════════════════════════════════════════════════ */
+
+.button--primary {
+    background-color: var(--a-orange) !important;
+    color: var(--a-body) !important;
+}
+.button--primary:hover {
+    background-color: #ffbb55 !important;
+}
+
+.button--outline {
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    color: var(--a-orange-dark) !important;
+}
+.button--outline:hover {
+    background-color: var(--a-bg-hover) !important;
+    border-color: var(--a-orange) !important;
+    color: var(--a-orange) !important;
+}
+
+.button--dark {
+    background-color: #121216 !important;
+    color: var(--a-orange-dark) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    transition: all 0.15s ease !important;
+}
+
+.button--dark:hover {
+    color: var(--a-orange) !important;
+    background-color: #1a1a20 !important;
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   СКАЧИВАНИЕ — список загрузчиков, источники
+ *   ═══════════════════════════════════════════════════════════════ */
+
+/* Окно выбора загрузчика */
+.download-settings-modal__downloaders-list-wrapper {
+    border-color: var(--a-border) !important;
+}
+
+.download-settings-modal__downloader-item {
+    color: var(--a-orange-dark) !important;
+    border-bottom-color: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+.download-settings-modal__downloader-item:hover {
+    background-color: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+.download-settings-modal__downloader-item--selected {
+    background-color: var(--a-bg-hover) !important;
+}
+.download-settings-modal__check-icon {
+    color: var(--a-orange) !important;
+}
+
+.download-settings-modal__container {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.download-settings-modal__downloads-path-field {
+    margin-bottom: 12px !important;
+}
+
+.download-settings-modal__downloader-name {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    transition: color 0.15s ease !important;
+}
+
+.download-settings-modal__downloader-item--selected .download-settings-modal__downloader-name {
+    color: var(--a-orange) !important;
+}
+
+.download-settings-modal__downloader-item:disabled .download-settings-modal__downloader-name {
+    color: #553300 !important;
+}
+
+.download-settings-modal__availability-indicator-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.download-settings-modal__availability-indicator {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    transition: all 0.15s ease !important;
+}
+
+.download-settings-modal__availability-indicator--available {
+    background: #4fc3f7 !important;
+    box-shadow: 0 0 6px rgba(79, 195, 247, 0.4) !important;
+}
+
+.download-settings-modal__availability-indicator--warning {
+    background: var(--a-orange) !important;
+    box-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.4) !important;
+}
+
+.download-settings-modal__availability-indicator--not-present {
+    background: #442200 !important;
+}
+
+.download-settings-modal__availability-indicator--pulsating {
+    animation: availability-pulse 1.5s ease-in-out infinite !important;
+}
+
+@keyframes availability-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
+.download-settings-modal__recommendation-badge {
+    margin-left: auto !important;
+}
+
+.download-settings-modal__select-files-link {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-top: 8px !important;
+    transition: all 0.15s ease !important;
+}
+
+.download-settings-modal__select-files-link:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.download-settings-modal__change-path-button {
+    margin-left: 8px !important;
+}
+
+.download-settings-modal__hint-text {
+    color: var(--a-orange-deep) !important;
+    font-size: 11px !important;
+    margin-top: 6px !important;
+}
+
+.text-field-container label {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+}
+
+.text-field-container__text-field-wrapper {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.text-field-container__text-field--primary {
+    border-color: var(--a-border-hover) !important;
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border-radius: 6px !important;
+}
+
+.text-field-container__text-field-input--read-only {
+    cursor: default !important;
+    opacity: 0.7 !important;
+}
+.settings-download-sources__item {
+    background-color: #0c0c10 !important;
+    border-color: var(--a-border) !important;
+}
+.settings-download-sources__item:hover {
+    border-color: var(--a-border-hover) !important;
+}
+.settings-download-sources__item--syncing {
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+}
+.settings-download-sources__item-header {
+    color: var(--a-orange-dark) !important;
+}
+
+.settings-download-sources__navigate-button {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    transition: all 0.15s ease !important;
+}
+
+.settings-download-sources__navigate-button:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-hover) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    box-shadow: 0 0 8px var(--a-bg-active) !important;
+}
+
+/* Выравнивание отступов между кнопок */
+.settings-download-sources__header,
+.settings-download-sources__buttons-container {
+    gap: 8px !important;
+}
+
+
+
+.theme-card--active,
+.settings-appearance__themes__theme--active {
+    background-color: var(--a-bg-subtle) !important;
+}
+
+.settings-appearance__themes__theme__header__colors__color {
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+.settings-appearance__themes__theme__header__title,
+.theme-card__header__title {
+    color: var(--a-orange) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   КАРТОЧКИ ИГР
+ *   ═══════════════════════════════════════════════════════════════ */
+
+.game-card:hover {
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    box-shadow: 0 0 12px var(--a-border) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   СКРОЛЛБАРЫ
+ *   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--a-body);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--a-border-hover);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--a-orange-rgb), 0.45);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   APERTURE SCIENCE ЭФФЕКТЫ
+ *   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Апертурный спиннер ────────────────────────────────────
+ *   Вращающееся кольцо, как анимация портала при загрузке */
+
+@keyframes aperture-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes aperture-spinner-glow {
+    0%, 100% {
+        box-shadow: 0 0 4px rgba(255, 170, 68, 0.2),
+        inset 0 0 4px rgba(255, 170, 68, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(255, 170, 68, 0.5),
+        inset 0 0 8px rgba(255, 170, 68, 0.2);
+    }
+}
+
+[class*="spinner"] {
+    position: relative;
+    animation: aperture-spin 1s linear infinite !important;
+}
+
+[class*="spinner"]::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--a-body);
+}
+
+/* ── 2. Портальный глоу на активных элементах ─────────────────
+ *   Пульсирующее оранжевое гало вокруг фокуса, как портал */
+
+@keyframes portal-ring {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 170, 68, 0);
+    }
+    30% {
+        box-shadow: 0 0 0 6px rgba(255, 170, 68, 0.12);
+    }
+    60% {
+        box-shadow: 0 0 0 3px rgba(255, 170, 68, 0.06);
+    }
+}
+
+button:focus-visible,
+[tabindex]:focus-visible,
+a:focus-visible {
+    animation: portal-ring 1.5s ease-in-out infinite !important;
+}
+
+/* ── 3. Механическое нажатие кнопки (Test Chamber style) ──────
+ *   При клике кнопка «утапливается», как панель в испытательной камере */
+
+button:active,
+.button:active,
+[class*="button"]:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.05s cubic-bezier(0.33, 1, 0.68, 1) !important;
+}
+
+button,
+.button,
+[class*="button"] {
+    transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease !important;
+}
+
+/* ── 4. Прогресс-бар — Aperture Energy Cell ──────────────────
+ *   Сегментированные прямоугольники как индикаторы Portal */
+
+/* Пульсация заряда */
+@keyframes a-segment-glow {
+    0%, 100% { box-shadow: 0 0 6px rgba(255, 170, 68, 0.3); }
+    50%      { box-shadow: 0 0 14px rgba(255, 170, 68, 0.5); }
+}
+
+/* Трек — незаряженные сегменты (тусклые прямоугольники) */
+.download-group__progress-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--a-border) 0px,
+                                          var(--a-border) 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Заполнитель — заряженные сегменты-прямоугольники */
+.download-group__progress-fill {
+    background: repeating-linear-gradient(
+        90deg,
+        #ff8800 0px,
+        var(--a-orange) 4px,
+                                          #ff8800 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    animation: a-segment-glow 2s ease-in-out infinite !important;
+}
+
+/* ── Download-group info — панель информации о загрузке ─── */
+.download-group__simple-title {
+    color: var(--a-orange) !important;
+    text-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.15) !important;
+    font-weight: 600 !important;
+    transition: color 0.15s ease !important;
+}
+
+.download-group__simple-title-button:hover .download-group__simple-title {
+    color: #ffcc77 !important;
+}
+
+.download-group__simple-meta {
+    gap: 4px !important;
+}
+
+.download-group__simple-meta-row .badge {
+    background: var(--a-bg-hover) !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    border-radius: 4px !important;
+    color: var(--a-orange) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    padding: 1px 6px !important;
+}
+
+.download-group__simple-size {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    gap: 4px !important;
+}
+
+/* Download progress row (info + buttons) */
+.download-group__progress-row {
+    padding: 8px 0 !important;
+}
+
+.download-group__progress-wrapper {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.download-group__progress-info-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 4px !important;
+}
+
+.download-group__progress-size {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.download-group__progress-time {
+    color: var(--a-orange-darker) !important;
+    fill: var(--a-orange-darker) !important;
+    font-size: 11px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.download-group__progress-percentage {
+    color: var(--a-orange) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.download-group__hero-buttons {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-left: 12px !important;
+}
+
+.download-group__glass-btn {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.8) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    transition: all 0.15s ease !important;
+}
+
+.download-group__glass-btn:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.95) !important;
+}
+
+.download-group__header-title-group {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 8px !important;
+}
+
+.download-group__header-title-group h2 {
+    color: var(--a-orange) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+.download-group__header-count {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+.download-group__stats-column {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.download-group__stat-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.download-group__stat-item span[style*="color: rgb(255, 255, 255)"] {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+}
+
+.download-group__stat-content {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.download-group__stat-label {
+    color: var(--a-orange-darker) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.download-group__stat-value {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+/* Hero-панель игры — сегментированный прогресс-бар */
+.hero-panel__progress-bar {
+    border-radius: 0 !important;
+    margin: 0 12px !important;
+    width: calc(100% - 24px) !important;
+    bottom: 6px !important;
+}
+
+.hero-panel__progress-bar::-webkit-progress-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--a-border) 0px,
+                                          var(--a-border) 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+}
+
+.hero-panel__progress-bar::-webkit-progress-value {
+    background: repeating-linear-gradient(
+        90deg,
+        #ff8800 0px,
+        var(--a-orange) 4px,
+                                          #ff8800 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    animation: a-segment-glow 2s ease-in-out infinite !important;
+}
+
+/* Toast-уведомления */
+.toast {
+    background: rgba(var(--a-orange-bg-rgb), 0.95) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 12px var(--a-border) !important;
+    overflow: hidden !important;
+}
+
+.toast__content {
+    padding: 12px 16px !important;
+}
+
+.toast__message-container {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+}
+
+.toast__message-container span[style*="font-weight: bold"] {
+    color: var(--a-orange) !important;
+    font-size: 14px !important;
+}
+
+.toast__icon--success {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0 !important;
+}
+
+.toast__close-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 4px !important;
+    border-radius: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+    line-height: 1 !important;
+}
+
+.toast__close-button:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-hover) !important;
+}
+
+/* Toast-прогресс бар — сегментированный */
+.toast__progress::-webkit-progress-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--a-border) 0px,
+                                          var(--a-border) 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+}
+
+.toast__progress::-webkit-progress-value {
+    background: repeating-linear-gradient(
+        90deg,
+        #ff8800 0px,
+        var(--a-orange) 4px,
+                                          #ff8800 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    animation: a-segment-glow 2s ease-in-out infinite !important;
+}
+
+/* Отступы панели загрузки — чтобы прогресс-бар и кнопки
+ *   (возобновить/пауза/отмена) не прилипали к краям контейнера */
+[class*="game-details"][class*="download"],
+[class*="download-progress"],
+[class*="downloading"][class*="container"],
+[class*="download-controls"] {
+    padding: 12px 16px !important;
+}
+
+/* ── 5. Aperture Science Panel Corners ────────────────────────
+ *   L-образные скобки по углам панелей (как стены тест-камер) */
+
+.modal,
+.settings__content,
+.game-card {
+    position: relative;
+}
+
+.modal::before,
+.settings__content::before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.15;
+}
+
+/* Верхний-левый угол */
+.modal::before,
+.settings__content::before {
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--a-orange);
+    border-left: 2px solid var(--a-orange);
+}
+
+/* ── 6. Скан-лайны (CRT-эффект, очень тонкий) ────────────────
+ *   Как старые мониторы Aperture Science */
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99999;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(var(--a-orange-rgb), 0.015) 2px,
+                                          rgba(var(--a-orange-rgb), 0.015) 4px
+    );
+}
+
+/* ── 7. GLaDOS Alert — тревожное свечение для ошибок ───────── */
+
+@keyframes glados-alert {
+    0%, 100% {
+        box-shadow: 0 0 4px rgba(255, 60, 60, 0.2);
+        border-color: rgba(255, 60, 60, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 14px rgba(255, 60, 60, 0.4);
+        border-color: rgba(255, 60, 60, 0.6);
+    }
+}
+
+[class*="error"]:not([class*="alert"]):not([class*="setup"]):not([class*="game-options"]),
+[class*="danger"]:not([class*="setup"]):not([class*="game-options"]) {
+    animation: glados-alert 2s ease-in-out infinite !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   УСТАНОВКА — setup modal (выбор загрузчика)
+ *   ═══════════════════════════════════════════════════════════════ */
+
+/* Алёрт в модалке установки — адаптация под Aperture */
+.setup-modal__alert--warn {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border-color: var(--a-border-hover) !important;
+}
+.setup-modal__alert--neutral {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border-color: var(--a-border) !important;
+}
+.setup-modal__alert-note {
+    color: var(--a-orange-muted) !important;
+}
+
+/* Прогресс-бар установки */
+.setup-modal__progress-bar {
+    background: var(--a-border) !important;
+}
+
+/* Карточки загрузчиков */
+.setup-modal__download-card {
+    border-color: var(--a-border) !important;
+}
+.setup-modal__download-card:hover {
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+    box-shadow: 0 0 12px var(--a-border) !important;
+}
+.setup-modal__download-card--loading {
+    border-color: var(--a-border-hover) !important;
+}
+.setup-modal__download-card-desc {
+    color: var(--a-orange-muted) !important;
+}
+.setup-modal__download-card-url {
+    color: #ff8800 !important;
+}
+.setup-modal__download-card-ext {
+    color: var(--a-orange-muted) !important;
+}
+.setup-modal__download-card-badge {
+    background: var(--a-bg-hover) !important;
+    color: var(--a-orange) !important;
+}
+
+/* ── 8. Portal Transition — анимация появления модалок ────────
+ *   Эффект «выдвижения панели» как в Portal 2 */
+
+@keyframes portal-panel-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+        clip-path: inset(0 0 100% 0);
+    }
+    60% {
+        clip-path: inset(0 0 0% 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        clip-path: inset(0 0 0% 0);
+    }
+}
+
+.modal:not(.modal--closing) {
+    animation: portal-panel-in 0.3s cubic-bezier(0.33, 1, 0.68, 1) !important;
+}
+
+/* ── 10. Ховер-эффект на карточках (Test Chamber Panel) ──────
+ *    Панель нагревается при наведении */
+
+.game-card {
+    transition: border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease !important;
+}
+
+.game-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 20px var(--a-bg-active) !important;
+}
+
+/* ── 11. Индикатор загрузки — "Aperture Science Loading" ─────
+ *    Пульсирующая линия внизу экрана */
+
+@keyframes aperture-loader {
+    0%   { transform: scaleX(0); transform-origin: left; }
+    50%  { transform: scaleX(1); transform-origin: left; }
+    51%  { transform: scaleX(1); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 99998;
+    background: linear-gradient(90deg, transparent, var(--a-orange), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* ── 12. "Still Alive" — тонкая анимация для успешных действий ─
+ *    Зелёный отблеск, как в конце Portal */
+
+[class*="success"] {
+    text-shadow: 0 0 6px rgba(34, 197, 94, 0.3) !important;
+}
+
+/* ── 13. Разделители в стиле Aperture ─────────────────────────
+ *    Пунктирная линия как технологический чертёж */
+
+.settings-context-panel__divider,
+.modal__divider,
+[class*="divider"] {
+    border-top-style: dashed !important;
+    border-top-width: 1px !important;
+}
+
+/* ── 14. Анимация для активного элемента сайдбара ────────────
+ *    Как загорающаяся лампочка Aperture */
+
+@keyframes sidelight-glow {
+    0%, 100% {
+        border-right-color: rgba(255, 170, 68, 0.4);
+    }
+    50% {
+        border-right-color: rgba(255, 170, 68, 1);
+    }
+}
+
+.sidebar__menu-item--active {
+    border-right-width: 2px;
+    border-right-style: solid;
+    animation: sidelight-glow 2.5s ease-in-out infinite;
+}
+
+/* ── 15. Эффект фокуса поиска — "апертура" ───────────────────
+ *    При фокусе на поиске — мягкое оранжевое сияние */
+
+.header__search--focused {
+    box-shadow: 0 0 0 3px rgba(var(--a-orange-rgb), 0.06),
+    0 0 20px var(--a-bg-subtle) !important;
+}
+
+/* ── 16. Portal Ripple — эффект открытия портала при клике ────
+ *    Оранжевое кольцо расходится от места клика, как открывающийся портал */
+
+@keyframes portal-ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 170, 68, 0.6),
+        0 0 0 0 rgba(255, 170, 68, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 170, 68, 0),
+        0 0 0 16px rgba(255, 170, 68, 0);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 170, 68, 0),
+        0 0 0 0 rgba(255, 170, 68, 0);
+        transform: scale(1);
+    }
+}
+
+.game-card:active,
+.sidebar__menu-item:active,
+.settings__sidebar-button:active {
+    animation: portal-ripple 0.4s cubic-bezier(0.33, 1, 0.68, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Portal-ripple на кнопках через псевдоэлемент */
+button:not([class*="no-ripple"]):not(.header__action-button)::after,
+[class*="button"]:not([class*="no-ripple"]):not(.header__action-button)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, rgba(var(--a-orange-rgb), 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+button:not([class*="no-ripple"]):active::after,
+[class*="button"]:not([class*="no-ripple"]):active::after {
+    opacity: 1;
+    transition: opacity 0s;
+}
+
+/* ── 17. Aperture Light Strip — анимация световых полос ──────
+ *    Как оранжевые лампы вдоль стен испытательных камер */
+
+@keyframes light-strip-run {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.header {
+    position: relative;
+    overflow: hidden;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+                                transparent 0%,
+                                transparent 15%,
+                                rgba(var(--a-orange-rgb), 0.6) 25%,
+                                rgba(var(--a-orange-rgb), 0.9) 35%,
+                                var(--a-orange) 45%,
+                                rgba(var(--a-orange-rgb), 0.9) 55%,
+                                rgba(var(--a-orange-rgb), 0.6) 65%,
+                                transparent 75%,
+                                transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: light-strip-run 4s ease-in-out infinite;
+    z-index: 2;
+}
+
+.bottom-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+                                transparent 0%,
+                                transparent 20%,
+                                rgba(var(--a-orange-rgb), 0.4) 30%,
+                                rgba(var(--a-orange-rgb), 0.7) 40%,
+                                var(--a-orange) 50%,
+                                rgba(var(--a-orange-rgb), 0.7) 60%,
+                                rgba(var(--a-orange-rgb), 0.4) 70%,
+                                transparent 80%,
+                                transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: light-strip-run 5s ease-in-out infinite 0.5s;
+    z-index: 2;
+}
+
+/* ── 18. Weighted Companion Cube — плавающий эффект загрузок ──
+ *    Карточки скачиваний слегка парят в невесомости */
+
+@keyframes companion-float {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(255, 170, 68, 0.04);
+    }
+    50% {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 24px rgba(255, 170, 68, 0.1);
+    }
+}
+
+.download-settings-modal__downloader-item {
+    animation: companion-float 4s ease-in-out infinite;
+    animation-delay: calc(var(--float-delay, 0) * 1s);
+}
+
+.download-settings-modal__downloader-item:nth-child(2) { --float-delay: 0.3; }
+.download-settings-modal__downloader-item:nth-child(3) { --float-delay: 0.6; }
+.download-settings-modal__downloader-item:nth-child(4) { --float-delay: 0.9; }
+.download-settings-modal__downloader-item:nth-child(5) { --float-delay: 1.2; }
+
+/* ── 19. Wheatley Space Wobble — глитч в стиле Уитли ────────
+ *    При долгой загрузке или ошибке — «космический» воблер */
+
+@keyframes wheatley-wobble {
+    0% { transform: skew(0deg, 0deg) scale(1); }
+    10% { transform: skew(0.5deg, -0.3deg) scale(1.005); }
+    20% { transform: skew(-0.3deg, 0.5deg) scale(0.995); }
+    30% { transform: skew(0.8deg, -0.2deg) scale(1.01); }
+    40% { transform: skew(-0.2deg, 0.8deg) scale(0.99); }
+    50% { transform: skew(0deg, 0deg) scale(1); }
+    55% {
+        transform: skew(0deg, 0deg) scale(1);
+        filter: brightness(1);
+    }
+    56% {
+        filter: brightness(1.3);
+    }
+    57% {
+        filter: brightness(1);
+    }
+    100% { transform: skew(0deg, 0deg) scale(1); filter: brightness(1); }
+}
+
+/* Глитч на активном состоянии при долгой загрузке (запасной вариант для ошибок) */
+[class*="error"]:not([class*="setup"]):not([class*="alert"]):not([class*="game-options"]),
+[class*="danger"]:not([class*="setup"]):not([class*="game-options"]) {
+    animation: glados-alert 2s ease-in-out infinite,
+    wheatley-wobble 3s ease-in-out infinite !important;
+}
+
+/* ── 20. Enrichment Center Ambient Hum — фоновое свечение ────
+ *    Медленно пульсирующее оранжевое зарево, как свет в пустых
+ *    коридорах Aperture Science */
+
+@keyframes ambient-hum {
+    0%, 100% {
+        background-position: 0% 50%;
+        background-size: 100% 100%;
+    }
+    33% {
+        background-position: 100% 50%;
+        background-size: 120% 100%;
+    }
+    66% {
+        background-position: 50% 100%;
+        background-size: 100% 120%;
+    }
+}
+
+body {
+    background:
+    radial-gradient(ellipse 60% 30% at 20% 10%, rgba(var(--a-orange-rgb), 0.008) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 20% at 80% 90%, rgba(var(--a-orange-rgb), 0.006) 0%, transparent 70%),
+    var(--a-body);
+    animation: ambient-hum 20s ease-in-out infinite;
+}
+
+/* ── 21. Turret Target Sweep — сканирующая линия турели ─────
+ *    При наведении на карточку игры — горизонтальная «световая
+ *    линейка» как сканер турели Aperture */
+
+.game-card {
+    position: relative;
+    overflow: hidden !important;
+}
+
+@keyframes turret-sweep {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 0;
+    }
+    100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(var(--a-orange-rgb), 0.06) 30%,
+                                var(--a-bg-active) 50%,
+                                rgba(var(--a-orange-rgb), 0.06) 70%,
+                                transparent 100%
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover::after {
+    opacity: 1;
+    animation: turret-sweep 1.8s cubic-bezier(0.33, 1, 0.68, 1) infinite;
+}
+
+/* ── 22. Panel Slide — улучшенная анимация панелей в стиле
+ *    Test Chamber. Разные панели выезжают с разных сторон */
+
+@keyframes panel-slide-from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(40px) scale(0.97);
+        clip-path: inset(0 0 0 100%);
+    }
+    60% {
+        clip-path: inset(0 0 0 0%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        clip-path: inset(0 0 0 0%);
+    }
+}
+
+@keyframes panel-slide-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Settings slide-in слева */
+.settings__content {
+    animation: panel-slide-from-left 0.35s cubic-bezier(0.33, 1, 0.68, 1) !important;
+}
+
+/* Модалка слайд справа */
+.modal:not(.modal--closing) {
+    animation: panel-slide-from-right 0.35s cubic-bezier(0.33, 1, 0.68, 1) !important;
+}
+
+/* ── 23. "The cake is a lie" — секретный эффект ─────────────
+ *    Пасхалка: при наведении на кексы/десерты в тексте появляется
+ *    ложное сообщение. Активируем на скрытых элементах */
+
+/* Сама пасхалка — появляется при наведении на пустые/запасные
+ *   состояния интерфейса */
+.sidebar__menu-empty::after {
+    content: 'The cake is a lie.';
+    display: block;
+    font-size: 0.6em;
+    color: var(--a-border-hover);
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sidebar__menu-empty:hover::after {
+    opacity: 1;
+    color: rgba(var(--a-orange-rgb), 0.5);
+    text-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.15);
+}
+
+/* ── 23b. Кнопка профиля в сайдбаре — Aperture Science ID */
+.sidebar-profile__button-content {
+    color: var(--a-orange-dark) !important;
+    transition: color 0.15s ease, background-color 0.15s ease !important;
+    border-radius: 6px !important;
+}
+
+.sidebar-profile__button-content:hover {
+    color: var(--a-orange) !important;
+    background-color: var(--a-border) !important;
+}
+
+.sidebar-profile__button-title {
+    color: var(--a-orange-dark) !important;
+    transition: color 0.15s ease !important;
+}
+
+.sidebar-profile__button-content:hover .sidebar-profile__button-title {
+    color: var(--a-orange) !important;
+}
+
+.sidebar-profile__chevron {
+    color: var(--a-orange-muted) !important;
+    transition: color 0.15s ease !important;
+}
+
+.sidebar-profile__button-content:hover .sidebar-profile__chevron {
+    color: var(--a-orange) !important;
+}
+
+.profile-avatar {
+    border: 1px solid var(--a-bg-active) !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+    border-radius: 50% !important;
+}
+
+.sidebar-profile__button-content:hover .profile-avatar {
+    border-color: var(--a-border-active) !important;
+    box-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+/* Заголовки фильтров */
+.filter-section__title:where(:not(#big-picture *)) {
+    color: var(--a-orange-dark) !important;
+    text-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.25) !important;
+    transition: color 0.15s ease !important;
+}
+
+.filter-section__title:where(:not(#big-picture *)):hover {
+    color: var(--a-orange) !important;
+    text-shadow: 0 0 10px rgba(var(--a-orange-rgb), 0.4) !important;
+}
+
+/* Элементы настроек Proton / чекбоксы / поля ввода */
+.proton-compatibility-section__label:where(:not(#big-picture *)),
+.proton-compatibility-section__option-label:where(:not(#big-picture *)),
+.proton-compatibility-section__label--deck:where(:not(#big-picture *)),
+.checkbox-field__label:where(:not(#big-picture *)),
+.filter-section__count:where(:not(#big-picture *)),
+.filter-section__header-count:where(:not(#big-picture *)),
+.filter-section__clear-button:where(:not(#big-picture *)) {
+    color: var(--a-orange-dark) !important;
+    transition: color 0.15s ease !important;
+}
+
+.checkbox-field__checkbox {
+    border: 1.5px solid var(--a-border-hover) !important;
+    border-radius: 4px !important;
+    background: var(--a-bg-subtle) !important;
+    transition: all 0.15s ease !important;
+}
+
+.checkbox-field__checkbox:hover {
+    border-color: var(--a-border-active) !important;
+    background: rgba(var(--a-orange-rgb), 0.07) !important;
+}
+
+.checkbox-field__checkbox.checked {
+    border-color: var(--a-orange) !important;
+    background: var(--a-bg-active) !important;
+    box-shadow: 0 0 6px var(--a-border-hover) !important;
+}
+
+.checkbox-field__icon {
+    color: transparent !important;
+    fill: transparent !important;
+}
+
+.checkbox-field__icon.checked {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 3px rgba(var(--a-orange-rgb), 0.4)) !important;
+}
+
+.checkbox-field__input:where(:not(#big-picture *)) {
+    accent-color: var(--a-orange) !important;
+    cursor: pointer !important;
+    outline: none !important;
+}
+
+.text-field-container__text-field-input:where(:not(#big-picture *)) {
+    color: var(--a-orange-dark) !important;
+    background-color: #0e0e12 !important;
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.text-field-container__text-field-input:where(:not(#big-picture *)):focus {
+    border-color: rgba(var(--a-orange-rgb), 0.4) !important;
+    box-shadow: 0 0 0 2px var(--a-border) !important;
+}
+
+.filter-section__clear-button:where(:not(#big-picture *)):hover {
+    color: var(--a-orange) !important;
+    text-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.3) !important;
+}
+
+/* ── Catalogue Mode Toggle — Aperture Control Panel ──────── */
+.catalogue-mode-toggle {
+    background: var(--a-bg-subtle) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 8px !important;
+    gap: 2px !important;
+    padding: 2px !important;
+}
+
+.catalogue-mode-toggle__option {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    transition: color 0.15s ease, fill 0.15s ease, background-color 0.15s ease,
+    box-shadow 0.15s ease !important;
+}
+
+.catalogue-mode-toggle__option:hover {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.catalogue-mode-toggle__option--active {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-hover) !important;
+    box-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.15), inset 0 0 8px rgba(var(--a-orange-rgb), 0.05) !important;
+    text-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.3) !important;
+}
+
+/* ── Catalogue Header Row — Aperture Info Panel ────────── */
+.catalogue__result-count {
+    color: var(--a-orange) !important;
+    text-shadow: 0 0 6px var(--a-border-hover) !important;
+}
+
+.catalogue__filters-hint {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.catalogue__sort-label {
+    color: var(--a-orange-dark) !important;
+}
+
+.catalogue__sort-select .select-field {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.catalogue__sort-select .select-field:hover {
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+}
+
+.catalogue__sort-select .select-field .select-field__option {
+    color: var(--a-orange-dark) !important;
+    background: var(--a-orange-bg) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+}
+
+/* ── Select dropdown options — тёмный фон вместо белого ── */
+select.select-field__option option,
+.select-field__option option {
+    background-color: var(--a-orange-bg) !important;
+    color: var(--a-orange-dark) !important;
+}
+
+select.select-field__option option:hover,
+select.select-field__option option:checked,
+.select-field__option option:hover,
+.select-field__option option:checked {
+    background-color: rgba(var(--a-orange-rgb), 0.15) !important;
+    color: var(--a-orange) !important;
+}
+
+.catalogue__sort-select .select-field::after {
+    border-top-color: var(--a-orange-muted) !important;
+    transition: border-top-color 0.15s ease !important;
+}
+
+.catalogue__sort-select .select-field:hover::after {
+    border-top-color: var(--a-orange) !important;
+}
+
+/* ── Active Filters Bar — Aperture Filter Chips ─────────── */
+.catalogue__active-filters-label {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+.catalogue__filters-list {
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+}
+
+.filter-item {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    padding: 2px 8px !important;
+    gap: 5px !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.filter-item:hover {
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+}
+
+.filter-item__orb {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.filter-item__label {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+}
+
+.filter-item__remove-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 2px !important;
+    transition: all 0.15s ease !important;
+}
+
+.filter-item__remove-button:hover {
+    color: #ff4444 !important;
+    fill: #ff4444 !important;
+    background: rgba(255, 68, 68, 0.1) !important;
+}
+
+.hero__description {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+}
+
+/* ── Hero Panel — Aperture Game Details Panel ──────────── */
+.hero-panel__content {
+    gap: 6px !important;
+}
+
+.hero-panel-playtime__play-time {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+}
+
+.hero-panel__content p:not(.hero-panel-playtime__play-time) {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.hero-panel-actions__container {
+    gap: 0 !important;
+}
+
+.hero-panel-actions__action {
+    border-radius: 0 !important;
+    gap: 4px !important;
+}
+
+.hero-panel-actions__action:first-child {
+    border-radius: 6px 0 0 6px !important;
+}
+
+.hero-panel-actions__action:last-child {
+    border-radius: 0 6px 6px 0 !important;
+}
+
+.hero-panel-actions__separator {
+    width: 1px !important;
+    background: var(--a-bg-active) !important;
+    margin: 4px 0 !important;
+}
+
+/* ── Content Sidebar — боковая панель деталей игры ─────── */
+/* Sections headers */
+.sidebar-section__header {
+    gap: 6px !important;
+}
+
+.sidebar-section__button {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+}
+
+.sidebar-section__chevron {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    transition: transform 0.2s ease !important;
+}
+
+/* ProtonDB */
+.protondb__category-title {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    gap: 6px !important;
+}
+
+.protondb__proton-icon {
+    filter: hue-rotate(87deg) saturate(2) brightness(1.3) !important;
+}
+
+.protondb__steamdeck-icon {
+    filter: hue-rotate(173deg) saturate(2) brightness(1.3) !important;
+}
+
+.protondb__tier-badge--platinum {
+    color: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    border-radius: 4px !important;
+    padding: 1px 6px !important;
+    font-size: 11px !important;
+}
+
+.protondb__value {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.protondb__view-link {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    gap: 4px !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    transition: all 0.15s ease !important;
+}
+
+.protondb__view-link:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    border-bottom-color: rgba(var(--a-orange-rgb), 0.4) !important;
+}
+
+/* Stats */
+.stats__category-title {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+}
+
+.stats__category p:last-child {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+/* Star rating */
+.star-rating__star--filled {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 3px rgba(var(--a-orange-rgb), 0.3)) !important;
+}
+
+.star-rating__value {
+    color: var(--a-orange-dark) !important;
+}
+
+/* HowLongToBeat */
+.how-long-to-beat__category-label--bold {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+}
+
+.how-long-to-beat__category-label:not(.how-long-to-beat__category-label--bold) {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.how-long-to-beat__category small {
+    color: #884400 !important;
+    font-size: 10px !important;
+}
+
+/* Controller Support */
+.controller-support__badge--full {
+    color: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    border-radius: 4px !important;
+    padding: 2px 8px !important;
+    font-size: 11px !important;
+}
+
+.controller-support__description {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+/* Requirements */
+.requirement__details {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+}
+
+.requirement__details strong {
+    color: var(--a-orange-dark) !important;
+}
+
+/* Language section */
+.game-language-section__header {
+    color: var(--a-orange-dark) !important;
+    font-size: 11px !important;
+    border-bottom: 1px solid var(--a-border) !important;
+}
+
+.game-language-section__header-item {
+    color: var(--a-orange-dark) !important;
+    font-size: 11px !important;
+}
+
+.game-language-section__cell {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.game-language-section__check {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+}
+
+.game-language-section__cross {
+    color: var(--a-border-hover) !important;
+    fill: var(--a-border-hover) !important;
+}
+
+.proton-compatibility-section__label:where(:not(#big-picture *)):hover,
+.proton-compatibility-section__option-label:where(:not(#big-picture *)):hover,
+.checkbox-field__label:where(:not(#big-picture *)):hover {
+    color: var(--a-orange) !important;
+}
+
+/* ── 24. GLaDOS Eye Pulse — медленный пульс GLaDOS на
+ *    боковой панели при наведении на активный элемент */
+
+@keyframes glados-eye {
+    0%, 100% {
+        box-shadow: 0 0 4px rgba(255, 100, 100, 0),
+        inset 0 0 4px rgba(255, 100, 100, 0);
+    }
+    25% {
+        box-shadow: 0 0 8px rgba(255, 60, 60, 0.15),
+        inset 0 0 6px rgba(255, 60, 60, 0.05);
+    }
+    75% {
+        box-shadow: 0 0 12px rgba(255, 60, 60, 0.1),
+        inset 0 0 8px rgba(255, 60, 60, 0.03);
+    }
+}
+
+/* Аккуратный красный отсвет на удаление/опасные действия */
+[class*="delete"]:hover,
+[class*="remove"]:hover {
+    animation: glados-eye 1.5s ease-in-out !important;
+    color: #ff5555 !important;
+}
+
+/* Опасная зона в game-options — только кнопки реагируют */
+[class*="danger"]:hover:not([class*="game-options"]) {
+    animation: glados-eye 1.5s ease-in-out !important;
+    color: #ff5555 !important;
+}
+
+/* ── 25. Portal Gel Animated Gradients ───────────────────────
+ *    Анимированные градиенты как в Portals: синий гель скорости,
+ *    оранжевый портальный гель */
+
+@keyframes gel-flow-orange {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes gel-flow-blue {
+    0% { background-position: 0% 50%; }
+    33% { background-position: 100% 50%; }
+    66% { background-position: 50% 100%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Индикация активных процессов — бегущий гель (без перетирания energy-cell) */
+[class*="syncing"]:not([class*="progress"]) {
+    background: linear-gradient(270deg,
+                                rgba(var(--a-orange-rgb), 0.15),
+                                rgba(var(--a-orange-rgb), 0.05),
+                                rgba(var(--a-orange-rgb), 0.15),
+                                rgba(var(--a-orange-rgb), 0.05)
+    ) !important;
+    background-size: 300% 100% !important;
+    animation: gel-flow-orange 3s ease infinite !important;
+    border-radius: 4px !important;
+}
+
+/* ── 26. Aperture Startup Scan — сканирующая полоса на тело
+ *    при загрузке приложения (имитация включения систем) */
+
+@keyframes startup-scan {
+    0% { top: -2%; }
+    100% { top: 102%; }
+}
+
+/* Только показываем когда isLoading/loading на body или #root */
+body:has([class*="skeleton"]),
+body:has([class*="loading"]):not(:has([class*="search"]):not(:has([class*="content"]))) {
+    position: relative;
+}
+
+body:has([class*="skeleton"])::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 99997;
+    background: linear-gradient(180deg,
+                                transparent 0%,
+                                rgba(var(--a-orange-rgb), 0.5) 30%,
+                                rgba(var(--a-orange-rgb), 0.8) 50%,
+                                rgba(var(--a-orange-rgb), 0.5) 70%,
+                                transparent 100%
+    );
+    animation: startup-scan 2s linear infinite;
+    pointer-events: none;
+    opacity: 0;
+}
+
+body:has([class*="skeleton"])::before {
+    opacity: 1;
+}
+
+/* ── 27. Turret Sentry Warning — пульсирующая точка на
+ *    активных загрузках, как огонёк на турели */
+
+@keyframes sentry-dot {
+    0%, 100% {
+        box-shadow: 0 0 3px rgba(255, 170, 68, 0.2),
+        0 0 6px rgba(255, 170, 68, 0);
+    }
+    30% {
+        box-shadow: 0 0 6px rgba(255, 170, 68, 0.4),
+        0 0 12px rgba(255, 170, 68, 0.1);
+    }
+    70% {
+        box-shadow: 0 0 4px rgba(255, 170, 68, 0.15),
+        0 0 2px rgba(255, 170, 68, 0);
+    }
+}
+
+.header__action-button {
+    position: relative;
+}
+
+.header__action-button--active,
+.header__action-button[data-badge] {
+    box-shadow: 0 0 6px var(--a-border-hover);
+    animation: sentry-dot 2s ease-in-out infinite;
+}
+
+/* ── 28. "For science. You monster." — GLaDOS цитата при
+ *    подтверждении удаления */
+
+[class*="confirm"]::before {
+    content: none; /* Зарезервировано — требуется JS для вставки */
+}
+
+/* ── 29. Test Chamber Wall Texture — шумовая текстура на
+ *    тёмные панели как текстура стен испытательной камеры */
+
+.modal,
+.settings__content,
+.settings-context-panel,
+.theme-card {
+    background-image:
+    repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        rgba(var(--a-orange-rgb), 0.006) 1px,
+                              transparent 1px,
+                              transparent 4px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        rgba(var(--a-orange-rgb), 0.004) 1px,
+                              transparent 1px,
+                              transparent 6px
+    ) !important;
+}
+
+/* ── 30. Elevator Music — пасхалка: тихая пульсация на
+ *    бездействующих панелях, как гул лифта в Portal 2 */
+
+@keyframes elevator-hum {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.97; }
+}
+
+.sidebar:empty,
+[class*="menu-empty"] {
+    animation: elevator-hum 6s ease-in-out infinite;
+}
+
+/* ── 31. Range Slider — Aperture Year Selector ─────────────
+ *    Двойной ползунок диапазона лет с портальной эстетикой */
+
+.release-year-section__slider-container {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    min-height: 28px !important;
+    overflow: visible !important;
+}
+
+.release-year-section__track {
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 0%,
+        rgba(var(--a-orange-rgb), 0.25) 0%,
+                                var(--a-border-active) 100%,
+                                transparent 100%,
+                                transparent 100%
+    ) !important;
+    border-radius: 3px !important;
+    height: 4px !important;
+}
+
+/* ── Range input: track ──────────────────────────────────── */
+.release-year-section__range {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background: transparent !important;
+    height: 20px !important;
+    margin: 0 !important;
+    pointer-events: auto !important;
+}
+
+.release-year-section__range::-webkit-slider-runnable-track {
+    height: 4px !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+/* ── Range input: thumb — Aperture Energy Nodule ─────────── */
+.release-year-section__labels {
+    color: var(--a-orange-dark) !important;
+}
+
+.workwonders-feedback-button {
+    background-color: var(--a-bg-hover) !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    border-radius: 6px !important;
+    color: var(--a-orange-dark) !important;
+    transition: all 0.15s ease !important;
+}
+
+.workwonders-feedback-button:hover {
+    background-color: rgba(var(--a-orange-rgb), 0.18) !important;
+    border-color: var(--a-border-active) !important;
+    color: var(--a-orange) !important;
+    box-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+/* ── Danger Button — Aperture Emergency Panel ────────────── */
+@keyframes danger-pulse {
+    0%, 100% { box-shadow: 0 0 6px rgba(255, 68, 68, 0.25); }
+    50%      { box-shadow: 0 0 14px rgba(255, 68, 68, 0.5); }
+}
+
+.button--danger {
+    background: linear-gradient(135deg,
+                                rgba(200, 50, 50, 0.15) 0%,
+                                rgba(255, 68, 68, 0.08) 100%
+    ) !important;
+    border: 1px solid rgba(255, 68, 68, 0.25) !important;
+    border-radius: 6px !important;
+    color: #ff6666 !important;
+    fill: #ff6666 !important;
+    font-weight: 500 !important;
+    animation: none !important;
+    transform: none !important;
+    transition: all 0.15s ease !important;
+}
+
+.button--danger:hover {
+    background: linear-gradient(135deg,
+                                rgba(200, 50, 50, 0.35) 0%,
+                                rgba(255, 68, 68, 0.2) 100%
+    ) !important;
+    border-color: rgba(255, 68, 68, 0.6) !important;
+    color: #ff8888 !important;
+    fill: #ff8888 !important;
+    box-shadow: 0 0 12px rgba(255, 68, 68, 0.3) !important;
+    transform: none !important;
+}
+
+.button--danger:focus-visible {
+    animation: none !important;
+    box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.4) !important;
+}
+
+.button--danger:active {
+    background: linear-gradient(135deg,
+                                rgba(200, 50, 50, 0.5) 0%,
+                                rgba(255, 68, 68, 0.35) 100%
+    ) !important;
+    border-color: rgba(255, 68, 68, 0.7) !important;
+    box-shadow: 0 0 18px rgba(255, 68, 68, 0.4) !important;
+}
+
+/* ═══ Danger Zone — нихуя не реагирует на ховер ═══ */
+.game-options-modal__danger-zone,
+.game-options-modal__danger-zone-description,
+.game-options-modal__danger-zone .game-options-modal__header,
+.game-options-modal__danger-zone h2,
+.game-options-modal__danger-zone h4,
+.game-options-modal__danger-zone-buttons {
+    pointer-events: none !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+/* Сами кнопки в опасной зоне работают */
+.game-options-modal__danger-zone-buttons .button--danger,
+.game-options-modal__danger-zone-buttons [class*="button"] {
+    pointer-events: auto !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   TITLE BAR
+ *   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Title Bar — Aperture Science Window Header ─────────── */
+.title-bar {
+    background: #08080a !important;
+    border-bottom: 1px solid var(--a-border) !important;
+}
+
+.title-bar h4 {
+    color: var(--a-orange-dark) !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+}
+
+.title-bar__big-picture {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.title-bar__big-picture:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+.title-bar__window-control {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    transition: color 0.15s ease, background-color 0.15s ease !important;
+}
+
+.title-bar__window-control:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+}
+
+.title-bar__window-control--close {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+}
+
+.title-bar__window-control--close:hover {
+    color: #ff4444 !important;
+    fill: #ff4444 !important;
+    background: rgba(255, 68, 68, 0.12) !important;
+}
+.release-year-section__range::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at 40% 35%,
+                                #ffcc77 0%, var(--a-orange) 40%, var(--a-orange-dark) 100%) !important;
+                                border: 2px solid rgba(var(--a-orange-rgb), 0.4) !important;
+                                box-shadow:
+                                0 0 8px rgba(var(--a-orange-rgb), 0.4),
+                                inset 0 -2px 3px rgba(0, 0, 0, 0.3) !important;
+                                cursor: grab !important;
+                                transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+                                margin-top: -6px !important;
+}
+
+.release-year-section__range::-webkit-slider-thumb:hover,
+.release-year-section__range::-webkit-slider-thumb:active {
+    box-shadow:
+    0 0 14px rgba(var(--a-orange-rgb), 0.6),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.15) !important;
+    cursor: grabbing !important;
+}
+
+/* Firefox thumb */
+.release-year-section__range::-moz-range-thumb {
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at 40% 35%,
+                                #ffcc77 0%, var(--a-orange) 40%, var(--a-orange-dark) 100%) !important;
+                                border: 2px solid rgba(var(--a-orange-rgb), 0.4) !important;
+                                box-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.4) !important;
+                                cursor: grab !important;
+}
+
+/* ── Library Controls — Aperture Console Toolbar ────────── */
+.library__controls-right {
+    gap: 8px !important;
+}
+
+.library-filter-options__label {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+}
+
+.library-filter-options__select .select-field,
+.library-platform-filter__select .select-field {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.library-filter-options__select .select-field:hover,
+.library-platform-filter__select .select-field:hover {
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+}
+
+.library-filter-options__select .select-field .select-field__option,
+.library-platform-filter__select .select-field .select-field__option {
+    color: var(--a-orange-dark) !important;
+    background: var(--a-orange-bg) !important;
+    border: none !important;
+}
+
+.library-filter-options__select .select-field::after,
+.library-platform-filter__select .select-field::after {
+    border-top-color: var(--a-orange-muted) !important;
+    transition: border-top-color 0.15s ease !important;
+}
+
+.library-filter-options__select .select-field:hover::after,
+.library-platform-filter__select .select-field:hover::after {
+    border-top-color: var(--a-orange) !important;
+}
+
+/* View mode toggle — иконки */
+.library-view-options__option {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+    padding: 4px 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.library-view-options__option:hover {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border-color: var(--a-bg-active) !important;
+}
+
+.library-view-options__option.active {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-hover) !important;
+    border-color: var(--a-border-hover) !important;
+    box-shadow: 0 0 8px var(--a-bg-active) !important;
+}
+
+.library-view-options__options {
+    background: rgba(var(--a-orange-bg-rgb), 0.6) !important;
+    border: 1px solid var(--a-border) !important;
+    border-radius: 8px !important;
+    padding: 2px !important;
+    gap: 2px !important;
+}
+
+/* ── Library Collections — Aperture Список коллекций ────── */
+.library__collections-title {
+    color: var(--a-orange-dark) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.library__add-collection-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+    padding: 2px !important;
+    transition: all 0.15s ease !important;
+}
+
+.library__add-collection-button:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+.library__collection-item {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.library__collection-item:hover {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.05) !important;
+    border-color: var(--a-border-hover) !important;
+}
+
+.library__collection-count {
+    color: var(--a-orange-muted) !important;
+    background: var(--a-border) !important;
+    border-radius: 10px !important;
+    padding: 0 6px !important;
+    font-size: 11px !important;
+}
+
+.library__collection-item:hover .library__collection-count {
+    color: var(--a-orange-dark) !important;
+    background: var(--a-bg-active) !important;
+}
+
+.sidebar__collection-count {
+    color: var(--a-orange) !important;
+    background: rgba(255, 170, 68, 0.12) !important;
+    border: 1px solid rgba(255, 170, 68, 0.2) !important;
+    border-radius: 10px !important;
+    padding: 0 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+/* ── Library Game Card Overlay — информационная панель ──── */
+.library-game-card__top-section {
+    gap: 6px !important;
+}
+
+.library-game-card__playtime {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    font-size: 11px !important;
+    gap: 3px !important;
+}
+
+.library-game-card__achievement-header {
+    gap: 6px !important;
+}
+
+.library-game-card__achievement-trophy {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 3px rgba(var(--a-orange-rgb), 0.3)) !important;
+}
+
+.library-game-card__achievement-count {
+    color: var(--a-orange-dark) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+}
+
+.library-game-card__achievement-percentage {
+    color: var(--a-orange-muted) !important;
+    font-size: 11px !important;
+}
+
+.library-game-card__achievement-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        #ff8800 0px,
+        var(--a-orange) 4px,
+                                          #ff8800 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    height: 3px !important;
+    animation: a-segment-glow 2s ease-in-out infinite !important;
+}
+
+.library-game-card__achievement-progress {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--a-border) 0px,
+                                          var(--a-border) 8px,
+                                          transparent 8px,
+                                          transparent 14px
+    ) !important;
+    border-radius: 0 !important;
+    height: 3px !important;
+    overflow: hidden !important;
+}
+
+/* ── Game Item Details — информация о результатах поиска ── */
+.game-item__details {
+    gap: 4px !important;
+}
+
+.game-item__details > span:first-child {
+    color: var(--a-orange) !important;
+    text-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.15) !important;
+    font-weight: 600 !important;
+}
+
+.game-item__genres {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.game-item__repackers {
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+}
+
+.game-item__repackers .badge {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 4px !important;
+    color: var(--a-orange-muted) !important;
+    font-size: 11px !important;
+    padding: 1px 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-item__repackers .badge:hover {
+    color: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+    background: var(--a-bg-hover) !important;
+}
+
+.game-item__plus-wrapper {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+    padding: 4px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-item__plus-wrapper:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+    box-shadow: 0 0 8px var(--a-bg-active) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ *   FOCUS / OUTLINE
+ *   ═══════════════════════════════════════════════════════════════ */
+
+*:focus-visible {
+    outline: 2px solid rgba(var(--a-orange-rgb), 0.4) !important;
+    outline-offset: 2px;
+}
+
+/* Achievements list */
+.subscription-required-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-dark) !important;
+    background: var(--a-bg-subtle) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    transition: all 0.15s ease !important;
+}
+
+.subscription-required-button:hover {
+    background: var(--a-border) !important;
+    border-color: var(--a-border-hover) !important;
+}
+
+.octicon-alert {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 4px rgba(var(--a-orange-rgb), 0.3)) !important;
+}
+
+.list__item {
+    color: var(--a-orange-dark) !important;
+    border-bottom: 1px solid var(--a-border) !important;
+    padding: 8px 0 !important;
+    transition: all 0.15s ease !important;
+    text-decoration: none !important;
+}
+
+.list__item:hover {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border-bottom-color: rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+.list__item-image--locked {
+    opacity: 0.5 !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 4px !important;
+    filter: sepia(0.3) hue-rotate(315deg) saturate(0.5) brightness(0.7) !important;
+}
+
+.list__item p {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+}
+
+.list__item small {
+    color: var(--a-orange-muted) !important;
+    font-size: 11px !important;
+}
+
+/* Achievements grid items */
+.achievements__item {
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    border: 1px solid var(--a-border) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    transition: all 0.15s ease !important;
+}
+
+.achievements__item:hover {
+    background: var(--a-bg-subtle) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+.achievements__item-image--locked {
+    opacity: 0.5 !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    border-radius: 4px !important;
+    filter: sepia(0.4) hue-rotate(315deg) saturate(0.6) brightness(0.7) !important;
+}
+
+.achievements__item-title {
+    color: var(--a-orange) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.achievements__item-content p {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+}
+
+.achievements__item-meta {
+    border-top: 1px solid var(--a-border) !important;
+    padding-top: 8px !important;
+    margin-top: 8px !important;
+}
+
+.achievements__item-points {
+    color: var(--a-orange-muted) !important;
+}
+
+.achievements__item-points-icon {
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 4px rgba(var(--a-orange-rgb), 0.3)) !important;
+}
+
+.achievements__item-points-value {
+    color: var(--a-orange-dark) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+/* Achievements summary/user progress */
+.achievements-content__user-summary {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.achievements-content__profile-avatar {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    opacity: 0.7 !important;
+}
+
+.achievements-content__user-summary__container h1 {
+    color: var(--a-orange) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+}
+
+.achievements-content__user-summary__container__stats {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    gap: 8px !important;
+}
+
+.achievements-content__user-summary__container__stats__trophy-count {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange) !important;
+    gap: 4px !important;
+}
+
+.octicon-trophy {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 4px rgba(var(--a-orange-rgb), 0.3)) !important;
+}
+
+.achievements-content__user-summary__container__stats__percentage {
+    color: var(--a-orange-muted) !important;
+    font-weight: 600 !important;
+}
+
+.achievements-content__user-summary__container__stats__progress-track {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border-radius: 0 !important;
+    height: 6px !important;
+    overflow: hidden !important;
+}
+
+.achievements-content__user-summary__container__stats__progress-bar {
+    background: repeating-linear-gradient(90deg, #ff8800 0px, var(--a-orange) 4px, #ff8800 8px, transparent 8px, transparent 14px) !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Achievement panel (points summary) */
+.achievement-panel {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.achievement-panel__content {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    gap: 6px !important;
+}
+
+.achievement-panel__content-icon {
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 4px rgba(var(--a-orange-rgb), 0.3)) !important;
+    vertical-align: middle !important;
+}
+
+.achievement-panel__link {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+    text-decoration: none !important;
+    border: none !important;
+    background: none !important;
+    cursor: pointer !important;
+    padding: 4px 0 !important;
+    transition: color 0.15s ease !important;
+}
+
+.achievement-panel__link:hover {
+    color: var(--a-orange) !important;
+}
+
+/* Modal header (game options etc.) */
+.modal__header {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border-bottom: 1px solid var(--a-border-hover) !important;
+    padding: 16px 20px !important;
+}
+
+.modal__header-title h3 {
+    color: var(--a-orange) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    margin: 0 0 2px 0 !important;
+}
+
+.modal__header-title p {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+.modal__close-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    padding: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.modal__close-button:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-active) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+}
+
+/* Game options sidebar */
+.game-options-modal__sidebar {
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    border-right: 1px solid var(--a-border-hover) !important;
+    padding: 8px !important;
+    gap: 2px !important;
+}
+
+.game-options-modal__sidebar-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    gap: 8px !important;
+}
+
+.game-options-modal__sidebar-button:hover {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.game-options-modal__sidebar-button--active {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-hover) !important;
+    font-weight: 600 !important;
+}
+
+.game-options-modal__sidebar-button-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Launch options section */
+.game-options-modal__launch-options {
+    padding: 16px 20px !important;
+}
+
+.game-options-modal__header h2 {
+    color: var(--a-orange) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+.game-options-modal__header-description {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+}
+
+.game-options-modal__gamemode-label {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.game-options-modal__gamemode-link {
+    color: #4fc3f7 !important;
+    fill: #4fc3f7 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-options-modal__gamemode-link:hover {
+    color: #81d4fa !important;
+    fill: #81d4fa !important;
+    text-decoration: underline !important;
+}
+
+.game-options-modal__mangohud-label {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.game-options-modal__mangohud-link {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-options-modal__mangohud-link:hover {
+    color: #ffcc77 !important;
+    fill: #ffcc77 !important;
+    text-decoration: underline !important;
+}
+
+/* Proton version picker (radio buttons) */
+.proton-path-picker {
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 8px !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    padding: 4px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+.radio-field.proton-path-picker__option {
+    --radio-field-accent: #ffaa44 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    gap: 8px !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+.radio-field.proton-path-picker__option:hover {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.15) !important;
+}
+
+.radio-field.proton-path-picker__option.radio-field--selected {
+    background: var(--a-border) !important;
+    border-color: var(--a-border-hover) !important;
+}
+
+.radio-field__control {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid var(--a-orange-muted) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.radio-field--selected .radio-field__control {
+    border-color: var(--a-orange) !important;
+    box-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.3) !important;
+}
+
+.radio-field__dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    transition: all 0.15s ease !important;
+}
+
+.radio-field--selected .radio-field__dot {
+    background: var(--a-orange) !important;
+    box-shadow: 0 0 4px rgba(var(--a-orange-rgb), 0.4) !important;
+}
+
+.radio-field__label.proton-path-picker__option-label {
+    color: var(--a-orange-muted) !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+}
+
+.radio-field--selected .radio-field__label.proton-path-picker__option-label {
+    color: var(--a-orange) !important;
+    font-weight: 500 !important;
+}
+
+.radio-field__input {
+    accent-color: var(--a-orange) !important;
+}
+
+.game-options-modal__inline-code {
+    color: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.15) !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+    font-family: 'Courier New', monospace !important;
+}
+
+.text-field-container__text-field--dark {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.text-field-container__text-field--dark:focus-within {
+    border-color: var(--a-border-active) !important;
+    box-shadow: 0 0 8px var(--a-border) !important;
+}
+
+.text-field-container__text-field-input {
+    color: var(--a-orange-dark) !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+}
+
+.text-field-container__text-field-input::placeholder {
+    color: rgba(170, 85, 0, 0.4) !important;
+}
+
+/* Asset tabs (icon/logo/banner/cover) */
+.game-assets-settings__asset-tabs {
+    border-bottom: 1px solid var(--a-border-hover) !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+}
+
+.game-assets-settings__asset-tab {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    position: relative !important;
+}
+
+.game-assets-settings__asset-tab:hover {
+    color: var(--a-orange-dark) !important;
+}
+
+.game-assets-settings__asset-tab--active {
+    color: var(--a-orange) !important;
+    font-weight: 600 !important;
+}
+
+.game-assets-settings__asset-tab-underline {
+    background: var(--a-orange) !important;
+    height: 2px !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.4) !important;
+}
+
+/* Background decorative overlay */
+div[style*="background-image"][style*="data:image/png"] {
+    filter: sepia(0.8) saturate(3) hue-rotate(335deg) brightness(0.7) !important;
+    opacity: 0.6 !important;
+}
+
+/* Review sort options */
+.review-sort-options__options {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 8px !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    overflow: hidden !important;
+}
+
+.review-sort-options__option {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    transition: all 0.15s ease !important;
+    white-space: nowrap !important;
+}
+
+.review-sort-options__option:hover {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.review-sort-options__option.active,
+.review-sort-options__toggle-option.active {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    font-weight: 600 !important;
+    background: var(--a-border) !important;
+}
+
+.review-sort-options__option .octicon {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.review-sort-options__separator {
+    color: rgba(var(--a-orange-rgb), 0.15) !important;
+    font-size: 16px !important;
+    user-select: none !important;
+}
+
+/* Review items */
+.game-details__review-item {
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 10px !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.8) !important;
+    padding: 16px !important;
+    margin-bottom: 8px !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.game-details__review-item:hover {
+    border-color: var(--a-border-hover) !important;
+}
+
+.game-details__review-header {
+    margin-bottom: 10px !important;
+}
+
+.game-details__review-header-top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+}
+
+.game-details__review-user {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.profile-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border: 2px solid rgba(255, 170, 68, 0.7) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(var(--a-orange-rgb), 0.05) !important;
+    box-shadow: 0 0 12px rgba(255, 170, 68, 0.35) !important;
+}
+
+.profile-avatar .octicon-person {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+}
+
+.profile-avatar__image {
+    border-radius: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.game-details__review-user-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+.game-details__review-display-name {
+    color: var(--a-orange) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    text-align: left !important;
+    transition: color 0.15s ease !important;
+}
+
+.game-details__review-display-name:hover {
+    color: #ffcc77 !important;
+}
+
+.game-details__review-meta-row {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.game-details__review-meta-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.game-details__review-score-stars {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    color: var(--a-orange-muted) !important;
+}
+
+.game-details__review-star {
+    stroke: var(--a-orange-muted) !important;
+    fill: transparent !important;
+}
+
+.game-details__review-star--filled {
+    stroke: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    filter: drop-shadow(0 0 2px rgba(var(--a-orange-rgb), 0.3)) !important;
+}
+
+.game-details__review-score-text {
+    color: var(--a-orange-muted) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    margin-left: 2px !important;
+}
+
+.game-details__review-playtime {
+    color: var(--a-orange-darker) !important;
+    font-size: 11px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+}
+
+.game-details__review-playtime .octicon-clock {
+    fill: var(--a-orange-darker) !important;
+    color: var(--a-orange-darker) !important;
+}
+
+.game-details__review-date {
+    color: var(--a-orange-deep) !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+}
+
+.game-details__review-content {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin: 8px 0 !important;
+}
+
+.game-details__review-content p {
+    margin: 0 !important;
+}
+
+.game-details__review-actions {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid var(--a-border) !important;
+}
+
+.game-details__review-actions-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.game-details__review-votes {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+.game-details__vote-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-details__vote-button:hover {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.game-details__vote-button--active {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    font-weight: 600 !important;
+}
+
+.game-details__vote-button--active:hover {
+    background: var(--a-bg-active) !important;
+}
+
+.game-details__vote-button svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.game-details__reply-action-link {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-details__reply-action-link:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+}
+
+.game-details__delete-review-button {
+    color: rgba(170, 85, 0, 0.5) !important;
+    fill: rgba(170, 85, 0, 0.5) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-details__delete-review-button:hover {
+    color: #ff4444 !important;
+    fill: #ff4444 !important;
+    background: rgba(255, 68, 68, 0.08) !important;
+}
+
+/* Review translation toggle */
+.game-details__review-translation-toggle {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 6px !important;
+    padding: 2px 10px !important;
+    font-size: 11px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    margin-top: 4px !important;
+}
+
+.game-details__review-translation-toggle:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+/* Generic link style */
+.link {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    text-decoration: none !important;
+    transition: all 0.15s ease !important;
+}
+
+.link:hover {
+    color: #ffcc77 !important;
+    fill: #ffcc77 !important;
+    text-decoration: underline !important;
+}
+
+/* BBCode paragraph and tag */
+.bb_paragraph {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin: 6px 0 !important;
+}
+
+.bb_tag {
+    color: var(--a-orange) !important;
+    background: var(--a-border) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 4px !important;
+    padding: 1px 6px !important;
+    font-size: 12px !important;
+    font-family: 'Courier New', monospace !important;
+    display: inline-block !important;
+}
+
+/* Hero buttons */
+.game-details__hero-buttons {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.game-details__edit-custom-game-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.8) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-details__edit-custom-game-button:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.95) !important;
+}
+
+.game-details__cloud-sync-button {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.8) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 13px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-details__cloud-sync-button:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    background: rgba(var(--a-orange-bg-rgb), 0.95) !important;
+}
+
+.game-details__cloud-icon-container {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.game-details__cloud-icon {
+    width: 18px !important;
+    height: 18px !important;
+    filter: hue-rotate(226deg) saturate(1.5) brightness(1.1) !important;
+}
+
+/* Repacks modal */
+.repacks-modal__repack-button {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    width: 100% !important;
+    text-align: left !important;
+    padding: 12px 14px !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+.repacks-modal__repack-button .repacks-modal__repack-title {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    transition: color 0.15s ease !important;
+}
+
+.repacks-modal__repack-button:hover .repacks-modal__repack-title {
+    color: var(--a-orange) !important;
+}
+
+.repacks-modal__repack-button .repacks-modal__repack-info {
+    color: var(--a-orange-darker) !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+}
+
+.repacks-modal__availability-orb {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    position: absolute !important;
+    right: 14px !important;
+    top: 14px !important;
+}
+
+.repacks-modal__availability-orb--online {
+    background: #4fc3f7 !important;
+    box-shadow: 0 0 6px rgba(79, 195, 247, 0.4) !important;
+}
+
+.repacks-modal__availability-orb--offline {
+    background: var(--a-orange-deep) !important;
+}
+
+/* Torrent file selection modal */
+.download-settings-modal__torrent-step {
+    background: transparent !important;
+}
+
+.download-settings-modal__torrent-step-toolbar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 16px 20px !important;
+    border-bottom: 1px solid var(--a-border) !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+}
+
+.download-settings-modal__torrent-filters {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+}
+
+.download-settings-modal__torrent-sort-label {
+    color: var(--a-orange-darker) !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+}
+
+.select-field--dark {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-bg-active) !important;
+    border-radius: 6px !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.select-field--dark:hover {
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+}
+
+.select-field--dark .select-field__option {
+    color: var(--a-orange-dark) !important;
+    background: var(--a-orange-bg) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+}
+
+.download-settings-modal__torrent-table {
+    padding: 0 !important;
+}
+
+.download-settings-modal__torrent-table-head {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    padding: 10px 20px !important;
+    border-bottom: 1px solid rgba(var(--a-orange-rgb), 0.06) !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    font-size: 11px !important;
+    color: var(--a-orange-deep) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.download-settings-modal__torrent-file-row {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--a-bg-subtle) !important;
+    transition: background 0.1s ease !important;
+}
+
+.download-settings-modal__torrent-file-row:hover {
+    background: var(--a-bg-subtle) !important;
+}
+
+.download-settings-modal__torrent-file-row--selected {
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+.download-settings-modal__torrent-file-row--select-all {
+    padding: 10px 20px !important;
+}
+
+.download-settings-modal__torrent-file-name-cell {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 6px 20px !important;
+    min-width: 0 !important;
+}
+
+.download-settings-modal__torrent-file-size {
+    color: var(--a-orange-darker) !important;
+    font-size: 12px !important;
+    padding: 6px 20px !important;
+    white-space: nowrap !important;
+}
+
+.download-settings-modal__torrent-file-path {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+    transition: color 0.1s ease !important;
+}
+
+.download-settings-modal__torrent-file-path--bold {
+    color: var(--a-orange-dark) !important;
+    font-weight: 600 !important;
+}
+
+.download-settings-modal__torrent-file-path--folder {
+    color: var(--a-orange-dark) !important;
+    font-weight: 500 !important;
+}
+
+.download-settings-modal__torrent-file-row:hover .download-settings-modal__torrent-file-path {
+    color: var(--a-orange) !important;
+}
+
+.download-settings-modal__torrent-files-list {
+    padding: 0 !important;
+}
+
+.download-settings-modal__torrent-files-scroll {
+    overflow-y: auto !important;
+}
+
+.download-settings-modal__torrent-folder-row {
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+}
+
+.download-settings-modal__torrent-node-content {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+.download-settings-modal__torrent-row-trigger {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    font-size: 12px !important;
+    text-align: left !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    transition: color 0.1s ease !important;
+}
+
+.download-settings-modal__torrent-row-trigger:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+}
+
+.download-settings-modal__torrent-row-trigger--label {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.download-settings-modal__torrent-folder-chevron {
+    color: var(--a-orange-darker) !important;
+    fill: var(--a-orange-darker) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: transform 0.15s ease !important;
+}
+
+.download-settings-modal__torrent-folder-chevron--expanded {
+    transform: rotate(0deg) !important;
+}
+
+.download-settings-modal__torrent-node-icon {
+    color: var(--a-orange-darker) !important;
+    fill: var(--a-orange-darker) !important;
+    flex-shrink: 0 !important;
+}
+
+.download-settings-modal__torrent-file-row--selected .download-settings-modal__torrent-node-icon {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+}
+
+.download-settings-modal__torrent-folder-spacer {
+    width: 18px !important;
+    display: inline-block !important;
+}
+
+.download-settings-modal__torrent-files-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 20px !important;
+    border-top: 1px solid var(--a-border) !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+}
+
+.download-settings-modal__torrent-files-summary {
+    color: var(--a-orange-darker) !important;
+    font-size: 12px !important;
+}
+
+.modal__close-button-icon {
+    color: inherit !important;
+    fill: inherit !important;
+}
+
+/* Emulation settings */
+.settings-emulation__title {
+    color: var(--a-orange) !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.settings-emulation__description {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.settings-emulation__disclaimer {
+    color: var(--a-orange-deep) !important;
+    font-size: 11px !important;
+    font-style: italic !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    background: var(--a-bg-subtle) !important;
+    border: 1px solid var(--a-border) !important;
+    border-radius: 6px !important;
+}
+
+.settings-emulation__cards {
+    display: grid !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+}
+
+.console-card {
+    background: rgba(var(--a-orange-bg-rgb), 0.9) !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    transition: border-color 0.15s ease !important;
+}
+
+.console-card:hover {
+    border-color: var(--a-border-hover) !important;
+}
+
+.console-card__art {
+    width: 100% !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+    filter: sepia(0.3) saturate(1.2) hue-rotate(335deg) brightness(0.9) !important;
+    opacity: 0.7 !important;
+}
+
+.console-card__heading {
+    padding: 14px 16px 8px !important;
+}
+
+.console-card__title {
+    color: var(--a-orange) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 0 0 2px 0 !important;
+}
+
+.console-card__subline {
+    color: var(--a-orange-darker) !important;
+    font-size: 12px !important;
+}
+
+.console-card__emulator {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+}
+
+.console-card__body {
+    padding: 0 16px 12px !important;
+}
+
+.console-card__hint-box {
+    background: var(--a-bg-subtle) !important;
+    border: 1px solid var(--a-border) !important;
+    border-radius: 6px !important;
+    padding: 10px 12px !important;
+}
+
+.console-card__hint-title {
+    color: var(--a-orange-dark) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-bottom: 4px !important;
+}
+
+.console-card__hint-title .octicon-alert {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+}
+
+.console-card__hint-text {
+    color: var(--a-orange-darker) !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+.console-card__divider {
+    height: 1px !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.console-card__footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 16px !important;
+}
+
+.console-card__chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+}
+
+.console-card__chip--warn {
+    color: var(--a-orange-darker) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+    border: 1px solid var(--a-border-hover) !important;
+}
+
+.console-card__chip-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: var(--a-orange) !important;
+    box-shadow: 0 0 4px rgba(var(--a-orange-rgb), 0.4) !important;
+}
+
+.console-card__cta {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.console-card__cta:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+}
+
+/* Setup modal (emulation config wizard) */
+.setup-modal__header-title {
+    color: var(--a-orange) !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+.setup-modal__body {
+    padding: 0 !important;
+}
+
+.setup-modal__body-title {
+    color: var(--a-orange) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.setup-modal__body-intro {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 16px 0 !important;
+}
+
+.setup-modal__row-card {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    background: rgba(var(--a-orange-rgb), 0.03) !important;
+    margin-bottom: 12px !important;
+}
+
+.setup-modal__row-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+}
+
+.setup-modal__row-icon--warn {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-bg-hover) !important;
+}
+
+.setup-modal__row-text {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.setup-modal__row-heading {
+    margin-bottom: 2px !important;
+}
+
+.setup-modal__row-title {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+
+.setup-modal__row-path {
+    color: var(--a-orange-darker) !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+}
+
+.setup-modal__hint {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 12px !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+    border: 1px solid rgba(var(--a-orange-rgb), 0.06) !important;
+    border-radius: 6px !important;
+    margin-bottom: 20px !important;
+}
+
+.setup-modal__hint-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: var(--a-orange-darker) !important;
+    font-size: 12px !important;
+}
+
+.setup-modal__link-button {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    transition: color 0.15s ease !important;
+}
+
+.setup-modal__link-button:hover {
+    color: #ffcc77 !important;
+}
+
+.setup-modal__footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 14px 0 0 !important;
+    border-top: 1px solid var(--a-border) !important;
+    margin-top: 8px !important;
+}
+
+.setup-modal__footer-side {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
+}
+
+.setup-modal__footer-side--end {
+    justify-content: flex-end !important;
+}
+
+.setup-modal__dots {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.setup-modal__dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: rgba(var(--a-orange-rgb), 0.15) !important;
+    transition: all 0.15s ease !important;
+}
+
+.setup-modal__dot--active {
+    background: var(--a-orange) !important;
+    box-shadow: 0 0 6px rgba(var(--a-orange-rgb), 0.4) !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.setup-modal__ghost-button {
+    color: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 6px !important;
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.setup-modal__ghost-button:hover {
+    color: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.3) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+/* Game details wrapper */
+.game-details__wrapper {
+    color: var(--a-orange-dark) !important;
+}
+
+/* Reviews section */
+.game-details__reviews-section {
+    margin-top: 16px !important;
+}
+
+.game-details__reviews-list-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 12px !important;
+}
+
+.game-details__reviews-title-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.game-details__reviews-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 24px !important;
+    height: 22px !important;
+    padding: 0 8px !important;
+    border-radius: 10px !important;
+    background: var(--a-bg-active) !important;
+    color: var(--a-orange) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+.review-sort-options__container {
+    margin-bottom: 12px !important;
+}
+
+.game-details__reviews-empty {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 40px 20px !important;
+    border: 1px dashed var(--a-border-hover) !important;
+    border-radius: 10px !important;
+    background: rgba(var(--a-orange-rgb), 0.02) !important;
+}
+
+.game-details__reviews-empty-icon {
+    color: var(--a-bg-active) !important;
+    fill: var(--a-bg-active) !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.game-details__reviews-empty-title {
+    color: var(--a-orange-dark) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.game-details__reviews-empty-message {
+    color: var(--a-orange-darker) !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+}
+
+.game-details__reviews-container {
+    min-height: 40px !important;
+}
+
+.game-details__load-more-reviews {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: 1px solid var(--a-border-hover) !important;
+    border-radius: 8px !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 8px !important;
+    transition: all 0.15s ease !important;
+}
+
+.game-details__load-more-reviews:hover {
+    color: var(--a-orange) !important;
+    border-color: rgba(var(--a-orange-rgb), 0.25) !important;
+    background: rgba(var(--a-orange-rgb), 0.06) !important;
+}
+
+/* Description toggle */
+.game-details__description-toggle {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 0 !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: color 0.15s ease !important;
+    text-decoration: underline !important;
+    text-decoration-color: var(--a-border-hover) !important;
+    text-underline-offset: 3px !important;
+}
+
+.game-details__description-toggle:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    text-decoration-color: rgba(var(--a-orange-rgb), 0.5) !important;
+}
+
+/* Reviews loading */
+.game-details__reviews-loading {
+    color: var(--a-orange-darker) !important;
+    font-size: 13px !important;
+    text-align: center !important;
+    padding: 24px !important;
+}
+
+/* Home title */
+.home__title {
+    color: var(--a-orange) !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 0 16px 0 !important;
+}
+
+.home__title-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.home__title-flame-icon {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* Volume control */
+.settings-general__volume-control {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+}
+
+.settings-general__volume-control label {
+    color: var(--a-orange-dark) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+.settings-general__volume-slider-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.settings-general__volume-icon {
+    color: var(--a-orange-muted) !important;
+    fill: var(--a-orange-muted) !important;
+    flex-shrink: 0 !important;
+}
+
+.settings-general__volume-slider {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    flex: 1 !important;
+    height: 4px !important;
+    outline: none !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-runnable-track {
+    height: 4px !important;
+    background: linear-gradient(90deg,
+                                var(--a-orange) 0%,
+                                var(--a-orange) var(--volume-percent, 0%),
+                                var(--a-border) var(--volume-percent, 0%),
+                                var(--a-border) 100%
+    ) !important;
+    border-radius: 2px !important;
+    border: none !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at 40% 35%,
+                                #ffcc77 0%, var(--a-orange) 40%, var(--a-orange-dark) 100%) !important;
+                                border: 2px solid rgba(var(--a-orange-rgb), 0.4) !important;
+                                box-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.4) !important;
+                                cursor: grab !important;
+                                margin-top: -5px !important;
+                                transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 14px rgba(var(--a-orange-rgb), 0.6) !important;
+    transform: scale(1.15) !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at 40% 35%,
+                                #ffcc77 0%, var(--a-orange) 40%, var(--a-orange-dark) 100%) !important;
+                                border: 2px solid rgba(var(--a-orange-rgb), 0.4) !important;
+                                box-shadow: 0 0 8px rgba(var(--a-orange-rgb), 0.4) !important;
+                                cursor: grab !important;
+                                transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+                                margin-top: -5px !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 14px rgba(var(--a-orange-rgb), 0.6) !important;
+    transform: scale(1.15) !important;
+}
+
+.settings-general__volume-value {
+    color: var(--a-orange-muted) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    min-width: 32px !important;
+    text-align: right !important;
+}
+
+/* Dropdown menu */
+.dropdown-menu__group {
+    padding: 4px !important;
+}
+
+.dropdown-menu__item {
+    color: var(--a-orange-dark) !important;
+    fill: var(--a-orange-dark) !important;
+    background: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    border-radius: 6px !important;
+    transition: all 0.1s ease !important;
+    text-align: left !important;
+}
+
+.dropdown-menu__item:hover {
+    color: var(--a-orange) !important;
+    fill: var(--a-orange) !important;
+    background: var(--a-border) !important;
+}
+
+.dropdown-menu__item-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* ── Achievement Popup — Aperture Science Notification ──────── */
+@keyframes a-ntf-fade-in {
+    from { opacity: 0; transform: translateY(12px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes a-ntf-shine-swipe {
+    0%   { transform: translateX(0) rotate(24deg); opacity: 0; }
+    25%  { opacity: 0.35; }
+    100% { transform: translateX(260%) rotate(24deg); opacity: 0; }
+}
+
+@keyframes a-ntf-shimmer {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(120%); }
+}
+
+@keyframes a-ntf-pulse-glow {
+    0%, 100% { box-shadow: 0 0 12px rgba(var(--a-orange-rgb), 0.3); }
+    50%      { box-shadow: 0 0 24px rgba(var(--a-orange-rgb), 0.5); }
+}
+
+.achievement-notification {
+    font-family: "Share Tech Mono", monospace !important;
+    font-weight: 600 !important;
+    width: 360px !important;
+    height: 140px !important;
+}
+
+.achievement-notification__outer-container {
+    border-radius: 14px !important;
+    border: 1px solid #ffaa44 !important;
+    box-shadow:
+    0 0 18px rgba(255, 170, 68, 0.35),
+    0 4px 20px rgba(0, 0, 0, 0.7) !important;
+}
+
+.achievement-notification__dark-overlay,
+.achievement-notification__icon {
+    border-radius: 14px !important;
+}
+
+.achievement-notification__trophy-overlay {
+    background: transparent !important;
+    opacity: 1 !important;
+}
+
+.achievement-notification__chip {
+    background: #060608 !important;
+    border: 1px solid #ffaa44 !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 0 12px rgba(255, 170, 68, 0.4) !important;
+}
+
+.achievement-notification__chip__icon path {
+    fill: #fff !important;
+}
+
+.achievement-notification__container {
+    background: #060608 !important;
+    border: 1px solid #ffaa44 !important;
+    border-radius: 12px !important;
+}
+
+.achievement-notification__container * {
+    color: #ffaa44 !important;
+    text-shadow:
+    0 0 6px rgba(255, 170, 68, 0.5),
+    0 0 16px rgba(255, 170, 68, 0.3) !important;
+}
+
+.achievement-notification__chip__icon path {
+    fill: #ffffff !important;
+}
+
+.achievement-notification__chip__label {
+    color: #ffaa44 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-shadow:
+    0 0 6px rgba(255, 170, 68, 0.5),
+    0 0 16px rgba(255, 170, 68, 0.3) !important;
+}
+
+.achievement-notification__trophy-overlay {
+    background: transparent !important;
+    opacity: 1 !important;
+}
+
+.achievement-notification__dark-overlay,
+.achievement-notification__icon {
+    border-radius: 14px !important;
+}
+
+/* ── Rare achievement variant ──────── */
+.achievement-notification--rare .achievement-notification__container {
+    border-color: #ffcc44 !important;
+}
+
+.achievement-notification--rare .achievement-notification__trophy-overlay {
+    background: transparent !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip {
+    background: #060608 !important;
+    border: 1px solid #ffcc44 !important;
+    box-shadow: 0 0 12px rgba(255, 204, 68, 0.4) !important;
+}
+
+/* ── Platinum achievement variant ──────── */
+.achievement-notification--platinum .achievement-notification__container {
+    border-color: #aabbcc !important;
+}
+
+.achievement-notification--platinum .achievement-notification__trophy-overlay {
+    background: transparent !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+    background: #060608 !important;
+    border: 1px solid #aabbcc !important;
+    box-shadow: 0 0 12px rgba(170, 187, 204, 0.4) !important;
+}
+
+/* ═══ Drive Card — оранжевый ═══ */
+.drive-card {
+    background: rgba(255, 170, 68, 0.08) !important;
+    border: 1px solid rgba(255, 170, 68, 0.2) !important;
+    border-radius: 8px !important;
+}
+
+.drive-card:hover {
+    border-color: rgba(255, 170, 68, 0.5) !important;
+}
+
+.drive-card__icon {
+    color: #cc8800 !important;
+}
+
+.drive-card__label {
+    color: #ffaa44 !important;
+}
+
+.drive-card__space {
+    color: rgba(255, 170, 68, 0.65) !important;
+}
+
+.drive-card__bar {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-radius: 2px !important;
+}
+
+.drive-card__bar-used {
+    background: #ffaa44 !important;
+    border-radius: 2px !important;
+    box-shadow: 0 0 6px rgba(255, 170, 68, 0.4) !important;
+}
