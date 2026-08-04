@@ -132,9 +132,7 @@
   /* shade */
   --headerbar-shade-color: rgba(0, 0, 6, 0.12) !important;
   --headerbar-darker-shade-color: rgba(0, 0, 6, 0.12) !important;
-  --popover-shade-color: 0 1px 5px 1px 
-color-mix(in srgb, black 9%, transparent), 0 2px 14px 3px 
-color-mix(in srgb, black 5%, transparent);
+  --popover-shade-color: 0 1px 5px 1px color-mix(in srgb, black 9%, transparent), 0 2px 14px 3px color-mix(in srgb, black 5%, transparent);
   
   /* border */
   --border-light: 1px solid color-mix(in srgb, currentColor 25%, transparent) !important;
@@ -153,7 +151,6 @@ color-mix(in srgb, black 5%, transparent);
   
   /* close icon */
   --close-icon: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJtIDQgNCBoIDEgaCAwLjAzMTI1IGMgMC4yNTM5MDYgMC4wMTE3MTkgMC41MTE3MTkgMC4xMjg5MDYgMC42ODc1IDAuMzEyNSBsIDIuMjgxMjUgMi4yODEyNSBsIDIuMzEyNSAtMi4yODEyNSBjIDAuMjY1NjI1IC0wLjIzMDQ2OSAwLjQ0NTEzMiAtMC4zMDQ2ODggMC42ODc1IC0wLjMxMjUgaCAxIHYgMSBjIDAgMC4yODUxNTYgLTAuMDM1MTU2IDAuNTUwNzgxIC0wLjI1IDAuNzUgbCAtMi4yODEyNSAyLjI4MTI1IGwgMi4yNSAyLjI1IGMgMC4xODc1IDAuMTg3NSAwLjI4MTI1IDAuNDUzMTI1IDAuMjgxMjUgMC43MTg3NSB2IDEgaCAtMSBjIC0wLjI2NTYyNSAwIC0wLjUzMTI1IC0wLjA5Mzc1IC0wLjcxODc1IC0wLjI4MTI1IGwgLTIuMjgxMjUgLTIuMjgxMjUgbCAtMi4yODEyNSAyLjI4MTI1IGMgLTAuMTg3NSAwLjE4NzUgLTAuNDUzMTI1IDAuMjgxMjUgLTAuNzE4NzUgMC4yODEyNSBoIC0xIHYgLTEgYyAwIC0wLjI2NTYyNSAwLjA5Mzc1IC0wLjUzMTI1IDAuMjgxMjUgLTAuNzE4NzUgbCAyLjI4MTI1IC0yLjI1IGwgLTIuMjgxMjUgLTIuMjgxMjUgYyAtMC4yMTA5MzggLTAuMTk1MzEyIC0wLjMwNDY4OCAtMC40Njg3NSAtMC4yODEyNSAtMC43NSB6IG0gMCAwIiBmaWxsPSIjMmUzNDM2Ii8+Cjwvc3ZnPgo=");
-  
 }
 
   /* global */
@@ -260,7 +257,6 @@ body {
 .workwonders-feedback-button,
 .bottom-panel,
 .badge,
-.game-card__shop-icon,
 .game-card__specifics,
 .game-card__no-download-label,
 .game-card__shop-icon,
@@ -483,14 +479,6 @@ body {
   border-radius: 6px;
 }
 
-.sidebar {
-    border-right: 1px solid var(--sidebar-border-color) !important;
-    width: 345px !important;
-    min-width: 280px !important;
-    max-width: 345px !important;
-    background-color: var(--sidebar-bg-color);
-}
-
 .sidebar__handle {
     display: none;
 }
@@ -500,24 +488,6 @@ body {
 .sidebar__section--games .text-field-container__text-field-input {
     cursor: text;
     padding-left: 20px;
-}
-
-.text-field-container {
-    position: relative;
-}
-
-.text-field-container::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    left: 9px;
-    top: 52%;
-    width: 16px;
-    height: 16px;
-    transform: translateY(-50%);
-    background-color: currentColor;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 0a6.5 6.5 0 1 0 4.1 11.55l3 3a1 1 0 0 0 1.4-1.4l-3-3A6.5 6.5 0 0 0 6.5 0zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z'/%3E%3C/svg%3E") center / contain no-repeat;
-    pointer-events: none;
 }
 
 .settings-context-panel__group .text-field-container::before {
@@ -532,7 +502,6 @@ body {
 }
 
 .text-field-container__text-field--dark {
-    border: none;
     cursor: text;
     min-height: 36px;
     height: 36px;
@@ -780,11 +749,6 @@ body {
   width: 101%;
   background: var(--window-bg-color);
 }
-  
-.title-bar h4,
-.title-bar__big-picture {
-  display: none !important;
-}
 
 .home__cards {
   order: 1;
@@ -828,7 +792,6 @@ body {
     box-shadow: var(--popover-shade-color) !important;
     border-radius: var(--radius-lg);
     background: var(--card-bg-color);
-    box-shadow: 0 -2px 4px color-mix(in srgb, var(--headerbar-shade-color) 70%, transparent) !important;
     cursor: pointer;
     transition: all ease 0.2s;
     border: none;
@@ -883,9 +846,8 @@ body {
 .sidebar-section {
     border: none;
     background-color: transparent;
-    box-shadow: none;
+    box-shadow: none !important;
     overflow: hidden;
-    box-shadow: none;
 }
 
 .sidebar-section:not(:last-child) {
@@ -925,7 +887,7 @@ body {
 
 .sidebar-section:has(.sidebar-section__toggle[aria-expanded="true"])
     .sidebar-section__content {
-    border-top: 1px solid var(--sidebar-border-color) !important;;
+    border-top: 1px solid var(--sidebar-border-color) !important;
 }
 
 .sidebar-section__chevron {
@@ -967,7 +929,6 @@ body {
     right: 16px;
     z-index: 100;
     padding: 9px 24px 9px 0;
-    box-shadow: var(--popover-shade-color) !important;
     font-weight: bold;
     box-shadow: none;
 }
@@ -1369,10 +1330,9 @@ border-radius: var(--radius-lg);
     font-size: 12px;
     font-weight: 600;
     color: var(--text-muted);
-    box-shadow: var(--popover-shade-color) !important;
+    box-shadow: none !important;
     line-height: 1.25;
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28);
 }
 
 .game-item__compatibility-badge--bronze,
@@ -1462,14 +1422,25 @@ border-radius: var(--radius-lg);
 }
 
 .filter-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--button-transition) !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    position: relative !important;
+    background-color: color-mix(in srgb, currentColor 15%, transparent) !important;
+    height: 32px !important;
+    margin: 0 !important;
+    min-height: unset !important;
+    justify-content: center !important;
+    font-size: 15px;
+}
 }
 
 .filter-section {
-    border: none;
-    background: none;
+    background-color: transparent;
+    overflow: hidden;
     box-shadow: var(--popover-shade-color) !important;
 }
 
@@ -1485,13 +1456,6 @@ border-radius: var(--radius-lg);
     border-radius: 0 0 15px 15px;
 }
 
-.filter-section {
-    background-color: transparent;
-    box-shadow: none;
-    overflow: hidden;
-    box-shadow: var(--popover-shade-color) !important;
-}
-
 .filter-section:not(:last-child) {
     border-radius: 0;
 }
@@ -1504,24 +1468,13 @@ border-radius: var(--radius-lg);
   background-color: var(--card-bg-color);
 }
 
-.content-sidebar {
-    height: fit-content;
-    background-color: var(--card-bg-color);
-    border-radius: var(--radius-lg);
-    align-self: flex-start;
-    order: 1;
-    width: 100%;
-    gap: 0;
-    padding: 0;
-}
-
 .filter-section:not(:first-child) {
   border-top: 1px solid var(--sidebar-border-color) !important;
 }
 
 .filter-section:has(.filter-section__toggle[aria-expanded="true"])
     .filter-section__content {
-    border-top: 1px solid var(--sidebar-border-color) !important;;
+    border-top: 1px solid var(--sidebar-border-color) !important;
 }
 
 .filter-section__chevron {
@@ -1597,20 +1550,6 @@ border-radius: var(--radius-lg);
     background-color: #2190a4 !important;
 }
 
-.filter-item {
-    transition: var(--button-transition) !important;
-    border: none !important;
-    border-radius: var(--radius-md) !important;
-    position: relative !important;
-    background-color: color-mix(in srgb, currentColor 15%, transparent) !important;
-    height: 32px !important;
-    margin: 0 !important;
-    min-height: unset !important;
-    align-items: center;
-    justify-content: center !important;
-    font-size: 15px;
-}
-
 .catalogue__clear-all-button {
     font-weight: 1000;
     height: 32px !important;
@@ -1633,6 +1572,7 @@ border-radius: var(--radius-lg);
     background: var(--headerbar-bg-color);
     border-radius: var(--radius-md);
     overflow: hidden;
+    border: transparent;
 }
 
 .select-field--dark {
@@ -1797,6 +1737,7 @@ background-color: var(--hover-color) !important;
 .library-game-card__playtime {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: none;
+    border: none;
     box-shadow: var(--popover-shade-color) !important;
     border-radius: var(--radius-sm);
     padding: 0 6px;
@@ -1808,7 +1749,6 @@ background-color: var(--hover-color) !important;
 
 .library-game-card__wrapper {
     transition: none;
-    box-shadow: none;
     box-shadow: var(--popover-shade-color) !important;
     background: none;
     border-radius: var(--radius-lg);
@@ -1858,10 +1798,7 @@ background-color: var(--hover-color) !important;
   display: flex;
   width: 100%;
   height: 100%;
-}
-
-.settings__container {
-    padding: 0;
+  padding: 0;
 }
 
 .settings__content {
@@ -1871,13 +1808,11 @@ background-color: var(--hover-color) !important;
     background-color: transparent;
     box-shadow: var(--popover-shade-color) !important;
     border: none;
-}
-
-.settings__content {
     border-radius: 0px;
 }
 
 .settings__sidebar {
+    gap: 4px;
     width: 100%;
     min-width: 0;
     max-width: 99%;
@@ -1896,8 +1831,7 @@ background-color: var(--hover-color) !important;
 }
 
 .settings__sidebar {
-    gap: 4px;
-    padding: 4px;
+    
 }
 
 .settings__sidebar-group {
@@ -1999,6 +1933,7 @@ background-color: var(--hover-color) !important;
 
 .theme-card__actions__right {
   order: 1;
+  gap: 4px !important;
 }
 
 .theme-card__actions__left .button {
@@ -2039,10 +1974,6 @@ background-color: var(--hover-color) !important;
     transition: transform 200ms cubic-bezier(.25, .8, .25, 1);
 }
 
-.theme-card__actions__right {
-  gap: 4px !important;
-}
-
 .theme-card__actions__right .button--outline {
   background-color: transparent !important;
 }
@@ -2067,6 +1998,7 @@ background-color: var(--hover-color) !important;
 .text-field-container {
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 8px;
 }
 
@@ -2110,6 +2042,8 @@ background-color: var(--hover-color) !important;
   color: var(--text-primary);
   font-size: 14px;
   outline: none;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
 }
 
 .text-field-container__text-field-input--read-only {
@@ -2117,12 +2051,7 @@ background-color: var(--hover-color) !important;
   color: var(--text-muted);
   cursor: not-allowed;
   background-color: transparent !important;
-}
-
-.text-field-container__text-field-input {
-    border-radius: var(--radius-md);
-    color: var(--text-muted);
-    cursor: not-allowed;
+  border-radius: var(--radius-md);
 }
 
 /* Select Field */
@@ -2157,10 +2086,6 @@ background-color: var(--hover-color) !important;
   appearance: none;
 }
 
-.select-field {
- border: transparent;
-}
-
 .settings-appearance {
   display: flex;
   flex-direction: column;
@@ -2188,9 +2113,6 @@ background-color: var(--hover-color) !important;
     background-color: var(--card-bg-color);
     border-radius: var(--radius-lg);
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-.settings-appearance__themes {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -2247,14 +2169,6 @@ background-color: var(--hover-color) !important;
 
 .button--danger:hover {
   background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
-}
-
-.text-field-container__text-field-input--read-only {
-    border-radius: var(--radius-md);
-    background-color: color-mix(in srgb, currentColor 15%, transparent);
-    color: var(
-  --text-muted);
-    cursor: not-allowed;
 }
 
 .text-field-container__text-field--primary {
@@ -2346,6 +2260,10 @@ background-color: var(--hover-color) !important;
     background-color: var(--accent-bg-color);
 }
 
+.download-group__simple-thumbnail img {
+  border-radius: var(--radius-md);
+}
+
 /* popover */
 
 .modal {
@@ -2355,15 +2273,12 @@ background-color: var(--hover-color) !important;
     box-shadow: var(--popover-shade-color) !important;
 }
 
-.modal__close-button {
-    --icon: var(--close-icon) !important;
-}
-
 .modal__close-button > .modal__close-button-icon {
     display: none !important;
 }
 
 .modal__close-button {
+    --icon: var(--close-icon) !important;
     --icon-button-size: 24px !important;
     width: 24px !important;
     height: 24px !important;
@@ -2461,7 +2376,6 @@ background-color: var(--hover-color) !important;
     background-color: var(--popover-bg-color);
     box-shadow: var(--popover-shade-color) !important;
     border-radius: var(--radius-xl);
-    box-shadow: var(--popover-shade-color) !important;
     transition: none;
     padding: 6px;
 }
@@ -2520,10 +2434,6 @@ background-color: var(--hover-color) !important;
 .dropdown-menu__item {
   height: 32px;
   transition: none;
-}
-
-.dropdown-menu__item:first-child {
-  color: var(--success-bg-color);
 }
 
 .dropdown-menu__item:last-child {
