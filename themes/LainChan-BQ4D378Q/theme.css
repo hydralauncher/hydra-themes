@@ -614,6 +614,90 @@ option {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* --- Звёзды рейтинга (иконки lucide, не octicon!) --- */
+/* Незакрашенная (не выбранная) звезда — svg с fill="none" */
+.game-details__star-rating svg.lucide-star[fill="none"],
+.game-details__star-rating svg.lucide-star[fill="none"] path {
+    fill: none !important;
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Закрашенная (выбранная) звезда — svg БЕЗ fill="none" */
+.game-details__star-rating svg.lucide-star:not([fill="none"]),
+.game-details__star-rating svg.lucide-star:not([fill="none"]) path {
+    fill: #f5a623 !important;
+    stroke: #f5a623 !important;
+    color: #f5a623 !important;
+}
+
+/* --- Кнопка "Удалить отзыв" --- */
+.game-details__delete-review-button {
+    color: #f44336 !important;
+    text-shadow: none !important;
+}
+
+.game-details__delete-review-button svg,
+.game-details__delete-review-button path {
+    fill: #f44336 !important;
+    color: #f44336 !important;
+}
+
+/* --- Кнопки лайк/дизлайк на отзывах (svg fill="none" + stroke="currentColor" всегда, --
+   состояние "поставлен голос" определяется классом --active на кнопке) --- */
+
+/* Голос НЕ поставлен — только контур, прозрачный фон */
+.game-details__vote-button--upvote:not(.game-details__vote-button--active) {
+    background-color: transparent !important;
+    border: 1px solid rgba(34, 197, 94, 0.45) !important;
+    color: #22c55e !important;
+}
+.game-details__vote-button--upvote:not(.game-details__vote-button--active) svg {
+    fill: none !important;
+}
+
+.game-details__vote-button--downvote:not(.game-details__vote-button--active) {
+    background-color: transparent !important;
+    border: 1px solid rgba(239, 68, 68, 0.45) !important;
+    color: #ef4444 !important;
+}
+.game-details__vote-button--downvote:not(.game-details__vote-button--active) svg {
+    fill: none !important;
+}
+
+/* Голос поставлен — заливка иконки + подсветка фона кнопки */
+.game-details__vote-button--upvote.game-details__vote-button--active {
+    background-color: rgba(34, 197, 94, 0.3) !important;
+    border: 1px solid #22c55e !important;
+    color: #22c55e !important;
+}
+.game-details__vote-button--upvote.game-details__vote-button--active svg {
+    fill: #22c55e !important;
+}
+
+.game-details__vote-button--downvote.game-details__vote-button--active {
+    background-color: rgba(239, 68, 68, 0.3) !important;
+    border: 1px solid #ef4444 !important;
+    color: #ef4444 !important;
+}
+.game-details__vote-button--downvote.game-details__vote-button--active svg {
+    fill: #ef4444 !important;
+}
+
+/* Убираем анимацию увеличения кнопки при клике (лайк/дизлайк) */
+.game-details__vote-button--upvote,
+.game-details__vote-button--downvote {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+.game-details__vote-button--upvote *,
+.game-details__vote-button--downvote * {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
 /* --- Progress Bars --- */
 .progress-bar {
     background: rgba(255, 255, 255, 0.05);
