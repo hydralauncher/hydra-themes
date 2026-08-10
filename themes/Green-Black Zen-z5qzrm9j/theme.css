@@ -1,0 +1,591 @@
+/*
+  APPLE-LIKE MINIMAL BLACK THEME — "Black Zen" (v3, top bar)
+  -------------------------------------------------------------
+  Sidebar is pulled out of normal document flow with position:fixed
+  and pinned to the top of the viewport, instead of trying to force
+  it to reflow via flexbox (which caused wrapping/leaking bugs before).
+  Page content gets pushed down with padding to clear it.
+
+  If there's a visible GAP or OVERLAP between the top bar and the
+  page content below it, adjust the single number here:
+*/
+:root {
+  --titlebar-height: 34px;   /* Hydra's native window title bar */
+  --games-panel-width: clamp(260px, 18vw, 380px); /* width of the permanent left games panel */
+  --nav-pill-top: 1.25%; /* vertical position of the nav pill, aligned with the header row */
+  --profile-block-height: 5%; /* room reserved at the top of the games panel for the profile */
+}
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-elevated: #161616;
+  --bg-hover: #202022;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-white: rgba(255, 255, 255, 0.35);
+
+  --text-primary: #ffffff;
+  --text-secondary: #c7c7cc;
+  --text-tertiary: #86868b;
+
+  --accent: #30d158; /* green */
+  --accent-dim: rgba(48, 209, 88, 0.16);
+  --danger: #ff453a;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Global ---------- */
+body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-stack) !important;
+  letter-spacing: -0.01em;
+}
+#root { background: var(--bg-primary) !important; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+html {
+  font-size: clamp(14px, 0.9vw + 10px, 18px);
+}
+
+/* ---------- Sidebar: an invisible full-viewport layer. Nothing is drawn
+   here directly — each piece (games panel / nav pill / profile) is
+   positioned independently within it. pointer-events:none lets clicks
+   pass through the empty areas to the real page underneath. ---------- */
+.sidebar {
+  position: fixed !important;
+  top: var(--titlebar-height) !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  max-width: 100vw !important;
+  height: calc(100vh - var(--titlebar-height)) !important;
+  z-index: 100 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  pointer-events: none !important;
+}
+
+.sidebar__handle,
+.sidebar__bottom-buttons {
+  display: none !important;
+}
+
+.sidebar__container,
+.sidebar__content {
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  pointer-events: none !important; /* re-enabled per-piece below */
+}
+
+/* ---------- Profile → top-right corner ---------- */
+.sidebar-profile {
+  position: absolute !important;
+  top: 16px !important;
+  left: 16px !important;
+  right: auto !important;
+  width: calc(var(--games-panel-width) - 32px) !important;
+  z-index: 200 !important;
+  pointer-events: auto !important;
+}
+.sidebar-profile__button {
+  border-radius: var(--radius-sm) !important;
+  padding: 8px !important;
+  width: 100%;
+}
+.sidebar-profile__button:hover { background: var(--bg-hover) !important; }
+.sidebar-profile__button-title {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+.profile-avatar__image {
+  border-radius: 50% !important;
+  border: 1px solid var(--border-white);
+}
+
+.sidebar-profile__dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: auto !important;
+  right: auto !important;
+  margin-top: 8px !important;
+  min-width: 212px;
+  z-index: 300 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px;
+  padding: 6px !important;
+
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55) !important;
+}
+.sidebar-profile__dropdown-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+}
+.sidebar-profile__dropdown-item:hover {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+.sidebar-profile__dropdown-item--danger { color: var(--danger) !important; }
+.sidebar-profile__dropdown-item--danger:hover { background: rgba(255, 69, 58, 0.1) !important; }
+.sidebar-profile__dropdown-separator {
+  height: 1px;
+  background: var(--border-subtle) !important;
+  margin: 6px 4px;
+}
+
+/* ---------- Main nav → floating pill, centered in the space to the
+   right of the games panel (not the full screen). The outer section is
+   an invisible full-width row; the visible glass pill is the inner
+   <ul>, which naturally shrinks to fit its content. No transform used,
+   since transform + backdrop-filter was causing positioning to glitch. */
+.sidebar__content > .sidebar__section:not(.sidebar__section--games) {
+  position: absolute !important;
+  top: var(--nav-pill-top) !important;
+  left: calc(var(--games-panel-width) + 17%) !important; /* Начинается сразу за боковой панелью */
+  right: 25vw !important;
+  z-index: 150 !important;
+  pointer-events: none !important;
+
+  display: flex !important;
+  justify-content: center !important;
+  background: transparent !important;
+}
+.sidebar__menu {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 1.25% !important;
+  pointer-events: auto !important;
+
+  background: rgba(18, 18, 18, 0.75) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+.sidebar__menu-item {
+  list-style: none;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 999px !important;
+  overflow: hidden;
+}
+.sidebar__menu-item-button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+  padding: 9px 16px !important;
+  border-radius: 999px !important;
+  color: var(--text-secondary) !important;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  border: 1px solid transparent !important; /* reserve space so hover border doesn't shift layout */
+  overflow: hidden !important; /* clips any mismatched ::before/::after ring to this shape */
+  position: relative !important;
+}
+
+/* Hover: border now matches each item's own shape instead of forcing a
+   different radius — that mismatch was the "white outline doesn't match
+   the gray zone" bug. Also gives it a proper themed background instead
+   of relying on Hydra's own (differently-shaped) default hover state. */
+.sidebar__menu-item-button:hover {
+  background: var(--bg-hover) !important;
+  color: var(--accent) !important;
+  border-color: var(--border-strong) !important;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button {
+  background: var(--accent) !important;
+  color: #000 !important;
+  font-weight: 600;
+  border-color: transparent !important;
+}
+
+/* ---------- Games list → permanent panel on the left, always visible ---------- */
+.sidebar__section--games {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: var(--games-panel-width) !important;
+  z-index: 120 !important;
+  pointer-events: auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  padding: calc(var(--profile-block-height) + 12px) 1rem 1rem 1rem !important;
+  border-top: 1px solid var(--border-subtle);
+
+  background: rgba(8, 8, 8, 0.92) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border-subtle) !important;
+}
+
+.sidebar__section-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+  padding: 6px 8px !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.sidebar__section-header:hover { background: var(--bg-hover) !important; }
+.sidebar__section-title { color: var(--text-tertiary) !important; letter-spacing: 0.04em; }
+.sidebar__collection-count {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 999px !important;
+  padding: 1px 7px !important;
+  font-size: 11px;
+  color: var(--text-tertiary) !important;
+}
+.sidebar__add-button,
+.sidebar__play-button {
+  border-radius: var(--radius-sm) !important;
+  padding: 4px !important;
+  color: var(--text-secondary) !important;
+  flex-shrink: 0;
+}
+.sidebar__add-button:hover,
+.sidebar__play-button:hover {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+.sidebar__section--games > .text-field-container {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Game list: always visible now, fills remaining panel height and scrolls */
+.sidebar__section--games > .sidebar__game-list {
+  display: block !important;
+  flex: 1;
+  width: 100% !important;
+  overflow-y: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.sidebar__game-list-scroll {
+  height: 100% !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+}
+
+.sidebar__game-icon { border-radius: 5px; }
+
+/* Game list rows keep their own rounded-rect shape and hover style,
+   independent of the nav pill's border logic above */
+.sidebar__game-list .sidebar__menu-item-button {
+  padding: 6px 8px !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid transparent !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+.sidebar__game-list .sidebar__menu-item-button:hover {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* ---------- Push page content clear of the games panel ---------- */
+.container {
+  width: 100% !important;
+  padding-left: var(--games-panel-width) !important;
+}
+
+/* ---------- Header ---------- */
+.header {
+  background: rgba(6, 6, 6, 0.85) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle) !important;
+  box-shadow: none !important;
+}
+.header__back-button {
+  border-radius: var(--radius-sm) !important;
+  padding: 6px !important;
+  color: var(--text-secondary) !important;
+}
+.header__back-button:hover {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+.header__title { color: var(--text-primary) !important; font-weight: 600 !important; }
+.header__search {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 4px 10px !important;
+}
+.header__search-input { background: transparent !important; color: var(--text-primary) !important; border: none !important; }
+.header__search-input::placeholder { color: var(--text-tertiary) !important; }
+.header__action-button { color: var(--text-tertiary) !important; }
+
+/* ---------- Content area ---------- */
+.container__content { background: var(--bg-primary) !important; }
+
+/* ---------- Buttons ---------- */
+.button {
+  border-radius: var(--radius-sm) !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transition: transform 0.1s ease, background 0.15s ease, opacity 0.15s ease;
+}
+.button:active { transform: scale(0.97); }
+.button--outline {
+  background: transparent !important;
+  border: 1px solid var(--border-white) !important;
+  color: var(--text-primary) !important;
+}
+.button--outline:hover { background: var(--bg-hover) !important; }
+.button--primary {
+  background: var(--accent) !important;
+  color: #000 !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+.button--primary:hover { opacity: 0.85; }
+.button--danger {
+  background: transparent !important;
+  border: 1px solid rgba(255, 69, 58, 0.4) !important;
+  color: var(--danger) !important;
+}
+.button--danger:hover { background: rgba(255, 69, 58, 0.1) !important; }
+.button--dark {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+.button--dark:hover { background: var(--bg-hover) !important; }
+
+/* ---------- Game cards (real classes from the Library page DOM) ---------- */
+.library-game-card__wrapper {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  transition: transform 0.15s ease;
+  background: var(--bg-secondary) !important;
+}
+.library-game-card__wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px var(--accent) !important;
+}
+.library-game-card__game-image {
+  border-radius: var(--radius-md) !important;
+}
+.library-game-card__overlay {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 10%, transparent 45%) !important;
+  border-radius: var(--radius-md) !important;
+}
+.library-game-card__playtime,
+.library-game-card__installed-badge {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 999px !important;
+  color: var(--text-secondary) !important;
+}
+.library-game-card__installed-icon {
+  color: var(--accent) !important;
+}
+.library-game-card__achievement-trophy {
+  color: var(--text-tertiary) !important;
+}
+.library-game-card__achievement-bar {
+  background: var(--accent) !important;
+  border-radius: 999px !important;
+}
+
+/* Filter tabs: Все / ПК / Классика */
+.library-category-filter__option {
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-secondary) !important;
+}
+.library-category-filter__option:hover {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+.library-category-filter__option--active {
+  background: var(--accent-dim) !important;
+  color: var(--text-primary) !important;
+  box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.35);
+}
+
+/* Collections */
+.library__collection-item {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-primary) !important;
+}
+.library__collection-item:hover {
+  border-color: var(--border-white) !important;
+}
+.library__collection-count {
+  background: var(--bg-elevated) !important;
+  color: var(--text-tertiary) !important;
+}
+
+/* Активная (выбранная) коллекция — теперь горит зелёным, как активная
+   вкладка в навигации, вместо того чтобы оставаться неокрашенной */
+.library__collection-item--active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #000 !important;
+}
+.library__collection-item--active:hover {
+  border-color: var(--accent) !important;
+  opacity: 0.9;
+}
+.library__collection-item--active .library__collection-count {
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: #000 !important;
+}
+
+/* View toggle icons (compact/grid/rows) */
+.library-view-options__option {
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-tertiary) !important;
+}
+.library-view-options__option:hover {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+.library-view-options__option.active {
+  background: var(--accent-dim) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ---------- Text fields / selects / checkboxes ---------- */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.text-field-container__text-field--dark:focus-within,
+.text-field-container__text-field--primary:focus-within {
+  border-color: var(--accent) !important;
+}
+.text-field-container__text-field-input { background: transparent !important; color: var(--text-primary) !important; }
+.text-field-container__text-field-input::placeholder { color: var(--text-tertiary) !important; }
+
+.select-field,
+.select-field--primary {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.select-field__option { background: var(--bg-elevated) !important; color: var(--text-primary) !important; }
+
+.checkbox-field__label { color: var(--text-secondary) !important; }
+.checkbox-field__checkbox { border-radius: 4px !important; border: 1px solid var(--border-white) !important; }
+.checkbox-field__icon { color: var(--accent) !important; }
+
+/* ---------- Settings page ---------- */
+.settings__content { background: transparent !important; }
+.settings__sidebar {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 8px !important;
+}
+.settings__sidebar-button {
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-secondary) !important;
+  padding: 8px 10px !important;
+  gap: 8px;
+}
+.settings__sidebar-button:hover { background: var(--bg-hover) !important; color: var(--text-primary) !important; }
+.settings__sidebar-button--active {
+  background: var(--accent-dim) !important;
+  color: var(--text-primary) !important;
+  box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.35);
+}
+.settings__sidebar-divider { border-color: var(--border-subtle) !important; }
+.settings__sidebar-group-label { color: var(--text-tertiary) !important; }
+.settings__panel {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 24px !important;
+}
+.settings__panel h2 { color: var(--text-primary) !important; }
+.settings-context-panel__group h3 { color: var(--text-secondary) !important; font-weight: 600 !important; }
+
+/* ---------- Theme cards ---------- */
+.theme-card {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 16px !important;
+}
+.theme-card--active { border-color: var(--accent) !important; box-shadow: 0 0 0 1px rgba(48, 209, 88, 0.35); }
+.theme-card__header__title { color: var(--text-primary) !important; font-weight: 700 !important; }
+.theme-card__author { color: var(--text-tertiary) !important; }
+.theme-card__author__name { color: var(--text-secondary) !important; }
+
+/* ---------- Bottom panel ---------- */
+.bottom-panel {
+  background: rgba(6, 6, 6, 0.92) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-subtle) !important;
+}
+.bottom-panel__downloads-button,
+.bottom-panel__version-button { color: var(--text-tertiary) !important; }
+.bottom-panel__downloads-button:hover,
+.bottom-panel__version-button:hover { color: var(--text-primary) !important; }
+
+/* ---------- Toast ---------- */
+.toast {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-white) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ---------- Progress bars / accents ---------- */
+progress,
+[class*="progress"] { accent-color: var(--accent) !important; }
