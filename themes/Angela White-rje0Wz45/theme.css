@@ -8,14 +8,14 @@
 }
 
 body {
-  background: url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/refs/heads/main/IMAGES/resize-3.webp") no-repeat center -275px fixed;
+  background: url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/refs/heads/main/IMAGES/resize-3.webp") no-repeat center -400px fixed;
   background-size: cover;
   color: var(--text-color);
   position: relative;
   overflow: hidden;
   font-size: 18px;
   font-weight: 100;
-  font-family:Alpine Regular;
+  font-family:Alpine Regular sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -25,7 +25,7 @@ body::before {
   position: fixed;
   inset: 0;
   background: rgba(5, 10, 20, 0.45);
-  backdrop-filter: blur(0,1px);
+  backdrop-filter: blur(0px);
   z-index: -1;
 }
 
@@ -63,7 +63,7 @@ body::after {
 
 .sidebar, .sidebar a, .sidebar span, .sidebar div {
   color: #ffffff !important; 
-  font-family:Alpine Regular;
+  font-family:Alpine Regular sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 15px;
@@ -925,7 +925,7 @@ body::after {
   background: rgba(95, 168, 211, 0.3);
   border-color: rgba(95, 168, 211, 0.5);
   box-shadow: 0 0 8px rgba(95, 168, 211, 0.35);
-  color: #eaf6ff;
+  color: #0091ff;
 }
 
 .game-details__description-content {
