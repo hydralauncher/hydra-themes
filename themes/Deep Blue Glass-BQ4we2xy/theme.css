@@ -1,0 +1,110 @@
+/* ========================================
+   ACHIEVEMENT NOTIFICATIONS
+   Deep Blue Glass
+   ======================================== */
+
+.achievement-notification__outer-container {
+  background: rgba(18, 40, 75, 0.55) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  border: 1px solid rgba(130, 190, 255, 0.28) !important;
+  border-radius: 8px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 4px 18px rgba(0, 0, 0, 0.4) !important;
+  overflow: hidden !important;
+}
+
+.achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 75, 140, 0.65),
+    rgba(22, 50, 100, 0.6)
+  ) !important;
+  border-radius: 8px !important;
+}
+
+/* Text */
+.achievement-notification__title {
+  color: #a8d4ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 700 !important;
+}
+
+.achievement-notification__description {
+  color: #e6f0fa !important;
+}
+
+/* Icon */
+.achievement-notification__icon {
+  border-radius: 6px !important;
+  border: 1px solid rgba(130, 190, 255, 0.35) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Points chip */
+.achievement-notification__chip {
+  background: linear-gradient(to bottom, #4a90e0, #2f6bb8) !important;
+  border: 1px solid rgba(140, 200, 255, 0.55) !important;
+  border-radius: 999px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+.achievement-notification__chip__label {
+  color: #ffffff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+.achievement-notification__chip__icon path {
+  fill: #ffffff !important;
+}
+
+/* ========== RARE (gold-ish Aero tint) ========== */
+.achievement-notification--rare .achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    rgba(70, 100, 160, 0.7),
+    rgba(40, 70, 130, 0.65)
+  ) !important;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+  outline: 1px solid rgba(180, 210, 255, 0.7) !important;
+  box-shadow: 0 0 12px rgba(100, 160, 240, 0.35) !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip {
+  background: linear-gradient(to bottom, #5aa0f0, #3a7bc8) !important;
+  border-color: rgba(170, 220, 255, 0.75) !important;
+}
+
+/* ========== PLATINUM (cyan Aero tint) ========== */
+.achievement-notification--platinum .achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 90, 140, 0.7),
+    rgba(20, 70, 120, 0.65)
+  ) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  outline: 1px solid rgba(100, 220, 255, 0.8) !important;
+  box-shadow: 0 0 12px rgba(60, 180, 240, 0.4) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+  background: linear-gradient(to bottom, #40b0e0, #2a80b8) !important;
+  border-color: rgba(140, 230, 255, 0.8) !important;
+}
+
+/* Hidden achievements keep the same glass look */
+.achievement-notification--hidden .achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 60, 110, 0.6),
+    rgba(20, 45, 90, 0.55)
+  ) !important;
+}
