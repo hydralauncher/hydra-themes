@@ -1291,7 +1291,6 @@ body::after {
 
 .modal[role="dialog"][aria-labelledby="Amigos"] * {
   color: #eaf3ff !important;
-  background: transparent !important;
 }
 
 .modal[role="dialog"][aria-labelledby="Amigos"]::-webkit-scrollbar {
