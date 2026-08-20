@@ -15,7 +15,7 @@ body {
   overflow: hidden;
   font-size: 18px;
   font-weight: 100;
-  font-family:Alpine Regular sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -63,7 +63,7 @@ body::after {
 
 .sidebar, .sidebar a, .sidebar span, .sidebar div {
   color: #ffffff !important; 
-  font-family:Alpine Regular sans-serif;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 15px;
@@ -1291,6 +1291,7 @@ body::after {
 
 .modal[role="dialog"][aria-labelledby="Amigos"] * {
   color: #eaf3ff !important;
+  background: transparent !important;
 }
 
 .modal[role="dialog"][aria-labelledby="Amigos"]::-webkit-scrollbar {
