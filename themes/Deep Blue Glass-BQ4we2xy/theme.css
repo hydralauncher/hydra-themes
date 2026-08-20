@@ -1,4 +1,210 @@
 /* ========================================
+  Deep Dark Blue Glass
+   ======================================== */
+
+/* Background */
+#root {
+  background: linear-gradient(165deg, #0a1628 0%, #12233d 45%, #0d1a2e 100%) !important;
+}
+
+body {
+  color: #e6f0fa !important;
+  font-family: "Segoe UI", system-ui, sans-serif !important;
+}
+
+/* ========== TITLEBAR / TOP BAR ========== */
+.header,
+.title-bar {
+  background: linear-gradient(
+    to bottom,
+    rgba(70, 130, 200, 0.75) 0%,
+    rgba(40, 90, 160, 0.65) 40%,
+    rgba(25, 60, 120, 0.7) 100%
+  ) !important;
+  border-bottom: 1px solid rgba(160, 210, 255, 0.35) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 2px 12px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  background: linear-gradient(
+    to right,
+    rgba(25, 55, 100, 0.7),
+    rgba(20, 45, 85, 0.6)
+  ) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-right: 1px solid rgba(130, 190, 255, 0.25) !important;
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Sidebar buttons / game list items */
+.sidebar .button,
+.sidebar button,
+.game-item {
+  background: linear-gradient(
+    to bottom,
+    rgba(50, 100, 170, 0.55),
+    rgba(30, 70, 130, 0.5)
+  ) !important;
+  border: 1px solid rgba(120, 180, 255, 0.25) !important;
+  border-radius: 6px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #eef6ff !important;
+}
+
+.sidebar .button:hover,
+.game-item:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(70, 130, 210, 0.75),
+    rgba(45, 95, 170, 0.7)
+  ) !important;
+  border-color: rgba(160, 220, 255, 0.5) !important;
+}
+
+/* ========== MAIN CONTENT ========== */
+.container__content,
+.settings__content,
+.catalogue__filters-container {
+  background: rgba(15, 35, 65, 0.45) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ========== GAME DETAILS PAGE ========== */
+.hero,
+.hero-panel,
+.game-details__container,
+.game-details__description-container,
+.content-sidebar,
+.description-header {
+  background: rgba(18, 40, 75, 0.55) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(130, 190, 255, 0.22) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 8px !important;
+}
+
+/* Right side panels on game page */
+.content-sidebar {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 70, 130, 0.6),
+    rgba(20, 50, 100, 0.55)
+  ) !important;
+}
+
+/* Played time / release info boxes */
+.hero-panel,
+.description-header {
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 75, 140, 0.6),
+    rgba(22, 50, 100, 0.55)
+  ) !important;
+}
+
+/* ========== CARDS ========== */
+.game-card,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.download-group__item {
+  background: rgba(25, 55, 100, 0.55) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(130, 190, 255, 0.25) !important;
+  border-radius: 8px !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 3px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.game-card:hover,
+.game-item:hover {
+  background: rgba(40, 85, 150, 0.7) !important;
+  border-color: rgba(160, 220, 255, 0.45) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 6px 18px rgba(30, 100, 200, 0.3) !important;
+}
+
+/* ========== BUTTONS ========== */
+.button,
+button {
+  background: linear-gradient(to bottom, #4a90e0, #2f6bb8) !important;
+  border: 1px solid rgba(140, 200, 255, 0.55) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.button:hover,
+button:hover {
+  background: linear-gradient(to bottom, #5aa0f0, #3a7bc8) !important;
+  border-color: rgba(170, 220, 255, 0.75) !important;
+}
+
+.button--outline {
+  background: rgba(30, 65, 120, 0.5) !important;
+  border: 1px solid rgba(120, 180, 255, 0.4) !important;
+}
+
+/* ========== SEARCH / INPUTS ========== */
+.header__search,
+.text-field-container__text-field--primary,
+.text-field-container__text-field--dark {
+  background: rgba(10, 30, 60, 0.65) !important;
+  border: 1px solid rgba(120, 180, 255, 0.35) !important;
+  color: #eef6ff !important;
+  border-radius: 6px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* ========== BOTTOM BAR ========== */
+.bottom-panel {
+  background: linear-gradient(
+    to top,
+    rgba(25, 55, 100, 0.75),
+    rgba(20, 45, 85, 0.65)
+  ) !important;
+  border-top: 1px solid rgba(130, 190, 255, 0.25) !important;
+  backdrop-filter: blur(14px);
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 25, 50, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4a90e0, #2f6bb8);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Text colors */
+.sidebar__section-title,
+.home__content h2 {
+  color: #a8d4ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========================================
    ACHIEVEMENT NOTIFICATIONS
    Deep Blue Glass
    ======================================== */
