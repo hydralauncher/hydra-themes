@@ -912,7 +912,7 @@ body::after {
   padding: 2px 8px;
   background: rgba(95, 168, 211, 0.15);
   border: 1px solid rgba(95, 168, 211, 0.3);
-  color: rgba(220, 240, 255, 0.85);
+  color: rgb(6, 0, 95);
   border-radius: 8px;
   font-size: 12px;
   font-weight: 500;
@@ -925,7 +925,7 @@ body::after {
   background: rgba(95, 168, 211, 0.3);
   border-color: rgba(95, 168, 211, 0.5);
   box-shadow: 0 0 8px rgba(95, 168, 211, 0.35);
-  color: #0091ff;
+  color: #00013a;
 }
 
 .game-details__description-content {
