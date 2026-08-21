@@ -1,7 +1,7 @@
 /**
  * @name FusionX
  * @author Inspired by sakasakiking's Playnite FusionX Theme
- * @version 1.0
+ * @version 1.1
  * @description A beautiful and consistently designed theme inspired by the FusionX Playnite theme - featuring a modern dark blue aesthetic with vibrant accent gradients.
  * @source https://github.com/sakasakiking/FusionX
 */
@@ -11,32 +11,32 @@
   --main-color: #2C3A67;
   --main-color-dark: #0D1225;
   --hover-color: #247BA0;
-  
+
   /* Accent Colors - Bright Blue with Purple */
   --accent-blue: #0379FF;
   --accent-blue-light: #2C8FFF;
   --accent-purple: #AD00FF;
   --accent-tone: #FFCC00;
-  
+
   /* Background Colors */
   --background-dark: #212121;
   --background-darker: #1e1e1e;
   --background-panel: #2C2C2C;
   --popup-background: #212121;
   --popup-border: #2E2E2E;
-  
+
   /* Text Colors */
   --text-primary: rgba(255, 255, 255, 0.8);
   --text-secondary: rgba(255, 255, 255, 0.6);
   --text-tertiary: rgba(255, 255, 255, 0.4);
   --text-bright: #FFFFFF;
-  
+
   /* Control Colors */
   --control-background: rgba(255, 255, 255, 0.09);
   --control-hover: rgba(255, 255, 255, 0.14);
   --control-active: rgba(255, 255, 255, 0.22);
   --control-border: rgba(255, 255, 255, 0.09);
-  
+
   /* Utility Colors */
   --shadow-color: rgba(0, 0, 0, 0.5);
   --separator-color: rgba(255, 255, 255, 0.08);
@@ -151,6 +151,12 @@ body {
   fill: var(--accent-blue);
 }
 
+.sidebar-profile__dropdown {
+  top: auto;
+  bottom: 100%;
+  transform-origin: bottom center;
+}
+
 /* Profile Hero (User Profile Page) */
 .profile-hero__user-information {
   background: linear-gradient(135deg, rgba(3, 121, 255, 0.15) 0%, rgba(173, 0, 255, 0.1) 100%);
@@ -163,7 +169,7 @@ body {
   background: linear-gradient(135deg, rgba(3, 121, 255, 0.08) 0%, rgba(173, 0, 255, 0.05) 100%) !important;
   border: 1px solid var(--control-border);
   border-radius: 8px;
-  align-self: center !important;  
+  align-self: center !important;
   margin: 24px;
 }
 
@@ -603,10 +609,9 @@ main {
 .achievement-item--default,
 .achievement-item[data-rarity="default"],
 .achievement-item[data-rarity="bronze"] {
-  background: linear-gradient(135deg, 
-    rgba(139, 69, 19, 0.15) 0%, 
-    rgba(101, 67, 33, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(139, 69, 19, 0.15) 0%,
+      rgba(101, 67, 33, 0.1) 100%);
   border-color: rgba(139, 69, 19, 0.3);
 }
 
@@ -620,10 +625,9 @@ main {
 /* Gold Achievement */
 .achievement-item--gold,
 .achievement-item[data-rarity="gold"] {
-  background: linear-gradient(135deg, 
-    rgba(255, 204, 0, 0.15) 0%, 
-    rgba(218, 165, 32, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 204, 0, 0.15) 0%,
+      rgba(218, 165, 32, 0.1) 100%);
   border-color: rgba(255, 204, 0, 0.4);
 }
 
@@ -636,10 +640,9 @@ main {
 /* Platinum Achievement */
 .achievement-item--platinum,
 .achievement-item[data-rarity="platinum"] {
-  background: linear-gradient(135deg, 
-    rgba(173, 0, 255, 0.18) 0%, 
-    rgba(138, 43, 226, 0.12) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(173, 0, 255, 0.18) 0%,
+      rgba(138, 43, 226, 0.12) 100%);
   border-color: rgba(173, 0, 255, 0.5);
 }
 
@@ -652,10 +655,9 @@ main {
 /* Hidden Achievement */
 .achievement-item--hidden,
 .achievement-item[data-rarity="hidden"] {
-  background: linear-gradient(135deg, 
-    rgba(64, 64, 64, 0.2) 0%, 
-    rgba(32, 32, 32, 0.15) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(64, 64, 64, 0.2) 0%,
+      rgba(32, 32, 32, 0.15) 100%);
   border-color: rgba(128, 128, 128, 0.3);
 }
 
@@ -696,10 +698,9 @@ main {
 
 .toast--success {
   border-color: #78ffa0;
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--main-color) 80%, #78ffa0 20%), 
-    color-mix(in srgb, var(--main-color-dark) 80%, #78ffa0 20%)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--main-color) 80%, #78ffa0 20%),
+      color-mix(in srgb, var(--main-color-dark) 80%, #78ffa0 20%));
   box-shadow: 0 4px 16px rgba(120, 255, 160, 0.4), 0 0 30px rgba(120, 255, 160, 0.2);
 }
 
@@ -709,10 +710,9 @@ main {
 
 .toast--error {
   border-color: #ff6b6b;
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--main-color) 80%, #ff6b6b 20%), 
-    color-mix(in srgb, var(--main-color-dark) 80%, #ff6b6b 20%)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--main-color) 80%, #ff6b6b 20%),
+      color-mix(in srgb, var(--main-color-dark) 80%, #ff6b6b 20%));
   box-shadow: 0 4px 16px rgba(255, 107, 107, 0.4), 0 0 30px rgba(255, 107, 107, 0.2);
 }
 
@@ -722,10 +722,9 @@ main {
 
 .toast--warning {
   border-color: var(--accent-tone);
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--main-color) 80%, #FFCC00 20%), 
-    color-mix(in srgb, var(--main-color-dark) 80%, #FFCC00 20%)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--main-color) 80%, #FFCC00 20%),
+      color-mix(in srgb, var(--main-color-dark) 80%, #FFCC00 20%));
   box-shadow: 0 4px 16px rgba(255, 204, 0, 0.4), 0 0 30px rgba(255, 204, 0, 0.2);
 }
 
@@ -743,41 +742,185 @@ main {
 }
 
 /* Achievement Notifications */
+.achievement-notification__outer-container {
+  background: rgba(13, 18, 37, 0.7);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(3, 121, 255, 0.25);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 18px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
 .achievement-notification__container {
-  background: linear-gradient(135deg, rgba(3, 121, 255, 0.1) 0%, rgba(173, 0, 255, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.12) 0%, rgba(173, 0, 255, 0.08) 100%);
   border-radius: 8px;
   border: 1px solid transparent;
   transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 
-/* Rare Achievement */
+.achievement-notification__title {
+  color: var(--accent-blue-light);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+.achievement-notification__description {
+  color: var(--text-primary);
+}
+
+.achievement-notification__icon {
+  border-radius: 6px;
+  border: 1px solid rgba(3, 121, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.achievement-notification__chip {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #0258cc 100%) !important;
+  border: 1px solid rgba(3, 121, 255, 0.55) !important;
+  border-radius: 999px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+.achievement-notification__chip__label {
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+}
+
+.achievement-notification__chip__icon path {
+  fill: #ffffff;
+}
+
+/* Rare */
+.achievement-notification--rare .achievement-notification__container {
+  background: linear-gradient(135deg, rgba(3, 121, 255, 0.2) 0%, rgba(44, 143, 255, 0.15) 100%);
+}
+
 .achievement-notification--rare .achievement-notification__icon {
   border-color: var(--accent-blue);
   box-shadow: 0 0 15px rgba(3, 121, 255, 0.5);
   animation: pulseGlow 1.5s infinite ease-in-out;
 }
 
-/* Platinum Achievement */
+.achievement-notification--rare .achievement-notification__chip {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  border-color: rgba(44, 143, 255, 0.75) !important;
+}
+
+/* Gold */
+.achievement-notification--gold .achievement-notification__container {
+  background: linear-gradient(135deg, rgba(255, 204, 0, 0.15) 0%, rgba(218, 165, 32, 0.1) 100%);
+}
+
+.achievement-notification--gold .achievement-notification__icon {
+  border-color: rgba(255, 204, 0, 0.6);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+  animation: pulseGlowGold 1.5s infinite ease-in-out;
+}
+
+.achievement-notification--gold .achievement-notification__chip {
+  background: linear-gradient(135deg, #FFCC00 0%, #cc9f00 100%) !important;
+  border-color: rgba(255, 204, 0, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 6px rgba(255, 204, 0, 0.35) !important;
+}
+
+.achievement-notification--gold .achievement-notification__chip__label,
+.achievement-notification--gold .achievement-notification__chip__icon path {
+  color: #1a1000;
+  fill: #1a1000;
+}
+
+/* Platinum */
 .achievement-notification--platinum .achievement-notification__container {
-  background: linear-gradient(135deg, 
-    rgba(173, 0, 255, 0.15) 0%, 
-    rgba(3, 121, 255, 0.12) 100%
-  );
+  background: linear-gradient(135deg, rgba(173, 0, 255, 0.18) 0%, rgba(138, 43, 226, 0.12) 100%);
 }
 
 .achievement-notification--platinum .achievement-notification__icon {
   border: 1px solid var(--accent-purple);
   box-shadow: 0 0 20px rgba(173, 0, 255, 0.6);
-  animation: pulseGlow 1.5s infinite ease-in-out;
+  animation: pulseGlowPlatinum 1.5s infinite ease-in-out;
 }
 
-/* Pulse glow animation for rare/platinum achievements */
+.achievement-notification--platinum .achievement-notification__chip {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7a00cc 100%) !important;
+  border-color: rgba(173, 0, 255, 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 6px rgba(173, 0, 255, 0.4) !important;
+}
+
+/* Hidden */
+.achievement-notification--hidden .achievement-notification__container {
+  background: linear-gradient(135deg, rgba(64, 64, 64, 0.2) 0%, rgba(32, 32, 32, 0.15) 100%);
+}
+
+.achievement-notification--hidden .achievement-notification__icon {
+  border-color: rgba(128, 128, 128, 0.4);
+}
+
+.achievement-notification--hidden .achievement-notification__chip {
+  background: linear-gradient(135deg, #666666 0%, #444444 100%) !important;
+  border-color: rgba(128, 128, 128, 0.5) !important;
+}
+
+/* Bronze / Default */
+.achievement-notification--default .achievement-notification__container,
+.achievement-notification--bronze .achievement-notification__container {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.15) 0%, rgba(101, 67, 33, 0.1) 100%);
+}
+
+.achievement-notification--default .achievement-notification__icon,
+.achievement-notification--bronze .achievement-notification__icon {
+  border-color: rgba(139, 69, 19, 0.45);
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
+}
+
+.achievement-notification--default .achievement-notification__chip,
+.achievement-notification--bronze .achievement-notification__chip {
+  background: linear-gradient(135deg, #b06020 0%, #8B4513 100%) !important;
+  border-color: rgba(139, 69, 19, 0.6) !important;
+}
+
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 15px rgba(3, 121, 255, 0.5);
   }
+
   50% {
     box-shadow: 0 0 25px rgba(3, 121, 255, 0.8);
+  }
+}
+
+@keyframes pulseGlowGold {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
+  }
+}
+
+@keyframes pulseGlowPlatinum {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(173, 0, 255, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(173, 0, 255, 0.8);
   }
 }
 
@@ -817,7 +960,12 @@ small {
 }
 
 /* Typography Enhancements */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-bright);
   font-weight: 600;
 }
