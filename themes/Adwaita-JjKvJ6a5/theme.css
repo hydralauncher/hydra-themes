@@ -14,7 +14,7 @@
   --titlebar-minimize-button: flex;
   /* also set this to how much buttons are visible */
   --titlebar-buttons-count: 3;
-    
+
   /* Accent color */
   --accent: var(--blue);
   /* blue	teal green 
@@ -27,19 +27,19 @@
 
 :root {
   --standalone-color-oklab: max(l, 0.85) a b !important;
-  
+
   /* accents */
   --accent-bg-color: var(--accent);
   --blue: #3584e4;
-  --teal: 	#2190a4; 	
-  --green: 	#3a944a;	
-  --yellow: #c88800; 	
-  --orange: #ed5b00; 
-  --red: #e62d42; 	
-  --pink: #d56199; 
-  --purple: #9141ac; 
-  --slate: 	#6f8396;
-  
+  --teal: #2190a4;
+  --green: #3a944a;
+  --yellow: #c88800;
+  --orange: #ed5b00;
+  --red: #e62d42;
+  --pink: #d56199;
+  --purple: #9141ac;
+  --slate: #6f8396;
+
   /* Animations */
   --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --button-transition:
@@ -189,11 +189,14 @@
   --text-feedback-warning: oklab(
     from var(--warning-bg-color) var(--standalone-color-oklab)
   ) !important;
-  
+
   /* titlebar */
   --titlebar-button-size: 24px;
   --titlebar-button-spacing: 6px;
-  --titlebar-right-spacing: calc((var(--titlebar-button-size) + var(--titlebar-button-spacing)) * var(--titlebar-buttons-count));
+  --titlebar-right-spacing: calc(
+    (var(--titlebar-button-size) + var(--titlebar-button-spacing)) *
+      var(--titlebar-buttons-count)
+  );
 
   /* icons */
   --close-icon: url("data:image/svg+xml,%3Csvg%20height=%2216px%22%20viewBox=%220%200%2016%2016%22%20width=%2216px%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22m%204%204%20h%201%20h%200.03125%20c%200.253906%200.011719%200.511719%200.128906%200.6875%200.3125%20l%202.28125%202.28125%20l%202.3125%20-2.28125%20c%200.265625%20-0.230469%200.445132%20-0.304688%200.6875%20-0.3125%20h%201%20v%201%20c%200%200.285156%20-0.035156%200.550781%20-0.25%200.75%20l%20-2.28125%202.28125%20l%202.25%202.25%20c%200.1875%200.1875%200.28125%200.453125%200.28125%200.71875%20v%201%20h%20-1%20c%20-0.265625%200%20-0.53125%20-0.09375%20-0.71875%20-0.28125%20l%20-2.28125%20-2.28125%20l%20-2.28125%202.28125%20c%20-0.1875%200.1875%20-0.453125%200.28125%20-0.71875%200.28125%20h%20-1%20v%20-1%20c%200%20-0.265625%200.09375%20-0.53125%200.28125%20-0.71875%20l%202.28125%20-2.25%20l%20-2.28125%20-2.28125%20c%20-0.210938%20-0.195312%20-0.304688%20-0.46875%20-0.28125%20-0.75%20z%20m%200%200%22%20fill=%22%232e3436%22/%3E%3C/svg%3E");
@@ -661,9 +664,15 @@ body {
   margin-right: 0 !important;
 }
 
-.title-bar__window-control:nth-child(1) {display: var(--titlebar-minimize-button) !important;}
-.title-bar__window-control:nth-child(2) {display: var(--titlebar-maximize-button) !important;} 
-.title-bar__window-control:nth-child(3) {display: var(--titlebar-close-button) !important;}
+.title-bar__window-control:nth-child(1) {
+  display: var(--titlebar-minimize-button) !important;
+}
+.title-bar__window-control:nth-child(2) {
+  display: var(--titlebar-maximize-button) !important;
+}
+.title-bar__window-control:nth-child(3) {
+  display: var(--titlebar-close-button) !important;
+}
 
 .title-bar__window-control {
   --icon-button-size: 24px;
