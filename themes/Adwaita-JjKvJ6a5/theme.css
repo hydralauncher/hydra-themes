@@ -638,7 +638,6 @@ body {
 /* titlebar and controls*/
 .title-bar {
   background: none !important;
-  color: var(--window_fg_color) !important;
   padding: 0 !important;
   position: fixed !important;
   top: 11px !important;
