@@ -18,7 +18,7 @@
   --titlebar-buttons-count: 1;
 
   /* Accent color */
-  --accent: var(--slate);
+  --accent: var(--blue);
   /* blue	teal green 
       yellow orange red 
         pink purple	slate in place of blue
