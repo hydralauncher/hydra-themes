@@ -166,7 +166,6 @@ body::after {
 .toast div:has(> img),
 [class*="notification"],
 .toast [class*="container"] {
-    background-color: #080808 !important;
     background: #080808 !important;
     border: 1px solid #5059a3 !important;
     border-radius: 4px !important;
@@ -202,9 +201,10 @@ div:has(> [class*="notification"]) {
     font-family: "DM Mono", monospace !important;
 }
 
-/* Puntaje */
+/* La burbuja con puntaje */
 [class*="notification"] [class*="badge"],
-[class*="notification"] div:has(> svg) {
+[class*="notification"] div:has(> svg),
+[class*="notification"] span[class*="score"] {
     background-color: #22233c !important;
     color: #bdbcdc !important;
     border: 1px solid #8d8fd6 !important;
