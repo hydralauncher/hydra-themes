@@ -1,0 +1,234 @@
+/**
+ * @name Lavender - TUI
+ * @description A sleek, TUI-style terminal theme utilizing cool blue tones and a dynamic vector matrix grid.
+ * @author Joako <3
+ * @version 1.0.0
+ * @license MIT
+ */
+
+/* Fondo Malla */
+body {
+    background-color: #040306 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-family: "DM Mono", monospace !important;
+}
+
+/* Cuadricula */
+body::before {
+    content: "";
+    position: fixed;
+    top: -50px;
+    left: -50px;
+    width: calc(100vw + 100px);
+    height: calc(100vh + 100px);
+    background-image:
+      linear-gradient(rgba(141, 143, 214, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(141, 143, 214, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveGrid 15s linear infinite;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Radial morado */
+body::after {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+      circle,
+      rgba(73, 78, 182, 0.12) 0%,
+      rgba(80, 89, 163, 0.05) 40%,
+      transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    animation: pulseGlow 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(40px);
+}
+
+/* Scanlines thing */
+.container__content::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+
+/* Contenedor principal */
+.container__content {
+    background-color: rgba(5, 5, 5, 0.6) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+/* (Header) */
+.header {
+    background-color: rgba(26, 26, 26, 0.7) !important;
+    border-bottom: 1px solid #333333 !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/*(Sidebar) */
+.sidebar {
+    background-color: rgba(8, 8, 8, 0.5) !important;
+    border-right: 1px dashed rgba(141, 143, 214, 0.2) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Panel Inferior */
+.bottom-panel {
+    background-color: #0d0d0d !important;
+    border-top: 1px solid #1f1f1f !important;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Botones .cli-btn */
+.button {
+    background: transparent !important;
+    border: 1px solid #8d8fd6 !important;
+    color: #8d8fd6 !important;
+    border-radius: 4px !important;
+    font-family: "DM Mono", monospace !important;
+    font-weight: bold !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 0 5px rgba(141, 143, 214, 0.2) !important;
+}
+
+.button:hover {
+    background: #8d8fd6 !important;
+    color: #050505 !important;
+    box-shadow: 0 0 15px rgba(141, 143, 214, 0.6) !important;
+    transform: scale(1.02) !important;
+}
+
+/* Toast */
+.toast {
+    background-color: #080808 !important;
+    border: 1px solid #8d8fd6 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 15px rgba(141, 143, 214, 0.25) !important;
+    color: #ffffff !important;
+}
+
+
+/* Animaciones */
+@keyframes moveGrid {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 40px); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+  50% { transform: translate(-40%, -60%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-60%, -40%) scale(1); opacity: 0.6; }
+}
+
+/* Titulos */
+.header h2, .container__content h1, .container__content h2 {
+    background: linear-gradient(135deg, #bdbcdc, #8d8fd6) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800 !important;
+    text-shadow: 0 0 15px rgba(141, 143, 214, 0.15);
+}
+
+/* Resaltar */
+.container__content h1, .container__content h2 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+/* Hover */
+.container__content img {
+    transition: filter 0.2s ease, border-color 0.2s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.container__content img:hover {
+    filter: brightness(1.2) contrast(1.05) !important;
+    border-color: rgba(141, 143, 214, 0.4) !important;
+}
+
+/* Logro PopUp */
+.toast div:has(> img),
+[class*="notification"],
+.toast [class*="container"] {
+    background-color: #080808 !important;
+    background: #080808 !important;
+    border: 1px solid #5059a3 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 12px rgba(80, 89, 163, 0.3) !important;
+    outline: none !important;
+}
+
+/* Forzar que no se creen cajas extras alrededor */
+.toast > div,
+div:has(> [class*="notification"]) {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Texto del logro */
+[class*="notification"] h3,
+[class*="notification"] [class*="title"],
+[class*="notification"] b,
+[class*="notification"] strong {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-family: "DM Mono", monospace !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Descripcion del logro */
+[class*="notification"] p,
+[class*="notification"] [class*="description"],
+[class*="notification"] span {
+    color: #bdbcdc !important;
+    -webkit-text-fill-color: #bdbcdc !important;
+    font-family: "DM Mono", monospace !important;
+}
+
+/* Puntaje */
+[class*="notification"] [class*="badge"],
+[class*="notification"] div:has(> svg),
+[class*="notification"] span:contains("+") {
+    background-color: #22233c !important;
+    color: #bdbcdc !important;
+    border: 1px solid #8d8fd6 !important;
+    border-radius: 4px !important;
+    font-family: "DM Mono", monospace !important;
+}
+
+/* Icono del logro */
+[class*="notification"] img {
+    border-radius: 4px !important;
+    border: 1px solid #5059a3 !important;
+    box-shadow: 0 0 8px rgba(80, 89, 163, 0.2) !important;
+}
+
+/* Sorprendeme */
+.container__content button svg,
+.container__content .button svg,
+.container__content button span:has(> svg),
+.container__content [class*="icon"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    overflow: visible !important;
+}
