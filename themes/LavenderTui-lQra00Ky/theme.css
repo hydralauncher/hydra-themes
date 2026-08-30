@@ -204,8 +204,7 @@ div:has(> [class*="notification"]) {
 
 /* Puntaje */
 [class*="notification"] [class*="badge"],
-[class*="notification"] div:has(> svg),
-[class*="notification"] span:contains("+") {
+[class*="notification"] div:has(> svg) {
     background-color: #22233c !important;
     color: #bdbcdc !important;
     border: 1px solid #8d8fd6 !important;
