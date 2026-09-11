@@ -1,0 +1,641 @@
+/*
+{
+  "name": "Blue Teal Nebula",
+  "author": "Wyzlow",
+  "version": "1.0.11",
+  "description": "Nebula layout with a blue and teal colour scheme"
+}
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Montserrat", "Segoe UI", sans-serif !important;
+}
+
+:root {
+  --bg-sidebar: rgba(10, 10, 14, 0.75);
+  --bg-header: rgba(10, 10, 14, 0.6);
+  --bg-hover: rgba(22, 177, 149, 0.18);
+  --bg-active: rgba(53, 117, 183, 0.3);
+  --bg-input: #0d0d13;
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #b3b3b3;
+  --text-muted: #71717a;
+  --text-alt: #16b195;
+
+  --accent-primary: #3575b7;
+  --accent-middle: #2496ad;
+  --accent-hover: #16b195;
+  --accent-light: rgba(22, 177, 149, 0.2);
+
+  --border-color: rgba(53, 117, 183, 0.45);
+  --border-light: rgba(22, 177, 149, 0.4);
+
+  --glass-blur: blur(12px);
+  --radius-md: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Hosted background */
+body {
+  margin: 0;
+  background-image: url("https://raw.githubusercontent.com/Wyzlow/stremio-quality-badges/main/Hydra-Blue-Teal-Nebula.png") !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+/* Reveal the background through Hydra's main layers */
+#root,
+.main-layout,
+main,
+.container__content,
+.sidebar,
+.header,
+.bottom-panel,
+div[class*="Scroll"],
+div[class*="Container"],
+div[class*="content"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Dark glass Settings panels without unwanted outlines */
+[class*="Settings"] section,
+.settings__content {
+  background-color: rgba(10, 10, 14, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+/* Other glass panels */
+.catalogue__filters-container,
+.text-field-container__text-field--dark,
+.game-item {
+  background-color: rgba(10, 10, 14, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(53, 117, 183, 0.4) !important;
+  border-radius: 8px !important;
+}
+
+/* Blue and teal edge lighting */
+.header {
+  border-bottom: 2px solid #16b195 !important;
+}
+
+.bottom-panel {
+  border-top: 2px solid #16b195 !important;
+}
+
+.sidebar {
+  border-right: 1px solid #3575b7 !important;
+}
+
+.header__search {
+  border: 1px solid rgba(22, 177, 149, 0.55) !important;
+}
+
+/* General buttons outside the main sidebar */
+[class*="Settings"] button,
+.settings__content button,
+.button {
+  background: transparent !important;
+  color: #b3b3b3 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+  border: none !important;
+  border-radius: 10px !important;
+}
+
+[class*="Settings"] button:hover,
+.settings__content button:hover,
+.button:hover {
+  background: linear-gradient(
+    100deg,
+    #3575b7 0%,
+    #2496ad 52%,
+    #16b195 100%
+  ) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 9px rgba(53, 117, 183, 0.45),
+    0 0 15px rgba(22, 177, 149, 0.35) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* Download-option links keep identical dimensions in every state */
+body .settings__content .settings-download-sources__navigate-button,
+body .settings__content .settings-download-sources__navigate-button:hover,
+body .settings__content .settings-download-sources__navigate-button:focus {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  align-self: flex-start !important;
+
+  width: max-content !important;
+  min-width: 0 !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 0 12px !important;
+
+  font-family: "Montserrat", "Segoe UI", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+
+  border: 1px solid transparent !important;
+  border-radius: 9px !important;
+  outline: none !important;
+  transform: none !important;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+body .settings__content .settings-download-sources__navigate-button {
+  background: rgba(9, 10, 15, 0.9) !important;
+  color: #d8dce3 !important;
+  box-shadow: 0 0 8px rgba(22, 177, 149, 0.2) !important;
+}
+
+body .settings__content .settings-download-sources__navigate-button:hover,
+body .settings__content .settings-download-sources__navigate-button:focus {
+  background: linear-gradient(
+    100deg,
+    #3575b7 0%,
+    #2496ad 52%,
+    #16b195 100%
+  ) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 8px rgba(53, 117, 183, 0.45),
+    0 0 14px rgba(22, 177, 149, 0.35) !important;
+  filter: none !important;
+}
+
+body .settings__content .settings-download-sources__navigate-button small {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font: inherit !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Filter Library field */
+input[placeholder="Filter library"] {
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  outline: none !important;
+  background:
+    linear-gradient(#090a0f, #090a0f) padding-box,
+    linear-gradient(
+      100deg,
+      #3575b7 0%,
+      #2496ad 52%,
+      #16b195 100%
+    ) border-box !important;
+  color: #f2f4f7 !important;
+  box-shadow: 0 0 10px rgba(22, 177, 149, 0.18) !important;
+}
+
+input[placeholder="Filter library"]:focus {
+  box-shadow:
+    0 0 8px rgba(53, 117, 183, 0.45),
+    0 0 14px rgba(22, 177, 149, 0.35) !important;
+}
+
+input[placeholder="Filter library"]::placeholder {
+  color: rgba(242, 244, 247, 0.5) !important;
+}
+
+/* Active theme card */
+body .settings__content .theme-card--active,
+body .settings__content .theme-card.theme-card--active,
+body .settings__content .settings-appearance__themes__theme--active {
+  background: linear-gradient(
+    110deg,
+    #3575b7 0%,
+    #2496ad 52%,
+    #16b195 100%
+  ) !important;
+  border: 1px solid rgba(22, 177, 149, 0.75) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 0 12px rgba(53, 117, 183, 0.42),
+    0 0 20px rgba(22, 177, 149, 0.28) !important;
+  color: #ffffff !important;
+  filter: none !important;
+}
+
+body .settings__content .theme-card--active *,
+body .settings__content .settings-appearance__themes__theme--active * {
+  color: #ffffff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+body .settings__content .theme-card--active::before,
+body .settings__content .theme-card--active::after,
+body .settings__content .settings-appearance__themes__theme--active::before,
+body .settings__content .settings-appearance__themes__theme--active::after {
+  background: transparent !important;
+}
+
+/* =====================================================
+   MAIN SIDEBAR — ONE OUTER BOX ONLY
+   Keep this section at the absolute bottom.
+   ===================================================== */
+
+/* Only the outer menu item is allowed to draw a surface. */
+body .sidebar .sidebar__menu-item {
+  width: calc(100% - 16px) !important;
+  min-height: 46px !important;
+  margin: 4px 8px !important;
+  padding: 0 14px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+
+  color: #c9d2dc !important;
+  background: rgba(8, 16, 24, 0.38) !important;
+
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease !important;
+}
+
+/* Neutralize every possible clickable layer inside the outer item. */
+body .sidebar .sidebar__menu-item > *,
+body .sidebar .sidebar__menu-item > *:hover,
+body .sidebar .sidebar__menu-item > *:focus,
+body .sidebar .sidebar__menu-item > *:focus-visible,
+body .sidebar .sidebar__menu-item > *:active,
+body .sidebar .sidebar__menu-item a,
+body .sidebar .sidebar__menu-item a:hover,
+body .sidebar .sidebar__menu-item a:focus,
+body .sidebar .sidebar__menu-item button,
+body .sidebar .sidebar__menu-item button:hover,
+body .sidebar .sidebar__menu-item button:focus,
+body .sidebar .sidebar__menu-item [role="link"],
+body .sidebar .sidebar__menu-item [role="link"]:hover,
+body .sidebar .sidebar__menu-item [class*="active"] {
+  width: 100% !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+}
+
+/* Remove decorative layers that can appear as an inner rectangle. */
+body .sidebar .sidebar__menu-item::before,
+body .sidebar .sidebar__menu-item::after,
+body .sidebar .sidebar__menu-item *::before,
+body .sidebar .sidebar__menu-item *::after {
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* One matching outline for hover. */
+body .sidebar .sidebar__menu-item:hover {
+  background: linear-gradient(
+    100deg,
+    rgba(53, 117, 183, 0.30) 0%,
+    rgba(36, 150, 173, 0.28) 52%,
+    rgba(22, 177, 149, 0.30) 100%
+  ) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(102, 229, 222, 0.72) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* One matching outline and gradient for the selected item. */
+body .sidebar .sidebar__menu-item--active,
+body .sidebar .sidebar__menu-item[aria-current="page"],
+body .sidebar .sidebar__menu-item[class*="active"],
+body .sidebar .sidebar__menu-item:has([aria-current="page"]),
+body .sidebar .sidebar__menu-item:has(.sidebar__menu-item-button--active),
+body .sidebar .sidebar__menu-item:has([class*="active"]) {
+  background: linear-gradient(
+    100deg,
+    #3575b7 0%,
+    #2496ad 52%,
+    #16b195 100%
+  ) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(151, 247, 239, 0.78) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Clean text and icons without changing their geometry. */
+body .sidebar .sidebar__menu-item span,
+body .sidebar .sidebar__menu-item svg,
+body .sidebar .sidebar__menu-item path {
+  color: inherit !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+/* =====================================================
+   SETTINGS SIDEBAR — SELECTED AND HOVER COLOURS
+   Separate from the main sidebar button system.
+   ===================================================== */
+
+body .settings__sidebar .settings__sidebar-button,
+body .sidebar .settings__sidebar-button {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body .settings__sidebar .settings__sidebar-button:hover,
+body .sidebar .settings__sidebar-button:hover {
+  background: linear-gradient(
+    100deg,
+    rgba(53, 117, 183, 0.30) 0%,
+    rgba(36, 150, 173, 0.28) 52%,
+    rgba(22, 177, 149, 0.30) 100%
+  ) !important;
+  color: #ffffff !important;
+  border-color: rgba(102, 229, 222, 0.72) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body .settings__sidebar .settings__sidebar-button--active,
+body .settings__sidebar .settings__sidebar-button[aria-current="page"],
+body .settings__sidebar .settings__sidebar-button:has(.settings__sidebar-button--active),
+body .settings__sidebar .settings__sidebar-button:has([aria-current="page"]),
+body .sidebar .settings__sidebar-button--active,
+body .sidebar .settings__sidebar-button[aria-current="page"],
+body .sidebar .settings__sidebar-button:has(.settings__sidebar-button--active),
+body .sidebar .settings__sidebar-button:has([aria-current="page"]) {
+  background: linear-gradient(
+    100deg,
+    #3575b7 0%,
+    #2496ad 52%,
+    #16b195 100%
+  ) !important;
+  color: #ffffff !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* The active class can be placed on an inner wrapper. Never paint that layer. */
+body .settings__sidebar .settings__sidebar-button *,
+body .settings__sidebar .settings__sidebar-button *:hover,
+body .settings__sidebar .settings__sidebar-button *:focus,
+body .settings__sidebar .settings__sidebar-button *:focus-visible,
+body .settings__sidebar .settings__sidebar-button *:active,
+body .settings__sidebar .settings__sidebar-button [class*="active"],
+body .settings__sidebar .settings__sidebar-button [aria-current="page"],
+body .sidebar .settings__sidebar-button *,
+body .sidebar .settings__sidebar-button *:hover,
+body .sidebar .settings__sidebar-button *:focus,
+body .sidebar .settings__sidebar-button *:focus-visible,
+body .sidebar .settings__sidebar-button *:active,
+body .sidebar .settings__sidebar-button [class*="active"],
+body .sidebar .settings__sidebar-button [aria-current="page"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+body .settings__sidebar .settings__sidebar-button--active svg,
+body .sidebar .settings__sidebar-button--active svg,
+body .settings__sidebar .settings__sidebar-button[aria-current="page"] svg,
+body .sidebar .settings__sidebar-button[aria-current="page"] svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+body .settings__sidebar .settings__sidebar-button::before,
+body .settings__sidebar .settings__sidebar-button::after,
+body .settings__sidebar .settings__sidebar-button *::before,
+body .settings__sidebar .settings__sidebar-button *::after,
+body .sidebar .settings__sidebar-button::before,
+body .sidebar .settings__sidebar-button::after,
+body .sidebar .settings__sidebar-button *::before,
+body .sidebar .settings__sidebar-button *::after {
+  background: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* =====================================================
+   SIDEBAR GAME LIST — FIT HYDRA'S 42PX VIRTUAL ROWS
+   The 38px item plus 2px top/bottom margins equals 42px.
+   ===================================================== */
+
+body .sidebar .sidebar__game-list .sidebar__menu-item {
+  width: calc(100% - 8px) !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+
+  margin: 2px 4px !important;
+  padding: 0 !important;
+
+  border-radius: 9px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+body .sidebar .sidebar__game-list .sidebar__menu-item-button {
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  border-radius: 0 !important;
+}
+
+body .sidebar .sidebar__game-list .sidebar__menu-item:hover,
+body .sidebar .sidebar__game-list .sidebar__menu-item--active {
+  border-radius: 9px !important;
+}
+
+body .sidebar .sidebar__game-list .sidebar__menu-item-button-label {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* =====================================================
+   SETTINGS MENU PANEL — NEBULA GLASS BACKGROUND
+   Replaces the solid black column while retaining contrast.
+   ===================================================== */
+
+body .settings__sidebar {
+  background: linear-gradient(
+    110deg,
+    rgba(4, 9, 15, 0.50) 0%,
+    rgba(5, 13, 20, 0.34) 55%,
+    rgba(7, 18, 25, 0.25) 100%
+  ) !important;
+  background-color: transparent !important;
+
+  backdrop-filter: blur(2px) saturate(1.04) !important;
+  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+
+  border: 1px solid rgba(108, 170, 188, 0.14) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+}
+
+body .settings__sidebar::before,
+body .settings__sidebar::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Match inactive theme cards to the Settings menu glass panel. */
+body .settings__content .theme-card:not(.theme-card--active),
+body
+  .settings__content
+  .settings-appearance__themes__theme:not(
+    .settings-appearance__themes__theme--active
+  ) {
+  background: linear-gradient(
+    110deg,
+    rgba(4, 9, 15, 0.50) 0%,
+    rgba(5, 13, 20, 0.34) 55%,
+    rgba(7, 18, 25, 0.25) 100%
+  ) !important;
+  background-color: transparent !important;
+
+  backdrop-filter: blur(2px) saturate(1.04) !important;
+  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+
+  border: 1px solid rgba(108, 170, 188, 0.14) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  filter: none !important;
+}
+
+/* Match Download Sources cards to the same glass surface. */
+body .settings__content .settings-download-sources__item {
+  background: linear-gradient(
+    110deg,
+    rgba(4, 9, 15, 0.50) 0%,
+    rgba(5, 13, 20, 0.34) 55%,
+    rgba(7, 18, 25, 0.25) 100%
+  ) !important;
+  background-color: transparent !important;
+
+  backdrop-filter: blur(2px) saturate(1.04) !important;
+  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+
+  border: 1px solid rgba(108, 170, 188, 0.14) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  filter: none !important;
+}
+
+/* Match Emulation console cards to the same nebula glass surface. */
+body .settings__content .console-card,
+body .settings__content .console-card:hover {
+  background: linear-gradient(
+    110deg,
+    rgba(4, 9, 15, 0.50) 0%,
+    rgba(5, 13, 20, 0.34) 55%,
+    rgba(7, 18, 25, 0.25) 100%
+  ) !important;
+  background-color: transparent !important;
+
+  backdrop-filter: blur(2px) saturate(1.04) !important;
+  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+
+  border: 1px solid rgba(108, 170, 188, 0.14) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  filter: none !important;
+}
+
+/* Keep the Emulation Manage label and chevron clear of the hover pill edge. */
+body .settings__content .console-card__cta,
+body .settings__content .console-card__cta:hover,
+body .settings__content .console-card__cta:focus {
+  width: max-content !important;
+  min-width: max-content !important;
+  padding: 4px 10px !important;
+  gap: 6px !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
