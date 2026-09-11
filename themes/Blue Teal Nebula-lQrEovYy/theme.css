@@ -2,7 +2,7 @@
 {
   "name": "Blue Teal Nebula",
   "author": "Wyzlow",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Nebula layout with a blue and teal colour scheme"
 }
 */
@@ -40,6 +40,23 @@ textarea {
 
   --glass-blur: blur(12px);
   --radius-md: 12px;
+
+  /* Shared nebula glass surface */
+  --nebula-glass-background: linear-gradient(
+    110deg,
+    rgba(4, 9, 15, 0.50) 0%,
+    rgba(5, 13, 20, 0.34) 55%,
+    rgba(7, 18, 25, 0.25) 100%
+  );
+  --nebula-glass-filter: blur(2px) saturate(1.04);
+  --nebula-glass-border: rgba(108, 170, 188, 0.14);
+  --nebula-glass-radius: 14px;
+  --nebula-glass-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  /* Visible focus without adding a second inner box */
+  --nebula-focus-border: rgba(151, 247, 239, 0.92);
+  --nebula-focus-ring: rgba(53, 117, 183, 0.68);
+  --nebula-focus-glow: rgba(22, 177, 149, 0.38);
 }
 
 *,
@@ -388,6 +405,15 @@ body .sidebar .sidebar__menu-item:has([class*="active"]) {
   filter: none !important;
 }
 
+/* Draw keyboard focus on the existing outer item, never on its inner control. */
+body .sidebar .sidebar__menu-item:focus-visible,
+body .sidebar .sidebar__menu-item:has(:focus-visible) {
+  border-color: var(--nebula-focus-border) !important;
+  box-shadow:
+    0 0 0 2px var(--nebula-focus-ring),
+    0 0 12px var(--nebula-focus-glow) !important;
+}
+
 /* Clean text and icons without changing their geometry. */
 body .sidebar .sidebar__menu-item span,
 body .sidebar .sidebar__menu-item svg,
@@ -446,6 +472,17 @@ body .sidebar .settings__sidebar-button:has([aria-current="page"]) {
   outline: none !important;
   box-shadow: none !important;
   filter: none !important;
+}
+
+/* Preserve a single visible keyboard-focus surface in the Settings menu. */
+body .settings__sidebar .settings__sidebar-button:focus-visible,
+body .settings__sidebar .settings__sidebar-button:has(:focus-visible),
+body .sidebar .settings__sidebar-button:focus-visible,
+body .sidebar .settings__sidebar-button:has(:focus-visible) {
+  border-color: var(--nebula-focus-border) !important;
+  box-shadow:
+    0 0 0 2px var(--nebula-focus-ring),
+    0 0 12px var(--nebula-focus-glow) !important;
 }
 
 /* The active class can be placed on an inner wrapper. Never paint that layer. */
@@ -543,20 +580,15 @@ body .sidebar .sidebar__game-list .sidebar__menu-item-button-label {
    ===================================================== */
 
 body .settings__sidebar {
-  background: linear-gradient(
-    110deg,
-    rgba(4, 9, 15, 0.50) 0%,
-    rgba(5, 13, 20, 0.34) 55%,
-    rgba(7, 18, 25, 0.25) 100%
-  ) !important;
+  background: var(--nebula-glass-background) !important;
   background-color: transparent !important;
 
-  backdrop-filter: blur(2px) saturate(1.04) !important;
-  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+  backdrop-filter: var(--nebula-glass-filter) !important;
+  -webkit-backdrop-filter: var(--nebula-glass-filter) !important;
 
-  border: 1px solid rgba(108, 170, 188, 0.14) !important;
-  border-radius: 14px !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid var(--nebula-glass-border) !important;
+  border-radius: var(--nebula-glass-radius) !important;
+  box-shadow: var(--nebula-glass-inset-shadow) !important;
 }
 
 body .settings__sidebar::before,
@@ -572,59 +604,44 @@ body
   .settings-appearance__themes__theme:not(
     .settings-appearance__themes__theme--active
   ) {
-  background: linear-gradient(
-    110deg,
-    rgba(4, 9, 15, 0.50) 0%,
-    rgba(5, 13, 20, 0.34) 55%,
-    rgba(7, 18, 25, 0.25) 100%
-  ) !important;
+  background: var(--nebula-glass-background) !important;
   background-color: transparent !important;
 
-  backdrop-filter: blur(2px) saturate(1.04) !important;
-  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+  backdrop-filter: var(--nebula-glass-filter) !important;
+  -webkit-backdrop-filter: var(--nebula-glass-filter) !important;
 
-  border: 1px solid rgba(108, 170, 188, 0.14) !important;
-  border-radius: 14px !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid var(--nebula-glass-border) !important;
+  border-radius: var(--nebula-glass-radius) !important;
+  box-shadow: var(--nebula-glass-inset-shadow) !important;
   filter: none !important;
 }
 
 /* Match Download Sources cards to the same glass surface. */
 body .settings__content .settings-download-sources__item {
-  background: linear-gradient(
-    110deg,
-    rgba(4, 9, 15, 0.50) 0%,
-    rgba(5, 13, 20, 0.34) 55%,
-    rgba(7, 18, 25, 0.25) 100%
-  ) !important;
+  background: var(--nebula-glass-background) !important;
   background-color: transparent !important;
 
-  backdrop-filter: blur(2px) saturate(1.04) !important;
-  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+  backdrop-filter: var(--nebula-glass-filter) !important;
+  -webkit-backdrop-filter: var(--nebula-glass-filter) !important;
 
-  border: 1px solid rgba(108, 170, 188, 0.14) !important;
-  border-radius: 14px !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid var(--nebula-glass-border) !important;
+  border-radius: var(--nebula-glass-radius) !important;
+  box-shadow: var(--nebula-glass-inset-shadow) !important;
   filter: none !important;
 }
 
 /* Match Emulation console cards to the same nebula glass surface. */
 body .settings__content .console-card,
 body .settings__content .console-card:hover {
-  background: linear-gradient(
-    110deg,
-    rgba(4, 9, 15, 0.50) 0%,
-    rgba(5, 13, 20, 0.34) 55%,
-    rgba(7, 18, 25, 0.25) 100%
-  ) !important;
+  background: var(--nebula-glass-background) !important;
   background-color: transparent !important;
 
-  backdrop-filter: blur(2px) saturate(1.04) !important;
-  -webkit-backdrop-filter: blur(2px) saturate(1.04) !important;
+  backdrop-filter: var(--nebula-glass-filter) !important;
+  -webkit-backdrop-filter: var(--nebula-glass-filter) !important;
 
-  border: 1px solid rgba(108, 170, 188, 0.14) !important;
-  border-radius: 14px !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid var(--nebula-glass-border) !important;
+  border-radius: var(--nebula-glass-radius) !important;
+  box-shadow: var(--nebula-glass-inset-shadow) !important;
   filter: none !important;
 }
 
