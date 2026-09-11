@@ -2,7 +2,7 @@
 {
   "name": "Blue Teal Nebula",
   "author": "Wyzlow",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Nebula layout with a blue and teal colour scheme"
 }
 */
@@ -57,6 +57,14 @@ textarea {
   --nebula-focus-border: rgba(151, 247, 239, 0.92);
   --nebula-focus-ring: rgba(53, 117, 183, 0.68);
   --nebula-focus-glow: rgba(22, 177, 149, 0.38);
+
+  /* Opaque hover surface keeps white text above WCAG AA contrast. */
+  --nebula-hover-background: linear-gradient(
+    100deg,
+    #1e4f78 0%,
+    #176276 52%,
+    #0d6b5a 100%
+  );
 }
 
 *,
@@ -232,19 +240,14 @@ body .settings__content .settings-download-sources__navigate-button small {
 
 /* Filter Library field */
 input[placeholder="Filter library"] {
-  border: 1px solid transparent !important;
+  border: 1px solid var(--accent-middle) !important;
   border-radius: 10px !important;
   outline: none !important;
-  background:
-    linear-gradient(#090a0f, #090a0f) padding-box,
-    linear-gradient(
-      100deg,
-      #3575b7 0%,
-      #2496ad 52%,
-      #16b195 100%
-    ) border-box !important;
+  background: #090a0f !important;
   color: #f2f4f7 !important;
-  box-shadow: 0 0 10px rgba(22, 177, 149, 0.18) !important;
+  box-shadow:
+    -2px 0 8px rgba(53, 117, 183, 0.22),
+    2px 0 10px rgba(22, 177, 149, 0.22) !important;
 }
 
 input[placeholder="Filter library"]:focus {
@@ -372,12 +375,7 @@ body .sidebar .sidebar__menu-item *::after {
 
 /* One matching outline for hover. */
 body .sidebar .sidebar__menu-item:hover {
-  background: linear-gradient(
-    100deg,
-    rgba(53, 117, 183, 0.30) 0%,
-    rgba(36, 150, 173, 0.28) 52%,
-    rgba(22, 177, 149, 0.30) 100%
-  ) !important;
+  background: var(--nebula-hover-background) !important;
   color: #ffffff !important;
   border: 1px solid rgba(102, 229, 222, 0.72) !important;
   border-radius: 10px !important;
@@ -440,12 +438,7 @@ body .sidebar .settings__sidebar-button {
 
 body .settings__sidebar .settings__sidebar-button:hover,
 body .sidebar .settings__sidebar-button:hover {
-  background: linear-gradient(
-    100deg,
-    rgba(53, 117, 183, 0.30) 0%,
-    rgba(36, 150, 173, 0.28) 52%,
-    rgba(22, 177, 149, 0.30) 100%
-  ) !important;
+  background: var(--nebula-hover-background) !important;
   color: #ffffff !important;
   border-color: rgba(102, 229, 222, 0.72) !important;
   box-shadow: none !important;
