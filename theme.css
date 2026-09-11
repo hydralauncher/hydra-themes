@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body, #root, #app {
+    background-image: url('https://i.pinimg.com/736x/9a/72/80/9a7280e441a94543318083c9c45d4690.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-color: transparent !important;
+}
+
+.sidebar, .main-content, .settings-panel, header, footer {
+    background: transparent !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.sidebar > div, .main-content > div, .settings-panel > div, .game-card, .list-item, button, .btn {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+
+header::after, .navbar::after, h1::after {
+    content: " FOREST" !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 13px !important;
+    color: #ffffff !important;
+    margin-left: 10px !important;
+    text-shadow: 1px 1px 2px #000 !important;
+}
+
+* {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 13px !important; 
+    color: #ffffff !important;
+}
