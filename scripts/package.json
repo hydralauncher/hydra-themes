@@ -1,8 +1,0 @@
-{
-  "name": "hydra-theme-installer",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "classic-level": "^2.0.0"
-  }
-}
