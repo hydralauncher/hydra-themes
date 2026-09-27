@@ -1106,13 +1106,40 @@ a:hover {
   box-shadow: 0 0 6px rgba(255, 21, 149, 0.12), var(--shadow) !important;
 }
 
-/* reduce motion */
+/* reduce motion: no transitions, no animations, no hover lifts anywhere */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+  }
   .game-card,
+  .game-card:hover,
   .vertical-cover-card,
+  .vertical-cover-card:hover,
   .library-game-card__wrapper,
-  .game-item {
-    transition: none !important;
+  .library-game-card__wrapper:hover,
+  .user-library-game__wrapper,
+  .user-library-game__wrapper:hover,
+  .game-item,
+  .game-item:hover,
+  .button:hover,
+  .button:active {
     transform: none !important;
+  }
+  /* this one declares its transition with !important at higher specificity */
+  .sidebar__section--games .sidebar__menu-item-button {
+    transition: none !important;
+  }
+  /* skeletons: drop the moving shimmer, keep the static violet block */
+  .react-loading-skeleton {
+    --pseudo-element-display: none !important;
+  }
+  .game-details__skeleton .react-loading-skeleton {
+    animation: none !important;
   }
 }
