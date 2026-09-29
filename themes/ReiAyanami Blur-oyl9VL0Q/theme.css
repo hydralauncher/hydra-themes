@@ -209,11 +209,11 @@ profile-section {
     padding: 0;
 }
 
-.workwonders-feedback-button,
+/* .workwonders-feedback-button,
 .game-details__cloud-sync-button,
 .game-details__edit-custom-game-button {
     display: none;
-}
+} */
 
 .button {
     color: white;
