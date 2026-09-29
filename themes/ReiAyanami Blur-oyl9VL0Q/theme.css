@@ -1,0 +1,237 @@
+::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background: url("https://i.imgur.com/uNHGiFU.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(41, 41, 41);
+}
+
+.title-bar {
+    background-color: rgba(0, 0, 0, 0);
+    /* backdrop-filter: blur(10px); */
+    border: none;
+}
+
+.hero {
+    box-shadow: none;
+    border: none;
+}
+
+.game-card {
+    box-shadow: none;
+    border: none;
+    border-radius: 12px;
+}
+
+.header {
+    margin: 10px;
+    margin-bottom: 0px;
+    border-radius: 12px;
+    border: none;
+    width: auto;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.header__section {
+    gap: 8px;
+}
+
+.container__content {
+    margin: 10px;
+    border-radius: 12px;
+    width: auto;
+
+    background: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.header__search>button {
+    background-color: transparent;
+}
+
+.sidebar {
+    margin: 10px;
+    margin-right: 0px;
+    border-radius: 12px;
+    border: none;
+    width: auto;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.sidebar-profile__dropdown,
+.collections-filter__content,
+.library-select__content,
+.library-multi-select__content,
+.sidebar-filter-menu__content {
+    background-color: black;
+
+    border: none;
+    border-radius: 12px;
+}
+
+.library-game-card__wrapper {
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+.library-category-filter__container,
+.collections-filter__trigger,
+.library-installed-filter__button,
+.library-select__trigger,
+.library-multi-select__trigger,
+.library-view-options__option,
+.header__search,
+.header__action-button,
+.text-field-container__text-field,
+.catalogue-mode-toggle,
+.select-field__option,
+.select-field,
+.filter-section,
+.game-item,
+.badge,
+.hero-panel,
+.button,
+.description-header,
+.sidebar__menu-item--active,
+.profile-section,
+.settings__sidebar-button--active,
+.theme-card,
+.settings-download-sources__item {
+    border-radius: 12px;
+    border: none;
+
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.filter-section__button,
+.filter-section__content,
+.sidebar-section__content,
+.profile-section__content,
+.profile-section__header {
+    background-color: transparent;
+}
+
+.sidebar__play-button,
+.sidebar__add-button {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.game-details__description-container {
+    background: transparent;
+}
+
+.sidebar-section,
+profile-section {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+.bottom-panel {
+    width: auto;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.sidebar__menu-item:hover,
+.settings__sidebar-button:hover,
+.sidebar__menu-item,
+.sidebar__menu-item sidebar__menu-item--active,
+.settings__sidebar-button--active,
+.settings__sidebar-button {
+    border-radius: 12px;
+}
+
+.gallery-slider__viewport,
+.gallery-slider__preview,
+.game-details__description,
+.similar-games,
+.game-details__reviews-section {
+    width: 100%;
+}
+
+.game-details__hero-panel {
+    padding: 12px;
+}
+
+.gallery-slider__container {
+    padding-top: 0;
+}
+
+.requirement__button {
+    color: white;
+}
+
+.requirement__button-container {
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    gap: 5px;
+}
+
+.button--primary {
+    background-color: black;
+}
+
+.button--primary:hover {
+    background-color: black;
+}
+
+.settings__content {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.settings__sidebar {
+    background-color: transparent;
+}
+
+.settings__container {
+    padding: 0;
+}
+
+/* .workwonders-feedback-button,
+.game-details__cloud-sync-button,
+.game-details__edit-custom-game-button {
+    display: none;
+} */
+
+.button {
+    color: white;
+}
+
+option {
+    background-color: black;
+    color: white;
+}
+
+.sidebar__game-list--scrolled {
+    box-shadow: none;
+}
+
+.modal {
+    border: none;
+    border-radius: 12px;
+}
+
+/* Toast */
+.toast {}
