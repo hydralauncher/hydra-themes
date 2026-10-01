@@ -7,7 +7,10 @@
    ========================================================================== */
 
 /* ---- Settings: edit these to taste ------------------------------------ */
-:root {
+/* :host makes the variables available inside the theme editor's isolated
+   notification preview too. */
+:root,
+:host {
   /* Banner height on game pages (Hydra's own is 350px). */
   --ej-game-banner-height: 500px;
   /* Banner height on profile pages. */
@@ -17,6 +20,31 @@
   /* Vertical padding of the sidebar profile button — sized so the profile
      block lines up with the top header bar. */
   --ej-profile-button-padding-y: 18.5px;
+  /* Fill of section headers, strips and the achievement pop-up. */
+  --ej-header-fill: linear-gradient(180deg, #163527 0%, #12281e 100%);
+  /* ...and its hover. */
+  --ej-header-fill-hover: linear-gradient(180deg, #1d4633 0%, #173527 100%);
+  /* The "active" look (toggles, hovered/selected rows, counters): fill,
+     outline and text. */
+  --ej-active-fill: rgba(31, 185, 128, 0.22);
+  --ej-active-outline: rgba(31, 185, 128, 0.4);
+  --ej-active-text: #fafafa;
+  --ej-active-radius: 7px;
+  /* Emerald outline of sections, cards and strips. */
+  --ej-outline: rgba(31, 185, 128, 0.35);
+  /* Hover/selected fill of dropdown and settings menu items. */
+  --ej-menu-fill: rgba(31, 185, 128, 0.28);
+  /* Hover fill of plain list rows. */
+  --ej-row-hover: rgba(31, 185, 128, 0.16);
+  /* Opaque emerald for controls that sit over pictures or mixed
+     surfaces (viewer buttons, checkboxes, tooltips): fill, hover, outline. */
+  --ej-solid-fill: #113326;
+  --ej-solid-fill-hover: #17422f;
+  --ej-solid-outline: rgba(31, 185, 128, 0.5);
+  /* Gold accent: selected bars, active-tab underlines, progress. */
+  --ej-gold: #e0b64a;
+  /* Gold hairlines and dividers. */
+  --ej-gold-line: rgba(224, 182, 74, 0.55);
 }
 
 /* ---- App background -------------------------------------------------- */
@@ -38,7 +66,7 @@ body {
 }
 /* "Cloud" wordmark: emerald -> gold */
 .title-bar__cloud-text {
-  background: linear-gradient(270deg, #1db980 40%, #e0b64a 100%) !important;
+  background: linear-gradient(270deg, #1db980 40%, var(--ej-gold) 100%) !important;
   background-clip: text !important;
   -webkit-background-clip: text !important;
 }
@@ -53,16 +81,16 @@ body {
    The outline is an inset ring so rows don't shift. */
 .sidebar__menu-item:hover,
 .sidebar__menu-item--active {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  border-radius: 7px !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  border-radius: var(--ej-active-radius) !important;
+  color: var(--ej-active-text) !important;
 }
 /* The selected row: the same, plus the gold accent bar. */
 .sidebar__menu-item--active {
   box-shadow:
-    inset 3px 0 0 #e0b64a,
-    inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+    inset 3px 0 0 var(--ej-gold),
+    inset 0 0 0 1px var(--ej-active-outline) !important;
 }
 
 /* ---- Buttons --------------------------------------------------------- */
@@ -130,18 +158,18 @@ body {
 .library-category-filter__option--active,
 .library-view-options__option.active,
 .wishlist__view-button--active {
-  background: rgba(31, 185, 128, 0.22) !important;
-  border-color: rgba(31, 185, 128, 0.4) !important;
-  color: #fafafa !important;
+  background: var(--ej-active-fill) !important;
+  border-color: var(--ej-active-outline) !important;
+  color: var(--ej-active-text) !important;
 }
 
 /* Checked checkboxes: the active-segment look instead of a white box. The
    fill is solid (the segment's emerald tint over its black tray) so it reads
    the same on the page, on glass modals and on cards. */
 .checkbox-field__checkbox.checked {
-  background-color: #113326 !important;
-  border-color: rgba(31, 185, 128, 0.5) !important;
-  color: #fafafa !important;
+  background-color: var(--ej-solid-fill) !important;
+  border-color: var(--ej-solid-outline) !important;
+  color: var(--ej-active-text) !important;
 }
 
 /* Image viewers (game screenshots, fullscreen media, the fork's souvenirs)
@@ -156,10 +184,10 @@ body {
 .gallery-slider__expand-button,
 .gallery-slider__video-play-icon,
 .gallery-slider__play-overlay {
-  background-color: #113326 !important;
+  background-color: var(--ej-solid-fill) !important;
   border-color: transparent !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.5) !important;
-  color: #fafafa !important;
+  box-shadow: inset 0 0 0 1px var(--ej-solid-outline) !important;
+  color: var(--ej-active-text) !important;
 }
 .fullscreen-media-modal__close-button:hover,
 .gallery-lightbox__close-button:hover,
@@ -169,7 +197,7 @@ body {
 .gallery-slider__button:hover,
 .gallery-slider__expand-button:hover,
 .gallery-slider__video-play-button:hover .gallery-slider__video-play-icon {
-  background-color: #17422f !important;
+  background-color: var(--ej-solid-fill-hover) !important;
 }
 
 /* Tooltips (react-tooltip, used app-wide): emerald like the viewer buttons
@@ -177,9 +205,9 @@ body {
    The arrow inherits the background. */
 .react-tooltip {
   --rt-opacity: 1;
-  background-color: #113326 !important;
-  color: #fafafa !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.5) !important;
+  background-color: var(--ej-solid-fill) !important;
+  color: var(--ej-active-text) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-solid-outline) !important;
 }
 
 /* Video progress bar. Hydra uses the browser's native <video controls>, and
@@ -201,7 +229,7 @@ video::-webkit-media-controls-timeline {
 .library-game-card:hover,
 .library-game-card-large:hover {
   box-shadow:
-    0 6px 20px rgba(31, 185, 128, 0.28),
+    0 6px 20px var(--ej-menu-fill),
     inset 0 0 0 1px rgba(224, 182, 74, 0.45) !important;
   transform: translateY(-2px) !important;
 }
@@ -253,12 +281,12 @@ video::-webkit-media-controls-timeline {
 .filter-section__button,
 .sidebar-section__header,
 .profile-section__header {
-  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
+  background: var(--ej-header-fill) !important;
 }
 .filter-section__button:hover,
 .sidebar-section__header:hover,
 .profile-section__header:hover {
-  background: linear-gradient(180deg, #1d4633 0%, #173527 100%) !important;
+  background: var(--ej-header-fill-hover) !important;
 }
 
 /* Lift collapsible sections off the page: stronger outline and a gold hairline
@@ -267,24 +295,24 @@ video::-webkit-media-controls-timeline {
 .filter-section,
 .sidebar-section,
 .profile-section {
-  border-color: rgba(31, 185, 128, 0.35) !important;
+  border-color: var(--ej-outline) !important;
 }
 /* Settings → Emulation console cards: section outline (hover = download-source
    look, see the row hover group below). */
 .console-card {
-  border: 1px solid rgba(31, 185, 128, 0.35) !important;
+  border: 1px solid var(--ej-outline) !important;
 }
 /* Game page "Released / Publisher" strip: same fill and outline as the
    section headers. */
 .description-header {
-  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
-  border: 1px solid rgba(31, 185, 128, 0.35) !important;
+  background: var(--ej-header-fill) !important;
+  border: 1px solid var(--ej-outline) !important;
   border-radius: 12px !important;
 }
 .filter-section__content,
 .sidebar-section__content,
 .profile-section__content {
-  box-shadow: inset 0 1px 0 rgba(224, 182, 74, 0.55) !important;
+  box-shadow: inset 0 1px 0 var(--ej-gold-line) !important;
 }
 
 /* System requirements tabs: pill buttons sat on the gold hairline — drop them. */
@@ -297,8 +325,8 @@ video::-webkit-media-controls-timeline {
    outline as the section headers. */
 .review-gate-notice,
 .review-prompt-banner {
-  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
-  border: 1px solid rgba(31, 185, 128, 0.35) !important;
+  background: var(--ej-header-fill) !important;
+  border: 1px solid var(--ej-outline) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
 }
 /* The review prompt is the one block that asks the user something: a soft
@@ -354,10 +382,10 @@ video::-webkit-media-controls-timeline {
 /* Gold dividers: above the vote buttons, between reviews, above the section. */
 .game-details__review-actions,
 .game-details__reviews-section {
-  border-top-color: rgba(224, 182, 74, 0.55) !important;
+  border-top-color: var(--ej-gold-line) !important;
 }
 .game-details__reviews-separator {
-  background: rgba(224, 182, 74, 0.55) !important;
+  background: var(--ej-gold-line) !important;
 }
 
 
@@ -366,11 +394,11 @@ video::-webkit-media-controls-timeline {
    gold outline the trigger button inherited from .button--outline. */
 .collections-filter__item:hover,
 .collections-filter__item:focus {
-  background-color: rgba(31, 185, 128, 0.28) !important;
+  background-color: var(--ej-menu-fill) !important;
 }
 .collections-filter__item--active {
-  background-color: rgba(31, 185, 128, 0.28) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background-color: var(--ej-menu-fill) !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 .collections-filter__trigger {
   border-color: rgba(31, 185, 128, 0.25) !important;
@@ -380,11 +408,11 @@ video::-webkit-media-controls-timeline {
    gold stripe on the checked items. */
 .sidebar-filter-menu__item:hover,
 .sidebar-filter-menu__item[data-highlighted] {
-  background-color: rgba(31, 185, 128, 0.28) !important;
+  background-color: var(--ej-menu-fill) !important;
 }
 .sidebar-filter-menu__item[data-state="checked"] {
-  background-color: rgba(31, 185, 128, 0.28) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background-color: var(--ej-menu-fill) !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 
 /* Context menu (game right-click, collections…): same mechanics as the
@@ -395,15 +423,15 @@ video::-webkit-media-controls-timeline {
     .context-menu__item--danger
   ),
 .context-menu__item--active {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  border-radius: 7px !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  border-radius: var(--ej-active-radius) !important;
+  color: var(--ej-active-text) !important;
 }
 .context-menu__item--active {
   box-shadow:
-    inset 3px 0 0 #e0b64a,
-    inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+    inset 3px 0 0 var(--ej-gold),
+    inset 0 0 0 1px var(--ej-active-outline) !important;
 }
 
 /* Profile block (top of the sidebar): fill it with the same gradient as the
@@ -417,7 +445,7 @@ video::-webkit-media-controls-timeline {
     rgba(12, 61, 44, 0.55) 100%
   ) !important;
   border-right: 1px solid #0a0f0c !important;
-  border-bottom: 1px solid rgba(224, 182, 74, 0.55) !important;
+  border-bottom: 1px solid var(--ej-gold-line) !important;
 }
 /* Remove the 8px dark gap above the profile (Windows/Linux only — keep the
    macOS traffic-light offset). */
@@ -464,10 +492,10 @@ video::-webkit-media-controls-timeline {
 /* Its items hover like the sidebar rows (active-toggle look); "Sign out"
    keeps its red. */
 .sidebar-profile__dropdown-item:hover:not(.sidebar-profile__dropdown-item--danger) {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  border-radius: 7px !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  border-radius: var(--ej-active-radius) !important;
+  color: var(--ej-active-text) !important;
 }
 
 /* Sidebar search field: thin white ring (inset = no layout shift). */
@@ -507,12 +535,12 @@ video::-webkit-media-controls-timeline {
 .user-stats__list-item:hover,
 .badges-box__item:hover,
 .recent-games__list-item:hover {
-  background-color: rgba(31, 185, 128, 0.16) !important;
+  background-color: var(--ej-row-hover) !important;
 }
 
 /* Achievement rows in the game-details sidebar: emerald hover. */
 .list__item:hover {
-  background-color: rgba(31, 185, 128, 0.16) !important;
+  background-color: var(--ej-row-hover) !important;
 }
 
 /* Full achievements page: unlocked rows (image NOT --locked) stay emerald +
@@ -521,51 +549,51 @@ video::-webkit-media-controls-timeline {
     .achievements__item-image:not(.achievements__item-image--locked)
   ) {
   background-color: rgba(31, 185, 128, 0.11) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 
 /* Sort dropdown (library "Sort by"): emerald hover + gold stripe on the
    selected radio item (Radix marks it data-state="checked"). */
 .library-select__item:hover,
 .library-select__item[data-highlighted] {
-  background-color: rgba(31, 185, 128, 0.28) !important;
+  background-color: var(--ej-menu-fill) !important;
 }
 .library-select__item[data-state="checked"] {
-  background-color: rgba(31, 185, 128, 0.28) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background-color: var(--ej-menu-fill) !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 
 /* Notifications tabs: the unread counter takes the active-toggle look, the
    active tab's underline is gold. */
 .notifications__tab-badge {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  color: var(--ej-active-text) !important;
 }
 .notifications__tab-underline {
-  background: #e0b64a !important;
+  background: var(--ej-gold) !important;
 }
 /* Dismiss (×) on a notification: the same emerald look on hover. */
 .notification-item__dismiss:hover {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  color: var(--ej-active-text) !important;
 }
 
 /* Profile tabs (Library / Reviews / …): same as the notifications tabs —
    gold underline on the active tab, emerald counter. */
 .profile-content__tab-badge {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  color: var(--ej-active-text) !important;
 }
 .profile-content__tab-underline {
-  background: #e0b64a !important;
+  background: var(--ej-gold) !important;
 }
 /* Game options modal, asset tabs (Icon / Logo / Banner / Cover): same gold
    underline on the active tab. */
 .game-assets-settings__asset-tab-underline {
-  background: #e0b64a !important;
+  background: var(--ej-gold) !important;
 }
 
 /* Profile filters (library / souvenirs tabs): framed like the catalogue and
@@ -579,52 +607,52 @@ video::-webkit-media-controls-timeline {
 }
 .filter-dropdown__trigger:hover,
 .filter-dropdown__trigger--open {
-  border-color: rgba(31, 185, 128, 0.35) !important;
+  border-color: var(--ej-outline) !important;
 }
 .filter-dropdown__value {
-  background: rgba(31, 185, 128, 0.22) !important;
-  border: 1px solid rgba(31, 185, 128, 0.4) !important;
-  border-radius: 7px !important;
+  background: var(--ej-active-fill) !important;
+  border: 1px solid var(--ej-active-outline) !important;
+  border-radius: var(--ej-active-radius) !important;
   padding: 4px 10px !important;
-  color: #fafafa !important;
+  color: var(--ej-active-text) !important;
 }
 .filter-dropdown__option:hover {
-  background: rgba(31, 185, 128, 0.28) !important;
+  background: var(--ej-menu-fill) !important;
 }
 .filter-dropdown__option--active {
-  background: rgba(31, 185, 128, 0.28) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background: var(--ej-menu-fill) !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 
 /* Settings left nav (same idea): emerald hover, green + gold stripe on active. */
 .settings__sidebar-button:hover,
 .game-options-modal__sidebar-button:hover {
-  background: rgba(31, 185, 128, 0.28) !important;
+  background: var(--ej-menu-fill) !important;
 }
 .settings__sidebar-button--active,
 .game-options-modal__sidebar-button--active {
-  background: rgba(31, 185, 128, 0.28) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background: var(--ej-menu-fill) !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 /* Divider between the settings nav groups: gold. */
 .settings__sidebar-divider {
-  background: rgba(224, 182, 74, 0.55) !important;
+  background: var(--ej-gold-line) !important;
 }
 
 /* Profile "Change banner" menu: hovered/focused item looks like a sidebar
    row (the first item is focused as soon as the menu opens). */
 .upload-background-image-button__menu-item:hover:not(:disabled),
 .upload-background-image-button__menu-item:focus {
-  background-color: rgba(31, 185, 128, 0.22) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
-  border-radius: 7px !important;
-  color: #fafafa !important;
+  background-color: var(--ej-active-fill) !important;
+  box-shadow: inset 0 0 0 1px var(--ej-active-outline) !important;
+  border-radius: var(--ej-active-radius) !important;
+  color: var(--ej-active-text) !important;
 }
 
 /* Generic dropdown menu (platform/sort-filter menu): emerald hover. */
 .dropdown-menu__item:hover,
 .dropdown-menu__item:focus {
-  background-color: rgba(31, 185, 128, 0.28) !important;
+  background-color: var(--ej-menu-fill) !important;
 }
 
 /* Repeated rows (catalogue results, source cards): same look, no blur —
@@ -647,14 +675,14 @@ video::-webkit-media-controls-timeline {
 .achievements-content__user-summary__container__stats__progress-bar:not(
     .achievements-content__user-summary__container__stats__progress-bar--platinum
   ) {
-  background-color: #e0b64a !important;
+  background-color: var(--ej-gold) !important;
 }
 /* "Earned points" strip: the active-toggle look — emerald fill and outline
    (no gold bar: the unlocked rows below already carry it). */
 .achievement-panel {
-  background: rgba(31, 185, 128, 0.22) !important;
-  border: 1px solid rgba(31, 185, 128, 0.4) !important;
-  border-radius: 7px !important;
+  background: var(--ej-active-fill) !important;
+  border: 1px solid var(--ej-active-outline) !important;
+  border-radius: var(--ej-active-radius) !important;
   box-shadow: none !important;
 }
 /* ...and a progress bar: the earned share is filled with emerald glass. The
@@ -703,13 +731,13 @@ video::-webkit-media-controls-timeline {
   ) !important;
   backdrop-filter: blur(14px) saturate(1.1) !important;
   -webkit-backdrop-filter: blur(14px) saturate(1.1) !important;
-  border-bottom: 1px solid rgba(224, 182, 74, 0.55) !important;
+  border-bottom: 1px solid var(--ej-gold-line) !important;
 }
 
 /* ---- Settings: active theme card = frosted glass --------------------- */
 .theme-card--active {
   background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(31, 185, 128, 0.35) !important;
+  border: 1px solid var(--ej-outline) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
   box-shadow:
@@ -736,21 +764,21 @@ video::-webkit-media-controls-timeline {
 /* Colours only: sizes, positions and every animation (slide-in, rare shine,
    trophy overlay) stay Hydra's own. */
 .achievement-notification__outer-container {
-  border: 1px solid rgba(31, 185, 128, 0.35) !important;
+  border: 1px solid var(--ej-outline) !important;
   border-radius: 8px !important;
   box-shadow:
     0 2px 16px rgba(0, 0, 0, 0.35),
     0 0 18px rgba(31, 185, 128, 0.12) !important;
 }
 .achievement-notification__container {
-  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background: var(--ej-header-fill) !important;
+  box-shadow: inset 3px 0 0 var(--ej-gold) !important;
 }
 .achievement-notification--platinum .achievement-notification__container {
   background: linear-gradient(94deg, #163527 -25%, #0c6b4b 100%) !important;
 }
 .achievement-notification__icon {
-  box-shadow: 0 0 0 1px rgba(224, 182, 74, 0.55) !important;
+  box-shadow: 0 0 0 1px var(--ej-gold-line) !important;
 }
 .achievement-notification--rare .achievement-notification__icon {
   box-shadow:
@@ -760,7 +788,7 @@ video::-webkit-media-controls-timeline {
 .achievement-notification--platinum .achievement-notification__icon {
   box-shadow:
     0 0 0 1px rgba(31, 185, 128, 0.8),
-    0 0 12px rgba(31, 185, 128, 0.35) !important;
+    0 0 12px var(--ej-outline) !important;
 }
 .achievement-notification__title {
   color: #eef5f1 !important;
