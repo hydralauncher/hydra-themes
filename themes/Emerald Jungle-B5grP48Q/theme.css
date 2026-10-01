@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Emerald Jungle — Hydra theme  ·  v1.0
+   Emerald Jungle — Hydra theme  ·  v1.1
    Palette:  base #0a0f0c / #12241b (deep emerald-black)
              accent #1db980 emerald -> #12996a deep, #7fe0a3 light
              highlight #e0b64a gold
@@ -12,6 +12,11 @@
   --ej-game-banner-height: 500px;
   /* Banner height on profile pages. */
   --ej-profile-banner-height: 500px;
+  /* Button corner radius (a large value gives the pill shape). */
+  --ej-button-radius: 999px;
+  /* Vertical padding of the sidebar profile button — sized so the profile
+     block lines up with the top header bar. */
+  --ej-profile-button-padding-y: 18.5px;
 }
 
 /* ---- App background -------------------------------------------------- */
@@ -43,19 +48,27 @@ body {
   background-color: #0b120e !important;
   border-right: 1px solid rgba(31, 185, 128, 0.12) !important;
 }
+/* Menu and game rows: hover is a copy of the active segmented toggle
+   ("Modern games") — emerald fill, emerald outline, 7px corners, light text.
+   The outline is an inset ring so rows don't shift. */
 .sidebar__menu-item:hover,
 .sidebar__menu-item--active {
-  background-color: rgba(31, 185, 128, 0.16) !important;
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  border-radius: 7px !important;
+  color: #fafafa !important;
 }
-/* Gold accent bar on the active game */
+/* The selected row: the same, plus the gold accent bar. */
 .sidebar__menu-item--active {
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  box-shadow:
+    inset 3px 0 0 #e0b64a,
+    inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
 }
 
 /* ---- Buttons --------------------------------------------------------- */
 /* Pill shape for a softer, more modern look */
 .button {
-  border-radius: 999px !important;
+  border-radius: var(--ej-button-radius) !important;
 }
 .button--primary {
   background: linear-gradient(135deg, #1db980, #12996a) !important;
@@ -71,6 +84,27 @@ body {
 .button--outline:hover {
   border-color: rgba(224, 182, 74, 0.8) !important;
   background: rgba(224, 182, 74, 0.08) !important;
+}
+/* Game page action buttons (under the banner): the exact look of Hydra's own
+   hero buttons (edit / cloud save) — dark backing, hairline border and a dark
+   halo, so they stay visible over light and near-black banners alike. */
+.hero-panel-actions__action {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8) !important;
+  color: #f0f1f7 !important;
+}
+.hero-panel-actions__action:hover {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+/* Hydra's own hero buttons (edit / cloud save) get the same gold outline on
+   hover that the action buttons inherit from .button--outline. */
+.game-details__edit-custom-game-button:hover,
+.game-details__cloud-sync-button:hover:not(:disabled) {
+  border-color: rgba(224, 182, 74, 0.8) !important;
 }
 
 /* Modal list rows are <Button>s too — rectangular (not pill), with the same
@@ -90,12 +124,70 @@ body {
   background: rgba(31, 185, 128, 0.12) !important;
 }
 
-/* Active segmented toggles (catalogue "Modern/Classics", library "All/PC/…"). */
+/* Active segmented toggles (catalogue "Modern/Classics", library "All/PC/…")
+   and active view-mode buttons (library, the fork's wishlist page). */
 .catalogue-mode-toggle__option--active,
-.library-category-filter__option--active {
+.library-category-filter__option--active,
+.library-view-options__option.active,
+.wishlist__view-button--active {
   background: rgba(31, 185, 128, 0.22) !important;
   border-color: rgba(31, 185, 128, 0.4) !important;
   color: #fafafa !important;
+}
+
+/* Checked checkboxes: the active-segment look instead of a white box. The
+   fill is solid (the segment's emerald tint over its black tray) so it reads
+   the same on the page, on glass modals and on cards. */
+.checkbox-field__checkbox.checked {
+  background-color: #113326 !important;
+  border-color: rgba(31, 185, 128, 0.5) !important;
+  color: #fafafa !important;
+}
+
+/* Image viewers (game screenshots, fullscreen media, the fork's souvenirs)
+   and the game page gallery (arrows, expand, play icons): round buttons take
+   the active-toggle look. Solid fill, since they sit over the picture. */
+.fullscreen-media-modal__close-button,
+.gallery-lightbox__close-button,
+.gallery-lightbox__nav-button,
+.profile-souvenir-lightbox__close-button,
+.profile-souvenir-lightbox__nav-button,
+.gallery-slider__button,
+.gallery-slider__expand-button,
+.gallery-slider__video-play-icon,
+.gallery-slider__play-overlay {
+  background-color: #113326 !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.5) !important;
+  color: #fafafa !important;
+}
+.fullscreen-media-modal__close-button:hover,
+.gallery-lightbox__close-button:hover,
+.gallery-lightbox__nav-button:hover,
+.profile-souvenir-lightbox__close-button:hover,
+.profile-souvenir-lightbox__nav-button:hover,
+.gallery-slider__button:hover,
+.gallery-slider__expand-button:hover,
+.gallery-slider__video-play-button:hover .gallery-slider__video-play-icon {
+  background-color: #17422f !important;
+}
+
+/* Tooltips (react-tooltip, used app-wide): emerald like the viewer buttons
+   and fully opaque — the stock grey at 0.9 opacity is barely visible here.
+   The arrow inherits the background. */
+.react-tooltip {
+  --rt-opacity: 1;
+  background-color: #113326 !important;
+  color: #fafafa !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.5) !important;
+}
+
+/* Video progress bar. Hydra uses the browser's native <video controls>, and
+   the played segment lives in the browser's internal shadow DOM — out of
+   reach for CSS. The only handle is the whole timeline, so it is tinted with
+   a filter: the white played part turns gold, the rest a dim gold. */
+video::-webkit-media-controls-timeline {
+  filter: sepia(1) saturate(9) hue-rotate(-18deg) brightness(0.86);
 }
 
 /* ---- Library grid cards: rounding + emerald hover glow --------------- */
@@ -156,6 +248,19 @@ body {
   background: transparent !important;
 }
 
+/* Section headers (catalogue filters, game sidebar, profile) get an opaque
+   emerald fill — over the dark app background plain glass reads as black. */
+.filter-section__button,
+.sidebar-section__header,
+.profile-section__header {
+  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
+}
+.filter-section__button:hover,
+.sidebar-section__header:hover,
+.profile-section__header:hover {
+  background: linear-gradient(180deg, #1d4633 0%, #173527 100%) !important;
+}
+
 /* Lift collapsible sections off the page: stronger outline and a gold hairline
    between header and (black) body. The hairline is an inset shadow, so a
    collapsed (0-height) body hides it. */
@@ -169,8 +274,10 @@ body {
 .console-card {
   border: 1px solid rgba(31, 185, 128, 0.35) !important;
 }
-/* Game page "Released / Publisher" strip: same outline as the sections. */
+/* Game page "Released / Publisher" strip: same fill and outline as the
+   section headers. */
 .description-header {
+  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
   border: 1px solid rgba(31, 185, 128, 0.35) !important;
   border-radius: 12px !important;
 }
@@ -186,19 +293,63 @@ body {
 }
 
 /* ---- Game reviews ------------------------------------------------------ */
-/* "Review locked" notice: permanent glass, like the section headers. */
-.review-gate-notice {
-  background: rgba(31, 185, 128, 0.12) !important;
-  backdrop-filter: blur(14px) saturate(1.1) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(1.1) !important;
+/* "Review locked" notice and the review prompt banner: same emerald fill and
+   outline as the section headers. */
+.review-gate-notice,
+.review-prompt-banner {
+  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
   border: 1px solid rgba(31, 185, 128, 0.35) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
 }
-/* Each review on a black card. */
+/* The review prompt is the one block that asks the user something: a soft
+   gold outline sets it apart from the informational strips around it. The
+   fill is painted glass — the page behind is flat, so a real backdrop blur
+   would show nothing: translucent emerald base, a diagonal sheen, a light top
+   edge and a faint bottom shade. */
+.review-prompt-banner {
+  border-color: rgba(224, 182, 74, 0.45) !important;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.11) 0%,
+      rgba(255, 255, 255, 0.02) 30%,
+      rgba(255, 255, 255, 0) 48%,
+      rgba(255, 255, 255, 0.05) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(31, 185, 128, 0.2) 0%,
+      rgba(12, 61, 44, 0.34) 100%
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+}
+/* Each review on a black card with a soft emerald outline (softer than the
+   sections': there are many of them in a row). */
 .game-details__review-item {
   background-color: #0d0d0d !important;
-  border-radius: 8px !important;
+  border: 1px solid rgba(31, 185, 128, 0.25) !important;
+  border-radius: 12px !important;
   padding: 12px 16px !important;
+}
+/* Replies under a review: glass cards (emerald tint, hairline, top highlight),
+   so they read as nested inside the black review card. No blur — the page
+   behind is flat. */
+.game-details__reply-item {
+  background: rgba(31, 185, 128, 0.09) !important;
+  border: 1px solid rgba(31, 185, 128, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+  padding: 12px 16px !important;
+}
+/* The thread line beside replies: the accent of unread notifications
+   (Hydra's teal); it's clickable, so hover brightens it. */
+.game-details__reply-thread-line {
+  background-color: #16b195 !important;
+}
+.game-details__reply-thread-line:hover:not(:disabled) {
+  background-color: #3fd9ae !important;
 }
 /* Gold dividers: above the vote buttons, between reviews, above the section. */
 .game-details__review-actions,
@@ -209,12 +360,6 @@ body {
   background: rgba(224, 182, 74, 0.55) !important;
 }
 
-/* Brighten the section header on hover (emerald, no gold border). */
-.filter-section__button:hover,
-.sidebar-section__header:hover,
-.profile-section__header:hover {
-  background: rgba(31, 185, 128, 0.16) !important;
-}
 
 /* Collections dropdown: emerald hover, and a gold left stripe on the active
    item (this menu marks it with a class, so no code change needed). Undo the
@@ -242,10 +387,23 @@ body {
   box-shadow: inset 3px 0 0 #e0b64a !important;
 }
 
-/* Context menu active item (current collection / open submenu): green + gold. */
+/* Context menu (game right-click, collections…): same mechanics as the
+   sidebar rows — hover copies the active segmented toggle, the active item
+   (current collection / open submenu) adds the gold bar. Destructive and
+   disabled items keep Hydra's own states. */
+.context-menu__item:hover:not(.context-menu__item--disabled):not(
+    .context-menu__item--danger
+  ),
 .context-menu__item--active {
-  background-color: rgba(31, 185, 128, 0.28) !important;
-  box-shadow: inset 3px 0 0 #e0b64a !important;
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  border-radius: 7px !important;
+  color: #fafafa !important;
+}
+.context-menu__item--active {
+  box-shadow:
+    inset 3px 0 0 #e0b64a,
+    inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
 }
 
 /* Profile block (top of the sidebar): fill it with the same gradient as the
@@ -274,19 +432,42 @@ body {
    reaches every edge). */
 .sidebar-profile__button {
   border-radius: 0 !important;
-  padding: 18.5px 8px !important;
+  padding: var(--ej-profile-button-padding-y) 8px !important;
 }
+/* Hover/open: the same painted glass as the review prompt banner — emerald
+   base, diagonal sheen, light top edge, faint bottom shade. */
 .sidebar-profile__button:hover,
 .sidebar-profile__button--active,
 .sidebar-profile__button[data-state="open"] {
-  background: rgba(255, 255, 255, 0.12) !important;
-  backdrop-filter: blur(10px) saturate(1.1) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.11) 0%,
+      rgba(255, 255, 255, 0.02) 30%,
+      rgba(255, 255, 255, 0) 48%,
+      rgba(255, 255, 255, 0.05) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(31, 185, 128, 0.2) 0%,
+      rgba(12, 61, 44, 0.34) 100%
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
 }
 /* Profile dropdown: drop it a touch below the green seam (top:100% puts it
    flush on the border). */
 .sidebar-profile__dropdown {
   margin-top: 4px !important;
+}
+/* Its items hover like the sidebar rows (active-toggle look); "Sign out"
+   keeps its red. */
+.sidebar-profile__dropdown-item:hover:not(.sidebar-profile__dropdown-item--danger) {
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  border-radius: 7px !important;
+  color: #fafafa !important;
 }
 
 /* Sidebar search field: thin white ring (inset = no layout shift). */
@@ -339,7 +520,7 @@ body {
 .achievements__item:has(
     .achievements__item-image:not(.achievements__item-image--locked)
   ) {
-  background-color: rgba(31, 185, 128, 0.16) !important;
+  background-color: rgba(31, 185, 128, 0.11) !important;
   box-shadow: inset 3px 0 0 #e0b64a !important;
 }
 
@@ -352,6 +533,39 @@ body {
 .library-select__item[data-state="checked"] {
   background-color: rgba(31, 185, 128, 0.28) !important;
   box-shadow: inset 3px 0 0 #e0b64a !important;
+}
+
+/* Notifications tabs: the unread counter takes the active-toggle look, the
+   active tab's underline is gold. */
+.notifications__tab-badge {
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  color: #fafafa !important;
+}
+.notifications__tab-underline {
+  background: #e0b64a !important;
+}
+/* Dismiss (×) on a notification: the same emerald look on hover. */
+.notification-item__dismiss:hover {
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  color: #fafafa !important;
+}
+
+/* Profile tabs (Library / Reviews / …): same as the notifications tabs —
+   gold underline on the active tab, emerald counter. */
+.profile-content__tab-badge {
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  color: #fafafa !important;
+}
+.profile-content__tab-underline {
+  background: #e0b64a !important;
+}
+/* Game options modal, asset tabs (Icon / Logo / Banner / Cover): same gold
+   underline on the active tab. */
+.game-assets-settings__asset-tab-underline {
+  background: #e0b64a !important;
 }
 
 /* Profile filters (library / souvenirs tabs): framed like the catalogue and
@@ -383,21 +597,33 @@ body {
 }
 
 /* Settings left nav (same idea): emerald hover, green + gold stripe on active. */
-.settings__sidebar-button:hover {
+.settings__sidebar-button:hover,
+.game-options-modal__sidebar-button:hover {
   background: rgba(31, 185, 128, 0.28) !important;
 }
-.settings__sidebar-button--active {
+.settings__sidebar-button--active,
+.game-options-modal__sidebar-button--active {
   background: rgba(31, 185, 128, 0.28) !important;
   box-shadow: inset 3px 0 0 #e0b64a !important;
 }
+/* Divider between the settings nav groups: gold. */
+.settings__sidebar-divider {
+  background: rgba(224, 182, 74, 0.55) !important;
+}
 
-/* Generic dropdown menu (platform/sort-filter menu) + context menus (game
-   right-click, profile menu): emerald hover; destructive items stay red. */
+/* Profile "Change banner" menu: hovered/focused item looks like a sidebar
+   row (the first item is focused as soon as the menu opens). */
+.upload-background-image-button__menu-item:hover:not(:disabled),
+.upload-background-image-button__menu-item:focus {
+  background-color: rgba(31, 185, 128, 0.22) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 185, 128, 0.4) !important;
+  border-radius: 7px !important;
+  color: #fafafa !important;
+}
+
+/* Generic dropdown menu (platform/sort-filter menu): emerald hover. */
 .dropdown-menu__item:hover,
-.dropdown-menu__item:focus,
-.context-menu__item:hover:not(.context-menu__item--disabled):not(
-    .context-menu__item--danger
-  ) {
+.dropdown-menu__item:focus {
   background-color: rgba(31, 185, 128, 0.28) !important;
 }
 
@@ -416,12 +642,20 @@ body {
   border: 1px solid rgba(31, 185, 128, 0.14) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
 }
-/* "Earned points" strip: emerald wash + a permanent gold frame. */
+/* Achievements page: the unlocked-achievements progress bar is gold, like the
+   bar on unlocked rows (a fully completed game keeps its platinum variant). */
+.achievements-content__user-summary__container__stats__progress-bar:not(
+    .achievements-content__user-summary__container__stats__progress-bar--platinum
+  ) {
+  background-color: #e0b64a !important;
+}
+/* "Earned points" strip: the active-toggle look — emerald fill and outline
+   (no gold bar: the unlocked rows below already carry it). */
 .achievement-panel {
-  background: rgba(31, 185, 128, 0.06) !important;
-  border: 1px solid rgba(224, 182, 74, 0.6) !important;
-  border-radius: 8px !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  background: rgba(31, 185, 128, 0.22) !important;
+  border: 1px solid rgba(31, 185, 128, 0.4) !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
 }
 /* ...and a progress bar: the earned share is filled with emerald glass. The
    width comes from --earned-points-progress (e.g. "10.9%"), which the
@@ -436,9 +670,9 @@ body {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
-  border-radius: 7px 0 0 7px;
+  border-radius: 6px 0 0 6px;
   width: var(--earned-points-progress, 0%);
-  background: rgba(31, 185, 128, 0.22);
+  background: rgba(31, 185, 128, 0.4);
   backdrop-filter: blur(10px) saturate(1.2);
   -webkit-backdrop-filter: blur(10px) saturate(1.2);
   pointer-events: none;
@@ -455,8 +689,7 @@ body {
 .notification-item:hover,
 .settings-download-sources__item:hover,
 .settings-localization-sources__item:has(.checkbox-field__input:checked):hover,
-.console-card:hover,
-.achievement-panel:hover {
+.console-card:hover {
   background: rgba(31, 185, 128, 0.12) !important;
   box-shadow: inset 0 0 0 1px rgba(224, 182, 74, 0.5) !important;
 }
@@ -485,18 +718,18 @@ body {
 }
 
 /* ---- Page content backgrounds (own bg over .container__content) ------ */
+/* Game page: drop its own gradient so it shows the shared app background,
+   same as the profile page. */
 .game-details__description-container {
-  background: linear-gradient(0deg, #0a0f0c 60%, #12241b 100%) !important;
+  background: transparent !important;
 }
-.profile-content {
-  background-color: #0a0f0c !important;
-}
-.settings__content {
-  background: radial-gradient(
-    130% 130% at 50% 0%,
-    #12241b 0%,
-    #0a0f0c 62%
-  ) !important;
+/* Settings: nav column and content both show the shared app background, so
+   the column is no longer a black slab. Same for the game options modal,
+   whose nav column shows the modal's glass. */
+.settings__sidebar,
+.settings__content,
+.game-options-modal__sidebar {
+  background: transparent !important;
 }
 
 /* ---- Achievement notification (the unlock pop-up) ---------------------- */
@@ -510,11 +743,11 @@ body {
     0 0 18px rgba(31, 185, 128, 0.12) !important;
 }
 .achievement-notification__container {
-  background: linear-gradient(94deg, #0a0f0c 0%, #12241b 100%) !important;
+  background: linear-gradient(180deg, #163527 0%, #12281e 100%) !important;
   box-shadow: inset 3px 0 0 #e0b64a !important;
 }
 .achievement-notification--platinum .achievement-notification__container {
-  background: linear-gradient(94deg, #0a0f0c -25%, #0c5a40 100%) !important;
+  background: linear-gradient(94deg, #163527 -25%, #0c6b4b 100%) !important;
 }
 .achievement-notification__icon {
   box-shadow: 0 0 0 1px rgba(224, 182, 74, 0.55) !important;
