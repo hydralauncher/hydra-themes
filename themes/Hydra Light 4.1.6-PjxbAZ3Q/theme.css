@@ -1,0 +1,1449 @@
+/**
+ * ============================================================
+ *  Hydra Light v4.1.6
+ * ============================================================
+ *  A clean, high-contrast light theme for Hydra Launcher.
+ *
+ *  Every surface of the launcher is re-mapped to a light palette
+ *  while keeping the Hydra brand accent (deep teal -> blue) for
+ *  primary actions. Artwork overlays keep their dark scrims so
+ *  captions stay readable on top of cover art, and Big Picture
+ *  keeps its own look.
+ *
+ *  Palette
+ *    page background .... #ffffff
+ *    chrome / sidebar ... #f4f6fa
+ *    raised surface ..... #eef1f7
+ *    primary text ....... #1b2230
+ *    secondary text ..... #5f6875
+ *    border ............. rgba(15, 23, 42, 0.10)
+ *    accent ............. #0d8b7d -> #33549f
+ *
+ *  Built for Hydra Launcher v4.1.6
+ * ============================================================
+ */
+
+.profile-avatar:where(:not(#big-picture *)){background-color: #ffffff; border: solid 1px rgba(15, 23, 42, 0.09); color: #1b2230}
+.bottom-panel:where(:not(#big-picture *)){border-top: solid 1px rgba(15, 23, 42, 0.09); background-color: #ffffff}
+.bottom-panel__help-button:where(:not(#big-picture *)){color: #3a4150}
+.bottom-panel__help-button:hover:where(:not(#big-picture *)){border-bottom: solid 1px #3a4150}
+.bottom-panel__downloads-button:where(:not(#big-picture *)){color: #3a4150}
+.bottom-panel__downloads-button:hover:where(:not(#big-picture *)){border-bottom: solid 1px #3a4150}
+.bottom-panel__version-button:where(:not(#big-picture *)){color: #3a4150}
+.bottom-panel__version-button:hover:where(:not(#big-picture *)){border-bottom: solid 1px #3a4150}
+.button--outline:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09); color: #1b2230}
+.button--outline:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.button--dark:where(:not(#big-picture *)){background-color: #f4f6fa; color: #1b2230}
+.game-card:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09)}
+.game-card__content:where(:not(#big-picture *)){color: #232b3a}
+.game-card__specifics-item:where(:not(#big-picture *)){color: #1b2230}
+.game-card__title-container:where(:not(#big-picture *)){color: #1b2230}
+.game-card__no-download-label:where(:not(#big-picture *)){color: #3a4150}
+.badge:where(:not(#big-picture *)){color: #1b2230; border: 1px solid rgba(15, 23, 42, 0.2); background: rgba(15, 23, 42, 0.1); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06)}
+.star-rating__star:where(:not(#big-picture *)){color: #1b2230}
+.star-rating__star--filled:where(:not(#big-picture *)){color: #111827}
+.star-rating__star--empty:where(:not(#big-picture *)){color: #1b2230}
+.star-rating__star--half:where(:not(#big-picture *)){color: #111827}
+.star-rating__value:where(:not(#big-picture *)){color: #1b2230}
+.star-rating__calculating-text:where(:not(#big-picture *)), .star-rating__no-rating-text:where(:not(#big-picture *)){color: #1b2230}
+.star-rating--calculating .star-rating__star:where(:not(#big-picture *)), .star-rating--no-rating .star-rating__star:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-adding-custom-game-modal__image-preview:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: rgba(15, 23, 42, 0.05)}
+.header:where(:not(#big-picture *)){color: #1b2230; border-bottom: solid 1px rgba(15, 23, 42, 0.09); background-color: #f4f6fa}
+.header__search:where(:not(#big-picture *)){background-color: #ffffff; border: solid 1px rgba(15, 23, 42, 0.09)}
+.header__search:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.header__search--focused:where(:not(#big-picture *)){border-color: #232b3a}
+.header__search-input:where(:not(#big-picture *)){color: #232b3a}
+.header__action-button:hover:where(:not(#big-picture *)){color: #232b3a}
+.header__action-button--outlined:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.header__action-button--outlined:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.header__back-button:where(:not(#big-picture *)){color: #3a4150}
+.link:where(:not(#big-picture *)){color: #4b5563}
+.auto-update-sub-header:where(:not(#big-picture *)){border-bottom: solid 1px #3a4150}
+.auto-update-sub-header__new-version-link:where(:not(#big-picture *)){color: #5f6875}
+.auto-update-sub-header__new-version-button:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__description:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__mode-toggle:where(:not(#big-picture *)){background-color: #f4f6fa}
+.scan-games-modal__mode-option:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__mode-option:hover:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__mode-option--active:where(:not(#big-picture *)){background-color: #ffffff; color: #3a4150}
+.scan-games-modal__folders-title:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__folders-hint:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__folders-list:where(:not(#big-picture *)){background-color: #f4f6fa}
+.scan-games-modal__folder-path:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__folder-remove:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__folder-remove:hover:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.08)}
+.scan-games-modal__option-hint:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__ambiguous-title:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__ambiguous-hint:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__ambiguous-list:where(:not(#big-picture *)){background-color: #f4f6fa}
+.scan-games-modal__ambiguous-item:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.scan-games-modal__choice:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); color: #1b2230}
+.scan-games-modal__choice:hover:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__choice--active:where(:not(#big-picture *)){border-color: #3a4150; background-color: #ffffff; color: #3a4150}
+.scan-games-modal__result:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__no-results:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__spinner:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__scanning-text:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__scanning-hint:where(:not(#big-picture *)){color: #1b2230}
+.scan-games-modal__games-list:where(:not(#big-picture *)){background-color: #f4f6fa}
+.scan-games-modal__game-item:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.scan-games-modal__game-icon:where(:not(#big-picture *)){background-color: #ffffff}
+.scan-games-modal__game-icon--empty:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__game-title:where(:not(#big-picture *)){color: #3a4150}
+.scan-games-modal__game-path:where(:not(#big-picture *)){color: #1b2230}
+.hero:where(:not(#big-picture *)){color: #232b3a; border: solid 1px rgba(15, 23, 42, 0.09)}
+.hero__description:where(:not(#big-picture *)){color: #1b2230}
+.modal:where(:not(#big-picture *)){background-color: #ffffff; color: #3a4150; border: solid 1px rgba(15, 23, 42, 0.09)}
+.modal__header:where(:not(#big-picture *)){border-bottom: solid 1px rgba(15, 23, 42, 0.09)}
+.modal__close-button-icon:where(:not(#big-picture *)){color: #3a4150}
+.backdrop:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.3)}
+.image-crop-modal__frame:where(:not(#big-picture *)){background-color: #f4f6fa; background-image: linear-gradient(45deg, rgba(15, 23, 42, 0.05) 25%, transparent 25%), linear-gradient(-45deg, rgba(15, 23, 42, 0.05) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(15, 23, 42, 0.05) 75%), linear-gradient(-45deg, transparent 75%, rgba(15, 23, 42, 0.05) 75%); border: solid 1px rgba(15, 23, 42, 0.09)}
+.image-crop-modal__frame:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.16)}
+.image-crop-modal__grid-line:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.28); box-shadow: 0 0 1px rgba(15, 23, 42, 0.16)}
+.image-crop-modal__toolbar:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16)}
+.image-crop-modal__toolbar-divider:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.image-crop-modal__icon-button:where(:not(#big-picture *)){color: #1b2230}
+.image-crop-modal__icon-button:hover:not(:disabled):where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.image-crop-modal__icon-button--active:where(:not(#big-picture *)){color: #10816d}
+.image-crop-modal__slider:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.12)}
+.image-crop-modal__slider::-webkit-slider-thumb{border: solid 2px #1b2230; background-color: #ffffff}
+.image-crop-modal__slider::-moz-range-thumb{border: solid 2px #1b2230; background-color: #ffffff}
+.image-crop-modal__zoom-percent:where(:not(#big-picture *)){color: #3a4150}
+.image-crop-modal__actions:where(:not(#big-picture *)){border-top: solid 1px rgba(15, 23, 42, 0.09)}
+.sidebar:where(:not(#big-picture *)){background-color: #f4f6fa; color: #1b2230; border-right: solid 1px rgba(15, 23, 42, 0.09)}
+.sidebar__big-picture-darwin:where(:not(#big-picture *)){color: #1b2230}
+.sidebar__big-picture-darwin:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.sidebar__game-list--scrolled:where(:not(#big-picture *)){box-shadow: inset 0 6px 6px -4px rgba(15, 23, 42, 0.18)}
+.sidebar__game-list-empty:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.sidebar__menu-item:where(:not(#big-picture *)){color: #1b2230}
+.sidebar__menu-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.sidebar__menu-item--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.sidebar__online-count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08); color: #3a4150}
+.sidebar__game-favorite-icon:where(:not(#big-picture *)){color: #111827}
+.sidebar__game-badge:where(:not(#big-picture *)){color: #597663; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06)}
+.sidebar__menu-empty:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.sidebar__add-button:where(:not(#big-picture *)){color: #1b2230}
+.sidebar__add-button:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.sidebar__play-button:where(:not(#big-picture *)){color: #1b2230}
+.sidebar__play-button:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8)}
+.sidebar__play-button--active:where(:not(#big-picture *)){color: #111827}
+.sidebar__play-button--active:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.library-category-filter__container:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.06)}
+.library-category-filter__option:where(:not(#big-picture *)){color: #525a68}
+.library-category-filter__option:hover:where(:not(#big-picture *)){color: #111827}
+.library-category-filter__option--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.04); border-color: rgba(15, 23, 42, 0.09); color: #111827}
+.steam-library-badge:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8); background: rgba(255, 255, 255, 0.92); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.steam-library-badge--large:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.steam-library-badge--sidebar:where(:not(#big-picture *)){color: #111827; background: rgba(15, 23, 42, 0.25); box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18)}
+.sidebar-filter-menu__content:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.sidebar-filter-menu__divider:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.sidebar-filter-menu__label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.sidebar-filter-menu__separator:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.sidebar-filter-menu__item:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-filter-menu__item:hover:where(:not(#big-picture *)), .sidebar-filter-menu__item[data-highlighted]:where(:not(#big-picture *)){background-color: #ffffff}
+.sidebar-filter-menu__item-indicator:where(:not(#big-picture *)){color: #111827}
+.sidebar-profile__button:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-profile__button:hover:where(:not(#big-picture *)), .sidebar-profile__button--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.sidebar-profile__chevron:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-profile__dropdown:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92); border: 1px solid rgba(15, 23, 42, 0.09); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16)}
+.sidebar-profile__dropdown-item:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-profile__dropdown-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15); color: #3a4150}
+.sidebar-profile__dropdown-separator:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.text-field-container__text-field:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09)}
+.text-field-container__text-field:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.text-field-container__text-field--primary:where(:not(#big-picture *)){background-color: #f4f6fa}
+.text-field-container__text-field--dark:where(:not(#big-picture *)){background-color: #ffffff}
+.text-field-container__text-field--focused:where(:not(#big-picture *)){border-color: #232b3a}
+.text-field-container__text-field-input:where(:not(#big-picture *)){color: #232b3a}
+.text-field-container__toggle-password-button:where(:not(#big-picture *)){color: #1b2230}
+.checkbox-field__checkbox:where(:not(#big-picture *)){background-color: #f4f6fa; border: solid 1px rgba(15, 23, 42, 0.09); color: #3a4150}
+.checkbox-field__checkbox:hover:not(:has(input:disabled)):where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.checkbox-field__checkbox.checked:where(:not(#big-picture *)){border-color: #111827}
+.radio-field:has(.radio-field__input:focus-visible):where(:not(#big-picture *)){outline: 2px solid color-mix(in srgb, var(--radio-field-accent) 70%, #111827 30%)}
+.radio-field__control:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09); background: #f4f6fa}
+.select-field:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.select-field:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.select-field--focused:where(:not(#big-picture *)){border-color: #232b3a}
+.select-field--disabled:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.09)}
+.select-field--primary:where(:not(#big-picture *)){background-color: #f4f6fa}
+.select-field--dark:where(:not(#big-picture *)){background-color: #ffffff}
+.select-field__option:where(:not(#big-picture *)){background-color: #f4f6fa; color: #232b3a}
+.select-field__label:where(:not(#big-picture *)){color: #3a4150}
+.toast:where(:not(#big-picture *)){background-color: #f4f6fa; border: solid 1px rgba(15, 23, 42, 0.09)}
+.toast__progress::-webkit-progress-bar{background-color: #f4f6fa}
+.toast__close-button:where(:not(#big-picture *)){color: #3a4150}
+.toast__close-button:hover:where(:not(#big-picture *)){color: #1b2230}
+.toast__icon--warning:where(:not(#big-picture *)){color: #977204}
+.vertical-cover-card:where(:not(#big-picture *)){background: #ffffff; box-shadow: 0 8px 10px -2px rgba(15, 23, 42, 0.18)}
+.vertical-cover-card__classics-cover:where(:not(#big-picture *)){background: #eef1f7}
+.vertical-cover-card__classics-image:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 11px 7px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(15, 23, 42, 0.06)}
+.vertical-cover-card__placeholder:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.3); background: linear-gradient(90deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.04) 50%, rgba(15, 23, 42, 0.08) 100%)}
+.context-menu:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16)}
+.context-menu__item:where(:not(#big-picture *)){color: #1b2230}
+.context-menu__item:hover:not(.context-menu__item--disabled):where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15); color: #3a4150}
+.context-menu__item:active:not(.context-menu__item--disabled):where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.22)}
+.context-menu__item--disabled:where(:not(#big-picture *)){color: #1b2230}
+.context-menu__item--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: #3a4150}
+.context-menu__item-arrow:where(:not(#big-picture *)){color: #1b2230}
+.context-menu__item-trailing-icon:where(:not(#big-picture *)){color: #1b2230}
+.context-menu__submenu:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16)}
+.context-menu__content:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.09)}
+.context-menu__separator:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.context-menu__item--danger:first-of-type:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.09)}
+.download-settings-modal__hint-text:where(:not(#big-picture *)){color: #3a4150}
+.download-settings-modal__select-files-link:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.78)}
+.download-settings-modal__select-files-link:hover:where(:not(#big-picture *)){color: #111827}
+.download-settings-modal__downloaders-list-wrapper:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: #f4f6fa}
+.download-settings-modal__downloader-item:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09); color: #3a4150}
+.download-settings-modal__downloader-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.download-settings-modal__downloader-item--selected:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.download-settings-modal__torrent-step:where(:not(#big-picture *)){background: linear-gradient(180deg, rgba(15, 23, 42, 0.015) 0%, rgba(15, 23, 42, 0) 100%)}
+.download-settings-modal__torrent-sort-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.72)}
+.download-settings-modal__torrent-table-head:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.download-settings-modal__torrent-files-feedback:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); background-color: #eef1f7}
+.download-settings-modal__torrent-files-list:where(:not(#big-picture *)){background-color: #eef1f7; border-top: 1px solid rgba(15, 23, 42, 0.05); border-bottom: 1px solid rgba(15, 23, 42, 0.05)}
+.download-settings-modal__torrent-files-scroll::-webkit-scrollbar{background-color: rgba(15, 23, 42, 0.05)}
+.download-settings-modal__torrent-files-scroll::-webkit-scrollbar-track{background-color: rgba(15, 23, 42, 0.06)}
+.download-settings-modal__torrent-files-scroll::-webkit-scrollbar-thumb{background-color: rgba(15, 23, 42, 0.24)}
+.download-settings-modal__torrent-files-scroll::-webkit-scrollbar-thumb:hover{background-color: rgba(15, 23, 42, 0.34)}
+.download-settings-modal__torrent-file-row:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.85); border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.download-settings-modal__torrent-file-row:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.04)}
+.download-settings-modal__torrent-file-row--selected:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.07)}
+.download-settings-modal__torrent-file-row--select-all:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.11)}
+.download-settings-modal__torrent-folder-chevron:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.65)}
+.download-settings-modal__torrent-node-icon:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.download-settings-modal__folder-checkbox--indeterminate::after{background: #f4f6fa}
+.download-settings-modal__torrent-file-size:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.72)}
+.download-settings-modal__torrent-files-summary:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.76)}
+.real-debrid-info-modal__description:where(:not(#big-picture *)){color: #3a4150}
+.real-debrid-info-modal__create-account:where(:not(#big-picture *)){color: #4b5563}
+.repacks-modal__repack-button:where(:not(#big-picture *)){color: #3a4150}
+.repacks-modal__repack-title:where(:not(#big-picture *)){color: #1b2230}
+.repacks-modal__separator:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.repacks-modal__steam-title:where(:not(#big-picture *)){color: #3a4150}
+.repacks-modal__new-badge:where(:not(#big-picture *)){color: #597663}
+.repacks-modal__no-results:where(:not(#big-picture *)){color: #1b2230}
+.repacks-modal__no-results-text:where(:not(#big-picture *)){color: #1b2230}
+.repacks-modal__source-item:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12)}
+.repacks-modal__source-item:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.2)}
+.playtime-breakdown-table__label:where(:not(#big-picture *)){color: #3a4150}
+.playtime-breakdown-table__operator:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.playtime-breakdown-table__value:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: #f4f6fa}
+.playtime-breakdown-table__next:where(:not(#big-picture *)){color: #1b2230}
+.playtime-breakdown-table__previous:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.change-game-playtime-modal__warning:where(:not(#big-picture *)){color: #977204}
+.game-artwork__divider:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1)}
+.game-artwork__scrollbar-thumb:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.game-artwork__scrollbar-thumb:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.game-artwork__scrollbar-thumb:active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.game-artwork__item:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.02); border: 2px solid rgba(15, 23, 42, 0.02)}
+.game-artwork__item--active:where(:not(#big-picture *)){border-color: #5f6875}
+.game-artwork__item-spinner:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.18)}
+.game-artwork__item-spinner::after{border: 3px solid rgba(15, 23, 42, 0.25)}
+.game-assets-settings__warning-icon:where(:not(#big-picture *)){color: #977623}
+.game-assets-settings__warning-text:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.85)}
+.game-assets-settings__asset-tabs:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.11)}
+.game-assets-settings__asset-tab:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-assets-settings__asset-tab--active:where(:not(#big-picture *)){color: #111827}
+.game-assets-settings__image-preview:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.04); background-color: #f4f6fa; background-image: linear-gradient(45deg, rgba(15, 23, 42, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(15, 23, 42, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(15, 23, 42, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(15, 23, 42, 0.1) 75%)}
+.game-assets-settings__preview-frame:where(:not(#big-picture *)){border: 2px dashed rgba(15, 23, 42, 0.5)}
+.game-assets-settings__preview-frame:not(:disabled):hover:where(:not(#big-picture *)), .game-assets-settings__preview-frame:not(:disabled):focus-visible:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.9)}
+.game-assets-settings__drop-overlay:where(:not(#big-picture *)){color: #111827}
+.game-assets-settings__drop-zone-content:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-assets-settings__preview-action-overlay:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.10)}
+.game-assets-settings__preview-action-icon:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.16); background: rgba(255, 255, 255, 0.92); color: #111827}
+.game-options-modal__sidebar:where(:not(#big-picture *)){border-right: 1px solid rgba(15, 23, 42, 0.09); background: #f4f6fa}
+.game-options-modal__sidebar-button:where(:not(#big-picture *)){color: #1b2230}
+.game-options-modal__sidebar-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.15)}
+.game-options-modal__sidebar-button--active:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1)}
+.game-options-modal__warning:where(:not(#big-picture *)){color: #a16d17}
+.game-options-modal__category-note:where(:not(#big-picture *)){color: #1b2230}
+@media (max-width: 860px){.game-options-modal__sidebar:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}}
+.disc-field__trigger:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09); color: #4b5563}
+.disc-field__trigger:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.25)}
+.disc-field__icon:where(:not(#big-picture *)){color: #5f6875}
+.disc-field__label:where(:not(#big-picture *)){color: #232b3a}
+.disc-field__filename:where(:not(#big-picture *)){color: #5f6875}
+.disc-field__chevron:where(:not(#big-picture *)){color: #5f6875}
+.disc-field__menu:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18)}
+.disc-field__option:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.04)}
+.disc-field__option--active:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06)}
+.drive-selector__list::-webkit-scrollbar-thumb{background: rgba(15, 23, 42, 0.15)}
+.drive-card:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.drive-card:hover:not(:disabled):where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08); border-color: rgba(15, 23, 42, 0.15)}
+.drive-card--selected:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.35) !important; background: rgba(15, 23, 42, 0.08) !important}
+.drive-card__icon:where(:not(#big-picture *)){color: #111827}
+.drive-card__label:where(:not(#big-picture *)){color: #111827}
+.drive-card__space:where(:not(#big-picture *)){color: #111827}
+.drive-card--nospace .drive-card__space:where(:not(#big-picture *)){color: #b55252}
+.drive-card__bar:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08)}
+.drive-card__tag:where(:not(#big-picture *)){color: #b55252}
+.transfer-progress__pct:where(:not(#big-picture *)){color: #1b2230}
+.transfer-progress__track:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1)}
+.transfer-progress__fill:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.9)}
+.cancel-confirm-overlay:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.36)}
+.cancel-confirm-modal:where(:not(#big-picture *)){background: #eaeef5; border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 12px 40px rgba(15, 23, 42, 0.18)}
+.cloud-sync-panel__backups-count:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7); background-color: rgba(15, 23, 42, 0.1)}
+.cloud-sync-panel__artifact-label:where(:not(#big-picture *)){color: #3a4150}
+.cloud-sync-panel__artifact:where(:not(#big-picture *)){color: #3a4150; background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.cloud-sync-panel__manage-files-button:where(:not(#big-picture *)){color: #3a4150}
+.dropdown-menu__content:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.dropdown-menu__title-bar:where(:not(#big-picture *)){color: #1b2230}
+.dropdown-menu__separator:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.dropdown-menu:not(.dropdown-menu__item--disabled) .dropdown-menu__item:hover:where(:not(#big-picture *)){background-color: #ffffff; color: #1b2230}
+.dropdown-menu__item:focus:where(:not(#big-picture *)){background-color: #ffffff}
+.emu-save-modal__target:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5}
+.emu-save-modal__target--selected:where(:not(#big-picture *)){border-color: #111827}
+.emu-save-modal__target-name:where(:not(#big-picture *)){color: #111827}
+.emu-save-modal__target-path:where(:not(#big-picture *)){color: #5f6875}
+.emu-save-modal__empty:where(:not(#big-picture *)){color: #5f6875}
+.emu-save-modal__hint:where(:not(#big-picture *)){color: var(--warning, #95752b)}
+.game-emulation-saves__header h2:where(:not(#big-picture *)){color: #111827}
+.game-emulation-saves__header p:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__empty:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__group-title:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__prompt h3:where(:not(#big-picture *)){color: #111827}
+.game-emulation-saves__prompt p:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__prompt-icon:where(:not(#big-picture *)){filter: drop-shadow(0 6px 10px rgba(15, 23, 42, 0.14))}
+.game-emulation-saves__prompt-octicon:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__card:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.game-emulation-saves__card-icon:where(:not(#big-picture *)){filter: drop-shadow(0 6px 10px rgba(15, 23, 42, 0.14))}
+.game-emulation-saves__card-title:where(:not(#big-picture *)){color: #111827}
+.game-emulation-saves__card-size:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__icon-button:where(:not(#big-picture *)){color: #5f6875}
+.game-emulation-saves__icon-button:hover:where(:not(#big-picture *)){color: #111827}
+.game-emulation-saves__card-meta span:where(:not(#big-picture *)){color: #4b5563}
+.game-emulation-saves__card-meta span svg:where(:not(#big-picture *)){color: #5f6875}
+.cloud-save-v2__trigger--outdated:where(:not(#big-picture *)){color: #977204}
+.cloud-save-v2__path-approval-description:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__path-approval-summary:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.06); background: rgba(15, 23, 42, 0.03)}
+.cloud-save-v2__path-approval-summary-toggle:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__path-approval-summary-toggle svg:where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__path-approval-summary-toggle:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.03)}
+.cloud-save-v2__path-approval-files:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.06)}
+.cloud-save-v2__path-approval-file:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__path-approval-file + .cloud-save-v2__path-approval-file:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.04)}
+.cloud-save-v2__path-approval-file-name:where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__path-approval-file-size:where(:not(#big-picture *)), .cloud-save-v2__path-approval-file-date:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.cloud-save-v2__path-approval-warning:where(:not(#big-picture *)){color: #977204}
+.cloud-save-v2__toggle-row:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.03); background: rgba(15, 23, 42, 0.03)}
+.cloud-save-v2__toggle-copy span:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__game-running-warning:where(:not(#big-picture *)), .cloud-save-v2__partial-warning:where(:not(#big-picture *)){color: #977204}
+.cloud-save-v2__switch:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.1)}
+.cloud-save-v2__switch-thumb:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.35); box-shadow: 0 1px 4px rgba(15, 23, 42, 0.16)}
+.cloud-save-v2__missing-executable-copy span:where(:not(#big-picture *)), .cloud-save-v2__required-setup-copy span:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__required-setup-link:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__snapshot:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.03)}
+.cloud-save-v2__snapshot--active:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.03); background: rgba(15, 23, 42, 0.03)}
+.cloud-save-v2__snapshot-metadata:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.cloud-save-v2__snapshot-stats--interactive:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.35)}
+.cloud-save-v2__snapshot-stats--interactive:hover:not(:disabled):where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__status-pill:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.04); background: rgba(15, 23, 42, 0.05); color: #1b2230}
+.cloud-save-v2__browser-toolbar:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.cloud-save-v2__browser-source-summary:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-source-summary strong:where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__browser-operation-count:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-filter .checkbox-field:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-state:where(:not(#big-picture *)){border: 1px dashed rgba(15, 23, 42, 0.09); color: #1b2230}
+.cloud-save-v2__browser-diff-summary:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-diff-summary span:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.025)}
+.cloud-save-v2__browser-table-scroll::-webkit-scrollbar-thumb, .cloud-save-v2__browser-local-tree::-webkit-scrollbar-thumb{background-color: rgba(15, 23, 42, 0.15)}
+.cloud-save-v2__browser-table-scroll::-webkit-scrollbar-thumb:hover, .cloud-save-v2__browser-local-tree::-webkit-scrollbar-thumb:hover{background-color: rgba(15, 23, 42, 0.25)}
+.cloud-save-v2__browser-table-scroll:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.015)}
+.cloud-save-v2__browser-diff-header:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09); background: #ffffff}
+.cloud-save-v2__browser-diff-source-header:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-diff-source-header strong:where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__browser-diff-status-header:where(:not(#big-picture *)){border-right: 1px solid rgba(15, 23, 42, 0.09); border-left: 1px solid rgba(15, 23, 42, 0.09); color: #1b2230}
+.cloud-save-v2__browser-diff-row:where(:not(#big-picture *)), .cloud-save-v2__browser-local-row:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.035)}
+.cloud-save-v2__browser-status-cell:where(:not(#big-picture *)){border-right: 1px solid rgba(15, 23, 42, 0.09); border-left: 1px solid rgba(15, 23, 42, 0.09)}
+.cloud-save-v2__browser-status:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-status--modified:where(:not(#big-picture *)){color: #977204}
+.cloud-save-v2__browser-status--remote-only:where(:not(#big-picture *)){color: #4b72a5}
+.cloud-save-v2__browser-local-tree:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.015)}
+.cloud-save-v2__browser-folder-row:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.018)}
+.cloud-save-v2__browser-tree-toggle:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-tree-icon:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-file-copy strong:where(:not(#big-picture *)), .cloud-save-v2__browser-folder-copy strong:where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__browser-custom-path-info:where(:not(#big-picture *)){color: #977204}
+.cloud-save-v2__browser-file-metadata:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.cloud-save-v2__browser-path-action:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); color: #1b2230}
+.cloud-save-v2__browser-path-action:hover:not(:disabled):where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.18); background: rgba(15, 23, 42, 0.05); color: #3a4150}
+.cloud-save-v2__browser-path-action--remove:hover:not(:disabled):where(:not(#big-picture *)){color: #ba5454}
+.cloud-save-v2__browser-path-action--rebind:hover:not(:disabled):where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.25); color: #3a4150}
+.cloud-save-v2__browser-missing-side:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.cloud-save-v2__browser-empty:where(:not(#big-picture *)){color: #1b2230}
+.cloud-save-v2__browser-empty-copy strong:where(:not(#big-picture *)){color: #3a4150}
+.cloud-save-v2__empty:where(:not(#big-picture *)){border: 1px dashed rgba(15, 23, 42, 0.09); color: #1b2230}
+.legacy-saves-section__divider:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.09)}
+.legacy-saves-section__card:where(:not(#big-picture *)){color: #3a4150; background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.legacy-saves-section__card-metadata:where(:not(#big-picture *)){color: #1b2230}
+.delete-review-modal__karma-warning:where(:not(#big-picture *)){color: #977204}
+.search-dropdown:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12)}
+.search-dropdown__section:not(:last-child):where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.search-dropdown__section-title:where(:not(#big-picture *)){color: #1b2230}
+.search-dropdown__shop-switch:where(:not(#big-picture *)){background-color: #ffffff; border: 1px solid rgba(15, 23, 42, 0.09)}
+.search-dropdown__shop-button:where(:not(#big-picture *)){color: #1b2230}
+.search-dropdown__shop-button:hover:where(:not(#big-picture *)){color: #111827}
+.search-dropdown__shop-button--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06); border-color: rgba(15, 23, 42, 0.09); color: #111827}
+.search-dropdown__clear-text-button:where(:not(#big-picture *)){color: #1b2230}
+.search-dropdown__clear-text-button:hover:where(:not(#big-picture *)){color: #111827}
+.search-dropdown__item-remove:where(:not(#big-picture *)){color: #1b2230}
+.search-dropdown__item:where(:not(#big-picture *)){color: #232b3a}
+.search-dropdown__item:hover:where(:not(#big-picture *)), .search-dropdown__item--active:where(:not(#big-picture *)){background-color: #ffffff}
+.search-dropdown__item-icon:where(:not(#big-picture *)){color: #1b2230}
+.search-dropdown__loading:where(:not(#big-picture *)), .search-dropdown__empty:where(:not(#big-picture *)){color: #1b2230}
+.search-dropdown__highlight:where(:not(#big-picture *)){color: #a76900}
+.fullscreen-media-modal__overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.34)}
+.fullscreen-media-modal__close-button:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.2); border: 1px solid rgba(15, 23, 42, 0.09)}
+.fullscreen-media-modal__close-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.34)}
+.fullscreen-media-modal__image:where(:not(#big-picture *)){box-shadow: 0 8px 32px rgba(15, 23, 42, 0.18)}
+.classics-onboarding__footer:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.06)}
+.classics-onboarding__heading:where(:not(#big-picture *)){color: #4b5563}
+.classics-onboarding__paragraph:where(:not(#big-picture *)){color: #5f6875}
+.classics-onboarding__progress-pill:where(:not(#big-picture *)){background-color: #dfe5ef}
+.classics-onboarding__primary:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.11)}
+.classics-scan-indicator:where(:not(#big-picture *)){color: #3a4150}
+.classics-scan-indicator__percent:where(:not(#big-picture *)){color: #1b2230}
+.classics-scan-indicator:hover .classics-scan-indicator__label:where(:not(#big-picture *)){color: #1b2230}
+.classics-scan-indicator--section:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: #f4f6fa}
+.window-title-bar:where(:not(#big-picture *)){background-color: #f4f6fa; border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.window-title-bar h4:where(:not(#big-picture *)){color: #1b2230}
+.window-title-bar__control:where(:not(#big-picture *)){color: #1b2230}
+.window-title-bar__control:hover:where(:not(#big-picture *)){color: #232b3a}
+.error-fallback:where(:not(#big-picture *)){background: linear-gradient(0deg, #f4f6fa 50%, #ffffff 100%)}
+.error-fallback__icon:where(:not(#big-picture *)){color: #1b2230}
+.error-fallback__title:where(:not(#big-picture *)){color: #1b2230}
+.error-fallback__description:where(:not(#big-picture *)){color: #3a4150}
+.error-fallback__message:where(:not(#big-picture *)){color: #1b2230}
+.error-fallback__origin:where(:not(#big-picture *)){color: #3a4150}
+.error-fallback__origin-label:where(:not(#big-picture *)){color: #1b2230}
+.error-fallback__component-trace summary:where(:not(#big-picture *)){color: #1b2230}
+.error-fallback__stack:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09); color: #3a4150}
+.cloud-subscription-modal__overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.3)}
+.cloud-subscription-modal__iframe:where(:not(#big-picture *)){background-color: #e9edf4}
+.cloud-subscription-modal__fallback:where(:not(#big-picture *)){background-color: #e9edf4; color: #111827}
+.cloud-subscription-modal__close:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); background-color: rgba(15, 23, 42, 0.12); color: #111827}
+.cloud-subscription-modal__close:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.24)}
+.add-friend-modal__my-code:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.11)}
+.add-friend-modal__my-code-label:where(:not(#big-picture *)){color: #1b2230}
+.add-friend-modal__my-code-value:where(:not(#big-picture *)){color: #3a4150}
+.add-friend-modal__copy-icon-button:where(:not(#big-picture *)){color: #3a4150}
+.add-friend-modal__copy-icon-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: #3a4150}
+.add-friend-modal__pending-status:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.05)}
+.add-friend-modal__pending-container h3:where(:not(#big-picture *)){color: #1b2230}
+.add-friend-modal__friend-item:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.add-friend-modal__friend-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.add-friend-modal__friend-name:where(:not(#big-picture *)){color: #1b2230}
+.setup-modal__header-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__header-subtitle:where(:not(#big-picture *)){color: #5f6875}
+.setup-modal__body-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__body-intro:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__footer:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__ghost-button:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__ghost-button:hover:where(:not(#big-picture *)){color: #111827}
+.setup-modal__dot:where(:not(#big-picture *)){background: #dfe5ef}
+.setup-modal__row-card:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__website-link:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__website-link:hover:where(:not(#big-picture *)){color: #111827}
+.setup-modal__recommended-pill:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1); color: #4b5563}
+.setup-modal__download-divider:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08)}
+.setup-modal__download-card:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__download-card:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.18); background: #eef1f7}
+.setup-modal__download-card--loading:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.06); background: #ffffff}
+.setup-modal__download-card-visit:hover .setup-modal__download-card-url:where(:not(#big-picture *)), .setup-modal__download-card-visit:hover .setup-modal__download-card-ext:where(:not(#big-picture *)){color: #111827}
+.setup-modal__download-card-badge:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06); color: #111827}
+.setup-modal__download-card-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__download-card-desc:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__download-card-url:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__download-card-ext:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__row-icon--warn:where(:not(#big-picture *)){color: #a16807}
+.setup-modal__row-icon--folder:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__row-icon--neutral:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06); color: #5f6875}
+.setup-modal__row-icon--found:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__row-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__row-version:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__row-path:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__row-description:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__hint:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__link-button:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__numbered-list:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__numbered-marker:where(:not(#big-picture *)){background: #e4e9f1; color: #525a68}
+.setup-modal__numbered-text:where(:not(#big-picture *)){color: #111827}
+.setup-modal__numbered-divider:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06)}
+.setup-modal__bios-path:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.09); color: #111827}
+.setup-modal__bios-path--placeholder:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__bios-hint:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__alert--neutral:where(:not(#big-picture *)){background: #eef1f7; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__alert-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__alert-note:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__progress-bar:where(:not(#big-picture *)){background: #e4e9f1}
+.setup-modal__progress-meta:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__progress-status:where(:not(#big-picture *)){color: #111827}
+.setup-modal__progress-check:where(:not(#big-picture *)){color: #5f6875}
+.setup-modal__scan-file-icon:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__scan-file-name:where(:not(#big-picture *)){color: #111827}
+.setup-modal__scan-file-status--matched:where(:not(#big-picture *)){color: #111827}
+.setup-modal__scan-file-status--unmatched:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__scan-file-status--wrong_platform:where(:not(#big-picture *)){color: #b3554e}
+.setup-modal__scan-keep-open:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__stat:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__stat-icon:where(:not(#big-picture *)){color: #5f6875}
+.setup-modal__stat-label:where(:not(#big-picture *)){color: #5f6875}
+.setup-modal__stat-value:where(:not(#big-picture *)){color: #111827}
+.setup-modal__done-check::before{background: #ffffff}
+.setup-modal__done-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__done-body:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__rom-card:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__rom-card-title:where(:not(#big-picture *)){color: #111827}
+.setup-modal__rom-card-subtitle:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__rom-card-subfolder-hint:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__add-folder:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__add-folder:hover:where(:not(#big-picture *)){color: #111827}
+.setup-modal__subfolder-toggle:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__unmatched:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.06)}
+.setup-modal__unmatched-header:where(:not(#big-picture *)){color: #525a68}
+.setup-modal__unmatched-header:hover:where(:not(#big-picture *)){color: #111827}
+.setup-modal__unmatched-icon:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__unmatched-name:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__unmatched-reason--unmatched:where(:not(#big-picture *)){color: #4b5563}
+.setup-modal__unmatched-reason--wrong_platform:where(:not(#big-picture *)){color: #b3554e}
+.cloud-gift-notification-modal__overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.4)}
+.cloud-gift-notification-modal__panel:where(:not(#big-picture *)){color: #4b5563; background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09); box-shadow: 0 24px 32px rgba(15, 23, 42, 0.18)}
+.cloud-gift-notification-modal__title:where(:not(#big-picture *)){color: #4b5563}
+.cloud-gift-notification-modal__message-card:where(:not(#big-picture *)){color: #5f6875; background-color: rgba(15, 23, 42, 0.04)}
+.cloud-gift-notification-modal__message-card::before, .cloud-gift-notification-modal__message-card::after{color: #5f6875}
+.cloud-gift-notification-modal__message-card blockquote:where(:not(#big-picture *)){border-left: 2px solid rgba(15, 23, 42, 0.09)}
+.cloud-gift-notification-modal__message-card code:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08)}
+.cloud-gift-notification-modal__sender:where(:not(#big-picture *)){color: #4b5563}
+.cloud-gift-notification-modal__accept:where(:not(#big-picture *)){background: linear-gradient(90deg, rgba(15, 23, 42, 0.06), rgba(15, 23, 42, 0.06)), linear-gradient(91deg, #0cf1ca 0.13%, #1dcceb 99.87%); border: 1px solid rgba(15, 23, 42, 0.11)}
+.cloud-gift-notification-modal__logo-shine::after{background: linear-gradient(90deg, transparent 0%, rgba(29, 235, 225, 0.06) 15%, rgba(29, 235, 225, 0.22) 30%, rgba(210, 255, 250, 0.58) 43%, rgba(15, 23, 42, 0.72) 50%, rgba(210, 255, 250, 0.58) 57%, rgba(29, 235, 225, 0.22) 70%, rgba(29, 235, 225, 0.06) 85%, transparent 100%)}
+.cloud-gift-notification-modal__decide-later:where(:not(#big-picture *)){color: #5f6875}
+.cloud-gift-notification-modal__decide-later:hover:where(:not(#big-picture *)), .cloud-gift-notification-modal__decide-later:focus-visible:where(:not(#big-picture *)){color: #4b5563}
+::-webkit-scrollbar{background-color: #f4f6fa}
+::-webkit-scrollbar-track{background-color: rgba(15, 23, 42, 0.06)}
+::-webkit-scrollbar-thumb{background-color: rgba(15, 23, 42, 0.15)}
+::-webkit-scrollbar-thumb:hover{background-color: rgba(15, 23, 42, 0.25)}
+body{color: #3a4150}
+.container__content:where(:not(#big-picture *)){background: linear-gradient(0deg, #f4f6fa 50%, #ffffff 100%)}
+.title-bar:where(:not(#big-picture *)){background-color: #f4f6fa; border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.title-bar__big-picture:where(:not(#big-picture *)){color: #1b2230}
+.title-bar__big-picture:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.title-bar__window-control:where(:not(#big-picture *)){color: #1b2230}
+.title-bar__window-control:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08); color: #232b3a}
+.catalogue__filters-hint:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.catalogue__sort-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.catalogue__active-filters-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.catalogue__result-count:where(:not(#big-picture *)){color: #3a4150}
+.catalogue__skeleton:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.15)}
+.catalogue-mode-toggle:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.06)}
+.catalogue-mode-toggle__option:where(:not(#big-picture *)){color: #525a68}
+.catalogue-mode-toggle__option:hover:where(:not(#big-picture *)){color: #111827}
+.catalogue-mode-toggle__option--active:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.04); border-color: rgba(15, 23, 42, 0.09); color: #111827}
+.filter-item:where(:not(#big-picture *)){color: #3a4150; background-color: color-mix(in srgb, #f4f6fa 84%, var(--filter-item-color) 16%); border: solid 1px color-mix(in srgb, rgba(15, 23, 42, 0.09) 70%, var(--filter-item-color) 30%)}
+.filter-item__remove-button:where(:not(#big-picture *)){color: color-mix(in srgb, #3a4150 84%, var(--filter-item-color) 16%)}
+.filter-item__remove-button:hover:where(:not(#big-picture *)){color: #3a4150}
+.filter-section:where(:not(#big-picture *)){background-color: #ffffff; border: 1px solid rgba(15, 23, 42, 0.05); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06)}
+.filter-section__button:where(:not(#big-picture *)){background-color: #ffffff; color: #1b2230}
+.filter-section__button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.filter-section__header-count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.filter-section__content:where(:not(#big-picture *)){background-color: #f4f6fa}
+.filter-section__clear-button:where(:not(#big-picture *)){color: #3a4150}
+.filter-section__clear-button:focus-visible:where(:not(#big-picture *)){outline: 2px solid #1b2230}
+.filter-section__group-tabs:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.04)}
+.filter-section__group-tab:where(:not(#big-picture *)){color: #1b2230}
+.filter-section__group-tab:hover:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.05)}
+.filter-section__group-tab:focus-visible:where(:not(#big-picture *)){outline: 2px solid #1b2230}
+.filter-section__group-tab--active:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.1); box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1)}
+.filter-section__group-tab-count:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.1)}
+.game-item:where(:not(#big-picture *)){background-color: #f4f6fa; color: #111827; border: 1px solid rgba(15, 23, 42, 0.09)}
+.game-item:hover .game-item__content-link:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.game-item__cover-wrapper:where(:not(#big-picture *)){border-right: 1px solid rgba(15, 23, 42, 0.09)}
+.game-item__cover-placeholder:where(:not(#big-picture *)){background: linear-gradient(90deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.05) 50%, rgba(15, 23, 42, 0.1) 100%)}
+.game-item__compatibility-badge:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.10)}
+.game-item__compatibility-badge--bronze:where(:not(#big-picture *)){color: #111827}
+.game-item__compatibility-badge--borked:where(:not(#big-picture *)){color: #111827}
+.game-item__genres:where(:not(#big-picture *)){color: #3a4150}
+.game-item__genres--empty:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-item-classics:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5; color: #111827}
+.game-item-classics:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.16)}
+.game-item-classics__plus-wrapper:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); background: rgba(15, 23, 42, 0.25); color: #111827}
+.game-item-classics__cover:where(:not(#big-picture *)){background: #eef1f7}
+.game-item-classics__cover-image:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 11px 7px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(15, 23, 42, 0.06)}
+.game-item-classics__cover-placeholder:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-item-classics__platform-chip:where(:not(#big-picture *)){color: #111827; background: rgba(15, 23, 42, 0.25); border: 1px solid rgba(15, 23, 42, 0.12)}
+.game-item-classics__title:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8)}
+.game-item-classics__genres:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-item-classics__genres--empty:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.pagination__page-input:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09); color: #1b2230}
+.downloads__arrow-icon:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06)}
+.download-group__header-title-group h2:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.download-group__header-count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.download-group__hero-overlay:where(:not(#big-picture *)){background: linear-gradient(to bottom, rgba(15, 23, 42, 0.12) 0%, rgb(5, 5, 5) 70%, rgb(26, 26, 26) 100%)}
+.download-group__hero-logo img:focus:where(:not(#big-picture *)){outline: 2px solid rgba(15, 23, 42, 0.5)}
+.download-group__hero-logo h1:where(:not(#big-picture *)){color: #111827; text-shadow: 2px 2px 12px rgba(15, 23, 42, 0.4)}
+.download-group__hero-logo h1:focus:where(:not(#big-picture *)){outline: 2px solid rgba(15, 23, 42, 0.5)}
+.download-group__glass-btn:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1); border: 1px solid rgba(15, 23, 42, 0.2); box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.06); color: #111827}
+.download-group__glass-btn:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.2)}
+.download-group__progress-status:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.download-group__progress-percentage:where(:not(#big-picture *)){color: #111827}
+.download-group__progress-size:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.download-group__progress-status:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.download-group__progress-time:where(:not(#big-picture *)){color: #1b2230}
+.download-group__hero-stats:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.11)}
+.download-group__stats-column:where(:not(#big-picture *)){border-right: 1px solid rgba(15, 23, 42, 0.11)}
+.download-group__stat-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.download-group__stat-value:where(:not(#big-picture *)){color: #111827}
+.download-group__simple-thumbnail:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.12); border: 1px solid rgba(15, 23, 42, 0.09)}
+.download-group__simple-thumbnail:focus:where(:not(#big-picture *)), .download-group__simple-thumbnail:focus-visible:where(:not(#big-picture *)){outline: 2px solid rgba(15, 23, 42, 0.5)}
+.download-group__simple-title:where(:not(#big-picture *)){color: #111827}
+.download-group__simple-meta-row:where(:not(#big-picture *)){color: #1b2230}
+.download-group__simple-extracting:where(:not(#big-picture *)){color: #1b2230}
+.download-group__simple-seeding:where(:not(#big-picture *)){color: #2c834c}
+.download-group__simple-progress-text:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8)}
+.download-group__progress-bar:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.disc-selection-modal__option:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid #eaeef5; color: #4b5563}
+.disc-selection-modal__option:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.02); border-color: rgba(15, 23, 42, 0.12)}
+.disc-selection-modal__option--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.04); border-color: rgba(15, 23, 42, 0.16)}
+.disc-selection-modal__option-icon:where(:not(#big-picture *)){color: #5f6875}
+.disc-selection-modal__option-label:where(:not(#big-picture *)){color: #4b5563}
+.disc-selection-modal__option-filename:where(:not(#big-picture *)){color: #5f6875}
+.disc-selection-modal__footer:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.06)}
+.hero-panel-actions__action:where(:not(#big-picture *)){border: solid 1px #1b2230}
+.hero-panel-playtime__download-details:where(:not(#big-picture *)){color: #3a4150}
+.hero-panel-playtime__downloads-link:where(:not(#big-picture *)){color: #3a4150}
+.hero-panel-playtime__manual-warning:where(:not(#big-picture *)){color: #a16807}
+.hero-panel:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.25); border: solid 1px rgba(15, 23, 42, 0.15); border-bottom: solid 1px rgba(15, 23, 42, 0.09); box-shadow: 0 4px 6px rgba(15, 23, 42, 0.06)}
+.hero-panel--stuck:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.3)}
+.hero-panel__content p:where(:not(#big-picture *)){color: #1b2230}
+.hero-panel__download-details:where(:not(#big-picture *)){color: #3a4150}
+.hero-panel__downloads-link:where(:not(#big-picture *)){color: #3a4150}
+.description-header:where(:not(#big-picture *)){background-color: #ffffff; border: 1px solid rgba(15, 23, 42, 0.05); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06)}
+.description-header__info p:where(:not(#big-picture *)){color: #1b2230}
+.gallery-lightbox__overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.36)}
+.gallery-lightbox__close-button:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.2); border: 1px solid rgba(15, 23, 42, 0.09)}
+.gallery-lightbox__close-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.34)}
+.gallery-lightbox__nav-button:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.2); border: 1px solid rgba(15, 23, 42, 0.09); color: #3a4150}
+.gallery-lightbox__nav-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.34)}
+.gallery-lightbox__media:where(:not(#big-picture *)){box-shadow: 0 8px 32px rgba(15, 23, 42, 0.18)}
+.gallery-slider__expand-button:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92); color: #1b2230}
+.gallery-slider__expand-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.gallery-slider__video-play-button:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.10)}
+.gallery-slider__video-play-button:hover:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92)}
+.gallery-slider__video-play-icon:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.gallery-slider__preview-button:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09)}
+.gallery-slider__play-overlay:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92)}
+.gallery-slider__preview-button:hover .gallery-slider__play-overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.gallery-slider__button:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92); color: #1b2230}
+.gallery-slider__button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.sidebar-section:where(:not(#big-picture *)){background-color: #ffffff; border: 1px solid rgba(15, 23, 42, 0.05); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06)}
+.sidebar-section__header:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.sidebar-section__button:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-section__subtitle:where(:not(#big-picture *)){color: #1b2230}
+.sidebar-section__content:where(:not(#big-picture *)){background-color: #f4f6fa}
+.requirement__button:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09)}
+.requirement__details a:where(:not(#big-picture *)){color: #3a4150}
+.how-long-to-beat__category:where(:not(#big-picture *)){background: linear-gradient(90deg, transparent 20%, rgba(15, 23, 42, 0.02) 100%); border: solid 1px rgba(15, 23, 42, 0.09)}
+.how-long-to-beat__category-label:where(:not(#big-picture *)){color: #1b2230}
+.how-long-to-beat__category-skeleton:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09)}
+.protondb__category-title:where(:not(#big-picture *)){color: #1b2230}
+.protondb__value:where(:not(#big-picture *)){color: #111827}
+.protondb__tier-badge:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.10)}
+.protondb__tier-badge--bronze:where(:not(#big-picture *)){color: #111827}
+.protondb__tier-badge--borked:where(:not(#big-picture *)){color: #111827}
+.list__item:where(:not(#big-picture *)){color: #1b2230}
+.list__item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.subscription-required-button:where(:not(#big-picture *)){color: #977204}
+.controller-support:where(:not(#big-picture *)){color: #1b2230}
+.controller-support__icons:where(:not(#big-picture *)){color: #1b2230}
+.controller-support__icon:where(:not(#big-picture *)){color: #3a4150}
+.controller-support__badge--full:where(:not(#big-picture *)){color: #5b791e}
+.controller-support__badge--partial:where(:not(#big-picture *)){color: #a76c00}
+.controller-support__badge--none:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05)}
+.controller-support__description:where(:not(#big-picture *)){color: #3a4150}
+.achievements-placeholder:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.3)}
+.launchbox-details__label:where(:not(#big-picture *)){color: #1b2230}
+.launchbox-details__value:where(:not(#big-picture *)){color: #3a4150}
+.retro-achievements-connect-banner:where(:not(#big-picture *)){color: #1b2230}
+.retro-achievements-connect-banner:hover:where(:not(#big-picture *)){color: #111827}
+.game-language-section:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.02)}
+.game-language-section__header:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05); border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.game-language-section__header-item:where(:not(#big-picture *)){color: #1b2230}
+.game-language-section__row:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.05)}
+.game-language-section__row:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.03)}
+.game-language-section__cell:where(:not(#big-picture *)){color: #3a4150}
+.game-language-section__check:where(:not(#big-picture *)){color: #3a4150}
+.game-language-section__cross:where(:not(#big-picture *)){color: #3a4150}
+.game-details__review-score-select:where(:not(#big-picture *)){background-color: #e6eaf2; border: 1px solid #e2e7f0; color: #111827}
+.game-details__review-score-select option:where(:not(#big-picture *)){background-color: #e6eaf2; color: #111827}
+.game-details__star:where(:not(#big-picture *)){color: #4b5563}
+.game-details__star:hover:where(:not(#big-picture *)){color: #111827; background-color: rgba(15, 23, 42, 0.1)}
+.game-details__star--filled:where(:not(#big-picture *)){color: #111827}
+.game-details__star--filled.game-details__review-score-select--yellow:where(:not(#big-picture *)){color: #9f660c}
+.game-details__star--filled.game-details__review-score-select--green:where(:not(#big-picture *)){color: #208d4e}
+.game-details__star--empty:where(:not(#big-picture *)){color: #4b5563}
+.game-details__star--empty:hover:where(:not(#big-picture *)){color: #111827}
+.game-details__review-input-container:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.11); background-color: #f4f6fa}
+.game-details__review-input-header:where(:not(#big-picture *)){background-color: #ffffff; border-bottom: 1px solid rgba(15, 23, 42, 0.11)}
+.game-details__editor-button:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.15); color: #111827}
+.game-details__editor-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08); border-color: rgba(15, 23, 42, 0.2)}
+.game-details__review-char-counter:where(:not(#big-picture *)){color: #5f6875}
+.game-details__review-char-counter .over-limit:where(:not(#big-picture *)){color: #ba4e4e}
+.game-details__review-input .ProseMirror:where(:not(#big-picture *)){color: #111827}
+.review-gate-notice:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.02); border: 1px solid rgba(15, 23, 42, 0.04)}
+.review-gate-notice__icon:where(:not(#big-picture *)){color: #111827}
+.review-gate-notice__title:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.75)}
+.review-gate-notice__description:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__review-header--has-bg::after{background: linear-gradient(135deg, rgba(15, 23, 42, 0.10), rgba(15, 23, 42, 0.09))}
+.game-details__review-header--has-bg .game-details__review-display-name:where(:not(#big-picture *)),
+.game-details__review-header--has-bg .game-details__review-date:where(:not(#big-picture *)){color: #111827; text-shadow: 0 0 5px rgba(15, 23, 42, 0.25)}
+.game-details__review-header--has-bg .game-details__review-score-stars:where(:not(#big-picture *)),
+.game-details__review-header--has-bg .game-details__review-playtime:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.14); border-color: rgba(15, 23, 42, 0.2); color: #111827}
+.game-details__review-header--has-bg .game-details__review-score-stars svg:where(:not(#big-picture *)),
+.game-details__review-header--has-bg .game-details__review-playtime svg:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.game-details__review-display-name:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.game-details__review-actions:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.11)}
+.game-details__vote-button:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.11); color: #39404e}
+.game-details__vote-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1); border-color: rgba(15, 23, 42, 0.2); color: #111827}
+.game-details__blocked-review-simple:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__blocked-review-show-link:where(:not(#big-picture *)){color: #977204}
+.game-details__blocked-review-show-link:hover:where(:not(#big-picture *)){color: #887d1f}
+.game-details__blocked-review-hide-link:where(:not(#big-picture *)){color: #977204}
+.game-details__blocked-review-hide-link:hover:where(:not(#big-picture *)){color: #887d1f}
+.game-details__review-score-stars:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.11)}
+.game-details__review-star:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.game-details__review-star--filled:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.game-details__review-star--empty:where(:not(#big-picture *)){color: #4b5563}
+.game-details__review-date:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__review-playtime:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7); background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.11)}
+.game-details__review-playtime svg:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__review-content:where(:not(#big-picture *)){color: #3a4150}
+.game-details__review-translation-toggle:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__review-translation-toggle:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.game-details__reply-thread-line:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.12)}
+.game-details__reply-thread-line:hover:not(:disabled):where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.32)}
+.game-details__reply-header--has-bg::after{background: linear-gradient(135deg, rgba(15, 23, 42, 0.10), rgba(15, 23, 42, 0.09))}
+.game-details__reply-header--has-bg .game-details__review-display-name:where(:not(#big-picture *)),
+.game-details__reply-header--has-bg .game-details__reply-date:where(:not(#big-picture *)){color: #111827; text-shadow: 0 0 5px rgba(15, 23, 42, 0.25)}
+.game-details__reply-date:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__reply-action-link:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.78)}
+.game-details__reply-action-link:hover:not(:disabled):not([aria-disabled=true]):where(:not(#big-picture *)){color: #111827; background: rgba(15, 23, 42, 0.12)}
+.game-details__reply-toggle:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.78)}
+.game-details__reply-toggle:hover:where(:not(#big-picture *)){color: #111827}
+.game-details__reply-toggle--primary:hover:where(:not(#big-picture *)){color: #111827}
+.review-sort-options__label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.review-sort-options__option:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.review-sort-options__option:hover:not(:disabled):where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.review-sort-options__option.active:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.review-sort-options__separator:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__reviews-section:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.11)}
+.game-details__reviews-title:where(:not(#big-picture *)){color: #1b2230}
+.game-details__reviews-badge:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.game-details__reviews-separator:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1)}
+.game-details__reviews-empty-icon:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__reviews-empty-title:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.game-details__reviews-empty-message:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__reviews-loading:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.game-details__load-more-reviews:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.09); color: #3a4150}
+.game-details__load-more-reviews:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.review-prompt-banner:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.02); border: 1px solid rgba(15, 23, 42, 0.05)}
+.review-prompt-banner__playtime:where(:not(#big-picture *)){color: #3a4150}
+.review-prompt-banner__question:where(:not(#big-picture *)){color: #1b2230}
+.similar-games__empty:where(:not(#big-picture *)){color: #1b2230; background: rgba(15, 23, 42, 0.03)}
+.similar-games__control:where(:not(#big-picture *)){color: #1b2230; background-color: rgba(255, 255, 255, 0.92)}
+.similar-games__control:hover:not(:disabled):where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25)}
+.game-details__description-container:where(:not(#big-picture *)){background: linear-gradient(0deg, #ffffff 50%, #f4f6fa 100%)}
+.game-details__description a:where(:not(#big-picture *)){color: #3a4150}
+.game-details__description-toggle:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); color: #3a4150}
+.game-details__description-toggle:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); border-color: rgba(15, 23, 42, 0.11)}
+.game-details__skeleton .react-loading-skeleton:where(:not(#big-picture *)){background: linear-gradient(90deg, #eaeef5 25%, #e6eaf2 50%, #eaeef5 75%)}
+.game-details__skeleton .review-item-skeleton:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.game-details__hero-classics-backdrop-overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.19)}
+.game-details__hero-classics-cover img:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 20px 8px rgba(0, 0, 0, 0.01), 0 11px 7px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(15, 23, 42, 0.06)}
+.game-details__hero-classics-title:where(:not(#big-picture *)){color: #111827}
+.game-details__hero-classics-chip:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.10); border: 1px solid rgba(15, 23, 42, 0.12); color: #111827}
+.game-details__hero-classics-stripe--red:where(:not(#big-picture *)){color: #927601}
+.game-details__hero-classics-stripe-band--shadow:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.22)}
+.game-details__edit-custom-game-button:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25); color: #1b2230; border: solid 1px rgba(15, 23, 42, 0.09)}
+.game-details__edit-custom-game-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.2); color: #3a4150}
+.game-details__hero-image--placeholder:where(:not(#big-picture *)){background: linear-gradient(180deg, #f0f3f8 0%, #eef1f7 100%)}
+.game-details__game-logo-text:where(:not(#big-picture *)){color: #111827; text-shadow: 2px 2px 4px rgba(15, 23, 42, 0.34)}
+.game-details__cloud-sync-button:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.25); color: #1b2230; border: solid 1px rgba(15, 23, 42, 0.09)}
+.game-details__cloud-sync-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.2)}
+.game-details__randomizer-button:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08); color: #1b2230; border: solid 1px rgba(15, 23, 42, 0.09)}
+.game-details__randomizer-button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.12); color: #3a4150}
+.cloud-sync-files-modal__file-item:where(:not(#big-picture *)){color: #1b2230}
+.settings__content:where(:not(#big-picture *)){background-color: #ffffff; border: solid 1px rgba(15, 23, 42, 0.09)}
+.settings__sidebar:where(:not(#big-picture *)){border-right: 1px solid rgba(15, 23, 42, 0.09); background: #f4f6fa}
+.settings__sidebar-button:where(:not(#big-picture *)){color: #1b2230}
+.settings__sidebar-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.15)}
+.settings__sidebar-button--active:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1); color: #1b2230}
+.settings__sidebar-divider:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06)}
+.settings__sidebar-group-label:where(:not(#big-picture *)){color: #4b5563}
+@media (max-width: 860px){.settings__sidebar:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}}
+.settings-context-panel__divider:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.09)}
+.settings-appearance__themes__theme:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.01); border: 1px solid rgba(15, 23, 42, 0.09)}
+.settings-appearance__themes__theme--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.04)}
+.settings-appearance__themes__theme__header__title:where(:not(#big-picture *)){color: #1b2230}
+.settings-appearance__themes__theme__header__colors__color:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.settings-appearance__themes__theme__author:where(:not(#big-picture *)){color: #3a4150}
+.settings-appearance__themes__theme__author__name:where(:not(#big-picture *)){color: rgba(27, 34, 48, 0.8)}
+.settings-appearance__themes__theme__author__name:hover:where(:not(#big-picture *)){color: #1b2230}
+.settings-appearance__no-themes:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.01); border: 1px dashed rgba(15, 23, 42, 0.09)}
+.settings-appearance__no-themes:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.03)}
+.settings-appearance__no-themes__icon svg:where(:not(#big-picture *)){color: #3a4150}
+.settings-appearance__no-themes__text:where(:not(#big-picture *)){color: rgba(58, 65, 80, 0.85)}
+.theme-card:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.01); border: 1px solid rgba(15, 23, 42, 0.09)}
+.theme-card--active:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.04)}
+.theme-card__header__title:where(:not(#big-picture *)){color: #1b2230}
+.theme-card__header__colors__color:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.theme-card__author:where(:not(#big-picture *)){color: #3a4150}
+.theme-card__author__name:where(:not(#big-picture *)){color: rgba(27, 34, 48, 0.8)}
+.theme-card__author__name:hover:where(:not(#big-picture *)){color: #1b2230}
+.theme-placeholder:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.01); border: 1px dashed rgba(15, 23, 42, 0.09)}
+.theme-placeholder:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.03)}
+.theme-placeholder__icon svg:where(:not(#big-picture *)){color: #3a4150}
+.theme-placeholder__text:where(:not(#big-picture *)){color: rgba(58, 65, 80, 0.85)}
+.download-directory-replacement-modal__label:where(:not(#big-picture *)){color: #1b2230}
+.download-directory-replacement-modal__path:where(:not(#big-picture *)){color: #3a4150}
+.settings-global-trackers__textarea:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: #f4f6fa; color: #232b3a}
+.settings-global-trackers__textarea:focus:where(:not(#big-picture *)){border-color: #232b3a}
+.settings-global-trackers__textarea::placeholder{color: rgba(15, 23, 42, 0.62)}
+.settings-global-trackers__url-input:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: #f4f6fa; color: #232b3a}
+.settings-global-trackers__url-input:focus:where(:not(#big-picture *)){border-color: #232b3a}
+.settings-global-trackers__url-input::placeholder{color: rgba(15, 23, 42, 0.62)}
+.settings-general__disabled-hint:where(:not(#big-picture *)){color: #1b2230}
+.settings-general__network-interface-hint:where(:not(#big-picture *)){color: #1b2230}
+.settings-general__volume-control label:where(:not(#big-picture *)){color: #1b2230}
+.settings-general__volume-icon:where(:not(#big-picture *)){color: #1b2230}
+.settings-general__volume-value:where(:not(#big-picture *)){color: #3a4150}
+.settings-general__volume-slider:where(:not(#big-picture *)){background: #f4f6fa}
+.settings-general__volume-slider::-webkit-slider-thumb{border: 2px solid #111827; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.12)}
+.settings-general__volume-slider::-moz-range-thumb{border: 2px solid #111827; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.12)}
+.settings-general__volume-slider::-webkit-slider-runnable-track{background: linear-gradient(to right, #f0f1f7 0%, #f0f1f7 var(--volume-percent), #f4f6fa var(--volume-percent), #f4f6fa 100%)}
+.settings-general__volume-slider::-moz-range-track{background: #f4f6fa}
+.settings-general__volume-slider::-ms-thumb{border: 2px solid #111827}
+.settings-general__volume-slider::-ms-fill-upper{background: #f4f6fa}
+.settings-download-sources__item:where(:not(#big-picture *)){background-color: #f4f6fa; border: solid 1px rgba(15, 23, 42, 0.09)}
+.settings-download-sources__navigate-button:where(:not(#big-picture *)){color: #1b2230}
+.settings-behavior__proton-description:where(:not(#big-picture *)){color: #1b2230}
+.settings-debrid__collapse-button:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.settings-debrid__collapse-button:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9); background-color: rgba(15, 23, 42, 0.1)}
+.settings-integration-card:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.settings-integration-card__title:where(:not(#big-picture *)){color: #1b2230}
+.settings-integration-card__status:where(:not(#big-picture *)){color: #3a4150}
+.settings-integration-card__status--success:where(:not(#big-picture *)){color: #1b2230}
+.settings-integration-card__status--warning:where(:not(#big-picture *)){color: #977204}
+.settings-integration-card__description:where(:not(#big-picture *)), .settings-integration-card__message:where(:not(#big-picture *)){color: #3a4150}
+.settings-integration-card__avatar:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.04); color: #3a4150}
+.settings-integration-card__username:where(:not(#big-picture *)){color: #1b2230}
+.settings-integration-card__meta:where(:not(#big-picture *)){color: #3a4150}
+.settings-integration-card__progress-header:where(:not(#big-picture *)){color: #3a4150}
+.settings-integration-card__progress-track:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08)}
+.settings-retroachievements__modal-note:where(:not(#big-picture *)){color: #3a4150}
+.console-card:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5}
+.console-card:hover:where(:not(#big-picture *)){border-color: #dfe5ef}
+.console-card__title:where(:not(#big-picture *)){color: #111827}
+.console-card__emulator:where(:not(#big-picture *)){color: #4b5563}
+.console-card__version:where(:not(#big-picture *)){color: #5f6875}
+.console-card__stat-number:where(:not(#big-picture *)){color: #111827}
+.console-card__stat-label:where(:not(#big-picture *)){color: #4b5563}
+.console-card__last-scan:where(:not(#big-picture *)){color: #5f6875}
+.console-card__hint-box:where(:not(#big-picture *)){background: #eef1f7; border: 1px solid #eaeef5}
+.console-card__hint-title:where(:not(#big-picture *)){color: #4b5563}
+.console-card__hint-text:where(:not(#big-picture *)){color: #5f6875}
+.console-card__divider:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06)}
+.console-card__chip--ready:where(:not(#big-picture *)){color: #4b5563; background: rgba(75, 85, 99, 0.12)}
+.console-card__chip--warn:where(:not(#big-picture *)){color: #4b5563; background: rgba(75, 85, 99, 0.12)}
+.console-card__cta:where(:not(#big-picture *)){color: #4b5563}
+.console-card__cta:hover:not(.console-card__cta--disabled):where(:not(#big-picture *)){color: #111827}
+.console-card__cta--disabled:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__breadcrumb:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__breadcrumb:hover:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__hero:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.06)}
+.emulator-detail__hero-title:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__hero-detected:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__hero-version:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__hero-count:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__bios-note:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__section-header h3:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__section-header p:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__row:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5}
+.emulator-detail__exec-name:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__exec-version:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__synced:where(:not(#big-picture *)){color: #4b5563; background: rgba(75, 85, 99, 0.12)}
+.emulator-detail__path-missing:where(:not(#big-picture *)){color: #4b5563; background: rgba(75, 85, 99, 0.12)}
+.emulator-detail__res-status:where(:not(#big-picture *)){color: #28303f; background: #e8ecf3}
+.emulator-detail__res-status--found:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__res-status--warn:where(:not(#big-picture *)){color: #947115}
+.emulator-detail__res-link:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__res-link:hover:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__exec-label:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__exec-path:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__exec-path-button:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__exec-path-button:hover:not(:disabled):where(:not(#big-picture *)), .emulator-detail__exec-path-button:focus-visible:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__exec-path-text--placeholder:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__empty:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__folder-path:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__folder-meta:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__subfolders-toggle:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__remove:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__stat:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.06)}
+.emulator-detail__stat-head:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__stat-label:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__stat-value:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__stat-caption:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-chevron:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-group-title:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__memcard-group-count:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-backup-progress-label:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-backup-progress-track:where(:not(#big-picture *)){background: #eaeef5}
+.emulator-detail__memcard-card:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5}
+.emulator-detail__memcard-cover-placeholder:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-title:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__memcard-sub:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__memcard-meta:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-menu:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__memcard-menu:hover:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__memcard-backup-all:where(:not(#big-picture *)){border: 1px solid #eaeef5; color: #4b5563}
+.emulator-detail__memcard-backup-all:hover:where(:not(#big-picture *)){color: #111827; border-color: #e6eaf2}
+.emulator-detail__page-btn:where(:not(#big-picture *)){border: 1px solid #eaeef5; color: #4b5563}
+.emulator-detail__page-btn:hover:not(:disabled):where(:not(#big-picture *)){color: #111827; border-color: #e6eaf2}
+.emulator-detail__page-indicator:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__cloud-card:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.emulator-detail__cloud-card-art:where(:not(#big-picture *)){filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.10))}
+.emulator-detail__cloud-menu:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__cloud-menu:hover:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__cloud-card-title:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__cloud-card-info span:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__cloud-card-info span svg:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__cloud-locked-icon:where(:not(#big-picture *)){color: #4b5563}
+.emulator-detail__cloud-locked-title:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__restore-target:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5}
+.emulator-detail__restore-target-name:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__restore-target-path:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__tabs:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.emulator-detail__tab:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__exec-path-box:where(:not(#big-picture *)){background: #f4f6fa; border: 1px solid #eaeef5; color: #4b5563}
+.emulator-detail__exec-path-box:hover:not(:disabled):where(:not(#big-picture *)), .emulator-detail__exec-path-box:focus-visible:where(:not(#big-picture *)){border-color: #e6eaf2}
+.emulator-detail__remove-emulator:where(:not(#big-picture *)){color: #5f6875}
+.emulator-detail__rom-title:where(:not(#big-picture *)){color: #111827}
+.emulator-detail__rom-leader:where(:not(#big-picture *)){border-bottom: 1px dashed rgba(15, 23, 42, 0.12)}
+.emulator-detail__rom-size:where(:not(#big-picture *)){color: #111827}
+.settings-emulation__loading:where(:not(#big-picture *)){color: #5f6875}
+.settings-emulation__title:where(:not(#big-picture *)){color: #111827}
+.settings-emulation__description:where(:not(#big-picture *)){color: #5f6875}
+.game-visibility-badge:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8); background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.game-visibility-badge--large:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.edit-profile-modal__avatar-container:where(:not(#big-picture *)){color: #3a4150; background-color: #ffffff}
+.edit-profile-modal__avatar-overlay:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.3); color: #1b2230}
+.upload-background-image-button:where(:not(#big-picture *)){border-color: #3a4150; background-color: rgba(15, 23, 42, 0.12)}
+.upload-background-image-button.button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.11)}
+.upload-background-image-button.button:disabled:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92)}
+.upload-background-image-button__menu:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92); border: 1px solid rgba(15, 23, 42, 0.09); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16)}
+.upload-background-image-button__menu-item:where(:not(#big-picture *)){color: #3a4150}
+.upload-background-image-button__menu-item:hover:not(:disabled):where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.upload-background-image-button__menu-item:focus:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.profile-hero__copy-button:where(:not(#big-picture *)){color: #3a4150; background-color: rgba(15, 23, 42, 0.12)}
+.profile-hero__copy-button:hover:where(:not(#big-picture *)){background-color: rgba(255, 255, 255, 0.92)}
+.profile-hero__gift-icon:where(:not(#big-picture *)){color: #111827}
+.profile-hero__avatar-button:where(:not(#big-picture *)){background-color: #ffffff; border: solid 1px rgba(15, 23, 42, 0.09); color: #1b2230}
+.profile-hero__information:where(:not(#big-picture *)){color: #1b2230}
+.profile-hero__display-name:where(:not(#big-picture *)){text-shadow: 0 0 5px rgba(15, 23, 42, 0.92)}
+.profile-hero__hero-panel:where(:not(#big-picture *)){border-top: solid 1px rgba(15, 23, 42, 0.11); box-shadow: 0px 0px 15px 0px rgba(15, 23, 42, 0.18); background-color: rgba(15, 23, 42, 0.12)}
+.profile-hero__button--outline:where(:not(#big-picture *)){border-color: #3a4150}
+.locked-profile__lock-icon:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06)}
+.report-profile__button:where(:not(#big-picture *)){color: #1b2230}
+.all-badges-modal__count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.all-badges-modal__item:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.all-badges-modal__item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.all-badges-modal__item-icon:where(:not(#big-picture *)){background-color: #ffffff}
+.all-badges-modal__item-title:where(:not(#big-picture *)){color: #3a4150}
+.all-badges-modal__item-description:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.badges-box__item:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.badges-box__item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.badges-box__item-icon:where(:not(#big-picture *)){background-color: #ffffff}
+.badges-box__item-title:where(:not(#big-picture *)){color: #3a4150}
+.badges-box__item-description:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.badges-box__view-all:where(:not(#big-picture *)){color: #3a4150}
+.badges-box__view-all:hover:where(:not(#big-picture *)){color: #1b2230}
+.all-friends-modal__count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.all-friends-modal__item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.all-friends-modal__name:where(:not(#big-picture *)){color: #1b2230}
+.all-friends-modal__game:where(:not(#big-picture *)){color: #3a4150}
+.all-friends-modal__empty:where(:not(#big-picture *)){color: #3a4150}
+.friends-box__empty-text:where(:not(#big-picture *)){color: #1b2230}
+.friends-box__add-friend-button:where(:not(#big-picture *)){color: #3a4150}
+.friends-box__add-friend-button:hover:where(:not(#big-picture *)){color: #1b2230}
+.friends-box__list-item:where(:not(#big-picture *)){color: #1b2230}
+.friends-box__list-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.friends-box__friend-name:where(:not(#big-picture *)){color: #1b2230}
+.friends-box__view-all:where(:not(#big-picture *)){color: #3a4150}
+.friends-box__view-all:hover:where(:not(#big-picture *)){color: #1b2230}
+.recent-games__list-item:where(:not(#big-picture *)){color: #1b2230}
+.recent-games__list-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.user-stats__list-item:where(:not(#big-picture *)){color: #1b2230}
+.user-stats__list-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.user-stats__link:where(:not(#big-picture *)){color: #3a4150}
+.user-stats__link--warning:where(:not(#big-picture *)){color: #977204}
+.user-stats__karma-info-text:where(:not(#big-picture *)){color: #1b2230}
+.user-stats__wrapped-link:where(:not(#big-picture *)){color: #3a4150}
+.profile-section:where(:not(#big-picture *)){background-color: #ffffff; border: 1px solid rgba(15, 23, 42, 0.05); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06)}
+.profile-section__header:where(:not(#big-picture *)){background-color: #ffffff}
+.profile-section__header:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.profile-section__button:where(:not(#big-picture *)){color: #1b2230}
+.profile-section__count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.profile-section__content:where(:not(#big-picture *)){background-color: #f4f6fa}
+.profile-content__telescope-icon:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06)}
+.profile-content__section-badge:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: rgba(15, 23, 42, 0.7)}
+.profile-content__collapse-button:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.profile-content__collapse-button:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9); background-color: rgba(15, 23, 42, 0.1)}
+.profile-content__tabs:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.11)}
+.profile-content__tab:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.profile-content__tab-badge:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15); color: rgba(15, 23, 42, 0.9)}
+.profile-content__souvenirs-notice:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.04)}
+.profile-content__souvenirs-notice-icon:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06); color: #1b2230}
+.profile-content__souvenirs-notice-copy strong:where(:not(#big-picture *)){color: #1b2230}
+.profile-content__souvenirs-notice-copy span:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenirs-privacy-notice-dismiss:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenirs-privacy-notice-dismiss:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08); color: #1b2230}
+.profile-content__souvenirs-privacy-notice-dismiss:focus-visible:where(:not(#big-picture *)){outline: 2px solid #1b2230}
+.profile-content__souvenirs-cleanup-list > li:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.03)}
+.profile-content__souvenirs-cleanup-list > li p:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenirs-cleanup-item-header strong:where(:not(#big-picture *)){color: #1b2230}
+.profile-content__souvenirs-cleanup-warning:where(:not(#big-picture *)){color: #1b2230}
+.profile-content__souvenirs-sync-status:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.04)}
+.profile-content__souvenirs-sync-status > svg:where(:not(#big-picture *)){color: #1b2230}
+.profile-content__souvenirs-sync-status-copy strong:where(:not(#big-picture *)){color: #1b2230}
+.profile-content__souvenirs-sync-status-copy span:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenirs-group-icon:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenirs-group-count:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1); color: #3a4150}
+.profile-content__souvenir:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09); background-color: #ffffff}
+.profile-content__souvenir-image-placeholder:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.04); color: #3a4150}
+.profile-content__souvenir-image-overlay:where(:not(#big-picture *)){color: #1b2230}
+.profile-content__souvenir-achievement-icon:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08); color: #3a4150}
+.profile-content__souvenir-other-count:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenir-unlock-time:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenir-game-icon:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__souvenir-private-indicator:where(:not(#big-picture *)), .profile-content__souvenir-action-button:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.15); background: rgba(255, 255, 255, 0.92); color: rgba(15, 23, 42, 0.8); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.profile-content__souvenir-action-button:hover:not(:disabled):where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.25); color: #1b2230}
+.profile-content__souvenirs-loading:where(:not(#big-picture *)){color: #3a4150}
+.profile-content__games-grid--drag-over:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05); border: 2px dashed rgba(15, 23, 42, 0.3)}
+.profile-content__games-grid--drag-over::before{color: #1b2230; background: rgba(15, 23, 42, 0.34)}
+.user-reviews__loading:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8)}
+.user-reviews__empty:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.user-reviews__game-title:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.user-reviews__review-date:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.user-reviews__review-score-stars:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.11)}
+.user-reviews__review-star:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.user-reviews__review-star--filled:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.user-reviews__review-playtime:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7); background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.11)}
+.user-reviews__review-content:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.85)}
+.user-reviews__review-translation-toggle:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.user-reviews__review-translation-toggle:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.user-reviews__review-actions:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.11)}
+.user-reviews__vote-button:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.11); color: #39404e}
+.user-reviews__vote-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1); border-color: rgba(15, 23, 42, 0.2); color: #111827}
+.user-reviews__vote-button--active:where(:not(#big-picture *)){color: #111827; border-color: rgba(15, 23, 42, 0.3)}
+.user-reviews__delete-review-button:hover:where(:not(#big-picture *)){color: #ba5847}
+.filter-dropdown__trigger:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.04); border: 1px solid rgba(15, 23, 42, 0.09); color: rgba(15, 23, 42, 0.9)}
+.filter-dropdown__trigger:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.07); border-color: rgba(15, 23, 42, 0.14)}
+.filter-dropdown__trigger--open:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.07); border-color: rgba(15, 23, 42, 0.2)}
+.filter-dropdown__placeholder:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.filter-dropdown__value:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.filter-dropdown__chevron:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.filter-dropdown__menu:where(:not(#big-picture *)){background: #e8ecf3; border: 1px solid rgba(15, 23, 42, 0.11); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18)}
+.filter-dropdown__option:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.filter-dropdown__option:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.06); color: rgba(15, 23, 42, 0.95)}
+.filter-dropdown__option--active:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.filter-dropdown__check:where(:not(#big-picture *)){color: #1b2230}
+.user-library-game__playtime:where(:not(#big-picture *)){background: rgba(255, 255, 255, 0.92); color: rgba(15, 23, 42, 0.8); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.user-library-game__manual-playtime:where(:not(#big-picture *)){color: #977204}
+.user-library-game__stats-header:where(:not(#big-picture *)){color: #1b2230}
+.user-library-game__stats-percentage--completed:where(:not(#big-picture *)){color: #10816d}
+.user-library-game__achievements-progress-track:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.profile-souvenir-lightbox__overlay:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.35)}
+.profile-souvenir-lightbox:where(:not(#big-picture *)){color: #1b2230}
+.profile-souvenir-lightbox__close-button:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.27); color: #3a4150}
+.profile-souvenir-lightbox__close-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.34)}
+.profile-souvenir-lightbox__nav-button:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.2); color: #3a4150}
+.profile-souvenir-lightbox__nav-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.34)}
+.profile-souvenir-lightbox__content:where(:not(#big-picture *)){background: #f4f6fa}
+.profile-souvenir-lightbox__image-frame:where(:not(#big-picture *)){background: #f4f6fa}
+.profile-souvenir-lightbox__image-placeholder:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.profile-souvenir-lightbox__info:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.09); background: #ffffff}
+.profile-souvenir-lightbox__achievement-icon:where(:not(#big-picture *)), .profile-souvenir-lightbox__game-icon:where(:not(#big-picture *)){color: #3a4150}
+.profile-souvenir-lightbox__copy p:where(:not(#big-picture *)){color: #3a4150}
+.profile-souvenir-lightbox__other-count:where(:not(#big-picture *)){color: #3a4150}
+.profile-souvenir-lightbox__other-count:focus-visible:where(:not(#big-picture *)){outline: 2px solid #1b2230}
+.profile-souvenir-lightbox__achievement-tooltip:where(:not(#big-picture *)){border: solid 1px rgba(15, 23, 42, 0.09); background: #ffffff !important}
+.profile-souvenir-lightbox__achievement-list-icon:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08); color: #3a4150}
+.profile-souvenir-lightbox__achievement-list-copy strong:where(:not(#big-picture *)){color: #1b2230}
+.profile-souvenir-lightbox__achievement-list-copy small:where(:not(#big-picture *)){color: #3a4150}
+.profile-souvenir-lightbox__meta:where(:not(#big-picture *)){color: #3a4150}
+.profile-souvenir-lightbox__game-link:where(:not(#big-picture *)){color: #3a4150}
+.profile-souvenir-lightbox__game-link.link:hover:where(:not(#big-picture *)){color: #1b2230}
+.profile-souvenir-lightbox__rarity--rare:where(:not(#big-picture *)){color: #88703a}
+.profile-souvenir-lightbox__action:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background: rgba(15, 23, 42, 0.06); color: #3a4150}
+.profile-souvenir-lightbox__action:hover:not(:disabled):where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.12); color: #1b2230}
+.profile-souvenir-lightbox__action--active:where(:not(#big-picture *)){color: #111827}
+.achievements__table-header:where(:not(#big-picture *)){background-color: #f4f6fa; border-bottom: solid 1px rgba(15, 23, 42, 0.09)}
+.achievements__list:where(:not(#big-picture *)){background-color: #ffffff}
+.achievements__item:where(:not(#big-picture *)){color: #1b2230}
+.achievements__item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.achievements__item-souvenir-overlay:where(:not(#big-picture *)){color: #1b2230}
+.achievements__item-hardcore-badge:where(:not(#big-picture *)){color: #977204}
+.achievements__item-hidden-icon:where(:not(#big-picture *)){color: #977204}
+.achievements__item-eye-closed:where(:not(#big-picture *)){color: #977204}
+.achievements__item-points--locked:where(:not(#big-picture *)){color: #977204}
+.achievements__progress-bar::-webkit-progress-bar{background-color: rgba(15, 23, 42, 0.08)}
+.achievements__profile-avatar:where(:not(#big-picture *)){background-color: #ffffff}
+.achievements__subscription-button:where(:not(#big-picture *)){color: #1b2230}
+.achievement-panel:where(:not(#big-picture *)){background-color: #ffffff; border-bottom: solid 1px rgba(15, 23, 42, 0.09)}
+.achievement-panel__download-details-row:where(:not(#big-picture *)){color: #3a4150}
+.achievement-panel__downloads-link:where(:not(#big-picture *)){color: #3a4150}
+.achievement-panel__link:where(:not(#big-picture *)){color: #3a4150}
+.achievement-panel__link--warning:where(:not(#big-picture *)){color: #977204}
+.achievements-content__comparison__container:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.3)}
+.achievements-content__comparison__container__subscription-required-button:where(:not(#big-picture *)){color: #3a4150}
+.achievements-content__subscription-required-button:where(:not(#big-picture *)){color: #3a4150}
+.achievements-content__user-summary__container__stats:where(:not(#big-picture *)){color: #1b2230}
+.achievements-content__user-summary__container__stats__percentage--completed:where(:not(#big-picture *)){color: #10816d}
+.achievements-content__user-summary__container__stats__progress-track:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.achievements-content__achievements-list__section__container:where(:not(#big-picture *)){background: linear-gradient(0deg, #ffffff 0%, #ffffff 100%)}
+.achievements-content__achievements-list__section__container__banner:where(:not(#big-picture *)){background: linear-gradient(180deg, #f0f3f8 0%, #eef1f7 100%)}
+.achievements-content__achievements-list__section__container__hero__content__game-title:where(:not(#big-picture *)){color: #111827; text-shadow: 0 2px 8px rgba(15, 23, 42, 0.25)}
+.achievements-content__achievements-list__section__table-header:where(:not(#big-picture *)){background-color: #ffffff; border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.achievements-content__profile-avatar:where(:not(#big-picture *)){background-color: #ffffff}
+.theme-editor__header:where(:not(#big-picture *)){background-color: #f4f6fa}
+.theme-editor__notification-preview-wrapper:where(:not(#big-picture *)){border: 1px solid #1b2230}
+.theme-editor__footer:where(:not(#big-picture *)){background-color: #f4f6fa}
+.theme-editor__info p:where(:not(#big-picture *)){color: #1b2230}
+.achievement-notification__outer-container:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.1019607843); box-shadow: 0px 2px 16px 0px rgba(15, 23, 42, 0.1)}
+.achievement-notification__container:where(:not(#big-picture *)){background: #ffffff}
+.achievement-notification--platinum .achievement-notification__container:where(:not(#big-picture *)){background: linear-gradient(94deg, #eaeef5 -25%, #044838 100%)}
+.achievement-notification__title:where(:not(#big-picture *)){color: #1b2230}
+.achievement-notification__description:where(:not(#big-picture *)){color: #3a4150}
+.achievement-notification--rare .achievement-notification__chip__icon path:where(:not(#big-picture *)){fill: #111827}
+.achievement-notification--rare .achievement-notification__chip__label:where(:not(#big-picture *)){color: #111827}
+.achievement-notification--platinum .achievement-notification__chip__icon path:where(:not(#big-picture *)){fill: #111827}
+.achievement-notification--platinum .achievement-notification__chip__label:where(:not(#big-picture *)){color: #111827}
+.collapsed-menu__button:where(:not(#big-picture *)){background-color: #ffffff; color: #1b2230}
+.collapsed-menu__button:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.05)}
+.library-game-card__wrapper:where(:not(#big-picture *)){box-shadow: 0 8px 10px -2px rgba(15, 23, 42, 0.18)}
+.library-game-card__wrapper:before:where(:not(#big-picture *)){background: linear-gradient(35deg, rgba(15, 23, 42, 0.07) 0%, rgba(15, 23, 42, 0.05) 51.5%, rgba(15, 23, 42, 0.15) 64%, rgba(15, 23, 42, 0.1) 100%)}
+.library-game-card__playtime:where(:not(#big-picture *)){background: rgba(255, 255, 255, 0.92); color: rgba(15, 23, 42, 0.8); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.library-game-card__manual-playtime:where(:not(#big-picture *)){color: #977204}
+.library-game-card__platform-badge:where(:not(#big-picture *)){background: linear-gradient(#eaeef5, #eaeef5) padding-box, conic-gradient(from 0deg, #fb0026 5deg, #c80078 70deg, #7300a4 145deg, #f8c802 220deg, #fc5812 290deg, #fb0026 365deg) border-box; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1)}
+.library-game-card__installed-badge:where(:not(#big-picture *)){background: rgba(255, 255, 255, 0.92); color: rgba(15, 23, 42, 0.8); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.library-game-card__installed-icon:where(:not(#big-picture *)){color: #111827}
+.library-game-card__installed-badge--classics:where(:not(#big-picture *)){background: linear-gradient(#eaeef5, #eaeef5) padding-box, conic-gradient(from 0deg, #fb0026 5deg, #c80078 70deg, #7300a4 145deg, #f8c802 220deg, #fc5812 290deg, #fb0026 365deg) border-box; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1)}
+.library-game-card__achievement-header:where(:not(#big-picture *)){color: #1b2230}
+.library-game-card__achievement-trophy:where(:not(#big-picture *)){color: #111827}
+.library-game-card__achievement-progress:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.library-game-card__achievement-percentage--completed:where(:not(#big-picture *)){color: #10816d}
+.library-game-card__action-button:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.25); border: solid 1px rgba(15, 23, 42, 0.2); color: rgba(15, 23, 42, 0.9); box-shadow: 0 4px 8px rgba(15, 23, 42, 0.12)}
+.library-game-card__action-button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.34); border-color: rgba(15, 23, 42, 0.4); box-shadow: 0 6px 12px rgba(15, 23, 42, 0.16)}
+.library-game-card__game-image--contain:where(:not(#big-picture *)){background: #eef1f7}
+.library-game-card__classics-cover:where(:not(#big-picture *)){background: #eef1f7}
+.library-game-card__classics-image:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 11px 7px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(15, 23, 42, 0.06)}
+.library-game-card__cover-placeholder:where(:not(#big-picture *)){background: linear-gradient(90deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.04) 50%, rgba(15, 23, 42, 0.08) 100%); color: rgba(15, 23, 42, 0.3)}
+.library-game-card-large:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.05)}
+.library-game-card-large:before:where(:not(#big-picture *)){background: linear-gradient(35deg, rgba(15, 23, 42, 0.07) 0%, rgba(15, 23, 42, 0.05) 51.5%, rgba(15, 23, 42, 0.15) 64%, rgba(15, 23, 42, 0.1) 100%)}
+.library-game-card-large:hover:where(:not(#big-picture *)){box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12); border-color: rgba(15, 23, 42, 0.11)}
+.library-game-card-large__classics-foreground:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 11px 7px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(15, 23, 42, 0.06)}
+.library-game-card-large__size-badges:where(:not(#big-picture *)){background: rgba(255, 255, 255, 0.92); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.library-game-card-large__size-bar:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.library-game-card-large__size-bar-line:where(:not(#big-picture *)){background: linear-gradient(90deg, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8))}
+.library-game-card-large__logo:where(:not(#big-picture *)){filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.25))}
+.library-game-card-large__title:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95); text-shadow: 0 2px 12px rgba(15, 23, 42, 0.4)}
+.library-game-card-large__installed-badge:where(:not(#big-picture *)){background: rgba(255, 255, 255, 0.92); color: rgba(15, 23, 42, 0.95); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.library-game-card-large__installed-icon:where(:not(#big-picture *)){color: #111827}
+.library-game-card-large__installed-badge--classics:where(:not(#big-picture *)){background: linear-gradient(#eaeef5, #eaeef5) padding-box, conic-gradient(from 0deg, #fb0026 5deg, #c80078 70deg, #7300a4 145deg, #f8c802 220deg, #fc5812 290deg, #fb0026 365deg) border-box; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1)}
+.library-game-card-large__playtime:where(:not(#big-picture *)){background: rgba(255, 255, 255, 0.92); color: rgba(15, 23, 42, 0.95); border: solid 1px rgba(15, 23, 42, 0.15); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08)}
+.library-game-card-large__manual-playtime:where(:not(#big-picture *)){color: #977204}
+.library-game-card-large__platform-badge:where(:not(#big-picture *)){background: linear-gradient(#eaeef5, #eaeef5) padding-box, conic-gradient(from 0deg, #fb0026 5deg, #c80078 70deg, #7300a4 145deg, #f8c802 220deg, #fc5812 290deg, #fb0026 365deg) border-box; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1)}
+.library-game-card-large__achievement-trophy:where(:not(#big-picture *)){color: #111827}
+.library-game-card-large__achievement-progress:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.library-game-card-large__achievement-count:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.library-game-card-large__achievement-percentage:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.85)}
+.library-game-card-large__achievement-percentage--completed:where(:not(#big-picture *)){color: #10816d}
+.library-view-options__label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.library-view-options__option:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.04); border: 1px solid rgba(15, 23, 42, 0.09); color: rgba(15, 23, 42, 0.9)}
+.library-view-options__option:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9); background: rgba(15, 23, 42, 0.08)}
+.library-select__trigger:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: #ffffff; color: #232b3a}
+.library-select__trigger .library-select__trigger:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.library-select__trigger .library-select__trigger[data-state=open]:where(:not(#big-picture *)){border-color: #232b3a}
+.library-select__chevron:where(:not(#big-picture *)){color: #1b2230}
+.library-select__content:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.library-select__item:where(:not(#big-picture *)){color: #1b2230}
+.library-select__item[data-state=checked]:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.library-select__item:hover:where(:not(#big-picture *)), .library-select__item[data-highlighted]:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.library-filter-options__label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.7)}
+.library-installed-filter__button:where(:not(#big-picture *)){background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.09); color: rgba(15, 23, 42, 0.9)}
+.library-installed-filter__button:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08)}
+.library-multi-select__trigger:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: #ffffff; color: #232b3a}
+.library-multi-select__trigger .library-multi-select__trigger:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.library-multi-select__trigger .library-multi-select__trigger[data-state=open]:where(:not(#big-picture *)){border-color: #232b3a}
+.library-multi-select__chevron:where(:not(#big-picture *)){color: #1b2230}
+.library-multi-select__content:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.library-multi-select__item:where(:not(#big-picture *)){color: #1b2230}
+.library-multi-select__item[data-state=checked]:where(:not(#big-picture *)){color: #232b3a}
+.library-multi-select__item:hover:where(:not(#big-picture *)), .library-multi-select__item[data-highlighted]:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15)}
+.library-multi-select__item-indicator:where(:not(#big-picture *)){color: #111827}
+.collections-filter__trigger:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: #ffffff; color: #232b3a}
+.collections-filter__trigger .collections-filter__trigger:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.collections-filter__trigger .collections-filter__trigger[data-state=open]:where(:not(#big-picture *)){border-color: #232b3a}
+.collections-filter__chevron:where(:not(#big-picture *)){color: #1b2230}
+.collections-filter__content:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.collections-filter__item:where(:not(#big-picture *)){color: #1b2230}
+.collections-filter__item:hover:where(:not(#big-picture *)), .collections-filter__item[data-highlighted]:where(:not(#big-picture *)){background-color: #ffffff}
+.collections-filter__item--active:where(:not(#big-picture *)){color: #111827; background-color: #ffffff}
+.collections-filter__separator:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.library__page-title:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.95)}
+.library__quick-action:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.04); color: #1b2230}
+.library__quick-action:hover:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.08)}
+.library__filter-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8)}
+.library__separator:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.1)}
+.library__count:where(:not(#big-picture *)){background: rgba(15, 23, 42, 0.05)}
+.library__count-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.library__count-number:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.9)}
+.library__telescope-icon:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06)}
+.library__icon-container:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06)}
+.notification-item:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.notification-item:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.03)}
+.notification-item--unread .notification-item__title:where(:not(#big-picture *)){color: #111827}
+.notification-item__picture:where(:not(#big-picture *)){background-color: #ffffff; color: #111827}
+.notification-item__badge-picture:where(:not(#big-picture *)){background-color: #ffffff}
+.notification-item__review-picture:where(:not(#big-picture *)){color: #a16d17}
+.notification-item__title:where(:not(#big-picture *)){color: #1b2230}
+.notification-item__description:where(:not(#big-picture *)){color: #3a4150}
+.notification-item__time:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.notification-item__dismiss:where(:not(#big-picture *)){color: #3a4150}
+.notification-item__dismiss:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.1)}
+.notifications__filter-tabs:where(:not(#big-picture *)){border-bottom: 1px solid rgba(15, 23, 42, 0.11)}
+.notifications__tab:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.notifications__tab:hover:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.8)}
+.notifications__tab-badge:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.15); color: rgba(15, 23, 42, 0.9)}
+.notifications__empty-filter:where(:not(#big-picture *)){color: #3a4150}
+.notifications__icon-container:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.06)}
+.game-launcher:where(:not(#big-picture *)){background: linear-gradient(135deg, #f4f6fa 0%, #1a1a2e 50%, #16213e 100%)}
+.game-launcher__overlay:where(:not(#big-picture *)){background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(15, 23, 42, 0.36) 50%, rgba(15, 23, 42, 0.4) 100%)}
+.game-launcher__logo-badge svg:where(:not(#big-picture *)){fill: #3a4150}
+.game-launcher__cover:where(:not(#big-picture *)){background-color: #f4f6fa}
+.game-launcher__cover-placeholder:where(:not(#big-picture *)){background-color: #f4f6fa; color: #1b2230}
+.game-launcher__title:where(:not(#big-picture *)){color: #3a4150}
+.game-launcher__status:where(:not(#big-picture *)){color: #1b2230}
+.game-launcher__stat:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.62)}
+.friends-window:where(:not(#big-picture *)){background-color: #ffffff; color: #3a4150}
+.friends-window__header--has-bg::after{background: linear-gradient(135deg, rgba(15, 23, 42, 0.10), rgba(15, 23, 42, 0.09))}
+.friends-window__header--has-bg .friends-window__profile-status:where(:not(#big-picture *)),
+.friends-window__header--has-bg .friends-window__profile-name:where(:not(#big-picture *)),
+.friends-window__header--has-bg .friends-window__profile-game:where(:not(#big-picture *)){text-shadow: 0 0 5px rgba(15, 23, 42, 0.25)}
+.friends-window__title-bar:where(:not(#big-picture *)){background-color: #f4f6fa; border-bottom: 1px solid rgba(15, 23, 42, 0.09)}
+.friends-window__title-bar h4:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__window-control:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__window-control:hover:where(:not(#big-picture *)){background-color: rgba(15, 23, 42, 0.08)}
+.friends-window__profile-game:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__profile-status:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__profile-name:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__friend-code:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__friend-code:hover:where(:not(#big-picture *)), .friends-window__friend-code--copied:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__friend-code:hover .friends-window__friend-code-value:where(:not(#big-picture *)), .friends-window__friend-code--copied .friends-window__friend-code-value:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__friend-code-value:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__search:where(:not(#big-picture *)){background-color: #f4f6fa; border: 1px solid rgba(15, 23, 42, 0.09)}
+.friends-window__search:hover:where(:not(#big-picture *)){border-color: rgba(15, 23, 42, 0.5)}
+.friends-window__search:focus-within:where(:not(#big-picture *)){border-color: #232b3a}
+.friends-window__search-icon:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__search-input:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__search-input::placeholder{color: #3a4150}
+.friends-window__search-clear:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__section-header:where(:not(#big-picture *)){background-color: #ffffff; color: #3a4150}
+.friends-window__section-header:hover:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__friend:hover:where(:not(#big-picture *)){background-color: #f4f6fa}
+.friends-window__friend--has-bg::after{background: linear-gradient(135deg, rgba(15, 23, 42, 0.10), rgba(15, 23, 42, 0.09))}
+.friends-window__friend--has-bg .friends-window__friend-name:where(:not(#big-picture *)),
+.friends-window__friend--has-bg .friends-window__friend-status:where(:not(#big-picture *)){color: #111827}
+.friends-window__status-orb:where(:not(#big-picture *)){border: 2px solid #111827}
+.friends-window__friend-name:where(:not(#big-picture *)){color: #1b2230}
+.friends-window__friend-status:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__game-info:where(:not(#big-picture *)){color: #3a4150}
+.friends-window__request-action:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: rgba(15, 23, 42, 0.04); color: #3a4150}
+.friends-window__empty:where(:not(#big-picture *)){color: #3a4150}
+.auth-window:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09); background-color: #f4f6fa}
+.retroachievements-connection-window:where(:not(#big-picture *)){background: #f4f6fa; color: #1b2230}
+.retroachievements-connection-window--linux:where(:not(#big-picture *)){border: 1px solid rgba(15, 23, 42, 0.09)}
+.retroachievements-connection-window__heading p:where(:not(#big-picture *)){color: #3a4150}
+.retroachievements-connection-window__divider:where(:not(#big-picture *)){border-top: 1px solid rgba(15, 23, 42, 0.09)}
+.retroachievements-connection-window__emulator-note:where(:not(#big-picture *)){color: #3a4150}
+.retroachievements-connection-window__api-key-link:hover:where(:not(#big-picture *)), .retroachievements-connection-window__create-account:hover:where(:not(#big-picture *)){color: #1b2230}
+.proton-compatibility-section__label:where(:not(#big-picture *)){color: #1b2230}
+.proton-compatibility-section__option-item.radio-field--selected .radio-field__label:where(:not(#big-picture *)){color: #111827}
+.proton-compatibility-section__option-label:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.86)}
+.release-year-section__labels:where(:not(#big-picture *)){color: rgba(15, 23, 42, 0.86)}
+.release-year-section__range::-webkit-slider-thumb{box-shadow: 0 1px 4px rgba(15, 23, 42, 0.18)}
+.release-year-section__range::-moz-range-thumb{box-shadow: 0 1px 4px rgba(15, 23, 42, 0.18)}
+.release-year-section__range:focus-visible::-webkit-slider-thumb{outline: 2px solid rgba(15, 23, 42, 0.5)}
+.release-year-section__range:focus-visible::-moz-range-thumb{outline: 2px solid rgba(15, 23, 42, 0.5)}
+
+/* ------------------------------------------------------------------ *
+ *  Design tokens
+ * ------------------------------------------------------------------ */
+:root {
+  --hl-bg: #ffffff;
+  --hl-surface: #f4f6fa;
+  --hl-surface-strong: #e9edf4;
+  --hl-text: #1b2230;
+  --hl-text-muted: #5f6875;
+  --hl-border: rgba(15, 23, 42, 0.1);
+  --hl-brand: #16b195;
+  --hl-brand-deep: #3e62c0;
+  --hl-radius: 10px;
+  --hl-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.07);
+  --hl-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  --hl-focus: 0 0 0 2px rgba(22, 177, 149, 0.45);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Base
+ * ------------------------------------------------------------------ */
+body {
+  color: var(--hl-text-muted);
+}
+
+::selection {
+  background: rgba(22, 177, 149, 0.28);
+  color: var(--hl-text);
+}
+
+::placeholder {
+  color: #8b95a5 !important;
+}
+
+/* ------------------------------------------------------------------ *
+ *  The home hero renders on top of cover artwork, so it keeps a dark
+ *  scrim and light text instead of following the light palette.
+ * ------------------------------------------------------------------ */
+.hero__backdrop:where(:not(#big-picture *)) {
+  background-image: linear-gradient(
+    0deg,
+    rgba(9, 13, 20, 0.92) 0%,
+    rgba(9, 13, 20, 0.6) 45%,
+    rgba(9, 13, 20, 0.22) 100%
+  );
+}
+
+.hero__description:where(:not(#big-picture *)),
+.hero__title:where(:not(#big-picture *)) {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Primary action keeps the Hydra brand gradient
+ * ------------------------------------------------------------------ */
+.button--primary:where(:not(#big-picture *)) {
+  background-color: var(--hl-brand-deep);
+  background-image: linear-gradient(120deg, #0d8b7d 0%, #33549f 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: var(--hl-shadow-sm);
+}
+
+.button--primary:hover:where(:not(#big-picture *)) {
+  background-color: #2c4a8c;
+  background-image: linear-gradient(120deg, #0b7a6e 0%, #2c4a8c 100%);
+  color: #ffffff;
+}
+
+.button--primary:disabled:where(:not(#big-picture *)) {
+  background-color: #cbd5e1;
+  background-image: none;
+  color: #64748b;
+  box-shadow: none;
+}
+
+.button--outline:where(:not(#big-picture *)):focus-visible {
+  box-shadow: var(--hl-focus);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Scrollbars
+ * ------------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 23, 42, 0.18);
+  border-radius: 24px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(15, 23, 42, 0.32);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Elevation: floating surfaces get a soft, light shadow
+ * ------------------------------------------------------------------ */
+.context-menu:where(:not(#big-picture *)),
+.dropdown-menu__content:where(:not(#big-picture *)),
+.search-dropdown:where(:not(#big-picture *)),
+.sidebar-filter-menu__content:where(:not(#big-picture *)),
+.sidebar-profile__dropdown:where(:not(#big-picture *)),
+.filter-dropdown__menu:where(:not(#big-picture *)),
+.library-select__content:where(:not(#big-picture *)),
+.collections-filter__content:where(:not(#big-picture *)),
+.library-multi-select__content:where(:not(#big-picture *)),
+.disc-field__menu:where(:not(#big-picture *)),
+.modal:where(:not(#big-picture *)),
+.toast:where(:not(#big-picture *)) {
+  border: 1px solid var(--hl-border);
+  box-shadow: var(--hl-shadow);
+}
+
+.modal:where(:not(#big-picture *)) {
+  border-radius: var(--hl-radius);
+}
+
+.context-menu:where(:not(#big-picture *)),
+.dropdown-menu__content:where(:not(#big-picture *)),
+.search-dropdown:where(:not(#big-picture *)),
+.filter-dropdown__menu:where(:not(#big-picture *)) {
+  border-radius: var(--hl-radius);
+}
+
+/* cards */
+.game-item:where(:not(#big-picture *)),
+.vertical-cover-card:where(:not(#big-picture *)),
+.theme-card:where(:not(#big-picture *)),
+.sidebar-section:where(:not(#big-picture *)),
+.profile-section:where(:not(#big-picture *)),
+.filter-section:where(:not(#big-picture *)),
+.settings-download-sources__item:where(:not(#big-picture *)),
+.game-item-classics:where(:not(#big-picture *)) {
+  border: 1px solid var(--hl-border);
+  box-shadow: var(--hl-shadow-sm);
+}
+
+.game-item:where(:not(#big-picture *)):hover,
+.vertical-cover-card:where(:not(#big-picture *)):hover {
+  box-shadow: var(--hl-shadow);
+  border-color: rgba(22, 177, 149, 0.45);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Inputs
+ * ------------------------------------------------------------------ */
+.text-field-container__text-field-input:focus-visible,
+.header__search-input:focus-visible,
+.select-field:focus-visible {
+  outline: none;
+  box-shadow: var(--hl-focus);
+}
+
