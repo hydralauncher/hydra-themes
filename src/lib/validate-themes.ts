@@ -2,13 +2,18 @@ import fs from "node:fs";
 import path from "node:path";
 import { ALLOWED_SCREENSHOT_FORMATS } from "./constants";
 import { api } from "./api";
+import pLimit from "p-limit";
 
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
+const MAX_CONCURRENT_REQUESTS = 5;
+const limit = pLimit(MAX_CONCURRENT_REQUESTS);
+
 const folders = fs.readdirSync(themesPath);
 
-Promise.all(
-  folders.map(async (folder) => {
+await Promise.all(
+  folders.map(async (folder) => 
+    limit(async () => {
     const folderPath = path.join(themesPath, folder);
     const files = fs.readdirSync(folderPath);
 
@@ -47,7 +52,7 @@ Promise.all(
     });
 
     return themeName;
-  }),
+  })),
 )
   .then((themes) => {
     // validate if theme name is unique
