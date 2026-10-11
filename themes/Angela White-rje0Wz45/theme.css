@@ -8,7 +8,7 @@
 }
 
 body {
-  background: url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/refs/heads/main/IMAGES/resize-3.webp") no-repeat center -400px fixed;
+  background: url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/main/GIFS/angela-white-rip-my-jeans-gifset_002.gif") no-repeat center fixed;
   background-size: cover;
   color: var(--text-color);
   position: relative;
@@ -1452,9 +1452,9 @@ body::after {
 }
 
 .achievement-notification__outer-container {
-    background: url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/refs/heads/main/GIFS/angela-white-x-booty-call_001.gif") no-repeat;
+    background: url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/refs/heads/main/GIFS/4798059-ezgif-com-gif-maker-56_1.gif") no-repeat;
     background-size: cover;
-    background-position: 50% 15% ;
+    background-position: 50% 70% ;
     border-radius: 8px;
     border: 0px;
     transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
@@ -1577,8 +1577,8 @@ body::after {
 
   /* Aplica a mesma imagem duas vezes */
   background-image: 
-    url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/main/GIFS/di8atjh-720a9ea2-e6d9-4898-b9bd-6ed8cb20c1f3.gif"),
-    url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/main/GIFS/di8atjh-720a9ea2-e6d9-4898-b9bd-6ed8cb20c1f3.gif");
+    url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/main/GIFS/angela-white-rip-my-jeans-gifset_001.gif"),
+    url("https://raw.githubusercontent.com/SAVIAAAA/HYDRA-ASSETS/main/GIFS/angela-white-rip-my-jeans-gifset_001.gif");
 
   /* Posiciona um GIF na esquerda (0%) e outro na direita (100%) da caixa */
   background-position: left center, right center;
