@@ -1,0 +1,2317 @@
+@import url("https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&family=Italiana&display=swap");
+
+/* =========================================================
+   SWEETIE FOX — ORANGE GLASS EDITION
+========================================================= */
+
+:root {
+  --sf-orange: #ff8f3d;
+  --sf-orange-light: #ffb576;
+
+  --sf-bg: rgba(18, 11, 7, 0.55);
+  --sf-panel: rgba(28, 16, 10, 0.72);
+  --sf-input: rgba(41, 23, 13, 0.62);
+
+  --sf-text: #fff4ea;
+  --sf-muted: #d5ad91;
+
+  --sf-line: rgba(255, 143, 61, 0.22);
+
+  --color-primary: #ff8f3d;
+}
+
+
+/* =========================================================
+   FONTES
+========================================================= */
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Italiana", serif !important;
+}
+
+.header__title,
+.settings__title,
+.modal__title,
+[class*="section-title"],
+[class*="page-title"],
+[class*="game-card"] h3,
+[class*="game-card"] h4,
+[class*="catalogue"] h3,
+[class*="catalogue"] h4 {
+  font-family: "Italiana", serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   FUNDO — CARROSSEL COM CROSSFADE
+   53 IMAGENS / 13 SEGUNDOS POR IMAGEM
+   12 SEGUNDOS PARADA + 1 SEGUNDO DE CROSSFADE
+   CICLO TOTAL: 689s (11 MINUTOS E 29 SEGUNDOS)
+========================================================= */
+
+
+/* =========================================================
+   WALLPAPERS
+
+   EDITE APENAS ESTA PARTE.
+
+   Exemplo:
+   --sf-wallpaper-01: url("https://site.com/imagem.jpg");
+
+   Os slots 21–53 estão repetindo a imagem 01 por padrão.
+   Assim o fundo não fica vazio enquanto você ainda não
+   tiver colocado todas as imagens.
+========================================================= */
+
+:root {
+
+  --sf-wallpaper-01:
+    url("https://w.wallhaven.cc/full/d6/wallhaven-d6ldqm.jpg");
+
+  --sf-wallpaper-02:
+    url("https://cdnc.imagefap.com/images/full/112/200/2004910161.jpg?secure=BnCNDbxVO_TcA3gvgvjEDw==,1789827537");
+
+  --sf-wallpaper-03:
+    url("https://cdnc.imagefap.com/images/full/110/142/142342882.jpg?secure=mTRRZkhrG4UxX-WGjF0eDQ==,1789827537");
+
+  --sf-wallpaper-04:
+    url("https://cdnc.imagefap.com/images/full/122/108/1081839643.jpg?secure=0JUzL7zqvoYADOu1PkxGRw==,1789827537");
+
+  --sf-wallpaper-05:
+    url("https://cdnc.imagefap.com/images/full/102/131/1319469138.jpg?secure=L4o05KMVBhgWIEN-aC_Dvw==,1789827537");
+
+  --sf-wallpaper-06:
+    url("https://cdnc.imagefap.com/images/full/114/127/1271752230.jpg?secure=-5rRcIa_SfybSU28byPw4g==,1789827537");
+
+  --sf-wallpaper-07:
+    url("https://cdnc.imagefap.com/images/full/100/175/1754439462.jpg?secure=Alexxp8keMW0X0tzqW6OPw==,1789827537");
+
+  --sf-wallpaper-08:
+    url("https://cdnc.imagefap.com/images/full/110/111/1116971301.jpg?secure=_Mwy0cqpmOUczd8S7DK0GQ==,1789827537");
+
+  --sf-wallpaper-09:
+    url("https://cdnc.imagefap.com/images/full/109/854/854139806.jpg?secure=EiCiSCJ4om_l0e3gayjZkg==,1789827537");
+
+  --sf-wallpaper-10:
+    url("https://cdnc.imagefap.com/images/full/110/126/1268846780.jpg?secure=trTsmlez5uqYlJUNHkqALg==,1789827537");
+
+
+  /* =====================================================
+     LINKS EXISTENTES — 11 A 20
+
+     Links originais preservados integralmente.
+  ===================================================== */
+
+  --sf-wallpaper-11: url("https://cdnc.imagefap.com/images/full/112/147/1473479762.jpg?secure=VnSzrSRUS4TARRaiFLF8zg==,1789827537");
+  --sf-wallpaper-12: url("https://cdnc.imagefap.com/images/full/102/181/181576820.jpg?secure=N2yS1mUNJWFGJ1izu_rSNg==,1789827537");
+  --sf-wallpaper-13: url("https://cdnc.imagefap.com/images/full/100/183/1836007248.jpg?secure=BZRjHWRsotKjcB1hxBxcrw==,1789827537");
+  --sf-wallpaper-14: url("https://cdnc.imagefap.com/images/full/114/126/1262847520.jpg?secure=NORhnxQ0KM5W54fSzmqF9Q==,1789827537");
+  --sf-wallpaper-15: url("https://cdnc.imagefap.com/images/full/110/175/1750893784.jpg?secure=0UOnT_eHgsMMmXHPxGGr0w==,1789827537");
+  --sf-wallpaper-16: url("https://cdnc.imagefap.com/images/full/122/178/1789112531.jpg?secure=1afKlp4ofz4W7mdYVjicuw==,1789827537");
+  --sf-wallpaper-17: url("https://cdnc.imagefap.com/images/full/117/702/702174594.jpg?secure=zLni1fitlPSDaOLFGLiC1g==,1789913706");
+  --sf-wallpaper-18: url("https://cdnc.imagefap.com/images/full/108/194/1947505076.jpg?secure=gh1NbFmCjXtynx8zgclXkQ==,1789913706");
+  --sf-wallpaper-19: url("https://cdnc.imagefap.com/images/full/108/706/706246420.jpg?secure=YPJt_iD2PTN2R9vhVPyy1w==,1789913706");
+  --sf-wallpaper-20: url("https://cdnc.imagefap.com/images/full/111/941/941694097.jpg?secure=2AM5aRehZx1liks6l8QDqg==,1789915893");
+
+
+  /* =====================================================
+     IMAGENS NOVAS — 21 A 53
+
+     Repetem a imagem 01 até você preencher cada slot.
+     Para adicionar uma imagem, troque o valor var(...) por
+     url("LINK_DIRETO_DA_IMAGEM"), mantendo o ponto e vírgula.
+  ===================================================== */
+
+  --sf-wallpaper-21: url("https://cdnc.imagefap.com/images/full/116/144/1445371463.jpg?secure=nxaYHJ4ee5Qi-9fvvHh7dA==,1789915893");
+  --sf-wallpaper-22: url("https://cdnc.imagefap.com/images/full/111/210/2108820097.jpg?secure=RKPH5rt4FoI7VWmsS_gBqg==,1789915893");
+  --sf-wallpaper-23: url("https://cdnc.imagefap.com/images/full/100/202/2021284543.jpg?secure=gAjQIDUwKIjkK0J42FkTdw==,1789915893");
+  --sf-wallpaper-24: url("https://cdnc.imagefap.com/images/full/119/963/963339191.jpg?secure=HlYENLzGd6aKt8rPRXpIuQ==,1789915893");
+  --sf-wallpaper-25: url("https://cdnc.imagefap.com/images/full/101/127/1277482949.jpg?secure=ZdYUdrV2mMFmqBpBlY_Xxw==,1789915893");
+  --sf-wallpaper-26: url("https://cdnc.imagefap.com/images/full/116/110/1100589928.jpg?secure=F8RGYkdzQHtNjox_iwRHGg==,1789915893");
+  --sf-wallpaper-27: url("https://cdnc.imagefap.com/images/full/114/720/720401085.jpg?secure=e6PiM8LBqzZ5Ckk5kO4W5Q==,1789915893");
+  --sf-wallpaper-28: url("https://cdnc.imagefap.com/images/full/113/144/1444525073.jpg?secure=cAxFg1XRuHFcV2yxp6P4sA==,1789915893");
+  --sf-wallpaper-29: url("https://cdnc.imagefap.com/images/full/114/127/1275751823.jpg?secure=xJcJQEZ6dAu3oTAjlpQWCg==,1789915893");
+  --sf-wallpaper-30: url("https://cdnc.imagefap.com/images/full/108/463/463221386.jpg?secure=e4IcN1S1Zvi0kO23s6cW5A==,1789915893");
+  --sf-wallpaper-31: url("https://cdnc.imagefap.com/images/full/117/582/58250962.jpg?secure=urWodoIdb154Qm5_v35VgA==,1789915893");
+  --sf-wallpaper-32: url("https://cdnc.imagefap.com/images/full/115/134/1341140280.jpg?secure=v6VCGq_587-vsJ-QgmfHUg==,1789915893");
+  --sf-wallpaper-33: url("https://cdnc.imagefap.com/images/full/118/113/113883346.jpg?secure=Rdfh4OPavHaOJx488-u8mg==,1789915893");
+  --sf-wallpaper-34: url("https://cdnc.imagefap.com/images/full/112/158/1580188769.jpg?secure=yn0pWqX651J4twLccwkxcA==,1789915893");
+  --sf-wallpaper-35: url("https://cdnc.imagefap.com/images/full/122/169/1690016159.jpg?secure=dm-zV60Kg8exS2sZed-tKQ==,1789915893");
+  --sf-wallpaper-36: url("https://cdnc.imagefap.com/images/full/102/194/1941629588.jpg?secure=KvlKkLlSJepDXErRrI4gFw==,1789915893");
+  --sf-wallpaper-37: url("https://cdnc.imagefap.com/images/full/119/147/1479880088.jpg?secure=R_17SfeXTiSYCWlj_WSL-g==,1789915893");
+  --sf-wallpaper-38: url("https://cdnc.imagefap.com/images/full/111/213/2136467649.jpg?secure=s7RRwdzbQPMDNyL2XYZfhw==,1789915893");
+  --sf-wallpaper-39: url("https://cdnc.imagefap.com/images/full/108/139/1399346402.jpg?secure=slQS7jzLdfYeTlpKonaTug==,1789915893");
+  --sf-wallpaper-40: url("https://cdnc.imagefap.com/images/full/118/185/1859277629.jpg?secure=SRewQm2CWilXpRQFMbAFJQ==,1789915893");
+  --sf-wallpaper-41: url("https://cdnc.imagefap.com/images/full/102/171/1716226975.jpg?secure=3IY8iVX7JBpeXehLuejinQ==,1789915893");
+  --sf-wallpaper-42: url("https://cdnc.imagefap.com/images/full/118/176/1760993254.jpg?secure=wbqkQwfFXFpfv8J060TmLg==,1789916120");
+  --sf-wallpaper-43: url("https://cdnc.imagefap.com/images/full/114/867/867000936.jpg?secure=PcA6g3ZbFDlWvZDy5rLOkQ==,1789916120");
+  --sf-wallpaper-44: url("https://cdnc.imagefap.com/images/full/100/740/740258714.jpg?secure=ZQKyxNkaoBM7AMxW2Tjxng==,1789916120");
+  --sf-wallpaper-45: url("https://cdnc.imagefap.com/images/full/119/556/55610872.jpg?secure=3EZKcNoeyALJITYJEefK1g==,1789916120");
+  --sf-wallpaper-46: url("https://cdnc.imagefap.com/images/full/113/123/1238098431.jpg?secure=RCMJG-NXGhEC8YECm9NIAQ==,1789916120");
+  --sf-wallpaper-47: url("https://cdnc.imagefap.com/images/full/114/185/1855150399.jpg?secure=w223kicAdiDcbNRw8NjJBw==,1789916120");
+  --sf-wallpaper-48: url("https://cdnc.imagefap.com/images/full/122/667/66768997.jpg?secure=Hewb5fidJRUUmDHxNv4qmQ==,1789916120");
+  --sf-wallpaper-49: url("https://cdnc.imagefap.com/images/full/114/105/1055099908.jpg?secure=Ia621u0RjV1fYWL9LSt9IA==,1789916120");
+  --sf-wallpaper-50: url("https://cdnc.imagefap.com/images/full/117/714/714583864.jpg?secure=Sqj3OcHHGBxU7cwD4QHtfQ==,1789916120");
+  --sf-wallpaper-51: url("https://cdnc.imagefap.com/images/full/100/936/936436539.jpg?secure=bEhI60BigEQfzcBmjL1R5A==,1789916120");
+  --sf-wallpaper-52: url("https://cdnc.imagefap.com/images/full/108/210/2100691721.jpg?secure=1CPqSKyvcnuGJrLbYYT7fw==,1789916120");
+  --sf-wallpaper-53: url("https://cdnc.imagefap.com/images/full/102/128/1284974395.jpg?secure=892nVZa9ApYBVp_aYfE_KA==,1789916120");
+}
+
+
+/* =========================================================
+   ESTRUTURA DO FUNDO
+========================================================= */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  z-index: 0;
+
+  background: transparent !important;
+}
+
+
+/*
+   IMPORTANTE:
+
+   O #root não recebe mais a imagem diretamente.
+   Agora existem duas camadas atrás da interface:
+   body::before
+   body::after
+
+   Elas ficam se alternando.
+*/
+
+#root {
+  position: relative;
+
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   CAMADAS DO WALLPAPER
+========================================================= */
+
+body::before,
+body::after {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  pointer-events: none;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  /*
+     Mantém aquele leve filtro marrom/escuro
+     que já existia no tema.
+  */
+
+  z-index: -2;
+
+  will-change: opacity;
+}
+
+
+/* =========================================================
+   CAMADA A — IMAGENS ÍMPARES, SEMPRE OPACA
+
+   A imagem muda somente enquanto a camada B a cobre.
+   Manter a base opaca evita escurecer o fundo no crossfade.
+========================================================= */
+
+/*
+   IMAGEM DE RESERVA
+   A imagem 01 fica por baixo de cada wallpaper do carrossel.
+   Se o link principal falhar ou expirar, a imagem 01 aparece.
+   Todos os links originais permanecem nos seus respectivos slots.
+*/
+
+body::before {
+  opacity: 1;
+
+  background-image:
+    linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+    var(--sf-wallpaper-01);
+
+  animation: sweetie-wallpaper-layer-a 689s steps(1, end) infinite;
+}
+
+
+/* =========================================================
+   CAMADA B — IMAGENS PARES E RETORNO À IMAGEM 01
+
+   Esta camada fica acima da A e realiza o crossfade.
+   Sua imagem muda somente enquanto ela está transparente.
+========================================================= */
+
+body::after {
+  z-index: -1;
+  opacity: 0;
+
+  background-image:
+    linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+    var(--sf-wallpaper-02),
+    var(--sf-wallpaper-01);
+
+  animation:
+    sweetie-wallpaper-layer-b 689s steps(1, end) infinite,
+    sweetie-wallpaper-opacity-b 689s linear infinite;
+}
+
+
+/* =========================================================
+   TROCA DAS IMAGENS
+
+   As trocas ocultas ocorrem 0,1s após cada fade terminar.
+   A imagem seguinte fica pronta antes do próximo crossfade.
+   No último segundo: 53 (A) → 01 (B).
+   Ao reiniciar o ciclo, A já mostra 01 e B prepara 02.
+========================================================= */
+
+@keyframes sweetie-wallpaper-layer-a {
+  /* 0s — imagem 01 */
+  0% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 13.1s — imagem 03 */
+  1.901306241% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-03),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 39.1s — imagem 05 */
+  5.674891147% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-05),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 65.1s — imagem 07 */
+  9.448476052% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-07),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 91.1s — imagem 09 */
+  13.222060958% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-09),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 117.1s — imagem 11 */
+  16.995645864% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-11),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 143.1s — imagem 13 */
+  20.769230769% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-13),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 169.1s — imagem 15 */
+  24.542815675% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-15),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 195.1s — imagem 17 */
+  28.316400581% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-17),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 221.1s — imagem 19 */
+  32.089985486% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-19),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 247.1s — imagem 21 */
+  35.863570392% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-21),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 273.1s — imagem 23 */
+  39.637155298% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-23),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 299.1s — imagem 25 */
+  43.410740203% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-25),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 325.1s — imagem 27 */
+  47.184325109% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-27),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 351.1s — imagem 29 */
+  50.957910015% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-29),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 377.1s — imagem 31 */
+  54.73149492% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-31),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 403.1s — imagem 33 */
+  58.505079826% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-33),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 429.1s — imagem 35 */
+  62.278664731% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-35),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 455.1s — imagem 37 */
+  66.052249637% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-37),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 481.1s — imagem 39 */
+  69.825834543% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-39),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 507.1s — imagem 41 */
+  73.599419448% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-41),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 533.1s — imagem 43 */
+  77.373004354% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-43),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 559.1s — imagem 45 */
+  81.14658926% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-45),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 585.1s — imagem 47 */
+  84.920174165% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-47),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 611.1s — imagem 49 */
+  88.693759071% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-49),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 637.1s — imagem 51 */
+  92.467343977% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-51),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 663.1s — imagem 53 */
+  96.240928882% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-53),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 689s — imagem 01 */
+  100% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-01);
+  }
+
+}
+
+@keyframes sweetie-wallpaper-layer-b {
+  /* 0s — imagem 02 */
+  0% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-02),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 26.1s — imagem 04 */
+  3.788098694% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-04),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 52.1s — imagem 06 */
+  7.561683599% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-06),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 78.1s — imagem 08 */
+  11.335268505% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-08),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 104.1s — imagem 10 */
+  15.108853411% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-10),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 130.1s — imagem 12 */
+  18.882438316% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-12),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 156.1s — imagem 14 */
+  22.656023222% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-14),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 182.1s — imagem 16 */
+  26.429608128% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-16),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 208.1s — imagem 18 */
+  30.203193033% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-18),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 234.1s — imagem 20 */
+  33.976777939% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-20),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 260.1s — imagem 22 */
+  37.750362845% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-22),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 286.1s — imagem 24 */
+  41.52394775% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-24),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 312.1s — imagem 26 */
+  45.297532656% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-26),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 338.1s — imagem 28 */
+  49.071117562% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-28),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 364.1s — imagem 30 */
+  52.844702467% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-30),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 390.1s — imagem 32 */
+  56.618287373% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-32),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 416.1s — imagem 34 */
+  60.391872279% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-34),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 442.1s — imagem 36 */
+  64.165457184% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-36),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 468.1s — imagem 38 */
+  67.93904209% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-38),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 494.1s — imagem 40 */
+  71.712626996% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-40),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 520.1s — imagem 42 */
+  75.486211901% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-42),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 546.1s — imagem 44 */
+  79.259796807% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-44),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 572.1s — imagem 46 */
+  83.033381713% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-46),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 598.1s — imagem 48 */
+  86.806966618% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-48),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 624.1s — imagem 50 */
+  90.580551524% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-50),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 650.1s — imagem 52 */
+  94.35413643% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-52),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 676.1s — imagem 01 */
+  98.127721335% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-01);
+  }
+
+  /* 689s — imagem 02 */
+  100% {
+    background-image:
+      linear-gradient(rgba(18, 11, 7, 0.22), rgba(18, 11, 7, 0.22)),
+      var(--sf-wallpaper-02),
+      var(--sf-wallpaper-01);
+  }
+
+}
+
+/* =========================================================
+   CROSSFADE — 12s PARADA + 1s DE TRANSIÇÃO
+
+   A opacidade de B sobe de 0 a 1 ou desce de 1 a 0.
+   A permanece opaca por baixo durante toda a transição.
+   No final B termina com a imagem 01; o reinício em A
+   mantém a mesma imagem visível, inclusive com 53 slots.
+========================================================= */
+
+@keyframes sweetie-wallpaper-opacity-b {
+  0% { opacity: 0; }
+  1.741654572% { opacity: 0; }
+  1.886792453% { opacity: 1; }
+
+  3.628447025% { opacity: 1; }
+  3.773584906% { opacity: 0; }
+
+  5.515239478% { opacity: 0; }
+  5.660377358% { opacity: 1; }
+
+  7.40203193% { opacity: 1; }
+  7.547169811% { opacity: 0; }
+
+  9.288824383% { opacity: 0; }
+  9.433962264% { opacity: 1; }
+
+  11.175616836% { opacity: 1; }
+  11.320754717% { opacity: 0; }
+
+  13.062409289% { opacity: 0; }
+  13.20754717% { opacity: 1; }
+
+  14.949201742% { opacity: 1; }
+  15.094339623% { opacity: 0; }
+
+  16.835994194% { opacity: 0; }
+  16.981132075% { opacity: 1; }
+
+  18.722786647% { opacity: 1; }
+  18.867924528% { opacity: 0; }
+
+  20.6095791% { opacity: 0; }
+  20.754716981% { opacity: 1; }
+
+  22.496371553% { opacity: 1; }
+  22.641509434% { opacity: 0; }
+
+  24.383164006% { opacity: 0; }
+  24.528301887% { opacity: 1; }
+
+  26.269956459% { opacity: 1; }
+  26.41509434% { opacity: 0; }
+
+  28.156748911% { opacity: 0; }
+  28.301886792% { opacity: 1; }
+
+  30.043541364% { opacity: 1; }
+  30.188679245% { opacity: 0; }
+
+  31.930333817% { opacity: 0; }
+  32.075471698% { opacity: 1; }
+
+  33.81712627% { opacity: 1; }
+  33.962264151% { opacity: 0; }
+
+  35.703918723% { opacity: 0; }
+  35.849056604% { opacity: 1; }
+
+  37.590711176% { opacity: 1; }
+  37.735849057% { opacity: 0; }
+
+  39.477503628% { opacity: 0; }
+  39.622641509% { opacity: 1; }
+
+  41.364296081% { opacity: 1; }
+  41.509433962% { opacity: 0; }
+
+  43.251088534% { opacity: 0; }
+  43.396226415% { opacity: 1; }
+
+  45.137880987% { opacity: 1; }
+  45.283018868% { opacity: 0; }
+
+  47.02467344% { opacity: 0; }
+  47.169811321% { opacity: 1; }
+
+  48.911465893% { opacity: 1; }
+  49.056603774% { opacity: 0; }
+
+  50.798258345% { opacity: 0; }
+  50.943396226% { opacity: 1; }
+
+  52.685050798% { opacity: 1; }
+  52.830188679% { opacity: 0; }
+
+  54.571843251% { opacity: 0; }
+  54.716981132% { opacity: 1; }
+
+  56.458635704% { opacity: 1; }
+  56.603773585% { opacity: 0; }
+
+  58.345428157% { opacity: 0; }
+  58.490566038% { opacity: 1; }
+
+  60.23222061% { opacity: 1; }
+  60.377358491% { opacity: 0; }
+
+  62.119013062% { opacity: 0; }
+  62.264150943% { opacity: 1; }
+
+  64.005805515% { opacity: 1; }
+  64.150943396% { opacity: 0; }
+
+  65.892597968% { opacity: 0; }
+  66.037735849% { opacity: 1; }
+
+  67.779390421% { opacity: 1; }
+  67.924528302% { opacity: 0; }
+
+  69.666182874% { opacity: 0; }
+  69.811320755% { opacity: 1; }
+
+  71.552975327% { opacity: 1; }
+  71.698113208% { opacity: 0; }
+
+  73.439767779% { opacity: 0; }
+  73.58490566% { opacity: 1; }
+
+  75.326560232% { opacity: 1; }
+  75.471698113% { opacity: 0; }
+
+  77.213352685% { opacity: 0; }
+  77.358490566% { opacity: 1; }
+
+  79.100145138% { opacity: 1; }
+  79.245283019% { opacity: 0; }
+
+  80.986937591% { opacity: 0; }
+  81.132075472% { opacity: 1; }
+
+  82.873730044% { opacity: 1; }
+  83.018867925% { opacity: 0; }
+
+  84.760522496% { opacity: 0; }
+  84.905660377% { opacity: 1; }
+
+  86.647314949% { opacity: 1; }
+  86.79245283% { opacity: 0; }
+
+  88.534107402% { opacity: 0; }
+  88.679245283% { opacity: 1; }
+
+  90.420899855% { opacity: 1; }
+  90.566037736% { opacity: 0; }
+
+  92.307692308% { opacity: 0; }
+  92.452830189% { opacity: 1; }
+
+  94.194484761% { opacity: 1; }
+  94.339622642% { opacity: 0; }
+
+  96.081277213% { opacity: 0; }
+  96.226415094% { opacity: 1; }
+
+  97.968069666% { opacity: 1; }
+  98.113207547% { opacity: 0; }
+
+  99.854862119% { opacity: 0; }
+  100% { opacity: 1; }
+
+}
+
+
+/* =========================================================
+   CONTEÚDO DO HYDRA TRANSPARENTE
+========================================================= */
+
+body,
+.container__content {
+  background: transparent !important;
+
+  color: var(--sf-text);
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.title-bar {
+  position: relative !important;
+
+  background: rgba(50, 25, 12, 0.58) !important;
+  color: var(--sf-text);
+
+  border-bottom: 1px solid var(--sf-line) !important;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   LOGO SWEETIE FOX CENTRAL
+========================================================= */
+
+.title-bar::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 135px;
+  height: 30px;
+
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAABVCAMAAACRmMqkAAABgFBMVEUAAAABAQH8+/v8YgD2XQDo6OgXFhYnJyc2NjbX19fHx8eWl5e3t7dWV1d2d3dHR0dnZ2eHh4cAAACoqKgAAAAAAAAAAAAAAAAAAACPNwFLGgAyFQRuKAGzRAIpDADLSwHWUgJYIgKmPAGMLAB0fIC2vcEvIhtdaXG9w8c3RE5WXWJrHQB8MAJ6hIvg3+AfICAgHyE5P0NBDwBgX2BhYF+Af4CAgH+UnKGboqe/wL/Av8Db3uDg4N8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwcMGEAAAAgHRSTlMA/f39/f39/f39/f39/f39/f0t/VFw0LGP/f39/f39/f39/f3+/v7+/v7+/v7+/v7+/v3+/v7+/v7+/v7+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACNJW8UAAA3uSURBVHja7Vxne+M2EjYpNgDslEiJpJq9Lbkk1/v9/991BNEGhbJkaXeTJ54vlkmxzIvpM9DT0zu90zu90ztdR/V6va5/r8yvt63HqN3OIExgqJPqs4KIwrVebxitNRTF0YlqHV8N4vV2u12rs/Ka6TC44TchyT2jTb1lf+c3A5+7GaGNPAho67oR/TZlpd506kS7YeyzI13tvo7f8JvQxluibnpP9UK1PLx1fLetn+rWdZPtprW/Ch76tHBdW0PhoWL2dfSz7vgDkyyv8izWXmK9BnLRehepW3tXEwR9Wy98qWXvt+nAM7YPB4G/dUKQzyhlEBS5giJTn9XHIsvKsszzvKpIVcjvxvzofJyU8ngUF+V0KC/n6xmWeaPOJxP6FSVCqYq52q07C5bNV+A/SX1FYTS9buP7SLz6dBLzz9NhP5uBQL5GghOiH/ZTdv8Kh/IQEffF0z/xwnVhPMuUW+geCAGTvlx/eO7FiANBib5nyD5W9DQFozTe128UQDpNjJRYP5Qp/v3Ezb9ClNIw7vYT7cYeWtaHUOt669yblxcBntjnRPBaWO+bK4A0Ql6C3N9tfAVy7ruA49zvTitJwZ5j0NWPs/+p9Wy2HkzsM18BwFgpvDi0+JwZsXHxi2KBtxIITmJ/R+jJsJ/5DgKJwWl8oB44pa+KgfpyXpFa38YBGYoBQJogRzZvswbEUNDxIv+7lYOO/aP0YANWDZVF2UzchpVQ8AaIB5brNAmtYQBCnHtOBQibxBbulGl9agkDgLMRTmVa/sAFwf5BetABBWCWKSkiyQgB74blOpVCKJq8zIoiieNIOEDO4XScnbCYIzLMKNRtvYjdD7PLEnk/zzu62ac6cX5IuKjeenpv9VyuFJWnlD0VrKTCZmLLORFgLRTlGKckNS/BwBzmPjCHkPaL/E/0/IiIWbNbSAYzjXy7RrlzjkUsLFZmvm4MTbxBlabY6qmJEgBiXTRe4D9YHZMmFpHkPQBAA1zxJ6eClQzEM41gL3UutJSbyME/51G59sZXN+FWorCuCi4JwOo4AV5FIgi/IwqAHg3HEIAMnGsKIcTFwkJzJhuXACRqvaGwMMTRAqDjRf5XwfBx0ps8kknCuq5pSn2TOGxNKxUmAIACWPUUCxb4ySSK4jiZ84EExjKlN5+gZwpDA0L5v3hmIeOMSQPkDbOIW8CL/K9e5isVBI4k8rpAWHNesyniPBKXdxaLF4aGY0fiuDqBI83kpfIdU6ABjX0d+jQdP1xcfwrB4Qu7kiQGBPWNkXBpRiCp76YwcgW7jLPEdUHmNo8ReFYUOq6jxqJXGhDAQBD4AenBUFVEbymliDpEgnUmIQDYWGnkeN/ccwMjlL40zFxma4B9nTIBwZIs9BmMxhoyZdIp9ebtbZUAQw0SDQCUKAD+7Y72mXvH/nI83xiOngB1axzXVYYNDJ5/2tsgTLj0pTPRaG/JhJM8p3gXks9CA6CI9HWxFzokEYynHF6VS7kyAQiE2rZEhbnpBGjUd9hZVnBSDBuBlBXyrtX/aOaVRhRypWO4Kg3QUQIWOmV1GyJLaFwYESFNk6Zp01RZZEQ9lekEM/U5pOLbNPSGQpsFAFPIw/PCkykANBwMHeZjfbUCREhpMVbyTIBBkADMAsv/4w4tSsoqRYiKANHUPEqyfFLHQpN40wSE4DMHJyqmG2I8B0zKCB49R2o48b/rhyR12Gnv+hhALTXCAMHKZfVymLg3FWmUeSxV0pjn8ARMkpUJALmW+BxWFUn16w6BkIBAVYaOUAWGz9hpj7dXa4DDBWFYn4FKijT7bRQ93M6B85z4RojYABfRLF93ZGxOtFPWegcAGF31p+vDgFb5Y6MUKdwWew8MBTj33cbe6c25YOdm8oRAaugMOUrOayBY7UF58KRlA/ZSXB0FdI7Hs0hYWK0MrFfjLdT82CknAASGfchMGrJFAHjA1CsAAoAAFYKAHT7804X4LfXwWJdc3hHgpplAnvkZWwJQ6bkBCEsHv+ruqbcAAC5UOUQR0AKvPwn38KfQLsFvbgqDIxDv40zT0hQmLqWe1qlHlp6bEZzrdaLKqBuEsZ4WyRuqlxh2KhaUdUAoBJMVyCz+uxszIS/OUxSGKK1gRhERrAJ3BF+/kKY6xAS00aImBEFpCftr2EyeUxpgyoIR8sENI60WDmLg6dN+sIRgdciNzkR7SzJ8ZSsvyrRsK0qKglb8rK8l2d/KMitiMz2NytL4cqZVk+YcWL8hq4WbcU+wO+hCMJFCoLoyEazXdX0bAAD3s/dNaCcWP9Bj3wkCANIzk4EsBJbjVf5Fr61tu87sOp53+xMF9bjfnQfrpYbx+bh6iaObOIlil6y8QofjUv5HIRjBK+2O05ExboTleL0Usrzmg5FunfZjPzCJOwwUmjkBj0KiyXw5d4Bp9I8ppVp1JslT3lSBFYucR7oaThVSNx6C5fx3bgkc4Gv346QXgxxmuKr+4QL9OZDyBooPASMB/8n7qOK5mLhcfyiXu0idDhY76okFAl73MGd5y+VAIyi4rWVM7X6/343juR8GAORog64XYWZ4ggNRAW25UDTivCXuEEsk3VoFOIextncSsC+Ugei7zKZo293eMacAPAMOT8fj/nm326+uosMH5c/zBf55vOMIGMM/gjYLbIIQbZBgv9I4d2EQsNC4U4NH7XZ9fR9gXNnoBlfxDyKiYol/1ur6j++OmIk5TSCGBGRuNM4sB6d5XY7BohYoi1/X9W19gIPgnmMQXMP99J3DZxAS4wX+5/ZaErpPJlqliauKCIPCgvdCJis3Su3sd6eVUwR2b2yPb1nDMVjdSiLgwBcMAGpm+Vf8h2mDtUwlN+cJMqO9/rIKng0P3DtjotNtQa/mBsfVrfzTolQFE1WxbE02B4UTxbJHLPUclXOtsIGhOtITt9zUiODksPD90YyIaAR4Y9QL/eDt6/8suxcRFIDUFfpIcCIzTcJ6PSVWJkG4xf7Z7eBGy0WthjcCsJlF4Lbln2ItrMXbyDdafYAaoyIMEkisJ41po6s/DKHKiuQZ8BSHvYnAWyXgybtNBCasj4dML1UVFwSgtPgHCuOunqdGqByJ/DCE8dI5MHTyrYMB1Ayeb5GAF1AyKDWZzhbb4Do2mvj8fal5IjNF5J6Um6uBAQwE3tgS55M3V0r/8VAg3clLkUYOASDmiBulXzTA0PI0oDWxNcuMTKZ6o0p6x2To4VoF6ON/WZ0+Ai1XFNGmdsznemKHAkjAePSn1XBQ4jQhTV7NOBVsfheJOYieZWyn811Tct1VSjBnnsOH0KrxyuofmiiUTe05myO+Y9qncjYKQTBgpgXMKFQozYkRJlAMxnG4NvW7pASve4LTOJTIKrkvZ0F0MiJ0qLUELLHLimHsmDJCepLouyey7uCfFQV2l9nf95/y/zp7/XgZgMx35HrEiHW0wVnsGKUqtQZaU2GXy71vSnTzCgLHcUisbB97S0Ot8nzjMIGFMfpbhE4bGDe0qAOLBYmcWUIC/oJUciLovgnJeb/HTyttBIN/ONKO4we8OOxRLfEfKQMPNFsGxrk7jebmYo4fE3YDHhdhOWLT8Md/0ERmfT8CZz3iOdJp9CHOiLPNh4yoxtHSt7QdNF7SpaF4opY7l6NDKc5LdSPEBKgypOsBMiCLz/vhPHxKih9/bpD/SqXHYDwMEUpJpp+TyX5hFEDSpSkaLgEZGHiR98nYLUE2Ws49jO7pfjsgnUH/Qxj6FykxNKCk+d9EDoc/LSuLCoh+tcwoUBZaO0rYMEGlTSZVKruOMrkO1DmE8VtTAbNALExh//ky/8gIa11hYAzHxCuCjepH8ovKE3PbuHAnyzvHmVhuhlVWSEmqBKL3AsA2i8lhvP4HdAmA1ODRnBPdtkstcsF/ocVT2MZWZoJ5mfDGPeIqWQrhqiI1dX03ACwmlA3Il6G6AABX679CnW472l3pui2dTt0uDTvwcFfET2Fm2RKZDrR6/xBsuhDhpgjNssdsGKlVbkwr8X38YVEKiG4CcssIrZdKpalWQ5HBf2XMdW1oYRfsJVSFNZxYrie9IxeyfEEPUr8pAPpM0i8Yf0wv7gnDDkfs9nJcVzKzTASVoFHLWau9mXx4k7aRsGvP0WM21loh4fHlDz0lkxesbYmIHF7Iuf2Kb48RIvwPPsjaaUpQ6GjSmW9uDcq5/873U+hZWfsQ/pkrcO3LCLyProhtDuxYtlY7226aHZETFxlU/w3XvRLKyKXNzLMAgK2H6P5A0AiI9mbJlRbCImxbctrrz4uFSJQPnpL/iZHJQk8I+F6EWjLYKBO4udTFJXLzWSpfpXt6FHXuClGweo5ShxG4lI3Vcg82HZOQ32S8hpWWxXYcAbbrxSXPyhpEhG4iw5MENdIeP3AHdQsHr7S64+FnRyh4KRutnb8BMAsZ7xps9cfyo0v6TLteCoYiSqQBeuj26U7M3JiWIPjLn7+4Uvd22QDrG+z5Fz1XBldfWduozZJz8jgLqCHg7QK7KPY8ZEoPZhfW1q/8iIH4JY5WdWyFYOg5vDj62mb4WnXBJ7PEdrY9+icEmM09OCAIXvr4R/IRhSJPvw57s2G76drW3tjlPuqaalrX/Bc7Yu+RHsCeHBr3Wlt+LpPQyOD8aeB5X/f0vaj+Gj8eYLhDKgbn3ckYzQpOoF/9HX9kZ/01+dd/FWY4jztGdJYGlmK/748MbabMa/M173/5N1K+6rN/JVRvFzC4fgjnt09rapwB6903/1GnX4csMHp6p3d6p984/R/+juqNFOcetgAAAABJRU5ErkJggg==");
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
+
+  z-index: 9999;
+}
+
+
+/* =========================================================
+   CRÉDITO — SWEETIE FOX
+========================================================= */
+
+.title-bar::after {
+  content: "Sweetie Fox";
+
+  position: absolute;
+
+  top: 50%;
+  right: 360px;
+
+  transform: translateY(-50%);
+
+  font-family: "Birthstone Bounce", cursive !important;
+
+  font-size: 21px;
+  font-weight: 500;
+
+  color: #ffffff;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 4px rgba(255, 143, 61, 1),
+    0 0 8px rgba(255, 143, 61, 0.85),
+    0 0 14px rgba(255, 143, 61, 0.55),
+    0 0 22px rgba(255, 143, 61, 0.30);
+
+  pointer-events: none;
+
+  z-index: 9999;
+}
+
+
+/* =========================================================
+   CRÉDITO — BY WeirdoGooner
+========================================================= */
+
+#root::after {
+  content: "by WeirdoGooner";
+
+  position: fixed;
+
+  top: 9px;
+  right: 260px;
+
+  font-family: "Italiana", serif !important;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #ffffff;
+
+  white-space: nowrap;
+
+  opacity: 0.95;
+
+  pointer-events: none;
+
+  z-index: 10000;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  background: rgba(36, 19, 11, 0.52) !important;
+
+  color: var(--sf-text);
+
+  border-bottom: 1px solid var(--sf-line) !important;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header__title {
+  color: var(--sf-text);
+}
+
+.header__back-button {
+  color: var(--sf-orange-light);
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  background: rgba(33, 17, 8, 0.58) !important;
+
+  color: var(--sf-text);
+
+  border-right: 1px solid var(--sf-line) !important;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sidebar__menu-item {
+  color: var(--sf-text);
+
+  border-radius: 8px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sidebar__menu-item:hover {
+  background: rgba(255, 143, 61, 0.10) !important;
+
+  box-shadow:
+    0 0 12px rgba(255, 143, 61, 0.12);
+}
+
+.sidebar__menu-item--active,
+.sidebar__menu-item--active:hover {
+  background: rgba(255, 143, 61, 0.18) !important;
+
+  color: var(--sf-orange-light) !important;
+
+  box-shadow:
+    inset 3px 0 var(--sf-orange),
+    0 0 14px rgba(255, 143, 61, 0.16) !important;
+}
+
+.sidebar-profile__button {
+  color: var(--sf-text);
+
+  border-radius: 10px;
+}
+
+.sidebar-profile__button:hover,
+.sidebar-profile__button--active {
+  background: rgba(255, 143, 61, 0.09);
+}
+
+.sidebar-profile__chevron {
+  color: var(--sf-orange);
+}
+
+.sidebar__game-favorite-icon {
+  color: var(--sf-orange);
+}
+
+.sidebar__collection-count {
+  background: rgba(255, 143, 61, 0.90);
+
+  color: #291407;
+}
+
+
+/* =========================================================
+   CONFIGURAÇÕES
+========================================================= */
+
+.settings__content {
+  background: rgba(28, 16, 10, 0.68) !important;
+
+  border-color: var(--sf-line);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.settings__sidebar {
+  background: rgba(24, 13, 8, 0.60) !important;
+
+  border-color: var(--sf-line);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.settings__sidebar-button {
+  color: var(--sf-text);
+
+  border-radius: 8px;
+}
+
+.settings__sidebar-button:hover {
+  background: rgba(255, 143, 61, 0.09);
+}
+
+.settings__sidebar-button--active,
+.settings__sidebar-button--active:hover {
+  background: rgba(255, 143, 61, 0.16) !important;
+
+  color: var(--sf-orange-light);
+
+  box-shadow:
+    inset 3px 0 var(--sf-orange),
+    0 0 12px rgba(255, 143, 61, 0.10);
+}
+
+.settings__sidebar-group-label {
+  color: var(--sf-muted);
+}
+
+.settings__sidebar-divider {
+  background: var(--sf-line);
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.button {
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.button--primary {
+  color: #291407;
+
+  background: rgba(255, 143, 61, 0.92);
+
+  border-color: var(--sf-orange);
+
+  box-shadow:
+    0 3px 12px rgba(255, 143, 61, 0.16),
+    0 0 10px rgba(255, 143, 61, 0.10);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: rgba(255, 181, 118, 0.96);
+
+  border-color: var(--sf-orange-light);
+
+  box-shadow:
+    0 0 14px rgba(255, 143, 61, 0.30),
+    0 4px 14px rgba(0, 0, 0, 0.25);
+
+  transform: translateY(-1px);
+}
+
+.button--primary:disabled {
+  background: rgba(255, 143, 61, 0.55);
+}
+
+.button--outline {
+  background: rgba(255, 143, 61, 0.06);
+
+  color: var(--sf-orange-light);
+
+  border-color: rgba(255, 143, 61, 0.30);
+}
+
+.button--outline:hover:not(:disabled) {
+  background: rgba(255, 143, 61, 0.12);
+
+  border-color: var(--sf-orange);
+
+  box-shadow:
+    0 0 12px rgba(255, 143, 61, 0.22);
+}
+
+.button--dark {
+  background: rgba(43, 22, 12, 0.64);
+
+  color: var(--sf-text);
+
+  border-color: var(--sf-line);
+}
+
+.button--dark:hover:not(:disabled) {
+  background: rgba(58, 29, 14, 0.75);
+
+  border-color: rgba(255, 143, 61, 0.35);
+}
+
+.button--danger {
+  background: rgba(143, 48, 67, 0.82);
+
+  color: #fff4f6;
+}
+
+.button--danger:hover:not(:disabled) {
+  background: rgba(171, 61, 83, 0.92);
+}
+
+
+/* =========================================================
+   INPUTS / BUSCA / SELECT
+========================================================= */
+
+.header__search,
+.text-field-container__text-field,
+.select-field {
+  background: rgba(41, 23, 13, 0.54) !important;
+
+  border-color: var(--sf-line);
+
+  border-radius: 10px;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.header__search:hover,
+.text-field-container__text-field:hover,
+.select-field:hover {
+  background: rgba(41, 23, 13, 0.68) !important;
+
+  border-color: rgba(255, 143, 61, 0.50);
+}
+
+.header__search--focused,
+.text-field-container__text-field--focused,
+.select-field--focused {
+  border-color: var(--sf-orange);
+
+  box-shadow:
+    0 0 0 2px rgba(255, 143, 61, 0.12),
+    0 0 12px rgba(255, 143, 61, 0.15);
+}
+
+.text-field-container__text-field--has-error {
+  border-color: #eb7188;
+}
+
+.header__search-input,
+.text-field-container__text-field-input {
+  color: var(--sf-text);
+
+  caret-color: var(--sf-orange);
+}
+
+.header__search-input::placeholder,
+.text-field-container__text-field-input::placeholder {
+  color: var(--sf-muted);
+
+  opacity: 0.85;
+}
+
+.select-field__option {
+  background: rgba(41, 23, 13, 0.92);
+
+  color: var(--sf-text);
+}
+
+.select-field__label {
+  color: var(--sf-muted);
+}
+
+
+/* =========================================================
+   BARRAS DE PESQUISA — LIQUID GLASS / CÁPSULA
+
+   Vidro âmbar escuro translúcido, borda iluminada e foco suave.
+   Aplicado às buscas do topo, da barra lateral e aos campos
+   identificados como pesquisa/filtro em português ou inglês.
+========================================================= */
+
+:is(
+  .header__search,
+  .sidebar__search-row .text-field-container__text-field,
+  .text-field-container__text-field:has(input:is(
+    [type="search"],
+    [name="search"],
+    [placeholder*="buscar" i],
+    [placeholder*="pesquis" i],
+    [placeholder*="search" i],
+    [placeholder*="filtr" i],
+    [placeholder*="filter" i]
+  ))
+) {
+  box-sizing: border-box;
+  min-height: 40px;
+  border-radius: 999px !important;
+  border: 1px solid var(--sf-glass-border) !important;
+  border-top-color: var(--sf-glass-border-top) !important;
+  border-bottom-color: var(--sf-glass-border-bottom) !important;
+
+  background:
+    var(--sf-glass-sheen),
+    var(--sf-glass-input) !important;
+
+  backdrop-filter: var(--sf-glass-backdrop);
+  -webkit-backdrop-filter: var(--sf-glass-backdrop);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 199, 145, 0.09),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.24),
+    0 4px 14px rgba(0, 0, 0, 0.16);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    width 0.2s ease;
+}
+
+:is(
+  .header__search,
+  .sidebar__search-row .text-field-container__text-field,
+  .text-field-container__text-field:has(input:is(
+    [type="search"],
+    [name="search"],
+    [placeholder*="buscar" i],
+    [placeholder*="pesquis" i],
+    [placeholder*="search" i],
+    [placeholder*="filtr" i],
+    [placeholder*="filter" i]
+  ))
+):hover {
+  background-color: var(--sf-glass-hover) !important;
+  border-color: rgba(255, 199, 145, 0.28) !important;
+  border-top-color: rgba(255, 199, 145, 0.40) !important;
+  border-bottom-color: rgba(255, 199, 145, 0.12) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 199, 145, 0.12),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.20),
+    0 4px 16px rgba(0, 0, 0, 0.20);
+}
+
+:is(
+  .header__search,
+  .sidebar__search-row .text-field-container__text-field,
+  .text-field-container__text-field:has(input:is(
+    [type="search"],
+    [name="search"],
+    [placeholder*="buscar" i],
+    [placeholder*="pesquis" i],
+    [placeholder*="search" i],
+    [placeholder*="filtr" i],
+    [placeholder*="filter" i]
+  ))
+):is(
+  :focus-within,
+  .header__search--focused,
+  .text-field-container__text-field--focused
+) {
+  background-color: var(--sf-glass-focus) !important;
+  border-color: rgba(255, 181, 118, 0.58) !important;
+  border-top-color: rgba(255, 221, 190, 0.70) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 199, 145, 0.14),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.18),
+    0 0 0 2px rgba(255, 143, 61, 0.10),
+    0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+:is(
+  .header__search,
+  .sidebar__search-row .text-field-container__text-field,
+  .text-field-container__text-field:has(input:is(
+    [type="search"],
+    [name="search"],
+    [placeholder*="buscar" i],
+    [placeholder*="pesquis" i],
+    [placeholder*="search" i],
+    [placeholder*="filtr" i],
+    [placeholder*="filter" i]
+  ))
+) input {
+  min-width: 0;
+  background: transparent !important;
+  border: 0;
+  border-radius: inherit;
+  color: var(--sf-text);
+  caret-color: var(--sf-orange-light);
+  padding-inline: 14px;
+}
+
+:is(
+  .header__search,
+  .sidebar__search-row .text-field-container__text-field,
+  .text-field-container__text-field:has(input:is(
+    [type="search"],
+    [name="search"],
+    [placeholder*="buscar" i],
+    [placeholder*="pesquis" i],
+    [placeholder*="search" i],
+    [placeholder*="filtr" i],
+    [placeholder*="filter" i]
+  ))
+) input::placeholder {
+  color: rgba(255, 244, 234, 0.62);
+  opacity: 1;
+}
+
+/* Conserva o espaço dos ícones e a largura original da busca. */
+.header__search {
+  padding-inline: 6px;
+}
+
+.header__search .header__search-input {
+  padding-inline: 4px;
+}
+
+.header__search .header__action-button {
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: rgba(255, 244, 234, 0.76);
+}
+
+.header__search .header__action-button:hover {
+  color: var(--sf-text);
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.checkbox-field__checkbox {
+  background: rgba(41, 23, 13, 0.58);
+
+  border-color: rgba(255, 143, 61, 0.35);
+}
+
+.checkbox-field__checkbox.checked {
+  background: rgba(255, 143, 61, 0.90);
+
+  border-color: var(--sf-orange);
+
+  color: #291407;
+}
+
+
+/* =========================================================
+   CARDS DE TEMA
+========================================================= */
+
+.theme-card {
+  background: rgba(27, 14, 7, 0.56) !important;
+
+  border-color: var(--sf-line);
+
+  border-radius: 14px;
+
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.theme-card:hover {
+  background: rgba(35, 18, 8, 0.68) !important;
+
+  border-color: rgba(255, 143, 61, 0.55);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 143, 61, 0.20),
+    0 0 16px rgba(255, 143, 61, 0.28),
+    0 8px 28px rgba(0, 0, 0, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.theme-card--active {
+  background: rgba(255, 143, 61, 0.10) !important;
+
+  border-color: rgba(255, 143, 61, 0.50);
+}
+
+.theme-card__header__title {
+  color: var(--sf-text);
+}
+
+.theme-card__author {
+  color: var(--sf-muted);
+}
+
+.theme-card__author__name {
+  color: var(--sf-orange-light);
+}
+
+
+/* =========================================================
+   GLOW DOS CARDS
+========================================================= */
+
+[class*="game-card"],
+[class*="library-game"],
+[class*="catalogue-card"] {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+[class*="game-card"]:hover,
+[class*="library-game"]:hover,
+[class*="catalogue-card"]:hover {
+  border-color: rgba(255, 143, 61, 0.55) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 143, 61, 0.20),
+    0 0 16px rgba(255, 143, 61, 0.28),
+    0 8px 28px rgba(0, 0, 0, 0.35) !important;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LIQUID GLASS — JOGOS E FILTROS
+   Painéis com cantos de 12px, mantendo o formato retangular.
+========================================================= */
+
+:is(
+  .game-item,
+  .catalogue-game-item,
+  .catalogue .filter-section,
+  .catalogue-mode-toggle,
+  .catalogue__sort-select .select-field,
+  .sidebar-filter-menu__content
+) {
+  border-radius: 12px !important;
+  border: 1px solid var(--sf-glass-border) !important;
+  border-top-color: var(--sf-glass-border-top) !important;
+  border-bottom-color: var(--sf-glass-border-bottom) !important;
+
+  background:
+    var(--sf-glass-sheen),
+    var(--sf-glass-surface) !important;
+
+  backdrop-filter: var(--sf-glass-backdrop);
+  -webkit-backdrop-filter: var(--sf-glass-backdrop);
+  color: var(--sf-text);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 199, 145, 0.09),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.24),
+    0 4px 14px rgba(0, 0, 0, 0.16) !important;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* O brilho pertence à linha inteira, sem deslocar capa ou texto. */
+:is(.game-item, .catalogue-game-item):hover {
+  background-color: var(--sf-glass-hover) !important;
+  border-color: rgba(255, 181, 118, 0.40) !important;
+  border-top-color: rgba(255, 221, 190, 0.52) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 199, 145, 0.12),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.20),
+    0 0 0 1px rgba(255, 143, 61, 0.07),
+    0 5px 18px rgba(0, 0, 0, 0.20) !important;
+}
+
+:is(.game-item, .catalogue-game-item):focus-within {
+  border-color: rgba(255, 181, 118, 0.62) !important;
+}
+
+.game-item .game-item__content-link {
+  background: transparent !important;
+}
+
+/* O painel faz o desfoque; o conteúdo interno deixa o vidro aparecer. */
+.catalogue .filter-section__content,
+.catalogue .filter-section__content-inner {
+  background: transparent !important;
+}
+
+.catalogue .filter-section__button {
+  background: rgba(255, 199, 145, 0.025) !important;
+  color: var(--sf-text);
+  box-shadow: inset 0 -1px 0 rgba(255, 199, 145, 0.06);
+}
+
+.catalogue .filter-section__button:hover {
+  background: rgba(255, 199, 145, 0.065) !important;
+}
+
+.catalogue .filter-section__button:focus-visible {
+  outline: 2px solid var(--sf-orange-light);
+  outline-offset: -3px;
+}
+
+/* Alternador de jogos modernos/clássicos e grupos dos filtros. */
+.catalogue-mode-toggle__option,
+.catalogue .filter-section__group-tab {
+  border-radius: 8px;
+}
+
+.catalogue-mode-toggle__option:hover,
+.catalogue .filter-section__group-tab:hover {
+  background: rgba(255, 199, 145, 0.055);
+  color: var(--sf-text);
+}
+
+.catalogue-mode-toggle__option--active,
+.catalogue .filter-section__group-tab--active {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 199, 145, 0.11),
+    rgba(255, 199, 145, 0.035)
+  );
+  border-color: rgba(255, 199, 145, 0.20);
+  box-shadow: inset 0 1px 0 rgba(255, 199, 145, 0.08);
+  color: var(--sf-text);
+}
+
+.catalogue-mode-toggle__option:focus-visible {
+  outline: 2px solid var(--sf-orange-light);
+  outline-offset: -2px;
+}
+
+/* Menu aberto pelo botão de filtros da biblioteca lateral. */
+.sidebar-filter-menu__item {
+  border-radius: 7px;
+}
+
+.sidebar-filter-menu__item:hover,
+.sidebar-filter-menu__item[data-highlighted] {
+  background: rgba(255, 199, 145, 0.07);
+  color: var(--sf-text);
+}
+
+.sidebar-filter-menu__item[data-state="checked"] {
+  color: var(--sf-orange-light);
+}
+
+.sidebar-filter-menu__item:focus-visible {
+  box-shadow: inset 0 0 0 1px rgba(255, 181, 118, 0.55);
+}
+
+
+/* =========================================================
+   MODAIS / MENUS / TOAST
+========================================================= */
+
+.modal,
+.toast,
+.sidebar-filter-menu__content {
+  background: rgba(28, 16, 10, 0.72) !important;
+
+  color: var(--sf-text);
+
+  border-color: var(--sf-line);
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.modal__header {
+  border-color: var(--sf-line);
+}
+
+.modal__close-button-icon,
+.toast__close-button {
+  color: var(--sf-orange);
+}
+
+.sidebar-profile__dropdown {
+  background: rgba(28, 16, 10, 0.76) !important;
+
+  border-color: var(--sf-line);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.toast__progress::-webkit-progress-bar {
+  background: rgba(41, 23, 13, 0.58);
+}
+
+.toast__progress::-webkit-progress-value {
+  background: var(--sf-orange);
+}
+
+
+/* =========================================================
+   PAINEL INFERIOR
+========================================================= */
+
+.bottom-panel {
+  background: rgba(24, 13, 8, 0.58) !important;
+
+  color: var(--sf-muted);
+
+  border-top: 1px solid var(--sf-line) !important;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.bottom-panel__downloads-button,
+.bottom-panel__version-button,
+.bottom-panel__help-button {
+  color: var(--sf-muted);
+}
+
+.bottom-panel__downloads-button:hover,
+.bottom-panel__version-button:hover {
+  color: var(--sf-orange-light);
+
+  border-bottom-color: var(--sf-orange);
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+.button:focus-visible,
+.sidebar__menu-item-button:focus-visible,
+.settings__sidebar-button:focus-visible {
+  outline: 2px solid var(--sf-orange);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+  background: rgba(255, 143, 61, 0.34);
+
+  color: #fff4ea;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+* {
+  scrollbar-color:
+    rgba(184, 100, 50, 0.82)
+    rgba(24, 13, 8, 0.55);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 100, 50, 0.82) !important;
+
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sf-orange) !important;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(24, 13, 8, 0.55) !important;
+}
+
+
+/* =========================================================
+   NOTIFICAÇÃO DE CONQUISTA — HYDRA 4.1.4
+========================================================= */
+
+/* NÃO estiliza mais o container inteiro */
+[class*="achievement-notification"] {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  box-shadow: none !important;
+}
+
+
+/* estiliza apenas elementos internos que pareçam ser o card */
+[class*="achievement-notification"] [class*="content"],
+[class*="achievement-notification"] [class*="toast"],
+[class*="achievement-notification"] [class*="card"] {
+  border-radius: 0 999px 999px 0 !important;
+
+  background: rgba(18, 11, 7, 0.72) !important;
+
+  border: 1px solid rgba(255, 143, 61, 0.28) !important;
+  border-left: none !important;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 0 12px rgba(255,143,61,.08) !important;
+}
+
+
+/* textos */
+[class*="achievement-notification"] strong,
+[class*="achievement-notification"] h4 {
+  font-size: 13px !important;
+}
+
+[class*="achievement-notification"] p,
+[class*="achievement-notification"] span {
+  font-size: 12px !important;
+}
+
+/* =========================================================
+   LIQUID GLASS — PALETA ÂMBAR ESCURA
+   A mesma tonalidade nas buscas, nos jogos e nos filtros.
+   O filtro escurece apenas o fundo atrás do vidro.
+========================================================= */
+
+:root {
+  --sf-glass-surface: rgba(47, 24, 12, 0.50);
+  --sf-glass-input: rgba(43, 22, 11, 0.42);
+  --sf-glass-hover: rgba(58, 30, 14, 0.56);
+  --sf-glass-focus: rgba(58, 30, 14, 0.60);
+  --sf-glass-border: rgba(255, 172, 100, 0.26);
+  --sf-glass-border-top: rgba(255, 207, 158, 0.38);
+  --sf-glass-border-bottom: rgba(255, 157, 82, 0.13);
+  --sf-glass-backdrop: blur(9px) saturate(135%) brightness(0.72);
+  --sf-glass-sheen: linear-gradient(
+    145deg,
+    rgba(255, 190, 128, 0.10) 0%,
+    rgba(255, 165, 87, 0.035) 42%,
+    rgba(255, 143, 61, 0.015) 65%,
+    rgba(255, 193, 137, 0.06) 100%
+  );
+  --sf-glass-shadow:
+    inset 0 1px 1px rgba(255, 211, 164, 0.10),
+    inset 0 -1px 2px rgba(20, 8, 2, 0.30),
+    0 4px 14px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   PÁGINA DOS JOGOS — PAINÉIS DE VIDRO
+   Barra de ações, descrição, mídia e informações laterais.
+========================================================= */
+
+.game-details__container .game-details__description-container {
+  background: transparent !important;
+}
+
+.game-details__container .content-sidebar {
+  background: transparent !important;
+}
+
+.game-details__container :is(
+  .hero-panel,
+  .game-details__description-content,
+  .content-sidebar .sidebar-section
+) {
+  background: var(--sf-glass-sheen), var(--sf-glass-surface) !important;
+  border: 1px solid var(--sf-glass-border) !important;
+  border-top-color: var(--sf-glass-border-top) !important;
+  border-bottom-color: var(--sf-glass-border-bottom) !important;
+  border-radius: 12px !important;
+  backdrop-filter: var(--sf-glass-backdrop);
+  -webkit-backdrop-filter: var(--sf-glass-backdrop);
+  box-shadow: var(--sf-glass-shadow) !important;
+  color: var(--sf-text);
+}
+
+.game-details__container .game-details__description-content {
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.game-details__container .hero-panel--stuck {
+  background: var(--sf-glass-sheen), var(--sf-glass-focus) !important;
+}
+
+/* Cabeçalhos internos recebem só o reflexo, sem empilhar desfoques. */
+.game-details__container .description-header {
+  background:
+    var(--sf-glass-sheen),
+    rgba(67, 34, 15, 0.34) !important;
+  border: 1px solid var(--sf-glass-border) !important;
+  border-top-color: var(--sf-glass-border-top) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 211, 164, 0.06);
+  color: var(--sf-text);
+}
+
+.game-details__container .sidebar-section__header {
+  background: rgba(255, 177, 104, 0.04) !important;
+  box-shadow: inset 0 -1px 0 rgba(255, 190, 128, 0.09);
+}
+
+.game-details__container .sidebar-section__header:hover {
+  background: rgba(255, 177, 104, 0.09) !important;
+}
+
+.game-details__container .sidebar-section__content {
+  background: transparent !important;
+}
+
+.game-details__container .sidebar-section__toggle:focus-visible {
+  outline: 2px solid var(--sf-orange-light);
+  outline-offset: -3px;
+  border-radius: 10px;
+}
+
+.game-details__container :is(
+  .description-header__info p,
+  .sidebar-section__button,
+  .sidebar-section__subtitle,
+  .game-details__description,
+  .content-sidebar .list__item,
+  .content-sidebar .stats__category
+) {
+  color: var(--sf-text);
+}
+
+.game-details__container .content-sidebar .list__item:hover {
+  background: rgba(255, 177, 104, 0.09);
+}
+
+.game-details__container .game-details__description--collapsed::after {
+  background: linear-gradient(transparent, rgba(47, 24, 12, 0.98));
+}
+
+/* Controles de leitura e ações sobre a capa do jogo. */
+.game-details__container :is(
+  .game-details__description-toggle,
+  .game-details__cloud-sync-button,
+  .game-details__edit-custom-game-button,
+  .game-details__randomizer-button,
+  .game-details__load-more-reviews
+) {
+  background: var(--sf-glass-sheen), var(--sf-glass-input) !important;
+  border: 1px solid var(--sf-glass-border) !important;
+  border-radius: 8px;
+  color: var(--sf-text);
+  box-shadow: inset 0 1px 0 rgba(255, 211, 164, 0.08);
+}
+
+.game-details__container :is(
+  .game-details__description-toggle,
+  .game-details__cloud-sync-button,
+  .game-details__edit-custom-game-button,
+  .game-details__randomizer-button,
+  .game-details__load-more-reviews
+):hover:not(:disabled) {
+  background-color: var(--sf-glass-hover) !important;
+  border-color: rgba(255, 207, 158, 0.55) !important;
+}
+
+.game-details__container :is(
+  .game-details__description-toggle,
+  .game-details__cloud-sync-button,
+  .game-details__edit-custom-game-button,
+  .game-details__randomizer-button,
+  .game-details__load-more-reviews
+):focus-visible {
+  outline: 2px solid var(--sf-orange-light);
+  outline-offset: 2px;
+}
+
+/* A área de avaliações compartilha o vidro do painel de descrição. */
+.game-details__container .game-details__reviews-section {
+  border-top-color: var(--sf-glass-border);
+}
+
+.game-details__container .game-details__review-input-container {
+  background: rgba(39, 19, 9, 0.52) !important;
+  border-color: var(--sf-glass-border);
+  border-radius: 12px;
+}
+
+.game-details__container .game-details__review-input-header {
+  background: rgba(255, 177, 104, 0.055) !important;
+  border-bottom-color: var(--sf-glass-border);
+}
+/* =========================================================
+   BOTÕES — LIQUID GLASS / CÁPSULA
+========================================================= */
+
+.button {
+  border-radius: 999px !important;
+
+  min-height: 40px;
+
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+
+  font-weight: 600;
+
+  backdrop-filter:
+    blur(9px) saturate(125%) !important;
+
+  -webkit-backdrop-filter:
+    blur(9px) saturate(125%) !important;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease !important;
+}
+
+
+/* =========================================================
+   BOTÕES SECUNDÁRIOS
+   Mais baixados / Pra platinar / Surpreenda-me
+========================================================= */
+
+.button--outline {
+  color: #fff4ea !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.025) 38%,
+      rgba(255, 143, 61, 0.035) 70%,
+      rgba(255, 255, 255, 0.06)
+    ),
+    rgba(36, 18, 9, 0.62) !important;
+
+  border:
+    1px solid
+    rgba(255, 181, 118, 0.38) !important;
+
+  border-top-color:
+    rgba(255, 220, 185, 0.55) !important;
+
+  border-bottom-color:
+    rgba(255, 143, 61, 0.18) !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.90),
+    0 0 6px rgba(0, 0, 0, 0.45) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.28),
+    0 4px 14px rgba(0, 0, 0, 0.22),
+    0 0 10px rgba(255, 143, 61, 0.07) !important;
+}
+
+
+/* HOVER DOS SECUNDÁRIOS */
+
+.button--outline:hover:not(:disabled) {
+  color: #ffffff !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.035) 38%,
+      rgba(255, 143, 61, 0.07) 70%,
+      rgba(255, 255, 255, 0.075)
+    ),
+    rgba(55, 27, 12, 0.70) !important;
+
+  border-color:
+    rgba(255, 181, 118, 0.58) !important;
+
+  border-top-color:
+    rgba(255, 226, 197, 0.72) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.16),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.22),
+    0 5px 18px rgba(0, 0, 0, 0.26),
+    0 0 16px rgba(255, 143, 61, 0.18) !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   BOTÃO ATIVO
+   Populares
+========================================================= */
+
+.button--primary {
+  color: #2b1306 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 228, 202, 0.58),
+      rgba(255, 166, 86, 0.96) 40%,
+      rgba(239, 116, 35, 0.92)
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 207, 158, 0.78) !important;
+
+  border-top-color:
+    rgba(255, 239, 223, 0.90) !important;
+
+  border-bottom-color:
+    rgba(179, 72, 13, 0.58) !important;
+
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.18) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.34),
+    inset 0 -2px 4px rgba(112, 43, 5, 0.22),
+    0 5px 16px rgba(0, 0, 0, 0.24),
+    0 0 14px rgba(255, 143, 61, 0.20) !important;
+}
+
+
+/* HOVER DO ATIVO */
+
+.button--primary:hover:not(:disabled) {
+  color: #240e03 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 239, 223, 0.66),
+      rgba(255, 181, 108, 0.98) 40%,
+      rgba(246, 127, 44, 0.95)
+    ) !important;
+
+  border-color:
+    rgba(255, 219, 183, 0.92) !important;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.40),
+    inset 0 -2px 4px rgba(112, 43, 5, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(255, 143, 61, 0.28) !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ÍCONES
+========================================================= */
+
+.button--outline svg,
+.button--outline [class*="icon"] {
+  color: #ffb576 !important;
+
+  filter:
+    drop-shadow(
+      0 0 4px
+      rgba(255, 143, 61, 0.35)
+    );
+}
+
+.button--primary svg,
+.button--primary [class*="icon"] {
+  color: #391606 !important;
+
+  filter: none;
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+.button:focus-visible {
+  outline:
+    2px solid
+    rgba(255, 181, 118, 0.90) !important;
+
+  outline-offset: 3px;
+}
+/* =========================================================
+   DOWNLOADS — FADE REAL DO HERO
+
+   O Hydra usa height: 120% no hero-background.
+   Por isso, 83.333% da altura dessa camada corresponde
+   aproximadamente ao fim da área visível.
+========================================================= */
+
+.download-group__hero-background {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+
+    /* imagem 100% visível */
+    #000 0%,
+    #000 48%,
+
+    /* começa a desaparecer */
+    rgba(0, 0, 0, 0.92) 54%,
+    rgba(0, 0, 0, 0.75) 61%,
+    rgba(0, 0, 0, 0.50) 69%,
+    rgba(0, 0, 0, 0.25) 76%,
+
+    /* fim da área visível */
+    transparent 83.333%,
+
+    /* parte excedente dos 120% continua invisível */
+    transparent 100%
+  ) !important;
+
+  mask-image: linear-gradient(
+    to bottom,
+
+    #000 0%,
+    #000 48%,
+
+    rgba(0, 0, 0, 0.92) 54%,
+    rgba(0, 0, 0, 0.75) 61%,
+    rgba(0, 0, 0, 0.50) 69%,
+    rgba(0, 0, 0, 0.25) 76%,
+
+    transparent 83.333%,
+    transparent 100%
+  ) !important;
+
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+
+  -webkit-mask-size: 100% 100% !important;
+  mask-size: 100% 100% !important;
+}
