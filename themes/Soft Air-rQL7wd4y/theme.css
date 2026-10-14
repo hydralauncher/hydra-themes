@@ -1,7 +1,7 @@
 /* Soft Air — Hydra Launcher
    Taron Jar */
 
-/* Базовые стили */
+/* Base styles */
 ::-webkit-scrollbar {
   background-color: #20262e;
 }
@@ -67,7 +67,7 @@ button {
   color: #e6eaf0;
 }
 
-/* Компоненты */
+/* Components */
 .achievement-notification__outer-container {
   border-color: rgba(181, 196, 223, 0.102);
   box-shadow: 0px 2px 16px 0px rgba(10, 16, 24, 0.25);
@@ -186,11 +186,11 @@ button {
 }
 
 .achievement-notification--rare .achievement-notification__chip__icon path {
-  fill: #e6eaf0;
+  fill: #1b2027;
 }
 
 .achievement-notification--rare .achievement-notification__chip__label {
-  color: #e6eaf0;
+  color: #1b2027;
 }
 
 .achievement-notification--platinum .achievement-notification__chip {
@@ -1405,7 +1405,7 @@ button {
   color: #e6eaf0;
 }
 
-/* Достижения */
+/* Achievements */
 .achievement-panel {
   background-color: #1b2027;
   border-bottom-color: rgba(181, 196, 223, 0.08);
@@ -1580,13 +1580,13 @@ button {
   color: #e6eaf0;
 }
 
-/* Авторизация */
+/* Authentication */
 .auth-window {
   border-color: rgba(181, 196, 223, 0.08);
   background-color: #20262e;
 }
 
-/* Каталог */
+/* Catalogue */
 .catalogue-mode-toggle {
   background: #20262e;
   border-color: rgba(181, 196, 223, 0.06);
@@ -1817,16 +1817,17 @@ button {
 
 .game-item__compatibility-badge--silver {
   background: #303946;
+  color: #e6eaf0;
 }
 
 .game-item__compatibility-badge--bronze {
   background: #b5c4df;
-  color: #e6eaf0;
+  color: #1b2027;
 }
 
 .game-item__compatibility-badge--borked {
   background: #b5c4df;
-  color: #e6eaf0;
+  color: #1b2027;
 }
 
 .game-item__genres {
@@ -1891,7 +1892,7 @@ button {
   outline-color: rgba(181, 196, 223, 0.5);
 }
 
-/* Загрузки */
+/* Downloads */
 .download-group__header-title-group h2 {
   color: rgba(230, 234, 240, 0.95);
 }
@@ -2026,7 +2027,7 @@ button {
   background-color: rgba(181, 196, 223, 0.06);
 }
 
-/* Друзья */
+/* Friends */
 .friends-window {
   background-color: #1b2027;
   color: #e6eaf0;
@@ -2222,7 +2223,7 @@ button {
   color: #e6eaf0;
 }
 
-/* Страница игры */
+/* Game details */
 .cloud-save-v2__trigger--synced {
   color: #1c9749;
   border-color: #1c9749;
@@ -3329,18 +3330,18 @@ button {
 }
 
 .download-settings-modal__availability-indicator--available {
-  background-color: #b5c4df;
-  box-shadow: 0 0 6px rgba(181, 196, 223, 0.5);
+  background-color: #8fbea5;
+  box-shadow: 0 0 6px rgba(143, 190, 165, 0.4);
 }
 
 .download-settings-modal__availability-indicator--unavailable {
-  background-color: #b5c4df;
-  box-shadow: 0 0 6px rgba(181, 196, 223, 0.5);
+  background-color: #d69a9f;
+  box-shadow: 0 0 6px rgba(214, 154, 159, 0.4);
 }
 
 .download-settings-modal__availability-indicator--warning {
-  background-color: #eab308;
-  box-shadow: 0 0 6px rgba(234, 179, 8, 0.5);
+  background-color: #d8bd8a;
+  box-shadow: 0 0 6px rgba(216, 189, 138, 0.4);
 }
 
 .download-settings-modal__torrent-step {
@@ -3764,18 +3765,18 @@ button {
 }
 
 .repacks-modal__availability-orb--online {
-  background-color: #b5c4df;
-  box-shadow: 0 0 6px rgba(181, 196, 223, 0.5);
+  background-color: #8fbea5;
+  box-shadow: 0 0 6px rgba(143, 190, 165, 0.4);
 }
 
 .repacks-modal__availability-orb--partial {
-  background-color: #b5c4df;
-  box-shadow: 0 0 6px rgba(181, 196, 223, 0.5);
+  background-color: #d8bd8a;
+  box-shadow: 0 0 6px rgba(216, 189, 138, 0.4);
 }
 
 .repacks-modal__availability-orb--offline {
-  background-color: #b5c4df;
-  box-shadow: 0 0 6px rgba(181, 196, 223, 0.4);
+  background-color: #d69a9f;
+  box-shadow: 0 0 6px rgba(214, 154, 159, 0.4);
 }
 
 .repacks-modal__repack-title {
@@ -4233,16 +4234,17 @@ button {
 
 .protondb__tier-badge--silver {
   background: #303946;
+  color: #e6eaf0;
 }
 
 .protondb__tier-badge--bronze {
   background: #b5c4df;
-  color: #e6eaf0;
+  color: #1b2027;
 }
 
 .protondb__tier-badge--borked {
   background: #b5c4df;
-  color: #e6eaf0;
+  color: #1b2027;
 }
 
 .list__item {
@@ -4333,7 +4335,7 @@ button {
   background-color: rgba(27, 32, 39, 0.6);
 }
 
-/* Запуск игры */
+/* Game launcher */
 .game-launcher {
   background: linear-gradient(135deg, #20262e 0%, #262d36 50%, #303946 100%);
 }
@@ -4407,12 +4409,12 @@ button {
   background-color: rgba(181, 196, 223, 0.08);
 }
 
-/* Главная */
+/* Home */
 .home__card-skeleton {
   box-shadow: 0px 0px 15px 0px #0a1018;
 }
 
-/* Библиотека */
+/* Library */
 .library-category-filter__container {
   background-color: #20262e;
   border-color: rgba(181, 196, 223, 0.06);
@@ -4963,7 +4965,7 @@ button {
   color: currentColor;
 }
 
-/* Уведомления */
+/* Notifications */
 .notification-item {
   background-color: #20262e;
   border-color: rgba(181, 196, 223, 0.08);
@@ -5052,7 +5054,7 @@ button {
   background-color: rgba(181, 196, 223, 0.06);
 }
 
-/* Профиль */
+/* Profile */
 .edit-profile-modal__avatar-container {
   color: #e6eaf0;
   background-color: #1b2027;
@@ -5964,7 +5966,7 @@ button {
   background-color: rgba(181, 196, 223, 0.1);
 }
 
-/* Подключение RetroAchievements */
+/* RetroAchievements setup */
 .retroachievements-connection-window {
   background: #20262e;
   color: #e6eaf0;
@@ -5995,7 +5997,7 @@ button {
   color: #e6eaf0;
 }
 
-/* Настройки */
+/* Settings */
 .theme-card {
   background-color: rgba(181, 196, 223, 0.01);
   border-color: rgba(181, 196, 223, 0.08);
@@ -7228,7 +7230,7 @@ button {
   border-top-color: rgba(181, 196, 223, 0.08);
 }
 
-/* Дополнительные окна */
+/* Additional windows */
 .cloud-gift-notification-modal__overlay {
   background-color: rgba(27, 32, 39, 0.9);
 }
@@ -7336,7 +7338,7 @@ button {
   background-color: rgba(181, 196, 223, 0.24);
 }
 
-/* Редактор тем */
+/* Theme editor */
 .theme-editor__header {
   background-color: #20262e;
 }
@@ -7361,7 +7363,7 @@ button {
   color: #e6eaf0;
 }
 
-/* Общая палитра */
+/* Shared palette */
 :root {
   --soft-bg: #1b2027;
   --soft-panel: #20262e;
@@ -7427,7 +7429,7 @@ select {
   border-color: #52617a;
 }
 
-/* Метки */
+/* Badges */
 .badge,
 .home__content .game-card .badge {
   background: rgba(181, 196, 223, 0.1);
@@ -7437,7 +7439,7 @@ select {
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Подсветка элементов */
+/* Highlights */
 .home__content .game-card {
   box-shadow: none;
 }
@@ -7478,18 +7480,18 @@ select {
   --highlight-color: #354052 !important;
 }
 
-/* Переопределение inline-цвета прогресса */
+/* Inline progress color override */
 .download-group__progress-fill {
   background-color: #b5c4df !important;
 }
 
-/* Обложки без увеличения */
+/* Disable cover zoom */
 .home__content .game-card__cover,
 .home__content .game-card:hover .game-card__cover {
   transform: none;
 }
 
-/* Кнопки */
+/* Buttons */
 .button--primary,
 .button--primary:disabled {
   color: #1b2027;
@@ -7513,7 +7515,7 @@ select {
   color: #e6eaf0;
 }
 
-/* Поиск */
+/* Search */
 .header__search,
 .text-field-container__text-field {
   background-color: #20262e;
@@ -7544,18 +7546,18 @@ select {
   box-shadow: none;
 }
 
-/* Выделение текста */
+/* Text selection */
 ::selection {
   background: #52617a;
   color: #f0f3f8;
 }
 
-/* Размеры текста */
+/* Font sizes */
 body {
   font-size: 15px;
 }
 
-/* Элементы управления */
+/* Controls */
 .button,
 .sidebar__menu-item-button,
 .settings__sidebar-button,
@@ -7568,23 +7570,23 @@ body {
   font-size: 15px;
 }
 
-/* Названия игр */
+/* Game titles */
 .game-card__title {
   font-size: 17px;
 }
 
-/* Метки источников */
+/* Source badges */
 .badge,
 .home__content .game-card .badge {
   font-size: 11px;
 }
 
-/* Нижняя панель */
+/* Bottom panel */
 .bottom-panel small {
   font-size: 13px;
 }
 
-/* Подпись темы. Версия задаётся вручную. */
+/* Theme signature. Update the version manually. */
 .bottom-panel__version-button small {
   font-size: 0;
 }
