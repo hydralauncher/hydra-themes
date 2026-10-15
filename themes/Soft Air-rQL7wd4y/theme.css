@@ -7586,13 +7586,8 @@ body {
   font-size: 13px;
 }
 
-/* Theme signature. Update the version manually. */
-.bottom-panel__version-button small {
-  font-size: 0;
-}
-
-.bottom-panel__version-button small::after {
-  content: "Taron Jar · v4.1.6";
-  font-size: 13px;
-  color: inherit;
+/* Disable source badge blur to reduce catalogue rendering overhead. */
+.game-item .badge {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
