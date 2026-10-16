@@ -1,0 +1,4582 @@
+:root {
+  --st-bg: #202329;
+  --st-panel: #292d34;
+  --st-chrome: #1b1e23;
+  --st-hover: #2d323a;
+  --st-selected: #363c46;
+  --st-selected-hover: #3d444f;
+  --st-border: #3b414b;
+  --st-divider: #363b44;
+  --st-focus: #5b6370;
+  --st-accent: #798698;
+  --st-text: #e2e6ec;
+  --st-muted: #969da8;
+  --st-scroll: #484e58;
+  --st-field-radius: 8px;
+  --st-scroll-radius: 2.3px;
+  --st-control-time: 180ms;
+  --text-primary: var(--st-text);
+  --text-secondary: #a8afba;
+  --text-muted: var(--st-muted);
+  --color-primary: var(--st-accent);
+  --primary: var(--st-accent);
+  --sb-line: #3b414b;
+  --sb-focus: #5b6370;
+  --sb-time: 150ms;
+  --st-secondary: #a8afba;
+}
+/* Component palette overrides. */
+body {
+  color: var(--st-text) !important;
+}
+.title-bar__big-picture {
+  color: var(--st-text) !important;
+}
+.title-bar__window-control {
+  color: var(--st-text) !important;
+}
+.title-bar__window-control--close:hover {
+  background-color: #e11d48 !important;
+  color: #ffffff !important;
+}
+.achievement-notification__container {
+  background-color: var(--st-panel) !important;
+}
+.achievement-notification--platinum .achievement-notification__container {
+  background-image: linear-gradient(94deg, var(--st-panel) -25%, #044838 100%) !important;
+}
+.achievement-notification--rare .achievement-notification__container::before {
+  background-color: #d9d9d9 !important;
+}
+.achievement-notification--rare .achievement-notification__icon {
+  outline-color: #f4a510 !important;
+  box-shadow: 0px 0px 12px 0px rgba(244, 165, 16, 0.25) !important;
+}
+.achievement-notification--platinum .achievement-notification__icon {
+  outline-color: #0cf1ca !important;
+  box-shadow: 0px 0px 12px 0px rgba(12, 241, 202, 0.25) !important;
+}
+.achievement-notification--platinum .achievement-notification__trophy-overlay {
+  background-image: linear-gradient(
+    118deg,
+    #15e8d6 18.96%,
+    #0fd5a7 26.41%,
+    #15e8b7 29.99%,
+    #15e4b4 38.89%,
+    #0eca7f 42.43%,
+    #0eca9e 46.59%,
+    #1aecbb 50.08%,
+    #1aecb0 53.48%,
+    #0db392 57.39%,
+    #0a6648 75.64%,
+    #13a38b 78.2%,
+    #129862 79.28%,
+    #085042 83.6%,
+    #083e31 85.77%
+  ) !important;
+}
+.achievement-notification__title {
+  color: var(--st-text) !important;
+}
+.achievement-notification__description {
+  color: var(--st-text) !important;
+}
+.achievement-notification__chip {
+  background-color: var(--st-text) !important;
+}
+.achievement-notification__chip__icon path {
+  fill: var(--st-panel) !important;
+}
+.achievement-notification__chip__label {
+  color: var(--st-panel) !important;
+}
+.achievement-notification--rare .achievement-notification__chip {
+  background-image: linear-gradient(
+    160deg,
+    #e8ad15 18.96%,
+    #d5900f 26.41%,
+    #e8ad15 29.99%,
+    #e4aa15 38.89%,
+    #ca890e 42.43%,
+    #ca880e 46.59%,
+    #ecbe1a 50.08%,
+    #ecbd1a 53.48%,
+    #b3790d 57.39%,
+    #66470a 75.64%,
+    #a37a13 78.2%,
+    #987112 79.28%,
+    #503808 83.6%,
+    #3e2d08 85.77%
+  ) !important;
+}
+.achievement-notification--rare .achievement-notification__chip__icon path {
+  fill: #fff !important;
+}
+.achievement-notification--rare .achievement-notification__chip__label {
+  color: #fff !important;
+}
+.achievement-notification--platinum .achievement-notification__chip {
+  background-image: linear-gradient(
+    118deg,
+    #15e8d6 18.96%,
+    #0fd5a7 26.41%,
+    #15e8b7 29.99%,
+    #15e4b4 38.89%,
+    #0eca7f 42.43%,
+    #0eca9e 46.59%,
+    #1aecbb 50.08%,
+    #1aecb0 53.48%,
+    #0db392 57.39%,
+    #0a6648 75.64%,
+    #13a38b 78.2%,
+    #129862 79.28%,
+    #085042 83.6%,
+    #083e31 85.77%
+  ) !important;
+}
+.achievement-notification--platinum .achievement-notification__chip__icon path {
+  fill: #fff !important;
+}
+.achievement-notification--platinum .achievement-notification__chip__label {
+  color: #fff !important;
+}
+.profile-avatar {
+  background-color: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.backdrop--closing {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.button--cloud {
+  background-image: linear-gradient(133deg, #14b9bb 0%, #0a86d9 100%) !important;
+  box-shadow: inset 0 0 14px rgba(29, 235, 225, 0.168627451) !important;
+  border-color: #3dd6e9 !important;
+  color: var(--st-text) !important;
+}
+.button--cloud:hover:not(:disabled) {
+  box-shadow:
+    inset 0 0 18px rgba(29, 235, 225, 0.3019607843),
+    0 0 10px rgba(29, 204, 235, 0.2) !important;
+}
+.classics-onboarding__progress-pill--active {
+  background-color: #c0c1c7 !important;
+}
+.classics-scan-indicator {
+  color: var(--st-text) !important;
+}
+.classics-scan-indicator__percent {
+  color: var(--st-text) !important;
+}
+.classics-scan-indicator:hover .classics-scan-indicator__label {
+  color: var(--st-text) !important;
+}
+.classics-scan-indicator--section {
+  border-color: var(--st-border) !important;
+  background-color: var(--st-bg) !important;
+}
+.context-menu--modal-open,
+.context-menu--modal-open .context-menu__submenu {
+  box-shadow: none !important;
+}
+.context-menu__item--danger:hover:not(.context-menu__item--disabled) {
+  background-color: rgba(225, 29, 72, 0.18) !important;
+  color: #e11d48 !important;
+}
+.context-menu__item--danger:active:not(.context-menu__item--disabled) {
+  background-color: rgba(225, 29, 72, 0.28) !important;
+  color: #e11d48 !important;
+}
+.context-menu__item--danger .context-menu__item-icon {
+  color: #e11d48 !important;
+}
+.context-menu__item-arrow {
+  color: var(--st-text) !important;
+}
+.context-menu__item-trailing-icon {
+  color: var(--st-text) !important;
+}
+.context-menu__submenu {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.context-menu__content {
+  border-top-color: var(--st-border) !important;
+}
+.context-menu__separator {
+  background-color: var(--st-border) !important;
+}
+.context-menu__item--danger:first-of-type {
+  border-top-color: var(--st-border) !important;
+}
+.dropdown-menu__title-bar {
+  color: var(--st-text) !important;
+}
+.dropdown-menu__separator {
+  background-color: var(--st-border) !important;
+}
+.error-fallback {
+  background-image: linear-gradient(0deg, var(--st-bg) 50%, var(--st-panel) 100%) !important;
+}
+.error-fallback__icon {
+  color: var(--st-text) !important;
+}
+.error-fallback__title {
+  color: var(--st-text) !important;
+}
+.error-fallback__description {
+  color: var(--st-text) !important;
+}
+.error-fallback__message {
+  color: var(--st-text) !important;
+}
+.error-fallback__origin {
+  color: var(--st-text) !important;
+}
+.error-fallback__origin-label {
+  color: var(--st-text) !important;
+}
+.error-fallback__component-trace summary {
+  color: var(--st-text) !important;
+}
+.error-fallback__stack {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.game-card__specifics-item {
+  color: var(--st-text) !important;
+}
+.game-card__title-container {
+  color: var(--st-text) !important;
+}
+.game-card__no-download-label {
+  color: var(--st-text) !important;
+}
+.game-visibility-badge--large {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.auto-update-sub-header {
+  border-bottom-color: var(--st-text) !important;
+  background-color: var(--st-bg) !important;
+}
+.header {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__description {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__mode-toggle {
+  background-color: var(--st-bg) !important;
+}
+.scan-games-modal__folders-title {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__folders-hint {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__folders-list {
+  background-color: var(--st-bg) !important;
+}
+.scan-games-modal__folder-path {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__option-hint {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__ambiguous-title {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__ambiguous-hint {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__ambiguous-list {
+  background-color: var(--st-bg) !important;
+}
+.scan-games-modal__ambiguous-item {
+  border-bottom-color: var(--st-border) !important;
+}
+.scan-games-modal__result {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__no-results {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__spinner {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__scanning-text {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__scanning-hint {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__games-list {
+  background-color: var(--st-bg) !important;
+}
+.scan-games-modal__game-item {
+  border-bottom-color: var(--st-border) !important;
+}
+.scan-games-modal__game-icon {
+  background-color: var(--st-panel) !important;
+}
+.scan-games-modal__game-icon--empty {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__game-title {
+  color: var(--st-text) !important;
+}
+.scan-games-modal__game-path {
+  color: var(--st-text) !important;
+}
+.hero {
+  border-color: var(--st-border) !important;
+}
+.hero__description {
+  color: var(--st-text) !important;
+}
+.image-crop-modal__frame {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.image-crop-modal__toolbar {
+  border-color: var(--st-border) !important;
+}
+.image-crop-modal__toolbar-divider {
+  background-color: var(--st-border) !important;
+}
+.image-crop-modal__slider {
+  background-image: linear-gradient(90deg, var(--st-text), var(--st-text)) !important;
+}
+.image-crop-modal__slider::-webkit-slider-thumb {
+  border-color: var(--st-text) !important;
+  background-color: var(--st-panel) !important;
+}
+.image-crop-modal__slider::-moz-range-progress {
+  background-color: var(--st-text) !important;
+}
+.image-crop-modal__slider::-moz-range-thumb {
+  border-color: var(--st-text) !important;
+  background-color: var(--st-panel) !important;
+}
+.image-crop-modal__zoom-percent {
+  color: var(--st-text) !important;
+}
+.image-crop-modal__actions {
+  border-top-color: var(--st-border) !important;
+}
+.modal {
+  color: var(--st-text) !important;
+}
+.modal__header {
+  border-bottom-color: var(--st-border) !important;
+}
+.modal__close-button-icon {
+  color: var(--st-text) !important;
+}
+.radio-field--selected .radio-field__dot {
+  background-color: #fff !important;
+}
+.retro-achievements-connect-banner {
+  color: var(--st-text) !important;
+}
+.search-dropdown__section:not(:last-child) {
+  border-bottom-color: var(--st-border) !important;
+}
+.search-dropdown__section-title {
+  color: var(--st-text) !important;
+}
+.search-dropdown__shop-switch {
+  background-color: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+}
+.search-dropdown__item-remove {
+  color: var(--st-text) !important;
+}
+.search-dropdown__item-icon {
+  color: var(--st-text) !important;
+}
+.search-dropdown__loading,
+.search-dropdown__empty {
+  color: var(--st-text) !important;
+}
+.select-field__label {
+  color: var(--st-text) !important;
+}
+/* Application shell. */
+.sidebar-adding-custom-game-modal__image-preview {
+  border-color: var(--st-border) !important;
+}
+.sidebar-filter-menu__divider {
+  background-color: var(--st-border) !important;
+}
+.sidebar-filter-menu__separator {
+  background-color: var(--st-border) !important;
+}
+.sidebar-profile__chevron {
+  color: var(--st-text) !important;
+}
+.sidebar-profile__dropdown-item--danger:hover {
+  background-color: rgba(225, 29, 72, 0.18) !important;
+  color: #e11d48 !important;
+}
+.sidebar-profile__dropdown-badge--online {
+  background-color: #1c9749 !important;
+}
+.sidebar-profile__dropdown-badge--unread {
+  background-color: #e11d48 !important;
+}
+.sidebar-profile__unread-dot {
+  border-color: var(--st-bg) !important;
+}
+.sidebar {
+  color: var(--st-text) !important;
+}
+.sidebar__game-list--scrolled {
+  box-shadow: inset 0 6px 6px -4px rgba(0, 0, 0, 0.5) !important;
+}
+.sidebar__online-count {
+  color: var(--st-text) !important;
+}
+.sidebar__online-count--online {
+  background-color: #1c9749 !important;
+  color: #ffffff !important;
+}
+.sidebar__collection-count {
+  color: var(--st-panel) !important;
+}
+.star-rating__star {
+  color: var(--st-text) !important;
+}
+.star-rating__star--filled {
+  color: #ffffff !important;
+}
+.star-rating__star--empty {
+  color: var(--st-text) !important;
+}
+.star-rating__star--half {
+  color: #ffffff !important;
+}
+.star-rating__value {
+  color: var(--st-text) !important;
+}
+.star-rating__calculating-text,
+.star-rating__no-rating-text {
+  color: var(--st-text) !important;
+}
+.star-rating--calculating .star-rating__star,
+.star-rating--no-rating .star-rating__star {
+  color: var(--st-text) !important;
+}
+.steam-library-badge--large {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.steam-library-badge--sidebar {
+  color: #ffffff !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+.toast {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.toast__progress::-webkit-progress-bar {
+  background-color: var(--st-bg) !important;
+}
+.toast__progress::-webkit-progress-value {
+  background-color: var(--st-text) !important;
+}
+.toast__icon--success {
+  color: #1c9749 !important;
+}
+.toast__icon--error {
+  color: #801d1e !important;
+}
+.toast__icon--warning {
+  color: #ffc107 !important;
+}
+.vertical-cover-card {
+  background-color: var(--st-panel) !important;
+}
+.window-title-bar {
+  background-color: var(--st-bg) !important;
+  border-bottom-color: var(--st-border) !important;
+}
+.window-title-bar h4 {
+  color: var(--st-text) !important;
+}
+.window-title-bar__control {
+  color: var(--st-text) !important;
+}
+.window-title-bar__control--close:hover {
+  background-color: #e11d48 !important;
+  color: #ffffff !important;
+}
+.achievement-panel {
+  background-color: var(--st-panel) !important;
+  border-bottom-color: var(--st-border) !important;
+}
+.achievement-panel__download-details-row {
+  color: var(--st-text) !important;
+}
+.achievement-panel__downloads-link {
+  color: var(--st-text) !important;
+}
+.achievement-panel__progress-bar::-webkit-progress-value {
+  background-color: var(--st-text) !important;
+}
+.achievements-content__comparison__container__subscription-required-button {
+  color: var(--st-text) !important;
+}
+.achievements-content__subscription-required-button {
+  color: var(--st-text) !important;
+}
+.achievements-content__user-summary__container__stats {
+  color: var(--st-text) !important;
+}
+.achievements-content__user-summary__container__stats__percentage--completed {
+  color: #16b195 !important;
+}
+.achievements-content__user-summary__container__stats__progress-bar {
+  background-color: var(--st-text) !important;
+}
+.achievements-content__user-summary__container__stats__progress-bar--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(120deg, transparent 0%, #30edc5 30%, #16b195 100%) !important;
+}
+.achievements-content__achievements-list__section__container {
+  background-image: linear-gradient(0deg, var(--st-panel) 0%, var(--st-panel) 100%) !important;
+}
+.achievements-content__achievements-list__section__container__banner::after {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.5) 45%,
+      var(--st-panel) 100%
+    ),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 55%) !important;
+}
+.achievements-content__achievements-list__section__table-header {
+  background-color: var(--st-panel) !important;
+  border-bottom-color: var(--st-border) !important;
+}
+.achievements-content__achievements-list__section__table-header--stuck {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.8) !important;
+}
+.achievements-content__profile-avatar {
+  background-color: var(--st-panel) !important;
+}
+.achievements__table-header {
+  background-color: var(--st-bg) !important;
+  border-bottom-color: var(--st-border) !important;
+}
+.achievements__table-header--stuck {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.8) !important;
+}
+.achievements__list {
+  background-color: var(--st-panel) !important;
+}
+.achievements__item {
+  color: var(--st-text) !important;
+}
+.achievements__item:hover {
+  background-color: var(--st-border) !important;
+}
+.achievements__item-souvenir-overlay {
+  color: var(--st-text) !important;
+}
+.achievements__progress-bar::-webkit-progress-bar {
+  background-color: var(--st-border) !important;
+}
+.achievements__progress-bar::-webkit-progress-value {
+  background-color: var(--st-text) !important;
+}
+.achievements__profile-avatar {
+  background-color: var(--st-panel) !important;
+}
+.achievements__subscription-button {
+  color: var(--st-text) !important;
+}
+.catalogue__result-count {
+  color: var(--st-text) !important;
+}
+.filter-item {
+  color: var(--st-text) !important;
+  background-color: color-mix(in srgb, var(--st-bg) 84%, var(--filter-item-color) 16%) !important;
+}
+.filter-section {
+  background-color: var(--st-panel) !important;
+}
+.filter-section__content {
+  background-color: var(--st-bg) !important;
+}
+.filter-section__group-tab-count {
+  color: var(--st-text) !important;
+}
+.game-item-classics {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-panel) !important;
+}
+.game-item-classics__genres--empty {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+.game-item {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.game-item__cover-placeholder {
+  color: var(--st-text) !important;
+}
+.game-item__compatibility-badge--platinum {
+  background-color: rgb(180, 199, 220) !important;
+}
+.game-item__compatibility-badge--gold {
+  background-color: rgb(207, 181, 59) !important;
+}
+.game-item__compatibility-badge--silver {
+  background-color: rgb(166, 166, 166) !important;
+}
+.game-item__compatibility-badge--bronze {
+  background-color: rgb(205, 127, 50) !important;
+  color: #fff !important;
+}
+.game-item__compatibility-badge--borked {
+  background-color: #d72626 !important;
+  color: #fff !important;
+}
+.game-item__genres {
+  color: var(--st-text) !important;
+}
+.game-item__genres--empty {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+.proton-compatibility-section__label {
+  color: var(--st-text) !important;
+}
+.proton-compatibility-section__option-item.radio-field--selected .radio-field__label {
+  color: #ffffff !important;
+}
+.download-group__progress-time {
+  color: var(--st-text) !important;
+}
+.download-group__simple-thumbnail {
+  border-color: var(--st-border) !important;
+}
+.download-group__simple-meta-row {
+  color: var(--st-text) !important;
+}
+.download-group__simple-extracting {
+  color: var(--st-text) !important;
+}
+.download-group__progress-fill--extraction {
+  background-color: #fff !important;
+}
+.cloud-save-v2__trigger--synced {
+  border-color: #1c9749 !important;
+}
+.cloud-save-v2__trigger--outdated {
+  border-color: #ffc107 !important;
+}
+.cloud-save-v2__trigger--conflict {
+  border-color: #e11d48 !important;
+}
+.cloud-save-v2__path-approval-description {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__path-approval-summary-toggle svg {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__path-approval-file {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__path-approval-file-name {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__toggle-copy span {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__switch--enabled .cloud-save-v2__switch-thumb {
+  background-color: var(--st-text) !important;
+}
+.cloud-save-v2__missing-executable-copy span,
+.cloud-save-v2__required-setup-copy span {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__snapshot--active {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+.cloud-save-v2__status-pill {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__status-pill--synced {
+  background-color: rgba(0, 230, 118, 0.22) !important;
+}
+.cloud-save-v2__status-pill--outdated {
+  background-color: rgba(255, 204, 0, 0.22) !important;
+}
+.cloud-save-v2__status-pill--conflict {
+  background-color: rgba(255, 59, 92, 0.22) !important;
+}
+.cloud-save-v2__browser-toolbar {
+  border-bottom-color: var(--st-border) !important;
+}
+.cloud-save-v2__browser-source-summary {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-source-summary strong {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-operation-count {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-filter .checkbox-field {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-state {
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-state--error {
+  color: #e11d48 !important;
+}
+.cloud-save-v2__browser-diff-summary {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-diff-summary span {
+  border-color: var(--st-border) !important;
+}
+.cloud-save-v2__browser-scroll-shadow--visible::after {
+  box-shadow: inset 0 8px 10px -7px rgba(0, 0, 0, 0.28) !important;
+}
+.cloud-save-v2__browser-table-scroll {
+  border-color: var(--st-border) !important;
+}
+.cloud-save-v2__browser-diff-header {
+  border-bottom-color: var(--st-border) !important;
+  background-color: var(--st-panel) !important;
+}
+.cloud-save-v2__browser-diff-source-header {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-diff-source-header strong {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-diff-status-header {
+  border-right-color: var(--st-border) !important;
+  border-left-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-status-cell {
+  border-right-color: var(--st-border) !important;
+  border-left-color: var(--st-border) !important;
+}
+.cloud-save-v2__browser-status {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-status--unchanged {
+  color: #1c9749 !important;
+}
+.cloud-save-v2__browser-status--modified {
+  color: #ffc107 !important;
+}
+.cloud-save-v2__browser-status--local-only {
+  color: #1c9749 !important;
+}
+.cloud-save-v2__browser-status--remote-only {
+  color: #72aefc !important;
+}
+.cloud-save-v2__browser-local-tree {
+  border-color: var(--st-border) !important;
+}
+.cloud-save-v2__browser-tree-icon {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-file-copy strong,
+.cloud-save-v2__browser-folder-copy strong {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-empty {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__browser-empty-copy strong {
+  color: var(--st-text) !important;
+}
+.cloud-save-v2__empty {
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.cloud-sync-panel__artifact {
+  color: var(--st-text) !important;
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.game-emulation-saves__card {
+  background-color: var(--st-bg) !important;
+}
+.description-header {
+  background-color: var(--st-panel) !important;
+}
+.description-header__info p {
+  color: var(--st-text) !important;
+}
+.gallery-lightbox {
+  color: var(--st-text) !important;
+}
+.gallery-lightbox--fullscreen {
+  background-color: #000 !important;
+}
+.gallery-lightbox--fullscreen .gallery-lightbox__frame {
+  box-shadow: none !important;
+}
+.gallery-lightbox__frame--image {
+  background-color: transparent !important;
+}
+.gallery-lightbox--fullscreen .gallery-lightbox__top-bar {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+.gallery-lightbox__title {
+  color: var(--st-text) !important;
+}
+.gallery-lightbox--fullscreen .gallery-lightbox__filmstrip {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+.gallery-video__spinner {
+  border-top-color: var(--st-text) !important;
+}
+.gallery-video__progress-played {
+  background-color: var(--st-text) !important;
+}
+.gallery-video__preview-time {
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.gallery-video__volume-fill {
+  background-color: var(--st-text) !important;
+}
+.gallery-video__time {
+  color: var(--st-text) !important;
+}
+.game-details__description--collapsed::after {
+  background-image: linear-gradient(transparent, var(--st-panel)) !important;
+}
+.game-details__description a {
+  color: var(--st-text) !important;
+}
+.game-details__skeleton .react-loading-skeleton {
+  background-image: linear-gradient(
+    90deg,
+    var(--st-panel) 25%,
+    var(--st-panel) 50%,
+    var(--st-panel) 75%
+  ) !important;
+}
+.game-details__skeleton .review-item-skeleton {
+  border-color: var(--st-border) !important;
+}
+.game-details__reviews-title {
+  color: var(--st-text) !important;
+}
+.hero-panel-actions__action {
+  border-color: var(--st-text) !important;
+}
+.hero-panel-actions__separator {
+  background-color: var(--st-text) !important;
+}
+.hero-panel-playtime__download-details {
+  color: var(--st-text) !important;
+}
+.hero-panel-playtime__downloads-link {
+  color: var(--st-text) !important;
+}
+.hero-panel {
+  border-bottom-color: var(--st-border) !important;
+}
+.hero-panel--stuck {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.8) !important;
+}
+.hero-panel__content p {
+  color: var(--st-text) !important;
+}
+.hero-panel__download-details {
+  color: var(--st-text) !important;
+}
+.hero-panel__downloads-link {
+  color: var(--st-text) !important;
+}
+.hero-panel__progress-bar::-webkit-progress-value {
+  background-color: var(--st-text) !important;
+}
+.hero-panel__progress-bar--extraction::-webkit-progress-value {
+  background-color: #fff !important;
+}
+.game-details__hero-classics-stripe--orange {
+  color: #fc5812 !important;
+}
+.game-details__hero-classics-stripe--red {
+  color: #f8c802 !important;
+}
+.game-details__hero-classics-stripe--yellow {
+  color: #fb0026 !important;
+}
+.game-details__hero-classics-stripe--green {
+  color: #c80078 !important;
+}
+.game-details__hero-classics-stripe--blue {
+  color: #7300a4 !important;
+}
+.game-details__hero-classics-stripe--blue .game-details__hero-classics-stripe-band {
+  box-shadow:
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.25),
+    0 4px 16px 0 rgba(115, 0, 164, 0.24) !important;
+}
+.game-details__hero-classics-stripe-band--shadow {
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+.game-details__hero-image--placeholder {
+  background-image: linear-gradient(180deg, #101010 0%, #0a0a0a 100%) !important;
+}
+.download-settings-modal__hint-text {
+  color: var(--st-text) !important;
+}
+.download-settings-modal__single-archive-notice {
+  color: var(--st-text) !important;
+}
+.download-settings-modal__downloaders-list-wrapper {
+  border-color: var(--st-border) !important;
+  background-color: var(--st-bg) !important;
+}
+.download-settings-modal__availability-indicator--available {
+  background-color: #22c55e !important;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5) !important;
+}
+.download-settings-modal__availability-indicator--unavailable {
+  background-color: #ef4444 !important;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.5) !important;
+}
+.download-settings-modal__availability-indicator--warning {
+  background-color: #eab308 !important;
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.5) !important;
+}
+.download-settings-modal__torrent-file-row--selected {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+}
+.download-settings-modal__folder-checkbox--indeterminate::after {
+  background-color: var(--st-bg) !important;
+}
+.epic-install-modal__cover {
+  background-color: var(--st-bg) !important;
+}
+.game-assets-settings__image-preview {
+  background-color: var(--st-bg) !important;
+}
+.game-assets-settings__drop-zone--active {
+  background-color: rgba(22, 177, 149, 0.1) !important;
+}
+.game-assets-settings__preview-action-icon--danger {
+  border-color: rgba(225, 29, 72, 0.6) !important;
+  background-color: rgba(225, 29, 72, 0.6) !important;
+}
+.epic-cloud-settings__path-hint,
+.epic-cloud-settings__conflict-description {
+  color: var(--st-text) !important;
+}
+.epic-cloud-settings__conflict-copy {
+  border-color: var(--st-border) !important;
+}
+.epic-cloud-settings__conflict-copy span {
+  color: var(--st-text) !important;
+}
+.legacy-saves-section__divider {
+  border-top-color: var(--st-border) !important;
+}
+.legacy-saves-section__card {
+  color: var(--st-text) !important;
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.legacy-saves-section__card-metadata {
+  color: var(--st-text) !important;
+}
+.game-options-modal__sidebar {
+  border-right-color: var(--st-border) !important;
+  background-color: var(--st-bg) !important;
+}
+.game-options-modal__category-note {
+  color: var(--st-text) !important;
+}
+@media (max-width: 860px) {
+  .game-options-modal__sidebar {
+    border-bottom-color: var(--st-border) !important;
+  }
+}
+.drive-card {
+  background-color: var(--st-bg) !important;
+}
+.drive-card--nospace .drive-card__space {
+  color: #f87171 !important;
+}
+.transfer-progress__pct {
+  color: var(--st-text) !important;
+}
+.cancel-confirm-modal {
+  background-color: var(--st-bg) !important;
+}
+.playtime-breakdown-table__label {
+  color: var(--st-text) !important;
+}
+.playtime-breakdown-table__value {
+  border-color: var(--st-border) !important;
+  background-color: var(--st-bg) !important;
+}
+.playtime-breakdown-table__next {
+  color: var(--st-text) !important;
+}
+.real-debrid-info-modal__description {
+  color: var(--st-text) !important;
+}
+.repacks-modal__repack-button {
+  color: var(--st-text) !important;
+}
+.repacks-modal__availability-orb--online {
+  background-color: #22c55e !important;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5) !important;
+}
+.repacks-modal__availability-orb--partial {
+  background-color: #eab308 !important;
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.5) !important;
+}
+.repacks-modal__availability-orb--offline {
+  background-color: #ef4444 !important;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.4) !important;
+}
+.repacks-modal__repack-title {
+  color: var(--st-text) !important;
+}
+.repacks-modal__separator {
+  background-color: var(--st-border) !important;
+}
+.repacks-modal__steam-title {
+  color: var(--st-text) !important;
+}
+.repacks-modal__no-results {
+  color: var(--st-text) !important;
+}
+.repacks-modal__no-results-text {
+  color: var(--st-text) !important;
+}
+.game-details__review-score-select option {
+  background-color: var(--st-panel) !important;
+}
+.game-details__review-input-header {
+  background-color: var(--st-panel) !important;
+}
+.game-details__review-header--has-bg::after {
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.18)) !important;
+}
+.game-details__review-header--has-bg .game-details__review-display-name,
+.game-details__review-header--has-bg .game-details__review-date {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6) !important;
+}
+.game-details__review-header--has-bg .game-details__review-score-stars,
+.game-details__review-header--has-bg .game-details__review-playtime {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+.game-details__review-header--has-bg .game-details__review-score-stars svg,
+.game-details__review-header--has-bg .game-details__review-playtime svg {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.game-details__vote-button--active.game-details__vote-button--upvote svg {
+  fill: white !important;
+}
+.game-details__vote-button--active.game-details__vote-button--downvote svg {
+  fill: white !important;
+}
+.game-details__review-star--filled {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.game-details__review-star--empty {
+  color: #666666 !important;
+}
+.game-details__review-content {
+  color: var(--st-text) !important;
+}
+.review-prompt-banner__playtime {
+  color: var(--st-text) !important;
+}
+.review-prompt-banner__question {
+  color: var(--st-text) !important;
+}
+.game-details__reply-header--has-bg::after {
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.18)) !important;
+}
+.game-details__reply-header--has-bg .game-details__review-display-name,
+.game-details__reply-header--has-bg .game-details__reply-date {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6) !important;
+}
+.game-language-section__header {
+  border-bottom-color: var(--st-border) !important;
+}
+.game-language-section__header-item {
+  color: var(--st-text) !important;
+}
+.game-language-section__cell {
+  color: var(--st-text) !important;
+}
+.game-language-section__check {
+  color: var(--st-text) !important;
+}
+.game-language-section__cross {
+  color: var(--st-text) !important;
+}
+.launchbox-details__label {
+  color: var(--st-text) !important;
+}
+.launchbox-details__value {
+  color: var(--st-text) !important;
+}
+.requirement__button {
+  border-color: var(--st-border) !important;
+}
+.requirement__details a {
+  color: var(--st-text) !important;
+}
+.how-long-to-beat__category {
+  border-color: var(--st-border) !important;
+}
+.how-long-to-beat__category-label {
+  color: var(--st-text) !important;
+}
+.how-long-to-beat__category-skeleton {
+  border-color: var(--st-border) !important;
+}
+.protondb__category-title {
+  color: var(--st-text) !important;
+}
+.protondb__tier-badge--platinum {
+  background-color: rgb(180, 199, 220) !important;
+}
+.protondb__tier-badge--gold {
+  background-color: rgb(207, 181, 59) !important;
+}
+.protondb__tier-badge--silver {
+  background-color: rgb(166, 166, 166) !important;
+}
+.protondb__tier-badge--bronze {
+  background-color: rgb(205, 127, 50) !important;
+  color: #fff !important;
+}
+.protondb__tier-badge--borked {
+  background-color: #d72626 !important;
+  color: #fff !important;
+}
+.controller-support {
+  color: var(--st-text) !important;
+}
+.controller-support__icons {
+  color: var(--st-text) !important;
+}
+.controller-support__icon {
+  color: var(--st-text) !important;
+}
+.controller-support__badge--full {
+  background-color: rgba(154, 205, 50, 0.15) !important;
+  color: #9acd32 !important;
+}
+.controller-support__badge--partial {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+  color: #ffa500 !important;
+}
+.controller-support__badge--none {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+.controller-support__description {
+  color: var(--st-text) !important;
+}
+.sidebar-section {
+  background-color: var(--st-panel) !important;
+}
+.sidebar-section__subtitle {
+  color: var(--st-text) !important;
+}
+.sidebar-section__content {
+  background-color: var(--st-bg) !important;
+}
+.similar-games__empty {
+  color: var(--st-text) !important;
+}
+.collections-filter__chevron {
+  color: var(--st-text) !important;
+}
+.collections-filter__item-count {
+  background-color: var(--st-text) !important;
+  color: var(--st-bg) !important;
+}
+.collections-filter__separator {
+  background-color: var(--st-border) !important;
+}
+.library-game-card-large__installed-badge--classics {
+  border-color: transparent !important;
+  background-image:
+    linear-gradient(var(--st-panel), var(--st-panel)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+  color: #fafafa !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+}
+.library-game-card-large__platform-badge {
+  background-image:
+    linear-gradient(var(--st-panel), var(--st-panel)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+}
+.library-game-card-large__achievement-bar {
+  background-color: var(--st-text) !important;
+}
+.library-game-card-large__achievement-bar--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(120deg, transparent 0%, #30edc5 30%, #16b195 100%) !important;
+}
+.library-game-card-large__achievement-percentage--completed {
+  color: #16b195 !important;
+}
+.library-game-card__platform-badge {
+  background-image:
+    linear-gradient(var(--st-panel), var(--st-panel)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+}
+.library-game-card__installed-badge--classics {
+  border-color: transparent !important;
+  background-image:
+    linear-gradient(var(--st-panel), var(--st-panel)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+  color: #fafafa !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+}
+.library-game-card__achievement-header {
+  color: var(--st-text) !important;
+}
+.library-game-card__achievement-bar {
+  background-color: var(--st-text) !important;
+}
+.library-game-card__achievement-bar--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(120deg, transparent 0%, #30edc5 30%, #16b195 100%) !important;
+}
+.library-game-card__achievement-percentage--completed {
+  color: #16b195 !important;
+}
+.library-game-card__game-image--contain {
+  background-color: #0a0a0a !important;
+}
+.library-multi-select__chevron {
+  color: var(--st-text) !important;
+}
+.library-select__chevron {
+  color: var(--st-text) !important;
+}
+.library-source-icon--hydra path {
+  fill: currentColor !important;
+}
+.library-view-options__option.active svg,
+.library-view-options__option.active svg * {
+  fill: currentColor !important;
+  color: currentColor !important;
+}
+.notification-item {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.notification-item--unread {
+  border-left-color: #16b195 !important;
+}
+.notification-item--unread .notification-item__title {
+  color: #fff !important;
+}
+.notification-item__picture {
+  background-color: var(--st-panel) !important;
+}
+.notification-item__badge-picture {
+  background-color: var(--st-panel) !important;
+}
+.notification-item__title {
+  color: var(--st-text) !important;
+}
+.notification-item__description {
+  color: var(--st-text) !important;
+}
+.notifications__empty-filter {
+  color: var(--st-text) !important;
+}
+.edit-profile-modal__avatar-container {
+  color: var(--st-text) !important;
+  background-color: var(--st-panel) !important;
+}
+.edit-profile-modal__avatar-overlay {
+  color: var(--st-text) !important;
+}
+.add-friend-modal__my-code-label {
+  color: var(--st-text) !important;
+}
+.add-friend-modal__my-code-value {
+  color: var(--st-text) !important;
+}
+.add-friend-modal__pending-status {
+  color: var(--st-text) !important;
+}
+.add-friend-modal__pending-container h3 {
+  color: var(--st-text) !important;
+}
+.add-friend-modal__friend-name {
+  color: var(--st-text) !important;
+}
+.all-badges-modal__item-icon {
+  background-color: var(--st-panel) !important;
+}
+.all-badges-modal__item-title {
+  color: var(--st-text) !important;
+}
+.all-friends-modal__name {
+  color: var(--st-text) !important;
+}
+.all-friends-modal__game {
+  color: var(--st-text) !important;
+}
+.all-friends-modal__empty {
+  color: var(--st-text) !important;
+}
+.badges-box__item-icon {
+  background-color: var(--st-panel) !important;
+}
+.badges-box__item-title {
+  color: var(--st-text) !important;
+}
+.filter-dropdown__check {
+  color: var(--st-text) !important;
+}
+.friends-box__empty-text {
+  color: var(--st-text) !important;
+}
+.friends-box__friend-name {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-notice {
+  border-color: var(--st-border) !important;
+}
+.profile-content__souvenirs-notice-icon {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-notice-copy strong {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-notice-copy span {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-cleanup-list > li {
+  border-color: var(--st-border) !important;
+}
+.profile-content__souvenirs-cleanup-warning {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-sync-status {
+  border-color: var(--st-border) !important;
+}
+.profile-content__souvenirs-sync-status > svg {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-sync-status-copy strong {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-sync-status-copy span {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-group-icon {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-group-count {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenir {
+  border-color: var(--st-border) !important;
+  background-color: var(--st-panel) !important;
+}
+.profile-content__souvenir--rare {
+  border-color: rgba(244, 165, 16, 0.85) !important;
+  box-shadow: 0 0 12px rgba(244, 165, 16, 0.2) !important;
+}
+.profile-content__souvenir--platinum {
+  border-color: rgba(12, 241, 202, 0.85) !important;
+  box-shadow: 0 0 12px rgba(12, 241, 202, 0.2) !important;
+}
+.profile-content__souvenir-image-placeholder {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenir-image-overlay {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenir-achievement-icon {
+  background-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.profile-content__souvenir-other-count {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenir-unlock-time {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenir-game-icon {
+  color: var(--st-text) !important;
+}
+.profile-content__souvenirs-loading {
+  color: var(--st-text) !important;
+}
+.profile-content__games-grid--drag-over {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.profile-content__games-grid--drag-over::before {
+  color: var(--st-text) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.user-reviews__review-star--filled {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.user-reviews__review-star--filled svg {
+  fill: currentColor !important;
+}
+.user-reviews__vote-button--active svg {
+  fill: white !important;
+}
+.recent-games__list-item {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__content {
+  background-color: var(--st-bg) !important;
+}
+.profile-souvenir-lightbox__image-frame {
+  background-color: var(--st-bg) !important;
+}
+.profile-souvenir-lightbox__info {
+  border-top-color: var(--st-border) !important;
+  background-color: var(--st-panel) !important;
+}
+.profile-souvenir-lightbox__achievement-icon,
+.profile-souvenir-lightbox__game-icon {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__copy p {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__other-count {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__other-count:focus-visible {
+  outline-color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__achievement-tooltip {
+  border-color: var(--st-border) !important;
+  background-color: var(--st-panel) !important;
+}
+.profile-souvenir-lightbox__achievement-list-icon {
+  background-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__achievement-list-copy strong {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__achievement-list-copy small {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__meta {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__meta-separator {
+  background-color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__game-link {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__game-link.link:hover {
+  color: var(--st-text) !important;
+}
+.profile-souvenir-lightbox__rarity--rare {
+  border-color: rgba(244, 165, 16, 0.65) !important;
+  background-color: rgba(48, 32, 4, 0.88) !important;
+  color: #ffd36d !important;
+}
+.profile-souvenir-lightbox__rarity--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(120deg, transparent 0%, #30edc5 30%, #16b195 100%) !important;
+  border-color: rgba(12, 241, 202, 0.7) !important;
+  color: #052d26 !important;
+}
+.profile-souvenir-lightbox__action--delete:hover:not(:disabled) {
+  background-color: rgba(225, 29, 72, 0.22) !important;
+  color: #e11d48 !important;
+}
+.user-library-game__stats-header {
+  color: var(--st-text) !important;
+}
+.user-library-game__stats-percentage--completed {
+  color: #16b195 !important;
+}
+.user-library-game__achievements-progress {
+  background-color: var(--st-text) !important;
+}
+.user-library-game__achievements-progress--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(120deg, transparent 0%, #30edc5 30%, #16b195 100%) !important;
+}
+.user-stats__list-item {
+  color: var(--st-text) !important;
+}
+.user-stats__list-item--wrapped:hover {
+  background-color: transparent !important;
+}
+.user-stats__karma-info-text {
+  color: var(--st-text) !important;
+}
+.profile-hero__background-overlay--transparent {
+  background-color: transparent !important;
+}
+.profile-hero__avatar-button {
+  background-color: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+.profile-hero__information {
+  color: var(--st-text) !important;
+}
+.profile-hero__hero-panel--transparent {
+  background-color: transparent !important;
+}
+.profile-section {
+  background-color: var(--st-panel) !important;
+}
+.profile-section__header {
+  background-color: var(--st-panel) !important;
+}
+.profile-section__content {
+  background-color: var(--st-bg) !important;
+}
+.theme-card--active {
+  background-color: rgba(59, 65, 75, 0.04) !important;
+}
+.theme-card__header__title {
+  color: var(--st-text) !important;
+}
+.theme-card__header__colors__color {
+  border-color: var(--st-border) !important;
+}
+.theme-placeholder__icon svg {
+  color: var(--st-text) !important;
+}
+.theme-placeholder__text {
+  color: rgba(226, 230, 236, 0.85) !important;
+}
+.settings-appearance__themes__theme--active {
+  background-color: rgba(59, 65, 75, 0.04) !important;
+}
+.settings-appearance__themes__theme__header__title {
+  color: var(--st-text) !important;
+}
+.settings-appearance__themes__theme__header__colors__color {
+  border-color: var(--st-border) !important;
+}
+.settings-appearance__no-themes__icon svg {
+  color: var(--st-text) !important;
+}
+.settings-appearance__no-themes__text {
+  color: rgba(226, 230, 236, 0.85) !important;
+}
+.download-directory-replacement-modal__label {
+  color: var(--st-text) !important;
+}
+.download-directory-replacement-modal__path {
+  color: var(--st-text) !important;
+}
+.console-card__hint-box {
+  border-color: var(--st-panel) !important;
+}
+.console-card__chip--ready {
+  color: #c0c1c7 !important;
+  background-color: rgba(192, 193, 199, 0.12) !important;
+}
+.console-card__chip--ready .console-card__chip-dot {
+  background-color: #c0c1c7 !important;
+}
+.console-card__chip--warn {
+  color: #c0c1c7 !important;
+  background-color: rgba(192, 193, 199, 0.12) !important;
+}
+.console-card__chip--warn .console-card__chip-dot {
+  background-color: #c0c1c7 !important;
+}
+.emulator-detail__row {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-panel) !important;
+}
+.emulator-detail__res-status--found {
+  color: #c0c1c7 !important;
+}
+.emulator-detail__res-status--warn {
+  color: #fbbf24 !important;
+}
+.emulator-detail__exec-path-text--placeholder {
+  color: #8e919b !important;
+}
+.emulator-detail__stat {
+  background-color: var(--st-bg) !important;
+}
+.emulator-detail__memcard-card {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-panel) !important;
+}
+.emulator-detail__cloud-card {
+  background-color: var(--st-bg) !important;
+}
+.setup-modal__body-intro {
+  color: var(--st-muted) !important;
+}
+.setup-modal__dot--active {
+  background-color: #c0c1c7 !important;
+}
+.setup-modal__row-card {
+  background-color: var(--st-panel) !important;
+}
+.setup-modal__download-card-desc {
+  color: var(--st-muted) !important;
+}
+.setup-modal__row-icon--warn {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  color: #f59e0b !important;
+}
+.setup-modal__row-icon--folder {
+  background-color: rgba(142, 145, 155, 0.12) !important;
+  color: #c0c1c7 !important;
+}
+.setup-modal__row-icon--neutral {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: #8e919b !important;
+}
+.setup-modal__row-icon--found {
+  background-color: transparent !important;
+  color: #c0c1c7 !important;
+}
+.setup-modal__row-path {
+  color: var(--st-muted) !important;
+}
+.setup-modal__row-description {
+  color: var(--st-muted) !important;
+}
+.setup-modal__numbered-list {
+  background-color: var(--st-panel) !important;
+}
+.setup-modal__numbered-marker {
+  color: var(--st-muted) !important;
+}
+.setup-modal__bios-path {
+  background-color: var(--st-panel) !important;
+}
+.setup-modal__bios-path--placeholder {
+  color: #71717a !important;
+}
+.setup-modal__bios-hint {
+  color: var(--st-muted) !important;
+}
+.setup-modal__alert--warn {
+  background-color: rgba(245, 158, 11, 0.06) !important;
+  border-color: rgba(245, 158, 11, 0.22) !important;
+}
+.setup-modal__alert--neutral {
+  background-color: #151515 !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+.setup-modal__alert-note {
+  color: var(--st-muted) !important;
+}
+.setup-modal__scan-file-status--matched {
+  color: #fafafa !important;
+}
+.setup-modal__scan-file-status--unmatched {
+  color: #71717a !important;
+}
+.setup-modal__scan-file-status--wrong_platform {
+  color: #f6746b !important;
+}
+.setup-modal__stat {
+  background-color: var(--st-bg) !important;
+}
+.setup-modal__done-check::before {
+  background-color: var(--st-panel) !important;
+}
+.setup-modal__done-body {
+  color: var(--st-muted) !important;
+}
+.setup-modal__rom-card {
+  background-color: var(--st-panel) !important;
+}
+.setup-modal__rom-card-subtitle {
+  color: var(--st-muted) !important;
+}
+.setup-modal__unmatched {
+  background-color: var(--st-panel) !important;
+}
+.setup-modal__unmatched-reason--unmatched {
+  color: #71717a !important;
+}
+.setup-modal__unmatched-reason--wrong_platform {
+  color: #f6746b !important;
+}
+.settings-general__volume-control label {
+  color: var(--st-text) !important;
+}
+.settings-general__volume-icon {
+  color: var(--st-text) !important;
+}
+.settings-general__volume-value {
+  color: var(--st-text) !important;
+}
+.settings-general__volume-slider::-webkit-slider-thumb {
+  background-color: var(--st-text) !important;
+  border-color: var(--st-panel) !important;
+}
+.settings-general__volume-slider::-moz-range-thumb {
+  background-color: var(--st-text) !important;
+  border-color: var(--st-panel) !important;
+}
+.settings-general__volume-slider::-webkit-slider-runnable-track {
+  background-image: linear-gradient(
+    to right,
+    var(--st-text) 0%,
+    var(--st-text) var(--volume-percent),
+    var(--st-bg) var(--volume-percent),
+    var(--st-bg) 100%
+  ) !important;
+}
+.settings-general__volume-slider::-moz-range-track {
+  background-color: var(--st-bg) !important;
+}
+.settings-general__volume-slider::-moz-range-progress {
+  background-color: var(--st-text) !important;
+}
+.settings-general__volume-slider::-ms-thumb {
+  background-color: var(--st-text) !important;
+  border-color: var(--st-panel) !important;
+}
+.settings-general__volume-slider::-ms-fill-lower {
+  background-color: var(--st-text) !important;
+}
+.settings-general__volume-slider::-ms-fill-upper {
+  background-color: var(--st-bg) !important;
+}
+.settings-integration-card__title {
+  color: var(--st-text) !important;
+}
+.settings-integration-card__status {
+  color: var(--st-text) !important;
+}
+.settings-integration-card__status--success {
+  color: var(--st-text) !important;
+}
+.settings-integration-card__status--warning {
+  color: #ffc107 !important;
+}
+.settings-integration-card__avatar {
+  color: var(--st-text) !important;
+}
+.settings-integration-card__username {
+  color: var(--st-text) !important;
+}
+.settings-integration-card__progress-header {
+  color: var(--st-text) !important;
+}
+@media (max-width: 860px) {
+  .settings__sidebar {
+    border-bottom-color: var(--st-border) !important;
+  }
+}
+.settings-context-panel__divider {
+  border-top-color: var(--st-border) !important;
+}
+.cloud-gift-notification-modal__panel {
+  background-color: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.cloud-gift-notification-modal__message-card blockquote {
+  border-left-color: var(--st-border) !important;
+}
+/* Settings surfaces and setup dialogs. */
+body:has(.settings__content) {
+  --text-primary: #e2e6ec;
+  --text-secondary: #a8afba;
+  --text-muted: #969da8;
+}
+.container__content {
+  background: var(--st-bg) !important;
+}
+.settings__content {
+  background: var(--st-panel) !important;
+  color: var(--st-text);
+  border-color: var(--st-border) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+.settings__sidebar {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+.settings__content .settings__panel {
+  background: var(--st-panel);
+}
+.settings__sidebar-divider {
+  background: var(--st-border) !important;
+}
+.settings__sidebar-group-label {
+  color: var(--st-muted);
+}
+.settings__content .settings-context-panel__divider {
+  border-color: var(--st-border) !important;
+}
+:root .radio-field {
+  --radio-field-accent: #798698;
+}
+:root .radio-field:has(input:focus-visible) {
+  outline: 2px solid var(--st-accent);
+  outline-offset: 2px;
+}
+:root .settings-download-sources__item,
+:root .settings-integration-card,
+:root .console-card {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+:root .theme-card,
+:root .theme-placeholder,
+:root .settings-appearance__themes__theme,
+:root .settings-appearance__no-themes {
+  background: var(--st-bg) !important;
+}
+:root .console-card:hover {
+  background: var(--st-hover) !important;
+  border-color: var(--st-focus) !important;
+}
+:root .settings-integration-card__avatar {
+  background: var(--st-selected) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text);
+}
+:root .settings-integration-card__progress-track,
+:root .emulator-detail__memcard-backup-progress-track {
+  background: var(--st-border) !important;
+}
+:root .settings-integration-card__progress-fill,
+:root .emulator-detail__memcard-backup-progress-fill {
+  background: var(--st-accent) !important;
+}
+:root .theme-card__author,
+:root .settings-appearance__themes__theme__author,
+:root .settings-general__disabled-hint,
+:root .settings-general__network-interface-hint,
+:root .settings-behavior__proton-description,
+:root .settings-debrid__description,
+:root .settings-integration-card__description,
+:root .settings-integration-card__message,
+:root .settings-integration-card__meta,
+:root .settings-retroachievements__emulator-note,
+:root .settings-retroachievements__modal-note,
+:root .settings-emulation__description {
+  color: var(--st-muted) !important;
+}
+:root .settings-general__volume-slider {
+  background: var(--st-bg) !important;
+}
+.settings__content .settings-general__volume-slider::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    var(--st-accent) 0%,
+    var(--st-accent) var(--volume-percent),
+    var(--st-bg) var(--volume-percent),
+    var(--st-bg) 100%
+  ) !important;
+}
+.settings__content .settings-general__volume-slider::-webkit-slider-thumb {
+  background: #a9b7cc !important;
+  border-color: var(--st-panel) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.settings__content .settings-general__volume-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--st-focus);
+}
+body:has(.settings__content) .console-card__title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .console-card__emulator {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .console-card__version {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .console-card__dot {
+  background: var(--st-selected) !important;
+}
+body:has(.settings__content) .console-card__stat-dot {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .console-card__stat-number {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .console-card__stat-label {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .console-card__last-scan {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .console-card__hint-box {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+body:has(.settings__content) .console-card__hint-title {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .console-card__hint-text {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .console-card__divider {
+  background: var(--st-divider) !important;
+}
+body:has(.settings__content) .console-card__chip--ready {
+  color: var(--st-muted) !important;
+  background: rgba(121, 134, 152, 0.12) !important;
+}
+body:has(.settings__content) .console-card__chip--ready .console-card__chip-dot {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .console-card__chip--warn {
+  color: #d9b66f !important;
+  background: rgba(121, 134, 152, 0.12) !important;
+}
+body:has(.settings__content) .console-card__chip--warn .console-card__chip-dot {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .emu-save-modal__target-name {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emu-save-modal__target-path {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emu-save-modal__empty {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emu-save-modal__hint {
+  color: #d9b66f !important;
+}
+body:has(.settings__content) .emulator-detail__hero {
+  background: linear-gradient(to right, var(--st-border), rgba(121, 134, 152, 0.04)) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .emulator-detail__hero-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__hero-detected {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__hero-version {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__hero-count {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__hero-count-dot {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .emulator-detail__dot {
+  background: var(--st-selected) !important;
+}
+body:has(.settings__content) .emulator-detail__bios-note {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__section-header h3 {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__section-header p {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__row {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+body:has(.settings__content) .emulator-detail__exec-name {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__exec-version {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__synced {
+  color: var(--st-muted) !important;
+  background: rgba(121, 134, 152, 0.12) !important;
+}
+body:has(.settings__content) .emulator-detail__path-missing {
+  color: var(--st-muted) !important;
+  background: rgba(121, 134, 152, 0.12) !important;
+}
+body:has(.settings__content) .emulator-detail__res-status {
+  color: var(--st-text) !important;
+  background: var(--st-panel) !important;
+}
+body:has(.settings__content) .emulator-detail__res-status--found {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__res-status--warn {
+  color: #d9b66f !important;
+}
+body:has(.settings__content) .emulator-detail__exec-label {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__exec-path {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__exec-path-text--placeholder {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__empty {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__folder-path {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__folder-meta {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__remove {
+  background: transparent !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__remove:hover {
+  color: #e18689 !important;
+}
+body:has(.settings__content) .emulator-detail__stat {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .emulator-detail__stat-head {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__stat-label {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__stat-value {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__stat-caption {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-chevron {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-group-title {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-group-count {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-backup-progress-label {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-backup-progress-track {
+  background: var(--st-bg) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-backup-progress-fill {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-card {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-cover {
+  background: var(--st-bg) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-cover-placeholder {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-sub {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-meta {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-backup-all {
+  background: transparent !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__memcard-backup-all:hover {
+  color: var(--st-text) !important;
+  border-color: var(--st-border) !important;
+}
+body:has(.settings__content) .emulator-detail__page-indicator {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-connector {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-card {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-card-title {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-card-info span {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-card-info span svg {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-locked-icon {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__cloud-locked-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__restore-target-name {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__restore-target-path {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__tabs {
+  border-bottom-color: var(--st-border) !important;
+}
+body:has(.settings__content) .emulator-detail__remove-emulator {
+  background: transparent !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .emulator-detail__remove-emulator:hover:not(:disabled) {
+  color: #e18689 !important;
+}
+body:has(.settings__content) .emulator-detail__rom-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .emulator-detail__rom-leader {
+  border-bottom-color: rgba(121, 134, 152, 0.12) !important;
+}
+body:has(.settings__content) .emulator-detail__rom-size {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__header-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__header-subtitle {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__body-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__body-intro {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__footer {
+  border-top-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__dot {
+  background: var(--st-selected) !important;
+}
+body:has(.settings__content) .setup-modal__dot--active {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .setup-modal__row-card {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__recommended-pill {
+  background: rgba(121, 134, 152, 0.1) !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__download-divider {
+  background: var(--st-border) !important;
+}
+body:has(.settings__content)
+  .setup-modal__download-card-visit:hover
+  .setup-modal__download-card-url,
+body:has(.settings__content)
+  .setup-modal__download-card-visit:hover
+  .setup-modal__download-card-ext {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__download-card-badge {
+  background: var(--st-divider) !important;
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__download-card-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__download-card-desc {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__download-card-url {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__download-card-ext {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__row-icon--warn {
+  background: rgba(121, 134, 152, 0.18) !important;
+  color: #d9b66f !important;
+}
+body:has(.settings__content) .setup-modal__row-icon--folder {
+  background: rgba(121, 134, 152, 0.12) !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__row-icon--neutral {
+  background: var(--st-divider) !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__row-icon--found {
+  background: transparent !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__row-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__row-version {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__row-path {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__row-description {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__hint {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__numbered-list {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__numbered-marker {
+  background: var(--st-panel) !important;
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__numbered-text {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__numbered-divider {
+  background: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__bios-path {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__bios-path--placeholder {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__bios-hint {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__alert--warn {
+  background: var(--st-divider) !important;
+  border-color: rgba(121, 134, 152, 0.22) !important;
+}
+body:has(.settings__content) .setup-modal__alert--neutral {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__alert-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__alert-note {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__progress-bar {
+  background: var(--st-panel) !important;
+}
+body:has(.settings__content) .setup-modal__progress-fill {
+  background: var(--st-accent) !important;
+}
+body:has(.settings__content) .setup-modal__progress-meta {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__progress-status {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__progress-check {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__scan-file-icon {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__scan-file-name {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__scan-file-status--matched {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__scan-file-status--unmatched {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__scan-file-status--wrong_platform {
+  color: #d9b66f !important;
+}
+body:has(.settings__content) .setup-modal__scan-keep-open {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__stat {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__stat-icon {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__stat-label {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__stat-value {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__done-check {
+  color: var(--st-text) !important;
+  background: conic-gradient(
+    from 0deg,
+    var(--st-accent) 5deg,
+    var(--st-accent) 70deg,
+    var(--st-accent) 145deg,
+    var(--st-accent) 220deg,
+    var(--st-accent) 290deg,
+    var(--st-accent) 365deg
+  ) !important;
+}
+body:has(.settings__content) .setup-modal__done-check::before {
+  background: var(--st-bg) !important;
+}
+body:has(.settings__content) .setup-modal__done-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__done-body {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__rom-card {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__rom-card-title {
+  color: var(--st-text) !important;
+}
+body:has(.settings__content) .setup-modal__rom-card-subtitle {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__rom-card-subfolder-hint {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__unmatched {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+}
+body:has(.settings__content) .setup-modal__unmatched-icon {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__unmatched-name {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__unmatched-reason--unmatched {
+  color: var(--st-muted) !important;
+}
+body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
+  color: #d9b66f !important;
+}
+:root .modal,
+:root .search-dropdown,
+:root .dropdown-menu,
+:root .context-menu {
+  background: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.settings__panel > .settings-context-panel,
+.settings__panel > .settings-account__form,
+.settings__panel > .settings-emulation {
+  animation: settings-tab-enter 200ms ease-out both;
+}
+@keyframes settings-tab-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .settings__panel > .settings-context-panel,
+  .settings__panel > .settings-account__form,
+  .settings__panel > .settings-emulation {
+    animation: none;
+  }
+}
+.sidebar {
+  background: var(--st-bg) !important;
+  border-color: var(--st-divider) !important;
+  color: var(--st-text);
+}
+.title-bar,
+.header,
+.bottom-panel {
+  background: var(--st-chrome) !important;
+  border-color: var(--st-divider) !important;
+  color: var(--st-text);
+}
+.header__search,
+.sidebar .text-field-container__text-field,
+:root .text-field-container__text-field,
+:root .select-field,
+:root .settings-global-trackers__textarea,
+:root .settings-global-trackers__url-input {
+  border-radius: var(--st-field-radius) !important;
+}
+.header__search-input,
+.sidebar .text-field-container__text-field-input,
+:root .text-field-container__text-field-input {
+  background: transparent !important;
+  color: var(--st-text) !important;
+  border-radius: inherit;
+}
+.header__search-input::placeholder,
+.sidebar .text-field-container__text-field-input::placeholder,
+:root .text-field-container__text-field-input::placeholder {
+  color: var(--st-muted);
+}
+:root .select-field__option {
+  color: var(--st-text) !important;
+}
+:root .select-field__option option {
+  background: var(--st-bg);
+  color: var(--st-text);
+}
+.header__section:has(> .header__search) {
+  overflow: visible;
+}
+:root .text-field-container__error-label,
+:root .settings-global-trackers__error {
+  color: #e18689 !important;
+}
+.select-field__label {
+  color: var(--st-text);
+}
+.badge {
+  background: var(--st-selected) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+.react-loading-skeleton {
+  --base-color: var(--st-panel) !important;
+  --highlight-color: var(--st-selected) !important;
+}
+.home__cards .game-card__download-options {
+  display: none !important;
+}
+.game-card:focus-visible,
+.game-item:focus-visible,
+.vertical-cover-card:focus-visible {
+  outline: 2px solid var(--st-accent);
+  outline-offset: 2px;
+}
+.game-details__description-container {
+  background: var(--st-panel) !important;
+}
+.download-group__hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    var(--st-bg) 70%,
+    var(--st-panel) 100%
+  ) !important;
+}
+.dropdown-menu__content,
+.collections-filter__content,
+.library-select__content,
+.search-dropdown {
+  background: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text);
+}
+.game-details__review-input .ProseMirror {
+  color: var(--st-text) !important;
+}
+.notification-item {
+  color: var(--st-text) !important;
+}
+.download-group__progress-bar {
+  background: var(--st-border) !important;
+}
+.download-group__progress-fill,
+.download-group__progress-fill--paused {
+  background: var(--st-accent) !important;
+}
+::selection {
+  background: #4b5769;
+  color: #f0f2f5;
+}
+.catalogue .game-item__repackers {
+  display: none !important;
+}
+.catalogue .game-item__details > span:first-child {
+  color: #e2e6ec !important;
+  font-weight: 600;
+}
+.catalogue .game-item__genres {
+  color: #a8afba !important;
+  margin-bottom: 0;
+}
+.catalogue__pagination-container {
+  justify-content: center !important;
+}
+/* Shared action buttons and segmented controls. */
+:root
+  :is(
+    .button,
+    .collections-filter__trigger,
+    .library-select__trigger,
+    .library-multi-select__trigger,
+    .filter-dropdown__trigger,
+    .disc-field__trigger,
+    .console-card__cta,
+    .emulator-detail__page-btn,
+    .setup-modal__ghost-button,
+    .setup-modal__add-folder,
+    .profile-souvenir-lightbox__action,
+    .profile-content__souvenir-action-button
+  ):not(
+    :where(
+      .button--danger,
+      .button--cloud,
+      .context-menu__item--danger,
+      .sidebar-profile__dropdown-item--danger,
+      .game-emulation-saves__delete,
+      .game-details__delete-review-button,
+      .profile-souvenir-lightbox__action--delete,
+      .emulator-detail__remove,
+      .emulator-detail__remove-emulator
+    )
+  ) {
+  background: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--st-text) !important;
+  border-radius: 8px !important;
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+:root
+  :is(
+    .button,
+    .collections-filter__trigger,
+    .library-select__trigger,
+    .library-multi-select__trigger,
+    .filter-dropdown__trigger,
+    .disc-field__trigger,
+    .console-card__cta,
+    .emulator-detail__page-btn,
+    .setup-modal__ghost-button,
+    .setup-modal__add-folder,
+    .profile-souvenir-lightbox__action,
+    .profile-content__souvenir-action-button
+  ):not(
+    :where(
+      .button--danger,
+      .button--cloud,
+      .context-menu__item--danger,
+      .sidebar-profile__dropdown-item--danger,
+      .game-emulation-saves__delete,
+      .game-details__delete-review-button,
+      .profile-souvenir-lightbox__action--delete,
+      .emulator-detail__remove,
+      .emulator-detail__remove-emulator
+    )
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):is(
+    :hover,
+    :focus-visible,
+    [data-state="open"]
+  ) {
+  background: var(--st-panel) !important;
+  border-color: var(--st-focus) !important;
+  box-shadow: inset 0 0 0 1px var(--st-focus) !important;
+  outline: none !important;
+}
+:root
+  :is(
+    .catalogue-mode-toggle__option,
+    .filter-section__group-tab,
+    .library-category-filter__option,
+    .library-view-options__option,
+    .library-installed-filter__button,
+    .profile-content__tab,
+    .notifications__tab,
+    .emulator-detail__tab,
+    .game-assets-settings__asset-tab,
+    .search-dropdown__shop-button
+  ) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: inset 0 0 0 1px var(--st-border) !important;
+  outline: none !important;
+  color: var(--st-secondary) !important;
+  font-weight: 500 !important;
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+:root
+  :is(
+    .catalogue-mode-toggle__option,
+    .filter-section__group-tab,
+    .library-category-filter__option,
+    .library-view-options__option,
+    .library-installed-filter__button,
+    .profile-content__tab,
+    .notifications__tab,
+    .emulator-detail__tab,
+    .game-assets-settings__asset-tab,
+    .search-dropdown__shop-button
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):is(
+    :hover,
+    :focus-visible
+  ) {
+  box-shadow: inset 0 0 0 2px var(--st-focus) !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .catalogue-mode-toggle__option--active,
+    .filter-section__group-tab--active,
+    .library-category-filter__option--active,
+    .library-view-options__option--active,
+    .library-view-options__option.active,
+    .library-installed-filter__button--active,
+    .library-installed-filter__button[aria-pressed="true"],
+    .profile-content__tab--active,
+    .notifications__tab--active,
+    .emulator-detail__tab--active,
+    .game-assets-settings__asset-tab--active,
+    .search-dropdown__shop-button--active,
+    .home__buttons-list .button--primary,
+    .pagination .button--primary
+  ) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 2px var(--st-focus) !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .profile-content__tab-underline,
+    .notifications__tab-underline,
+    .game-assets-settings__asset-tab-underline
+  ) {
+  display: none !important;
+}
+:root :is(.profile-content__tabs, .notifications__filter-tabs, .game-assets-settings__asset-tabs) {
+  border-bottom: 0 !important;
+  gap: 8px;
+}
+:root
+  :is(.catalogue-mode-toggle, .filter-section__group-tabs, .library-category-filter__container) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+:root .catalogue-mode-toggle {
+  padding: 0;
+  gap: 6px;
+}
+:root .catalogue-mode-toggle__option {
+  padding-inline: 10px;
+}
+:root .catalogue-mode-toggle__option:first-child {
+  flex: 1.4;
+}
+:root .catalogue-mode-toggle__option span {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+:root .filter-section__group-tabs {
+  padding: 0;
+  gap: 6px;
+}
+:root .emulator-detail__tab {
+  opacity: 1 !important;
+}
+:root .emulator-detail__tabs {
+  border-bottom: 0 !important;
+}
+:root .sidebar__menu-item,
+:root .sidebar__menu-item:is(:hover, .sidebar__menu-item--active) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+:root
+  :is(.sidebar__menu-item-button, .settings__sidebar-button, .game-options-modal__sidebar-button) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--st-text) !important;
+  border-radius: 4px;
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+:root
+  :is(
+    .sidebar__menu-item-button,
+    .settings__sidebar-button,
+    .game-options-modal__sidebar-button
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
+  background: var(--st-hover) !important;
+}
+:root
+  :is(
+    .sidebar__menu-item--active .sidebar__menu-item-button,
+    .settings__sidebar-button--active,
+    .game-options-modal__sidebar-button--active
+  ) {
+  background: var(--st-selected) !important;
+}
+:root
+  :is(
+    .sidebar__menu-item--active .sidebar__menu-item-button,
+    .settings__sidebar-button--active,
+    .game-options-modal__sidebar-button--active
+  ):hover {
+  background: var(--st-selected-hover) !important;
+}
+:root
+  :is(
+    .context-menu__item,
+    .dropdown-menu__item,
+    .sidebar-filter-menu__item,
+    .sidebar-profile__dropdown-item,
+    .collections-filter__item,
+    .library-select__item,
+    .library-multi-select__item,
+    .filter-dropdown__option,
+    .disc-field__option,
+    .gallery-video__quality-option,
+    .search-dropdown__item,
+    .upload-background-image-button__menu-item
+  ) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 5px !important;
+  color: var(--st-text) !important;
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+:root
+  :is(
+    .context-menu__item,
+    .dropdown-menu__item,
+    .sidebar-filter-menu__item,
+    .sidebar-profile__dropdown-item,
+    .collections-filter__item,
+    .library-select__item,
+    .library-multi-select__item,
+    .filter-dropdown__option,
+    .disc-field__option,
+    .gallery-video__quality-option,
+    .search-dropdown__item,
+    .upload-background-image-button__menu-item
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):is(
+    :hover,
+    [data-highlighted],
+    :focus-visible
+  ) {
+  background: var(--st-hover) !important;
+}
+:root
+  :is(
+    .context-menu__item,
+    .dropdown-menu__item,
+    .sidebar-filter-menu__item,
+    .sidebar-profile__dropdown-item,
+    .collections-filter__item,
+    .library-select__item,
+    .library-multi-select__item,
+    .filter-dropdown__option,
+    .disc-field__option,
+    .gallery-video__quality-option,
+    .search-dropdown__item,
+    .upload-background-image-button__menu-item
+  ):is(:disabled, [aria-disabled="true"], [data-disabled]) {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+:root
+  :is(
+    .context-menu__item--active,
+    .collections-filter__item--active,
+    .filter-dropdown__option--active,
+    .disc-field__option--active,
+    .gallery-video__quality-option--selected,
+    .search-dropdown__item--active,
+    .context-menu__item[data-state="checked"],
+    .dropdown-menu__item[data-state="checked"],
+    .sidebar-filter-menu__item[data-state="checked"],
+    .sidebar-profile__dropdown-item[data-state="checked"],
+    .collections-filter__item[data-state="checked"],
+    .library-select__item[data-state="checked"],
+    .library-multi-select__item[data-state="checked"],
+    .filter-dropdown__option[data-state="checked"],
+    .disc-field__option[data-state="checked"],
+    .gallery-video__quality-option[data-state="checked"],
+    .search-dropdown__item[data-state="checked"],
+    .upload-background-image-button__menu-item[data-state="checked"]
+  ) {
+  background: var(--st-selected) !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .context-menu__item--active,
+    .collections-filter__item--active,
+    .filter-dropdown__option--active,
+    .disc-field__option--active,
+    .gallery-video__quality-option--selected,
+    .search-dropdown__item--active,
+    .context-menu__item[data-state="checked"],
+    .dropdown-menu__item[data-state="checked"],
+    .sidebar-filter-menu__item[data-state="checked"],
+    .sidebar-profile__dropdown-item[data-state="checked"],
+    .collections-filter__item[data-state="checked"],
+    .library-select__item[data-state="checked"],
+    .library-multi-select__item[data-state="checked"],
+    .filter-dropdown__option[data-state="checked"],
+    .disc-field__option[data-state="checked"],
+    .gallery-video__quality-option[data-state="checked"],
+    .search-dropdown__item[data-state="checked"],
+    .upload-background-image-button__menu-item[data-state="checked"]
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):is(
+    :hover,
+    [data-highlighted],
+    :focus-visible
+  ) {
+  background: var(--st-selected-hover) !important;
+}
+:root
+  :is(
+    .context-menu,
+    .dropdown-menu__content,
+    .sidebar-filter-menu__content,
+    .sidebar-profile__dropdown,
+    .collections-filter__content,
+    .library-select__content,
+    .library-multi-select__content,
+    .filter-dropdown__menu,
+    .disc-field__menu,
+    .upload-background-image-button__menu,
+    .gallery-video__quality-menu
+  ) {
+  background: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .context-menu,
+    .sidebar-profile__dropdown,
+    .collections-filter__content,
+    .library-select__content,
+    .library-multi-select__content,
+    .filter-dropdown__menu,
+    .disc-field__menu,
+    .upload-background-image-button__menu,
+    .gallery-video__quality-menu
+  ) {
+  padding: 6px !important;
+  box-sizing: border-box;
+}
+:root :is(.dropdown-menu__group, .sidebar-filter-menu__group) {
+  padding: 6px !important;
+  box-sizing: border-box;
+}
+:root .context-menu__item-container + .context-menu__item-container {
+  margin-top: 3px !important;
+}
+:root .search-dropdown__list {
+  padding: 0 6px 6px !important;
+}
+:root .search-dropdown__item-container + .search-dropdown__item-container {
+  margin-top: 3px !important;
+}
+:root .filter-dropdown__menu,
+:root .disc-field__menu {
+  gap: 0 !important;
+}
+:root .context-menu__item + .context-menu__item {
+  margin-top: 3px !important;
+}
+:root .dropdown-menu__item + .dropdown-menu__item {
+  margin-top: 3px !important;
+}
+:root .sidebar-filter-menu__item + .sidebar-filter-menu__item {
+  margin-top: 3px !important;
+}
+:root .sidebar-profile__dropdown-item + .sidebar-profile__dropdown-item {
+  margin-top: 3px !important;
+}
+:root .collections-filter__item + .collections-filter__item {
+  margin-top: 3px !important;
+}
+:root .library-select__item + .library-select__item {
+  margin-top: 3px !important;
+}
+:root .library-multi-select__item + .library-multi-select__item {
+  margin-top: 3px !important;
+}
+:root .filter-dropdown__option + .filter-dropdown__option {
+  margin-top: 3px !important;
+}
+:root .disc-field__option + .disc-field__option {
+  margin-top: 3px !important;
+}
+:root .gallery-video__quality-option + .gallery-video__quality-option {
+  margin-top: 3px !important;
+}
+:root .search-dropdown__item + .search-dropdown__item {
+  margin-top: 3px !important;
+}
+:root .upload-background-image-button__menu-item + .upload-background-image-button__menu-item {
+  margin-top: 3px !important;
+}
+:root
+  :is(
+    .bottom-panel__help-button,
+    .bottom-panel__downloads-button,
+    .bottom-panel__version-button,
+    .collapsed-menu__button,
+    .fullscreen-media-modal__close-button,
+    .guide-link,
+    .auto-update-sub-header__new-version-button,
+    .header__action-button,
+    .header__back-button,
+    .scan-games-modal__folder-remove,
+    .image-crop-modal__icon-button,
+    .modal__close-button,
+    .sidebar-profile__button,
+    .sidebar__big-picture-darwin,
+    .sidebar__add-button,
+    .sidebar__play-button,
+    .text-field-container__toggle-password-button,
+    .toast__close-button,
+    .achievements__item-souvenir,
+    .achievements__item-points--locked,
+    .filter-item__remove-button,
+    .game-item-classics__plus-wrapper,
+    .game-item__plus-wrapper,
+    .cloud-save-v2__path-approval-summary-toggle,
+    .cloud-save-v2__snapshot-stats--interactive,
+    .cloud-sync-panel__manage-files-button,
+    .game-emulation-saves__icon-button,
+    .cloud-sync-files-modal__file-item,
+    .gallery-lightbox__frame-button,
+    .gallery-lightbox__corner-button,
+    .gallery-lightbox__icon-button,
+    .gallery-lightbox__nav-button,
+    .gallery-lightbox__filmstrip-exit,
+    .gallery-slider__media-button,
+    .gallery-slider__fullscreen-button,
+    .gallery-slider__button,
+    .gallery-video__big-play,
+    .gallery-video__button,
+    .gallery-video__button--fullscreen,
+    .game-details__randomizer-button,
+    .download-settings-modal__path-error,
+    .download-settings-modal__torrent-row-trigger,
+    .game-details__review-score-select,
+    .game-details__editor-button,
+    .game-details__review-display-name--clickable,
+    .game-details__vote-button,
+    .game-details__reply-toggle,
+    .list__item,
+    .similar-games__control,
+    .library-game-card__action-button,
+    .library__quick-action,
+    .notification-item__dismiss,
+    .add-friend-modal__copy-icon-button,
+    .add-friend-modal__friend-item,
+    .all-friends-modal__item,
+    .badges-box__view-all,
+    .friends-box__add-friend-button,
+    .friends-box__list-item,
+    .friends-box__view-all,
+    .profile-content__collapse-button,
+    .profile-content__souvenirs-privacy-notice-dismiss,
+    .profile-content__souvenirs-group-toggle,
+    .user-reviews__vote-button,
+    .profile-souvenir-lightbox__close-button,
+    .profile-souvenir-lightbox__nav-button,
+    .wrapped-fullscreen-modal__close-button,
+    .profile-hero__copy-button,
+    .profile-section__button,
+    .report-profile__button,
+    .emulator-detail__exec-path-button,
+    .emulator-detail__subfolders-toggle,
+    .emulator-detail__memcard-collapse,
+    .emulator-detail__memcard-menu,
+    .emulator-detail__cloud-menu,
+    .emulator-detail__exec-path-box,
+    .emulator-detail__rom-game,
+    .setup-modal__download-card-action,
+    .setup-modal__download-card-visit,
+    .setup-modal__link-button,
+    .setup-modal__subfolder-toggle,
+    .setup-modal__unmatched-header,
+    .settings-account__unblock-button,
+    .settings-debrid__collapse-button,
+    .cloud-gift-notification-modal__decide-later,
+    .cloud-subscription-modal__close
+  ) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--st-muted) !important;
+  filter: none !important;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease,
+    transform 180ms ease !important;
+}
+:root
+  :is(
+    .bottom-panel__help-button,
+    .bottom-panel__downloads-button,
+    .bottom-panel__version-button,
+    .collapsed-menu__button,
+    .fullscreen-media-modal__close-button,
+    .guide-link,
+    .auto-update-sub-header__new-version-button,
+    .header__action-button,
+    .header__back-button,
+    .scan-games-modal__folder-remove,
+    .image-crop-modal__icon-button,
+    .modal__close-button,
+    .sidebar-profile__button,
+    .sidebar__big-picture-darwin,
+    .sidebar__add-button,
+    .sidebar__play-button,
+    .text-field-container__toggle-password-button,
+    .toast__close-button,
+    .achievements__item-souvenir,
+    .achievements__item-points--locked,
+    .filter-item__remove-button,
+    .game-item-classics__plus-wrapper,
+    .game-item__plus-wrapper,
+    .cloud-save-v2__path-approval-summary-toggle,
+    .cloud-save-v2__snapshot-stats--interactive,
+    .cloud-sync-panel__manage-files-button,
+    .game-emulation-saves__icon-button,
+    .cloud-sync-files-modal__file-item,
+    .gallery-lightbox__frame-button,
+    .gallery-lightbox__corner-button,
+    .gallery-lightbox__icon-button,
+    .gallery-lightbox__nav-button,
+    .gallery-lightbox__filmstrip-exit,
+    .gallery-slider__media-button,
+    .gallery-slider__fullscreen-button,
+    .gallery-slider__button,
+    .gallery-video__big-play,
+    .gallery-video__button,
+    .gallery-video__button--fullscreen,
+    .game-details__randomizer-button,
+    .download-settings-modal__path-error,
+    .download-settings-modal__torrent-row-trigger,
+    .game-details__review-score-select,
+    .game-details__editor-button,
+    .game-details__review-display-name--clickable,
+    .game-details__vote-button,
+    .game-details__reply-toggle,
+    .list__item,
+    .similar-games__control,
+    .library-game-card__action-button,
+    .library__quick-action,
+    .notification-item__dismiss,
+    .add-friend-modal__copy-icon-button,
+    .add-friend-modal__friend-item,
+    .all-friends-modal__item,
+    .badges-box__view-all,
+    .friends-box__add-friend-button,
+    .friends-box__list-item,
+    .friends-box__view-all,
+    .profile-content__collapse-button,
+    .profile-content__souvenirs-privacy-notice-dismiss,
+    .profile-content__souvenirs-group-toggle,
+    .user-reviews__vote-button,
+    .profile-souvenir-lightbox__close-button,
+    .profile-souvenir-lightbox__nav-button,
+    .wrapped-fullscreen-modal__close-button,
+    .profile-hero__copy-button,
+    .profile-section__button,
+    .report-profile__button,
+    .emulator-detail__exec-path-button,
+    .emulator-detail__subfolders-toggle,
+    .emulator-detail__memcard-collapse,
+    .emulator-detail__memcard-menu,
+    .emulator-detail__cloud-menu,
+    .emulator-detail__exec-path-box,
+    .emulator-detail__rom-game,
+    .setup-modal__download-card-action,
+    .setup-modal__download-card-visit,
+    .setup-modal__link-button,
+    .setup-modal__subfolder-toggle,
+    .setup-modal__unmatched-header,
+    .settings-account__unblock-button,
+    .settings-debrid__collapse-button,
+    .cloud-gift-notification-modal__decide-later,
+    .cloud-subscription-modal__close
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
+  background: transparent !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .fullscreen-media-modal__close-button,
+    .profile-souvenir-lightbox__close-button,
+    .library-game-card__action-button
+  ):is(:hover, :active) {
+  transform: none !important;
+}
+:root
+  :is(
+    .search-dropdown__clear-text-button,
+    .achievement-panel__link,
+    .filter-section__clear-button,
+    .download-group__simple-title-button,
+    .cloud-save-v2__required-setup-link,
+    .cloud-sync-panel__artifact-label,
+    .game-details__description-toggle,
+    .download-settings-modal__select-files-link,
+    .game-details__star,
+    .game-details__blocked-review-show-link,
+    .game-details__blocked-review-hide-link,
+    .game-details__review-translation-toggle,
+    .game-details__reply-thread-line,
+    .game-details__reply-action-link,
+    .user-reviews__game-title,
+    .user-reviews__review-translation-toggle,
+    .user-stats__link,
+    .user-stats__wrapped-link,
+    .emulator-detail__breadcrumb,
+    .emulator-detail__res-link,
+    .setup-modal__website-link,
+    .settings-download-sources__navigate-button
+  ) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .bottom-panel__help-button,
+    .bottom-panel__downloads-button,
+    .bottom-panel__version-button
+  ):is(:hover, :focus, :active) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+:root
+  :is(
+    .game-details__editor-button.is-active,
+    .image-crop-modal__icon-button--active,
+    .user-reviews__vote-button--active,
+    .game-details__vote-button--active,
+    .sidebar-profile__button--active,
+    .sidebar__play-button--active
+  ) {
+  background: var(--st-selected) !important;
+  color: var(--st-text) !important;
+}
+:root .sidebar-profile__button:hover {
+  background: var(--st-hover) !important;
+}
+:root .sidebar-profile__button-title {
+  color: var(--st-text) !important;
+}
+:root .sidebar-section .sidebar-section__toggle,
+:root .sidebar-section .sidebar-section__toggle:is(:hover, :focus, :active) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+:root .sidebar-section__button {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  color: var(--st-text) !important;
+}
+:root .sidebar-section__header {
+  background: var(--st-panel) !important;
+}
+:root .sidebar-section__header:hover {
+  background: var(--st-hover) !important;
+}
+:root .filter-section__button,
+:root .filter-section__button:hover {
+  background: var(--st-panel) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .header__search,
+    .text-field-container__text-field,
+    .select-field,
+    .settings-global-trackers__textarea,
+    .settings-global-trackers__url-input,
+    .pagination__page-input,
+    .game-details__review-input-container
+  ) {
+  background: var(--sb-field-bg, var(--st-bg)) !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--sb-line) !important;
+  outline: none !important;
+  color: var(--st-text) !important;
+  transition: box-shadow var(--sb-time) ease !important;
+}
+:root .header__search {
+  --sb-field-bg: #292d34;
+  transition:
+    width 200ms ease,
+    box-shadow var(--sb-time) ease !important;
+}
+:root .sidebar .text-field-container__text-field {
+  --sb-field-bg: #292d34;
+}
+:root
+  :is(
+    .header__search,
+    .text-field-container__text-field,
+    .select-field,
+    .settings-global-trackers__textarea,
+    .settings-global-trackers__url-input,
+    .pagination__page-input,
+    .game-details__review-input-container
+  ):not(
+    :where(
+      .select-field--disabled,
+      :disabled,
+      :has(input:disabled),
+      :has(select:disabled),
+      .text-field-container__text-field--has-error
+    )
+  ):is(
+    :hover,
+    :focus-within,
+    .header__search--focused,
+    .text-field-container__text-field--focused,
+    .select-field--focused
+  ) {
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 2px var(--sb-focus) !important;
+}
+:root .text-field-container__text-field--has-error,
+:root .text-field-container__text-field--has-error:is(:hover, :focus-within) {
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 2px #d5686b !important;
+}
+:root
+  :is(
+    .header__search,
+    .text-field-container__text-field,
+    .select-field,
+    .settings-global-trackers__textarea,
+    .settings-global-trackers__url-input,
+    .pagination__page-input,
+    .game-details__review-input-container
+  ):is(:disabled, :has(input:disabled), :has(select:disabled), .select-field--disabled) {
+  opacity: 0.5;
+}
+:root :is(.header__search-input, .text-field-container__text-field-input, .select-field__option) {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+:root .select-field__option {
+  border-color: transparent !important;
+}
+:root :is(.header__search, .text-field-container__text-field) button {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+:root :is(.header__search, .text-field-container__text-field) button:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--sb-focus) !important;
+}
+:root .checkbox-field__checkbox {
+  background: var(--st-bg) !important;
+  border: 1px solid var(--st-border) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--st-text) !important;
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+  transition: border-color 150ms ease !important;
+}
+:root .checkbox-field:not(:where(:has(input:disabled))):hover .checkbox-field__checkbox,
+:root .checkbox-field__checkbox.checked {
+  background: var(--st-bg) !important;
+  border-color: var(--st-accent) !important;
+  box-shadow: none !important;
+}
+:root .checkbox-field__icon {
+  transform: none !important;
+  scale: none !important;
+  transition: opacity 150ms ease !important;
+}
+:root .checkbox-field__icon svg {
+  width: 12px !important;
+  height: 12px !important;
+  display: block;
+  transform: none !important;
+}
+:root .checkbox-field .checkbox-field__checkbox:has(input:focus-visible) {
+  outline: none !important;
+  box-shadow: inset 0 0 0 1px var(--st-accent) !important;
+}
+:root .radio-field__control {
+  background: var(--st-bg) !important;
+  border-color: var(--st-border) !important;
+  box-shadow: none !important;
+}
+:root .radio-field--selected .radio-field__control {
+  border-color: var(--st-accent) !important;
+}
+:root .radio-field--selected .radio-field__dot {
+  background: var(--st-text) !important;
+}
+:root .button--danger,
+:root .button--danger:is(:hover, :active) {
+  background: #8b2026 !important;
+  border-color: #96343a !important;
+  box-shadow: none !important;
+  color: #f0f2f5 !important;
+  filter: none !important;
+}
+:root
+  .button--danger:not(
+    :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
+  ):is(:hover, :focus-visible) {
+  border-color: #bd5058 !important;
+  box-shadow: inset 0 0 0 1px #bd5058 !important;
+}
+:root
+  :is(
+    .context-menu__item--danger,
+    .sidebar-profile__dropdown-item--danger,
+    .game-emulation-saves__delete,
+    .game-details__delete-review-button,
+    .profile-souvenir-lightbox__action--delete,
+    .emulator-detail__remove,
+    .emulator-detail__remove-emulator
+  ) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #e18689 !important;
+}
+:root
+  :is(
+    .context-menu__item--danger,
+    .sidebar-profile__dropdown-item--danger,
+    .game-emulation-saves__delete,
+    .game-details__delete-review-button,
+    .profile-souvenir-lightbox__action--delete,
+    .emulator-detail__remove,
+    .emulator-detail__remove-emulator
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
+  background: rgba(213, 104, 107, 0.08) !important;
+}
+:root
+  .button--cloud:not(
+    :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
+  ):is(:hover, :focus-visible) {
+  filter: none !important;
+}
+:root
+  :is(
+    .gallery-slider__button,
+    .gallery-slider__fullscreen-button,
+    .gallery-lightbox__frame-button,
+    .gallery-lightbox__corner-button,
+    .gallery-lightbox__icon-button,
+    .gallery-lightbox__nav-button,
+    .profile-souvenir-lightbox__nav-button,
+    .similar-games__control
+  ) {
+  background: rgba(32, 35, 41, 0.92) !important;
+  color: var(--st-text) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+:root
+  :is(
+    .gallery-slider__button,
+    .gallery-slider__fullscreen-button,
+    .gallery-lightbox__frame-button,
+    .gallery-lightbox__corner-button,
+    .gallery-lightbox__icon-button,
+    .gallery-lightbox__nav-button,
+    .profile-souvenir-lightbox__nav-button,
+    .similar-games__control
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
+  background: rgba(32, 35, 41, 0.92) !important;
+  color: var(--st-text) !important;
+}
+:root
+  :is(
+    .sidebar__menu-item-button,
+    .settings__sidebar-button,
+    .game-options-modal__sidebar-button,
+    .bottom-panel__help-button,
+    .bottom-panel__downloads-button,
+    .bottom-panel__version-button,
+    .collapsed-menu__button,
+    .fullscreen-media-modal__close-button,
+    .guide-link,
+    .auto-update-sub-header__new-version-button,
+    .header__action-button,
+    .header__back-button,
+    .scan-games-modal__folder-remove,
+    .image-crop-modal__icon-button,
+    .modal__close-button,
+    .sidebar-profile__button,
+    .sidebar__big-picture-darwin,
+    .sidebar__add-button,
+    .sidebar__play-button,
+    .text-field-container__toggle-password-button,
+    .toast__close-button,
+    .achievements__item-souvenir,
+    .achievements__item-points--locked,
+    .filter-item__remove-button,
+    .game-item-classics__plus-wrapper,
+    .game-item__plus-wrapper,
+    .cloud-save-v2__path-approval-summary-toggle,
+    .cloud-save-v2__snapshot-stats--interactive,
+    .cloud-sync-panel__manage-files-button,
+    .game-emulation-saves__icon-button,
+    .cloud-sync-files-modal__file-item,
+    .gallery-lightbox__frame-button,
+    .gallery-lightbox__corner-button,
+    .gallery-lightbox__icon-button,
+    .gallery-lightbox__nav-button,
+    .gallery-lightbox__filmstrip-exit,
+    .gallery-slider__media-button,
+    .gallery-slider__fullscreen-button,
+    .gallery-slider__button,
+    .gallery-video__big-play,
+    .gallery-video__button,
+    .gallery-video__button--fullscreen,
+    .game-details__randomizer-button,
+    .download-settings-modal__path-error,
+    .download-settings-modal__torrent-row-trigger,
+    .game-details__review-score-select,
+    .game-details__editor-button,
+    .game-details__review-display-name--clickable,
+    .game-details__vote-button,
+    .game-details__reply-toggle,
+    .list__item,
+    .similar-games__control,
+    .library-game-card__action-button,
+    .library__quick-action,
+    .notification-item__dismiss,
+    .add-friend-modal__copy-icon-button,
+    .add-friend-modal__friend-item,
+    .all-friends-modal__item,
+    .badges-box__view-all,
+    .friends-box__add-friend-button,
+    .friends-box__list-item,
+    .friends-box__view-all,
+    .profile-content__collapse-button,
+    .profile-content__souvenirs-privacy-notice-dismiss,
+    .profile-content__souvenirs-group-toggle,
+    .user-reviews__vote-button,
+    .profile-souvenir-lightbox__close-button,
+    .profile-souvenir-lightbox__nav-button,
+    .wrapped-fullscreen-modal__close-button,
+    .profile-hero__copy-button,
+    .profile-section__button,
+    .report-profile__button,
+    .emulator-detail__exec-path-button,
+    .emulator-detail__subfolders-toggle,
+    .emulator-detail__memcard-collapse,
+    .emulator-detail__memcard-menu,
+    .emulator-detail__cloud-menu,
+    .emulator-detail__exec-path-box,
+    .emulator-detail__rom-game,
+    .setup-modal__download-card-action,
+    .setup-modal__download-card-visit,
+    .setup-modal__link-button,
+    .setup-modal__subfolder-toggle,
+    .setup-modal__unmatched-header,
+    .settings-account__unblock-button,
+    .settings-debrid__collapse-button,
+    .cloud-gift-notification-modal__decide-later,
+    .cloud-subscription-modal__close,
+    .search-dropdown__clear-text-button,
+    .achievement-panel__link,
+    .filter-section__clear-button,
+    .download-group__simple-title-button,
+    .cloud-save-v2__required-setup-link,
+    .cloud-sync-panel__artifact-label,
+    .game-details__description-toggle,
+    .download-settings-modal__select-files-link,
+    .game-details__star,
+    .game-details__blocked-review-show-link,
+    .game-details__blocked-review-hide-link,
+    .game-details__review-translation-toggle,
+    .game-details__reply-thread-line,
+    .game-details__reply-action-link,
+    .user-reviews__game-title,
+    .user-reviews__review-translation-toggle,
+    .user-stats__link,
+    .user-stats__wrapped-link,
+    .emulator-detail__breadcrumb,
+    .emulator-detail__res-link,
+    .setup-modal__website-link,
+    .settings-download-sources__navigate-button,
+    .context-menu__item,
+    .dropdown-menu__item,
+    .sidebar-filter-menu__item,
+    .sidebar-profile__dropdown-item,
+    .collections-filter__item,
+    .library-select__item,
+    .library-multi-select__item,
+    .filter-dropdown__option,
+    .disc-field__option,
+    .gallery-video__quality-option,
+    .search-dropdown__item,
+    .upload-background-image-button__menu-item,
+    .sidebar-section__toggle,
+    .filter-section__button,
+    .game-details__edit-custom-game-button,
+    .game-details__cloud-sync-button
+  ):not(
+    :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
+  ):focus-visible {
+  outline: 2px solid var(--st-focus) !important;
+  outline-offset: -2px !important;
+}
+:root
+  :is(
+    .button,
+    .collections-filter__trigger,
+    .library-select__trigger,
+    .library-multi-select__trigger,
+    .filter-dropdown__trigger,
+    .disc-field__trigger,
+    .console-card__cta,
+    .emulator-detail__page-btn,
+    .setup-modal__ghost-button,
+    .setup-modal__add-folder,
+    .profile-souvenir-lightbox__action,
+    .profile-content__souvenir-action-button,
+    .catalogue-mode-toggle__option,
+    .filter-section__group-tab,
+    .library-category-filter__option,
+    .library-view-options__option,
+    .library-installed-filter__button,
+    .profile-content__tab,
+    .notifications__tab,
+    .emulator-detail__tab,
+    .game-assets-settings__asset-tab,
+    .search-dropdown__shop-button
+  ):is(:disabled, [aria-disabled="true"], [data-disabled]) {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+:root
+  :is(
+    .theme-card,
+    .settings-appearance__themes__theme,
+    .drive-card,
+    .cloud-save-v2__snapshot,
+    .game-artwork__item,
+    .game-assets-settings__drop-zone,
+    .download-settings-modal__torrent-file-row,
+    .scan-games-modal__mode-option,
+    .scan-games-modal__choice,
+    .disc-selection-modal__option,
+    .download-settings-modal__downloader-item,
+    .emu-save-modal__target,
+    .emulator-detail__restore-target,
+    .gallery-lightbox__thumbnail,
+    .gallery-slider__preview-button,
+    .game-assets-settings__preview-frame,
+    .setup-modal__download-card,
+    .theme-placeholder,
+    .settings-appearance__no-themes
+  ) {
+  border-color: var(--st-border) !important;
+}
+:root
+  :is(
+    .theme-card--active,
+    .settings-appearance__themes__theme--active,
+    .drive-card--selected,
+    .cloud-save-v2__snapshot--active,
+    .game-artwork__item--active,
+    .game-assets-settings__drop-zone--active,
+    .download-settings-modal__torrent-file-row--selected,
+    .scan-games-modal__mode-option--active,
+    .scan-games-modal__choice--active,
+    .disc-selection-modal__option--active,
+    .download-settings-modal__downloader-item--selected,
+    .emu-save-modal__target--selected,
+    .emulator-detail__restore-target--selected,
+    .gallery-lightbox__thumbnail--active,
+    .gallery-slider__preview-button--active
+  ) {
+  border-color: var(--sb-focus) !important;
+}
+:root
+  :is(
+    .theme-card,
+    .settings-appearance__themes__theme,
+    .drive-card,
+    .cloud-save-v2__snapshot,
+    .game-artwork__item,
+    .game-assets-settings__drop-zone,
+    .download-settings-modal__torrent-file-row,
+    .scan-games-modal__mode-option,
+    .scan-games-modal__choice,
+    .disc-selection-modal__option,
+    .download-settings-modal__downloader-item,
+    .emu-save-modal__target,
+    .emulator-detail__restore-target,
+    .gallery-lightbox__thumbnail,
+    .gallery-slider__preview-button,
+    .game-assets-settings__preview-frame,
+    .setup-modal__download-card,
+    .theme-placeholder,
+    .settings-appearance__no-themes
+  ):focus-visible {
+  outline: 2px solid var(--sb-focus) !important;
+  outline-offset: -2px;
+}
+:root .drive-card--selected,
+:root .scan-games-modal__mode-option--active,
+:root .scan-games-modal__choice--active,
+:root .disc-selection-modal__option--active,
+:root .download-settings-modal__downloader-item--selected,
+:root .emu-save-modal__target--selected,
+:root .emulator-detail__restore-target--selected {
+  background: var(--st-bg) !important;
+  box-shadow: inset 0 0 0 1px var(--sb-focus) !important;
+}
+/* Native and virtual scrollbars. */
+:root,
+:root * {
+  scrollbar-color: auto !important;
+  scrollbar-width: auto !important;
+}
+:root::-webkit-scrollbar,
+:root *::-webkit-scrollbar {
+  width: 9px !important;
+  height: 9px !important;
+  background: transparent !important;
+}
+:root::-webkit-scrollbar-track,
+:root *::-webkit-scrollbar-track,
+:root::-webkit-scrollbar-corner,
+:root *::-webkit-scrollbar-corner {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+:root::-webkit-scrollbar-thumb,
+:root *::-webkit-scrollbar-thumb {
+  background: #484e58 !important;
+  border: none !important;
+  border-radius: 2.3px !important;
+  box-shadow: none !important;
+}
+:root::-webkit-scrollbar-thumb:hover,
+:root *::-webkit-scrollbar-thumb:hover {
+  background: #5b6370 !important;
+}
+:root .rc-virtual-list-scrollbar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+:root .rc-virtual-list-scrollbar-vertical {
+  width: 9px !important;
+}
+:root .rc-virtual-list-scrollbar-horizontal {
+  height: 9px !important;
+}
+:root .rc-virtual-list-scrollbar-thumb {
+  background: #484e58 !important;
+  border-radius: 2.3px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+:root .rc-virtual-list-scrollbar-thumb:is(:hover, .rc-virtual-list-scrollbar-thumb-moving) {
+  background: #5b6370 !important;
+}
+@supports not selector(::-webkit-scrollbar) {
+  :root,
+  :root * {
+    scrollbar-color: #484e58 transparent !important;
+    scrollbar-width: thin !important;
+  }
+}
+/* Gallery, descriptions, reviews, and recommendations. */
+:root .gallery-slider__container {
+  max-height: none !important;
+  flex-shrink: 0;
+}
+:root .gallery-slider__viewport {
+  width: min(100%, 800px) !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: 16/9;
+}
+:root .gallery-slider__media {
+  object-fit: contain !important;
+}
+:root .gallery-slider__preview {
+  width: min(100%, 800px) !important;
+}
+:root .gallery-slider__preview-button {
+  flex: 0 0 100px !important;
+  width: 100px !important;
+  height: auto !important;
+  aspect-ratio: 16/9 !important;
+}
+:root
+  :is(
+    .game-details__description,
+    .game-details__description-title,
+    .game-details__reviews-section,
+    .similar-games
+  ) {
+  width: min(100%, 640px) !important;
+  margin-inline: auto;
+}
+:root .similar-games .vertical-cover-card,
+:root .similar-games .vertical-cover-card:hover {
+  box-shadow: none !important;
+}
+:root .requirement__button-container .requirement__button,
+:root .review-sort-options__options .review-sort-options__option {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--st-secondary) !important;
+}
+:root .requirement__button-container .button--primary,
+:root .review-sort-options__options .review-sort-options__option:is(:hover, .active) {
+  color: var(--st-text) !important;
+}
+:root .requirement__button-container .requirement__button:focus-visible,
+:root .review-sort-options__option:focus-visible {
+  outline: 2px solid var(--st-focus) !important;
+  outline-offset: -2px;
+}
+:root .profile-hero__content-box {
+  background: var(--st-panel) !important;
+}
+/* Profile and game banner controls. */
+:root .profile-hero__hero-panel,
+:root .game-details__hero-panel .hero-panel {
+  background: var(--st-bg) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: var(--st-border) !important;
+  box-shadow: none !important;
+}
+:root .profile-hero__display-name {
+  color: var(--st-text) !important;
+  text-shadow: none !important;
+}
+:root .profile-hero__avatar-button,
+:root .profile-hero__avatar-button:hover {
+  box-shadow: none !important;
+}
+:root .upload-background-image-button,
+:root .profile-hero__button--outline {
+  background: var(--st-panel) !important;
+  border-color: var(--st-border) !important;
+  box-shadow: none !important;
+  color: var(--st-text) !important;
+}
+:root
+  .upload-background-image-button:not(
+    :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
+  ):is(:hover, :focus-visible),
+:root
+  .profile-hero__button--outline:not(
+    :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
+  ):is(:hover, :focus-visible) {
+  background: var(--st-panel) !important;
+  border-color: var(--st-focus) !important;
+  box-shadow: inset 0 0 0 1px var(--st-focus) !important;
+}
+:root :is(.game-details__edit-custom-game-button, .game-details__cloud-sync-button) {
+  background: var(--st-panel) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+}
+:root .game-details__edit-custom-game-button {
+  color: var(--st-secondary) !important;
+}
+:root .game-details__edit-custom-game-button:hover {
+  color: var(--st-text) !important;
+}
+:root
+  .game-details__cloud-sync-button:not(.cloud-save-v2__trigger--synced):not(
+    .cloud-save-v2__trigger--outdated
+  ):not(.cloud-save-v2__trigger--conflict) {
+  color: var(--st-secondary) !important;
+}
+:root .cloud-save-v2__trigger--synced {
+  color: #65c2a5 !important;
+}
+:root .cloud-save-v2__trigger--outdated {
+  color: #d9b66f !important;
+}
+:root .cloud-save-v2__trigger--conflict {
+  color: #e18689 !important;
+}
+/* Tooltips. */
+:root .react-tooltip {
+  --rt-color-dark: #292d34;
+  --rt-color-white: #e2e6ec;
+  --rt-opacity: 1;
+  background: var(--st-panel) !important;
+  color: var(--st-text) !important;
+  border: 1px solid var(--st-border) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  padding: 8px 12px !important;
+  max-width: min(320px, calc(100vw - 24px));
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+:root .react-tooltip .react-tooltip-arrow {
+  background: var(--st-panel) !important;
+  box-shadow: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root
+    :is(
+      .button,
+      .collections-filter__trigger,
+      .library-select__trigger,
+      .library-multi-select__trigger,
+      .filter-dropdown__trigger,
+      .disc-field__trigger,
+      .console-card__cta,
+      .emulator-detail__page-btn,
+      .setup-modal__ghost-button,
+      .setup-modal__add-folder,
+      .profile-souvenir-lightbox__action,
+      .profile-content__souvenir-action-button,
+      .catalogue-mode-toggle__option,
+      .filter-section__group-tab,
+      .library-category-filter__option,
+      .library-view-options__option,
+      .library-installed-filter__button,
+      .profile-content__tab,
+      .notifications__tab,
+      .emulator-detail__tab,
+      .game-assets-settings__asset-tab,
+      .search-dropdown__shop-button,
+      .sidebar__menu-item-button,
+      .settings__sidebar-button,
+      .game-options-modal__sidebar-button,
+      .context-menu__item,
+      .dropdown-menu__item,
+      .sidebar-filter-menu__item,
+      .sidebar-profile__dropdown-item,
+      .collections-filter__item,
+      .library-select__item,
+      .library-multi-select__item,
+      .filter-dropdown__option,
+      .disc-field__option,
+      .gallery-video__quality-option,
+      .search-dropdown__item,
+      .upload-background-image-button__menu-item,
+      .bottom-panel__help-button,
+      .bottom-panel__downloads-button,
+      .bottom-panel__version-button,
+      .collapsed-menu__button,
+      .fullscreen-media-modal__close-button,
+      .guide-link,
+      .auto-update-sub-header__new-version-button,
+      .header__action-button,
+      .header__back-button,
+      .scan-games-modal__folder-remove,
+      .image-crop-modal__icon-button,
+      .modal__close-button,
+      .sidebar-profile__button,
+      .sidebar__big-picture-darwin,
+      .sidebar__add-button,
+      .sidebar__play-button,
+      .text-field-container__toggle-password-button,
+      .toast__close-button,
+      .achievements__item-souvenir,
+      .achievements__item-points--locked,
+      .filter-item__remove-button,
+      .game-item-classics__plus-wrapper,
+      .game-item__plus-wrapper,
+      .cloud-save-v2__path-approval-summary-toggle,
+      .cloud-save-v2__snapshot-stats--interactive,
+      .cloud-sync-panel__manage-files-button,
+      .game-emulation-saves__icon-button,
+      .cloud-sync-files-modal__file-item,
+      .gallery-lightbox__frame-button,
+      .gallery-lightbox__corner-button,
+      .gallery-lightbox__icon-button,
+      .gallery-lightbox__nav-button,
+      .gallery-lightbox__filmstrip-exit,
+      .gallery-slider__media-button,
+      .gallery-slider__fullscreen-button,
+      .gallery-slider__button,
+      .gallery-video__big-play,
+      .gallery-video__button,
+      .gallery-video__button--fullscreen,
+      .game-details__randomizer-button,
+      .download-settings-modal__path-error,
+      .download-settings-modal__torrent-row-trigger,
+      .game-details__review-score-select,
+      .game-details__editor-button,
+      .game-details__review-display-name--clickable,
+      .game-details__vote-button,
+      .game-details__reply-toggle,
+      .list__item,
+      .similar-games__control,
+      .library-game-card__action-button,
+      .library__quick-action,
+      .notification-item__dismiss,
+      .add-friend-modal__copy-icon-button,
+      .add-friend-modal__friend-item,
+      .all-friends-modal__item,
+      .badges-box__view-all,
+      .friends-box__add-friend-button,
+      .friends-box__list-item,
+      .friends-box__view-all,
+      .profile-content__collapse-button,
+      .profile-content__souvenirs-privacy-notice-dismiss,
+      .profile-content__souvenirs-group-toggle,
+      .user-reviews__vote-button,
+      .profile-souvenir-lightbox__close-button,
+      .profile-souvenir-lightbox__nav-button,
+      .wrapped-fullscreen-modal__close-button,
+      .profile-hero__copy-button,
+      .profile-section__button,
+      .report-profile__button,
+      .emulator-detail__exec-path-button,
+      .emulator-detail__subfolders-toggle,
+      .emulator-detail__memcard-collapse,
+      .emulator-detail__memcard-menu,
+      .emulator-detail__cloud-menu,
+      .emulator-detail__exec-path-box,
+      .emulator-detail__rom-game,
+      .setup-modal__download-card-action,
+      .setup-modal__download-card-visit,
+      .setup-modal__link-button,
+      .setup-modal__subfolder-toggle,
+      .setup-modal__unmatched-header,
+      .settings-account__unblock-button,
+      .settings-debrid__collapse-button,
+      .cloud-gift-notification-modal__decide-later,
+      .cloud-subscription-modal__close,
+      .search-dropdown__clear-text-button,
+      .achievement-panel__link,
+      .filter-section__clear-button,
+      .download-group__simple-title-button,
+      .cloud-save-v2__required-setup-link,
+      .cloud-sync-panel__artifact-label,
+      .game-details__description-toggle,
+      .download-settings-modal__select-files-link,
+      .game-details__star,
+      .game-details__blocked-review-show-link,
+      .game-details__blocked-review-hide-link,
+      .game-details__review-translation-toggle,
+      .game-details__reply-thread-line,
+      .game-details__reply-action-link,
+      .user-reviews__game-title,
+      .user-reviews__review-translation-toggle,
+      .user-stats__link,
+      .user-stats__wrapped-link,
+      .emulator-detail__breadcrumb,
+      .emulator-detail__res-link,
+      .setup-modal__website-link,
+      .settings-download-sources__navigate-button,
+      .header__search,
+      .checkbox-field__icon
+    ) {
+    transition: none !important;
+  }
+}
+/* Library overlay badges. */
+.library-game-card__playtime,
+.library-game-card__installed-badge,
+.library-game-card__action-button,
+.library-game-card-large__playtime,
+.library-game-card-large__installed-badge,
+.library-game-card-large__size-badges {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.library-game-card__playtime,
+.library-game-card__installed-badge,
+.library-game-card-large__playtime,
+.library-game-card-large__installed-badge,
+.library-game-card-large__size-badges {
+  background: #292d34 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+.library-game-card__wrapper .steam-library-badge,
+.library-game-card-large .steam-library-badge {
+  background: #292d34 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+/* Review editor states. */
+:root .game-details__review-input-container {
+  position: relative;
+  isolation: isolate;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+:root .game-details__review-input-container:is(:hover, :focus-within) {
+  box-shadow: none !important;
+}
+:root .game-details__review-input-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: inset 0 0 0 1px #3b414b;
+}
+:root .game-details__review-input-container:is(:hover, :focus-within)::after {
+  box-shadow: inset 0 0 0 2px #5b6370;
+}
+:root .game-details__review-input-header {
+  border-bottom-color: #3b414b !important;
+}
+:root .game-details__review-input .ProseMirror {
+  font-family: inherit !important;
+  color: #e2e6ec !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+:root .game-details__review-char-counter {
+  font-family: inherit !important;
+  color: #a8afba !important;
+}
+:root .game-details__review-char-counter .over-limit {
+  color: #e18689 !important;
+}
+:root .game-details__editor-button {
+  font-family: inherit !important;
+  color: #a8afba !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+:root .game-details__editor-button:not(:disabled):hover {
+  color: #e2e6ec !important;
+  background: #2d323a !important;
+}
+:root .game-details__editor-button.is-active {
+  color: #e2e6ec !important;
+  background: #363c46 !important;
+}
+:root .game-details__editor-button:focus-visible {
+  box-shadow: inset 0 0 0 2px #5b6370 !important;
+}
+:root .game-details__star,
+:root .game-details__star:is(:hover, :active) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  scale: none !important;
+}
+:root .game-details__star--empty {
+  color: #969da8 !important;
+}
+:root .game-details__star--filled,
+:root .game-details__star--empty:hover {
+  color: #e2e6ec !important;
+}
+:root .game-details__star--filled.game-details__review-score-select--red {
+  color: #e18689 !important;
+}
+:root .game-details__star--filled.game-details__review-score-select--yellow {
+  color: #d9b66f !important;
+}
+:root .game-details__star--filled.game-details__review-score-select--green {
+  color: #65c2a5 !important;
+}
+:root .game-details__star:focus-visible {
+  box-shadow: inset 0 0 0 2px #5b6370 !important;
+}
+:root::-webkit-scrollbar-track-piece,
+:root *::-webkit-scrollbar-track-piece,
+:root::-webkit-scrollbar-corner,
+:root *::-webkit-scrollbar-corner {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+:root::-webkit-scrollbar-button,
+:root *::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+:root::-webkit-scrollbar-thumb:active,
+:root *::-webkit-scrollbar-thumb:active {
+  background: #5b6370 !important;
+}
+:root .game-artwork__scrollbar {
+  width: 9px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+:root .game-artwork__scrollbar-thumb {
+  background: #484e58 !important;
+  border-radius: 2.3px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+:root .game-artwork__scrollbar-thumb:is(:hover, :active) {
+  background: #5b6370 !important;
+}
+/* Sidebar menu spacing and search actions. */
+:root .sidebar-filter-menu__group,
+:root
+  .sidebar-filter-menu__group
+  :not(.sidebar-filter-menu__item):has(> .sidebar-filter-menu__item) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+:root .sidebar-filter-menu__group .sidebar-filter-menu__item {
+  margin-top: 0 !important;
+  flex-shrink: 0;
+}
+:root .sidebar__search-row :is(.sidebar__play-button, .sidebar-filter-menu__trigger) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  margin: 0;
+  box-sizing: border-box;
+  border: none !important;
+  border-radius: 6px;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  color: #969da8 !important;
+}
+
+:root .sidebar__search-row :is(.sidebar__play-button, .sidebar-filter-menu__trigger):hover,
+:root .sidebar__search-row .sidebar__play-button--active {
+  color: #e2e6ec !important;
+}
+
+:root .sidebar__search-row :is(.sidebar__play-button, .sidebar-filter-menu__trigger):focus-visible {
+  outline: 2px solid #5b6370 !important;
+  outline-offset: -2px;
+}
+/* Compact download-source dialog. */
+:root .modal:has(.repacks-modal__repacks) {
+  max-height: min(720px, calc(100dvh - 64px)) !important;
+}
+
+:root .modal:has(.repacks-modal__repacks) .modal__header {
+  padding: 16px 20px !important;
+}
+
+:root .modal:has(.repacks-modal__repacks) .modal__content {
+  min-height: 0;
+  padding: 16px 20px !important;
+  overflow-y: auto;
+}
+:root .repacks-modal__filter-top {
+  margin-bottom: 16px !important;
+}
+
+:root .repacks-modal__repacks {
+  gap: 10px !important;
+}
+:root .repacks-modal__repack-button {
+  padding: 12px 32px 12px 16px !important;
+  gap: 6px !important;
+  min-height: 0 !important;
+}
+
+:root .repacks-modal__repack-title,
+:root .repacks-modal__repack-info {
+  margin: 0 !important;
+  line-height: 1.4;
+}
+
+:root .repacks-modal__availability-orb {
+  top: 14px !important;
+  right: 12px !important;
+}
+:root
+  :is(
+    .game-card,
+    .vertical-cover-card,
+    .library-game-card__wrapper,
+    .library-game-card-large,
+    .similar-games__card,
+    .game-item__cover-wrapper
+  ) {
+  border-color: transparent !important;
+  outline-offset: -1px !important;
+}
+:root
+  :is(
+    .game-card,
+    .vertical-cover-card,
+    .library-game-card__wrapper,
+    .library-game-card-large,
+    .similar-games__card
+  ):is(:hover, :focus-visible),
+:root .game-item:is(:hover, :focus-visible) .game-item__cover-wrapper {
+  outline-color: #798698 !important;
+}
+/* Opaque dialog surfaces. */
+:root .backdrop,
+:root .backdrop--closing {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+:root .modal,
+:root .modal__header,
+:root .modal__content {
+  background: #292d34 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+/* Native select colors. */
+:root select {
+  color-scheme: dark;
+  background-color: #202329 !important;
+  color: #e2e6ec !important;
+  border-color: #3b414b !important;
+  font-family: inherit;
+}
+
+:root select option,
+:root select optgroup {
+  background-color: #292d34 !important;
+  color: #e2e6ec !important;
+  font-family: inherit;
+}
+
+:root select option:disabled {
+  color: #969da8 !important;
+}
+/* Animated cover border. */
+@property --cover-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+:root
+  :is(
+    .game-card,
+    .vertical-cover-card,
+    .library-game-card__wrapper,
+    .library-game-card-large,
+    .similar-games__card,
+    .game-item__cover-wrapper
+  ) {
+  position: relative;
+  outline: none !important;
+}
+:root
+  :is(
+    .game-card,
+    .vertical-cover-card,
+    .library-game-card__wrapper,
+    .library-game-card-large,
+    .similar-games__card,
+    .game-item__cover-wrapper
+  )::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  padding: 3px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--cover-border-angle),
+    #c0c0c0 0deg,
+    #ededed 80deg,
+    #ffffff 130deg,
+    #ededed 180deg,
+    #c0c0c0 260deg,
+    #ffffff 310deg,
+    #c0c0c0 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+:root
+  :is(
+    .game-card,
+    .vertical-cover-card,
+    .library-game-card__wrapper,
+    .library-game-card-large,
+    .similar-games__card
+  ):is(:hover, :focus-visible)::after,
+:root .game-item:is(:hover, :focus-visible) .game-item__cover-wrapper::after {
+  opacity: 1;
+  animation: cover-border-flow 2.4s linear infinite;
+}
+
+@keyframes cover-border-flow {
+  to {
+    --cover-border-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root
+    :is(
+      .game-card,
+      .vertical-cover-card,
+      .library-game-card__wrapper,
+      .library-game-card-large,
+      .similar-games__card,
+      .game-item__cover-wrapper
+    )::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Next-suggestion button. */
+:root .button.game-details__randomizer-button {
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px #798698 !important;
+}
+:root .button.game-details__randomizer-button:not(:disabled):is(:hover, :focus-visible) {
+  box-shadow: inset 0 0 0 2px #e2e6ec !important;
+}
+:root .button.game-details__randomizer-button,
+:root .button.game-details__randomizer-button:is(:hover, :focus-visible) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: #292d34 !important;
+}
