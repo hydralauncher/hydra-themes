@@ -1,7 +1,7 @@
 /* Graphite Flow | Hydra 4.2.0
 Main-window theme. Replace the previous stylesheet rather than appending it.
-Base palette rules use the ordinary cascade. Important overrides are retained only
-in the component-correction layer and for conflicting built-in important rules.
+Ordinary component and state rules use the normal cascade. The few documented
+important declarations only override inline styles or built-in important rules.
 Cover animations respect prefers-reduced-motion. No external assets are loaded. */
 :root {
   --st-bg: #202329;
@@ -986,9 +986,6 @@ body {
 .game-assets-settings__image-preview {
   background-color: var(--st-bg);
 }
-.game-assets-settings__drop-zone--active {
-  background-color: rgba(22, 177, 149, 0.1) !important;
-}
 .game-assets-settings__preview-action-icon--danger {
   border-color: rgba(225, 29, 72, 0.6);
   background-color: rgba(225, 29, 72, 0.6);
@@ -1554,6 +1551,7 @@ body {
 .profile-souvenir-lightbox__other-count:focus-visible {
   outline-color: var(--st-text);
 }
+/* Hydra's achievement-tooltip background is important in the bundled component CSS. */
 .profile-souvenir-lightbox__achievement-tooltip {
   border-color: var(--st-border);
   background-color: var(--st-panel) !important;
@@ -2530,15 +2528,15 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   }
 }
 .sidebar {
-  background: var(--st-bg) !important;
-  border-color: var(--st-divider) !important;
+  background: var(--st-bg);
+  border-color: var(--st-divider);
   color: var(--st-text);
 }
 .title-bar,
 .header,
 .bottom-panel {
-  background: var(--st-chrome) !important;
-  border-color: var(--st-divider) !important;
+  background: var(--st-chrome);
+  border-color: var(--st-divider);
   color: var(--st-text);
 }
 .header__search,
@@ -2547,13 +2545,13 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 :root .select-field,
 :root .settings-global-trackers__textarea,
 :root .settings-global-trackers__url-input {
-  border-radius: var(--st-field-radius) !important;
+  border-radius: var(--st-field-radius);
 }
 .header__search-input,
 .sidebar .text-field-container__text-field-input,
 :root .text-field-container__text-field-input {
-  background: transparent !important;
-  color: var(--st-text) !important;
+  background: transparent;
+  color: var(--st-text);
   border-radius: inherit;
 }
 .header__search-input::placeholder,
@@ -2570,25 +2568,25 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 }
 :root .text-field-container__error-label,
 :root .settings-global-trackers__error {
-  color: #e18689 !important;
+  color: #e18689;
 }
 .select-field__label {
   color: var(--st-text);
 }
 .badge {
-  background: var(--st-selected) !important;
-  border-color: var(--st-border) !important;
-  color: var(--st-text) !important;
+  background: var(--st-selected);
+  border-color: var(--st-border);
+  color: var(--st-text);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
 }
 .react-loading-skeleton {
-  --base-color: var(--st-panel) !important;
-  --highlight-color: var(--st-selected) !important;
+  --base-color: var(--st-panel);
+  --highlight-color: var(--st-selected);
 }
 .home__cards .game-card__download-options {
-  display: none !important;
+  display: none;
 }
 .game-card:focus-visible,
 .game-item:focus-visible,
@@ -2597,7 +2595,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   outline-offset: 2px;
 }
 .game-details__description-container {
-  background: var(--st-panel) !important;
+  background: var(--st-panel);
 }
 .download-group__hero-overlay {
   background: linear-gradient(
@@ -2605,48 +2603,48 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     rgba(0, 0, 0, 0.3) 0%,
     var(--st-bg) 70%,
     var(--st-panel) 100%
-  ) !important;
+  );
 }
 .dropdown-menu__content,
 .collections-filter__content,
 .library-select__content,
 .search-dropdown {
-  background: var(--st-panel) !important;
-  border-color: var(--st-border) !important;
+  background: var(--st-panel);
+  border-color: var(--st-border);
   color: var(--st-text);
 }
 .game-details__review-input .ProseMirror {
-  color: var(--st-text) !important;
+  color: var(--st-text);
 }
 .notification-item {
   background-color: var(--st-bg);
   border-color: var(--st-border);
-  color: var(--st-text) !important;
+  color: var(--st-text);
 }
 .download-group__progress-bar {
-  background: var(--st-border) !important;
+  background: var(--st-border);
 }
 .download-group__progress-fill,
 .download-group__progress-fill--paused {
-  background: var(--st-accent) !important;
+  background: var(--st-accent);
 }
 ::selection {
   background: #4b5769;
   color: #f0f2f5;
 }
 .catalogue .game-item__repackers {
-  display: none !important;
+  display: none;
 }
 .catalogue .game-item__details > span:first-child {
-  color: #e2e6ec !important;
+  color: #e2e6ec;
   font-weight: 600;
 }
 .catalogue .game-item__genres {
-  color: #a8afba !important;
+  color: #a8afba;
   margin-bottom: 0;
 }
 .catalogue__pagination-container {
-  justify-content: center !important;
+  justify-content: center;
 }
 /* Shared action buttons and segmented controls. */
 :root
@@ -2676,20 +2674,20 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
       .emulator-detail__remove-emulator
     )
   ) {
-  background: var(--st-panel) !important;
-  border-color: var(--st-border) !important;
-  box-shadow: none !important;
-  outline: none !important;
-  color: var(--st-text) !important;
-  border-radius: 8px !important;
-  transform: none !important;
-  scale: none !important;
-  filter: none !important;
+  background: var(--st-panel);
+  border-color: var(--st-border);
+  box-shadow: none;
+  outline: none;
+  color: var(--st-text);
+  border-radius: 8px;
+  transform: none;
+  scale: none;
+  filter: none;
   transition:
     color var(--sb-time) ease,
     background-color var(--sb-time) ease,
     border-color var(--sb-time) ease,
-    box-shadow var(--sb-time) ease !important;
+    box-shadow var(--sb-time) ease;
 }
 :root
   :is(
@@ -2722,10 +2720,11 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     :focus-visible,
     [data-state="open"]
   ) {
-  background: var(--st-panel) !important;
-  border-color: var(--st-focus) !important;
-  box-shadow: inset 0 0 0 1px var(--st-focus) !important;
-  outline: none !important;
+  background: var(--st-panel);
+  border-color: var(--st-focus);
+  box-shadow: inset 0 0 0 1px var(--st-focus);
+  outline: none;
+  color: var(--st-text);
 }
 :root
   :is(
@@ -2740,21 +2739,21 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .game-assets-settings__asset-tab,
     .search-dropdown__shop-button
   ) {
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 8px !important;
-  box-shadow: inset 0 0 0 1px var(--st-border) !important;
-  outline: none !important;
-  color: var(--st-secondary) !important;
-  font-weight: 500 !important;
-  transform: none !important;
-  scale: none !important;
-  filter: none !important;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px var(--st-border);
+  outline: none;
+  color: var(--st-secondary);
+  font-weight: 500;
+  transform: none;
+  scale: none;
+  filter: none;
   transition:
     color var(--sb-time) ease,
     background-color var(--sb-time) ease,
     border-color var(--sb-time) ease,
-    box-shadow var(--sb-time) ease !important;
+    box-shadow var(--sb-time) ease;
 }
 :root
   :is(
@@ -2772,8 +2771,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     :hover,
     :focus-visible
   ) {
-  box-shadow: inset 0 0 0 2px var(--st-focus) !important;
-  color: var(--st-text) !important;
+  box-shadow: inset 0 0 0 2px var(--st-focus);
+  color: var(--st-text);
 }
 :root
   :is(
@@ -2792,10 +2791,10 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .home__buttons-list .button--primary,
     .pagination .button--primary
   ) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: inset 0 0 0 2px var(--st-focus) !important;
-  color: var(--st-text) !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px var(--st-focus);
+  color: var(--st-text);
 }
 :root
   :is(
@@ -2803,17 +2802,17 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .notifications__tab-underline,
     .game-assets-settings__asset-tab-underline
   ) {
-  display: none !important;
+  display: none;
 }
 :root :is(.profile-content__tabs, .notifications__filter-tabs, .game-assets-settings__asset-tabs) {
-  border-bottom: 0 !important;
+  border-bottom: 0;
   gap: 8px;
 }
 :root
   :is(.catalogue-mode-toggle, .filter-section__group-tabs, .library-category-filter__container) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 :root .catalogue-mode-toggle {
   padding: 0;
@@ -2835,33 +2834,33 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   gap: 6px;
 }
 :root .emulator-detail__tab {
-  opacity: 1 !important;
+  opacity: 1;
 }
 :root .emulator-detail__tabs {
-  border-bottom: 0 !important;
+  border-bottom: 0;
 }
 :root .sidebar__menu-item,
 :root .sidebar__menu-item:is(:hover, .sidebar__menu-item--active) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 :root
   :is(.sidebar__menu-item-button, .settings__sidebar-button, .game-options-modal__sidebar-button) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
-  color: var(--st-text) !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
+  color: var(--st-text);
   border-radius: 4px;
-  transform: none !important;
-  scale: none !important;
-  filter: none !important;
+  transform: none;
+  scale: none;
+  filter: none;
   transition:
     color var(--sb-time) ease,
     background-color var(--sb-time) ease,
     border-color var(--sb-time) ease,
-    box-shadow var(--sb-time) ease !important;
+    box-shadow var(--sb-time) ease;
 }
 :root
   :is(
@@ -2869,7 +2868,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .settings__sidebar-button,
     .game-options-modal__sidebar-button
   ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
-  background: var(--st-hover) !important;
+  background: var(--st-hover);
 }
 :root
   :is(
@@ -2877,7 +2876,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .settings__sidebar-button--active,
     .game-options-modal__sidebar-button--active
   ) {
-  background: var(--st-selected) !important;
+  background: var(--st-selected);
 }
 :root
   :is(
@@ -2885,7 +2884,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .settings__sidebar-button--active,
     .game-options-modal__sidebar-button--active
   ):hover {
-  background: var(--st-selected-hover) !important;
+  background: var(--st-selected-hover);
 }
 :root
   :is(
@@ -2901,21 +2900,22 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .gallery-video__quality-option,
     .search-dropdown__item,
     .upload-background-image-button__menu-item
-  ) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
-  border-radius: 5px !important;
-  color: var(--st-text) !important;
-  transform: none !important;
-  scale: none !important;
-  filter: none !important;
+  ),
+:root .context-menu__item:active {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
+  border-radius: 5px;
+  color: var(--st-text);
+  transform: none;
+  scale: none;
+  filter: none;
   transition:
     color var(--sb-time) ease,
     background-color var(--sb-time) ease,
     border-color var(--sb-time) ease,
-    box-shadow var(--sb-time) ease !important;
+    box-shadow var(--sb-time) ease;
 }
 :root
   :is(
@@ -2936,7 +2936,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     [data-highlighted],
     :focus-visible
   ) {
-  background: var(--st-hover) !important;
+  background: var(--st-hover);
+  color: var(--st-text);
 }
 :root
   :is(
@@ -2953,8 +2954,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .search-dropdown__item,
     .upload-background-image-button__menu-item
   ):is(:disabled, [aria-disabled="true"], [data-disabled]) {
-  opacity: 0.5 !important;
-  cursor: not-allowed !important;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 :root
   :is(
@@ -2976,9 +2977,10 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .gallery-video__quality-option[data-state="checked"],
     .search-dropdown__item[data-state="checked"],
     .upload-background-image-button__menu-item[data-state="checked"]
-  ) {
-  background: var(--st-selected) !important;
-  color: var(--st-text) !important;
+  ),
+:root .context-menu__item--active:active {
+  background: var(--st-selected);
+  color: var(--st-text);
 }
 :root
   :is(
@@ -3005,7 +3007,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     [data-highlighted],
     :focus-visible
   ) {
-  background: var(--st-selected-hover) !important;
+  background: var(--st-selected-hover);
 }
 :root
   :is(
@@ -3021,9 +3023,9 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .upload-background-image-button__menu,
     .gallery-video__quality-menu
   ) {
-  background: var(--st-panel) !important;
-  border-color: var(--st-border) !important;
-  color: var(--st-text) !important;
+  background: var(--st-panel);
+  border-color: var(--st-border);
+  color: var(--st-text);
 }
 :root
   :is(
@@ -3037,61 +3039,61 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .upload-background-image-button__menu,
     .gallery-video__quality-menu
   ) {
-  padding: 6px !important;
+  padding: 6px;
   box-sizing: border-box;
 }
 :root :is(.dropdown-menu__group, .sidebar-filter-menu__group) {
-  padding: 6px !important;
+  padding: 6px;
   box-sizing: border-box;
 }
 :root .context-menu__item-container + .context-menu__item-container {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .search-dropdown__list {
-  padding: 0 6px 6px !important;
+  padding: 0 6px 6px;
 }
 :root .search-dropdown__item-container + .search-dropdown__item-container {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .filter-dropdown__menu,
 :root .disc-field__menu {
-  gap: 0 !important;
+  gap: 0;
 }
 :root .context-menu__item + .context-menu__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .dropdown-menu__item + .dropdown-menu__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .sidebar-filter-menu__item + .sidebar-filter-menu__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .sidebar-profile__dropdown-item + .sidebar-profile__dropdown-item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .collections-filter__item + .collections-filter__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .library-select__item + .library-select__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .library-multi-select__item + .library-multi-select__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .filter-dropdown__option + .filter-dropdown__option {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .disc-field__option + .disc-field__option {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .gallery-video__quality-option + .gallery-video__quality-option {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .search-dropdown__item + .search-dropdown__item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root .upload-background-image-button__menu-item + .upload-background-image-button__menu-item {
-  margin-top: 3px !important;
+  margin-top: 3px;
 }
 :root
   :is(
@@ -3181,19 +3183,19 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .cloud-gift-notification-modal__decide-later,
     .cloud-subscription-modal__close
   ) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
-  color: var(--st-muted) !important;
-  filter: none !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
+  color: var(--st-muted);
+  filter: none;
   transition:
     color var(--sb-time) ease,
     background-color var(--sb-time) ease,
     border-color var(--sb-time) ease,
     box-shadow var(--sb-time) ease,
     opacity var(--sb-time) ease,
-    transform var(--st-control-time) ease !important;
+    transform var(--st-control-time) ease;
 }
 :root
   :is(
@@ -3283,8 +3285,9 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .cloud-gift-notification-modal__decide-later,
     .cloud-subscription-modal__close
   ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
-  background: transparent !important;
-  color: var(--st-text) !important;
+  background: transparent;
+  color: var(--st-text);
+  border-color: transparent;
 }
 :root
   :is(
@@ -3292,7 +3295,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .profile-souvenir-lightbox__close-button,
     .library-game-card__action-button
   ):is(:hover, :active) {
-  transform: none !important;
+  transform: none;
 }
 :root
   :is(
@@ -3318,11 +3321,13 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .emulator-detail__res-link,
     .setup-modal__website-link,
     .settings-download-sources__navigate-button
-  ) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  color: var(--st-text) !important;
+  ),
+:root .game-details__reply-action-link:not(:disabled):hover,
+:root .game-details__reply-thread-line:not(:disabled):hover {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--st-text);
 }
 :root
   :is(
@@ -3330,10 +3335,10 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .bottom-panel__downloads-button,
     .bottom-panel__version-button
   ):is(:hover, :focus, :active) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  text-decoration: none;
 }
 :root
   :is(
@@ -3344,40 +3349,40 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .sidebar-profile__button--active,
     .sidebar__play-button--active
   ) {
-  background: var(--st-selected) !important;
-  color: var(--st-text) !important;
+  background: var(--st-selected);
+  color: var(--st-text);
 }
 :root .sidebar-profile__button:hover {
-  background: var(--st-hover) !important;
+  background: var(--st-hover);
 }
 :root .sidebar-profile__button-title {
-  color: var(--st-text) !important;
+  color: var(--st-text);
 }
 :root .sidebar-section .sidebar-section__toggle,
 :root .sidebar-section .sidebar-section__toggle:is(:hover, :focus, :active) {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 :root .sidebar-section__button {
   position: relative;
   z-index: 1;
   pointer-events: none;
-  color: var(--st-text) !important;
+  color: var(--st-text);
 }
 :root .sidebar-section__header {
-  background: var(--st-panel) !important;
+  background: var(--st-panel);
 }
 :root .sidebar-section__header:hover {
-  background: var(--st-hover) !important;
+  background: var(--st-hover);
 }
 :root .filter-section__button,
 :root .filter-section__button:hover {
-  background: var(--st-panel) !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  color: var(--st-text) !important;
+  background: var(--st-panel);
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--st-text);
 }
 :root
   :is(
@@ -3389,18 +3394,18 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .pagination__page-input,
     .game-details__review-input-container
   ) {
-  background: var(--sb-field-bg, var(--st-bg)) !important;
-  border-color: transparent !important;
-  box-shadow: inset 0 0 0 1px var(--sb-line) !important;
-  outline: none !important;
-  color: var(--st-text) !important;
-  transition: box-shadow var(--sb-time) ease !important;
+  background: var(--sb-field-bg, var(--st-bg));
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--sb-line);
+  outline: none;
+  color: var(--st-text);
+  transition: box-shadow var(--sb-time) ease;
 }
 :root .header__search {
   --sb-field-bg: #292d34;
   transition:
     width var(--st-layout-time) ease,
-    box-shadow var(--sb-time) ease !important;
+    box-shadow var(--sb-time) ease;
 }
 :root .sidebar .text-field-container__text-field {
   --sb-field-bg: #292d34;
@@ -3429,13 +3434,13 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .text-field-container__text-field--focused,
     .select-field--focused
   ) {
-  border-color: transparent !important;
-  box-shadow: inset 0 0 0 2px var(--sb-focus) !important;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px var(--sb-focus);
 }
 :root .text-field-container__text-field--has-error,
 :root .text-field-container__text-field--has-error:is(:hover, :focus-within) {
-  border-color: transparent !important;
-  box-shadow: inset 0 0 0 2px #d5686b !important;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px #d5686b;
 }
 :root
   :is(
@@ -3450,80 +3455,80 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   opacity: 0.5;
 }
 :root :is(.header__search-input, .text-field-container__text-field-input, .select-field__option) {
-  background: transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
 }
 :root .select-field__option {
-  color: var(--st-text) !important;
-  border-color: transparent !important;
+  color: var(--st-text);
+  border-color: transparent;
 }
 :root :is(.header__search, .text-field-container__text-field) button {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 :root :is(.header__search, .text-field-container__text-field) button:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--sb-focus) !important;
+  box-shadow: inset 0 0 0 2px var(--sb-focus);
 }
 :root .checkbox-field__checkbox {
-  background: var(--st-bg) !important;
-  border: 1px solid var(--st-border) !important;
-  border-radius: 4px !important;
-  box-shadow: none !important;
-  outline: none !important;
-  color: var(--st-text) !important;
-  transform: none !important;
-  scale: none !important;
-  filter: none !important;
-  transition: border-color var(--sb-time) ease !important;
+  background: var(--st-bg);
+  border: 1px solid var(--st-border);
+  border-radius: 4px;
+  box-shadow: none;
+  outline: none;
+  color: var(--st-text);
+  transform: none;
+  scale: none;
+  filter: none;
+  transition: border-color var(--sb-time) ease;
 }
 :root .checkbox-field:not(:where(:has(input:disabled))):hover .checkbox-field__checkbox,
 :root .checkbox-field__checkbox.checked {
-  background: var(--st-bg) !important;
-  border-color: var(--st-accent) !important;
-  box-shadow: none !important;
+  background: var(--st-bg);
+  border-color: var(--st-accent);
+  box-shadow: none;
 }
 :root .checkbox-field__icon {
-  transform: none !important;
-  scale: none !important;
-  transition: opacity var(--sb-time) ease !important;
+  transform: none;
+  scale: none;
+  transition: opacity var(--sb-time) ease;
 }
 :root .checkbox-field__icon svg {
-  width: 12px !important;
-  height: 12px !important;
+  width: 12px;
+  height: 12px;
   display: block;
-  transform: none !important;
+  transform: none;
 }
 :root .checkbox-field .checkbox-field__checkbox:has(input:focus-visible) {
-  outline: none !important;
-  box-shadow: inset 0 0 0 1px var(--st-accent) !important;
+  outline: none;
+  box-shadow: inset 0 0 0 1px var(--st-accent);
 }
 :root .radio-field__control {
-  background: var(--st-bg) !important;
-  border-color: var(--st-border) !important;
-  box-shadow: none !important;
+  background: var(--st-bg);
+  border-color: var(--st-border);
+  box-shadow: none;
 }
 :root .radio-field--selected .radio-field__control {
-  border-color: var(--st-accent) !important;
+  border-color: var(--st-accent);
 }
 :root .radio-field--selected .radio-field__dot {
-  background: var(--st-text) !important;
+  background: var(--st-text);
 }
 :root .button--danger,
 :root .button--danger:is(:hover, :active) {
-  background: #8b2026 !important;
-  border-color: #96343a !important;
-  box-shadow: none !important;
-  color: #f0f2f5 !important;
-  filter: none !important;
+  background: #8b2026;
+  border-color: #96343a;
+  box-shadow: none;
+  color: #f0f2f5;
+  filter: none;
 }
 :root
   .button--danger:not(
     :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
   ):is(:hover, :focus-visible) {
-  border-color: #bd5058 !important;
-  box-shadow: inset 0 0 0 1px #bd5058 !important;
+  border-color: #bd5058;
+  box-shadow: inset 0 0 0 1px #bd5058;
 }
 :root
   :is(
@@ -3535,10 +3540,22 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .emulator-detail__remove,
     .emulator-detail__remove-emulator
   ) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  color: #e18689 !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: #e18689;
+}
+:root
+  :is(
+    .context-menu__item--danger,
+    .sidebar-profile__dropdown-item--danger,
+    .game-emulation-saves__delete,
+    .game-details__delete-review-button,
+    .profile-souvenir-lightbox__action--delete,
+    .emulator-detail__remove,
+    .emulator-detail__remove-emulator
+  ):is(:hover, :active, :focus-visible) {
+  color: #e18689;
 }
 :root
   :is(
@@ -3550,13 +3567,13 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .emulator-detail__remove,
     .emulator-detail__remove-emulator
   ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
-  background: rgba(213, 104, 107, 0.08) !important;
+  background: rgba(213, 104, 107, 0.08);
 }
 :root
   .button--cloud:not(
     :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
   ):is(:hover, :focus-visible) {
-  filter: none !important;
+  filter: none;
 }
 :root
   :is(
@@ -3569,10 +3586,10 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .profile-souvenir-lightbox__nav-button,
     .similar-games__control
   ) {
-  background: rgba(32, 35, 41, 0.92) !important;
-  color: var(--st-text) !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  background: rgba(32, 35, 41, 0.92);
+  color: var(--st-text);
+  border-color: transparent;
+  box-shadow: none;
 }
 :root
   :is(
@@ -3585,8 +3602,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .profile-souvenir-lightbox__nav-button,
     .similar-games__control
   ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):hover {
-  background: rgba(32, 35, 41, 0.92) !important;
-  color: var(--st-text) !important;
+  background: rgba(32, 35, 41, 0.92);
+  color: var(--st-text);
 }
 :root
   :is(
@@ -3719,8 +3736,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   ):not(
     :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
   ):focus-visible {
-  outline: 2px solid var(--st-focus) !important;
-  outline-offset: -2px !important;
+  outline: 2px solid var(--st-focus);
+  outline-offset: -2px;
 }
 :root
   :is(
@@ -3747,8 +3764,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .game-assets-settings__asset-tab,
     .search-dropdown__shop-button
   ):is(:disabled, [aria-disabled="true"], [data-disabled]) {
-  opacity: 0.5 !important;
-  cursor: not-allowed !important;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 :root
   :is(
@@ -3771,8 +3788,10 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .setup-modal__download-card,
     .theme-placeholder,
     .settings-appearance__no-themes
-  ) {
-  border-color: var(--st-border) !important;
+  ),
+:root .drive-card:not(:disabled):hover,
+:root .game-assets-settings__preview-frame:not(:disabled):is(:hover, :focus-visible) {
+  border-color: var(--st-border);
 }
 :root
   :is(
@@ -3792,7 +3811,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .gallery-lightbox__thumbnail--active,
     .gallery-slider__preview-button--active
   ) {
-  border-color: var(--sb-focus) !important;
+  border-color: var(--sb-focus);
 }
 :root
   :is(
@@ -3816,7 +3835,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .theme-placeholder,
     .settings-appearance__no-themes
   ):focus-visible {
-  outline: 2px solid var(--sb-focus) !important;
+  outline: 2px solid var(--sb-focus);
   outline-offset: -2px;
 }
 :root .drive-card--selected,
@@ -3826,89 +3845,104 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 :root .download-settings-modal__downloader-item--selected,
 :root .emu-save-modal__target--selected,
 :root .emulator-detail__restore-target--selected {
+  background: var(--st-bg);
+  box-shadow: inset 0 0 0 1px var(--sb-focus);
+}
+/* Hydra's selected-drive and active-drop-zone borders are important in the bundled CSS.
+   Normal selector specificity cannot override an important declaration. */
+:root .drive-card--selected,
+:root .game-assets-settings__drop-zone--active {
+  border-color: var(--sb-focus) !important;
+}
+/* The selected-drive background is also important in the bundled component CSS. */
+:root .drive-card--selected {
   background: var(--st-bg) !important;
-  box-shadow: inset 0 0 0 1px var(--sb-focus) !important;
 }
 /* Native and virtual scrollbars. */
 :root,
 :root * {
-  scrollbar-color: auto !important;
-  scrollbar-width: auto !important;
+  scrollbar-color: auto;
+  scrollbar-width: auto;
 }
 :root::-webkit-scrollbar,
 :root *::-webkit-scrollbar {
-  width: 9px !important;
-  height: 9px !important;
-  background: transparent !important;
+  width: 9px;
+  height: 9px;
+  background: transparent;
 }
 :root::-webkit-scrollbar-track,
 :root *::-webkit-scrollbar-track,
 :root::-webkit-scrollbar-corner,
 :root *::-webkit-scrollbar-corner {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 :root::-webkit-scrollbar-thumb,
 :root *::-webkit-scrollbar-thumb {
-  background: #484e58 !important;
-  border: none !important;
-  border-radius: 2.3px !important;
-  box-shadow: none !important;
+  background: #484e58;
+  border: none;
+  border-radius: 2.3px;
+  box-shadow: none;
 }
 :root::-webkit-scrollbar-thumb:hover,
 :root *::-webkit-scrollbar-thumb:hover {
-  background: #5b6370 !important;
+  background: #5b6370;
 }
+/* The virtual-list component writes this property inline. Keep this narrow override; do not override thumb position, height, or visibility. */
 :root .rc-virtual-list-scrollbar {
   background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
 }
+/* The virtual-list component writes this property inline. Keep this narrow override; do not override thumb position, height, or visibility. */
 :root .rc-virtual-list-scrollbar-vertical {
   width: 9px !important;
 }
+/* The virtual-list component writes this property inline. Keep this narrow override; do not override thumb position, height, or visibility. */
 :root .rc-virtual-list-scrollbar-horizontal {
   height: 9px !important;
 }
+/* The virtual-list component writes this property inline. Keep this narrow override; do not override thumb position, height, or visibility. */
 :root .rc-virtual-list-scrollbar-thumb {
   background: #484e58 !important;
   border-radius: 2.3px !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
 }
+/* The virtual-list component writes this property inline. Keep this narrow override; do not override thumb position, height, or visibility. */
 :root .rc-virtual-list-scrollbar-thumb:is(:hover, .rc-virtual-list-scrollbar-thumb-moving) {
   background: #5b6370 !important;
 }
 @supports not selector(::-webkit-scrollbar) {
   :root,
   :root * {
-    scrollbar-color: #484e58 transparent !important;
-    scrollbar-width: thin !important;
+    scrollbar-color: #484e58 transparent;
+    scrollbar-width: thin;
   }
 }
 /* Gallery, descriptions, reviews, and recommendations. */
 :root .gallery-slider__container {
-  max-height: none !important;
+  max-height: none;
   flex-shrink: 0;
 }
 :root .gallery-slider__viewport {
-  width: min(100%, 800px) !important;
-  height: auto !important;
-  max-height: none !important;
+  width: min(100%, 800px);
+  height: auto;
+  max-height: none;
   aspect-ratio: 16/9;
 }
 :root .gallery-slider__media {
-  object-fit: contain !important;
+  object-fit: contain;
 }
 :root .gallery-slider__preview {
-  width: min(100%, 800px) !important;
+  width: min(100%, 800px);
 }
 :root .gallery-slider__preview-button {
-  flex: 0 0 100px !important;
-  width: 100px !important;
-  height: auto !important;
-  aspect-ratio: 16/9 !important;
+  flex: 0 0 100px;
+  width: 100px;
+  height: auto;
+  aspect-ratio: 16/9;
 }
 :root
   :is(
@@ -3917,55 +3951,56 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .game-details__reviews-section,
     .similar-games
   ) {
-  width: min(100%, 640px) !important;
+  width: min(100%, 640px);
   margin-inline: auto;
 }
 :root .similar-games .vertical-cover-card,
 :root .similar-games .vertical-cover-card:hover {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 :root .requirement__button-container .requirement__button,
 :root .review-sort-options__options .review-sort-options__option {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  color: var(--st-secondary) !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--st-secondary);
 }
 :root .requirement__button-container .button--primary,
 :root .review-sort-options__options .review-sort-options__option:is(:hover, .active) {
-  color: var(--st-text) !important;
+  color: var(--st-text);
 }
 :root .requirement__button-container .requirement__button:focus-visible,
 :root .review-sort-options__option:focus-visible {
-  outline: 2px solid var(--st-focus) !important;
+  outline: 2px solid var(--st-focus);
   outline-offset: -2px;
 }
+/* Hydra writes the computed profile gradient as an inline background. This override keeps the chosen opaque theme surface. */
 :root .profile-hero__content-box {
   background: var(--st-panel) !important;
 }
 /* Profile and game banner controls. */
 :root .profile-hero__hero-panel,
 :root .game-details__hero-panel .hero-panel {
-  background: var(--st-bg) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-color: var(--st-border) !important;
-  box-shadow: none !important;
+  background: var(--st-bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: var(--st-border);
+  box-shadow: none;
 }
 :root .profile-hero__display-name {
-  color: var(--st-text) !important;
-  text-shadow: none !important;
+  color: var(--st-text);
+  text-shadow: none;
 }
 :root .profile-hero__avatar-button,
 :root .profile-hero__avatar-button:hover {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 :root .upload-background-image-button,
 :root .profile-hero__button--outline {
-  background: var(--st-panel) !important;
-  border-color: var(--st-border) !important;
-  box-shadow: none !important;
-  color: var(--st-text) !important;
+  background: var(--st-panel);
+  border-color: var(--st-border);
+  box-shadow: none;
+  color: var(--st-text);
 }
 :root
   .upload-background-image-button:not(
@@ -3975,63 +4010,63 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   .profile-hero__button--outline:not(
     :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
   ):is(:hover, :focus-visible) {
-  background: var(--st-panel) !important;
-  border-color: var(--st-focus) !important;
-  box-shadow: inset 0 0 0 1px var(--st-focus) !important;
+  background: var(--st-panel);
+  border-color: var(--st-focus);
+  box-shadow: inset 0 0 0 1px var(--st-focus);
 }
 :root :is(.game-details__edit-custom-game-button, .game-details__cloud-sync-button) {
-  background: var(--st-panel) !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  transform: none !important;
-  scale: none !important;
-  filter: none !important;
+  background: var(--st-panel);
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transform: none;
+  scale: none;
+  filter: none;
 }
 :root .game-details__edit-custom-game-button {
-  color: var(--st-secondary) !important;
+  color: var(--st-secondary);
 }
 :root .game-details__edit-custom-game-button:hover {
-  color: var(--st-text) !important;
+  color: var(--st-text);
 }
 :root
   .game-details__cloud-sync-button:not(.cloud-save-v2__trigger--synced):not(
     .cloud-save-v2__trigger--outdated
   ):not(.cloud-save-v2__trigger--conflict) {
-  color: var(--st-secondary) !important;
+  color: var(--st-secondary);
 }
 :root .cloud-save-v2__trigger--synced {
-  color: #65c2a5 !important;
+  color: #65c2a5;
 }
 :root .cloud-save-v2__trigger--outdated {
-  color: #d9b66f !important;
+  color: #d9b66f;
 }
 :root .cloud-save-v2__trigger--conflict {
-  color: #e18689 !important;
+  color: #e18689;
 }
 /* Tooltips. */
 :root .react-tooltip {
   --rt-color-dark: #292d34;
   --rt-color-white: #e2e6ec;
   --rt-opacity: 1;
-  background: var(--st-panel) !important;
-  color: var(--st-text) !important;
-  border: 1px solid var(--st-border) !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
-  padding: 8px 12px !important;
+  background: var(--st-panel);
+  color: var(--st-text);
+  border: 1px solid var(--st-border);
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 8px 12px;
   max-width: min(320px, calc(100vw - 24px));
-  font-family: inherit !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  line-height: 1.45 !important;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
   white-space: normal;
   overflow-wrap: anywhere;
 }
 :root .react-tooltip .react-tooltip-arrow {
-  background: var(--st-panel) !important;
-  box-shadow: none !important;
+  background: var(--st-panel);
+  box-shadow: none;
 }
 @media (prefers-reduced-motion: reduce) {
   :root
@@ -4183,7 +4218,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
       .header__search,
       .checkbox-field__icon
     ) {
-    transition: none !important;
+    transition: none;
   }
 }
 /* Library overlay badges. */
@@ -4193,35 +4228,35 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 .library-game-card-large__playtime,
 .library-game-card-large__installed-badge,
 .library-game-card-large__size-badges {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .library-game-card__playtime,
 .library-game-card__installed-badge,
 .library-game-card-large__playtime,
 .library-game-card-large__installed-badge,
 .library-game-card-large__size-badges {
-  background: #292d34 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  box-shadow: none !important;
+  background: #292d34;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 .library-game-card__wrapper .steam-library-badge,
 .library-game-card-large .steam-library-badge {
-  background: #292d34 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  box-shadow: none !important;
+  background: #292d34;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 /* Review editor states. */
 :root .game-details__review-input-container {
   position: relative;
   isolation: isolate;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  border-color: transparent;
+  box-shadow: none;
 }
 :root .game-details__review-input-container:is(:hover, :focus-within) {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 :root .game-details__review-input-container::after {
   content: "";
@@ -4236,101 +4271,101 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   box-shadow: inset 0 0 0 2px #5b6370;
 }
 :root .game-details__review-input-header {
-  border-bottom-color: #3b414b !important;
+  border-bottom-color: #3b414b;
 }
 :root .game-details__review-input .ProseMirror {
-  font-family: inherit !important;
-  color: #e2e6ec !important;
-  outline: none !important;
-  box-shadow: none !important;
+  font-family: inherit;
+  color: #e2e6ec;
+  outline: none;
+  box-shadow: none;
 }
 :root .game-details__review-char-counter {
-  font-family: inherit !important;
-  color: #a8afba !important;
+  font-family: inherit;
+  color: #a8afba;
 }
 :root .game-details__review-char-counter .over-limit {
-  color: #e18689 !important;
+  color: #e18689;
 }
 :root .game-details__editor-button {
-  font-family: inherit !important;
-  color: #a8afba !important;
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  transform: none !important;
+  font-family: inherit;
+  color: #a8afba;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
 }
 :root .game-details__editor-button:not(:disabled):hover {
-  color: #e2e6ec !important;
-  background: #2d323a !important;
+  color: #e2e6ec;
+  background: #2d323a;
 }
 :root .game-details__editor-button.is-active {
-  color: #e2e6ec !important;
-  background: #363c46 !important;
+  color: #e2e6ec;
+  background: #363c46;
 }
 :root .game-details__editor-button:focus-visible {
-  box-shadow: inset 0 0 0 2px #5b6370 !important;
+  box-shadow: inset 0 0 0 2px #5b6370;
 }
 :root .game-details__star,
 :root .game-details__star:is(:hover, :active) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  transform: none !important;
-  scale: none !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+  scale: none;
 }
 :root .game-details__star--empty {
-  color: #969da8 !important;
+  color: #969da8;
 }
 :root .game-details__star--filled,
 :root .game-details__star--empty:hover {
-  color: #e2e6ec !important;
+  color: #e2e6ec;
 }
 :root .game-details__star--filled.game-details__review-score-select--red {
-  color: #e18689 !important;
+  color: #e18689;
 }
 :root .game-details__star--filled.game-details__review-score-select--yellow {
-  color: #d9b66f !important;
+  color: #d9b66f;
 }
 :root .game-details__star--filled.game-details__review-score-select--green {
-  color: #65c2a5 !important;
+  color: #65c2a5;
 }
 :root .game-details__star:focus-visible {
-  box-shadow: inset 0 0 0 2px #5b6370 !important;
+  box-shadow: inset 0 0 0 2px #5b6370;
 }
 :root::-webkit-scrollbar-track-piece,
 :root *::-webkit-scrollbar-track-piece,
 :root::-webkit-scrollbar-corner,
 :root *::-webkit-scrollbar-corner {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 :root::-webkit-scrollbar-button,
 :root *::-webkit-scrollbar-button {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+  display: none;
+  width: 0;
+  height: 0;
 }
 :root::-webkit-scrollbar-thumb:active,
 :root *::-webkit-scrollbar-thumb:active {
-  background: #5b6370 !important;
+  background: #5b6370;
 }
 :root .game-artwork__scrollbar {
-  width: 9px !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  width: 9px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 :root .game-artwork__scrollbar-thumb {
-  background: #484e58 !important;
-  border-radius: 2.3px !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: #484e58;
+  border-radius: 2.3px;
+  border: none;
+  box-shadow: none;
 }
 
 :root .game-artwork__scrollbar-thumb:is(:hover, :active) {
-  background: #5b6370 !important;
+  background: #5b6370;
 }
 /* Sidebar menu spacing and search actions. */
 :root .sidebar-filter-menu__group,
@@ -4342,7 +4377,7 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   gap: 3px;
 }
 :root .sidebar-filter-menu__group .sidebar-filter-menu__item {
-  margin-top: 0 !important;
+  margin-top: 0;
   flex-shrink: 0;
 }
 :root .sidebar__search-row :is(.sidebar__play-button, .sidebar-filter-menu__trigger) {
@@ -4355,59 +4390,59 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   padding: 6px;
   margin: 0;
   box-sizing: border-box;
-  border: none !important;
+  border: none;
   border-radius: 6px;
-  background: transparent !important;
-  box-shadow: none !important;
-  transform: none !important;
-  color: #969da8 !important;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  color: #969da8;
 }
 
 :root .sidebar__search-row :is(.sidebar__play-button, .sidebar-filter-menu__trigger):hover,
 :root .sidebar__search-row .sidebar__play-button--active {
-  color: #e2e6ec !important;
+  color: #e2e6ec;
 }
 
 :root .sidebar__search-row :is(.sidebar__play-button, .sidebar-filter-menu__trigger):focus-visible {
-  outline: 2px solid #5b6370 !important;
+  outline: 2px solid #5b6370;
   outline-offset: -2px;
 }
 /* Compact download-source dialog. */
 :root .modal:has(.repacks-modal__repacks) {
-  max-height: min(720px, calc(100dvh - 64px)) !important;
+  max-height: min(720px, calc(100dvh - 64px));
 }
 
 :root .modal:has(.repacks-modal__repacks) .modal__header {
-  padding: 16px 20px !important;
+  padding: 16px 20px;
 }
 
 :root .modal:has(.repacks-modal__repacks) .modal__content {
   min-height: 0;
-  padding: 16px 20px !important;
+  padding: 16px 20px;
   overflow-y: auto;
 }
 :root .repacks-modal__filter-top {
-  margin-bottom: 16px !important;
+  margin-bottom: 16px;
 }
 
 :root .repacks-modal__repacks {
-  gap: 10px !important;
+  gap: 10px;
 }
 :root .repacks-modal__repack-button {
-  padding: 12px 32px 12px 16px !important;
-  gap: 6px !important;
-  min-height: 0 !important;
+  padding: 12px 32px 12px 16px;
+  gap: 6px;
+  min-height: 0;
 }
 
 :root .repacks-modal__repack-title,
 :root .repacks-modal__repack-info {
-  margin: 0 !important;
+  margin: 0;
   line-height: 1.4;
 }
 
 :root .repacks-modal__availability-orb {
-  top: 14px !important;
-  right: 12px !important;
+  top: 14px;
+  right: 12px;
 }
 :root
   :is(
@@ -4418,39 +4453,39 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .similar-games__card
   ):is(:hover, :focus-visible),
 :root .game-item:is(:hover, :focus-visible) .game-item__cover-wrapper {
-  outline-color: #798698 !important;
+  outline-color: #798698;
 }
 /* Opaque dialog surfaces. */
 :root .backdrop,
 :root .backdrop--closing {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 :root .modal,
 :root .modal__header,
 :root .modal__content {
-  background: #292d34 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  background: #292d34;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 /* Native select colors. */
 :root select {
   color-scheme: dark;
-  background-color: #202329 !important;
-  color: #e2e6ec !important;
-  border-color: #3b414b !important;
+  background-color: #202329;
+  color: #e2e6ec;
+  border-color: #3b414b;
   font-family: inherit;
 }
 
-:root select option,
-:root select optgroup {
-  background-color: #292d34 !important;
-  color: #e2e6ec !important;
+:root :is(select, .select-field__option) option,
+:root :is(select, .select-field__option) optgroup {
+  background-color: #292d34;
+  color: #e2e6ec;
   font-family: inherit;
 }
 
-:root select option:disabled {
-  color: #969da8 !important;
+:root :is(select, .select-field__option) option:disabled {
+  color: #969da8;
 }
 /* Animated cover border. */
 @property --cover-border-angle {
@@ -4467,10 +4502,10 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .similar-games__card,
     .game-item__cover-wrapper
   ) {
-  border-color: transparent !important;
-  outline-offset: -1px !important;
+  border-color: transparent;
+  outline-offset: -1px;
   position: relative;
-  outline: none !important;
+  outline: none;
 }
 :root
   :is(
@@ -4540,22 +4575,31 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
       .library-game-card-large,
       .similar-games__card,
       .game-item__cover-wrapper
-    )::after {
-    animation: none !important;
-    transition: none !important;
+    )::after,
+  :root
+    :is(
+      .game-card,
+      .vertical-cover-card,
+      .library-game-card__wrapper,
+      .library-game-card-large,
+      .similar-games__card
+    ):is(:hover, :focus-visible)::after,
+  :root .game-item:is(:hover, :focus-visible) .game-item__cover-wrapper::after {
+    animation: none;
+    transition: none;
   }
 }
 /* Next-suggestion button. */
 :root .button.game-details__randomizer-button {
-  border-color: transparent !important;
-  box-shadow: inset 0 0 0 1px #798698 !important;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px #798698;
 }
 :root .button.game-details__randomizer-button:not(:disabled):is(:hover, :focus-visible) {
-  box-shadow: inset 0 0 0 2px #e2e6ec !important;
+  box-shadow: inset 0 0 0 2px #e2e6ec;
 }
 :root .button.game-details__randomizer-button,
 :root .button.game-details__randomizer-button:is(:hover, :focus-visible) {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background: #292d34 !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: #292d34;
 }
