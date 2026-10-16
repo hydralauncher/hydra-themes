@@ -4245,6 +4245,28 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   flex-shrink: 0;
   vertical-align: middle;
 }
+/* Give console actions proper button spacing and a natural left-aligned wrap. */
+:root .console-card__footer {
+  gap: 12px;
+  justify-content: space-between;
+}
+:root .console-card__cta {
+  margin-left: 0;
+  min-height: 36px;
+  padding: 8px 12px;
+  gap: 8px;
+  border: 1px solid var(--st-border);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+:root .console-card__cta > svg {
+  flex-shrink: 0;
+}
+:root .console-card__cta > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
 :root .react-tooltip {
   --rt-color-dark: #292d34;
   --rt-color-white: #e2e6ec;
