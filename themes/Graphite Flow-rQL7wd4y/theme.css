@@ -1,9 +1,6 @@
-/* Graphite Flow | Hydra 4.2.0
-Main-window theme. Replace the previous stylesheet rather than appending it.
-Ordinary component and state rules use the normal cascade. The few documented
-important declarations only override inline styles or built-in important rules.
-Cover animations respect prefers-reduced-motion. No external assets are loaded. */
-:root {
+/* Graphite Flow | Hydra 4.2.0 */
+:root,
+:host {
   --st-bg: #202329;
   --st-panel: #292d34;
   --st-chrome: #1b1e23;
