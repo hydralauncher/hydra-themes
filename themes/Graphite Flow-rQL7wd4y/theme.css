@@ -4221,12 +4221,29 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 :root .profile-section__header:is(:hover, :has(:focus-visible)) {
   background: var(--st-hover);
 }
+/* Count badges share a circular single-digit shape and expand into pills for longer values. */
 :root .profile-section__count,
 :root .filter-section__header-count,
 :root .profile-content__section-badge,
-:root .profile-content__tab-badge {
-  background: var(--st-bg);
+:root .profile-content__tab-badge,
+:root .game-details__reviews-badge {
+  background: #11151b;
   color: var(--st-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 24px;
+  min-width: 24px;
+  width: auto;
+  padding: 0 7px;
+  border-radius: 999px;
+  line-height: 1;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 :root .react-tooltip {
   --rt-color-dark: #292d34;
