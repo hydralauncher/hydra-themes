@@ -1141,10 +1141,12 @@ body {
   color: var(--st-text);
 }
 .game-language-section__check {
-  color: var(--st-text);
+  color: #63c49d;
+  opacity: 1;
 }
 .game-language-section__cross {
-  color: var(--st-text);
+  color: #ef7d85;
+  opacity: 1;
 }
 .launchbox-details__label {
   color: var(--st-text);
@@ -3150,11 +3152,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .library__quick-action,
     .notification-item__dismiss,
     .add-friend-modal__copy-icon-button,
-    .add-friend-modal__friend-item,
-    .all-friends-modal__item,
     .badges-box__view-all,
     .friends-box__add-friend-button,
-    .friends-box__list-item,
     .friends-box__view-all,
     .profile-content__collapse-button,
     .profile-content__souvenirs-privacy-notice-dismiss,
@@ -3252,11 +3251,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
     .library__quick-action,
     .notification-item__dismiss,
     .add-friend-modal__copy-icon-button,
-    .add-friend-modal__friend-item,
-    .all-friends-modal__item,
     .badges-box__view-all,
     .friends-box__add-friend-button,
-    .friends-box__list-item,
     .friends-box__view-all,
     .profile-content__collapse-button,
     .profile-content__souvenirs-privacy-notice-dismiss,
@@ -3515,20 +3511,31 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 :root .radio-field--selected .radio-field__dot {
   background: var(--st-text);
 }
-:root .button--danger,
-:root .button--danger:is(:hover, :active) {
+/* Danger actions use opaque fill changes, not decorative hover borders. Keyboard focus remains handled by the shared focus-visible rule. */
+:root .button--danger {
   background: #8b2026;
-  border-color: #96343a;
+  border-color: transparent;
   box-shadow: none;
   color: #f0f2f5;
   filter: none;
+  opacity: 1;
+  transition: background-color var(--sb-time) ease;
 }
 :root
   .button--danger:not(
     :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
-  ):is(:hover, :focus-visible) {
-  border-color: #bd5058;
-  box-shadow: inset 0 0 0 1px #bd5058;
+  ):hover {
+  background-color: #741b20;
+}
+:root
+  .button--danger:not(
+    :where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])
+  ):active {
+  background-color: #64171b;
+}
+:root .button--danger:focus-visible {
+  outline: 2px solid var(--st-focus);
+  outline-offset: 2px;
 }
 :root
   :is(
@@ -3974,18 +3981,60 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   outline: 2px solid var(--st-focus);
   outline-offset: -2px;
 }
+/* Requirements tabs keep a stable layout and a clear persistent selection indicator. */
+:root .requirement__button-container .requirement__button {
+  position: relative;
+}
+:root .requirement__button-container .requirement__button::after {
+  content: "";
+  position: absolute;
+  inset-inline: 16px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: transparent;
+  pointer-events: none;
+}
+:root .requirement__button-container .requirement__button.button--primary {
+  color: var(--st-text);
+  font-weight: 600;
+}
+:root .requirement__button-container .requirement__button.button--primary::after {
+  background: var(--st-text);
+}
+:root .requirement__button-container .requirement__button:not(.button--primary):hover {
+  color: var(--st-text);
+}
 /* Hydra writes the computed profile gradient as an inline background. This override keeps the chosen opaque theme surface. */
 :root .profile-hero__content-box {
   background: var(--st-panel) !important;
 }
 /* Profile and game banner controls. */
-:root .profile-hero__hero-panel,
-:root .game-details__hero-panel .hero-panel {
-  background: var(--st-bg);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+/* Restore the original profile action strip: a dark translucent fill over a 15px backdrop blur. The override removes Hydra's inline fallback gradient; profiles without a banner keep a transparent fill. */
+:root .profile-hero__hero-panel {
+  background: var(--st-profile-action-bg, rgb(0 0 0 / 30%)) !important;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-color: var(--st-border);
   box-shadow: none;
+}
+:root .profile-hero__hero-panel--transparent {
+  --st-profile-action-bg: transparent;
+}
+/* Restore the original game banner glass effect, including its stuck state. */
+:root .game-details__hero-panel .hero-panel {
+  background: rgb(0 0 0 / 60%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: var(--st-border);
+  box-shadow: none;
+}
+:root .game-details__hero-panel .hero-panel--stuck {
+  background: rgb(0 0 0 / 70%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 :root .profile-hero__display-name {
   color: var(--st-text);
@@ -4046,6 +4095,134 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   color: #e18689;
 }
 /* Tooltips. */
+/* Profile rows share opaque hover feedback, separate from transparent icon controls. */
+:root
+  :is(
+    .friends-box__list-item,
+    .all-friends-modal__item,
+    .add-friend-modal__friend-item,
+    .recent-games__list-item,
+    .badges-box__item
+  ) {
+  background: transparent;
+  color: var(--st-text);
+  box-shadow: none;
+  transition:
+    background-color var(--sb-time) ease,
+    color var(--sb-time) ease;
+}
+:root .badges-box__item {
+  background: var(--st-panel);
+}
+:root
+  :is(
+    .friends-box__list-item,
+    .all-friends-modal__item,
+    .add-friend-modal__friend-item,
+    .recent-games__list-item,
+    .badges-box__item
+  ):not(:where(:disabled, [aria-disabled="true"], [data-disabled], [class*="--disabled"])):is(
+    :hover,
+    :focus-visible
+  ) {
+  background: var(--st-hover);
+  color: var(--st-text);
+  text-decoration: none;
+}
+:root
+  :is(
+    .friends-box__list-item,
+    .all-friends-modal__item,
+    .add-friend-modal__friend-item,
+    .recent-games__list-item,
+    .badges-box__item
+  ):focus-visible {
+  outline: 2px solid var(--st-focus);
+  outline-offset: -2px;
+}
+/* Statistics rows use the same graphite hover as other profile lists. Keep wrapped rows unfilled. */
+:root .user-stats__list-item {
+  transition: background-color var(--sb-time) ease;
+}
+:root .user-stats__list-item:not(.user-stats__list-item--wrapped):is(:hover, :has(:focus-visible)) {
+  background-color: var(--st-hover);
+}
+/* Achievement links in the game sidebar are interactive rows, not icon controls. Placeholder rows remain unchanged. */
+:root .content-sidebar a.list__item {
+  background: transparent;
+  box-shadow: none;
+  transition:
+    background-color var(--sb-time) ease,
+    color var(--sb-time) ease;
+}
+:root .content-sidebar a.list__item:not([aria-disabled="true"]):is(:hover, :focus-visible) {
+  background: var(--st-hover);
+  color: var(--st-text);
+  text-decoration: none;
+}
+:root .content-sidebar a.list__item:focus-visible {
+  outline: 2px solid var(--st-focus);
+  outline-offset: -2px;
+}
+/* Language tables use opaque theme surfaces instead of stacked white overlays. */
+:root .game-language-section {
+  background: var(--st-bg);
+}
+:root .game-language-section__header {
+  background: var(--st-panel);
+}
+:root .game-language-section__row {
+  border-bottom-color: var(--st-divider);
+  transition: background-color var(--sb-time) ease;
+}
+:root .game-language-section__row:hover {
+  background: var(--st-hover);
+}
+/* Review notices, counts, and metadata chips use consistent graphite fills. */
+:root .review-gate-notice {
+  background: var(--st-bg);
+  border-color: var(--st-border);
+}
+:root .review-gate-notice__title,
+:root .review-gate-notice__icon {
+  color: var(--st-text);
+}
+:root .review-gate-notice__description {
+  color: var(--st-secondary);
+}
+:root .game-details__reviews-badge {
+  background: var(--st-bg);
+  color: var(--st-text);
+}
+:root .game-details__review-score-stars,
+:root .game-details__review-playtime {
+  background: var(--st-bg);
+  border-color: var(--st-border);
+  color: var(--st-text);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+:root .game-details__review-score-stars svg,
+:root .game-details__review-playtime svg {
+  color: var(--st-secondary);
+}
+:root .game-details__reviews-separator {
+  background: var(--st-divider);
+}
+/* Shared section headers cover both the current user's profile and friend profiles. */
+:root .profile-section__header {
+  transition: background-color var(--sb-time) ease;
+}
+:root .profile-section__header:is(:hover, :has(:focus-visible)) {
+  background: var(--st-hover);
+}
+:root .profile-section__count,
+:root .filter-section__header-count,
+:root .profile-content__section-badge {
+  background: var(--st-bg);
+  color: var(--st-text);
+}
 :root .react-tooltip {
   --rt-color-dark: #292d34;
   --rt-color-white: #e2e6ec;
@@ -4162,6 +4339,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
       .notification-item__dismiss,
       .add-friend-modal__copy-icon-button,
       .add-friend-modal__friend-item,
+      .recent-games__list-item,
+      .badges-box__item,
       .all-friends-modal__item,
       .badges-box__view-all,
       .friends-box__add-friend-button,
@@ -4217,7 +4396,11 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
       .settings-download-sources__navigate-button,
       .header__search,
       .checkbox-field__icon
-    ) {
+    ),
+  :root .user-stats__list-item,
+  :root .content-sidebar a.list__item,
+  :root .game-language-section__row,
+  :root .profile-section__header {
     transition: none;
   }
 }
@@ -4247,6 +4430,21 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
+}
+/* Opaque badges on profile covers and shared store/visibility indicators. */
+:root .user-library-game__playtime,
+:root .steam-library-badge,
+:root .game-visibility-badge {
+  background: var(--st-panel);
+  color: var(--st-text);
+  border-color: var(--st-border);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+:root .recent-games__game-description .game-visibility-badge {
+  background: none;
+  color: inherit;
 }
 /* Review editor states. */
 :root .game-details__review-input-container {
