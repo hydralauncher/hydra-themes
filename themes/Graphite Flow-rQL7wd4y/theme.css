@@ -4195,7 +4195,9 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   color: var(--st-text);
 }
 :root .game-details__review-score-stars,
-:root .game-details__review-playtime {
+:root .game-details__review-playtime,
+:root .user-reviews__review-score-stars,
+:root .user-reviews__review-playtime {
   background: var(--st-bg);
   border-color: var(--st-border);
   color: var(--st-text);
@@ -4204,7 +4206,9 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
   -webkit-backdrop-filter: none;
 }
 :root .game-details__review-score-stars svg,
-:root .game-details__review-playtime svg {
+:root .game-details__review-playtime svg,
+:root .user-reviews__review-score-stars svg,
+:root .user-reviews__review-playtime svg {
   color: var(--st-secondary);
 }
 :root .game-details__reviews-separator {
@@ -4219,7 +4223,8 @@ body:has(.settings__content) .setup-modal__unmatched-reason--wrong_platform {
 }
 :root .profile-section__count,
 :root .filter-section__header-count,
-:root .profile-content__section-badge {
+:root .profile-content__section-badge,
+:root .profile-content__tab-badge {
   background: var(--st-bg);
   color: var(--st-text);
 }
