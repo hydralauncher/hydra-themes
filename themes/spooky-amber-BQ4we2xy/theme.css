@@ -12,8 +12,6 @@
   Paste into Hydra: Settings → Appearance → Theme editor → Save.
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
-
 :root {
   --ag-void: #0a0508;
   --ag-abyss: #14080c;
@@ -45,7 +43,6 @@
   --ag-raise:
     0 10px 28px rgba(8, 2, 4, 0.55),
     0 2px 6px rgba(8, 2, 4, 0.4);
-  --ag-font: "Outfit", "Segoe UI", system-ui, sans-serif;
   --ag-radius: 12px;
   --ag-radius-sm: 8px;
 }
@@ -54,7 +51,7 @@
 body,
 #root,
 .hydra-preview {
-  font-family: var(--ag-font) !important;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif !important;
   color: var(--ag-frost) !important;
   background-color: var(--ag-abyss) !important;
   background-image:
