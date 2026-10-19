@@ -742,6 +742,7 @@ textarea {
 /* reduce motion */
 @media (prefers-reduced-motion: reduce) {
   .game-card,
+  .vertical-cover-card,
   .game-item,
   .button,
   .sidebar__menu-item {
