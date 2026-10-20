@@ -479,24 +479,11 @@
   background-color: var(--steam-bg-dark) !important;
 }
 
-.achievement-select__trigger {
-  background-color: var(--steam-bg-dark) !important;
-}
-
-.achievement-select__content {
-  background-color: var(--steam-bg-dark) !important;
-}
-
-.achievement-select__item[data-state="checked"] {
+.achievement-panel {
   background-color: var(--steam-bg) !important;
 }
 
-.achievement-select__item:hover,
-.achievement-select__item[data-highlighted] {
-  background-color: var(--steam-bg) !important;
-}
-
-.achievement-select__item-count {
+.achievement-panel__progress-bar::-webkit-progress-value {
   background-color: var(--steam-accent) !important;
 }
 
@@ -563,6 +550,10 @@
     linear-gradient(90deg, rgba(45, 51, 40, 0.55) 0%, rgba(0, 0, 0, 0) 55%) !important;
 }
 
+.achievements-content__achievements-list__section__table-header {
+  background-color: var(--steam-bg) !important;
+}
+
 .achievements-content__profile-avatar {
   background-color: var(--steam-bg) !important;
 }
@@ -571,36 +562,8 @@
   background-color: var(--steam-bg-dark) !important;
 }
 
-.achievements__toolbar {
-  background-color: var(--steam-bg) !important;
-}
-
-.achievements__compare-sticky {
-  background-color: var(--steam-bg) !important;
-}
-
-.achievements__compare-global-badge {
-  background-color: var(--steam-bg-dark) !important;
-}
-
-.achievements__compare-avatar--empty {
-  background-color: var(--steam-bg) !important;
-}
-
 .achievements__list {
   background-color: var(--steam-bg) !important;
-}
-
-.achievements__item {
-  background-color: var(--steam-bg-dark) !important;
-}
-
-.achievements__item-icon--concealed {
-  background-color: var(--steam-bg) !important;
-}
-
-.achievements__item-check {
-  background-color: var(--steam-bg-dark) !important;
 }
 
 .achievements__progress-bar::-webkit-progress-value {
@@ -2006,16 +1969,53 @@
   background-color: var(--steam-bg-dark) !important;
 }
 
-.achievement-panel {
+.achievement-select__trigger {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievement-select__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievement-select__item[data-state="checked"] {
   background-color: var(--steam-bg) !important;
 }
 
-.achievement-panel__progress-bar::-webkit-progress-value {
+.achievement-select__item:hover,
+.achievement-select__item[data-highlighted] {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievement-select__item-count {
   background-color: var(--steam-accent) !important;
 }
 
-.achievements-content__achievements-list__section__table-header {
+.achievements__toolbar {
   background-color: var(--steam-bg) !important;
+}
+
+.achievements__compare-sticky {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__compare-global-badge {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievements__compare-avatar--empty {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__item {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievements__item-icon--concealed {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__item-check {
+  background-color: var(--steam-bg-dark) !important;
 }
 
 ::-webkit-scrollbar-thumb,
@@ -2086,18 +2086,12 @@ body.window-rounded #root,
 .toast,
 .vertical-cover-card,
 .vertical-cover-card__classics-image,
-.achievement-select__trigger,
-.achievement-select__content,
-.achievement-select__item,
-.achievement-select__item-count,
 .achievements-content__comparison__container,
+.achievements-content__comparison__small-avatar,
 .achievements-content__user-summary__container__stats__progress-track,
 .achievements-content__user-summary__container__stats__progress-bar,
 .achievements-content__profile-avatar,
-.achievements__compare-global-badge,
-.achievements__compare-avatar,
 .achievements__item,
-.achievements__item-icon--concealed,
 .achievements__item-image,
 .achievements__item-souvenir-image,
 .achievements__item-souvenir-overlay,
@@ -2527,7 +2521,13 @@ body.window-rounded #root,
 .cloud-gift-notification-modal__message-card code,
 .cloud-subscription-modal__frame,
 .theme-editor__notification-preview-wrapper,
-.achievements-content__comparison__small-avatar {
+.achievement-select__trigger,
+.achievement-select__content,
+.achievement-select__item,
+.achievement-select__item-count,
+.achievements__compare-global-badge,
+.achievements__compare-avatar,
+.achievements__item-icon--concealed {
   border-radius: 0 !important;
 }
 
@@ -2840,10 +2840,9 @@ body.window-rounded #root,
     background-image 0s !important;
 }
 
-.achievement-select__item {
+.achievement-panel__progress-bar {
   transition:
-    background-color 0.1s ease-in-out,
-    color 0.1s ease-in-out,
+    all ease 0.2s,
     background 0s,
     background-color 0s,
     background-image 0s !important;
@@ -2874,6 +2873,14 @@ body.window-rounded #root,
 }
 
 .achievements-content__achievements-list__section__container__hero__content__game-title {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements-content__achievements-list__section__table-header {
   transition:
     all ease 0.2s,
     background 0s,
@@ -4074,17 +4081,10 @@ body.window-rounded #root,
     background-image 0s !important;
 }
 
-.achievement-panel__progress-bar {
+.achievement-select__item {
   transition:
-    all ease 0.2s,
-    background 0s,
-    background-color 0s,
-    background-image 0s !important;
-}
-
-.achievements-content__achievements-list__section__table-header {
-  transition:
-    all ease 0.2s,
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
     background 0s,
     background-color 0s,
     background-image 0s !important;
@@ -4205,6 +4205,10 @@ body.window-rounded #root,
 }
 
 .vertical-cover-card__classics-image {
+  box-shadow: none !important;
+}
+
+.achievements-content__achievements-list__section__table-header--stuck {
   box-shadow: none !important;
 }
 
@@ -4535,10 +4539,6 @@ body.window-rounded #root,
 }
 
 .cloud-subscription-modal__frame {
-  box-shadow: none !important;
-}
-
-.achievements-content__achievements-list__section__table-header--stuck {
   box-shadow: none !important;
 }
 
@@ -5375,4 +5375,19 @@ a:hover {
   white-space: nowrap;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+.sidebar__game-list {
+  margin-right: -15px !important;
+  border-top: 1px solid var(--steam-bevel-dark) !important;
+}
+
+.sidebar__game-list-scroll::-webkit-scrollbar {
+  width: 12px !important;
+  background-color: transparent !important;
+}
+
+.sidebar__game-list-scroll::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.18) !important;
+  border-left: 1px solid var(--steam-bevel-dark) !important;
 }
