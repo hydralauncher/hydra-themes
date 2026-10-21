@@ -214,21 +214,19 @@ a:hover, .link:hover { color: var(--accent); }
   caret-color: var(--text);
 }
 .text-field-container__text-field-input::placeholder, .header__search-input::placeholder { color: var(--text-3); }
-/* Busca no meio da barra de título, como na Microsoft Store. O Hydra a coloca no
-   cabeçalho do conteúdo; ela é posicionada em relação a .container (logo abaixo
-   da barra de título) e sobe para dentro dela. */
+/* Busca de jogos no cabeçalho, à direita, onde o Hydra a coloca. (Subir para a
+   barra de título, como na Store, deixava a busca escondida atrás dela.) */
 .header__search {
-  position: absolute;
-  top: -33px;
-  left: 50%;
-  z-index: 10;
-  width: min(480px, 42vw);
-  height: 30px;
-  min-height: 30px;
-  transform: translateX(-50%);
+  position: relative;
+  width: 280px;
   color: var(--text-2);
+  transition: background .083s linear, width .167s var(--ease);
 }
-.header__search--focused { width: min(560px, 48vw); }
+.header__search--focused { width: 340px; }
+/* A lupa e o "limpar" são botões dentro do campo: sem fundo próprio no hover. */
+.header__search .header__action-button { flex: none; width: 32px; height: 30px; padding: 0; background: transparent; }
+.header__search .header__action-button:hover { background: transparent; color: var(--text); }
+.header__search .header__search-input { padding-left: 2px; }
 
 .select-field__option { background: transparent; color: var(--text); border-radius: var(--r-control); padding: 0 10px; }
 .select-field__label, .text-field-container label { color: var(--text); font-size: 14px; }
@@ -476,10 +474,7 @@ a:hover, .link:hover { color: var(--accent); }
 
 /* Conteúdo: camada sobre o Mica, com o canto superior esquerdo arredondado. ---- */
 
-/* position/overflow: base da busca que sobe para a barra de título. */
 .container {
-  position: relative;
-  overflow: visible;
   background: var(--layer);
   border-top: 1px solid var(--layer-stroke);
   border-left: 1px solid var(--layer-stroke);
