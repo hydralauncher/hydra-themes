@@ -410,6 +410,88 @@ input[type="checkbox"] { accent-color: var(--accent); }
 .toast { background: var(--bg); border: 1px solid var(--text); box-shadow: none; }
 .toast__progress { background: var(--accent); }
 
+/* Notificação de conquista ---------------------------------------------------- */
+
+/* A janela da notificação injeta o tema num shadow DOM, onde :root e body não
+   valem; por isso as variáveis são repetidas aqui. As fontes do Google também
+   não carregam dentro do shadow DOM, então lá valem as alternativas (Segoe UI, Consolas). */
+.achievement-notification {
+  --bg: #0a0a0a;
+  --line-strong: #3b3b3b;
+  --text: #eaeaea;
+  --muted: #8c8c8c;
+  --accent: #ff2a2a;
+  --ok: #3ddc84;
+  --sans: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+  font-family: var(--sans);
+}
+
+.achievement-notification__outer-container {
+  border: 1px solid var(--line-strong);
+  box-shadow: none;
+}
+/* Faixa vermelha à esquerda, como o marcador do item atual da barra lateral. */
+.achievement-notification__outer-container::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 3;
+  width: 3px;
+  background: var(--accent);
+}
+
+.achievement-notification__container,
+.achievement-notification--platinum .achievement-notification__container {
+  background: var(--bg);
+  padding: 8px 16px 8px 11px;
+}
+/* Grão e linhas de varredura só dentro do cartão, sem cobrir a janela transparente. */
+.achievement-notification__container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, .14) 2px 4px);
+}
+
+.achievement-notification__icon { border: 1px solid var(--line-strong); }
+.achievement-notification--rare .achievement-notification__icon { outline: 1px solid var(--accent); box-shadow: none; }
+.achievement-notification--platinum .achievement-notification__icon { outline: 1px solid var(--ok); box-shadow: none; }
+
+.achievement-notification__trophy-overlay { background: var(--text); }
+.achievement-notification--rare .achievement-notification__trophy-overlay { background: var(--accent); }
+.achievement-notification--platinum .achievement-notification__trophy-overlay { background: var(--ok); }
+
+.achievement-notification__title {
+  color: var(--text);
+  font: 800 14px/1.1 var(--sans);
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.achievement-notification__description { color: var(--muted); font: 400 13px/1.35 var(--sans); }
+
+.achievement-notification__chip {
+  height: 22px;
+  padding: 0 8px;
+  background: var(--text);
+  border: 1px solid var(--text);
+}
+.achievement-notification__chip__icon path { fill: #000; }
+.achievement-notification__chip__label {
+  color: #000;
+  font: 700 10px var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.achievement-notification--rare .achievement-notification__chip { background: var(--accent); border-color: var(--accent); }
+.achievement-notification--platinum .achievement-notification__chip { background: var(--ok); border-color: var(--ok); }
+.achievement-notification--rare .achievement-notification__chip__icon path,
+.achievement-notification--platinum .achievement-notification__chip__icon path { fill: #000; }
+.achievement-notification--rare .achievement-notification__chip__label,
+.achievement-notification--platinum .achievement-notification__chip__label { color: #000; }
+
 /* Prefixadas para não colidir com as animações do próprio Hydra (spin, slide-in...). */
 @keyframes ludex-blink { 50% { opacity: 0; } }
 @keyframes ludex-pop { from { opacity: 0; transform: translateY(8px); } }
