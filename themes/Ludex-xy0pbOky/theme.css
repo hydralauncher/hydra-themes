@@ -1,0 +1,415 @@
+/*
+ * Ludex para Hydra Launcher.
+ * Mantém o layout do Hydra e troca só a pele pela do Ludex ("telemetria tática"):
+ * cantos a 90°, zonas separadas por linhas de 1px, rótulos em monoespaçada
+ * maiúscula, um único acento (vermelho), sem sombras suaves nem vidro, e grão +
+ * linhas de varredura por cima de tudo.
+ *
+ * Mira as classes BEM do Hydra (src/renderer/src/**.scss). Se uma atualização do
+ * Hydra renomear alguma, só aquela peça volta ao visual padrão.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap");
+
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0a;
+  --panel: #101010;
+  --raised: #1b1b1b;
+  --line: #242424;
+  --line-strong: #3b3b3b;
+  --text: #eaeaea;
+  --muted: #8c8c8c;
+  --accent: #ff2a2a;
+  --ok: #3ddc84;
+  --sans: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Base ------------------------------------------------------------------- */
+
+*, *::before, *::after { border-radius: 0 !important; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 var(--sans);
+}
+
+/* Grão e linhas de varredura por cima de tudo. */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+body::before {
+  opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body::after { background-image: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, .1) 2px 4px); }
+
+::-webkit-scrollbar { width: 10px; background: transparent; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover { background: var(--line-strong); }
+::selection { background: var(--accent); color: #000; }
+
+svg { stroke-linecap: square; stroke-linejoin: miter; }
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+h1 { font-weight: 900; letter-spacing: -.045em; line-height: .9; }
+
+/* Rótulos, navegação e dados: monoespaçada maiúscula e espaçada. */
+.button, label, small,
+.header__title,
+.window-title-bar h4, .title-bar h4,
+.sidebar__menu-item-button, .sidebar__collection-count, .sidebar__game-badge,
+.settings__sidebar-button, .settings__sidebar-group-label,
+.bottom-panel, .bottom-panel button,
+.select-field__label, .select-field__option,
+.catalogue__result-count, .catalogue__sort-label, .catalogue__active-filters-label,
+.game-item__genres, .game-card__specifics-item,
+.library-game-card__playtime, .library-game-card__installed-badge, .library-game-card__achievement-count,
+.library-game-card-large__playtime, .library-game-card-large__installed-badge,
+.sidebar-section__button, .sidebar-section__subtitle,
+.stats__category-title, .how-long-to-beat__category-label, .protondb__category-title,
+.hero-panel__download-details,
+.pagination__page-input {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+/* Botões: borda de 1px e inversão seca no hover, como uma tecla física. */
+.button {
+  min-height: 36px;
+  padding: 0 14px;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  box-shadow: none;
+  transition: background .1s, border-color .1s, color .1s, transform .08s;
+}
+.button:hover:not(:disabled) { background: var(--text); border-color: var(--text); color: #000; }
+.button:active { opacity: 1; transform: translateY(1px); }
+.button:disabled { opacity: .4; }
+.button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.button--small { min-height: 28px; padding: 0 10px; }
+
+.button--primary { background: var(--text); border-color: var(--text); color: #000; font-weight: 700; }
+.button--primary:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #000; }
+.button--primary:disabled { background: var(--text); }
+
+.button--outline, .button--dark { background: transparent; color: var(--text); border-color: var(--line-strong); }
+.button--outline:disabled { background: transparent; }
+
+.button--danger { background: transparent; border-color: var(--accent); color: var(--accent); }
+.button--danger:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #000; }
+
+/* O botão da Hydra Cloud perde o gradiente e vira só o acento. */
+.button--cloud { background: transparent; border-color: var(--accent); color: var(--accent); box-shadow: none; filter: none; }
+.button--cloud:hover:not(:disabled) { background: var(--accent); color: #000; box-shadow: none; filter: none; }
+.title-bar__cloud-text { background: none; color: var(--accent); }
+
+/* Campos de texto e seleção */
+.text-field-container__text-field, .select-field, .header__search, .pagination__page-input {
+  background: transparent !important;
+  border: 1px solid var(--line-strong);
+  transition: border-color .12s, width .2s var(--ease);
+}
+.text-field-container__text-field:hover, .select-field:hover, .header__search:hover { border-color: var(--muted); }
+.text-field-container__text-field--focused, .select-field--focused, .header__search--focused { border-color: var(--text); }
+.text-field-container__text-field--has-error { border-color: var(--accent); }
+.text-field-container__error-label { color: var(--accent); font: 500 11px var(--mono); text-transform: uppercase; }
+.text-field-container__text-field-input, .header__search-input { color: var(--text); font: 14px var(--sans); caret-color: var(--accent); }
+.text-field-container__text-field-input::placeholder, .header__search-input::placeholder { color: var(--muted); }
+.select-field__option { background: var(--bg); color: var(--text); }
+.header__search { height: 36px; width: 260px; color: var(--muted); }
+.header__search--focused { width: 320px; color: var(--text); }
+
+input[type="checkbox"] { accent-color: var(--accent); }
+
+/* Barra de título e cabeçalho --------------------------------------------- */
+
+.title-bar, .window-title-bar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line-strong);
+}
+.title-bar h4, .window-title-bar h4 { color: var(--muted); font-weight: 700; }
+.title-bar__window-control, .window-title-bar__control { color: var(--muted); transition: background .1s, color .1s; }
+.title-bar__window-control:hover, .window-title-bar__control:hover { background: var(--text); color: #000; }
+.title-bar__window-control--close:hover, .window-title-bar__control--close:hover { background: var(--accent); color: #000; }
+.title-bar__big-picture { color: var(--muted); opacity: 1; font: 500 11px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.title-bar__big-picture:hover { background: var(--text); color: #000; }
+
+.header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line-strong);
+  padding: 10px 24px;
+  color: var(--text);
+}
+.header__title { font-size: 12px; font-weight: 700; color: var(--text); }
+/* Cursor de terminal piscando depois do título da página. */
+.header__title::after { content: "_"; color: var(--accent); animation: ludex-blink 1.1s steps(1) 4; }
+.header__action-button { color: var(--muted); }
+.header__action-button:hover { color: var(--text); }
+.header__action-button--outlined { border: 1px solid var(--line-strong); width: 36px; height: 36px; }
+.header__action-button--outlined:hover { background: var(--text); border-color: var(--text); color: #000; }
+.header__back-button { color: var(--text); }
+
+/* Barra lateral ------------------------------------------------------------ */
+
+.sidebar {
+  background: var(--bg);
+  color: var(--muted);
+  border-right: 1px solid var(--line-strong);
+}
+.sidebar__handle:hover { background: var(--accent); }
+.sidebar__section { gap: 12px; }
+.sidebar__menu { gap: 0; border-block: 1px solid var(--line); }
+
+.sidebar__menu-item {
+  position: relative;
+  color: var(--muted);
+  transition: background .1s, color .1s;
+}
+.sidebar__menu-item + .sidebar__menu-item { border-top: 1px solid var(--line); }
+/* Marcador vermelho do item atual. */
+.sidebar__menu-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform .16s var(--ease);
+}
+.sidebar__menu-item:hover { background: var(--panel); color: var(--text); }
+.sidebar__menu-item--active { background: var(--raised); color: var(--text); }
+.sidebar__menu-item--active::before { transform: scaleY(1); }
+.sidebar__menu-item-button { padding: 10px 12px 10px 14px; }
+
+/* Na lista de jogos, nome em sans; só os menus ficam em mono. */
+.sidebar__section--games .sidebar__menu-item-button {
+  font: 500 13px var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.sidebar__game-icon { border-radius: 0; }
+.sidebar__collection-count, .sidebar__online-count {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line-strong);
+  font-variant-numeric: tabular-nums;
+}
+.sidebar__online-count--online { background: var(--ok); border-color: var(--ok); color: #000; }
+.sidebar__game-badge { background: transparent; color: var(--ok); border: 1px solid var(--ok); box-shadow: none; font-size: 10px; }
+.sidebar__menu-item--decky, .sidebar__menu-item--decky:hover { background: transparent; }
+.sidebar__add-button, .sidebar__play-button { color: var(--muted); }
+.sidebar__add-button:hover, .sidebar__play-button:hover, .sidebar__play-button--active { color: var(--accent); }
+.sidebar__game-list--scrolled { box-shadow: inset 0 1px 0 var(--line-strong); }
+
+.sidebar-profile { border-bottom: 1px solid var(--line-strong); }
+.sidebar-profile__button:hover { background: var(--panel); }
+.sidebar-profile__button-title { font: 700 13px var(--sans); text-transform: uppercase; letter-spacing: -.01em; }
+.sidebar-profile__avatar { border: 1px solid var(--line-strong); }
+.sidebar-profile__dropdown { background: var(--bg); border: 1px solid var(--text); box-shadow: none; }
+.sidebar-profile__dropdown-item:hover { background: var(--text); color: #000; }
+.sidebar-profile__unread-dot { background: var(--accent); }
+
+/* Conteúdo ------------------------------------------------------------------- */
+
+.container__content { background: var(--bg); }
+
+.bottom-panel {
+  background: var(--bg);
+  border-top: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+.bottom-panel__downloads-button, .bottom-panel__version-button, .bottom-panel__help-button { color: var(--muted); }
+.bottom-panel__downloads-button:hover, .bottom-panel__version-button:hover, .bottom-panel__help-button:hover {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+.bottom-panel__help-icon { fill: var(--accent); }
+
+/* Destaque da home: sem sombra, borda de 1px e degradê seco. */
+.hero { border: 1px solid var(--line-strong); box-shadow: none; }
+.hero:hover { border-color: var(--text); }
+.hero__backdrop { background: linear-gradient(0deg, rgba(10, 10, 10, .92) 20%, transparent 75%); }
+.hero__description { color: var(--muted); }
+
+.home__title { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.home__card-skeleton { box-shadow: none; }
+.home__cards { gap: 26px 18px; }
+
+/* Cards com cantoneiras que aparecem no hover, como no Ludex. */
+.game-card, .library-game-card, .library-game-card-large, .vertical-cover-card {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  box-shadow: none;
+  transition: border-color .12s;
+}
+.game-card:hover, .library-game-card:hover, .library-game-card-large:hover, .vertical-cover-card:hover { border-color: var(--text); }
+.game-card::before, .game-card::after,
+.library-game-card::before, .library-game-card::after,
+.library-game-card-large::before, .library-game-card-large::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s, transform .18s var(--ease);
+}
+.game-card::before, .library-game-card::before, .library-game-card-large::before {
+  top: 8px; left: 8px; border-right: 0; border-bottom: 0; transform: translate(-8px, -8px);
+}
+.game-card::after, .library-game-card::after, .library-game-card-large::after {
+  right: 8px; bottom: 8px; border-left: 0; border-top: 0; transform: translate(8px, 8px);
+}
+.game-card:hover::before, .game-card:hover::after,
+.library-game-card:hover::before, .library-game-card:hover::after,
+.library-game-card-large:hover::before, .library-game-card-large:hover::after { opacity: 1; transform: none; }
+
+.game-card__backdrop { background: linear-gradient(0deg, rgba(10, 10, 10, .9) 40%, transparent 100%); }
+.game-card__title { font: 800 16px/1.05 var(--sans); letter-spacing: -.02em; text-transform: uppercase; }
+.game-card__specifics-item { color: var(--muted); }
+.game-card__no-download-label { color: var(--accent); }
+
+.library-game-card__overlay, .library-game-card-large__gradient { background: linear-gradient(0deg, rgba(10, 10, 10, .9) 0%, transparent 60%); }
+.library-game-card-large__title { font: 900 22px/.95 var(--sans); letter-spacing: -.035em; text-transform: uppercase; }
+.library-game-card__playtime, .library-game-card__installed-badge, .library-game-card__platform-badge,
+.library-game-card-large__playtime, .library-game-card-large__installed-badge, .library-game-card-large__platform-badge,
+.library-game-card-large__size-bar {
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.library-game-card__installed-badge, .library-game-card-large__installed-badge { border-color: var(--ok); color: var(--ok); }
+.library-game-card__achievements, .library-game-card-large__achievements { background: var(--bg); border: 1px solid var(--line-strong); backdrop-filter: none; }
+.library-game-card__achievement-bar, .library-game-card-large__achievement-bar { background: var(--line-strong); }
+.library-game-card__achievement-progress, .library-game-card-large__achievement-progress { background: var(--accent); }
+.library-game-card__action-button { background: var(--text); color: #000; border: 1px solid var(--text); }
+.library-game-card__action-button:hover { background: var(--accent); border-color: var(--accent); }
+.library-game-card__cover-placeholder, .vertical-cover-card__placeholder { background: var(--panel); color: var(--muted); }
+
+/* Catálogo */
+.catalogue__result-count, .catalogue__sort-label, .catalogue__active-filters-label { color: var(--muted); }
+.catalogue__filters-container { background: var(--bg); border-left: 1px solid var(--line-strong); }
+
+.game-item {
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  transition: border-color .12s;
+}
+.game-item:hover { border-color: var(--text); }
+.game-item:hover .game-item__content-link { background: var(--panel); }
+.game-item__cover-wrapper { border-right: 1px solid var(--line-strong); }
+.game-item__cover-placeholder { background: var(--panel); }
+.game-item__details > span:first-child, .game-item__details > p:first-child { font-weight: 600; }
+.game-item__genres { color: var(--muted); }
+.game-item__compatibility-badge { box-shadow: none; border: 0; font: 700 10px var(--mono); text-transform: uppercase; }
+.game-item__content-link:focus-visible { outline-color: var(--accent); }
+
+.pagination { gap: 0; }
+.pagination .button + .button { margin-left: -1px; }
+
+/* Página do jogo */
+.hero-panel {
+  background: var(--bg);
+  border-block: 1px solid var(--line-strong);
+  backdrop-filter: none;
+}
+.hero-panel__progress-bar { background: var(--line-strong); }
+.hero-panel__progress-bar::-webkit-progress-bar { background: var(--line-strong); }
+.hero-panel__progress-bar::-webkit-progress-value { background: var(--accent); }
+.hero-panel__downloads-link { color: var(--text); text-decoration-color: var(--accent); }
+
+.game-details__description-container { background: var(--bg); }
+.game-details__description-title { font: 500 11px var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.game-details__description { color: var(--text); }
+.game-details__description a { color: var(--text); text-decoration-color: var(--accent); }
+
+.content-sidebar { background: var(--bg); border-left: 1px solid var(--line-strong); }
+.sidebar-section { border-bottom: 1px solid var(--line-strong); }
+.sidebar-section__button { color: var(--text); }
+.sidebar-section__button:hover { background: var(--panel); }
+.sidebar-section__subtitle, .stats__category-title, .how-long-to-beat__category-label, .protondb__category-title { color: var(--muted); }
+.how-long-to-beat__category, .requirement__button, .protondb__section {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+}
+.how-long-to-beat__category { font-variant-numeric: tabular-nums; }
+.requirement__button { color: var(--muted); }
+.list__item:hover { background: var(--panel); }
+
+/* Modais e configurações ------------------------------------------------------- */
+
+.backdrop { background: rgba(0, 0, 0, .82); backdrop-filter: none; }
+.modal {
+  background: var(--bg);
+  border: 1px solid var(--text);
+  color: var(--text);
+  box-shadow: none;
+  animation: ludex-pop .18s var(--ease);
+  scale: 1;
+}
+.modal--closing { animation: none; }
+.modal__header { padding: 20px 24px 14px; border-bottom: 1px solid var(--line-strong); }
+.modal__header h3 { font-size: 22px; line-height: 1.05; }
+.modal__content { padding: 24px; }
+.modal__close-button-icon { color: var(--muted); }
+.modal__close-button:hover .modal__close-button-icon { color: var(--accent); }
+
+.settings__container { padding: 24px; }
+.settings__content {
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  box-shadow: none;
+}
+.settings__sidebar { background: var(--bg); border-right: 1px solid var(--line-strong); padding: 16px 0; gap: 0; }
+.settings__sidebar-group { gap: 0; }
+.settings__sidebar-group-label { color: var(--muted); padding: 10px 20px 8px; }
+.settings__sidebar-divider { background: var(--line); margin: 8px 0; }
+.settings__sidebar-button {
+  position: relative;
+  padding: 10px 20px;
+  color: var(--muted);
+}
+.settings__sidebar-button::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform .16s var(--ease);
+}
+.settings__sidebar-button:hover { background: var(--panel); color: var(--text); }
+.settings__sidebar-button--active { background: var(--raised); color: var(--text); }
+.settings__sidebar-button--active::before { transform: scaleY(1); }
+.settings__panel { padding: 24px; }
+.settings-context-panel__divider { border-top-color: var(--line-strong); }
+
+/* Toasts do Hydra */
+.toast { background: var(--bg); border: 1px solid var(--text); box-shadow: none; }
+.toast__progress { background: var(--accent); }
+
+/* Prefixadas para não colidir com as animações do próprio Hydra (spin, slide-in...). */
+@keyframes ludex-blink { 50% { opacity: 0; } }
+@keyframes ludex-pop { from { opacity: 0; transform: translateY(8px); } }
