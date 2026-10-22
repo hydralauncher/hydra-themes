@@ -6436,3 +6436,10 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .modal.modal--closing { animation: mica-dialog-out .167s linear forwards !important; }
 .backdrop.backdrop--closing { background-color: transparent !important; -webkit-backdrop-filter: blur(0) !important; backdrop-filter: blur(0) !important; }
 .backdrop { transition: background-color .167s linear, backdrop-filter .167s linear, -webkit-backdrop-filter .167s linear; }
+/* Abrir sem piscar: o app escurecia o fundo de 50% a 70% e, ao terminar,
+   o tema voltava a 35%. Agora a entrada vai do transparente direto ao tom do tema. */
+.backdrop:not(.backdrop--closing) { animation: mica-backdrop-in .25s var(--ease-out) both !important; }
+@keyframes mica-backdrop-in {
+  from { background-color: transparent; -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
+  to { background-color: rgba(0, 0, 0, .35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+}
