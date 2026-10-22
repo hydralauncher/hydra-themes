@@ -1,0 +1,194 @@
+/* ================================================================
+   Mist Breathing — Tokito Muichiro
+   Hydra Launcher Theme · Demon Slayer Inspired
+   Version 1.0 · October 2026
+   ================================================================
+   Background: Muichiro Tokito in combat
+   Palette: Icy blue, mist cyan, deep dark
+   Design: Clean, transparent UI, soft glow effects
+   ================================================================ */
+
+/* ===================== COLOR VARIABLES — EDIT HERE ===================== */
+:root {
+    /* Base */
+    --bg-deep: #050508;
+    --overlay: rgba(5, 12, 25, 0.7);
+    --sidebar-bg: rgba(8, 16, 35, 0.9);
+
+    /* Text */
+    --text-primary: #e6f0ff;
+    --text-secondary: #9cb0d1;
+
+    /* Accent — Mist Breathing Blue */
+    --accent: #5ac8fa;
+    --accent-bright: #7de2ff;
+    --glow: rgba(90, 200, 250, 0.45);
+
+    /* UI Elements */
+    --border-soft: rgba(90, 180, 255, 0.35);
+    --border-bright: rgba(90, 180, 255, 0.7);
+    --btn-normal: rgba(12, 28, 55, 0.75);
+    --btn-hover: rgba(20, 45, 85, 0.9);
+    --card-bg: rgba(10, 22, 45, 0.7);
+    --card-active: rgba(18, 40, 80, 0.85);
+
+    /* Transitions */
+    --ease: all 0.25s ease-out;
+}
+
+/* ===================== BACKGROUND ===================== */
+#root {
+    background: var(--bg-deep) !important;
+    background-image:
+        linear-gradient(135deg, var(--overlay) 0%, rgba(10, 25, 50, 0.5) 50%, var(--overlay) 100%),
+        url('https://i.ibb.co/0jTYnn8V/Wallpaper-Demon-Slayer-Tokito.png') !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+body {
+    color: var(--text-primary) !important;
+}
+
+/* Make panels transparent so background shows through */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: transparent !important;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+    background-color: var(--sidebar-bg) !important;
+    border-right: 1px solid var(--border-soft) !important;
+    box-shadow: inset -2px 0 8px rgba(50, 130, 200, 0.12) !important;
+}
+
+/* ===================== TEXT STYLES ===================== */
+.label,
+.title,
+.game-name {
+    color: var(--text-primary) !important;
+    text-shadow: 0 0 6px rgba(90, 200, 250, 0.35);
+}
+
+.sub-label,
+.info-text {
+    color: var(--text-secondary) !important;
+}
+
+.section-title,
+.header {
+    color: var(--accent) !important;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-shadow:
+        0 0 8px var(--accent),
+        0 0 16px rgba(90, 200, 250, 0.35);
+}
+
+/* ===================== BUTTONS ===================== */
+.button {
+    background-color: var(--btn-normal) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 8px !important;
+    padding: 9px 14px !important;
+    transition: var(--ease) !important;
+}
+
+.button:hover {
+    background-color: var(--btn-hover) !important;
+    border-color: var(--border-bright) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.button:active {
+    background-color: rgba(30, 60, 110, 0.9) !important;
+    box-shadow: 0 0 15px var(--accent-bright), inset 0 0 10px rgba(125, 226, 255, 0.25);
+}
+
+/* ===================== GAME CARDS ===================== */
+.game-item,
+.game-card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 10px !important;
+    transition: var(--ease) !important;
+    backdrop-filter: blur(4px);
+}
+
+.game-item:hover,
+.game-card:hover {
+    border-color: var(--border-bright) !important;
+    background-color: rgba(20, 45, 85, 0.75) !important;
+    box-shadow: 0 0 12px rgba(90, 200, 250, 0.25);
+}
+
+.game-item:selected,
+.game-card:selected {
+    border-color: var(--accent) !important;
+    background-color: var(--card-active) !important;
+    box-shadow:
+        0 0 20px rgba(90, 200, 250, 0.45),
+        inset 0 0 15px rgba(125, 226, 255, 0.15);
+}
+
+/* ===================== INPUTS & BOXES ===================== */
+.text-field-container__text-field,
+.input,
+.text-box {
+    background-color: rgba(10, 20, 40, 0.75) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 8px !important;
+    transition: var(--ease) !important;
+}
+
+.text-field-container__text-field:focus,
+.input:focus,
+.text-box:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 10px rgba(90, 200, 250, 0.4);
+    outline: none !important;
+}
+
+.settings__content,
+.friends-box__box,
+.recent-games__box,
+.tooltip,
+.menu {
+    background-color: rgba(10, 20, 40, 0.85) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 8px !important;
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(8, 15, 30, 0.6) !important;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(40, 80, 130, 0.8) !important;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(60, 110, 170, 0.9) !important;
+}
+
+/* ===================== SELECTION HIGHLIGHT ===================== */
+::selection {
+    background-color: rgba(90, 200, 250, 0.8);
+    color: #ffffff;
+}
