@@ -6443,3 +6443,8 @@ html body .profile-hero__hero-panel { left: 16px !important; }
   from { background-color: transparent; -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
   to { background-color: rgba(0, 0, 0, .35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 }
+/* Fontes: nome e URL mais juntos e centrados na linha; ponto alinhado ao centro do nome */
+.settings-download-sources__item { align-content: center; padding: 12px 16px !important; }
+.settings-download-sources__item .text-field-container__text-field-wrapper { margin-top: 2px; height: 16px; display: flex !important; align-items: center; }
+.settings-download-sources__item .text-field-container__text-field { height: 16px !important; }
+.settings-download-sources__item-header > h2::before { margin-top: 0; transform: translateY(1px); }
