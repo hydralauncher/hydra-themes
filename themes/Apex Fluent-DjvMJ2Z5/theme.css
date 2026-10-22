@@ -6269,3 +6269,12 @@ html body .home__header:not(#_) > .button { position: relative; height: 38px !im
 html body .home__header:not(#_) > .button::before { content: ""; position: absolute; left: -9px; top: 9px; bottom: 9px; width: 1px; background: rgba(255,255,255,.12); }
 html body .home__header:not(#_) > .button:hover { background: rgba(255,255,255,.07) !important; }
 html body .home__header:not(#_) > .button .home__icon-wrapper::before { background: var(--accent-bright) !important; }
+
+/* Cartões do Início, mais limpos: sem a lista de fontes, só o nome do jogo
+   (16px, com o ícone da loja) sobre um degradê curto; os números aparecem
+   em selos de vidro no canto de cima ao passar o mouse. */
+html body .game-card .game-card__download-options { display: none !important; }
+html body .game-card .game-card__content { padding: 48px 18px 16px !important; background: linear-gradient(0deg, rgba(0,0,0,.78), rgba(0,0,0,.3) 55%, transparent) !important; }
+html body .game-card .game-card__title-container { gap: 10px !important; align-items: center; }
+html body .game-card .game-card__title { font: 600 16px/22px var(--font-display) !important; color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html body .game-card .game-card__title-container > :not(.game-card__title) { width: 20px; height: 20px; flex: none; opacity: .9; }
