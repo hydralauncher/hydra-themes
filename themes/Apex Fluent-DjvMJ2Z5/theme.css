@@ -6173,3 +6173,16 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .user-stats__list .user-stats__list-item .user-stats__list-title { position: static !important; margin-top: 0 !important; max-height: 0; transition: opacity .15s var(--ease-out), max-height .2s var(--ease-out), transform .15s var(--ease-out) !important; }
 .user-stats__list .user-stats__list-item:hover .user-stats__list-title { max-height: 16px; }
 .user-stats__list .user-stats__list-description svg { position: absolute !important; top: 14px; left: 14px; margin: 0 !important; }
+/* Capas do perfil: hover igual às da Biblioteca (sobe 4px, sombra, borda),
+   sem a ampliação do app que cortava o topo. */
+.profile-content__games-grid { padding-top: 6px !important; margin-top: -6px !important; overflow: visible !important; }
+.user-library-game__wrapper, .user-library-game__container {
+  border-radius: var(--r-surface) !important; transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s ease !important;
+}
+.user-library-game__wrapper:hover, .user-library-game__container:hover {
+  transform: translateY(-4px) !important; box-shadow: 0 14px 28px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .06) !important;
+}
+@media (prefers-reduced-motion: reduce) { html body :is(.user-library-game__wrapper, .user-library-game__container):hover { transform: none !important; } }
+.profile-content__games-grid .user-library-game__wrapper { overflow: visible !important; }
+.profile-content__games-grid .user-library-game__wrapper .vertical-cover-card,
+.profile-content__games-grid .user-library-game__wrapper .vertical-cover-card:hover { transform: none !important; box-shadow: none !important; overflow: hidden !important; border-radius: var(--r-surface) !important; }
