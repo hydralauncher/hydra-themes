@@ -6309,3 +6309,5 @@ html body .game-card .game-card__specifics { top: 14px !important; bottom: auto 
 html body .game-card .game-card__specifics-item { transform: translateY(-6px) scale(.96); }
 html body .game-card:hover .game-card__specifics-item { transform: none; }
 html body .game-card:hover .game-card__title { max-width: none !important; }
+/* A entrada dos cartões não segura mais o transform depois que termina (senão o hover pulava em vez de deslizar) */
+html body .home__cards > .game-card { animation-fill-mode: backwards !important; }
