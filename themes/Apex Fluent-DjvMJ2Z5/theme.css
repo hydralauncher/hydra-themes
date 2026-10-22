@@ -6371,7 +6371,7 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 /* Fase "só o ícone": a caixa fechada tem a largura do ícone + 12px de cada
    lado (o app usa 80px, pensado para 8px), então fica centralizada; o texto
    começa depois dessa largura e não aparece pela fresta antes de abrir. */
-.achievement-notification__outer-container { animation-name: mica-ach-in, mica-ach-wait, mica-ach-expand !important; }
+.achievement-notification:not(.achievement-notification--closing) .achievement-notification__outer-container { animation-name: mica-ach-in, mica-ach-wait, mica-ach-expand !important; }
 @keyframes mica-ach-in { 0% { width: 90px; opacity: 0; transform: scale(0); } 100% { width: 90px; opacity: 1; transform: scale(1); } }
 @keyframes mica-ach-wait { 0%, 100% { width: 90px; } }
 @keyframes mica-ach-expand { 0% { width: 90px; } 100% { width: 320px; } }
@@ -6401,4 +6401,31 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 @keyframes mica-ach-dark { 0% { opacity: 0; } 15%, 70% { opacity: .78; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
   .achievement-notification__trophy-overlay, .achievement-notification__dark-overlay { animation: none !important; opacity: 0 !important; }
+}
+/* Troféu: cor sólida (sem a faixa em degradê que o deixava apagado), máscara
+   centralizada e o brilho feito com filtro de luminosidade. */
+.achievement-notification__trophy-overlay {
+  background: var(--t) !important; filter: none;
+  -webkit-mask-position: center !important; mask-position: center !important; transform-origin: 50% 50% !important;
+  animation-name: mica-trophy2 !important;
+}
+@keyframes mica-trophy2 {
+  0%   { opacity: 0; transform: scale(.3) rotate(-24deg); filter: brightness(1); }
+  22%  { opacity: 1; transform: scale(1.14) rotate(8deg); }
+  36%  { transform: scale(.94) rotate(-4deg); }
+  48%  { transform: scale(1.02) rotate(1deg); filter: brightness(1); }
+  60%  { transform: scale(1) rotate(0); filter: brightness(1.8) drop-shadow(0 0 8px var(--t)); }
+  74%  { opacity: 1; transform: scale(1); filter: brightness(1.1) drop-shadow(0 0 4px var(--t)); }
+  100% { opacity: 0; transform: scale(1.6); filter: blur(2px); }
+}
+/* Abertura numa animação só (1350ms, mesmo total do app): sem intervalos entre
+   fases em que a caixa voltava por um instante à largura cheia. */
+.achievement-notification:not(.achievement-notification--closing) .achievement-notification__outer-container {
+  animation: mica-ach-open 1350ms both !important;
+}
+@keyframes mica-ach-open {
+  0%   { width: 90px; opacity: 0; transform: scale(.4); animation-timing-function: cubic-bezier(.2, .9, .3, 1); }
+  33%  { width: 90px; opacity: 1; transform: scale(1); animation-timing-function: linear; }
+  66%  { width: 90px; opacity: 1; transform: scale(1); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  100% { width: 320px; opacity: 1; transform: scale(1); }
 }
