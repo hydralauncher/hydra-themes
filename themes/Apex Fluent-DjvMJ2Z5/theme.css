@@ -2315,11 +2315,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 }
 
 .similar-games__card img { border: 1px solid var(--card-stroke); aspect-ratio: 2 / 3; height: auto !important; }
-.similar-games__card::before {
-  content: attr(aria-label); display: block; order: 2; margin-top: 8px; padding: 0 2px;
-  font: 600 13px/18px var(--font); color: var(--text); text-align: left;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
+.similar-games__card::before { order: 2; margin-top: 8px; padding: 0 2px; font: 600 13px/18px var(--font); color: var(--text); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .similar-games__card {
   border: 0;
   background: none;
@@ -2329,9 +2325,9 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
   aspect-ratio: auto !important;
 }
 .similar-games__card:hover { transform: none !important; box-shadow: none !important; }
-.similar-games__card:hover img { transform: translateY(-4px); border-color: rgba(255, 255, 255, .22); filter: saturate(1.15) brightness(1.06); }
+.similar-games__card:hover img { border-color: rgba(255, 255, 255, .22); filter: saturate(1.15) brightness(1.06); }
 .similar-games__card img { transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s, filter .4s; }
-.similar-games__card::after { display: none; }
+
 
 .similar-games__control {
   padding: 0;
@@ -4278,7 +4274,7 @@ select option:checked::before { display: none; }
 .home__buttons-list .button { height: 30px; min-height: 30px; padding: 0 12px; gap: 8px; border-radius: var(--ctl-r); background: transparent;
   border: 1px solid transparent; color: var(--text-2); font: 400 14px/20px var(--font); box-shadow: none; }
 .home__buttons-list .button:hover { background: rgba(255,255,255,.042) !important; color: var(--text) !important; }
-.home__buttons-list .button--primary, .home__buttons-list .button--primary:hover { background: var(--ctl-bg-hover) !important; border-color: rgba(255,255,255,.07) !important; color: var(--text) !important; font-weight: 600 !important; }
+
 .home__buttons-list .button--primary svg, .home__buttons-list .button--primary img { color: var(--accent-bright); }
 
 .home__title-icon { display: none; }
@@ -4924,22 +4920,19 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .settings-retroachievements__emulator-note .guide-link svg { display: inline; vertical-align: -2px; margin-left: 4px; }
 @container settings (max-width: 980px) {
   .settings-context-panel__group:has(> .settings-integration-card) { grid-template-columns: 1fr !important; gap: 8px !important; }
-  .settings-context-panel__group > .settings-integration-card {
-    display: grid !important; grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 16px; row-gap: 4px;
-    align-items: center; padding: 16px 20px !important;
-  }
+  .settings-context-panel__group > .settings-integration-card { display: grid !important; }
   .settings-integration-card__heading { display: contents !important; }
-  .settings-integration-card__logo { grid-column: 1; grid-row: 1 / span 2; align-self: start; }
-  .settings-integration-card__title { grid-column: 2; grid-row: 1; margin: 0 !important; display: flex; align-items: center; gap: 10px; }
-  .settings-integration-card__status { grid-column: 2; grid-row: 1; justify-self: end; }
-  .settings-integration-card__content { grid-column: 2; grid-row: 2; margin: 0 !important; }
-  .settings-integration-card__actions { grid-column: 3; grid-row: 1 / span 2; margin: 0 !important; width: auto; }
+  
+  .settings-integration-card__title { display: flex; align-items: center; gap: 10px; }
+  
+  
+  .settings-integration-card__actions { width: auto; }
   .settings-integration-card__actions .button { flex: none; }
 }
 @container settings (max-width: 560px) {
-  .settings-context-panel__group > .settings-integration-card { grid-template-columns: 40px minmax(0, 1fr); }
-  .settings-integration-card__actions { grid-column: 1 / -1; grid-row: 3; margin-top: 12px !important; width: 100%; }
-  .settings-integration-card__actions .button { flex: 1; }
+  
+  .settings-integration-card__actions { margin-top: 12px !important; }
+  
 }
 
 /* Foco dos campos no ritmo do Windows 11: a linha verde aparece na hora do
@@ -5506,7 +5499,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   background: rgba(255, 255, 255, .1) !important; color: var(--text-2) !important; text-align: center; box-sizing: border-box;
 }
 .profile-content__tab--active .profile-content__tab-badge { background: color-mix(in srgb, var(--accent-bright) 16%, transparent) !important; color: var(--accent-bright) !important; }
-.profile-content__library-filters { gap: 8px !important; margin-bottom: 24px !important; }
+.profile-content__library-filters { margin-bottom: 24px !important; }
 .profile-content__section-header { margin: 0 0 12px 2px !important; }
 .profile-content__section-header :is(h2, h3) { font: 600 20px/28px var(--font-display) !important; }
 .profile-content__games-grid { gap: 12px !important; }
@@ -5517,7 +5510,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .profile-section__count { height: 20px !important; min-width: 20px; padding: 0 6px !important; border-radius: 999px !important; font: 600 11px/20px var(--font) !important; background: rgba(255, 255, 255, .1) !important; color: var(--text-2) !important; }
 
 .user-stats__box, .badges-box__box { padding: 0 !important; background: none !important; border: 0 !important; }
-.user-stats__list { gap: 0 !important; }
+
 
 
 
@@ -5540,14 +5533,14 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 .profile-section__button { min-height: 48px !important; height: 48px; font: 600 14px/20px var(--font) !important; gap: 8px; }
 .profile-section__content { border-top: 0 !important; }
-.user-stats__list { padding: 0 16px 8px !important; }
-.user-stats__list-item { display: flex !important; align-items: center; gap: 12px; padding: 8px 0 !important; min-height: 36px !important; box-sizing: border-box; }
-.user-stats__list-item + .user-stats__list-item { border-top: 1px solid rgba(255, 255, 255, .06) !important; }
-.user-stats__list-title { flex: 1; margin: 0 !important; font: 400 13px/20px var(--font) !important; color: var(--text-2) !important; }
-.user-stats__stats-row { display: flex !important; align-items: center; gap: 8px; margin: 0 !important; }
-.user-stats__list-description { display: inline-flex !important; align-items: center; gap: 6px; margin: 0 !important; font: 600 13px/20px var(--font) !important; color: var(--text) !important; font-variant-numeric: tabular-nums; }
-.user-stats__list-description svg { width: 14px; height: 14px; color: var(--text-2); }
-.user-stats__stats-row > :not(.user-stats__list-description) { font: 600 11px/18px var(--font) !important; height: 18px; padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 14%, transparent); color: var(--accent-bright) !important; margin: 0 !important; }
+
+.user-stats__list-item { box-sizing: border-box; }
+
+.user-stats__list-title { margin: 0 !important; }
+.user-stats__stats-row { margin: 0 !important; }
+.user-stats__list-description { margin: 0 !important; font-variant-numeric: tabular-nums; }
+
+.user-stats__stats-row > :not(.user-stats__list-description) { border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 14%, transparent); color: var(--accent-bright) !important; margin: 0 !important; }
 /* Insígnias como a lista de conquistas do jogo */
 .badges-box__list { padding: 0 8px 8px !important; gap: 0 !important; display: flex !important; flex-direction: column; }
 .badges-box__item { position: relative; display: flex !important; align-items: center; gap: 12px !important; min-height: 56px; padding: 8px !important; border-radius: 8px !important; }
@@ -5559,7 +5552,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .badges-box__item-content { min-width: 0; display: flex; flex-direction: column; gap: 0; }
 .badges-box__item-title { margin: 0 !important; font: 400 14px/20px var(--font) !important; color: var(--text) !important; }
 .badges-box__item-description { margin: 0 !important; font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; }
-.user-stats__list-item { flex-direction: row !important; text-align: left !important; justify-content: flex-start !important; }
+.user-stats__list-item { text-align: left !important; }
 .profile-content__right-content :is(.profile-section__header, .profile-section__content, .user-stats__box, .badges-box__box, .user-stats__list, .badges-box__list) { background: transparent !important; }
 .profile-section__button { width: 100% !important; }
 .profile-section__button > :not(svg) { margin-right: auto; }
@@ -5647,7 +5640,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 /* Perfil — mesmas medidas da página do jogo: hero de 600px, margens de 24px,
    linha de ações 42px acima da base, botões de 36px; conteúdo 24px abaixo do
    hero, coluna lateral de 340px com 24px de vão. */
-.profile-hero__content-box { height: 600px !important; }
+
 .profile-hero__user-information { left: 24px !important; right: 24px !important; }
 .profile-hero__hero-panel { left: 24px !important; height: 36px !important; }
 .profile-hero__actions { height: 36px !important; align-items: center !important; }
@@ -5697,12 +5690,8 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
    - botões: o primário verde (como "Baixar") e os de vidro (fundo .08,
      desfoque 20px, borda .08 com a de baixo .04, raio 8, 36px, transição .083s);
    - conteúdo começa colado na base do hero com 24px de respiro (como no jogo). */
-.profile-hero__background-image {
-  -webkit-mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important;
-          mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important;
-  object-position: 50% 50%; border-radius: 0 !important;
-}
-.profile-hero__background-overlay { background: none !important; }
+.profile-hero__background-image { -webkit-mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important; mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important; border-radius: 0 !important; }
+
 :is(.profile-hero__actions, .upload-background-image-button__wrapper) .button {
   height: 36px !important; min-height: 36px !important; padding: 0 14px !important; gap: 8px !important; border-radius: 8px !important;
   font: 400 14px/20px var(--font) !important; color: #fff !important; box-shadow: none !important;
@@ -5790,9 +5779,9 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 /* Perfil: banner na proporção dos banners do Hydra (~3:1) em vez de 600px
    fixos — menos corte e menos ampliação em imagens pequenas. */
-.profile-hero__content-box { height: auto !important; aspect-ratio: 3 / 1; min-height: 400px; max-height: 560px; }
-.profile-hero__background-image { object-position: 50% 30% !important; }
-.profile-hero__content-box { aspect-ratio: 4 / 1 !important; min-height: 380px !important; max-height: 520px !important; }
+
+
+
 .profile-hero__background-image { object-position: 50% 50% !important; }
 /* altura fixada pela largura (4:1), sem esticar */
 .profile-hero__content-box { aspect-ratio: auto !important; max-height: none !important; min-height: 0 !important; height: clamp(360px, calc((100vw - 72px) / 4 + 80px), 460px) !important; }
@@ -5861,10 +5850,10 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .profile__wrapper .profile-hero__background-image { -webkit-mask-image: linear-gradient(#000 0%, #000 30%, rgba(0,0,0,.7) 55%, rgba(0,0,0,.3) 78%, rgba(0,0,0,.08) 92%, transparent 100%) !important; mask-image: linear-gradient(#000 0%, #000 30%, rgba(0,0,0,.7) 55%, rgba(0,0,0,.3) 78%, rgba(0,0,0,.08) 92%, transparent 100%) !important; }
 .profile-hero__hero-panel, .profile-hero__background-overlay { background: none !important; }
 /* Estatísticas do perfil: mais respiro entre linhas e entre ícone, valor e selo */
-.user-stats__list-item { min-height: 44px !important; padding: 10px 0 !important; gap: 16px !important; }
-.user-stats__stats-row { gap: 10px !important; }
-.user-stats__list-description { gap: 8px !important; }
-.user-stats__list { padding: 0 16px 6px !important; }
+
+
+
+
 /* Similares: o hover volta a ser só a capa subindo com brilho (sem aumentar
    o tamanho e sem o fundo de cartão atrás); nomes abaixo das capas removidos. */
 .similar-games__card:hover { background: transparent !important; border-color: transparent !important; }
@@ -5906,21 +5895,16 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   transition: filter .4s ease !important;
 }
 .similar-games .similar-games__card:hover img { filter: saturate(1.15) brightness(1.06) !important; }
-.similar-games .similar-games__card::after {
-  display: block !important; content: "" !important; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; transform: none !important;
-  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .55) 48%, rgba(255, 255, 255, .15) 54%, transparent 65%) !important;
-  background-size: 260% 100% !important; background-position: 130% 0; mix-blend-mode: overlay; opacity: 0;
-  transition: opacity .2s linear, background-position 0s linear .2s !important;
-}
-.similar-games .similar-games__card:hover::after { background-position: -30% 0 !important; opacity: 1 !important; transition: background-position .9s var(--ease), opacity .3s var(--ease) !important; }
+.similar-games .similar-games__card::after { display: block !important; content: "" !important; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; transform: none !important; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .55) 48%, rgba(255, 255, 255, .15) 54%, transparent 65%) !important; background-size: 260% 100% !important; mix-blend-mode: overlay; opacity: 0; transition: opacity .2s linear, background-position 0s linear .2s !important; }
+.similar-games .similar-games__card:hover::after { opacity: 1 !important; transition: background-position .9s var(--ease), opacity .3s var(--ease) !important; }
 @media (prefers-reduced-motion: reduce) { html body .similar-games .similar-games__card:hover { transform: none !important; } }
 .similar-games .similar-games__card::after { background-position: 130% 0 !important; }
 .similar-games .similar-games__card:hover::after { background-position: -30% 0 !important; }
 /* Barra lateral: filtros/busca dos jogos descem para logo acima do perfil,
    separados da lista por uma linha divisória. */
 .sidebar__section--games { display: flex !important; flex-direction: column; }
-.sidebar__section--games > .sidebar__search-row { order: 9; margin: 8px 0 0 !important; padding-top: 8px !important; position: relative; }
-.sidebar__section--games > .sidebar__search-row::before { content: ""; position: absolute; top: 0; left: 12px; right: 12px; height: 1px; background: rgba(255, 255, 255, .08); }
+.sidebar__section--games > .sidebar__search-row { order: 9; margin: 8px 0 0 !important; position: relative; }
+.sidebar__section--games > .sidebar__search-row::before { content: ""; position: absolute; }
 .sidebar__section--games > :not(.sidebar__search-row) { flex: 1 1 auto; min-height: 0; }
 /* Divisória de cima igual à de baixo (largura do bloco, fora dele) */
 .sidebar__section--games > .sidebar__search-row { margin-top: 17px !important; padding-top: 3px !important; overflow: visible !important; }
@@ -5939,7 +5923,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .profile-content__main { display: grid !important; grid-template-columns: auto 1fr; align-items: center; column-gap: 12px; row-gap: 20px; }
 .profile-content__main > .profile-content__tabs { grid-column: 1; grid-row: 1; margin: 0 !important; }
 .profile-content__main > .profile-content__tab-panels { grid-column: 1 / -1; grid-row: 2; }
-.profile-content__library-filters { position: absolute; top: -56px; right: 0; margin: 0 !important; display: flex !important; gap: 8px !important; }
+.profile-content__library-filters { position: absolute; right: 0; margin: 0 !important; display: flex !important; gap: 8px !important; }
 .profile-content__tab-panel { position: relative; }
 .profile-content__library-filters .filter-dropdown__trigger {
   height: 32px !important; min-height: 32px !important; padding: 0 10px 0 12px !important; gap: 6px !important; border-radius: var(--ctl-r) !important;
@@ -5954,17 +5938,13 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 /* Estatísticas do perfil em blocos 2×2: número grande, nome embaixo em cinza,
    ícone discreto em cima e o ranking como selo no canto. */
 .user-stats__list { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; padding: 0 12px 12px !important; }
-.user-stats__list-item {
-  position: relative; display: flex !important; flex-direction: column-reverse !important; align-items: flex-start !important; justify-content: flex-end !important;
-  gap: 2px !important; min-height: 0 !important; padding: 12px 14px !important; border: 0 !important; border-radius: 10px !important;
-  background: rgba(255, 255, 255, .035) !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05);
-}
+.user-stats__list-item { position: relative; display: flex !important; align-items: flex-start !important; justify-content: flex-end !important; min-height: 0 !important; border: 0 !important; border-radius: 10px !important; background: rgba(255, 255, 255, .035) !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
 .user-stats__list-item + .user-stats__list-item { border-top: 0 !important; }
-.user-stats__list-title { flex: none !important; font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
-.user-stats__stats-row { display: flex !important; flex-direction: column; align-items: flex-start !important; gap: 0 !important; width: 100%; }
-.user-stats__list-description { display: flex !important; flex-direction: column; align-items: flex-start !important; gap: 8px !important; font: 600 20px/26px var(--font-display) !important; color: var(--text) !important; }
+.user-stats__list-title { flex: none !important; font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.user-stats__stats-row { display: flex !important; width: 100%; }
+.user-stats__list-description { display: flex !important; color: var(--text) !important; }
 .user-stats__list-description svg { width: 16px !important; height: 16px !important; color: var(--accent-bright) !important; }
-.user-stats__stats-row > :not(.user-stats__list-description) { position: absolute; top: 10px; right: 10px; height: 20px !important; font: 600 11px/20px var(--font) !important; padding: 0 7px !important; }
+.user-stats__stats-row > :not(.user-stats__list-description) { top: 10px; right: 10px; height: 20px !important; font: 600 11px/20px var(--font) !important; padding: 0 7px !important; }
 /* Blocos de estatística: ícone em cima, número + selo na mesma linha, nome embaixo */
 .user-stats__list-item { flex-direction: column-reverse !important; padding: 12px !important; gap: 4px !important; }
 .user-stats__stats-row { flex-direction: row !important; flex-wrap: wrap; align-items: center !important; gap: 6px !important; }
@@ -6086,14 +6066,14 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .chat-window__status-orb--online { background: var(--accent-bright) !important; }
 
 /* Cabeçalho da conversa */
-.chat-window__conversation-header { padding: 10px 16px !important; gap: 10px !important; background: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, .06) !important; }
+.chat-window__conversation-header { gap: 10px !important; background: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, .06) !important; }
 .chat-window__conversation-name { font: 600 14px/20px var(--font) !important; color: #fff !important; background: none !important; border: 0 !important; padding: 0 !important; }
 .chat-window__conversation-name:hover { color: var(--accent-bright) !important; }
 .chat-window__friend-status { font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; }
 .chat-window__conversation-header:has(.chat-window__status-orb--online) .chat-window__friend-status { color: var(--accent-bright) !important; }
 
 /* Mensagens */
-.chat-window__messages-content { padding: 16px 20px !important; gap: 14px !important; }
+.chat-window__messages-content { gap: 14px !important; }
 .chat-window__day-divider { display: flex !important; justify-content: center; margin: 4px 0 !important; font: 600 11px/20px var(--font) !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--text-3) !important; }
 .chat-window__day-divider::before, .chat-window__day-divider::after { display: none !important; }
 .chat-window__day-divider { background: none !important; }
@@ -6120,7 +6100,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .chat-window__scrollbar-thumb { background: rgba(255, 255, 255, .25) !important; border-radius: 999px !important; }
 
 /* Escrever */
-.chat-window__composer { padding: 10px 16px 10px !important; background: transparent !important; border: 0 !important; }
+.chat-window__composer { background: transparent !important; border: 0 !important; }
 .chat-window__composer-box {
   border-radius: 22px !important; padding: 0 !important; background: rgba(255, 255, 255, .06) !important;
   border: 1px solid rgba(255, 255, 255, .08) !important; box-shadow: none !important; transition: border-color .12s, background .12s;
@@ -6132,10 +6112,10 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .chat-window__composer-field { background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 6px !important; }
 .chat-window__composer-input { background: none !important; border: 0 !important; box-shadow: none !important; outline: none !important; font: 400 14px/20px var(--font) !important; color: var(--text) !important; padding: 5px 0 !important; }
 .chat-window__composer-input::placeholder { color: var(--text-3) !important; }
-.chat-window__send { width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 0 !important; background: transparent !important; color: var(--text-3) !important; transition: background .12s, color .12s, transform .12s; }
+.chat-window__send { width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 0 !important; transition: background .12s, color .12s, transform .12s; }
 .chat-window__composer-box:has(.chat-window__composer-input:not(:placeholder-shown)) .chat-window__send { background: var(--accent) !important; color: var(--on-accent) !important; }
 .chat-window__send:active { transform: scale(.94); }
-.chat-window__composer-meta { margin: 6px 4px 0 !important; font: 400 11px/14px var(--font) !important; color: var(--text-3) !important; }
+.chat-window__composer-meta { font: 400 11px/14px var(--font) !important; color: var(--text-3) !important; }
 .profile-content__games-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; }
 /* Chat: caixa de escrever colada na base (12px), dica escondida quando vazia,
    respiro uniforme de 16px nas laterais, enviar sempre verde. */
@@ -6144,7 +6124,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .chat-window__composer-meta { margin: 4px 8px 0 !important; }
 .chat-window__messages-content { padding: 12px 16px 8px !important; }
 .chat-window__conversation-header { padding: 8px 16px !important; }
-.chat-window__send, .chat-window__composer-box .chat-window__send { background: var(--accent) !important; color: var(--on-accent) !important; }
+.chat-window__send, .chat-window__composer-box .chat-window__send { background: var(--accent) !important; }
 .chat-window__send:hover { background: var(--accent-hover) !important; }
 .chat-window__send:disabled { opacity: .45; }
 .chat-window__send, .chat-window__send:hover, .chat-window__composer-box .chat-window__send { color: #fff !important; }
@@ -6156,17 +6136,12 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .user-stats__list .user-stats__list-item, .user-stats__list .user-stats__list-item:hover { border-radius: 10px !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05) !important; transform: none !important; border: 0 !important; }
 /* O número já diz o que é ("53 conquistas", "10 karma"): sem o nome repetido embaixo */
 .user-stats__list .user-stats__list-item:first-child .user-stats__list-title, .user-stats__list .user-stats__list-item--karma .user-stats__list-title { display: none !important; }
-.user-stats__list .user-stats__list-item .user-stats__list-title { display: none !important; }
-.user-stats__list .user-stats__list-item { min-height: 92px !important; padding: 14px !important; justify-content: space-between !important; }
+
+.user-stats__list .user-stats__list-item { min-height: 92px !important; padding: 14px !important; }
 /* Nome da estatística aparece no hover, embaixo do número */
-.user-stats__list .user-stats__list-item .user-stats__list-title {
-  display: block !important; position: absolute; left: 14px; right: 14px; bottom: 8px;
-  font: 400 11px/15px var(--font) !important; color: var(--text-3) !important;
-  white-space: nowrap !important; overflow: hidden; text-overflow: ellipsis;
-  opacity: 0; transform: translateY(3px); transition: opacity .15s var(--ease-out), transform .15s var(--ease-out);
-}
+.user-stats__list .user-stats__list-item .user-stats__list-title { display: block !important; left: 14px; right: 14px; bottom: 8px; font: 400 11px/15px var(--font) !important; color: var(--text-3) !important; white-space: nowrap !important; overflow: hidden; text-overflow: ellipsis; opacity: 0; transform: translateY(3px); }
 .user-stats__list .user-stats__list-item:hover .user-stats__list-title { opacity: 1; transform: none; }
-.user-stats__list .user-stats__list-item { padding-bottom: 24px !important; }
+
 .user-stats__list .user-stats__list-item { justify-content: flex-end !important; }
 .user-stats__list .user-stats__stats-row { margin-top: auto !important; }
 .user-stats__list .user-stats__list-item { padding-bottom: 12px !important; }
@@ -6186,3 +6161,17 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .profile-content__games-grid .user-library-game__wrapper { overflow: visible !important; }
 .profile-content__games-grid .user-library-game__wrapper .vertical-cover-card,
 .profile-content__games-grid .user-library-game__wrapper .vertical-cover-card:hover { transform: none !important; box-shadow: none !important; overflow: hidden !important; border-radius: var(--r-surface) !important; }
+
+/* Integrações bem estreitas (< 560px): o botão volta para a própria linha
+   (o bloco de 980px também valia aqui e o espremia ao lado do título). */
+@container settings (max-width: 560px) {
+  .settings-context-panel__group > .settings-integration-card { grid-template-columns: 40px minmax(0, 1fr) !important; grid-template-rows: auto auto auto !important; }
+  .settings-integration-card__status { grid-column: 2 !important; grid-row: 1 !important; justify-self: end !important; }
+  .settings-integration-card__content { grid-column: 2 !important; }
+  .settings-integration-card__actions { grid-column: 1 / -1 !important; grid-row: 3 !important; margin: 12px 0 0 !important; width: 100%; }
+  .settings-integration-card__actions .button { flex: 1; }
+}
+/* Menos movimento: o brilho das capas de similares também não atravessa */
+@media (prefers-reduced-motion: reduce) {
+  html body .similar-games .similar-games__card::after, html body .similar-games .similar-games__card:hover::after { transition: none !important; opacity: 0 !important; }
+}
