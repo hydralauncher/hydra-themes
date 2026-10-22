@@ -6282,3 +6282,18 @@ html body .game-card .game-card__title-container > :not(.game-card__title) { wid
 html body .game-card .game-card__specifics { top: auto !important; bottom: 14px !important; right: 16px !important; transform: translateY(4px); }
 html body .game-card:hover .game-card__specifics { transform: none; }
 html body .game-card:hover .game-card__title { max-width: calc(100% - 260px); }
+/* Entrada dos números em sequência: cada selo sobe e aparece um pouco depois
+   do anterior, com mola leve; na saída somem juntos e rápido. */
+html body .game-card .game-card__specifics { opacity: 1 !important; transform: none !important; transition: none !important; }
+html body .game-card .game-card__specifics-item {
+  opacity: 0; transform: translateY(6px) scale(.96);
+  transition: opacity .12s ease, transform .12s ease;
+}
+html body .game-card:hover .game-card__specifics-item {
+  opacity: 1; transform: none;
+  transition: opacity .25s var(--ease-out), transform .35s cubic-bezier(.34, 1.4, .64, 1);
+}
+html body .game-card:hover .game-card__specifics-item:nth-child(2) { transition-delay: .05s; }
+html body .game-card:hover .game-card__specifics-item:nth-child(3) { transition-delay: .1s; }
+html body .game-card .game-card__title { transition: max-width .25s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { html body .game-card .game-card__specifics-item { transform: none !important; transition: opacity .01ms !important; } }
