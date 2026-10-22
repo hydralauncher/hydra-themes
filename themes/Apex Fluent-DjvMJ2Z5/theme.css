@@ -6358,3 +6358,21 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 @container pmain (max-width: 960px) {
   html body .profile-content__main .profile-content__library-filters { margin: -8px 0 32px !important; }
 }
+
+
+/* Sem as bolinhas que giram em volta do ícone na abertura */
+.achievement-notification__ellipses-overlay { display: none !important; }
+/* Troféu animado centralizado no ícone (o app o posiciona para 8px de respiro; o tema usa 12px) */
+.achievement-notification__trophy-overlay { top: 26px !important; left: 26px !important; }
+.achievement-notification__dark-overlay { border-radius: 8px; }
+.achievement-notification__dark-overlay { top: 12px !important; left: 12px !important; }
+/* Troféu animado maior, proporcional ao ícone (44px em 64px) */
+.achievement-notification__trophy-overlay { width: 44px !important; height: 44px !important; top: 22px !important; left: 22px !important; mask-size: contain !important; -webkit-mask-size: contain !important; mask-repeat: no-repeat !important; -webkit-mask-repeat: no-repeat !important; }
+/* Fase "só o ícone": a caixa fechada tem a largura do ícone + 12px de cada
+   lado (o app usa 80px, pensado para 8px), então fica centralizada; o texto
+   começa depois dessa largura e não aparece pela fresta antes de abrir. */
+.achievement-notification__outer-container { animation-name: mica-ach-in, mica-ach-wait, mica-ach-expand !important; }
+@keyframes mica-ach-in { 0% { width: 90px; opacity: 0; transform: scale(0); } 100% { width: 90px; opacity: 1; transform: scale(1); } }
+@keyframes mica-ach-wait { 0%, 100% { width: 90px; } }
+@keyframes mica-ach-expand { 0% { width: 90px; } 100% { width: 320px; } }
+.achievement-notification__text-container { margin-left: 6px !important; }
