@@ -1,5 +1,5 @@
 /*
- * Apex Light para Hydra Launcher.
+ * Apex Jade Light para Hydra Launcher.
  * Deixa o Hydra com cara de app nativo do Windows 11 (Fluent / WinUI 3, modo claro):
  * cabeçalho e barras de comando em vidro flutuante, conteúdo que rola por trás
  * delas, cartões planos, controles no padrão do Windows (32px, raio 8px) e
@@ -1281,13 +1281,13 @@
      Tudo o mais é derivado dela: versões clara/escura e as transparências.
      Se escolher uma cor escura, troque também --on-accent para #1b1b1b
      (é a cor do texto em cima dos botões de destaque). */
-  --accent: #06de74;
+  --accent: #3b9b57;
   --accent-hover: color-mix(in srgb, var(--accent) 88%, #1b1b1b);
   --accent-pressed: color-mix(in srgb, var(--accent) 85%, #000);
-  --accent-bright: color-mix(in srgb, var(--accent) 82%, #000);
+  --accent-bright: color-mix(in srgb, var(--accent) 72%, #000);
   --accent-glow: color-mix(in srgb, var(--accent) 45%, transparent);
-  --accent-text: color-mix(in srgb, var(--accent) 70%, #000);
-  --on-accent: #000;
+  --accent-text: color-mix(in srgb, var(--accent) 52%, #000);
+  --on-accent: #fff;
 
   /* Vidro (acrílico): fundo translúcido + desfoque e saturação do que está atrás. */
   --glass: rgba(0, 0, 0, 0.043);
@@ -1801,7 +1801,7 @@ a:hover, .link:hover { color: var(--accent); }
    por isso as variáveis usadas aqui são repetidas. A Segoe UI é fonte do sistema
    e funciona lá dentro também. */
 .achievement-notification {
-  --accent: #06de74; /* repita aqui a mesma cor do topo: esta janela não lê o :root */
+  --accent: #3b9b57; /* repita aqui a mesma cor do topo: esta janela não lê o :root */
   --flyout: #2c2c2c;
   --flyout-stroke: rgba(117, 117, 117, .4);
   --text: #fff;
@@ -7706,6 +7706,8 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .friends-window__friend--has-bg .friends-window__friend-status { color: rgba(255,255,255,.8) !important; }
 .friends-window__header--has-bg .friends-window__profile-status { color: rgb(108, 203, 95) !important; text-shadow: 0 1px 6px rgba(0,0,0,.6); }
 
+/* Botão selecionado da dock do Início: sem brilho colorido (no claro vira uma mancha) */
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary { box-shadow: 0 1px 2px rgba(0, 0, 0, .12) !important; }
 /* Banner do perfil igual ao escuro: base escura atrás da arte, sem esmaecer no claro */
 .friends-window__header--has-bg { background: #1c1c1c !important; }
 .friends-window__header--has-bg .friends-window__header-bg { opacity: 1 !important; -webkit-mask-image: none !important; mask-image: none !important; }
