@@ -6429,3 +6429,10 @@ html body .profile-hero__hero-panel { left: 16px !important; }
   66%  { width: 90px; opacity: 1; transform: scale(1); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
   100% { width: 320px; opacity: 1; transform: scale(1); }
 }
+
+/* Fechar caixas de diálogo sem piscar: a animação de saída vence as regras
+   que repetem a de entrada, e o fundo escurecido termina transparente (antes
+   voltava a escurecer um instante depois da animação, até o app removê-lo). */
+.modal.modal--closing { animation: mica-dialog-out .167s linear forwards !important; }
+.backdrop.backdrop--closing { background-color: transparent !important; -webkit-backdrop-filter: blur(0) !important; backdrop-filter: blur(0) !important; }
+.backdrop { transition: background-color .167s linear, backdrop-filter .167s linear, -webkit-backdrop-filter .167s linear; }
