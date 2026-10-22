@@ -6175,3 +6175,39 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 @media (prefers-reduced-motion: reduce) {
   html body .similar-games .similar-games__card::after, html body .similar-games .similar-games__card:hover::after { transition: none !important; opacity: 0 !important; }
 }
+/* Ferramentas da barra lateral nunca encolhem (cortava a linha da busca em janelas baixas) */
+.sidebar__section--games > .sidebar__search-row { flex: none !important; min-height: max-content !important; }
+/* Com a busca aberta, o ícone continua no lugar dele, marcado como ativo
+   (a caixa de texto é que sai em balão ao lado). */
+.sidebar__search-row .text-field-container { position: relative !important; }
+.sidebar__search-row:focus-within .text-field-container::after {
+  content: ""; position: absolute; inset: 0; border-radius: 7px; pointer-events: none;
+  background: color-mix(in srgb, var(--accent-bright) 16%, transparent);
+}
+.sidebar__search-row:focus-within .text-field-container::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; z-index: 1; pointer-events: none;
+  background: var(--accent-bright); -webkit-mask: var(--fi-search) center / contain no-repeat; mask: var(--fi-search) center / contain no-repeat;
+}
+/* Divisória de cima desenhada na lista de jogos (não no bloco de ferramentas),
+   assim ela não some quando a busca abre e usa os pseudo-elementos do balão. */
+.sidebar__section--games > .sidebar__search-row::before { border-top: 0 !important; }
+.sidebar__section--games > .sidebar__search-row:not(:focus-within)::before { display: none !important; }
+.sidebar__section--games { position: relative; }
+.sidebar__section--games::after {
+  content: ""; position: absolute; left: 6px; right: 6px; bottom: calc(var(--sb-tools-h, 64px) + 8px); height: 1px; background: rgba(255, 255, 255, .082); pointer-events: none;
+}
+/* O ::before do bloco é o ícone da busca aberta (regra original): a divisória
+   não usa mais ele, e os ícones extras que eu tinha somado saem. */
+.sidebar__section--games > .sidebar__search-row:focus-within::before {
+  display: block !important; position: static !important; top: auto !important; left: auto !important; right: auto !important;
+  width: 15px !important; height: 15px !important; border: 0 !important; background: var(--accent-bright) !important;
+}
+.sidebar__search-row:focus-within .text-field-container::before, .sidebar__search-row:focus-within .text-field-container::after { content: none !important; }
+.sidebar__section--games::after { bottom: 70px !important; }
+/* Balão da busca preso ao ícone: posicionado a partir do próprio campo
+   (centro vertical do ícone), não de um topo fixo do bloco. */
+.sidebar__search-row .text-field-container { position: relative !important; }
+.sidebar__search-row:focus-within .text-field-container__text-field-wrapper {
+  top: 50% !important; left: calc(100% + 24px) !important; transform: translateY(-50%) !important; margin: 0 !important;
+}
+.sidebar__search-row:focus-within .text-field-container__text-field-wrapper::before { top: 50% !important; margin-top: -6px !important; }
