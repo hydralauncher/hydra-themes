@@ -6325,3 +6325,5 @@ html body .game-card .game-card__specifics-item { transform: translateY(6px) sca
 html body .game-card:hover .game-card__specifics-item { transform: none; }
 html body .game-card .game-card__specifics-item svg { width: 12px !important; height: 12px !important; display: block; }
 html body .game-card .game-card__specifics-item:last-child svg { color: #ffb900 !important; fill: #ffb900 !important; }
+/* O destaque em tela cheia passava 4px da borda e criava rolagem lateral */
+html body .home__content { overflow-x: clip !important; }
