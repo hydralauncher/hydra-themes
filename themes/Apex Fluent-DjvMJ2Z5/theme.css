@@ -6217,3 +6217,33 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .sidebar__search-row > .sidebar__add-button { grid-row: 2 !important; grid-column: 2 !important; }
 .sidebar__search-row:focus-within::before, .sidebar__search-row:focus-within::after { grid-row: 1 !important; }
 .sidebar__section--games::after { left: 0 !important; right: 0 !important; }
+/* Barra de abas do Início na largura padrão (bordas do cabeçalho e dos cartões) */
+.home__content > .home__header { margin-left: 0 !important; margin-right: 0 !important; }
+
+/* ---------- Início: barra de abas, acabamento ----------
+   1. Sem o trilho escuro: abas soltas na barra de vidro.
+   2. Aba ativa: cápsula na cor de destaque que aparece suave (escala + fade).
+   3. "Surpreenda-me": gradiente sutil na cor de destaque, ✨ gira no hover.
+   5. Presa no topo ao rolar, a barra fica mais compacta e o vidro mais forte. */
+.home__header .home__buttons-list { background: transparent !important; border: 0 !important; padding: 0 !important; gap: 4px !important; }
+.home__header .home__buttons-list li .button { border-radius: 999px !important; padding: 0 14px !important; transition: background .2s var(--ease-out), color .2s, transform .2s var(--ease-out) !important; }
+.home__header .home__buttons-list li .button:not(.button--primary):hover { background: rgba(255, 255, 255, .06) !important; }
+.home__header .home__buttons-list li .button.button--primary { animation: mica-tab-pop .28s var(--ease-out); box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent) !important; }
+@keyframes mica-tab-pop { from { transform: scale(.92); opacity: .4; } }
+.home__header > .button {
+  border-radius: 999px !important; border: 1px solid color-mix(in srgb, var(--accent-bright) 35%, transparent) !important;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent) 6%, transparent)) !important;
+  transition: background .2s, border-color .2s, transform .2s var(--ease-out) !important;
+}
+.home__header > .button:hover { border-color: color-mix(in srgb, var(--accent-bright) 60%, transparent) !important; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 32%, transparent), color-mix(in srgb, var(--accent) 12%, transparent)) !important; }
+.home__header > .button:active { transform: scale(.97); }
+.home__header > .button .home__icon-wrapper::before { background: var(--accent-bright) !important; transition: transform .5s var(--ease-out); }
+.home__header > .button:hover .home__icon-wrapper::before { transform: rotate(20deg) scale(1.12); }
+.home__header { transition: padding .2s var(--ease-out), background .2s, backdrop-filter .2s !important; }
+@supports (animation-timeline: scroll()) {
+  .home__header { animation: mica-bar-compact linear both; animation-timeline: scroll(nearest); animation-range: 380px 460px; }
+  @keyframes mica-bar-compact { to { padding-top: 4px; padding-bottom: 4px; background: rgba(28, 28, 28, .72); } }
+}
+@media (prefers-reduced-motion: reduce) { html body .home__header .home__buttons-list .button--primary { animation: none !important; } html body .home__header > .button:hover .home__icon-wrapper::before { transform: none !important; } }
+/* Área de conteúdo recortada no canto arredondado da janela (o que rola por trás não vaza) */
+.container__content, .container__content > .home__content { border-top-left-radius: 14px !important; clip-path: inset(0 round 14px 0 0 0); }
