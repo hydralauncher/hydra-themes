@@ -6345,3 +6345,9 @@ html body .home__header:not(#_) .home__buttons-list li .button.button--primary {
 @container pmain (max-width: 960px) {
   .profile-content__library-filters { position: static !important; flex-wrap: wrap; margin: 0 0 20px !important; }
 }
+/* Conteúdo do perfil nas mesmas bordas do cabeçalho; lateral ocupa a coluna toda */
+html body .profile-content__section { padding-left: 16px !important; padding-right: 4px !important; }
+html body .profile-content__right-content { width: 100% !important; max-width: none !important; min-width: 0 !important; }
+/* Hero do perfil alinhado às bordas do cabeçalho */
+html body .profile-hero__user-information { left: 16px !important; right: 4px !important; }
+html body .profile-hero__hero-panel { left: 16px !important; }
