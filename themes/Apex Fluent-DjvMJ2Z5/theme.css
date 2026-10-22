@@ -6351,3 +6351,7 @@ html body .profile-content__right-content { width: 100% !important; max-width: n
 /* Hero do perfil alinhado às bordas do cabeçalho */
 html body .profile-hero__user-information { left: 16px !important; right: 4px !important; }
 html body .profile-hero__hero-panel { left: 16px !important; }
+@container pmain (max-width: 960px) {
+  .profile-content__main { row-gap: 12px !important; }
+  .profile-content__library-filters { margin: 0 0 28px !important; }
+}
