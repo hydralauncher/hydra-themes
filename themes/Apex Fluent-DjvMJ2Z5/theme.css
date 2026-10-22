@@ -6247,3 +6247,25 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 @media (prefers-reduced-motion: reduce) { html body .home__header .home__buttons-list .button--primary { animation: none !important; } html body .home__header > .button:hover .home__icon-wrapper::before { transform: none !important; } }
 /* Área de conteúdo recortada no canto arredondado da janela (o que rola por trás não vaza) */
 .container__content, .container__content > .home__content { border-top-left-radius: 14px !important; clip-path: inset(0 round 14px 0 0 0); }
+/* Números do cartão no topo à direita (não cobrem as fontes de download) */
+.game-card .game-card__specifics { top: 12px !important; bottom: auto !important; right: 12px !important; transform: translateY(-4px); }
+.game-card:hover .game-card__specifics { transform: none; }
+
+/* ==================== Início: abas em doca central ====================
+   Doca de vidro centralizada (como a barra de tarefas do Windows 11), abas em
+   pílula, a ativa na cor de destaque com brilho; Surpreenda-me na mesma doca. */
+html body .home__header:not(#_) .home__buttons-list { background: transparent !important; border: 0 !important; padding: 0 !important; gap: 4px !important; }
+html body .home__header:not(#_) .home__buttons-list li .button { animation: none !important; box-shadow: none !important; }
+html body .home__header:not(#_) > .button { background: var(--ctl-bg) !important; border: 1px solid var(--ctl-stroke) !important; border-radius: var(--ctl-r) !important; }
+html body .home__header:not(#_) > .button .home__icon-wrapper::before { background: currentColor !important; }
+
+html body .home__header:not(#_) { width: fit-content !important; margin-left: auto !important; margin-right: auto !important; padding: 6px !important; gap: 6px !important; border-radius: 999px !important;
+  background: rgba(30,30,30,.6) !important; box-shadow: 0 12px 32px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.07) !important; }
+html body .home__header:not(#_) .home__buttons-list li .button { position: relative; height: 38px !important; padding: 0 16px !important; border-radius: 999px !important; background: transparent !important; color: var(--text-2) !important; font-size: 14px !important; font-weight: 400 !important; }
+html body .home__header:not(#_) .home__buttons-list li .button:hover { background: rgba(255,255,255,.07) !important; color: #fff !important; }
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary { background: var(--accent) !important; color: var(--on-accent) !important; font-weight: 600 !important; box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 6px 18px color-mix(in srgb, var(--accent) 45%, transparent) !important; }
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary::before, html body .home__header:not(#_) .home__buttons-list li .button.button--primary .home__icon-wrapper::before { background: var(--on-accent) !important; }
+html body .home__header:not(#_) > .button { position: relative; height: 38px !important; border-radius: 999px !important; background: transparent !important; border: 0 !important; margin-left: 12px !important; color: var(--text) !important; }
+html body .home__header:not(#_) > .button::before { content: ""; position: absolute; left: -9px; top: 9px; bottom: 9px; width: 1px; background: rgba(255,255,255,.12); }
+html body .home__header:not(#_) > .button:hover { background: rgba(255,255,255,.07) !important; }
+html body .home__header:not(#_) > .button .home__icon-wrapper::before { background: var(--accent-bright) !important; }
