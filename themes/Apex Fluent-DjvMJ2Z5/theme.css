@@ -6313,3 +6313,6 @@ html body .game-card:hover .game-card__title { max-width: none !important; }
 html body .home__cards > .game-card { animation-fill-mode: backwards !important; }
 /* Proporção das capas do Steam (header 460×215): a arte aparece inteira, sem corte nas laterais */
 html body .home__cards > .game-card { aspect-ratio: 460 / 215 !important; height: auto !important; }
+/* Cartões do Início só com a arte: sem nome, ícone da loja nem degradê */
+html body .game-card .game-card__title-container { display: none !important; }
+html body .game-card .game-card__content { background: none !important; }
