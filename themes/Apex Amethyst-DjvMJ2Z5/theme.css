@@ -163,7 +163,7 @@ a:hover, .link:hover { color: var(--accent); }
   font-weight: 600;
 }
 .button--primary:hover:not(:disabled) { background: var(--accent-hover); }
-.button--primary:active:not(:disabled) { background: var(--accent-pressed); color: rgba(0, 0, 0, .65); }
+.button--primary:active:not(:disabled) { background: var(--accent-pressed); color: color-mix(in srgb, var(--on-accent) 75%, transparent); }
 .button--primary:disabled { background: rgba(255, 255, 255, .1581); color: rgba(255, 255, 255, .5302); border-color: transparent; }
 
 .button--outline { background: transparent; color: var(--text); border-color: var(--control-stroke); }
@@ -2413,7 +2413,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
   background: var(--accent); color: var(--on-accent); font: 600 13px/20px var(--font); box-shadow: none; transition: background .083s linear;
 }
 .game-details__review-submit .button:hover:not(:disabled) { background: var(--accent-hover); }
-.game-details__review-submit .button:active:not(:disabled) { background: var(--accent-pressed); color: rgba(0, 0, 0, .65); }
+.game-details__review-submit .button:active:not(:disabled) { background: var(--accent-pressed); color: color-mix(in srgb, var(--on-accent) 75%, transparent); }
 .game-details__review-submit .button:disabled { background: var(--ctl-bg); color: var(--text-3); border-color: transparent; }
 
 /* Sem o balão do Hydra sobre as estrelas da avaliação: o nome da nota já
