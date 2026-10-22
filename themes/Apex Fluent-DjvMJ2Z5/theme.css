@@ -6331,3 +6331,11 @@ html body .home__content { overflow-x: clip !important; }
 html body .home__cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important; gap: 12px !important; }
 /* Mais respiro entre a doca de abas e os cartões */
 html body .home__cards { margin-top: 40px !important; }
+/* Brilho da aba ativa: luz suave e concentrada embaixo (não um halo em volta),
+   com um realce fino no topo da pílula. */
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .28),
+    0 1px 2px rgba(0, 0, 0, .25),
+    0 6px 14px -6px color-mix(in srgb, var(--accent) 80%, transparent) !important;
+}
