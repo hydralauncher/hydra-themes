@@ -1,5 +1,5 @@
 /*
- * Apex Fluent para Hydra Launcher.
+ * Apex Emerald para Hydra Launcher.
  * Deixa o Hydra com cara de app nativo do Windows 11 (Fluent / WinUI 3, modo escuro):
  * cabeçalho e barras de comando em vidro flutuante, conteúdo que rola por trás
  * delas, cartões planos, controles no padrão do Windows (32px, raio 8px) e
@@ -39,7 +39,7 @@
      Tudo o mais é derivado dela: versões clara/escura e as transparências.
      Se escolher uma cor escura, troque também --on-accent para #fff
      (é a cor do texto em cima dos botões de destaque). */
-  --accent: #00cc6a;
+  --accent: #06de74;
   --accent-hover: color-mix(in srgb, var(--accent) 88%, #fff);
   --accent-pressed: color-mix(in srgb, var(--accent) 85%, #000);
   --accent-bright: color-mix(in srgb, var(--accent) 63%, #fff);
@@ -559,7 +559,7 @@ a:hover, .link:hover { color: var(--accent); }
    por isso as variáveis usadas aqui são repetidas. A Segoe UI é fonte do sistema
    e funciona lá dentro também. */
 .achievement-notification {
-  --accent: #00cc6a; /* repita aqui a mesma cor do topo: esta janela não lê o :root */
+  --accent: #06de74; /* repita aqui a mesma cor do topo: esta janela não lê o :root */
   --flyout: #2c2c2c;
   --flyout-stroke: rgba(117, 117, 117, .4);
   --text: #fff;
