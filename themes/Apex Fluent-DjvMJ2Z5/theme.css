@@ -6376,3 +6376,29 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 @keyframes mica-ach-wait { 0%, 100% { width: 90px; } }
 @keyframes mica-ach-expand { 0% { width: 90px; } 100% { width: 320px; } }
 .achievement-notification__text-container { margin-left: 6px !important; }
+
+/* Troféu da abertura da conquista: entra girando com mola, assenta, um
+   brilho atravessa o troféu e ele "explode" para fora enquanto a caixa abre.
+   Mesma duração do app (900ms), então não dessincroniza o resto. */
+.achievement-notification__trophy-overlay {
+  --t: #fff;
+  background: linear-gradient(115deg, var(--t) 38%, #fff 50%, var(--t) 62%) 140% 0 / 320% 100% no-repeat !important;
+  animation: mica-trophy 900ms cubic-bezier(.2, .8, .2, 1) both !important;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--t) 70%, transparent));
+}
+.achievement-notification--rare .achievement-notification__trophy-overlay { --t: var(--gold); }
+.achievement-notification--platinum .achievement-notification__trophy-overlay { --t: var(--teal); }
+@keyframes mica-trophy {
+  0%   { opacity: 0; transform: scale(.3) rotate(-24deg); background-position: 140% 0; }
+  22%  { opacity: 1; transform: scale(1.14) rotate(8deg); }
+  36%  { transform: scale(.94) rotate(-4deg); }
+  48%  { transform: scale(1.02) rotate(1deg); background-position: 140% 0; }
+  56%  { transform: scale(1) rotate(0); }
+  74%  { opacity: 1; transform: scale(1); background-position: -40% 0; }
+  100% { opacity: 0; transform: scale(1.6); background-position: -40% 0; filter: blur(3px) drop-shadow(0 0 10px var(--t)); }
+}
+.achievement-notification__dark-overlay { animation: mica-ach-dark 900ms ease-out both !important; }
+@keyframes mica-ach-dark { 0% { opacity: 0; } 15%, 70% { opacity: .78; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .achievement-notification__trophy-overlay, .achievement-notification__dark-overlay { animation: none !important; opacity: 0 !important; }
+}
