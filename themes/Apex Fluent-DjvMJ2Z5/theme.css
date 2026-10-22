@@ -6304,3 +6304,8 @@ html body .game-card:hover { transform: translateY(-4px) !important; border-colo
 html body .game-card .game-card__cover { transform: scale(1.001); transition: transform 1.1s cubic-bezier(.16, 1, .3, 1), filter .4s ease !important; }
 html body .game-card:hover .game-card__cover { transform: scale(1.06) !important; filter: saturate(1.15) brightness(1.06); }
 @media (prefers-reduced-motion: reduce) { html body .game-card:hover, html body .game-card:hover .game-card__cover { transform: none !important; } }
+/* Números no canto superior direito */
+html body .game-card .game-card__specifics { top: 14px !important; bottom: auto !important; right: 14px !important; }
+html body .game-card .game-card__specifics-item { transform: translateY(-6px) scale(.96); }
+html body .game-card:hover .game-card__specifics-item { transform: none; }
+html body .game-card:hover .game-card__title { max-width: none !important; }
