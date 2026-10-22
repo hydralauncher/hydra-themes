@@ -6211,3 +6211,8 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   top: 50% !important; left: calc(100% + 24px) !important; transform: translateY(-50%) !important; margin: 0 !important;
 }
 .sidebar__search-row:focus-within .text-field-container__text-field-wrapper::before { top: 50% !important; margin-top: -6px !important; }
+/* Busca em cima, os dois botões embaixo */
+.sidebar__search-row > .text-field-container { grid-row: 1 !important; grid-column: 1 / -1 !important; }
+.sidebar__search-row > .sidebar__play-button { grid-row: 2 !important; grid-column: 1 !important; }
+.sidebar__search-row > .sidebar__add-button { grid-row: 2 !important; grid-column: 2 !important; }
+.sidebar__search-row:focus-within::before, .sidebar__search-row:focus-within::after { grid-row: 1 !important; }
