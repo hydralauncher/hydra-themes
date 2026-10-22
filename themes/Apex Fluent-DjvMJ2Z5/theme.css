@@ -5166,9 +5166,10 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   background: var(--accent-bright);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-bright) 15%, transparent);
   flex: none;
-  margin-top: 0;
-  transform: translateY(1px);
-  align-self: center;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .settings-download-sources__item-header > h2 {
   font: 600 14px/20px var(--font) !important;
@@ -5180,7 +5181,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   grid-area: name;
   display: flex;
   align-items: center;
-  gap: 8px;
+  padding-left: 15px;
   line-height: 20px;
   height: 20px;
 }
