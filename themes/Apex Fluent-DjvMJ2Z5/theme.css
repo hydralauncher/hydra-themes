@@ -6216,3 +6216,4 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .sidebar__search-row > .sidebar__play-button { grid-row: 2 !important; grid-column: 1 !important; }
 .sidebar__search-row > .sidebar__add-button { grid-row: 2 !important; grid-column: 2 !important; }
 .sidebar__search-row:focus-within::before, .sidebar__search-row:focus-within::after { grid-row: 1 !important; }
+.sidebar__section--games::after { left: 0 !important; right: 0 !important; }
