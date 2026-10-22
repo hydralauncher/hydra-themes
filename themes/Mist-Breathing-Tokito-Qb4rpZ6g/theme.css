@@ -1,7 +1,7 @@
 /* ================================================================
    Mist Breathing — Tokito Muichiro
    Hydra Launcher Theme · Demon Slayer Inspired
-   Version 1.0 · October 2026
+   Version 1.1 · October 2026
    ================================================================
    Background: Muichiro Tokito in combat
    Palette: Icy blue, mist cyan, deep dark
@@ -128,13 +128,17 @@ body {
     box-shadow: 0 0 12px rgba(90, 200, 250, 0.25);
 }
 
-.game-item:selected,
-.game-card:selected {
+/* ✅ CORRIGIDO: trocado :selected por .selected + :focus-visible */
+.game-item.selected,
+.game-card.selected,
+.game-item:focus-visible,
+.game-card:focus-visible {
     border-color: var(--accent) !important;
     background-color: var(--card-active) !important;
     box-shadow:
         0 0 20px rgba(90, 200, 250, 0.45),
         inset 0 0 15px rgba(125, 226, 255, 0.15);
+    outline: none !important;
 }
 
 /* ===================== INPUTS & BOXES ===================== */
