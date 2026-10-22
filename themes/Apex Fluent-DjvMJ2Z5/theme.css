@@ -6355,3 +6355,6 @@ html body .profile-hero__hero-panel { left: 16px !important; }
   .profile-content__main { row-gap: 12px !important; }
   .profile-content__library-filters { margin: 0 0 28px !important; }
 }
+@container pmain (max-width: 960px) {
+  html body .profile-content__main .profile-content__library-filters { margin: -8px 0 32px !important; }
+}
