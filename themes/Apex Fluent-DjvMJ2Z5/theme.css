@@ -33,14 +33,18 @@
 :root {
   color-scheme: dark;
 
-  /* Destaque verde do Windows ("Verde" em Personalização > Cores, #00CC6A).
-     --accent-bright é a versão clara, para detalhes finos sobre o fundo escuro. */
+  /* ===== COR DE DESTAQUE =====
+     Para trocar a cor do tema inteiro, mude só a linha --accent abaixo
+     (qualquer cor: #00cc6a verde, #0078d4 azul, #e81123 vermelho, #8764b8 roxo…).
+     Tudo o mais é derivado dela: versões clara/escura e as transparências.
+     Se escolher uma cor escura, troque também --on-accent para #fff
+     (é a cor do texto em cima dos botões de destaque). */
   --accent: #00cc6a;
-  --accent-hover: #1fd781;
-  --accent-pressed: #00ad5a;
-  --accent-bright: #5ee3a3;
-  --accent-glow: rgba(0, 204, 106, .45);
-  --accent-text: #8eebc0;
+  --accent-hover: color-mix(in srgb, var(--accent) 88%, #fff);
+  --accent-pressed: color-mix(in srgb, var(--accent) 85%, #000);
+  --accent-bright: color-mix(in srgb, var(--accent) 63%, #fff);
+  --accent-glow: color-mix(in srgb, var(--accent) 45%, transparent);
+  --accent-text: color-mix(in srgb, var(--accent) 45%, #fff);
   --on-accent: #000;
 
   /* Vidro (acrílico): fundo translúcido + desfoque e saturação do que está atrás. */
@@ -103,7 +107,7 @@
    do papel de parede. */
 body {
   background:
-    radial-gradient(1400px 700px at 70% -20%, rgba(0, 204, 106, .07), transparent 65%),
+    radial-gradient(1400px 700px at 70% -20%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 65%),
     var(--mica);
   color: var(--text);
   font: 14px/20px var(--font);
@@ -555,7 +559,7 @@ a:hover, .link:hover { color: var(--accent); }
    por isso as variáveis usadas aqui são repetidas. A Segoe UI é fonte do sistema
    e funciona lá dentro também. */
 .achievement-notification {
-  --accent: #00cc6a;
+  --accent: #00cc6a; /* repita aqui a mesma cor do topo: esta janela não lê o :root */
   --flyout: #2c2c2c;
   --flyout-stroke: rgba(117, 117, 117, .4);
   --text: #fff;
@@ -1355,7 +1359,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
    forte, borda finíssima e um fio de luz no topo, como o acrílico do Windows 11.
    O Pronto ganha um leve tom verde no próprio vidro. */
 
-.library-game-card__installed-badge, .library-game-card-large__installed-badge { border-color: rgba(94, 227, 163, .32); }
+.library-game-card__installed-badge, .library-game-card-large__installed-badge { border-color: color-mix(in srgb, var(--accent-bright) 32%, transparent); }
 
 .library-game-card__overlay { background: linear-gradient(0deg, #1c1c1c 0%, rgba(28, 28, 28, .85) 18%, transparent 60%); }
 
@@ -1532,7 +1536,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 .review-prompt-banner {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s3) var(--s4);
   padding: var(--s3) var(--s3) var(--s3) var(--s4); border-radius: var(--r-surface); box-shadow: none;
-  background: rgba(94, 227, 163, .07); border: 1px solid rgba(94, 227, 163, .2);
+  background: color-mix(in srgb, var(--accent-bright) 7%, transparent); border: 1px solid color-mix(in srgb, var(--accent-bright) 20%, transparent);
 }
 .review-prompt-banner__content, .review-prompt-banner__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .review-prompt-banner__playtime, .review-prompt-banner__text > :first-child { font: 600 14px/20px var(--font); color: var(--text); margin: 0; }
@@ -2097,7 +2101,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 }
 .drive-card:hover { background: rgba(255, 255, 255, .07); }
 .drive-card > svg { width: 18px; height: 18px; color: var(--text-2); flex: none; margin-top: 1px; }
-.drive-card--selected { border-color: var(--accent-bright); background: rgba(94, 227, 163, .07); box-shadow: inset 0 0 0 1px var(--accent-bright); }
+.drive-card--selected { border-color: var(--accent-bright); background: color-mix(in srgb, var(--accent-bright) 7%, transparent); box-shadow: inset 0 0 0 1px var(--accent-bright); }
 .drive-card__body { flex: 1; display: flex; flex-direction: column; gap: 8px; }
 .drive-card__top { display: flex; flex-direction: column; gap: 2px; }
 .drive-card__label { font: 600 14px/20px var(--font); }
@@ -2311,11 +2315,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 }
 
 .similar-games__card img { border: 1px solid var(--card-stroke); aspect-ratio: 2 / 3; height: auto !important; }
-.similar-games__card::before {
-  content: attr(aria-label); display: block; order: 2; margin-top: 8px; padding: 0 2px;
-  font: 600 13px/18px var(--font); color: var(--text); text-align: left;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
+.similar-games__card::before { order: 2; margin-top: 8px; padding: 0 2px; font: 600 13px/18px var(--font); color: var(--text); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .similar-games__card {
   border: 0;
   background: none;
@@ -2325,9 +2325,9 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
   aspect-ratio: auto !important;
 }
 .similar-games__card:hover { transform: none !important; box-shadow: none !important; }
-.similar-games__card:hover img { transform: translateY(-4px); border-color: rgba(255, 255, 255, .22); filter: saturate(1.15) brightness(1.06); }
+.similar-games__card:hover img { border-color: rgba(255, 255, 255, .22); filter: saturate(1.15) brightness(1.06); }
 .similar-games__card img { transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s, filter .4s; }
-.similar-games__card::after { display: none; }
+
 
 .similar-games__control {
   padding: 0;
@@ -2447,7 +2447,7 @@ body:has(.game-details__star:hover) .react-tooltip { display: block !important; 
 /* Votos: o que você escolheu fica marcado. Curtir em verde, não curtir em
    vermelho, com fundo suave da cor, ícone preenchido e um "pulo" ao marcar. */
 .game-details__vote-button--upvote.game-details__vote-button--active {
-  color: var(--accent-bright) !important; background: rgba(94, 227, 163, .12) !important; border-color: rgba(94, 227, 163, .28) !important; }
+  color: var(--accent-bright) !important; background: color-mix(in srgb, var(--accent-bright) 12%, transparent) !important; border-color: color-mix(in srgb, var(--accent-bright) 28%, transparent) !important; }
 .game-details__vote-button--downvote.game-details__vote-button--active {
   color: #ff99a4 !important; background: rgba(255, 153, 164, .12) !important; border-color: rgba(255, 153, 164, .28) !important; }
 .game-details__vote-button--active svg, .game-details__vote-button--active svg * { fill: currentColor; }
@@ -2721,8 +2721,8 @@ body:has(.game-details__star:hover) .react-tooltip { display: block !important; 
 .sidebar__play-button:active, .sidebar__add-button:active { background: rgba(255, 255, 255, .05); }
 .sidebar__add-button[data-state="open"] { background: rgba(255, 255, 255, .1); color: var(--text); }
 .sidebar__play-button svg, .sidebar__add-button svg { width: 15px; height: 15px; }
-.sidebar__play-button--active { background: rgba(94, 227, 163, .16); color: var(--accent-bright); }
-.sidebar__play-button--active:hover { background: rgba(94, 227, 163, .22); color: var(--accent-bright); }
+.sidebar__play-button--active { background: color-mix(in srgb, var(--accent-bright) 16%, transparent); color: var(--accent-bright); }
+.sidebar__play-button--active:hover { background: color-mix(in srgb, var(--accent-bright) 22%, transparent); color: var(--accent-bright); }
 
 /* Busca: botão de lupa; ao clicar abre um flyout ao lado com a caixa de texto */
 .sidebar__search-row .text-field-container { grid-column: 1 / -1; grid-row: 2; position: static; width: 100%; height: 26px; }
@@ -2741,7 +2741,7 @@ body:has(.game-details__star:hover) .react-tooltip { display: block !important; 
   font: 400 14px/20px var(--font); color: var(--text); background: none; outline: none;
 }
 /* Busca com texto e fechada: lupa verde e "Filtrando" embaixo */
-.sidebar__search-row:has(input:not(:placeholder-shown)) .text-field-container__text-field { background: rgba(94, 227, 163, .16); }
+.sidebar__search-row:has(input:not(:placeholder-shown)) .text-field-container__text-field { background: color-mix(in srgb, var(--accent-bright) 16%, transparent); }
 .sidebar__search-row:has(input:not(:placeholder-shown)) .text-field-container__text-field::before { background: var(--accent-bright); }
 /* Aberta: flyout de 276px ao lado, centrado no botão, com seta */
 
@@ -2839,7 +2839,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 .sidebar-profile__game-running-icon, .sidebar-profile__classic-disc { position: absolute; margin: 0; object-fit: cover; z-index: 1; }
 
 .sidebar-profile:has(.sidebar-profile__game-running-icon, .sidebar-profile__classic-disc, .sidebar-profile__button-game-running-title) .sidebar-profile__avatar::after { content: ""; position: absolute; border-radius: 50%; border: 2px solid var(--accent-bright); }
-@keyframes mica-running { 50% { box-shadow: 0 0 0 4px rgba(94, 227, 163, .18); } }
+@keyframes mica-running { 50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-bright) 18%, transparent); } }
 /* Menu do perfil abre para cima, encostado na barra */
 .sidebar-profile__dropdown {
   position: absolute; left: 0; right: auto; top: auto; bottom: calc(100% + 4px); width: 240px; z-index: 90;
@@ -2999,7 +2999,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 }
 .download-group__progress-fill {
   height: 100%; border-radius: 999px; background: var(--accent-bright) !important;
-  box-shadow: 0 0 12px rgba(94, 227, 163, .5); transition: width .4s var(--ease);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent-bright) 50%, transparent); transition: width .4s var(--ease);
   background-image: linear-gradient(90deg, transparent 0, rgba(255, 255, 255, .35) 50%, transparent 100%) !important;
   background-size: 120px 100% !important; background-repeat: no-repeat !important;
   animation: mica-progress-shine 1.6s linear infinite;
@@ -3079,7 +3079,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 }
 .downloads__arrow-icon {
   width: 64px; height: 64px; margin-bottom: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  background: rgba(94, 227, 163, .1); border: 1px solid rgba(94, 227, 163, .25); color: var(--accent-bright);
+  background: color-mix(in srgb, var(--accent-bright) 10%, transparent); border: 1px solid color-mix(in srgb, var(--accent-bright) 25%, transparent); color: var(--accent-bright);
   animation: mica-bob 2.4s ease-in-out infinite;
 }
 .downloads__arrow-icon svg { width: 24px; height: 24px; }
@@ -3210,7 +3210,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 }
 .repacks-modal__source-item:hover .checkbox-field__label { background: var(--ctl-bg-hover); color: var(--text); }
 .repacks-modal__source-item .checkbox-field:has(input:checked) .checkbox-field__label {
-  background: rgba(94, 227, 163, .14); border-color: rgba(94, 227, 163, .4); color: var(--accent-bright); font-weight: 600;
+  background: color-mix(in srgb, var(--accent-bright) 14%, transparent); border-color: color-mix(in srgb, var(--accent-bright) 40%, transparent); color: var(--accent-bright); font-weight: 600;
 }
 .repacks-modal__source-item .checkbox-field:has(input:checked) .checkbox-field__label::before {
   content: ""; width: 12px; height: 12px; margin-right: 6px; background: currentColor;
@@ -3232,7 +3232,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 .repacks-modal__repack-button::after { content: ""; width: 32px; height: 32px; border-radius: var(--r-control); background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10'/%3E%3C/svg%3E") center / 15px no-repeat; opacity: 0; transform: translateX(-4px); transition: opacity .15s, transform .2s var(--ease); }
 .repacks-modal__repack-button:hover::after { opacity: 1; transform: none; }
 .repacks-modal__availability-orb { grid-column: 1; width: 8px; height: 8px; border-radius: 50%; margin: 0; position: static; background: var(--text-3); }
-.repacks-modal__availability-orb--online { background: var(--accent-bright); box-shadow: 0 0 0 3px rgba(94, 227, 163, .18); }
+.repacks-modal__availability-orb--online { background: var(--accent-bright); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-bright) 18%, transparent); }
 .repacks-modal__availability-orb--offline { background: #ff99a4; box-shadow: 0 0 0 3px rgba(255, 153, 164, .15); }
 .repacks-modal__repack-title { margin: 0; -webkit-box-orient: vertical; }
 .repacks-modal__steam-title { display: flex; align-items: center; gap: 8px; }
@@ -3303,7 +3303,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 .download-settings-modal__downloader-item-wrapper { margin: 0; border: 0 !important; }
 .download-settings-modal__downloader-item { position: relative; display: grid; column-gap: 12px; align-items: center; width: 100%; text-align: left; cursor: pointer; color: var(--text); transition: background .1s, border-color .1s; }
 
-.download-settings-modal__downloader-item--selected { border-color: rgba(94, 227, 163, .45) !important; }
+.download-settings-modal__downloader-item--selected { border-color: color-mix(in srgb, var(--accent-bright) 45%, transparent) !important; }
 /* Marcador de rádio */
 .download-settings-modal__downloader-item::before { content: ""; grid-column: 1; }
 
@@ -3323,7 +3323,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 .download-settings-modal__recommendation-badge, .download-settings-modal__hydra-cloud-badge { grid-column: 3; grid-row: 1 / span 2; }
 .download-settings-modal__recommendation-badge .badge, .download-settings-modal__hydra-cloud-badge .badge, .download-settings-modal__hydra-cloud-badge {
   display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px;
-  background: rgba(94, 227, 163, .14) !important; border: 0 !important; color: var(--accent-bright) !important;
+  background: color-mix(in srgb, var(--accent-bright) 14%, transparent) !important; border: 0 !important; color: var(--accent-bright) !important;
   font: 600 11px/16px var(--font) !important; letter-spacing: 0; text-transform: none;
 }
 .download-settings-modal__recommendation-badge .badge::before { content: none !important; }
@@ -3459,7 +3459,7 @@ body:has(.sidebar__search-row button:hover) .react-tooltip { visibility: hidden 
 .download-settings-modal__availability-indicator-wrapper { grid-column: 3 !important; grid-row: 1 !important; align-self: center !important; }
 .download-settings-modal__recommendation-badge { grid-column: 4 !important; grid-row: 1 !important; }
 .download-settings-modal__downloader-item:hover { background: rgba(255,255,255,.04) !important; }
-.download-settings-modal__downloader-item--selected { background: rgba(94,227,163,.07) !important; }
+.download-settings-modal__downloader-item--selected { background: color-mix(in srgb, var(--accent-bright) 7%, transparent) !important; }
 /* Editar e Salvamento em nuvem embaixo, à direita, na linha dos botões de ação. */
 .container .game-details__hero-buttons, .container:has(.game-details__hero) .game-details__hero-buttons {
   position: absolute; top: auto; bottom: var(--s5, 24px); right: var(--gutter, 24px); left: auto;
@@ -3855,7 +3855,7 @@ button, .button { text-box: trim-both cap alphabetic; }
   width: 20px; height: 20px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 50%;
   background: transparent; color: inherit; cursor: pointer; transition: background .1s;
 }
-.filter-item__remove-button:hover { background: rgba(94, 227, 163, .2); }
+.filter-item__remove-button:hover { background: color-mix(in srgb, var(--accent-bright) 20%, transparent); }
 .filter-item__remove-button svg { width: 12px; height: 12px; }
 .catalogue__clear-all-button {
   height: 28px; min-height: 28px; padding: 0 10px; background: transparent; border: 0;
@@ -3919,8 +3919,8 @@ button, .button { text-box: trim-both cap alphabetic; }
   height: 28px;
   padding: 0 4px 0 12px;
   border-radius: 999px;
-  background: rgba(94, 227, 163, .12);
-  border: 1px solid rgba(94, 227, 163, .3);
+  background: color-mix(in srgb, var(--accent-bright) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-bright) 30%, transparent);
   color: var(--accent-bright);
   font: 600 13px/16px var(--font);
   white-space: nowrap;
@@ -3943,7 +3943,7 @@ button, .button { text-box: trim-both cap alphabetic; }
 .library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger, .library-installed-filter__button, .library-view-options__option):hover { background: var(--ctl-bg) !important; }
 .library__controls-row :is(.library-installed-filter__button[aria-pressed="true"], .library-view-options__option.active),
 .library__controls-row :is(.library-installed-filter__button[aria-pressed="true"], .library-view-options__option.active):hover {
-  background: rgba(94,227,163,.14) !important; color: var(--accent-bright) !important;
+  background: color-mix(in srgb, var(--accent-bright) 14%, transparent) !important; color: var(--accent-bright) !important;
 }
 .library__controls-row .library-installed-filter__button[aria-pressed="true"] svg { color: var(--accent-bright) !important; }
 /* Separadores entre grupos */
@@ -4252,7 +4252,7 @@ select option:checked::before { display: none; }
 .settings-download-sources__item .text-field-container__text-field-wrapper { gap: 8px; }
 .settings-download-sources__item .text-field-container__text-field { flex: 1; min-width: 0; }
 .settings-download-sources__item-header { flex-direction: row; justify-content: flex-start; text-align: left; }
-.settings-download-sources__item-header .badge { border-radius: 999px; background: rgba(94, 227, 163, .12); color: var(--accent-bright); border: 0; }
+.settings-download-sources__item-header .badge { border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 12%, transparent); color: var(--accent-bright); border: 0; }
 .settings-behavior__screenshots-directory > .text-field-container > label {
   font: 400 14px/20px var(--font) !important;
   color: var(--text);
@@ -4274,7 +4274,7 @@ select option:checked::before { display: none; }
 .home__buttons-list .button { height: 30px; min-height: 30px; padding: 0 12px; gap: 8px; border-radius: var(--ctl-r); background: transparent;
   border: 1px solid transparent; color: var(--text-2); font: 400 14px/20px var(--font); box-shadow: none; }
 .home__buttons-list .button:hover { background: rgba(255,255,255,.042) !important; color: var(--text) !important; }
-.home__buttons-list .button--primary, .home__buttons-list .button--primary:hover { background: var(--ctl-bg-hover) !important; border-color: rgba(255,255,255,.07) !important; color: var(--text) !important; font-weight: 600 !important; }
+
 .home__buttons-list .button--primary svg, .home__buttons-list .button--primary img { color: var(--accent-bright); }
 
 .home__title-icon { display: none; }
@@ -4443,8 +4443,8 @@ select option:checked::before { display: none; }
 }
 /* Título da seção oculto: a aba ativa já diz qual lista é */
 .home__title {
-  margin-top: 24px;
-  margin-bottom: 12px;
+  
+  
   font: 600 24px/32px var(--font-display) !important;
   margin: 32px 0 16px 4px !important;
   font-family: "Mica Blank", var(--font-display);
@@ -4521,7 +4521,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .controller-support__icon path { fill: currentColor; }
 .controller-support__badge { grid-column: 2; grid-row: 1; align-self: end; margin: 0; height: 20px; padding: 0 8px; border-radius: 999px;
   font: 600 11px/20px var(--font) !important; letter-spacing: .02em; text-transform: none; }
-.controller-support__badge--full { background: rgba(94, 227, 163, .12); color: var(--accent-bright); }
+.controller-support__badge--full { background: color-mix(in srgb, var(--accent-bright) 12%, transparent); color: var(--accent-bright); }
 .controller-support__badge--partial { background: rgba(252, 225, 0, .12) !important; color: #fce100 !important; }
 .controller-support__badge--none { background: rgba(255, 153, 164, .12) !important; color: #ff99a4 !important; }
 .controller-support__description { grid-column: 2; grid-row: 2; align-self: start; margin: 0; font: 400 13px/18px var(--font) !important; color: var(--text-2); text-align: left; }
@@ -4556,7 +4556,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   position: absolute !important; top: 10px !important; right: 10px !important; z-index: 2; width: 32px !important; height: 32px !important; border-radius: var(--ctl-r) !important;
   background: rgba(24,24,24,.55) !important; border: 1px solid rgba(255,255,255,.12) !important; backdrop-filter: blur(16px); color: #fff !important;
 }
-.game-item-classics__plus-wrapper--added { background: rgba(94,227,163,.2) !important; color: var(--accent-bright) !important; }
+.game-item-classics__plus-wrapper--added { background: color-mix(in srgb, var(--accent-bright) 20%, transparent) !important; color: var(--accent-bright) !important; }
 
 /* Abas de grupo nos filtros (Sony / Nintendo): controle segmentado do tema */
 .filter-section__group-tabs { display: flex !important; gap: 2px !important; padding: 2px !important; background: rgba(0,0,0,.25) !important; border: 1px solid rgba(255,255,255,.06) !important; border-radius: calc(var(--ctl-r) + 2px) !important; }
@@ -4681,10 +4681,10 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .retro-achievements-connect-banner {
   display: grid; grid-template-columns: 40px minmax(0, 1fr) 16px; align-items: center; column-gap: 12px; width: 100%; box-sizing: border-box;
   margin: 4px 0 8px; padding: 10px 12px 10px 10px; border-radius: 10px; text-align: left; cursor: pointer;
-  background: rgba(94, 227, 163, .07); border: 1px solid rgba(94, 227, 163, .22); color: var(--text); box-shadow: none;
+  background: color-mix(in srgb, var(--accent-bright) 7%, transparent); border: 1px solid color-mix(in srgb, var(--accent-bright) 22%, transparent); color: var(--text); box-shadow: none;
   transition: background .1s linear, border-color .1s linear;
 }
-.retro-achievements-connect-banner:hover { background: rgba(94, 227, 163, .12) !important; border-color: rgba(94, 227, 163, .35) !important; }
+.retro-achievements-connect-banner:hover { background: color-mix(in srgb, var(--accent-bright) 12%, transparent) !important; border-color: color-mix(in srgb, var(--accent-bright) 35%, transparent) !important; }
 .retro-achievements-connect-banner__logo { width: 40px; height: 40px; padding: 8px; box-sizing: border-box; object-fit: contain; border-radius: 8px;
   background: var(--ctl-bg); border: 1px solid var(--ctl-stroke); margin: 0; }
 .retro-achievements-connect-banner__text { font: 400 13px/18px var(--font) !important; color: var(--text); text-align: left; margin: 0; }
@@ -4742,7 +4742,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   font: 600 11px/16px var(--font) !important; background: rgba(255, 255, 255, .06) !important; color: var(--text-2) !important; border: 0 !important; }
 .settings-integration-card__status::before { display: none !important; }
 .settings-integration-card__status-dot { width: 6px !important; height: 6px !important; border-radius: 50%; background: currentColor !important; flex: none; order: -1; }
-.settings-integration-card__status--success { background: rgba(94, 227, 163, .12) !important; color: var(--accent-bright) !important; }
+.settings-integration-card__status--success { background: color-mix(in srgb, var(--accent-bright) 12%, transparent) !important; color: var(--accent-bright) !important; }
 .settings-integration-card__status--warning { background: rgba(252, 225, 0, .1) !important; color: #fce100 !important; }
 .settings-integration-card__status--error { background: rgba(255, 153, 164, .12) !important; color: #ff99a4 !important; }
 .settings-integration-card__actions { grid-column: 2; grid-row: 1 / span 2; display: flex !important; gap: 8px; }
@@ -4920,22 +4920,19 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .settings-retroachievements__emulator-note .guide-link svg { display: inline; vertical-align: -2px; margin-left: 4px; }
 @container settings (max-width: 980px) {
   .settings-context-panel__group:has(> .settings-integration-card) { grid-template-columns: 1fr !important; gap: 8px !important; }
-  .settings-context-panel__group > .settings-integration-card {
-    display: grid !important; grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 16px; row-gap: 4px;
-    align-items: center; padding: 16px 20px !important;
-  }
+  .settings-context-panel__group > .settings-integration-card { display: grid !important; }
   .settings-integration-card__heading { display: contents !important; }
-  .settings-integration-card__logo { grid-column: 1; grid-row: 1 / span 2; align-self: start; }
-  .settings-integration-card__title { grid-column: 2; grid-row: 1; margin: 0 !important; display: flex; align-items: center; gap: 10px; }
-  .settings-integration-card__status { grid-column: 2; grid-row: 1; justify-self: end; }
-  .settings-integration-card__content { grid-column: 2; grid-row: 2; margin: 0 !important; }
-  .settings-integration-card__actions { grid-column: 3; grid-row: 1 / span 2; margin: 0 !important; width: auto; }
+  
+  .settings-integration-card__title { display: flex; align-items: center; gap: 10px; }
+  
+  
+  .settings-integration-card__actions { width: auto; }
   .settings-integration-card__actions .button { flex: none; }
 }
 @container settings (max-width: 560px) {
-  .settings-context-panel__group > .settings-integration-card { grid-template-columns: 40px minmax(0, 1fr); }
-  .settings-integration-card__actions { grid-column: 1 / -1; grid-row: 3; margin-top: 12px !important; width: 100%; }
-  .settings-integration-card__actions .button { flex: 1; }
+  
+  .settings-integration-card__actions { margin-top: 12px !important; }
+  
 }
 
 /* Foco dos campos no ritmo do Windows 11: a linha verde aparece na hora do
@@ -5038,9 +5035,9 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 
 .settings-download-sources__item + .settings-download-sources__item::after { left: 16px; right: 16px; }
 .settings-download-sources__item-header {
-  grid-column: 2;
+  
   grid-row: 1;
-  display: flex;
+  
   align-items: center;
   gap: 8px;
   min-width: 0;
@@ -5075,7 +5072,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 
 .settings-download-sources__navigate-button {
-  margin-left: 4px;
+  
   grid-area: count;
   justify-self: end;
   margin: 0 !important;
@@ -5087,18 +5084,18 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 
 .settings-download-sources__navigate-button small::before {
-  content: "· ";
+  
   content: none;
 }
 .settings-download-sources__navigate-button:hover { background: var(--ctl-bg-hover) !important; }
 
 .settings-download-sources__item .text-field-container__text-field-input {
   padding: 0;
-  height: 18px;
-  font: 400 12px/18px "Cascadia Mono", Consolas, monospace;
-  color: var(--text-3);
+  
+  
+  
   text-overflow: ellipsis;
-  font-weight: 400;
+  
   font: 400 12px/16px var(--font) !important;
   color: var(--text-3);
   height: 16px;
@@ -5114,7 +5111,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   display: none;
 }
 .settings-download-sources__buttons-container {
-  order: 3;
+  
   order: 1;
   flex-direction: row-reverse;
   margin-left: 0;
@@ -5123,7 +5120,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .settings-download-sources__buttons-container .button:not(.button--danger) { background: var(--accent); color: var(--on-accent); border-color: transparent; font-weight: 600; }
 .settings-download-sources__buttons-container .button:not(.button--danger):hover { background: var(--accent-hover) !important; }
 .settings-download-sources__header > .button {
-  order: 2;
+  
   order: 2;
   background: var(--ctl-bg);
   border: 1px solid var(--ctl-stroke);
@@ -5147,7 +5144,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   grid-row: 2;
   display: block;
   min-width: 0;
-  margin-top: -2px;
+  
   grid-area: url;
   margin-top: 2px;
   padding-left: 15px;
@@ -5164,7 +5161,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   height: 7px;
   border-radius: 50%;
   background: var(--accent-bright);
-  box-shadow: 0 0 0 3px rgba(94, 227, 163, .15);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-bright) 15%, transparent);
   flex: none;
   margin-top: 1px;
   align-self: center;
@@ -5173,9 +5170,9 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   font: 600 14px/20px var(--font) !important;
   grid-column: 1;
   grid-row: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  
+  
+  
   grid-area: name;
   display: flex;
   align-items: center;
@@ -5193,7 +5190,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .settings-context-panel__group > :is(.text-field-container, .select-field__container, .settings-general__network-interface) { height: auto !important; }
 
 .settings-context-panel__group > *, .settings-context-panel > * {
-  flex-shrink: 0 !important;
+  
   flex: none !important;
 }
 
@@ -5226,7 +5223,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .console-card__chip { height: 22px; padding: 0 8px; border-radius: 999px; font: 600 11px/22px var(--font) !important; display: inline-flex; align-items: center; gap: 6px; }
 .console-card__chip-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor !important; }
 .console-card__chip--warn { background: rgba(252,225,0,.1); color: #fce100; }
-.console-card__chip--ready { background: rgba(94,227,163,.12) !important; color: var(--accent-bright) !important; }
+.console-card__chip--ready { background: color-mix(in srgb, var(--accent-bright) 12%, transparent) !important; color: var(--accent-bright) !important; }
 .console-card__chip::before { display: none; }
 .console-card__cta { position: static; height: 28px; gap: 6px; border-radius: var(--ctl-r) !important; font: 400 13px/20px var(--font) !important; color: var(--text-2); background: transparent; border: 0; display: inline-flex; align-items: center; }
 .console-card__cta::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
@@ -5262,7 +5259,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 .console-card__chip {
   min-width: 0;
-  overflow: hidden;
+  
   white-space: nowrap;
   text-overflow: ellipsis;
   flex: 0 1 auto;
@@ -5293,7 +5290,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .settings__panel > h2 + .settings-context-panel:has(> p:first-child) { margin-top: 0 !important; }
 .settings-context-panel > p:first-child, .settings-emulation__description { margin: 0 0 4px 0 !important; padding: 0 !important; font: 400 13px/20px var(--font) !important; color: var(--text-2) !important; }
 .settings-emulation {
-  gap: 16px;
+  
   display: flex;
   flex-direction: column;
   gap: 0 !important;
@@ -5303,8 +5300,8 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
-  margin-top: 4px;
-  margin: 0 !important;
+  
+  
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -5314,7 +5311,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 
 .settings-emulation__title { margin-bottom: 4px !important; }
 .settings-emulation__header {
-  margin-bottom: 8px;
+  
   display: flex !important;
   flex-direction: column;
   gap: 0 !important;
@@ -5329,11 +5326,11 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 
 
 .achievements-content__achievements-list__section__container {
-  top: 80px !important;
+  
   top: 0 !important;
 }
 .achievement-panel {
-  top: 337px !important;
+  
   top: 257px !important;
 }
 /* Conquistas: barra de rolagem na borda da janela, como nas outras páginas */
@@ -5343,7 +5340,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   padding-top: 80px !important;
   scroll-padding-top: 80px;
   margin-right: 0 !important;
-  padding-right: 16px !important;
+  
   padding-right: 4px !important;
 }
 /* Biblioteca: rolagem no padrão — a barra na borda da janela, os cartões
@@ -5380,7 +5377,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 
 .download-group__progress-info-row {
-  display: flex !important;
+  
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   align-items: flex-end !important;
@@ -5392,7 +5389,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .download-group__progress-time { grid-column: 1; grid-row: 2; }
 .download-group__progress-info-row > span:empty { display: none; }
 .download-group__progress-percentage {
-  margin-left: auto !important;
+  
   order: 9;
   align-self: flex-end !important;
   font: 600 28px/32px var(--font-display) !important;
@@ -5409,22 +5406,22 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .container__content > * { animation-duration: .18s !important; }
 .download-group__progress-row {
   display: flex !important;
-  align-items: flex-end !important;
-  gap: 16px !important;
+  
+  
   flex-direction: column !important;
   align-items: stretch !important;
   gap: 12px !important;
 }
 .download-group__progress-row > .download-group__hero-buttons { order: 2; align-self: flex-start; }
 .download-group__progress-wrapper {
-  display: flex !important;
+  
   flex-direction: row !important;
-  align-items: center;
+  
   gap: 16px !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto auto;
-  row-gap: 2px;
+  
   column-gap: 16px;
   align-items: end;
   width: 100%;
@@ -5501,8 +5498,8 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   min-width: 18px; height: 18px; padding: 0 5px !important; border-radius: 999px !important; font: 600 11px/18px var(--font) !important;
   background: rgba(255, 255, 255, .1) !important; color: var(--text-2) !important; text-align: center; box-sizing: border-box;
 }
-.profile-content__tab--active .profile-content__tab-badge { background: rgba(94, 227, 163, .16) !important; color: var(--accent-bright) !important; }
-.profile-content__library-filters { gap: 8px !important; margin-bottom: 24px !important; }
+.profile-content__tab--active .profile-content__tab-badge { background: color-mix(in srgb, var(--accent-bright) 16%, transparent) !important; color: var(--accent-bright) !important; }
+.profile-content__library-filters { margin-bottom: 24px !important; }
 .profile-content__section-header { margin: 0 0 12px 2px !important; }
 .profile-content__section-header :is(h2, h3) { font: 600 20px/28px var(--font-display) !important; }
 .profile-content__games-grid { gap: 12px !important; }
@@ -5513,7 +5510,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .profile-section__count { height: 20px !important; min-width: 20px; padding: 0 6px !important; border-radius: 999px !important; font: 600 11px/20px var(--font) !important; background: rgba(255, 255, 255, .1) !important; color: var(--text-2) !important; }
 
 .user-stats__box, .badges-box__box { padding: 0 !important; background: none !important; border: 0 !important; }
-.user-stats__list { gap: 0 !important; }
+
 
 
 
@@ -5536,14 +5533,14 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 .profile-section__button { min-height: 48px !important; height: 48px; font: 600 14px/20px var(--font) !important; gap: 8px; }
 .profile-section__content { border-top: 0 !important; }
-.user-stats__list { padding: 0 16px 8px !important; }
-.user-stats__list-item { display: flex !important; align-items: center; gap: 12px; padding: 8px 0 !important; min-height: 36px !important; box-sizing: border-box; }
-.user-stats__list-item + .user-stats__list-item { border-top: 1px solid rgba(255, 255, 255, .06) !important; }
-.user-stats__list-title { flex: 1; margin: 0 !important; font: 400 13px/20px var(--font) !important; color: var(--text-2) !important; }
-.user-stats__stats-row { display: flex !important; align-items: center; gap: 8px; margin: 0 !important; }
-.user-stats__list-description { display: inline-flex !important; align-items: center; gap: 6px; margin: 0 !important; font: 600 13px/20px var(--font) !important; color: var(--text) !important; font-variant-numeric: tabular-nums; }
-.user-stats__list-description svg { width: 14px; height: 14px; color: var(--text-2); }
-.user-stats__stats-row > :not(.user-stats__list-description) { font: 600 11px/18px var(--font) !important; height: 18px; padding: 0 7px; border-radius: 999px; background: rgba(94, 227, 163, .14); color: var(--accent-bright) !important; margin: 0 !important; }
+
+.user-stats__list-item { box-sizing: border-box; }
+
+.user-stats__list-title { margin: 0 !important; }
+.user-stats__stats-row { margin: 0 !important; }
+.user-stats__list-description { margin: 0 !important; font-variant-numeric: tabular-nums; }
+
+.user-stats__stats-row > :not(.user-stats__list-description) { border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 14%, transparent); color: var(--accent-bright) !important; margin: 0 !important; }
 /* Insígnias como a lista de conquistas do jogo */
 .badges-box__list { padding: 0 8px 8px !important; gap: 0 !important; display: flex !important; flex-direction: column; }
 .badges-box__item { position: relative; display: flex !important; align-items: center; gap: 12px !important; min-height: 56px; padding: 8px !important; border-radius: 8px !important; }
@@ -5555,7 +5552,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .badges-box__item-content { min-width: 0; display: flex; flex-direction: column; gap: 0; }
 .badges-box__item-title { margin: 0 !important; font: 400 14px/20px var(--font) !important; color: var(--text) !important; }
 .badges-box__item-description { margin: 0 !important; font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; }
-.user-stats__list-item { flex-direction: row !important; text-align: left !important; justify-content: flex-start !important; }
+.user-stats__list-item { text-align: left !important; }
 .profile-content__right-content :is(.profile-section__header, .profile-section__content, .user-stats__box, .badges-box__box, .user-stats__list, .badges-box__list) { background: transparent !important; }
 .profile-section__button { width: 100% !important; }
 .profile-section__button > :not(svg) { margin-right: auto; }
@@ -5643,7 +5640,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 /* Perfil — mesmas medidas da página do jogo: hero de 600px, margens de 24px,
    linha de ações 42px acima da base, botões de 36px; conteúdo 24px abaixo do
    hero, coluna lateral de 340px com 24px de vão. */
-.profile-hero__content-box { height: 600px !important; }
+
 .profile-hero__user-information { left: 24px !important; right: 24px !important; }
 .profile-hero__hero-panel { left: 24px !important; height: 36px !important; }
 .profile-hero__actions { height: 36px !important; align-items: center !important; }
@@ -5693,12 +5690,8 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
    - botões: o primário verde (como "Baixar") e os de vidro (fundo .08,
      desfoque 20px, borda .08 com a de baixo .04, raio 8, 36px, transição .083s);
    - conteúdo começa colado na base do hero com 24px de respiro (como no jogo). */
-.profile-hero__background-image {
-  -webkit-mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important;
-          mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important;
-  object-position: 50% 50%; border-radius: 0 !important;
-}
-.profile-hero__background-overlay { background: none !important; }
+.profile-hero__background-image { -webkit-mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important; mask-image: linear-gradient(#000 0%, #000 45%, rgba(0, 0, 0, .75) 62%, rgba(0, 0, 0, .35) 80%, transparent 100%) !important; border-radius: 0 !important; }
+
 :is(.profile-hero__actions, .upload-background-image-button__wrapper) .button {
   height: 36px !important; min-height: 36px !important; padding: 0 14px !important; gap: 8px !important; border-radius: 8px !important;
   font: 400 14px/20px var(--font) !important; color: #fff !important; box-shadow: none !important;
@@ -5708,7 +5701,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 }
 :is(.profile-hero__actions, .upload-background-image-button__wrapper) .button:hover { background: rgba(255, 255, 255, .14) !important; }
 .profile-hero__actions .button:first-child:not(.button--danger) {
-  padding: 0 16px !important; font-weight: 600 !important; color: #000 !important; background: rgb(0, 204, 106) !important; border-color: transparent !important; backdrop-filter: none !important;
+  padding: 0 16px !important; font-weight: 600 !important; color: #000 !important; background: var(--accent) !important; border-color: transparent !important; backdrop-filter: none !important;
 }
 .profile-hero__actions .button:first-child:not(.button--danger):hover { background: var(--accent-hover) !important; }
 .profile-hero__actions .button--danger { color: #ff99a4 !important; }
@@ -5770,3 +5763,669 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .gallery-slider__button:focus-visible { opacity: 1 !important; transform: none !important; outline: 2px solid #fff !important; outline-offset: 2px; }
 .gallery-slider__container:focus-within .gallery-slider__button { opacity: 1 !important; }
 .bottom-panel__downloads-button:focus-visible { outline: 2px solid #fff !important; outline-offset: 2px; }
+/* Integrações em linha (painel médio): logo | nome + estado logo ao lado |
+   botão; descrição embaixo do nome; tudo centrado, sem sobra de altura. */
+@container settings (max-width: 980px) {
+  .settings-context-panel__group > .settings-integration-card {
+    grid-template-columns: 40px auto minmax(0, 1fr) auto !important; grid-template-rows: auto auto !important;
+    column-gap: 0 !important; row-gap: 2px !important; align-items: center !important; align-content: center !important;
+    min-height: 0 !important; height: auto !important; padding: 16px 20px !important;
+  }
+  .settings-integration-card__logo { grid-column: 1 !important; grid-row: 1 / span 2 !important; align-self: center !important; margin-right: 16px !important; }
+  .settings-integration-card__title { grid-column: 2 !important; grid-row: 1 !important; margin: 0 10px 0 0 !important; }
+  .settings-integration-card__status { grid-column: 3 !important; grid-row: 1 !important; justify-self: start !important; }
+  .settings-integration-card__content { grid-column: 2 / 4 !important; grid-row: 2 !important; margin: 0 !important; padding: 0 !important; }
+  .settings-integration-card__actions { grid-column: 4 !important; grid-row: 1 / span 2 !important; align-self: center !important; margin: 0 0 0 24px !important; }
+}
+/* Perfil: banner na proporção dos banners do Hydra (~3:1) em vez de 600px
+   fixos — menos corte e menos ampliação em imagens pequenas. */
+
+
+
+.profile-hero__background-image { object-position: 50% 50% !important; }
+/* altura fixada pela largura (4:1), sem esticar */
+.profile-hero__content-box { aspect-ratio: auto !important; max-height: none !important; min-height: 0 !important; height: clamp(360px, calc((100vw - 72px) / 4 + 80px), 460px) !important; }
+.profile__wrapper section.profile-hero__content-box { height: clamp(360px, calc((100vw - 72px) / 4 + 80px), 460px) !important; }
+
+/* ==================== Notificações ====================
+   Como a Central de notificações do Windows 11 / as listas do tema: uma
+   coluna de 860px; abas no controle segmentado; ações à direita como botões
+   do tema ("Limpar" sutil vermelho); lista num único cartão de linhas.
+   Não lida = ponto verde à esquerda + título em branco; lida = texto em
+   cinza (sem apagar a linha inteira). X aparece no hover. */
+.notifications__content-wrapper { max-width: 860px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 16px !important; padding: 0 0 32px !important; }
+.notifications__header { gap: 12px !important; align-items: center !important; }
+.notifications__filter-tabs {
+  flex: none !important; display: inline-flex !important; gap: 2px !important; padding: 2px !important; border: 1px solid rgba(255, 255, 255, .06) !important;
+  background: rgba(0, 0, 0, .25) !important; border-radius: calc(var(--ctl-r) + 2px) !important; border-bottom: 1px solid rgba(255, 255, 255, .06) !important;
+}
+.notifications__tab-underline { display: none !important; }
+.notifications__tab {
+  height: 30px !important; padding: 0 14px !important; border-radius: var(--ctl-r) !important; border: 1px solid transparent !important; background: transparent !important;
+  color: var(--text-2) !important; font: 400 14px/20px var(--font) !important; display: inline-flex !important; align-items: center; gap: 8px;
+}
+.notifications__tab:hover { background: rgba(255, 255, 255, .042) !important; color: var(--text) !important; }
+.notifications__tab--active, .notifications__tab--active:hover { background: var(--ctl-bg-hover) !important; border-color: rgba(255, 255, 255, .07) !important; color: var(--text) !important; font-weight: 600 !important; }
+.notifications__tab-badge { min-width: 18px; height: 18px; padding: 0 5px !important; border-radius: 999px !important; box-sizing: border-box; text-align: center;
+  font: 600 11px/18px var(--font) !important; background: color-mix(in srgb, var(--accent-bright) 16%, transparent) !important; color: var(--accent-bright) !important; }
+.notifications__actions { display: flex !important; gap: 8px !important; margin-left: auto; }
+.notifications__actions .button {
+  height: 32px !important; min-height: 32px !important; padding: 0 12px !important; font: var(--ctl-font) !important; border-radius: var(--ctl-r) !important;
+  background: var(--ctl-bg) !important; border: 1px solid var(--ctl-stroke) !important; color: var(--text) !important;
+}
+.notifications__actions .button:hover { background: var(--ctl-bg-hover) !important; }
+.notifications__actions .button--danger { background: transparent !important; border-color: transparent !important; color: #ff99a4 !important; }
+.notifications__actions .button--danger:hover { background: rgba(255, 153, 164, .1) !important; }
+
+.notifications__list { display: flex !important; flex-direction: column; gap: 0 !important; padding: 4px !important;
+  background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .07); border-radius: 14px; }
+.notification-item {
+  position: relative; display: grid !important; grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 14px; align-items: center;
+  padding: 12px 44px 12px 24px !important; margin: 0 !important; min-height: 68px; box-sizing: border-box;
+  background: transparent !important; border: 0 !important; border-radius: 10px !important; opacity: 1 !important; box-shadow: none !important;
+  transition: background .083s linear !important; cursor: pointer;
+}
+.notification-item:hover { background: rgba(255, 255, 255, .04) !important; }
+.notification-item + .notification-item::after { content: ""; position: absolute; top: 0; left: 78px; right: 14px; height: 1px; background: rgba(255, 255, 255, .05); }
+.notification-item:hover::after, .notification-item:hover + .notification-item::after { opacity: 0; }
+.notification-item--unread::before { content: ""; position: absolute; left: 9px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: var(--accent-bright); }
+.notification-item__picture { width: 40px !important; height: 40px !important; border-radius: 8px !important; background: var(--ctl-bg) !important; box-shadow: 0 0 0 1px rgba(255, 255, 255, .08); }
+.notification-item__picture img { border-radius: 8px; }
+.notification-item__content { display: flex !important; flex-direction: column; gap: 1px !important; min-width: 0; }
+.notification-item__title { font: 600 14px/20px var(--font) !important; color: var(--text-2) !important; margin: 0 !important; }
+.notification-item--unread .notification-item__title { color: #fff !important; }
+.notification-item__description { font: 400 13px/18px var(--font) !important; color: var(--text-3) !important; margin: 0 !important; }
+.notification-item--unread .notification-item__description { color: var(--text-2) !important; }
+.notification-item__time { display: inline-flex !important; align-items: center; gap: 4px; font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; margin: 2px 0 0 !important; }
+.notification-item__time svg { width: 11px; height: 11px; }
+.notification-item__dismiss {
+  position: absolute !important; right: 8px; top: 50% !important; transform: translateY(-50%); width: 28px; height: 28px; padding: 0 !important;
+  display: inline-flex !important; align-items: center; justify-content: center; border-radius: var(--ctl-r); background: transparent !important; border: 0 !important;
+  color: var(--text-2) !important; opacity: 0; transition: opacity .12s, background .083s;
+}
+.notification-item:hover .notification-item__dismiss, .notification-item__dismiss:focus-visible { opacity: 1; }
+.notification-item__dismiss:hover { background: var(--ctl-bg) !important; color: #fff !important; }
+.notifications__load-more { align-self: center; }
+/* Banner mais baixo: o fade começa mais cedo e termina suave, sem degrau */
+.profile__wrapper .profile-hero__background-image { -webkit-mask-image: linear-gradient(#000 0%, #000 30%, rgba(0,0,0,.7) 55%, rgba(0,0,0,.3) 78%, rgba(0,0,0,.08) 92%, transparent 100%) !important; mask-image: linear-gradient(#000 0%, #000 30%, rgba(0,0,0,.7) 55%, rgba(0,0,0,.3) 78%, rgba(0,0,0,.08) 92%, transparent 100%) !important; }
+.profile-hero__hero-panel, .profile-hero__background-overlay { background: none !important; }
+/* Estatísticas do perfil: mais respiro entre linhas e entre ícone, valor e selo */
+
+
+
+
+/* Similares: o hover volta a ser só a capa subindo com brilho (sem aumentar
+   o tamanho e sem o fundo de cartão atrás); nomes abaixo das capas removidos. */
+.similar-games__card:hover { background: transparent !important; border-color: transparent !important; }
+.similar-games__card:hover img, .similar-games__card:hover .vertical-cover-card__image { transform: translateY(-4px) !important; transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s, filter .4s !important; }
+.similar-games__card::after, .similar-games__card::before { display: none !important; content: none !important; }
+/* Título em texto (jogo sem logo): uma linha larga em vez de três estreitas,
+   tamanho menor, peso de display e sombra suave para ler sobre a arte. */
+.game-details__game-logo-text {
+  max-width: min(900px, 70%) !important; width: auto !important;
+  font: 700 clamp(32px, 3.4vw, 48px)/1.1 var(--font-display) !important; letter-spacing: -.02em;
+  color: #fff !important; text-shadow: 0 2px 20px rgba(0, 0, 0, .45);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-wrap: balance;
+}
+.game-details__hero-standard-meta:has(.game-details__game-logo-text) { max-width: none !important; width: 100% !important; }
+/* Carrossel de similares: mesma área com e sem hover (antes o hover zerava a margem lateral e as capas encolhiam) */
+.similar-games .similar-games__viewport, .similar-games .similar-games__viewport:has(.similar-games__card:hover) { padding: 10px 0 8px !important; margin: -10px -6px -8px !important; }
+/* Similares: volta o brilho que atravessa a capa no hover (como no catálogo);
+   ele acompanha a capa subindo e usa o mesmo canto arredondado. */
+.similar-games__card::after {
+  display: block !important; content: "" !important; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: var(--r-surface);
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .55) 48%, rgba(255, 255, 255, .15) 55%, transparent 65%) 130% 0 / 250% 100% no-repeat;
+  mix-blend-mode: overlay; opacity: 0; transition: background-position 0s .3s, opacity .3s var(--ease), transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+.similar-games__card:hover::after { background-position: -30% 0; opacity: 1; transform: translateY(-4px); transition: background-position .9s var(--ease), opacity .3s var(--ease), transform .6s cubic-bezier(.16, 1, .3, 1); }
+.similar-games__card { position: relative; }
+/* Similares com a animação idêntica à das capas da Biblioteca: o cartão inteiro
+   sobe 4px (.6s), a borda acende, a sombra aparece, a arte ganha cor e o
+   brilho atravessa só na entrada do mouse. */
+.similar-games .similar-games__card {
+  position: relative; border-radius: var(--r-surface) !important; isolation: isolate; border: 1px solid var(--card-stroke) !important;
+  transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s ease !important;
+}
+.similar-games .similar-games__card:hover {
+  transform: translateY(-4px) !important; border-color: rgba(255, 255, 255, .22) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .06) !important;
+}
+.similar-games .similar-games__card img, .similar-games .similar-games__card:hover img {
+  transform: none !important; border: 0 !important; box-shadow: none !important; border-radius: calc(var(--r-surface) - 1px) !important;
+  transition: filter .4s ease !important;
+}
+.similar-games .similar-games__card:hover img { filter: saturate(1.15) brightness(1.06) !important; }
+.similar-games .similar-games__card::after { display: block !important; content: "" !important; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; transform: none !important; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .55) 48%, rgba(255, 255, 255, .15) 54%, transparent 65%) !important; background-size: 260% 100% !important; mix-blend-mode: overlay; opacity: 0; transition: opacity .2s linear, background-position 0s linear .2s !important; }
+.similar-games .similar-games__card:hover::after { opacity: 1 !important; transition: background-position .9s var(--ease), opacity .3s var(--ease) !important; }
+@media (prefers-reduced-motion: reduce) { html body .similar-games .similar-games__card:hover { transform: none !important; } }
+.similar-games .similar-games__card::after { background-position: 130% 0 !important; }
+.similar-games .similar-games__card:hover::after { background-position: -30% 0 !important; }
+/* Barra lateral: filtros/busca dos jogos descem para logo acima do perfil,
+   separados da lista por uma linha divisória. */
+.sidebar__section--games { display: flex !important; flex-direction: column; }
+.sidebar__section--games > .sidebar__search-row { order: 9; margin: 8px 0 0 !important; position: relative; }
+.sidebar__section--games > .sidebar__search-row::before { content: ""; position: absolute; }
+.sidebar__section--games > :not(.sidebar__search-row) { flex: 1 1 auto; min-height: 0; }
+/* Divisória de cima igual à de baixo (largura do bloco, fora dele) */
+.sidebar__section--games > .sidebar__search-row { margin-top: 17px !important; padding-top: 3px !important; overflow: visible !important; }
+.sidebar__section--games > .sidebar__search-row::before { top: -9px !important; left: 0 !important; right: 0 !important; height: 0 !important; background: none !important; border-top: 1px solid rgba(255, 255, 255, .082) !important; }
+/* Abas do Início: a selecionada na cor de destaque (verde, texto escuro) */
+.home__buttons-list .button--primary, .home__buttons-list .button--primary:hover { background: var(--accent) !important; border-color: transparent !important; color: var(--on-accent) !important; font-weight: 600 !important; }
+.home__buttons-list .button--primary :is(svg, img), .home__buttons-list .button--primary::before { color: var(--on-accent) !important; background-color: var(--on-accent); }
+.home__header .home__buttons-list li .button.button--primary, .home__header .home__buttons-list li .button.button--primary:hover { background: var(--accent) !important; border-color: transparent !important; color: var(--on-accent) !important; }
+.home__header .home__buttons-list li .button.button--primary::before { background: var(--on-accent) !important; }
+.home__header .home__buttons-list li .button.button--primary .home__icon-wrapper::before { background: var(--on-accent) !important; }
+/* Destaque do Início respeita o canto arredondado da área de conteúdo */
+.hero, .hero__backdrop, .hero__media { border-top-left-radius: 14px !important; }
+.game-details__hero, .game-details__hero-image { border-top-left-radius: 14px !important; }
+/* Perfil: abas e filtros na mesma linha e mesma altura (36px de trilho / 32px
+   de controle), filtros no padrão dos botões com menu do tema. */
+.profile-content__main { display: grid !important; grid-template-columns: auto 1fr; align-items: center; column-gap: 12px; row-gap: 20px; }
+.profile-content__main > .profile-content__tabs { grid-column: 1; grid-row: 1; margin: 0 !important; }
+.profile-content__main > .profile-content__tab-panels { grid-column: 1 / -1; grid-row: 2; }
+.profile-content__library-filters { position: absolute; right: 0; margin: 0 !important; display: flex !important; gap: 8px !important; }
+.profile-content__tab-panel { position: relative; }
+.profile-content__library-filters .filter-dropdown__trigger {
+  height: 32px !important; min-height: 32px !important; padding: 0 10px 0 12px !important; gap: 6px !important; border-radius: var(--ctl-r) !important;
+  background: var(--ctl-bg) !important; border: 1px solid var(--ctl-stroke) !important; font: var(--ctl-font) !important; color: var(--text) !important; box-shadow: none !important;
+}
+.profile-content__library-filters .filter-dropdown__trigger:hover { background: var(--ctl-bg-hover) !important; }
+.profile-content__library-filters .filter-dropdown__placeholder { color: var(--text-3) !important; font: inherit !important; }
+.profile-content__library-filters .filter-dropdown__value { display: inline-flex; align-items: center; gap: 6px; }
+.profile-content__library-filters .filter-dropdown__value svg, .profile-content__library-filters .filter-dropdown__trigger > svg:last-child { width: 14px; height: 14px; color: var(--text-2); }
+.profile-content__library-filters { top: -53.7px !important; }
+
+/* Estatísticas do perfil em blocos 2×2: número grande, nome embaixo em cinza,
+   ícone discreto em cima e o ranking como selo no canto. */
+.user-stats__list { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; padding: 0 12px 12px !important; }
+.user-stats__list-item { position: relative; display: flex !important; align-items: flex-start !important; justify-content: flex-end !important; min-height: 0 !important; border: 0 !important; border-radius: 10px !important; background: rgba(255, 255, 255, .035) !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05); }
+.user-stats__list-item + .user-stats__list-item { border-top: 0 !important; }
+.user-stats__list-title { flex: none !important; font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.user-stats__stats-row { display: flex !important; width: 100%; }
+.user-stats__list-description { display: flex !important; color: var(--text) !important; }
+.user-stats__list-description svg { width: 16px !important; height: 16px !important; color: var(--accent-bright) !important; }
+.user-stats__stats-row > :not(.user-stats__list-description) { top: 10px; right: 10px; height: 20px !important; font: 600 11px/20px var(--font) !important; padding: 0 7px !important; }
+/* Blocos de estatística: ícone em cima, número + selo na mesma linha, nome embaixo */
+.user-stats__list-item { flex-direction: column-reverse !important; padding: 12px !important; gap: 4px !important; }
+.user-stats__stats-row { flex-direction: row !important; flex-wrap: wrap; align-items: center !important; gap: 6px !important; }
+.user-stats__list-description { flex-direction: row !important; flex-wrap: wrap; align-items: center !important; gap: 0 6px !important; font: 600 17px/24px var(--font-display) !important; }
+.user-stats__list-description svg { flex-basis: 100%; margin-bottom: 6px; }
+.user-stats__stats-row > :not(.user-stats__list-description) { position: static !important; }
+.user-stats__list-title { white-space: normal !important; }
+.user-stats__list .user-stats__list-item { display: flex !important; flex-direction: column !important; }
+.user-stats__list .user-stats__list-item > .user-stats__stats-row { order: 1; }
+.user-stats__list .user-stats__list-item > .user-stats__list-title { order: 2; }
+.user-stats__list-description { justify-content: flex-start !important; }
+.user-stats__list-description svg { flex: none !important; display: block; margin: 0 100% 6px 0 !important; }
+.user-stats__list .user-stats__stats-row > :not(.user-stats__list-description) { position: absolute !important; top: 10px !important; right: 10px !important; }
+.user-stats__list-title { font-size: 12px !important; line-height: 16px !important; }
+
+/* ==================== Janela de Amigos ====================
+   No padrão do tema: cabeçalho com o banner sumindo no fundo (como o hero do
+   perfil), avatar redondo com o ponto de status, busca e "Adicionar" do mesmo
+   tamanho, seções com rótulo discreto e linhas de 56px com hover leve. */
+.friends-window { background: var(--mica) !important; font-family: var(--font) !important; }
+.friends-window__header { position: relative; overflow: hidden; background: none !important; border: 0 !important; }
+.friends-window__header-bg {
+  -webkit-mask-image: linear-gradient(#000 30%, rgba(0, 0, 0, .5) 65%, transparent); mask-image: linear-gradient(#000 30%, rgba(0, 0, 0, .5) 65%, transparent);
+  opacity: .8; filter: saturate(1.1);
+}
+.friends-window__header::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0, 0, 0, .55), transparent 70%); }
+.friends-window__header > * { position: relative; z-index: 1; }
+.friends-window__title-bar h4 { font: 600 12px/16px var(--font) !important; color: var(--text-2) !important; }
+.friends-window__window-control { color: var(--text-2) !important; border-radius: 0 !important; }
+.friends-window__window-control:hover { background: rgba(255, 255, 255, .08) !important; color: #fff !important; }
+.friends-window__window-control--close:hover { background: #c42b1c !important; }
+.friends-window__profile-content { padding: 4px 16px 16px !important; gap: 12px !important; align-items: center !important; }
+.friends-window__profile-avatar .profile-avatar, .friends-window__profile-avatar .profile-avatar__image { border-radius: 50% !important; }
+.friends-window__profile-avatar { border-radius: 50% !important; box-shadow: 0 0 0 2px rgba(26, 26, 26, .9), 0 6px 16px rgba(0, 0, 0, .45); }
+.friends-window__avatar-wrapper .profile-avatar, .friends-window__avatar-wrapper .profile-avatar__image { border-radius: 50% !important; }
+.friends-window__status-orb { border: 2px solid var(--mica) !important; box-sizing: border-box; }
+.friends-window__status-orb--online { background: var(--accent-bright) !important; }
+.friends-window__profile-name { font: 600 18px/24px var(--font-display) !important; color: #fff !important; text-shadow: 0 1px 8px rgba(0, 0, 0, .5); padding: 0 !important; background: none !important; border: 0 !important; height: auto !important; }
+.friends-window__profile-name-row { align-items: center !important; gap: 6px !important; height: auto !important; }
+.friends-window__friend-code { width: 24px !important; height: 24px !important; border-radius: 6px !important; color: var(--text-2) !important; background: transparent !important; }
+.friends-window__friend-code:hover { background: rgba(255, 255, 255, .1) !important; color: #fff !important; }
+.friends-window__profile-status { font: 400 12px/16px var(--font) !important; color: var(--accent-bright) !important; }
+
+.friends-window__content { padding: 0 !important; }
+.friends-window__search-row { display: flex !important; gap: 8px !important; padding: 12px 16px 8px !important; align-items: center; }
+.friends-window__search {
+  flex: 1; height: 32px !important; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px !important; border-radius: var(--ctl-r) !important;
+  background: var(--control) !important; border: 1px solid var(--control-stroke) !important; border-bottom-color: var(--control-strong) !important;
+}
+.friends-window__search:focus-within { background: var(--input-active) !important; border-bottom-color: var(--control-stroke) !important; box-shadow: inset 0 -2px 0 var(--accent-bright); }
+.friends-window__search svg { width: 14px; height: 14px; color: var(--text-3); }
+.friends-window__search-input { font: var(--ctl-font) !important; color: var(--text) !important; background: none !important; border: 0 !important; outline: none !important; height: auto !important; padding: 0 !important; }
+.friends-window__search-row .button { height: 32px !important; min-height: 32px !important; padding: 0 12px !important; font: 600 13px/20px var(--font) !important; gap: 6px; flex: none; }
+.friends-window__list-container { padding: 4px 8px 16px !important; }
+.friends-window__section { margin: 0 0 8px !important; padding: 0 !important; }
+.friends-window__section-header {
+  height: 32px !important; padding: 0 8px !important; gap: 8px !important; background: none !important; border: 0 !important; border-radius: var(--ctl-r) !important;
+  display: flex !important; align-items: center; width: 100%;
+}
+.friends-window__section-header:hover { background: rgba(255, 255, 255, .04) !important; }
+.friends-window__section-title { font: 600 12px/16px var(--font) !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--text-2) !important; }
+.friends-window__count { height: 18px !important; min-width: 18px; padding: 0 5px !important; border-radius: 999px !important; box-sizing: border-box; text-align: center; font: 600 11px/18px var(--font) !important; background: rgba(255, 255, 255, .1) !important; color: var(--text-2) !important; }
+.friends-window__count--online { background: color-mix(in srgb, var(--accent-bright) 16%, transparent) !important; color: var(--accent-bright) !important; }
+.friends-window__list { gap: 2px !important; display: flex; flex-direction: column; margin: 0 !important; padding: 0 !important; }
+.friends-window__friend { position: relative; border-radius: 10px !important; overflow: hidden; transition: background .083s linear; background: transparent !important; }
+.friends-window__friend:hover { background: rgba(255, 255, 255, .05) !important; }
+.friends-window__friend-bg { opacity: .35 !important; -webkit-mask-image: linear-gradient(90deg, transparent 25%, #000); mask-image: linear-gradient(90deg, transparent 25%, #000); }
+.friends-window__friend-button { height: 56px !important; padding: 0 8px !important; gap: 12px !important; background: none !important; border: 0 !important; }
+.friends-window__friend-name { font: 400 14px/20px var(--font) !important; color: var(--text) !important; }
+.friends-window__friend-status { font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; }
+.friends-window__friend:has(.friends-window__status-orb--online) .friends-window__friend-status { color: var(--accent-bright) !important; }
+.friends-window__message-button { width: 32px !important; height: 32px !important; border-radius: var(--ctl-r) !important; background: transparent !important; border: 0 !important; color: var(--text-2) !important; opacity: 0; transition: opacity .12s, background .083s; margin-right: 6px; }
+.friends-window__friend:hover .friends-window__message-button, .friends-window__message-button:focus-visible { opacity: 1; }
+.friends-window__message-button:hover { background: rgba(255, 255, 255, .1) !important; color: #fff !important; }
+.friends-window__header > .friends-window__header-bg { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover; z-index: 0; }
+.friends-window__header::after { z-index: 0; }
+
+/* ---------- Perfil responsivo ---------- */
+@media (max-width: 1180px) {
+  .profile-content__section { grid-template-columns: minmax(0, 1fr) !important; }
+  .profile-content__right-content { position: static !important; display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); align-items: start; }
+}
+@media (max-width: 1000px) {
+  .profile-content__main { grid-template-columns: minmax(0, 1fr) !important; }
+  .profile-content__library-filters { position: static !important; flex-wrap: wrap; margin: 0 0 16px !important; }
+  .profile-hero__user-information { flex-wrap: wrap; }
+  .profile-hero__avatar-button { width: 88px !important; height: 88px !important; }
+  .profile-hero__display-name { font-size: 28px !important; line-height: 36px !important; }
+  .upload-background-image-button__wrapper .button { font-size: 0 !important; width: 36px; padding: 0 !important; justify-content: center; }
+  .upload-background-image-button__wrapper .button svg { margin: 0 !important; }
+}
+
+/* ==================== Janela de chat ====================
+   Pensada como um app de mensagens do Windows 11:
+   - abas no topo como as do Terminal/Edge (ativa em placa clara, sem borda);
+   - cabeçalho da conversa enxuto, avatar redondo e status em verde;
+   - balões: os seus na cor de destaque (translúcida), os do amigo em cinza;
+     cantos de 16px com o canto da "ponta" menor, agrupados por pessoa;
+   - divisor de dia como um selo central;
+   - caixa de escrever em pílula, com foco desenhado na própria pílula e o
+     botão de enviar que acende na cor de destaque quando há texto. */
+.chat-window { background: var(--mica) !important; font-family: var(--font) !important; color: var(--text); }
+
+/* Abas */
+.chat-window__strip { background: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, .06) !important; }
+.chat-window__tab { height: 32px !important; border-radius: 8px !important; background: transparent !important; border: 0 !important; transition: background .083s linear; }
+.chat-window__tab:hover { background: rgba(255, 255, 255, .05) !important; }
+.chat-window__tab--active, .chat-window__tab--active:hover { background: rgba(255, 255, 255, .09) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06); }
+.chat-window__tab-name { font: 400 13px/18px var(--font) !important; color: var(--text-2) !important; }
+.chat-window__tab--active .chat-window__tab-name { color: #fff !important; font-weight: 600 !important; }
+.chat-window__tab-close, .chat-window__new-conversation-button { border-radius: 6px !important; color: var(--text-2) !important; background: transparent !important; border: 0 !important; }
+.chat-window__tab-close:hover, .chat-window__new-conversation-button:hover { background: rgba(255, 255, 255, .1) !important; color: #fff !important; }
+.chat-window__new-conversation-button { width: 28px !important; height: 28px !important; }
+.chat-window__window-control { color: var(--text-2) !important; background: transparent !important; border-radius: 0 !important; }
+.chat-window__window-control:hover { background: rgba(255, 255, 255, .08) !important; color: #fff !important; }
+.chat-window__window-control--close:hover { background: #c42b1c !important; }
+:is(.chat-window, .friends-window) .profile-avatar, :is(.chat-window, .friends-window) .profile-avatar__image { border-radius: 50% !important; }
+.chat-window__status-orb { border: 2px solid var(--mica) !important; box-sizing: border-box; }
+.chat-window__status-orb--online { background: var(--accent-bright) !important; }
+
+/* Cabeçalho da conversa */
+.chat-window__conversation-header { gap: 10px !important; background: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, .06) !important; }
+.chat-window__conversation-name { font: 600 14px/20px var(--font) !important; color: #fff !important; background: none !important; border: 0 !important; padding: 0 !important; }
+.chat-window__conversation-name:hover { color: var(--accent-bright) !important; }
+.chat-window__friend-status { font: 400 12px/16px var(--font) !important; color: var(--text-3) !important; }
+.chat-window__conversation-header:has(.chat-window__status-orb--online) .chat-window__friend-status { color: var(--accent-bright) !important; }
+
+/* Mensagens */
+.chat-window__messages-content { gap: 14px !important; }
+.chat-window__day-divider { display: flex !important; justify-content: center; margin: 4px 0 !important; font: 600 11px/20px var(--font) !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--text-3) !important; }
+.chat-window__day-divider::before, .chat-window__day-divider::after { display: none !important; }
+.chat-window__day-divider { background: none !important; }
+.chat-window__day-divider > *, .chat-window__day-divider { border: 0 !important; }
+.chat-window__message-group { gap: 3px !important; display: flex; flex-direction: column; }
+.chat-window__message-row { gap: 6px !important; }
+.chat-window__message-body { max-width: min(72%, 520px) !important; }
+.chat-window__message {
+  margin: 0 !important; padding: 8px 12px !important; border-radius: 16px 16px 16px 6px !important; border: 0 !important;
+  font: 400 14px/20px var(--font) !important; color: var(--text) !important; background: rgba(255, 255, 255, .08) !important; box-shadow: none !important;
+  overflow-wrap: anywhere;
+}
+.chat-window__message-group--mine .chat-window__message {
+  border-radius: 16px 16px 6px 16px !important; color: #fff !important;
+  background: color-mix(in srgb, var(--accent) 34%, #1f1f1f) !important;
+}
+/* Balões seguidos da mesma pessoa encostam os cantos do lado da ponta */
+.chat-window__message-row + .chat-window__message-row .chat-window__message { border-top-left-radius: 6px !important; }
+.chat-window__message-group--mine .chat-window__message-row + .chat-window__message-row .chat-window__message { border-top-left-radius: 16px !important; border-top-right-radius: 6px !important; }
+.chat-window__message-time { font: 400 11px/14px var(--font) !important; color: var(--text-3) !important; margin: 2px 4px 0 !important; }
+.chat-window__message-action { width: 26px !important; height: 26px !important; border-radius: 6px !important; color: var(--text-2) !important; background: transparent !important; border: 0 !important; }
+.chat-window__message-action:hover { background: rgba(255, 255, 255, .08) !important; color: #fff !important; }
+.chat-window__message-row--enter { animation: mica-rise .2s var(--ease-out) both; }
+.chat-window__scrollbar-thumb { background: rgba(255, 255, 255, .25) !important; border-radius: 999px !important; }
+
+/* Escrever */
+.chat-window__composer { background: transparent !important; border: 0 !important; }
+.chat-window__composer-box {
+  border-radius: 22px !important; padding: 0 !important; background: rgba(255, 255, 255, .06) !important;
+  border: 1px solid rgba(255, 255, 255, .08) !important; box-shadow: none !important; transition: border-color .12s, background .12s;
+}
+.chat-window__composer-box:focus-within { background: rgba(255, 255, 255, .08) !important; border-color: color-mix(in srgb, var(--accent-bright) 55%, transparent) !important; }
+.chat-window__composer-row { align-items: center !important; gap: 2px !important; padding: 5px 6px 5px 8px !important; }
+.chat-window__composer-emoji { width: 32px !important; height: 32px !important; border-radius: 50% !important; color: var(--text-2) !important; background: transparent !important; border: 0 !important; }
+.chat-window__composer-emoji:hover { background: rgba(255, 255, 255, .08) !important; color: #fff !important; }
+.chat-window__composer-field { background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 6px !important; }
+.chat-window__composer-input { background: none !important; border: 0 !important; box-shadow: none !important; outline: none !important; font: 400 14px/20px var(--font) !important; color: var(--text) !important; padding: 5px 0 !important; }
+.chat-window__composer-input::placeholder { color: var(--text-3) !important; }
+.chat-window__send { width: 32px !important; height: 32px !important; border-radius: 50% !important; border: 0 !important; transition: background .12s, color .12s, transform .12s; }
+.chat-window__composer-box:has(.chat-window__composer-input:not(:placeholder-shown)) .chat-window__send { background: var(--accent) !important; color: var(--on-accent) !important; }
+.chat-window__send:active { transform: scale(.94); }
+.chat-window__composer-meta { font: 400 11px/14px var(--font) !important; color: var(--text-3) !important; }
+.profile-content__games-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; }
+/* Chat: caixa de escrever colada na base (12px), dica escondida quando vazia,
+   respiro uniforme de 16px nas laterais, enviar sempre verde. */
+.chat-window__composer { padding: 8px 16px 12px !important; }
+.chat-window__composer-meta:empty { display: none !important; }
+.chat-window__composer-meta { margin: 4px 8px 0 !important; }
+.chat-window__messages-content { padding: 12px 16px 8px !important; }
+.chat-window__conversation-header { padding: 8px 16px !important; }
+.chat-window__send, .chat-window__composer-box .chat-window__send { background: var(--accent) !important; }
+.chat-window__send:hover { background: var(--accent-hover) !important; }
+.chat-window__send:disabled { opacity: .45; }
+.chat-window__send, .chat-window__send:hover, .chat-window__composer-box .chat-window__send { color: #fff !important; }
+.chat-window__send svg { color: #fff !important; fill: currentColor; }
+/* Blocos de estatística: sem hover e números um pouco menores */
+.user-stats__list .user-stats__list-item, .user-stats__list .user-stats__list-item:hover { background: rgba(255, 255, 255, .035) !important; cursor: default; }
+.user-stats__list .user-stats__list-description { font-size: 15px !important; line-height: 22px !important; }
+.user-stats__list .user-stats__list-title { font-size: 11px !important; line-height: 15px !important; }
+.user-stats__list .user-stats__list-item, .user-stats__list .user-stats__list-item:hover { border-radius: 10px !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05) !important; transform: none !important; border: 0 !important; }
+/* O número já diz o que é ("53 conquistas", "10 karma"): sem o nome repetido embaixo */
+.user-stats__list .user-stats__list-item:first-child .user-stats__list-title, .user-stats__list .user-stats__list-item--karma .user-stats__list-title { display: none !important; }
+
+.user-stats__list .user-stats__list-item { min-height: 92px !important; padding: 14px !important; }
+/* Nome da estatística aparece no hover, embaixo do número */
+.user-stats__list .user-stats__list-item .user-stats__list-title { display: block !important; left: 14px; right: 14px; bottom: 8px; font: 400 11px/15px var(--font) !important; color: var(--text-3) !important; white-space: nowrap !important; overflow: hidden; text-overflow: ellipsis; opacity: 0; transform: translateY(3px); }
+.user-stats__list .user-stats__list-item:hover .user-stats__list-title { opacity: 1; transform: none; }
+
+.user-stats__list .user-stats__list-item { justify-content: flex-end !important; }
+.user-stats__list .user-stats__stats-row { margin-top: auto !important; }
+.user-stats__list .user-stats__list-item { padding-bottom: 12px !important; }
+.user-stats__list .user-stats__list-item .user-stats__list-title { position: static !important; margin-top: 0 !important; max-height: 0; transition: opacity .15s var(--ease-out), max-height .2s var(--ease-out), transform .15s var(--ease-out) !important; }
+.user-stats__list .user-stats__list-item:hover .user-stats__list-title { max-height: 16px; }
+.user-stats__list .user-stats__list-description svg { position: absolute !important; top: 14px; left: 14px; margin: 0 !important; }
+/* Capas do perfil: hover igual às da Biblioteca (sobe 4px, sombra, borda),
+   sem a ampliação do app que cortava o topo. */
+.profile-content__games-grid { padding-top: 6px !important; margin-top: -6px !important; overflow: visible !important; }
+.user-library-game__wrapper, .user-library-game__container {
+  border-radius: var(--r-surface) !important; transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s ease !important;
+}
+.user-library-game__wrapper:hover, .user-library-game__container:hover {
+  transform: translateY(-4px) !important; box-shadow: 0 14px 28px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .06) !important;
+}
+@media (prefers-reduced-motion: reduce) { html body :is(.user-library-game__wrapper, .user-library-game__container):hover { transform: none !important; } }
+.profile-content__games-grid .user-library-game__wrapper { overflow: visible !important; }
+.profile-content__games-grid .user-library-game__wrapper .vertical-cover-card,
+.profile-content__games-grid .user-library-game__wrapper .vertical-cover-card:hover { transform: none !important; box-shadow: none !important; overflow: hidden !important; border-radius: var(--r-surface) !important; }
+
+/* Integrações bem estreitas (< 560px): o botão volta para a própria linha
+   (o bloco de 980px também valia aqui e o espremia ao lado do título). */
+@container settings (max-width: 560px) {
+  .settings-context-panel__group > .settings-integration-card { grid-template-columns: 40px minmax(0, 1fr) !important; grid-template-rows: auto auto auto !important; }
+  .settings-integration-card__status { grid-column: 2 !important; grid-row: 1 !important; justify-self: end !important; }
+  .settings-integration-card__content { grid-column: 2 !important; }
+  .settings-integration-card__actions { grid-column: 1 / -1 !important; grid-row: 3 !important; margin: 12px 0 0 !important; width: 100%; }
+  .settings-integration-card__actions .button { flex: 1; }
+}
+/* Menos movimento: o brilho das capas de similares também não atravessa */
+@media (prefers-reduced-motion: reduce) {
+  html body .similar-games .similar-games__card::after, html body .similar-games .similar-games__card:hover::after { transition: none !important; opacity: 0 !important; }
+}
+/* Ferramentas da barra lateral nunca encolhem (cortava a linha da busca em janelas baixas) */
+.sidebar__section--games > .sidebar__search-row { flex: none !important; min-height: max-content !important; }
+/* Com a busca aberta, o ícone continua no lugar dele, marcado como ativo
+   (a caixa de texto é que sai em balão ao lado). */
+.sidebar__search-row .text-field-container { position: relative !important; }
+.sidebar__search-row:focus-within .text-field-container::after {
+  content: ""; position: absolute; inset: 0; border-radius: 7px; pointer-events: none;
+  background: color-mix(in srgb, var(--accent-bright) 16%, transparent);
+}
+.sidebar__search-row:focus-within .text-field-container::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; z-index: 1; pointer-events: none;
+  background: var(--accent-bright); -webkit-mask: var(--fi-search) center / contain no-repeat; mask: var(--fi-search) center / contain no-repeat;
+}
+/* Divisória de cima desenhada na lista de jogos (não no bloco de ferramentas),
+   assim ela não some quando a busca abre e usa os pseudo-elementos do balão. */
+.sidebar__section--games > .sidebar__search-row::before { border-top: 0 !important; }
+.sidebar__section--games > .sidebar__search-row:not(:focus-within)::before { display: none !important; }
+.sidebar__section--games { position: relative; }
+.sidebar__section--games::after {
+  content: ""; position: absolute; left: 6px; right: 6px; bottom: calc(var(--sb-tools-h, 64px) + 8px); height: 1px; background: rgba(255, 255, 255, .082); pointer-events: none;
+}
+/* O ::before do bloco é o ícone da busca aberta (regra original): a divisória
+   não usa mais ele, e os ícones extras que eu tinha somado saem. */
+.sidebar__section--games > .sidebar__search-row:focus-within::before {
+  display: block !important; position: static !important; top: auto !important; left: auto !important; right: auto !important;
+  width: 15px !important; height: 15px !important; border: 0 !important; background: var(--accent-bright) !important;
+}
+.sidebar__search-row:focus-within .text-field-container::before, .sidebar__search-row:focus-within .text-field-container::after { content: none !important; }
+.sidebar__section--games::after { bottom: 70px !important; }
+/* Balão da busca preso ao ícone: posicionado a partir do próprio campo
+   (centro vertical do ícone), não de um topo fixo do bloco. */
+.sidebar__search-row .text-field-container { position: relative !important; }
+.sidebar__search-row:focus-within .text-field-container__text-field-wrapper {
+  top: 50% !important; left: calc(100% + 24px) !important; transform: translateY(-50%) !important; margin: 0 !important;
+}
+.sidebar__search-row:focus-within .text-field-container__text-field-wrapper::before { top: 50% !important; margin-top: -6px !important; }
+/* Busca em cima, os dois botões embaixo */
+.sidebar__search-row > .text-field-container { grid-row: 1 !important; grid-column: 1 / -1 !important; }
+.sidebar__search-row > .sidebar__play-button { grid-row: 2 !important; grid-column: 1 !important; }
+.sidebar__search-row > .sidebar__add-button { grid-row: 2 !important; grid-column: 2 !important; }
+.sidebar__search-row:focus-within::before, .sidebar__search-row:focus-within::after { grid-row: 1 !important; }
+.sidebar__section--games::after { left: 0 !important; right: 0 !important; }
+/* Barra de abas do Início na largura padrão (bordas do cabeçalho e dos cartões) */
+.home__content > .home__header { margin-left: 0 !important; margin-right: 0 !important; }
+
+/* ---------- Início: barra de abas, acabamento ----------
+   1. Sem o trilho escuro: abas soltas na barra de vidro.
+   2. Aba ativa: cápsula na cor de destaque que aparece suave (escala + fade).
+   3. "Surpreenda-me": gradiente sutil na cor de destaque, ✨ gira no hover.
+   5. Presa no topo ao rolar, a barra fica mais compacta e o vidro mais forte. */
+.home__header .home__buttons-list { background: transparent !important; border: 0 !important; padding: 0 !important; gap: 4px !important; }
+.home__header .home__buttons-list li .button { border-radius: 999px !important; padding: 0 14px !important; transition: background .2s var(--ease-out), color .2s, transform .2s var(--ease-out) !important; }
+.home__header .home__buttons-list li .button:not(.button--primary):hover { background: rgba(255, 255, 255, .06) !important; }
+.home__header .home__buttons-list li .button.button--primary { animation: mica-tab-pop .28s var(--ease-out); box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent) !important; }
+@keyframes mica-tab-pop { from { transform: scale(.92); opacity: .4; } }
+.home__header > .button {
+  border-radius: 999px !important; border: 1px solid color-mix(in srgb, var(--accent-bright) 35%, transparent) !important;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent) 6%, transparent)) !important;
+  transition: background .2s, border-color .2s, transform .2s var(--ease-out) !important;
+}
+.home__header > .button:hover { border-color: color-mix(in srgb, var(--accent-bright) 60%, transparent) !important; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 32%, transparent), color-mix(in srgb, var(--accent) 12%, transparent)) !important; }
+.home__header > .button:active { transform: scale(.97); }
+.home__header > .button .home__icon-wrapper::before { background: var(--accent-bright) !important; transition: transform .5s var(--ease-out); }
+.home__header > .button:hover .home__icon-wrapper::before { transform: rotate(20deg) scale(1.12); }
+.home__header { transition: padding .2s var(--ease-out), background .2s, backdrop-filter .2s !important; }
+@supports (animation-timeline: scroll()) {
+  .home__header { animation: mica-bar-compact linear both; animation-timeline: scroll(nearest); animation-range: 380px 460px; }
+  @keyframes mica-bar-compact { to { padding-top: 4px; padding-bottom: 4px; background: rgba(28, 28, 28, .72); } }
+}
+@media (prefers-reduced-motion: reduce) { html body .home__header .home__buttons-list .button--primary { animation: none !important; } html body .home__header > .button:hover .home__icon-wrapper::before { transform: none !important; } }
+/* Área de conteúdo recortada no canto arredondado da janela (o que rola por trás não vaza) */
+.container__content, .container__content > .home__content { border-top-left-radius: 14px !important; clip-path: inset(0 round 14px 0 0 0); }
+/* Números do cartão no topo à direita (não cobrem as fontes de download) */
+.game-card .game-card__specifics { top: 12px !important; bottom: auto !important; right: 12px !important; transform: translateY(-4px); }
+.game-card:hover .game-card__specifics { transform: none; }
+
+/* ==================== Início: abas em doca central ====================
+   Doca de vidro centralizada (como a barra de tarefas do Windows 11), abas em
+   pílula, a ativa na cor de destaque com brilho; Surpreenda-me na mesma doca. */
+html body .home__header:not(#_) .home__buttons-list { background: transparent !important; border: 0 !important; padding: 0 !important; gap: 4px !important; }
+html body .home__header:not(#_) .home__buttons-list li .button { animation: none !important; box-shadow: none !important; }
+html body .home__header:not(#_) > .button { background: var(--ctl-bg) !important; border: 1px solid var(--ctl-stroke) !important; border-radius: var(--ctl-r) !important; }
+html body .home__header:not(#_) > .button .home__icon-wrapper::before { background: currentColor !important; }
+
+html body .home__header:not(#_) { width: fit-content !important; margin-left: auto !important; margin-right: auto !important; padding: 6px !important; gap: 6px !important; border-radius: 999px !important;
+  background: rgba(30,30,30,.6) !important; box-shadow: 0 12px 32px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.07) !important; }
+html body .home__header:not(#_) .home__buttons-list li .button { position: relative; height: 38px !important; padding: 0 16px !important; border-radius: 999px !important; background: transparent !important; color: var(--text-2) !important; font-size: 14px !important; font-weight: 400 !important; }
+html body .home__header:not(#_) .home__buttons-list li .button:hover { background: rgba(255,255,255,.07) !important; color: #fff !important; }
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary { background: var(--accent) !important; color: var(--on-accent) !important; font-weight: 600 !important; box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 6px 18px color-mix(in srgb, var(--accent) 45%, transparent) !important; }
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary::before, html body .home__header:not(#_) .home__buttons-list li .button.button--primary .home__icon-wrapper::before { background: var(--on-accent) !important; }
+html body .home__header:not(#_) > .button { position: relative; height: 38px !important; border-radius: 999px !important; background: transparent !important; border: 0 !important; margin-left: 12px !important; color: var(--text) !important; }
+html body .home__header:not(#_) > .button::before { content: ""; position: absolute; left: -9px; top: 9px; bottom: 9px; width: 1px; background: rgba(255,255,255,.12); }
+html body .home__header:not(#_) > .button:hover { background: rgba(255,255,255,.07) !important; }
+html body .home__header:not(#_) > .button .home__icon-wrapper::before { background: var(--accent-bright) !important; }
+
+/* Cartões do Início, mais limpos: sem a lista de fontes, só o nome do jogo
+   (16px, com o ícone da loja) sobre um degradê curto; os números aparecem
+   em selos de vidro no canto de cima ao passar o mouse. */
+html body .game-card .game-card__download-options { display: none !important; }
+html body .game-card .game-card__content { padding: 48px 18px 16px !important; background: linear-gradient(0deg, rgba(0,0,0,.78), rgba(0,0,0,.3) 55%, transparent) !important; }
+html body .game-card .game-card__title-container { gap: 10px !important; align-items: center; }
+html body .game-card .game-card__title { font: 600 16px/22px var(--font-display) !important; color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html body .game-card .game-card__title-container > :not(.game-card__title) { width: 20px; height: 20px; flex: none; opacity: .9; }
+/* Números no canto inferior direito, na mesma linha do nome */
+html body .game-card .game-card__specifics { top: auto !important; bottom: 14px !important; right: 16px !important; transform: translateY(4px); }
+html body .game-card:hover .game-card__specifics { transform: none; }
+html body .game-card:hover .game-card__title { max-width: calc(100% - 260px); }
+/* Entrada dos números em sequência: cada selo sobe e aparece um pouco depois
+   do anterior, com mola leve; na saída somem juntos e rápido. */
+html body .game-card .game-card__specifics { opacity: 1 !important; transform: none !important; transition: none !important; }
+html body .game-card .game-card__specifics-item {
+  opacity: 0; transform: translateY(6px) scale(.96);
+  transition: opacity .12s ease, transform .12s ease;
+}
+html body .game-card:hover .game-card__specifics-item {
+  opacity: 1; transform: none;
+  transition: opacity .25s var(--ease-out), transform .35s cubic-bezier(.34, 1.4, .64, 1);
+}
+html body .game-card:hover .game-card__specifics-item:nth-child(2) { transition-delay: .05s; }
+html body .game-card:hover .game-card__specifics-item:nth-child(3) { transition-delay: .1s; }
+html body .game-card .game-card__title { transition: max-width .25s var(--ease-out); }
+@media (prefers-reduced-motion: reduce) { html body .game-card .game-card__specifics-item { transform: none !important; transition: opacity .01ms !important; } }
+/* Cartões do Início com o mesmo hover das capas com zoom (Biblioteca/similares):
+   cartão sobe 4px em .6s, arte aproxima devagar (1.1s) e ganha cor, borda acende. */
+html body .game-card { transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s cubic-bezier(.16, 1, .3, 1), border-color .3s ease !important; }
+html body .game-card:hover { transform: translateY(-4px) !important; border-color: rgba(255, 255, 255, .22) !important; box-shadow: 0 14px 28px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .06) !important; }
+html body .game-card .game-card__cover { transform: scale(1.001); transition: transform 1.1s cubic-bezier(.16, 1, .3, 1), filter .4s ease !important; }
+html body .game-card:hover .game-card__cover { transform: scale(1.06) !important; filter: saturate(1.15) brightness(1.06); }
+@media (prefers-reduced-motion: reduce) { html body .game-card:hover, html body .game-card:hover .game-card__cover { transform: none !important; } }
+/* Números no canto superior direito */
+html body .game-card .game-card__specifics { top: 14px !important; bottom: auto !important; right: 14px !important; }
+html body .game-card .game-card__specifics-item { transform: translateY(-6px) scale(.96); }
+html body .game-card:hover .game-card__specifics-item { transform: none; }
+html body .game-card:hover .game-card__title { max-width: none !important; }
+/* A entrada dos cartões não segura mais o transform depois que termina (senão o hover pulava em vez de deslizar) */
+html body .home__cards > .game-card { animation-fill-mode: backwards !important; }
+/* Proporção das capas do Steam (header 460×215): a arte aparece inteira, sem corte nas laterais */
+html body .home__cards > .game-card { aspect-ratio: 460 / 215 !important; height: auto !important; }
+/* Cartões do Início só com a arte: sem nome, ícone da loja nem degradê */
+html body .game-card .game-card__title-container { display: none !important; }
+html body .game-card .game-card__content { background: none !important; }
+/* Cartões do Início: borda discreta no hover (sem o contorno claro),
+   números no canto inferior esquerdo e a estrela sempre amarela. */
+html body .game-card, html body .game-card:hover { border-color: rgba(255, 255, 255, .06) !important; }
+html body .game-card:hover { box-shadow: 0 14px 28px rgba(0, 0, 0, .45) !important; }
+html body .game-card .game-card__specifics { top: auto !important; bottom: 14px !important; left: 14px !important; right: auto !important; gap: 6px !important; align-items: center; }
+html body .game-card .game-card__specifics-item { transform: translateY(6px) scale(.96); height: 26px !important; padding: 0 10px !important; gap: 6px !important; }
+html body .game-card:hover .game-card__specifics-item { transform: none; }
+html body .game-card .game-card__specifics-item svg { width: 12px !important; height: 12px !important; display: block; }
+html body .game-card .game-card__specifics-item:last-child svg { color: #ffb900 !important; fill: #ffb900 !important; }
+/* O destaque em tela cheia passava 4px da borda e criava rolagem lateral */
+html body .home__content { overflow-x: clip !important; }
+/* Cartões do Início menores: 4 por linha (5 em telas largas, 3 em estreitas) */
+html body .home__cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important; gap: 12px !important; }
+/* Mais respiro entre a doca de abas e os cartões */
+html body .home__cards { margin-top: 40px !important; }
+/* Brilho da aba ativa: luz suave e concentrada embaixo (não um halo em volta),
+   com um realce fino no topo da pílula. */
+html body .home__header:not(#_) .home__buttons-list li .button.button--primary {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .28),
+    0 1px 2px rgba(0, 0, 0, .25),
+    0 6px 14px -6px color-mix(in srgb, var(--accent) 80%, transparent) !important;
+}
+/* Filtros do Perfil: só ficam na linha das abas quando há espaço para os dois
+   (decidido pela largura da coluna, não da janela); senão descem para baixo. */
+.profile-content__main { container-type: inline-size; container-name: pmain; }
+@container pmain (max-width: 960px) {
+  .profile-content__library-filters { position: static !important; flex-wrap: wrap; margin: 0 0 20px !important; }
+}
+/* Conteúdo do perfil nas mesmas bordas do cabeçalho; lateral ocupa a coluna toda */
+html body .profile-content__section { padding-left: 16px !important; padding-right: 4px !important; }
+html body .profile-content__right-content { width: 100% !important; max-width: none !important; min-width: 0 !important; }
+/* Hero do perfil alinhado às bordas do cabeçalho */
+html body .profile-hero__user-information { left: 16px !important; right: 4px !important; }
+html body .profile-hero__hero-panel { left: 16px !important; }
+@container pmain (max-width: 960px) {
+  .profile-content__main { row-gap: 12px !important; }
+  .profile-content__library-filters { margin: 0 0 28px !important; }
+}
+@container pmain (max-width: 960px) {
+  html body .profile-content__main .profile-content__library-filters { margin: -8px 0 32px !important; }
+}
+
+
+/* Sem as bolinhas que giram em volta do ícone na abertura */
+.achievement-notification__ellipses-overlay { display: none !important; }
+/* Troféu animado centralizado no ícone (o app o posiciona para 8px de respiro; o tema usa 12px) */
+.achievement-notification__trophy-overlay { top: 26px !important; left: 26px !important; }
+.achievement-notification__dark-overlay { border-radius: 8px; }
+.achievement-notification__dark-overlay { top: 12px !important; left: 12px !important; }
+/* Troféu animado maior, proporcional ao ícone (44px em 64px) */
+.achievement-notification__trophy-overlay { width: 44px !important; height: 44px !important; top: 22px !important; left: 22px !important; mask-size: contain !important; -webkit-mask-size: contain !important; mask-repeat: no-repeat !important; -webkit-mask-repeat: no-repeat !important; }
+/* Fase "só o ícone": a caixa fechada tem a largura do ícone + 12px de cada
+   lado (o app usa 80px, pensado para 8px), então fica centralizada; o texto
+   começa depois dessa largura e não aparece pela fresta antes de abrir. */
+.achievement-notification:not(.achievement-notification--closing) .achievement-notification__outer-container { animation-name: mica-ach-in, mica-ach-wait, mica-ach-expand !important; }
+@keyframes mica-ach-in { 0% { width: 90px; opacity: 0; transform: scale(0); } 100% { width: 90px; opacity: 1; transform: scale(1); } }
+@keyframes mica-ach-wait { 0%, 100% { width: 90px; } }
+@keyframes mica-ach-expand { 0% { width: 90px; } 100% { width: 320px; } }
+.achievement-notification__text-container { margin-left: 6px !important; }
+
+/* Troféu da abertura da conquista: entra girando com mola, assenta, um
+   brilho atravessa o troféu e ele "explode" para fora enquanto a caixa abre.
+   Mesma duração do app (900ms), então não dessincroniza o resto. */
+.achievement-notification__trophy-overlay {
+  --t: #fff;
+  background: linear-gradient(115deg, var(--t) 38%, #fff 50%, var(--t) 62%) 140% 0 / 320% 100% no-repeat !important;
+  animation: mica-trophy 900ms cubic-bezier(.2, .8, .2, 1) both !important;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--t) 70%, transparent));
+}
+.achievement-notification--rare .achievement-notification__trophy-overlay { --t: var(--gold); }
+.achievement-notification--platinum .achievement-notification__trophy-overlay { --t: var(--teal); }
+@keyframes mica-trophy {
+  0%   { opacity: 0; transform: scale(.3) rotate(-24deg); background-position: 140% 0; }
+  22%  { opacity: 1; transform: scale(1.14) rotate(8deg); }
+  36%  { transform: scale(.94) rotate(-4deg); }
+  48%  { transform: scale(1.02) rotate(1deg); background-position: 140% 0; }
+  56%  { transform: scale(1) rotate(0); }
+  74%  { opacity: 1; transform: scale(1); background-position: -40% 0; }
+  100% { opacity: 0; transform: scale(1.6); background-position: -40% 0; filter: blur(3px) drop-shadow(0 0 10px var(--t)); }
+}
+.achievement-notification__dark-overlay { animation: mica-ach-dark 900ms ease-out both !important; }
+@keyframes mica-ach-dark { 0% { opacity: 0; } 15%, 70% { opacity: .78; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .achievement-notification__trophy-overlay, .achievement-notification__dark-overlay { animation: none !important; opacity: 0 !important; }
+}
+/* Troféu: cor sólida (sem a faixa em degradê que o deixava apagado), máscara
+   centralizada e o brilho feito com filtro de luminosidade. */
+.achievement-notification__trophy-overlay {
+  background: var(--t) !important; filter: none;
+  -webkit-mask-position: center !important; mask-position: center !important; transform-origin: 50% 50% !important;
+  animation-name: mica-trophy2 !important;
+}
+@keyframes mica-trophy2 {
+  0%   { opacity: 0; transform: scale(.3) rotate(-24deg); filter: brightness(1); }
+  22%  { opacity: 1; transform: scale(1.14) rotate(8deg); }
+  36%  { transform: scale(.94) rotate(-4deg); }
+  48%  { transform: scale(1.02) rotate(1deg); filter: brightness(1); }
+  60%  { transform: scale(1) rotate(0); filter: brightness(1.8) drop-shadow(0 0 8px var(--t)); }
+  74%  { opacity: 1; transform: scale(1); filter: brightness(1.1) drop-shadow(0 0 4px var(--t)); }
+  100% { opacity: 0; transform: scale(1.6); filter: blur(2px); }
+}
+/* Abertura numa animação só (1350ms, mesmo total do app): sem intervalos entre
+   fases em que a caixa voltava por um instante à largura cheia. */
+.achievement-notification:not(.achievement-notification--closing) .achievement-notification__outer-container {
+  animation: mica-ach-open 1350ms both !important;
+}
+@keyframes mica-ach-open {
+  0%   { width: 90px; opacity: 0; transform: scale(.4); animation-timing-function: cubic-bezier(.2, .9, .3, 1); }
+  33%  { width: 90px; opacity: 1; transform: scale(1); animation-timing-function: linear; }
+  66%  { width: 90px; opacity: 1; transform: scale(1); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  100% { width: 320px; opacity: 1; transform: scale(1); }
+}
