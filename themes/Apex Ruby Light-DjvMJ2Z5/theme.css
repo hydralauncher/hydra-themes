@@ -509,7 +509,7 @@
   .download-group__header-count { background-color: rgba(0, 0, 0, 0.085); color: var(--text); }
   .download-group__glass-btn.button { background: rgba(0, 0, 0, 0.085); border-color: rgba(0, 0, 0, 0.17); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.045), 0 4px 6px -4px rgba(0, 0, 0, 0.045); }
   .download-group__glass-btn.button:hover { background: rgba(0, 0, 0, 0.17); }
-  .download-group__progress-status { color: var(--text); color: var(--text); }
+  .download-group__progress-status { color: var(--text); }
   .download-group__progress-percentage { color: var(--text); }
   .download-group__progress-size { color: var(--text); }
   .download-group__progress-time { color: var(--text); }
