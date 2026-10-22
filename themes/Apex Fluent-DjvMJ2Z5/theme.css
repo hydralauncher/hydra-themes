@@ -6327,3 +6327,5 @@ html body .game-card .game-card__specifics-item svg { width: 12px !important; he
 html body .game-card .game-card__specifics-item:last-child svg { color: #ffb900 !important; fill: #ffb900 !important; }
 /* O destaque em tela cheia passava 4px da borda e criava rolagem lateral */
 html body .home__content { overflow-x: clip !important; }
+/* Cartões do Início menores: 4 por linha (5 em telas largas, 3 em estreitas) */
+html body .home__cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important; gap: 12px !important; }
