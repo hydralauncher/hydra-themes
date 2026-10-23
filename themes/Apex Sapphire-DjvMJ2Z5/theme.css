@@ -5649,6 +5649,9 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .profile-hero__user-information { left: 24px !important; right: 24px !important; }
 .profile-hero__hero-panel { left: 24px !important; height: 36px !important; }
 .profile-hero__actions { height: 36px !important; align-items: center !important; }
+/* Presentear Hydra Cloud: o Hydra põe no topo direito, que agora fica sob o cabeçalho de vidro; vai para a linha das ações, à direita */
+.profile-hero__gift-action { top: auto !important; bottom: 42px !important; right: 24px !important; height: 36px; display: flex; align-items: center; }
+.profile-hero__gift-action > .button { height: 36px; min-height: 36px; }
 .upload-background-image-button__wrapper { right: 0 !important; }
 .profile-content__section { padding: 24px 24px 32px !important; margin: 0 -16px !important; grid-template-columns: minmax(0, 1fr) 340px !important; gap: 24px !important; }
 
@@ -13326,6 +13329,9 @@ select option:active { background: rgba(0, 0, 0, 0.034) !important; }
 .profile-hero__user-information { left: 24px !important; right: 24px !important; }
 .profile-hero__hero-panel { left: 24px !important; height: 36px !important; }
 .profile-hero__actions { height: 36px !important; align-items: center !important; }
+/* Presentear Hydra Cloud: o Hydra põe no topo direito, que agora fica sob o cabeçalho de vidro; vai para a linha das ações, à direita */
+.profile-hero__gift-action { top: auto !important; bottom: 42px !important; right: 24px !important; height: 36px; display: flex; align-items: center; }
+.profile-hero__gift-action > .button { height: 36px; min-height: 36px; }
 .upload-background-image-button__wrapper { right: 0 !important; }
 .profile-content__section { padding: 24px 24px 32px !important; margin: 0 -16px !important; grid-template-columns: minmax(0, 1fr) 340px !important; gap: 24px !important; }
 
