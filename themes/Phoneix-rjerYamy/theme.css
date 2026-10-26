@@ -1,0 +1,426 @@
+/* @name        Phoneix
+   @version     1.0
+   @author      XeonTheProtogen (https://github.com/xeontheprotogen)
+*/
+
+/* Háttér */
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+/* szöveg */
+body {
+  color: #f5f5f5;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* háttér */
+#root {
+  background: url(https://i.imgur.com/HmVO5NM.jpeg) #0a0000;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, 
+    rgba(139, 0, 0, 0.15) 0%, 
+    rgba(20, 0, 0, 0.4) 50%, 
+    rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* blur és árnyalat */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background: linear-gradient(135deg, 
+    rgba(30, 0, 0, 0.85) 0%, 
+    rgba(20, 0, 0, 0.75) 100%) !important;
+  backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 12px 48px rgba(139, 0, 0, 0.4),
+              0 4px 16px rgba(0, 0, 0, 0.6),
+              inset 0 1px 0 rgba(255, 100, 100, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effect */
+.text-field-container__text-field--dark::before,
+.text-field-container__text-field--primary::before,
+.header__search::before,
+.game-item::before,
+.settings__content::before,
+.catalogue__filters-container::before,
+.friends-box__box::before,
+.user-stats__box::before,
+.recent-games__box::before,
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 50, 50, 0.05) 50%, 
+    transparent 70%);
+  transform: rotate(45deg);
+  animation: luxuryShimmer 8s infinite;
+  pointer-events: none;
+}
+
+@keyframes luxuryShimmer {
+  0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Hover  */
+.game-item:hover,
+.friends-box__box:hover,
+.user-stats__box:hover,
+.recent-games__box:hover {
+  background: linear-gradient(135deg, 
+    rgba(45, 0, 0, 0.95) 0%, 
+    rgba(30, 0, 0, 0.85) 100%) !important;
+  border-color: rgba(255, 100, 100, 0.5);
+  box-shadow: 0 16px 64px rgba(200, 0, 0, 0.6),
+              0 8px 32px rgba(255, 50, 50, 0.3),
+              inset 0 1px 0 rgba(255, 120, 120, 0.2);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* gombok */
+.container__content .button--outline {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(135deg, 
+    rgba(60, 0, 0, 0.7) 0%, 
+    rgba(40, 0, 0, 0.6) 100%);
+  border: 2px solid rgba(255, 80, 80, 0.5);
+  border-radius: 8px;
+  color: #ffb3b3;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 100, 100, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container__content .button--outline::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(255, 80, 80, 0.4) 0%, 
+    transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.container__content .button--outline:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.container__content .button--outline:hover {
+  background: linear-gradient(135deg, 
+    rgba(100, 0, 0, 0.9) 0%, 
+    rgba(80, 0, 0, 0.8) 100%);
+  border-color: rgba(255, 120, 120, 0.8);
+  box-shadow: 0 8px 32px rgba(255, 50, 50, 0.6),
+              0 0 40px rgba(255, 50, 50, 0.4),
+              inset 0 1px 0 rgba(255, 140, 140, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* lista */
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background: linear-gradient(135deg, 
+    rgba(30, 0, 0, 0.75) 0%, 
+    rgba(20, 0, 0, 0.65) 100%) !important;
+  backdrop-filter: blur(18px) saturate(180%);
+  border-left: 4px solid rgba(255, 60, 60, 0.4);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 80, 80, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-download-sources__item:hover,
+.download-group__item:hover {
+  background: linear-gradient(135deg, 
+    rgba(45, 0, 0, 0.85) 0%, 
+    rgba(30, 0, 0, 0.75) 100%) !important;
+  border-left-color: rgba(255, 100, 100, 0.8);
+  border-left-width: 5px;
+  box-shadow: 0 6px 28px rgba(180, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 100, 100, 0.15);
+  transform: translateX(3px);
+}
+
+/* achievement dobozok */
+.achievements__box,
+.achievement-item,
+.achievement-card {
+  background: linear-gradient(135deg, 
+    rgba(30, 0, 0, 0.85) 0%, 
+    rgba(20, 0, 0, 0.75) 100%) !important;
+  backdrop-filter: blur(28px) saturate(220%);
+  border: 2px solid rgba(255, 100, 100, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(180, 0, 0, 0.4),
+              0 4px 20px rgba(0, 0, 0, 0.5),
+              inset 0 2px 0 rgba(255, 120, 120, 0.15),
+              inset 0 -2px 8px rgba(139, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievements__box::before,
+.achievement-item::before,
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 80, 80, 0.1) 50%, 
+    transparent 100%);
+  transition: left 0.8s;
+}
+
+.achievement-item:hover::before,
+.achievement-card:hover::before {
+  left: 100%;
+}
+
+.achievement-item:hover,
+.achievement-card:hover {
+  background: linear-gradient(135deg, 
+    rgba(50, 0, 0, 0.95) 0%, 
+    rgba(35, 0, 0, 0.85) 100%) !important;
+  border-color: rgba(255, 140, 140, 0.6);
+  box-shadow: 0 12px 56px rgba(220, 0, 0, 0.6),
+              0 6px 28px rgba(255, 50, 50, 0.4),
+              inset 0 2px 0 rgba(255, 150, 150, 0.25),
+              inset 0 -2px 12px rgba(180, 0, 0, 0.4);
+  transform: scale(1.03) translateY(-2px);
+}
+
+/* achievement ikonok */
+.achievement-icon,
+.achievement__icon {
+  filter: drop-shadow(0 0 12px rgba(255, 80, 80, 0.7))
+          drop-shadow(0 0 24px rgba(255, 50, 50, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.achievement-item:hover .achievement-icon,
+.achievement-card:hover .achievement__icon {
+  filter: drop-shadow(0 0 20px rgba(255, 100, 100, 1))
+          drop-shadow(0 0 40px rgba(255, 80, 80, 0.6))
+          drop-shadow(0 0 60px rgba(255, 50, 50, 0.3));
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* progress bar */
+.achievement-progress,
+.progress-bar {
+  background: linear-gradient(90deg, 
+    rgba(15, 0, 0, 0.9) 0%, 
+    rgba(10, 0, 0, 0.8) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(80, 0, 0, 0.5);
+  overflow: hidden;
+  box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.7),
+              inset 0 -1px 0 rgba(255, 50, 50, 0.1);
+  position: relative;
+}
+
+.achievement-progress::before,
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 100, 100, 0.3) 50%, 
+    transparent 100%);
+}
+
+.achievement-progress__fill,
+.progress-bar__fill {
+  background: linear-gradient(90deg, 
+    rgba(139, 0, 0, 1) 0%, 
+    rgba(220, 20, 60, 1) 35%, 
+    rgba(255, 69, 0, 1) 70%,
+    rgba(255, 140, 0, 1) 100%);
+  box-shadow: 0 0 30px rgba(255, 50, 50, 0.8),
+              inset 0 2px 8px rgba(255, 200, 200, 0.3),
+              inset 0 -2px 8px rgba(100, 0, 0, 0.5);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-progress__fill::after,
+.progress-bar__fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  background: linear-gradient(180deg, 
+    rgba(10, 0, 0, 0.6) 0%, 
+    rgba(5, 0, 0, 0.5) 100%);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 7px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(50, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    rgba(180, 0, 0, 0.9), 
+    rgba(139, 0, 0, 0.8),
+    rgba(200, 30, 30, 0.9));
+  border-radius: 7px;
+  border: 2px solid rgba(255, 50, 50, 0.2);
+  box-shadow: 0 0 20px rgba(200, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 100, 100, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    rgba(220, 0, 0, 1), 
+    rgba(180, 0, 0, 0.95),
+    rgba(255, 50, 50, 1));
+  box-shadow: 0 0 30px rgba(255, 50, 50, 0.8),
+              inset 0 1px 0 rgba(255, 150, 150, 0.5);
+  border-color: rgba(255, 100, 100, 0.5);
+}
+
+/* input fókusz */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(255, 100, 100, 0.7) !important;
+  box-shadow: 0 0 0 4px rgba(255, 50, 50, 0.25),
+              0 0 30px rgba(255, 50, 50, 0.4),
+              inset 0 1px 0 rgba(255, 150, 150, 0.2) !important;
+  outline: none;
+  background: rgba(20, 0, 0, 0.6) !important;
+}
+
+/* tipográfia */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffd6d6;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 16px rgba(139, 0, 0, 0.6),
+               0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.75em; }
+
+/* linkek */
+a {
+  color: #ffb3b3;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(255, 100, 100, 0.8), 
+    rgba(255, 150, 150, 0.4));
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 100, 100, 0.6);
+}
+
+a:hover {
+  color: #ffe0e0;
+  text-shadow: 0 0 20px rgba(255, 120, 120, 0.8);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* akcentusok */
+.accent,
+.primary-color,
+.highlight {
+  color: #ff9999 !important;
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(255, 80, 80, 0.6),
+               0 0 30px rgba(255, 50, 50, 0.3);
+  letter-spacing: 0.5px;
+}

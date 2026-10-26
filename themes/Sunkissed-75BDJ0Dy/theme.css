@@ -1,0 +1,582 @@
+:root {
+    --sunkissed-orange: #F28B30;
+    --blue-surf: #3B5B8A;
+    --blue-surf-darker: #2c4468;
+    --blue-surf-lighter: #5e80b8;
+    --sunkissed-orange-lighter: #f5a254;
+    --sunkissed-orange-darker: #d97620;
+    --text-on-blue: #FFFFFF;
+    --text-on-orange: #FFFFFF;
+
+
+    --glass-panel-item-bg: rgba(59, 91, 138, 0.45);
+    --glass-panel-item-blur: 8px;
+    --glass-panel-item-border: rgba(242, 139, 48, 0.20);
+
+
+    --main-content-blur: 6px;
+
+
+    /* botões */
+    --glass-button-bg: rgba(242, 139, 48, 0.75);
+    --glass-button-blur: 5px;
+    --glass-button-hover-bg: rgba(245, 162, 84, 0.9);
+    --glass-button-border-color: var(--sunkissed-orange-darker);
+
+    /* geral */
+    --accent-glow-color: #F28B30A0;
+    --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-title: 'Montserrat', sans-serif;
+
+    /* achievements */
+    --achiev-title-color: var(--text-on-orange);
+    --achiev-title-shadow-color: rgba(44, 68, 104, 0.4);
+
+    /* animações */
+    --particle-color1: var(--sunkissed-orange-lighter);
+    --particle-color2: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    color: var(--text-on-blue);
+    font-family: var(--font-main);
+    overflow: hidden;
+    position: relative;
+}
+
+#root {
+    background-color: var(--sunkissed-orange-darker);
+    background-image:
+        radial-gradient(ellipse at 80% 120%,
+            var(--sunkissed-orange-lighter) 0%,
+            color-mix(in srgb, var(--sunkissed-orange) 70%, transparent) 40%,
+            transparent 70%),
+        linear-gradient(170deg,
+            var(--blue-surf-darker) -10%,
+            var(--blue-surf) 40%,
+            var(--sunkissed-orange) 90%,
+            var(--sunkissed-orange-darker) 110%);
+    background-size: 150% 150%, 100% 100%;
+    background-position: 50% 100%, center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+#root::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px) brightness(0.9);
+    z-index: -1;
+    background-color: rgba(59, 91, 138, 0.2);
+    background-blend-mode: overlay;
+}
+
+/* partículas animadas */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+}
+
+body::before {
+    width: 8px;
+    height: 8px;
+    background-color: var(--particle-color1);
+    box-shadow: 0 0 10px 3px var(--particle-color1);
+    left: 20%;
+    animation: riseAndFade 6s infinite ease-out;
+    animation-delay: 0.5s;
+}
+
+body::after {
+    width: 12px;
+    height: 12px;
+    background-color: var(--particle-color2);
+    box-shadow: 0 0 12px 4px var(--particle-color2);
+    left: 70%;
+    animation: riseAndFade 7s infinite ease-out;
+    animation-delay: 2s;
+}
+
+@keyframes riseAndFade {
+    0% {
+        bottom: -20px;
+        opacity: 0;
+        transform: translateX(0) scale(0.5);
+    }
+
+    20% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        bottom: 105vh;
+        opacity: 0;
+        transform: translateX(20px) scale(0.7);
+    }
+}
+
+/* title bar */
+.title-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+}
+
+.title-bar h4 {
+    visibility: hidden;
+}
+
+@keyframes titleGlowOrange {
+    0% {
+        text-shadow: 0 0 5px var(--sunkissed-orange), 0 0 10px var(--sunkissed-orange), 0 0 15px #fff;
+    }
+
+    100% {
+        text-shadow: 0 0 5px var(--blue-surf-lighter), 0 0 8px var(--blue-surf-lighter), 0 0 10px #fff;
+    }
+}
+
+.title-bar::after {
+    content: "";
+    display: block;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(44, 68, 104, 0.2);
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--sunkissed-orange), var(--sunkissed-orange-darker));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--sunkissed-orange-lighter), var(--sunkissed-orange));
+}
+
+
+
+
+.header,
+.sidebar,
+.container__content,
+.home__content,
+.downloads__view,
+.settings__view,
+.bottom-panel {
+    background: transparent !important;
+    backdrop-filter: blur(var(--main-content-blur)) !important;
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
+    color: var(--text-on-blue);
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.content-sidebar,
+.settings-download-sources__item,
+.download-group__item,
+.achievements__item,
+.theme-card {
+    background-color: var(--glass-panel-item-bg) !important;
+    backdrop-filter: blur(var(--glass-panel-item-blur)) !important;
+    border: 1px solid var(--glass-panel-item-border) !important;
+    color: var(--text-on-blue) !important;
+    border-radius: 8px;
+    position: relative;
+    z-index: 11;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* layout */
+.header {
+    margin: 5px 10px 0 10px;
+    padding: 15px;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    border: 1px solid var(--glass-panel-item-border) !important;
+}
+
+.sidebar {
+    margin: 0 10px;
+    background-color: var(--glass-panel-item-bg) !important;
+    border: 1px solid var(--glass-panel-item-border) !important;
+}
+
+.container__content {
+    margin: 10px 0;
+    padding: 0px;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.home__content,
+.catalogue,
+.downloads__view,
+.settings__view {
+    padding: 15px;
+}
+
+.bottom-panel {
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    border: 1px solid var(--glass-panel-item-border) !important;
+    border-top: none !important;
+}
+
+.bottom-panel::after {
+    content: none;
+}
+
+/* botões */
+.button {
+    background: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    color: var(--text-on-orange) !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    border-radius: 20px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    padding: 0.7em 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 12;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background: var(--glass-button-hover-bg) !important;
+}
+
+.container__content .button--outline,
+.button--outline.requirement__button {
+    backdrop-filter: blur(var(--glass-panel-item-blur));
+    background-color: rgba(59, 91, 138, 0.3) !important;
+    color: var(--sunkissed-orange) !important;
+    border: 1px solid var(--sunkissed-orange) !important;
+    border-radius: 20px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    padding: 0.7em 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 12;
+}
+
+.container__content .button--outline:hover,
+.button--outline.requirement__button:hover {
+    transform: scale(1.05);
+    background-color: rgba(59, 91, 138, 0.5) !important;
+    color: var(--sunkissed-orange-lighter) !important;
+}
+
+/* sidebar menu */
+.sidebar__menu-item-button {
+    color: var(--text-on-blue);
+    font-style: normal;
+    font-weight: 600;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 10px 15px;
+    margin: 5px 10px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar__menu-item-button:hover {
+    background-color: rgba(242, 139, 48, 0.2);
+    transform: translateX(5px);
+}
+
+.sidebar__menu-item-button-label {
+    color: var(--text-on-blue);
+    text-shadow: 0 0 3px var(--blue-surf-darker);
+}
+
+.sidebar__section-title {
+    color: var(--sunkissed-orange);
+    font-style: normal;
+    font-weight: bold;
+    padding: 10px 15px 5px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* perfil sidebar */
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(135deg, var(--sunkissed-orange) 0%, var(--blue-surf) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    padding: 12px 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    overflow: hidden;
+}
+
+.sidebar-profile__button {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+    padding: 0;
+}
+
+.sidebar-profile__button:hover {
+    transform: scale(1.02);
+}
+
+.sidebar-profile__button-content {
+    display: flex;
+    align-items: center;
+    color: var(--text-on-orange);
+    width: 100%;
+    gap: 15px;
+}
+
+.profile-avatar {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--text-on-orange);
+}
+
+.profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sidebar-profile__button-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar-profile__button-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-on-orange);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px var(--blue-surf-darker);
+}
+
+.sidebar-profile__friends-button {
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    margin-left: auto;
+    padding: 0;
+}
+
+.sidebar-profile__friends-button:hover {
+    transform: scale(1.15);
+}
+
+.sidebar-profile__friends-button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-on-orange);
+    transition: fill 0.3s ease;
+}
+
+.sidebar-profile__friends-button:hover svg {
+    fill: var(--sunkissed-orange-lighter);
+}
+
+/* avatar no perfil */
+.profile-hero__avatar-button {
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    min-height: 100px;
+    overflow: hidden !important;
+    border: 3px solid var(--sunkissed-orange);
+}
+
+.profile-hero__avatar-button img,
+.profile-hero__avatar-button .profile-avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+/* outros elementos */
+.game-item {
+    padding: 10px;
+    gap: 15px;
+    height: auto;
+}
+
+.game-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px var(--accent-glow-color);
+}
+
+.header__search {
+    width: auto;
+    min-width: 200px;
+    padding: 8px 12px;
+    border: 1px solid var(--sunkissed-orange-darker) !important;
+}
+
+.modal__content {
+    background: var(--blue-surf-darker);
+    background-size: cover;
+    font-weight: bold;
+    color: var(--text-on-blue);
+    border: 2px solid var(--sunkissed-orange);
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    z-index: 101;
+    /* Acima de tudo */
+}
+
+.achievement-panel {
+    background-color: transparent;
+    color: var(--blue-surf-lighter);
+    border-color: var(--glass-panel-item-border);
+}
+
+.toast {
+    z-index: 100;
+    background-color: var(--glass-panel-item-bg) !important;
+    backdrop-filter: blur(var(--glass-panel-item-blur)) !important;
+    color: var(--text-on-blue) !important;
+    font-weight: bold;
+    border: 1px solid var(--glass-panel-item-border) !important;
+    border-left: 4px solid var(--sunkissed-orange) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 12px 18px;
+    position: relative;
+}
+
+.user-library-game__wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--blue-surf-darker);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.user-library-game__wrapper:hover {
+    transform: scale(1.03);
+}
+
+.user-library-game__overlay {
+    background: rgba(242, 139, 48, 0.7);
+}
+
+/* achievement notif */
+.achievement-notification__outer-container {
+    z-index: 90;
+    background-color: var(--glass-button-bg) !important;
+    backdrop-filter: blur(var(--glass-button-blur)) !important;
+    border: 1px solid var(--glass-button-border-color) !important;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15), 0 0 15px var(--accent-glow-color);
+    border-radius: 14px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-on-orange);
+    font-family: inherit;
+}
+
+.achievement-notification__container {
+    background: transparent !important;
+    color: var(--text-on-orange);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    position: relative;
+    z-index: 2;
+    gap: 16px;
+    min-width: 0;
+    border-radius: 14px;
+}
+
+.achievement-notification__outer-container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 14px;
+    pointer-events: none;
+    box-shadow: 0 0 18px 2px var(--accent-glow-color);
+    z-index: 1;
+}
+
+.achievement-notification__title {
+    color: var(--achiev-title-color);
+    font-family: var(--font-title);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1px;
+    font-size: 1em;
+    text-shadow: 0 1px 1px var(--achiev-title-shadow-color);
+}

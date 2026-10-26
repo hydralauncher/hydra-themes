@@ -1,0 +1,183 @@
+body, #root {
+    background-color: #000 !important;
+    background-image: url('https://raw.githubusercontent.com/rauflk/Temas/main/BG_GIF.gif') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    color: #fff !important;
+}
+
+.header { background: transparent !important; pointer-events: none !important; height: 60px !important; }
+.header > * { pointer-events: auto !important; }
+
+.container__content { 
+    background: rgba(0, 0, 0, 0.1) !important; 
+    backdrop-filter: blur(0px) !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+}
+
+.sidebar {
+    background: linear-gradient(180deg, rgba(195, 40, 30, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+    width: 160px !important;
+    min-width: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-x: hidden !important; 
+    scrollbar-width: thin;
+}
+
+.sidebar::-webkit-scrollbar:horizontal {
+    display: none !important;
+}
+
+.sidebar > div:first-child, 
+.sidebar__header-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 15px 0 !important;
+    margin: -25px !important; 
+    gap: 12px !important;
+}
+
+.sidebar > div:first-child button, 
+.sidebar__header-container button {
+    margin-left: 0px !important;
+}
+
+.sidebar__menu, ul.sidebar__menu {
+    display: flex !important;
+    flex-wrap: wrap !important; 
+    flex-direction: row !important; 
+    justify-content: flex-start !important; 
+    width: 180px !important; 
+    padding: 0 !important;
+    margin-left: -10px !important; 
+    gap: 4px !important; 
+}
+
+.sidebar__menu-item-button::before, 
+.sidebar__menu-item-button::after,
+.sidebar button::before,
+.sidebar button::after {
+    display: none !important;
+    content: none !important;
+}
+
+.sidebar__menu::after, ul.sidebar__menu::after {
+    content: "" !important;
+    display: block !important;
+    width: 64px !important;
+    height: 64px !important;
+    margin: 2px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    background-image: url('https://raw.githubusercontent.com/rauflk/Temas/main/FlaLogoW.png') !important;
+    background-size: 42px !important; 
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 12px !important;
+    opacity: 0.85 !important;
+    cursor: default !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar__menu::after:hover {
+    background-color: rgba(195, 40, 30, 0.4) !important;
+    opacity: 1 !important;
+}
+
+.sidebar__menu-item, li.sidebar__menu-item {
+    width: 64px !important; 
+    flex: 0 0 64px !important; 
+    margin: 2px !important;
+    padding: 0 !important;
+    display: flex !important;
+}
+
+.sidebar__menu-item-button, button.sidebar__menu-item-button {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.sidebar__game-icon, img.sidebar__game-icon {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+}
+
+.sidebar button svg, .sidebar__menu-item-button svg {
+    width: 24px !important;
+    height: 24px !important;
+    margin: auto !important;
+}
+
+.sidebar__menu-item-button-label, .sidebar button span { display: none !important; }
+.sidebar > button[aria-label*="ollapse"] { display: none !important; }
+
+.sidebar__menu-item-button:hover, .sidebar button:hover {
+    background-color: rgba(195, 40, 30, 0.6) !important;
+    transition: background 0.2s ease;
+}
+
+.sidebar__menu-item--active .sidebar__menu-item-button,
+.sidebar button[class*="active"] {
+    background-color: rgba(195, 40, 30, 0.9) !important;
+}
+
+.achievement-notification::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0) 50%,
+        transparent 70%
+    );
+    left: 0;
+    transform: translateX(-100%);
+    animation: achShine 2.8s linear infinite;
+    z-index:0;
+}
+
+.achievement-notification__title {
+    color: var(--fla-red) !important;
+    font-weight: 700 !important;
+}
+
+.achievement-notification__description {
+    color: red !important;
+}
+
+.achievement-notification img {
+    content: url('https://raw.githubusercontent.com/rauflk/Temas/main/FlaLogoW.png') !important;
+}
+
+@keyframes achPop {
+    from { transform: translateX(25px) scale(.95); opacity:0; }
+    to   { transform: translateX(0) scale(1); opacity:1; }
+}
+
+@keyframes achShine {
+    from { transform: translateX(-120%); }
+    to   { transform: translateX(120%); }
+}
+
+:root { --fla-red:#C3281E; }

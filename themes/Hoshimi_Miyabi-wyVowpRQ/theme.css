@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  --bg-image: url(https://i.imgur.com/EMP38Ej.jpeg);
+  --main-color: #18526fff;
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #cfe9ff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#root {
+  background: var(--bg-image) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(0, 10, 25, 0.75) !important;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  transition: 0.25s;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(0, 10, 25, 0.6) !important;
+  border-radius: 10px;
+}
+
+.game-item:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 10px var(--main-color),
+    0 0 20px rgba(0, 170, 255, 0.5);
+}
+
+.button,
+.container__content .button--outline {
+  background-color: rgba(0, 20, 40, 0.5);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.button:hover {
+  background-color: var(--main-color);
+  color: #001018;
+  box-shadow:
+    0 0 8px var(--main-color),
+    0 0 16px var(--main-color);
+  transform: scale(1.05);
+}
+
+.game-card__backdrop, 
+.game-card, 
+.hero, 
+.user-library-game__cover,
+.settings__content,
+.theme-card,
+.user-stats__box,
+.modal,
+.button,
+.repacks-modal__repack-button,
+.badge {
+  border-radius: 10px;
+}
+
+.sidebar__menu-item {
+  margin: 4px 10px;
+  border-radius: 10px;
+  padding: 6px;
+  border: 1px solid rgba(0, 170, 255, 0.3);
+  transition: 0.25s;
+}
+
+.sidebar__menu-item:hover {
+  background-color: rgba(0, 170, 255, 0.1);
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+.header__search {
+  border-radius: 10px;
+  padding: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 10px;
+}
+
+.toast {
+  background: rgba(0, 10, 25, 0.9);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}

@@ -1,0 +1,1301 @@
+/*
+ * Mica para Hydra Launcher.
+ * Deixa o Hydra com cara de app nativo do Windows 11 (Fluent / WinUI 3, modo escuro),
+ * tendo a Microsoft Store como referência: navegação compacta só com ícones e o
+ * nome embaixo, busca no meio da barra de título, cinzas neutros e cartões planos.
+ * O acrílico (vidro com desfoque) fica para menus, diálogos e o que está sobre a
+ * arte dos jogos. Fonte Segoe UI Variable, cantos de 4px nos controles e 8px nas
+ * superfícies.
+ *
+ * Limites: o Hydra cria a janela com fundo sólido, então o vidro desfoca o que está
+ * dentro do app, nunca a área de trabalho; e os botões minimizar/maximizar/fechar
+ * são os nativos do Windows, que o tema não alcança.
+ *
+ * Para usar outra cor de destaque, troque --accent e as variações abaixo.
+ */
+
+/* Emojis como ícones: só para os caracteres de emoji, usa a Segoe UI Symbol do
+   Windows, que tem versões monocromáticas de traço deles (📅, 🏆, 🔥...). Assim os
+   emojis que vêm dentro dos textos do Hydra aparecem como ícones na cor do texto.
+   O que a Segoe UI Symbol não tiver continua com o emoji colorido. */
+@font-face {
+  font-family: "Mica Emoji";
+  src: local("Segoe UI Symbol"), local("SegoeUISymbol");
+  unicode-range: U+2300-23FF, U+2600-27BF, U+2B00-2BFF, U+1F300-1F5FF, U+1F680-1F6FF;
+}
+
+/* "Mica Blank": fonte mínima gerada para este tema (sem desenhos, largura zero)
+   que cobre só caracteres de emoji. Usada onde o Hydra põe emoji dentro do texto,
+   para o emoji sumir e o tema desenhar um ícone Fluent no lugar. */
+@font-face {
+  font-family: "Mica Blank";
+  src: url(data:font/ttf;base64,AAEAAAAKAIAAAwAgT1MvMmjtT+UAAACsAAAAYGNtYXBWz181AAABDAAAAMRnbHlmAAAAAAAAAdAAAAAEaGVhZF8eQOUAAAHUAAAANmhoZWEDIf86AAACDAAAACRobXR4AAAAAAAAAjAAAA0sbG9jYQAAAAAAAA9cAAANLG1heHAGlgACAAAciAAAACBuYW1lCjAaWAAAHKgAAACecG9zdP+fADIAAB1IAAAAIAAEAAABkAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNSUNBAEAgDf//AyD/OAAAAyAAyAAAAAEAAAAAAAAAAAAAACAAAAAAAAIAAwABAAAAFAADAAoAAABUAAQAQAAAAAwACAACAAQgDSe/K1ArVf4P//8AACANJgArUCtV/g///9/02gLWctZuA7UAAQAAAAAAAAAAAAAAAAAMAAAAAABwAAAAAAAAAAgAACANAAAgDQAAAAEAACYAAAAnvwAAAAIAACtQAAArUAAAAcIAACtVAAArVQAAAcMAAP4PAAD+DwAAAcQAAfMAAAH2TwAAAcUAAfaAAAH2/wAABRUAAfkAAAH5/wAABZUAAAAAAAEAAAABAABA1A19Xw889QALA+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAAAQAAAyD/OAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAABpUAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAQANgADAAEECQABABQAAAADAAEECQACAA4AFAADAAEECQAEACQAIgADAAEECQAGACIARgBNAGkAYwBhACAAQgBsAGEAbgBrAFIAZQBnAHUAbABhAHIATQBpAGMAYQAgAEIAbABhAG4AawAgAFIAZQBnAHUAbABhAHIATQBpAGMAYQBCAGwAYQBuAGsALQBSAGUAZwB1AGwAYQByAAAAAwAAAAAAAP+cADIAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format("truetype");
+  unicode-range: U+200D, U+2600-27BF, U+2B50, U+2B55, U+FE0F, U+1F300-1F64F, U+1F680-1F6FF, U+1F900-1F9FF;
+}
+/* Fim da Mica Blank */
+
+:root {
+  color-scheme: dark;
+
+  /* Destaque roxo do Windows ("Roxo" em Personalização > Cores).
+     --accent-bright é a versão clara, para detalhes finos sobre o fundo escuro. */
+  --accent: #a94dc1;
+  --accent-hover: #b45fcb;
+  --accent-pressed: #8f3fa4;
+  --accent-bright: #d29ae6;
+  --accent-glow: rgba(169, 77, 193, .45);
+  --accent-text: #e0b3f0;
+  --on-accent: #fff;
+
+  /* Vidro (acrílico): fundo translúcido + desfoque e saturação do que está atrás. */
+  --glass: rgba(255, 255, 255, .05);
+  --glass-hover: rgba(255, 255, 255, .09);
+  --glass-stroke: rgba(255, 255, 255, .09);
+  --glass-dark: rgba(0, 0, 0, .38);
+  --acrylic: rgba(32, 32, 32, .72);
+  --blur: blur(24px) saturate(160%);
+  --blur-strong: blur(40px) saturate(170%);
+
+  /* Superfícies */
+  --mica: #202020;
+  --layer: rgba(58, 58, 58, .3);
+  --layer-stroke: rgba(0, 0, 0, .1);
+  --card: rgba(255, 255, 255, .0512);
+  --card-hover: rgba(255, 255, 255, .0837);
+  --card-stroke: rgba(255, 255, 255, .0698);
+  --flyout: #2c2c2c;
+  --flyout-stroke: rgba(117, 117, 117, .4);
+  --dialog: #2b2b2b;
+
+  /* Controles */
+  --control: rgba(255, 255, 255, .0605);
+  --control-hover: rgba(255, 255, 255, .0837);
+  --control-pressed: rgba(255, 255, 255, .0326);
+  --control-disabled: rgba(255, 255, 255, .0419);
+  --control-stroke: rgba(255, 255, 255, .0698);
+  --control-stroke-top: rgba(255, 255, 255, .093);
+  --control-strong: rgba(255, 255, 255, .5442);
+  --input-active: #1f1f1f;
+  --subtle-hover: rgba(255, 255, 255, .0605);
+  --subtle-pressed: rgba(255, 255, 255, .0419);
+  --divider: rgba(255, 255, 255, .0837);
+
+  /* Texto */
+  --text: #fff;
+  --text-2: rgba(255, 255, 255, .786);
+  --text-3: rgba(255, 255, 255, .544);
+  --text-disabled: rgba(255, 255, 255, .3628);
+
+  /* Estado */
+  --critical: #ff99a4;
+  --critical-bg: #442726;
+  --success: #6ccb5f;
+  --caution: #fce100;
+
+  --font: "Mica Emoji", "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Mica Emoji", "Segoe UI Variable Display", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --ease: cubic-bezier(0, 0, 0, 1);
+  --r-control: 4px;
+  --r-surface: 8px;
+  --shadow-flyout: 0 8px 16px rgba(0, 0, 0, .26);
+  --shadow-dialog: 0 32px 64px rgba(0, 0, 0, .37), 0 2px 21px rgba(0, 0, 0, .25);
+}
+
+/* Base ------------------------------------------------------------------- */
+
+/* Mica escuro: cinza neutro com um leve tom do destaque, como o Mica pega a cor
+   do papel de parede. */
+body {
+  background:
+    radial-gradient(1400px 700px at 70% -20%, rgba(169, 77, 193, .07), transparent 65%),
+    var(--mica);
+  color: var(--text);
+  font: 14px/20px var(--font);
+  font-variant-emoji: text;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; color: var(--text); }
+h1 { font-size: 28px; line-height: 36px; }
+h2 { font-size: 20px; line-height: 28px; }
+h3 { font-size: 16px; line-height: 22px; }
+small { font-size: 12px; line-height: 16px; color: var(--text-2); }
+
+/* Barra de rolagem fina e arredondada, como a do Windows 11. */
+::-webkit-scrollbar { width: 12px; height: 12px; background: transparent; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .35);
+  background-clip: content-box;
+  border: 4px solid transparent;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, .55); border-width: 3px; }
+::selection { background: var(--accent); color: var(--on-accent); }
+
+/* Foco por teclado: contorno branco duplo do Fluent. */
+:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
+/* Campos de texto não usam esse contorno: o foco aparece na linha inferior em destaque. */
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: none; }
+
+a, .link { color: var(--accent-text); }
+a:hover, .link:hover { color: var(--accent); }
+
+/* Botões ------------------------------------------------------------------- */
+
+.button {
+  min-height: 32px;
+  padding: 5px 11px 6px;
+  gap: 8px;
+  color: var(--text);
+  background: var(--control);
+  border: 1px solid var(--control-stroke);
+  border-top-color: var(--control-stroke-top);
+  border-radius: var(--r-control);
+  font: 400 14px/20px var(--font);
+  box-shadow: none;
+  transition: background .083s linear, border-color .083s linear, color .083s linear;
+}
+.button:hover:not(:disabled) { background: var(--control-hover); }
+.button:active:not(:disabled) { opacity: 1; background: var(--control-pressed); color: var(--text-2); }
+.button:disabled { opacity: 1; background: var(--control-disabled); color: var(--text-disabled); border-color: var(--control-stroke); }
+.button--small { min-height: 24px; padding: 2px 8px 3px; font-size: 12px; line-height: 16px; border-radius: var(--r-control); }
+
+/* Botão de destaque */
+.button--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: rgba(255, 255, 255, .08);
+  border-bottom-color: rgba(0, 0, 0, .14);
+  font-weight: 600;
+}
+.button--primary:hover:not(:disabled) { background: var(--accent-hover); }
+.button--primary:active:not(:disabled) { background: var(--accent-pressed); color: rgba(255, 255, 255, .7); }
+.button--primary:disabled { background: rgba(255, 255, 255, .1581); color: rgba(255, 255, 255, .5302); border-color: transparent; }
+
+.button--outline { background: transparent; color: var(--text); border-color: var(--control-stroke); }
+.button--outline:hover:not(:disabled) { background: var(--subtle-hover); }
+.button--outline:disabled { background: transparent; }
+.button--dark { background: var(--control); color: var(--text); }
+
+.button--danger { background: var(--critical-bg); border-color: rgba(255, 153, 164, .3); color: var(--critical); }
+.button--danger:hover:not(:disabled) { background: #5a2e2f; }
+
+/* A Hydra Cloud vira um botão de destaque comum. */
+.button--cloud { background: var(--accent); color: var(--on-accent); border-color: rgba(255, 255, 255, .08); box-shadow: none; filter: none; }
+.button--cloud:hover:not(:disabled) { background: var(--accent-hover); box-shadow: none; filter: none; }
+.title-bar__cloud-text { background: none; color: var(--accent-text); }
+
+/* Campos (TextBox): borda inferior mais forte, que vira destaque com 2px no foco. */
+.text-field-container__text-field, .select-field, .header__search {
+  min-height: 32px;
+  height: 32px;
+  background: var(--control) !important;
+  border: 1px solid var(--control-stroke);
+  border-bottom-color: var(--control-strong);
+  border-radius: var(--r-control);
+  transition: background .083s linear;
+}
+.text-field-container__text-field:hover, .select-field:hover, .header__search:hover {
+  background: var(--control-hover) !important;
+  border-color: var(--control-stroke);
+  border-bottom-color: var(--control-strong);
+}
+.text-field-container__text-field--focused, .select-field--focused, .header__search--focused {
+  background: var(--input-active) !important;
+  border-color: var(--control-stroke);
+  border-bottom: 2px solid var(--accent-bright);
+}
+.text-field-container__text-field--has-error { border-bottom: 2px solid var(--critical); }
+.text-field-container__error-label { color: var(--critical); font-size: 12px; }
+.text-field-container__text-field-input, .header__search-input {
+  color: var(--text);
+  font: 14px/20px var(--font);
+  padding: 0 10px;
+  caret-color: var(--text);
+}
+.text-field-container__text-field-input::placeholder, .header__search-input::placeholder { color: var(--text-3); }
+/* Busca de jogos no cabeçalho, à direita, onde o Hydra a coloca. (Subir para a
+   barra de título, como na Store, deixava a busca escondida atrás dela.) */
+.header__search {
+  position: relative;
+  width: 280px;
+  color: var(--text-2);
+  transition: background .083s linear, width .167s var(--ease);
+}
+.header__search--focused { width: 340px; }
+/* A lupa e o "limpar" são botões dentro do campo: sem fundo próprio no hover. */
+.header__search .header__action-button { flex: none; width: 32px; height: 30px; padding: 0; background: transparent; }
+.header__search .header__action-button:hover { background: transparent; color: var(--text); }
+.header__search .header__search-input { padding-left: 2px; }
+
+.select-field__option { background: transparent; color: var(--text); border-radius: var(--r-control); padding: 0 10px; }
+.select-field__label, .text-field-container label { color: var(--text); font-size: 14px; }
+
+.pagination__page-input {
+  height: 32px;
+  min-height: 32px;
+  background: var(--control);
+  border: 1px solid var(--control-stroke);
+  border-bottom-color: var(--control-strong);
+  border-radius: var(--r-control);
+  color: var(--text);
+}
+.pagination { gap: 4px; }
+
+/* Caixa de seleção e botão de opção */
+.checkbox-field__checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: rgba(0, 0, 0, .1);
+  border: 1px solid rgba(255, 255, 255, .6047);
+  border-radius: var(--r-control);
+  transition: background .083s linear;
+}
+.checkbox-field__checkbox:hover { background: rgba(255, 255, 255, .0419); }
+.checkbox-field__checkbox:has(input:checked) { background: var(--accent-bright); border-color: var(--accent-bright); }
+.checkbox-field__icon { color: #000; }
+.checkbox-field__label { color: var(--text); }
+
+.radio-field { --radio-field-accent: var(--accent-bright); border-radius: var(--r-control); }
+
+/* Barra de título e cabeçalho ----------------------------------------------- */
+
+/* Sobre o Mica, sem linha: os botões nativos do Windows ficam por cima. */
+.title-bar, .window-title-bar { background: transparent; border-bottom: 0; }
+.title-bar h4, .window-title-bar h4 { color: var(--text-2); font: 400 12px/16px var(--font); }
+.title-bar__big-picture { color: var(--text-2); opacity: 1; border-radius: var(--r-control); font: 400 12px var(--font); }
+.title-bar__big-picture:hover { background: var(--subtle-hover); color: var(--text); }
+.title-bar__window-control, .window-title-bar__control { color: var(--text); }
+.title-bar__window-control:hover, .window-title-bar__control:hover { background: var(--subtle-hover); color: var(--text); }
+.title-bar__window-control--close:hover, .window-title-bar__control--close:hover { background: #c42b1c; color: #fff; }
+
+/* Título da página no estilo "Title" do Fluent. */
+.header {
+  background: transparent;
+  border-bottom: 0;
+  padding: 20px 32px 12px;
+  color: var(--text);
+}
+.header__title { font: 600 20px/28px var(--font-display); color: var(--text); }
+.header__action-button { color: var(--text-2); border-radius: var(--r-control); width: 32px; height: 32px; }
+.header__action-button:hover { color: var(--text); background: var(--subtle-hover); }
+.header__action-button--outlined { border: 1px solid var(--control-stroke); background: var(--control); }
+.header__action-button--outlined:hover { border-color: var(--control-stroke); background: var(--control-hover); }
+.header__back-button { color: var(--text); }
+
+/* Navegação compacta, como a da Microsoft Store ---------------------------------- */
+
+/* Coluna de 72px. A largura vem do Hydra por style inline (a barra é
+   redimensionável), por isso o !important; a alça de redimensionar some. */
+.sidebar {
+  width: 72px !important;
+  min-width: 72px !important;
+  max-width: 72px !important;
+  padding-top: 4px;
+  overflow: visible;
+  background: transparent;
+  color: var(--text);
+  border-right: 0;
+}
+.sidebar__container { overflow: visible; }
+.sidebar__handle { display: none; }
+.sidebar__content { padding: 0 6px; gap: 0; }
+.sidebar__section { gap: 2px; padding-bottom: 0; }
+.sidebar__menu { gap: 2px; }
+
+/* Ícone em cima e nome pequeno embaixo, todos com a mesma altura (56px), como na Store. */
+.sidebar__menu-item-button {
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  height: 58px;
+  padding: 0 2px !important;
+  font: 400 10px/12px var(--font) !important;
+  text-align: center;
+}
+.sidebar__menu-item-button > span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sidebar__menu-item-button > svg { width: 20px; height: 20px; transition: color .083s linear; }
+/* Ícone do item selecionado na cor de destaque, como na Store. */
+.sidebar__menu-item--active .sidebar__menu-item-button > svg { color: var(--accent-bright); }
+
+/* Lista de jogos: só os ícones, como os atalhos fixados na Store. */
+.sidebar__menu-empty, .sidebar__game-list-empty { display: none; }
+.sidebar__section--games {
+  margin: 8px -6px 0;
+  padding: 8px 6px 0;
+  border-top: 1px solid var(--divider);
+  gap: 4px;
+}
+/* Cada linha da lista vem do Hydra com 16px a menos à direita (style inline);
+   o item compensa esses 16px para os ícones ficarem no mesmo eixo do menu.
+   A barra de rolagem da lista fica oculta (a rolagem continua pela roda do mouse),
+   senão ela tiraria largura da coluna. 42px é a altura de linha que o Hydra usa. */
+.sidebar__game-list { margin-right: 0; }
+.sidebar__game-list-scroll { overflow-x: hidden; scrollbar-width: none; }
+.sidebar__game-list-scroll::-webkit-scrollbar { display: none; }
+.sidebar__section--games .sidebar__menu-item { width: calc(100% + 16px); }
+.sidebar__section--games .sidebar__menu-item-button { flex-direction: row; justify-content: center; height: 42px; padding: 0 !important; }
+.sidebar__section--games .sidebar__menu-item-button-label,
+.sidebar__section--games .sidebar__game-adornments,
+.sidebar__section--games .sidebar__game-badge,
+.sidebar__section--games .sidebar__game-favorite-icon { display: none; }
+.sidebar__game-icon-container, .sidebar__game-icon { width: 28px; height: 28px; min-width: 28px; min-height: 28px; }
+.sidebar__game-icon { border-radius: 6px; }
+
+/* Busca da lista de jogos: vira um botão de lupa do tamanho de um item e, ao
+   clicar (foco), se abre por cima do conteúdo com 260px. Os botões de instalados e
+   de filtro ficam de fora, porque não cabem na coluna. */
+.sidebar__search-row { position: relative; height: 42px; gap: 0; }
+.sidebar__search-row > :not(.text-field-container) { display: none; }
+.sidebar__search-row .text-field-container {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  z-index: 20;
+  flex: none;
+  width: 100%;
+  transition: width .167s var(--ease);
+}
+.sidebar__search-row .text-field-container:focus-within { width: 260px; }
+.sidebar__search-row .text-field-container__text-field {
+  background: transparent !important;
+  border: 1px solid transparent;
+  border-radius: var(--r-surface);
+}
+/* Lupa Fluent: centralizada com a busca fechada, à esquerda quando aberta. */
+.sidebar__search-row .text-field-container__text-field::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  background: var(--text);
+  -webkit-mask: var(--fi-search) center / contain no-repeat;
+  pointer-events: none;
+  transition: left .167s var(--ease);
+}
+.sidebar__search-row .text-field-container:focus-within .text-field-container__text-field::before { left: 21px; }
+.sidebar__search-row .text-field-container__text-field:hover { background-color: var(--subtle-hover) !important; border-color: transparent; }
+/* Aberta: borda de 1px e cantos de 8px; o destaque é uma linha fina embaixo,
+   desenhada por dentro para não engrossar a borda. */
+.sidebar__search-row .text-field-container:focus-within .text-field-container__text-field {
+  background-color: var(--flyout) !important;
+  background-position: 12px center !important;
+  border: 1px solid var(--flyout-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: var(--shadow-flyout), inset 0 -1px 0 var(--accent-bright);
+}
+.sidebar__search-row .text-field-container__text-field-input { padding-left: 36px; color: transparent; cursor: pointer; }
+.sidebar__search-row .text-field-container__text-field-input::placeholder { color: transparent; }
+.sidebar__search-row .text-field-container:focus-within .text-field-container__text-field-input { color: var(--text); cursor: text; }
+.sidebar__search-row .text-field-container:focus-within .text-field-container__text-field-input::placeholder { color: var(--text-3); }
+/* Com filtro digitado e a busca fechada, a lupa ganha um ponto de destaque. */
+.sidebar__search-row .text-field-container:has(input:not(:placeholder-shown)):not(:focus-within) .text-field-container__text-field::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-bright);
+  border-radius: 50%;
+}
+.sidebar__search-row .text-field-container__text-field { position: relative; }
+
+/* Perfil: só a foto; o menu abre com largura própria, por cima do conteúdo. */
+.sidebar-profile { position: relative; margin-bottom: 4px; }
+.sidebar-profile__button { justify-content: center; height: 56px; padding: 0; }
+.sidebar-profile__button-content { justify-content: center; }
+.sidebar-profile__button-information, .sidebar-profile__chevron { display: none; }
+.sidebar-profile__dropdown { left: 4px; right: auto; width: 240px; }
+
+.sidebar__menu-item {
+  position: relative;
+  color: var(--text);
+  border-radius: var(--r-control);
+  transition: background .083s linear;
+}
+.sidebar__menu-item:hover { background: var(--subtle-hover); }
+.sidebar__menu-item:active { background: var(--subtle-pressed); }
+.sidebar__menu-item--active { background: var(--subtle-hover); }
+.sidebar__menu-item--active:hover { background: var(--control-hover); }
+/* Marcador de seleção: barrinha de 3×16px em destaque, à esquerda do item. */
+.sidebar__menu-item--active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 16px;
+  margin-top: -8px;
+  background: var(--accent-bright);
+  border-radius: 2px;
+  animation: mica-indicator .25s var(--ease);
+}
+.sidebar__menu-item--muted { opacity: 1; color: var(--text-3); }
+.sidebar__menu-item--decky, .sidebar__menu-item--decky:hover { background: transparent; }
+.sidebar__menu-item--decky:hover { background: var(--subtle-hover); }
+
+.sidebar__collection-count, .sidebar__online-count {
+  background: var(--control);
+  color: var(--text-2);
+  border-radius: 999px;
+  font: 600 11px var(--font);
+}
+.sidebar__online-count--online { background: var(--success); color: #000; }
+.sidebar__game-badge {
+  background: transparent;
+  color: var(--success);
+  border: 1px solid rgba(108, 203, 95, .5);
+  border-radius: 999px;
+  box-shadow: none;
+}
+.sidebar__add-button, .sidebar__play-button { color: var(--text-2); }
+.sidebar__add-button:hover, .sidebar__play-button:hover { color: var(--text); }
+.sidebar__play-button--active { color: var(--accent-bright); }
+.sidebar__handle:hover { background: var(--control-strong); }
+.sidebar__game-list--scrolled { box-shadow: inset 0 1px 0 var(--divider); }
+.sidebar__menu-empty, .sidebar__game-list-empty { color: var(--text-3); }
+
+.sidebar-profile__button { border-radius: var(--r-control); }
+.sidebar-profile__button:hover { background: var(--subtle-hover); }
+.sidebar-profile__button-title { font: 600 14px/20px var(--font); }
+/* Foto de perfil quadrada com cantos arredondados, como as imagens de conta do Windows 11. */
+.sidebar-profile__avatar, .profile-avatar, .profile-avatar__image { border-radius: 6px; }
+.sidebar-profile__unread-dot { background: var(--accent-bright); }
+
+/* Conteúdo: camada sobre o Mica, com o canto superior esquerdo arredondado. ---- */
+
+.container {
+  background: var(--layer);
+  border-top: 1px solid var(--layer-stroke);
+  border-left: 1px solid var(--layer-stroke);
+  border-top-left-radius: var(--r-surface);
+}
+.container__content { background: transparent; }
+
+/* Barra inferior mais alta, com o status de download num botão de destaque. */
+.bottom-panel {
+  min-height: 40px;
+  padding: 6px 16px;
+  background: transparent;
+  border-top: 1px solid var(--divider);
+  color: var(--text-3);
+  font-size: 12px;
+}
+.bottom-panel__version-button, .bottom-panel__help-button { color: var(--text-3); font-size: 12px; }
+.bottom-panel__version-button:hover, .bottom-panel__help-button:hover { color: var(--text); border-bottom-color: transparent; }
+.bottom-panel__help-icon { fill: var(--accent-bright); color: var(--accent-bright); }
+
+.bottom-panel__downloads-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 14px 0 10px;
+  color: var(--text);
+  background: var(--control);
+  border: 1px solid var(--control-stroke);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-control);
+  font-size: 12px;
+  transition: background .083s linear, border-color .083s linear;
+}
+/* Ícone Fluent de download, na cor de destaque. */
+.bottom-panel__downloads-button::before {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-bright);
+  -webkit-mask: var(--fi-arrow-download) center / contain no-repeat;
+}
+.bottom-panel__downloads-button small { color: inherit; font-size: 12px; font-weight: 600; }
+
+/* Barra de progresso dentro do botão, como a ProgressBar do Windows. Depende do
+   Hydra expor data-download-state e --download-progress (0 a 1) no painel; em
+   versões que não expõem, nada disto se aplica e o botão fica como acima. */
+.bottom-panel[data-download-state="idle"] .bottom-panel__downloads-button {
+  color: var(--text-2);
+  border-left-color: var(--control-stroke);
+}
+.bottom-panel[data-download-state]:not([data-download-state="idle"]) .bottom-panel__downloads-button {
+  min-width: min(420px, 50vw);
+  background-image:
+    linear-gradient(var(--accent-bright), var(--accent-bright)),
+    linear-gradient(rgba(255, 255, 255, .12), rgba(255, 255, 255, .12));
+  background-size: calc(var(--download-progress, 0) * 100%) 3px, 100% 3px;
+  background-position: left bottom, left bottom;
+  background-repeat: no-repeat;
+  transition: background-size .3s linear, background-color .083s linear;
+}
+/* Extraindo ou conferindo arquivos: barra neutra, como no Hydra. */
+.bottom-panel[data-download-state="extracting"] .bottom-panel__downloads-button,
+.bottom-panel[data-download-state="checking"] .bottom-panel__downloads-button {
+  background-image:
+    linear-gradient(var(--text-2), var(--text-2)),
+    linear-gradient(rgba(255, 255, 255, .12), rgba(255, 255, 255, .12));
+}
+/* Instalando dependências: sem porcentagem, barra indeterminada correndo. */
+.bottom-panel[data-download-state="installing"] .bottom-panel__downloads-button {
+  background-image: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
+  background-size: 40% 3px;
+  animation: mica-indeterminate 1.6s linear infinite;
+}
+.bottom-panel__downloads-button:hover {
+  color: var(--text);
+  background: var(--control-hover);
+  border-color: var(--control-stroke);
+  border-left-color: var(--accent-bright);
+  border-bottom-color: var(--control-stroke);
+}
+
+/* Destaque da home como o banner principal da Microsoft Store. */
+.hero {
+  width: auto;
+  margin: 16px 32px 0;
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .14);
+}
+.hero:hover .hero__media { transform: none; }
+.hero__backdrop { background: linear-gradient(0deg, rgba(32, 32, 32, .9) 10%, transparent 70%); }
+.hero__description { color: var(--text-2); }
+
+.home__header, .home__title, .home__cards { padding-left: 32px; padding-right: 32px; }
+.home__title { align-items: center; font: 600 20px/28px var(--font-display); }
+
+/* Ícones da home, todos Fluent e na cor do texto:
+   - fogo (Populares) e estrelas (Surpreenda-me) eram imagens animadas, que ficam ocultas;
+   - 📅 e 🏆 vêm dentro do texto da tradução: a fonte "Mica Blank" (só nestes
+     elementos) faz o emoji sumir, e o ícone entra no lugar. A ordem dos botões é a
+     do Hydra: Populares, Semana, Platinar. */
+.home__icon-wrapper img, .home__title-icon img { display: none !important; }
+.home__icon-wrapper, .home__title-icon { display: inline-flex; width: auto; height: auto; }
+.home__buttons-list .button, .home__title { font-family: "Mica Blank", var(--font-display); }
+.home__icon-wrapper::before, .home__title-icon::before,
+.home__buttons-list li:nth-child(n + 2) .button::before,
+.home__title::before {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: var(--home-icon, none) center / contain no-repeat;
+}
+.home__title-icon::before, .home__title::before { width: 22px; height: 22px; }
+.home__icon-wrapper, .home__title-icon { --home-icon: var(--fi-fire); }
+.home__header > .button .home__icon-wrapper { --home-icon: var(--fi-sparkle); }
+.home__buttons-list li:nth-child(2) .button { --home-icon: var(--fi-calendar-ltr); }
+.home__buttons-list li:nth-child(3) .button { --home-icon: var(--fi-trophy); }
+/* O título só tem o fogo como imagem; nas outras categorias o ícone vem da categoria
+   selecionada (o botão em destaque). Nas Populares o título já tem o fogo. */
+.home__title::before { display: none; }
+.home__content:has(.home__buttons-list li:nth-child(2) .button--primary) .home__title { --home-icon: var(--fi-calendar-ltr); }
+.home__content:has(.home__buttons-list li:nth-child(3) .button--primary) .home__title { --home-icon: var(--fi-trophy); }
+.home__content:has(.home__buttons-list li:nth-child(n + 2) .button--primary) .home__title::before { display: block; }
+.home__cards { gap: 12px; }
+.home__card-skeleton { border-radius: var(--r-surface); box-shadow: none; }
+
+/* Cartões planos da Store: cinza um tom acima da camada, borda sutil e só um
+   clareamento no hover, sem zoom nem elevação. */
+.game-card, .library-game-card, .library-game-card-large, .vertical-cover-card, .game-item {
+  background: var(--card);
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: none;
+  overflow: hidden;
+  transition: background .083s linear, border-color .083s linear;
+}
+.game-card:hover, .library-game-card:hover, .library-game-card-large:hover, .vertical-cover-card:hover, .game-item:hover {
+  background: var(--card-hover);
+  border-color: rgba(255, 255, 255, .14);
+}
+.game-card:hover .game-card__cover { transform: none; }
+
+.game-card__backdrop { background: linear-gradient(0deg, rgba(32, 32, 32, .92) 35%, transparent 100%); }
+.game-card__title { font: 600 14px/20px var(--font); }
+.game-card__specifics-item { color: var(--text-2); font-size: 12px; }
+.game-card__no-download-label { color: var(--text-3); font-weight: 400; font-size: 12px; }
+
+.library-game-card__overlay, .library-game-card-large__gradient { background: linear-gradient(0deg, rgba(32, 32, 32, .9) 0%, transparent 60%); }
+.library-game-card-large__title { font: 600 20px/28px var(--font-display); }
+.library-game-card__playtime, .library-game-card__installed-badge, .library-game-card__platform-badge,
+.library-game-card-large__playtime, .library-game-card-large__installed-badge, .library-game-card-large__platform-badge,
+.library-game-card-large__size-bar, .badge {
+  background: var(--glass-dark);
+  border: 1px solid var(--glass-stroke);
+  border-radius: var(--r-control);
+  color: var(--text);
+  font-size: 12px;
+  box-shadow: none;
+  backdrop-filter: blur(12px) saturate(160%);
+}
+.library-game-card__installed-badge, .library-game-card-large__installed-badge { color: var(--accent-bright); }
+/* Vidro escuro sobre a capa: aqui o desfoque aparece de verdade, sobre a arte do jogo. */
+.library-game-card__achievements, .library-game-card-large__achievements {
+  background: var(--glass-dark);
+  border: 1px solid var(--glass-stroke);
+  border-radius: var(--r-control);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+/* Barra de progresso fina do Fluent. */
+.library-game-card__achievement-bar, .library-game-card-large__achievement-bar { height: 3px; background: rgba(255, 255, 255, .5442); border-radius: 999px; }
+.library-game-card__achievement-progress, .library-game-card-large__achievement-progress { background: var(--accent-bright); border-radius: 999px; }
+.library-game-card__action-button { background: var(--accent); color: var(--on-accent); border-radius: var(--r-control); }
+.library-game-card__action-button:hover { background: var(--accent-hover); }
+.library-game-card__cover-placeholder, .vertical-cover-card__placeholder { background: var(--card); color: var(--text-3); }
+
+/* Catálogo */
+.catalogue__result-count, .catalogue__sort-label, .catalogue__active-filters-label { color: var(--text-2); font-size: 14px; }
+.catalogue__filters-container { background: transparent; border-left: 1px solid var(--divider); }
+
+.game-item:hover .game-item__content-link { background: transparent; }
+.game-item__cover-wrapper { border-right: 1px solid var(--card-stroke); }
+.game-item__cover-placeholder { background: var(--card); }
+.game-item__genres { color: var(--text-2); font-size: 12px; }
+.game-item__compatibility-badge { border-radius: var(--r-control); box-shadow: none; border: 0; font-size: 11px; }
+.game-item__plus-wrapper { border-radius: var(--r-control); }
+
+/* Página do jogo: painel de ações em vidro sobre a arte, que fica desfocada atrás. */
+.hero-panel, .hero-panel--stuck {
+  background: rgba(24, 24, 24, .42);
+  border: 1px solid var(--glass-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  backdrop-filter: var(--blur-strong);
+}
+.hero-panel--stuck { background: rgba(24, 24, 24, .62); }
+.hero-panel__progress-bar { height: 3px; border-radius: 999px; background: rgba(255, 255, 255, .5442); }
+.hero-panel__progress-bar::-webkit-progress-bar { background: rgba(255, 255, 255, .25); border-radius: 999px; }
+.hero-panel__progress-bar::-webkit-progress-value { background: linear-gradient(90deg, var(--accent), var(--accent-bright)); border-radius: 999px; box-shadow: 0 0 10px var(--accent-glow); }
+.hero-panel__downloads-link { color: var(--accent-text); }
+
+/* A arte do jogo se dissolve no fundo da página em vez de terminar numa faixa preta. */
+.game-details__hero-image-wrapper::after { background: linear-gradient(0deg, var(--mica) 0%, rgba(20, 20, 20, .35) 45%, transparent 100%); }
+.game-details__hero-image--blurred { opacity: .75; }
+.game-details__edit-custom-game-button, .game-details__cloud-sync-button, .game-details__randomizer-button {
+  background: var(--glass-dark);
+  border: 1px solid var(--glass-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
+  backdrop-filter: var(--blur);
+}
+.game-details__edit-custom-game-button:hover, .game-details__cloud-sync-button:hover, .game-details__randomizer-button:hover { background: rgba(255, 255, 255, .12); }
+
+/* Página de Downloads: barra de progresso no destaque, com brilho e um reflexo correndo. */
+.download-group__progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 999px;
+}
+.download-group__progress-bar--small { height: 4px; }
+.download-group__progress-fill {
+  position: relative;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  border-radius: 999px;
+  box-shadow: 0 0 12px var(--accent-glow);
+  overflow: hidden;
+}
+.download-group__progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent);
+  transform: translateX(-100%);
+  animation: mica-shimmer 1.8s var(--ease) infinite;
+}
+.download-group__progress-fill--extraction { background: var(--text-2); box-shadow: none; }
+.download-group__progress-percentage { color: var(--accent-text); font: 600 20px/28px var(--font-display); }
+.download-group__progress-status { color: var(--text-2); text-transform: none; letter-spacing: 0; font-weight: 600; }
+.download-group__progress-size { color: var(--text-2); }
+.download-group__progress-time { color: var(--text-3); }
+
+.game-details__description-container { background: transparent; }
+.game-details__description--collapsed::after { background: linear-gradient(transparent, var(--mica)); }
+.game-details__description-title { font: 600 16px/22px var(--font-display); color: var(--text); }
+.game-details__description { color: var(--text-2); }
+.game-details__description a { color: var(--accent-text); }
+
+/* Barra lateral do jogo como "Expanders" do Fluent. */
+.content-sidebar { background: transparent; border-left: 1px solid var(--divider); }
+.sidebar-section {
+  margin: 0 12px 4px;
+  background: var(--card);
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--r-surface);
+  overflow: hidden;
+}
+.sidebar-section__button { color: var(--text); font: 400 14px/20px var(--font); border-radius: 0; }
+.sidebar-section__button:hover { background: var(--subtle-hover); }
+.sidebar-section__subtitle, .stats__category-title, .how-long-to-beat__category-label, .protondb__category-title { color: var(--text-2); font-size: 12px; }
+.how-long-to-beat__category, .requirement__button, .protondb__section {
+  background: var(--card);
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--r-control);
+}
+.requirement__button { color: var(--text-2); }
+.list__item { border-radius: var(--r-control); }
+.list__item:hover { background: var(--subtle-hover); }
+
+/* Menus (MenuFlyout) ------------------------------------------------------------ */
+
+.context-menu, .context-menu__submenu,
+.dropdown-menu__content, .sidebar-filter-menu__content, .search-dropdown,
+.sidebar-profile__dropdown, .library-select__content {
+  padding: 4px;
+  background: var(--acrylic);
+  border: 1px solid var(--flyout-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: var(--shadow-flyout);
+  backdrop-filter: var(--blur-strong);
+  animation: mica-flyout .25s var(--ease);
+}
+.context-menu__item, .dropdown-menu__item, .sidebar-filter-menu__item,
+.search-dropdown__item, .sidebar-profile__dropdown-item, .library-select__item {
+  min-height: 32px;
+  padding: 6px 12px;
+  color: var(--text);
+  background: transparent;
+  border-radius: var(--r-control);
+  font: 400 14px/20px var(--font);
+}
+.context-menu__item:hover, .dropdown-menu__item:hover, .sidebar-filter-menu__item:hover,
+.search-dropdown__item:hover, .search-dropdown__item--active, .sidebar-profile__dropdown-item:hover {
+  background: var(--subtle-hover);
+}
+.context-menu__item:active, .dropdown-menu__item:active { background: var(--subtle-pressed); color: var(--text-2); }
+.context-menu__item--danger { color: var(--critical); }
+.context-menu__item--disabled, .dropdown-menu__item--disabled { color: var(--text-disabled); }
+.context-menu__separator, .dropdown-menu__separator, .sidebar-filter-menu__separator, .sidebar-filter-menu__divider, .sidebar-profile__dropdown-separator {
+  height: 1px;
+  margin: 4px -4px;
+  background: var(--divider);
+  border-radius: 0;
+}
+.sidebar-filter-menu__label, .search-dropdown__section-title, .dropdown-menu__title-bar { color: var(--text-2); font: 600 12px/16px var(--font); }
+.search-dropdown__shop-switch { background: var(--control); border-radius: var(--r-control); }
+.search-dropdown__shop-button { border-radius: var(--r-control); }
+.search-dropdown__shop-button--active { background: var(--control-hover); }
+.search-dropdown__highlight { background: transparent; color: var(--accent-text); font-weight: 600; }
+
+/* Caixas de diálogo (ContentDialog) ---------------------------------------------- */
+
+/* Fundo escurecido e desfocado atrás das caixas de diálogo. */
+.backdrop { background: rgba(0, 0, 0, .35); backdrop-filter: blur(8px); }
+.modal {
+  background: rgba(43, 43, 43, .82);
+  backdrop-filter: var(--blur-strong);
+  color: var(--text);
+  border: 1px solid var(--flyout-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: var(--shadow-dialog);
+  animation: mica-dialog .25s var(--ease);
+}
+.modal--closing { animation: mica-dialog-out .167s linear forwards; opacity: 1; }
+.modal__header { padding: 24px 24px 12px; border-bottom: 0; }
+.modal__header h3 { font: 600 20px/28px var(--font-display); }
+.modal__content { padding: 12px 24px 24px; }
+.modal__close-button { width: 32px; height: 32px; display: grid; place-items: center; border-radius: var(--r-control); }
+.modal__close-button:hover { opacity: 1; background: var(--subtle-hover); }
+.modal__close-button-icon { color: var(--text-2); }
+
+/* Configurações como o app Configurações do Windows ------------------------------ */
+
+.settings__container { padding: 0 32px 24px 16px; }
+.settings__content { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+.settings__sidebar { background: transparent; border-right: 0; padding: 4px 12px 4px 0; gap: 2px; }
+.settings__sidebar-group { gap: 2px; }
+.settings__sidebar-group-label { color: var(--text-2); font: 600 12px/16px var(--font); letter-spacing: 0; padding: 12px 12px 4px; text-transform: none; }
+.settings__sidebar-divider { background: var(--divider); margin: 6px 0; }
+.settings__sidebar-button {
+  position: relative;
+  padding: 8px 12px;
+  color: var(--text);
+  border-radius: var(--r-control);
+  font: 400 14px/20px var(--font);
+  transition: background .083s linear;
+}
+.settings__sidebar-button { gap: 12px; }
+.settings__sidebar-button:hover { background: var(--subtle-hover); }
+.settings__sidebar-button--active { background: var(--subtle-hover); color: var(--text); }
+.settings__sidebar-button-icon { opacity: 1; transition: color .083s linear; }
+.settings__sidebar-button--active .settings__sidebar-button-icon { color: var(--accent-bright); }
+.settings__sidebar-button--active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 16px;
+  margin-top: -8px;
+  background: var(--accent-bright);
+  border-radius: 2px;
+}
+.settings__panel { padding: 4px 0 24px 12px; gap: 4px; }
+.settings-context-panel__divider { border-top-color: var(--divider); }
+
+/* Avisos do app (InfoBar/toast) */
+.toast {
+  background: var(--acrylic);
+  border: 1px solid var(--flyout-stroke);
+  border-radius: var(--r-surface);
+  box-shadow: var(--shadow-flyout);
+  backdrop-filter: var(--blur-strong);
+  overflow: hidden;
+}
+.toast__message { color: var(--text); }
+.toast__progress { background: var(--accent-bright); }
+.toast__close-button { border-radius: var(--r-control); color: var(--text-2); }
+.toast__close-button:hover { background: var(--subtle-hover); color: var(--text); }
+.toast__icon--success { color: var(--success); }
+.toast__icon--error { color: var(--critical); }
+.toast__icon--warning { color: var(--caution); }
+
+/* Notificação de conquista como uma notificação do Windows 11 --------------------- */
+
+/* A janela da notificação injeta o tema num shadow DOM, onde :root não vale;
+   por isso as variáveis usadas aqui são repetidas. A Segoe UI é fonte do sistema
+   e funciona lá dentro também. */
+.achievement-notification {
+  --accent: #a94dc1;
+  --flyout: #2c2c2c;
+  --flyout-stroke: rgba(117, 117, 117, .4);
+  --text: #fff;
+  --text-2: rgba(255, 255, 255, .786);
+  --gold: #ffb900;
+  --teal: #00b7c3;
+  --font: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font);
+}
+.achievement-notification__outer-container {
+  border: 1px solid var(--flyout-stroke);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .26);
+}
+.achievement-notification__container,
+.achievement-notification--platinum .achievement-notification__container {
+  background: var(--flyout);
+  padding: 12px 16px 12px 12px;
+}
+.achievement-notification__icon { border-radius: 4px; }
+.achievement-notification--rare .achievement-notification__icon { outline: 2px solid var(--gold); box-shadow: none; }
+.achievement-notification--platinum .achievement-notification__icon { outline: 2px solid var(--teal); box-shadow: none; }
+.achievement-notification__trophy-overlay { background: #fff; }
+.achievement-notification--rare .achievement-notification__trophy-overlay { background: var(--gold); }
+.achievement-notification--platinum .achievement-notification__trophy-overlay { background: var(--teal); }
+.achievement-notification__title { color: var(--text); font: 600 14px/20px var(--font); }
+.achievement-notification__description { color: var(--text-2); font: 400 14px/20px var(--font); }
+.achievement-notification__chip { height: 22px; padding: 0 8px; background: var(--accent); border-radius: 999px; }
+.achievement-notification__chip__icon path { fill: #fff; }
+.achievement-notification__chip__label { color: #fff; font: 600 12px var(--font); }
+.achievement-notification--rare .achievement-notification__chip { background: var(--gold); }
+.achievement-notification--platinum .achievement-notification__chip { background: var(--teal); }
+.achievement-notification--rare .achievement-notification__chip__icon path,
+.achievement-notification--platinum .achievement-notification__chip__icon path { fill: #000; }
+.achievement-notification--rare .achievement-notification__chip__label,
+.achievement-notification--platinum .achievement-notification__chip__label { color: #000; }
+
+/* Ícones Fluent ------------------------------------------------------------------
+   Troca os ícones do Hydra (Octicons e Lucide, identificados pela classe do SVG)
+   pelos Fluent System Icons, o conjunto do Windows 11 e da Microsoft Store
+   (github.com/microsoft/fluentui-system-icons, licença MIT; @fluentui/svg-icons 1.1.344).
+   O desenho original fica oculto e o ícone Fluent é pintado por máscara na cor do texto.
+   Gerado por script: para mudar um ícone, edite o mapa no gerador, não à mão. */
+:root {
+  --fi-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9 2.39a1.5 1.5 0 0 1 2 0l5.5 4.94c.32.28.5.69.5 1.12v7.05c0 .83-.67 1.5-1.5 1.5H13a1.5 1.5 0 0 1-1.5-1.5V12a.5.5 0 0 0-.5-.5H9a.5.5 0 0 0-.5.5v3.5c0 .83-.67 1.5-1.5 1.5H4.5A1.5 1.5 0 0 1 3 15.5V8.45c0-.43.18-.84.5-1.12zm1.33.74a.5.5 0 0 0-.66 0l-5.5 4.94a.5.5 0 0 0-.17.38v7.05c0 .28.22.5.5.5H7a.5.5 0 0 0 .5-.5V12c0-.83.67-1.5 1.5-1.5h2c.83 0 1.5.67 1.5 1.5v3.5c0 .28.22.5.5.5h2.5a.5.5 0 0 0 .5-.5V8.45a.5.5 0 0 0-.17-.38z'/%3E%3C/svg%3E");
+  --fi-apps: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 17A1.5 1.5 0 0 1 3 15.65V4.5c0-.78.6-1.42 1.36-1.5H9c.78 0 1.42.6 1.5 1.36v.4l2.19-2.27a1.5 1.5 0 0 1 2-.14l.12.1 2.76 2.72c.55.55.6 1.42.11 2.02l-.1.11-2.31 2.2h.23c.78 0 1.42.6 1.5 1.36v4.64c0 .78-.6 1.42-1.36 1.5H4.5m5-6.5H4v5c0 .22.14.4.33.47l.08.02.09.01h5zm6 0h-5V16h5a.5.5 0 0 0 .5-.4V11a.5.5 0 0 0-.41-.5zm-5-2.79V9.5h1.79zM9 4.01H4.5a.5.5 0 0 0-.5.4v5.1h5.5v-5a.5.5 0 0 0-.33-.48l-.08-.02zm5.12-.84a.5.5 0 0 0-.64-.05l-.07.06-2.62 2.71a.5.5 0 0 0-.05.63l.06.07 2.61 2.62c.17.17.43.2.62.07l.08-.06 2.76-2.63a.5.5 0 0 0 .05-.64l-.05-.06z'/%3E%3C/svg%3E");
+  --fi-library: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 3.5C2 2.67 2.67 2 3.5 2h1C5.33 2 6 2.67 6 3.5v12.98c0 .83-.67 1.5-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zM3.5 3a.5.5 0 0 0-.5.5v12.98c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 0-.5-.5zm3.5.5C7 2.67 7.67 2 8.5 2h1c.83 0 1.5.67 1.5 1.5v12.98c0 .83-.67 1.5-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zM8.5 3a.5.5 0 0 0-.5.5v12.98c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 0-.5-.5zm7.22 3.16a1.5 1.5 0 0 0-1.87-1.1l-.75.2A1.5 1.5 0 0 0 12.04 7l2 9.8c.18.84 1.02 1.36 1.84 1.15l.99-.25c.79-.2 1.27-1 1.1-1.78zM14.12 6a.5.5 0 0 1 .62.37L17 16.14a.5.5 0 0 1-.37.6l-.98.25a.5.5 0 0 1-.61-.39l-2-9.8a.5.5 0 0 1 .35-.58z'/%3E%3C/svg%3E");
+  --fi-arrow-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15.5 17a.5.5 0 0 1 .09 1H4.5a.5.5 0 0 1-.09-1H15.5M10 2a.5.5 0 0 1 .5.41V14.3l3.64-3.65a.5.5 0 0 1 .64-.06l.07.06c.17.17.2.44.06.63l-.06.07-4.5 4.5a.5.5 0 0 1-.25.14L10 16a.5.5 0 0 1-.4-.2l-4.46-4.45a.5.5 0 0 1 .64-.76l.07.06 3.65 3.64V2.5c0-.27.22-.5.5-.5'/%3E%3C/svg%3E");
+  --fi-settings: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M1.91 7.38A8.5 8.5 0 0 1 3.7 4.3a.5.5 0 0 1 .54-.13l1.92.68a1 1 0 0 0 1.32-.76l.36-2a.5.5 0 0 1 .4-.4 9 9 0 0 1 3.55 0q.32.08.38.4l.37 2a1 1 0 0 0 1.32.76l1.92-.68a.5.5 0 0 1 .54.13 8.5 8.5 0 0 1 1.78 3.08q.08.31-.15.54l-1.56 1.32a1 1 0 0 0 0 1.52l1.56 1.32a.5.5 0 0 1 .15.54 8.5 8.5 0 0 1-1.78 3.08.5.5 0 0 1-.54.13l-1.92-.68a1 1 0 0 0-1.32.76l-.37 2a.5.5 0 0 1-.38.4 8.5 8.5 0 0 1-3.56 0 .5.5 0 0 1-.39-.4l-.36-2a1 1 0 0 0-1.32-.76l-1.92.68a.5.5 0 0 1-.54-.13 8.5 8.5 0 0 1-1.78-3.08.5.5 0 0 1 .15-.54l1.56-1.32a1 1 0 0 0 0-1.52L2.06 7.92a.5.5 0 0 1-.15-.54m1.06 0 1.3 1.1a2 2 0 0 1 0 3.04l-1.3 1.1q.45 1.19 1.25 2.16l1.6-.58a2 2 0 0 1 2.63 1.53l.3 1.67a8 8 0 0 0 2.5 0l.3-1.67a2 2 0 0 1 2.64-1.53l1.6.58a8 8 0 0 0 1.24-2.16l-1.3-1.1a2 2 0 0 1 0-3.04l1.3-1.1a8 8 0 0 0-1.25-2.16l-1.6.58a2 2 0 0 1-2.63-1.53l-.3-1.67a8 8 0 0 0-2.5 0l-.3 1.67A2 2 0 0 1 5.81 5.8l-1.6-.58a8 8 0 0 0-1.24 2.16M7.5 10a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0m1 0a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0'/%3E%3C/svg%3E");
+  --fi-arrow-sync: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M11.41 3.64a.5.5 0 0 0 0-.71L9.3.8a.5.5 0 0 0-.7.7l1 1a7.5 7.5 0 0 0-4.08 13.5.5.5 0 0 0 .6-.8A6.5 6.5 0 0 1 10.14 3.5L8.59 5.04a.5.5 0 0 0 .7.7zM8.6 16.36a.5.5 0 0 0 0 .71l2.12 2.12a.5.5 0 0 0 .7-.7l-1-1a7.5 7.5 0 0 0 4.07-13.5.5.5 0 1 0-.59.8q.37.28.7.61a6.5 6.5 0 0 1-4.73 11.1l1.55-1.55a.5.5 0 1 0-.7-.7z'/%3E%3C/svg%3E");
+  --fi-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M6 4a2 2 0 0 0-2 2v8c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-2.5a.5.5 0 0 1 1 0V14a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h2.5a.5.5 0 0 1 0 1zm5-.5c0-.28.22-.5.5-.5h5c.28 0 .5.22.5.5v5a.5.5 0 0 1-1 0V4.7l-4.15 4.15a.5.5 0 0 1-.7-.7L15.29 4H11.5a.5.5 0 0 1-.5-.5'/%3E%3C/svg%3E");
+  --fi-delete: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 4h3a1.5 1.5 0 0 0-3 0m-1 0a2.5 2.5 0 0 1 5 0h5a.5.5 0 0 1 0 1h-1.05l-1.2 10.34A3 3 0 0 1 12.27 18H7.73a3 3 0 0 1-2.98-2.66L3.55 5H2.5a.5.5 0 0 1 0-1zM5.74 15.23A2 2 0 0 0 7.73 17h4.54a2 2 0 0 0 1.99-1.77L15.44 5H4.56zM8.5 7.5c.28 0 .5.22.5.5v6a.5.5 0 0 1-1 0V8c0-.28.22-.5.5-.5M12 8a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z'/%3E%3C/svg%3E");
+  --fi-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 3A2.5 2.5 0 0 0 2 5.5v9A2.5 2.5 0 0 0 4.5 17h11a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 15.5 5H9.7L8.23 3.51A1.8 1.8 0 0 0 6.98 3zM3 5.5C3 4.67 3.67 4 4.5 4h2.48q.32 0 .53.22L8.8 5.5 7.44 6.85a.5.5 0 0 1-.35.15H3zM3 8h4.09c.4 0 .78-.16 1.06-.44L9.7 6h5.79c.83 0 1.5.67 1.5 1.5v7c0 .83-.67 1.5-1.5 1.5h-11A1.5 1.5 0 0 1 3 14.5z'/%3E%3C/svg%3E");
+  --fi-folder-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 5.5A2.5 2.5 0 0 1 4.5 3h2.48c.47 0 .91.18 1.24.51L9.5 4.8 7.44 6.85a.5.5 0 0 1-.35.15H2zM2 8v6.5A2.5 2.5 0 0 0 4.5 17h11a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 15.5 5h-4.8L8.16 7.56A1.5 1.5 0 0 1 7.09 8z'/%3E%3C/svg%3E");
+  --fi-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m0 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14m-.5 2a.5.5 0 0 1 .5.41V10h2.5a.5.5 0 0 1 .09 1H9.5a.5.5 0 0 1-.5-.41V5.5c0-.28.22-.5.5-.5'/%3E%3C/svg%3E");
+  --fi-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0'/%3E%3C/svg%3E");
+  --fi-chevron-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.15 12.35a.5.5 0 0 1 0-.7L9.6 6.16a.55.55 0 0 1 .78 0l5.47 5.49a.5.5 0 0 1-.71.7L10 7.2l-5.15 5.16a.5.5 0 0 1-.7 0'/%3E%3C/svg%3E");
+  --fi-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12.35 15.85a.5.5 0 0 1-.7 0L6.16 10.4a.55.55 0 0 1 0-.78l5.49-5.46a.5.5 0 1 1 .7.7L7.2 10l5.16 5.15c.2.2.2.5 0 .7'/%3E%3C/svg%3E");
+  --fi-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.65 4.15c.2-.2.5-.2.7 0l5.49 5.46c.21.22.21.57 0 .78l-5.49 5.47a.5.5 0 0 1-.7-.71L12.8 10 7.65 4.85a.5.5 0 0 1 0-.7'/%3E%3C/svg%3E");
+  --fi-checkmark-circle-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m3.36 5.65a.5.5 0 0 0-.64-.06l-.07.06L9 11.3 7.35 9.65l-.07-.06a.5.5 0 0 0-.7.7l.07.07 2 2 .07.06c.17.11.4.11.56 0l.07-.06 4-4 .07-.08a.5.5 0 0 0-.06-.63'/%3E%3C/svg%3E");
+  --fi-checkmark-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m0 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14m3.36 4.65c.17.17.2.44.06.63l-.06.07-4 4a.5.5 0 0 1-.64.07l-.07-.06-2-2a.5.5 0 0 1 .63-.77l.07.06L9 11.3l3.65-3.65c.2-.2.51-.2.7 0'/%3E%3C/svg%3E");
+  --fi-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27z'/%3E%3C/svg%3E");
+  --fi-add: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2.5c.28 0 .5.22.5.5v6.5H17a.5.5 0 0 1 0 1h-6.5V17a.5.5 0 0 1-1 0v-6.5H3a.5.5 0 0 1 0-1h6.5V3c0-.28.22-.5.5-.5'/%3E%3C/svg%3E");
+  --fi-add-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M6 10c0-.28.22-.5.5-.5h3v-3a.5.5 0 0 1 1 0v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3A.5.5 0 0 1 6 10m4 8a8 8 0 1 0 0-16 8 8 0 0 0 0 16m0-1a7 7 0 1 1 0-14 7 7 0 0 1 0 14'/%3E%3C/svg%3E");
+  --fi-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.37 3.56a3 3 0 0 1 5.26 0l5.5 10A3 3 0 0 1 15.5 18h-11a3 3 0 0 1-2.63-4.44zm4.38.48a2 2 0 0 0-3.5 0l-5.5 10A2 2 0 0 0 4.5 17h11a2 2 0 0 0 1.75-2.96zM10 12.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5m0-6.25c.28 0 .5.22.5.5v4a.5.5 0 0 1-1 0V7c0-.28.22-.5.5-.5'/%3E%3C/svg%3E");
+  --fi-warning-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.37 3.56a3 3 0 0 1 5.26 0l5.5 10A3 3 0 0 1 15.5 18h-11a3 3 0 0 1-2.63-4.44zM10 12.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5m0-6.25a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V7a.5.5 0 0 0-.5-.5'/%3E%3C/svg%3E");
+  --fi-trophy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 7a3 3 0 0 0 2.6 2.97 4.5 4.5 0 0 0 3.9 3.5v1.5h-2a2 2 0 0 0-2 2v.5c0 .27.23.5.5.5h8a.5.5 0 0 0 .5-.5v-.5a2 2 0 0 0-2-2h-2v-1.5a4.5 4.5 0 0 0 3.9-3.5A3 3 0 0 0 17 7V5.5c0-.83-.68-1.5-1.5-1.5h-1a2 2 0 0 0-2-2h-5a2 2 0 0 0-2 2h-1C3.67 4 3 4.67 3 5.5zm1.5-2h1v3.93A2 2 0 0 1 4 7V5.5c0-.28.22-.5.5-.5m10 0h1c.27 0 .5.22.5.5V7a2 2 0 0 1-1.5 1.94zm-1-1v5a3.5 3.5 0 0 1-7 .16V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1m-7 12.97a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1z'/%3E%3C/svg%3E");
+  --fi-lock-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 1a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v6a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 15.5v-6c0-1.2.86-2.22 2-2.45V5a4 4 0 0 1 4-4M6.5 8C5.67 8 5 8.67 5 9.5v6c0 .83.67 1.5 1.5 1.5h7c.83 0 1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5zm3.5 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2M10 2a3 3 0 0 0-3 3v2h6V5a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+  --fi-lock-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15 1a4 4 0 0 1 4 4v.5a.5.5 0 0 1-1 0V5a3 3 0 1 0-6 0v2h1.5A2.5 2.5 0 0 1 16 9.5v6a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 15.5v-6A2.5 2.5 0 0 1 6.5 7H11V5a4 4 0 0 1 4-4M6.5 8C5.67 8 5 8.67 5 9.5v6c0 .83.67 1.5 1.5 1.5h7c.83 0 1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5zm3.5 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2'/%3E%3C/svg%3E");
+  --fi-edit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17.18 2.93a2.97 2.97 0 0 0-4.26-.06l-9.37 9.38q-.5.5-.66 1.2l-.88 3.94a.5.5 0 0 0 .6.6l3.93-.87c.46-.1.9-.34 1.23-.68l9.36-9.36a2.97 2.97 0 0 0 .05-4.15m-3.55.65a1.97 1.97 0 1 1 2.8 2.8l-.68.66-2.8-2.79zm-1.38 1.38 2.8 2.8-7.99 7.97q-.31.31-.74.41l-3.16.7.7-3.18q.1-.41.4-.7z'/%3E%3C/svg%3E");
+  --fi-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M14 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0M3 6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm3-2a2 2 0 0 0-2 2v8q0 .56.28 1.02l4.67-4.59a1.5 1.5 0 0 1 2.1 0l4.67 4.59Q16 14.56 16 14V6a2 2 0 0 0-2-2zm0 12h8a2 2 0 0 0 1.01-.27l-4.66-4.58a.5.5 0 0 0-.7 0l-4.66 4.58A2 2 0 0 0 6 16'/%3E%3C/svg%3E");
+  --fi-eye-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2.85 2.15a.5.5 0 1 0-.7.7l3.5 3.5a8 8 0 0 0-3.37 5.05.5.5 0 1 0 .98.2 7 7 0 0 1 3.1-4.53l1.6 1.59a3.5 3.5 0 1 0 4.88 4.89l4.3 4.3a.5.5 0 0 0 .71-.7zm9.27 10.68a2.5 2.5 0 1 1-3.45-3.45zm-2-4.83 3.38 3.38A3.5 3.5 0 0 0 10.12 8M10 6q-.86 0-1.67.21l-.8-.8A8 8 0 0 1 10 5c3.7 0 6.94 2.67 7.72 6.4a.5.5 0 0 1-.98.2A7 7 0 0 0 10 6'/%3E%3C/svg%3E");
+  --fi-eye: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3.26 11.6A7 7 0 0 1 10 6c3.2 0 6.06 2.33 6.74 5.6a.5.5 0 0 0 .98-.2A8 8 0 0 0 10 5a8 8 0 0 0-7.72 6.4.5.5 0 0 0 .98.2M10 8a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7m-2.5 3.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0'/%3E%3C/svg%3E");
+  --fi-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06zm-.71-.71A5.5 5.5 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23'/%3E%3C/svg%3E");
+  --fi-desktop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2a2 2 0 0 0-2 2v9c0 1.1.9 2 2 2h3v2H5.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1H13v-2h3a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm8 13v2H8v-2zM3 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E");
+  --fi-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='m10.5 16.8 6.24-6.3a4.4 4.4 0 0 0-.02-6.19 4.3 4.3 0 0 0-6.13-.01l-.6.6-.6-.61-.1-.1a4.3 4.3 0 0 0-6.03.08 4.4 4.4 0 0 0 .02 6.2l6.27 6.33c.26.27.69.27.95 0M11.3 5a3.3 3.3 0 0 1 4.71.02 3.4 3.4 0 0 1 .02 4.78l-6 6.06-6.04-6.1a3.4 3.4 0 0 1-.02-4.78 3.3 3.3 0 0 1 4.7.01l.97.97c.2.2.51.2.7 0z'/%3E%3C/svg%3E");
+  --fi-heart-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9.39 4.29a4.3 4.3 0 0 0-6.13-.02 4.4 4.4 0 0 0 .02 6.2l6.27 6.33c.26.27.69.27.95 0l6.24-6.3a4.4 4.4 0 0 0-.02-6.19 4.3 4.3 0 0 0-6.13-.01l-.6.6z'/%3E%3C/svg%3E");
+  --fi-person: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8M7 6a3 3 0 1 1 6 0 3 3 0 0 1-6 0m-2 5a2 2 0 0 0-2 2c0 1.7.83 2.97 2.13 3.8A9 9 0 0 0 10 18c1.85 0 3.58-.39 4.87-1.2A4.4 4.4 0 0 0 17 13a2 2 0 0 0-2-2zm-1 2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1c0 1.3-.62 2.28-1.67 2.95A8 8 0 0 1 10 17a8 8 0 0 1-4.33-1.05A3.4 3.4 0 0 1 4 13'/%3E%3C/svg%3E");
+  --fi-person-add: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8M6 6a3 3 0 1 1 6 0 3 3 0 0 1-6 0m-2 5a2 2 0 0 0-2 2c0 1.7.83 2.97 2.13 3.8A9 9 0 0 0 9 18q.62 0 1.21-.06A6 6 0 0 1 9.6 17L9 17a8 8 0 0 1-4.33-1.05A3.4 3.4 0 0 1 3 13a1 1 0 0 1 1-1h5.6q.27-.54.66-1zm10.5 8a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9m0-7c.28 0 .5.22.5.5V14h1.5a.5.5 0 0 1 0 1H15v1.5a.5.5 0 0 1-1 0V15h-1.5a.5.5 0 0 1 0-1H14v-1.5c0-.28.22-.5.5-.5'/%3E%3C/svg%3E");
+  --fi-people: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 6.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0M6.75 3.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5m5.69 11.65q.79.33 2.06.35c1.88 0 2.92-.67 3.47-1.43a3 3 0 0 0 .53-1.5v-.07c0-.83-.67-1.5-1.5-1.5h-4.63q.36.44.53 1H17c.28 0 .5.22.5.5v.1l-.04.22q-.05.29-.3.66c-.33.46-1.04 1.02-2.66 1.02q-1.08-.01-1.69-.28-.12.43-.37.93M1.5 13c0-1.1.9-2 2-2H10a2 2 0 0 1 2 2v.08l-.01.18q-.01.17-.08.45c-.08.37-.25.86-.6 1.36-.7 1.01-2.05 1.93-4.56 1.93s-3.87-.92-4.57-1.93a4 4 0 0 1-.68-1.99V13m1 .06v.1l.06.33c.07.27.2.64.45 1C3.49 15.2 4.5 16 6.75 16s3.26-.8 3.74-1.5a3 3 0 0 0 .5-1.42l.01-.02V13a1 1 0 0 0-1-1H3.5a1 1 0 0 0-1 1zM13 7.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0M14.5 5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5'/%3E%3C/svg%3E");
+  --fi-history: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 4a6 6 0 1 1-5.98 5.54.5.5 0 1 0-1-.08L3 10a7 7 0 1 0 2-4.9V3.5a.5.5 0 0 0-1 0v3c0 .28.22.5.5.5h3a.5.5 0 0 0 0-1H5.53c1.1-1.23 2.7-2 4.47-2m0 2.5a.5.5 0 0 0-1 0v4c0 .28.22.5.5.5h3a.5.5 0 0 0 0-1H10z'/%3E%3C/svg%3E");
+  --fi-arrow-upload: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15 3a.5.5 0 0 0 .09-.99H4a.5.5 0 0 0-.09.98L4 3zM9.5 18a.5.5 0 0 0 .5-.41V5.7l3.64 3.65c.17.18.44.2.64.06l.07-.06a.5.5 0 0 0 .06-.63l-.06-.07-4.5-4.5A.5.5 0 0 0 9.6 4h-.1a.5.5 0 0 0-.4.19L4.64 8.65a.5.5 0 0 0 .64.76l.07-.06L9 5.71V17.5c0 .28.22.5.5.5'/%3E%3C/svg%3E");
+  --fi-globe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16m0-15c.66 0 1.4.59 2.02 1.9q.33.71.56 1.6H7.42q.23-.89.56-1.6C8.59 3.6 9.34 3 10 3M7.07 4.49q-.4.9-.68 2.01H3.94A7 7 0 0 1 7.7 3.38q-.36.5-.64 1.1M6.2 7.5a16 16 0 0 0 0 5H3.46a7 7 0 0 1 0-5zm.2 6q.26 1.12.68 2.01.28.61.64 1.1a7 7 0 0 1-3.77-3.11zm1.03 0h5.16a9 9 0 0 1-.56 1.6C11.41 16.4 10.66 17 10 17s-1.4-.59-2.02-1.9q-.33-.71-.56-1.6m5.37-1H7.21a15 15 0 0 1 0-5h5.58a15 15 0 0 1 0 5m.82 1h2.45a7 7 0 0 1-3.77 3.12q.36-.5.64-1.1.4-.9.68-2.02m2.93-1h-2.73a16 16 0 0 0 0-5h2.73a7 7 0 0 1 0 5m-4.25-9.12a7 7 0 0 1 3.77 3.12h-2.45a11 11 0 0 0-.68-2.01q-.28-.61-.64-1.1'/%3E%3C/svg%3E");
+  --fi-question-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m0 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14m0 10.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5m0-8a2.5 2.5 0 0 1 1.65 4.38l-.15.12-.22.17-.09.07-.16.15c-.33.36-.53.85-.53 1.61a.5.5 0 0 1-1 0 3.2 3.2 0 0 1 1.16-2.62l.25-.19.12-.1A1.5 1.5 0 0 0 10 6.5c-.83 0-1.5.67-1.5 1.5a.5.5 0 0 1-1 0A2.5 2.5 0 0 1 10 5.5'/%3E%3C/svg%3E");
+  --fi-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17.22 8.69a1.5 1.5 0 0 1 0 2.62l-10 5.5A1.5 1.5 0 0 1 5 15.5v-11A1.5 1.5 0 0 1 7.22 3.2zm-.48 1.75a.5.5 0 0 0 0-.88l-10-5.5A.5.5 0 0 0 6 4.5v11c0 .38.4.62.74.44z'/%3E%3C/svg%3E");
+  --fi-stack: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 5c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm2 11a2 2 0 0 1-1.73-1H12a3 3 0 0 0 3-3V5.27c.6.34 1 .99 1 1.73v4a4 4 0 0 1-4 4zm2 2a2 2 0 0 1-1.73-1H12a5 5 0 0 0 5-5V7.27c.6.34 1 .99 1 1.73v2a6 6 0 0 1-6 6z'/%3E%3C/svg%3E");
+  --fi-database: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 5c0-1 .88-1.76 1.9-2.22C6.98 2.28 8.43 2 10 2s3.02.29 4.1.78C15.12 3.24 16 3.99 16 5v10c0 1-.88 1.76-1.9 2.22-1.08.5-2.53.78-4.1.78s-3.02-.29-4.1-.78C4.88 16.76 4 16.01 4 15zm1 0c0 .37.36.88 1.32 1.31.91.42 2.22.69 3.68.69s2.77-.27 3.68-.69C14.64 5.88 15 5.37 15 5s-.36-.88-1.32-1.31A9 9 0 0 0 10 3c-1.46 0-2.77.27-3.68.69C5.36 4.12 5 4.63 5 5m10 1.7q-.41.3-.9.52c-1.08.5-2.53.78-4.1.78s-3.02-.29-4.1-.78A5 5 0 0 1 5 6.7V15c0 .37.36.88 1.32 1.31.91.42 2.22.69 3.68.69s2.77-.27 3.68-.69c.96-.43 1.32-.94 1.32-1.31z'/%3E%3C/svg%3E");
+  --fi-subtract: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 10c0-.28.22-.5.5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 3 10'/%3E%3C/svg%3E");
+  --fi-dismiss-circle-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16M7.8 7.11a.5.5 0 0 0-.63.06l-.06.07a.5.5 0 0 0 .06.64L9.3 10l-2.12 2.12-.06.07a.5.5 0 0 0 .06.64l.07.06c.2.13.47.11.64-.06L10 10.7l2.12 2.12.07.06c.2.13.46.11.64-.06l.06-.07a.5.5 0 0 0-.06-.64L10.7 10l2.12-2.12.06-.07a.5.5 0 0 0-.06-.64l-.07-.06a.5.5 0 0 0-.64.06L10 9.3 7.88 7.17z'/%3E%3C/svg%3E");
+  --fi-dismiss-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m0 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14M7.8 7.11l.08.06L10 9.3l2.12-2.12a.5.5 0 0 1 .64-.06l.07.06c.17.18.2.44.06.64l-.06.07L10.7 10l2.12 2.12c.17.17.2.44.06.64l-.06.07a.5.5 0 0 1-.64.06l-.07-.06L10 10.7l-2.12 2.12a.5.5 0 0 1-.64.06l-.07-.06a.5.5 0 0 1-.06-.64l.06-.07L9.3 10 7.17 7.88a.5.5 0 0 1-.06-.64l.06-.07a.5.5 0 0 1 .64-.06'/%3E%3C/svg%3E");
+  --fi-dismiss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07z'/%3E%3C/svg%3E");
+  --fi-video: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M5 4a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h5a3 3 0 0 0 3-3v-.32l3.04 2.1c.83.57 1.96-.03 1.96-1.03v-7.5c0-1-1.13-1.6-1.96-1.03L13 7.32V7a3 3 0 0 0-3-3zm8 4.54 3.6-2.5c.17-.1.4.01.4.21v7.5c0 .2-.23.32-.4.2L13 11.46zM3 7c0-1.1.9-2 2-2h5a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E");
+  --fi-emoji: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M18 10a8 8 0 1 0-16 0 8 8 0 0 0 16 0M3 10a7 7 0 1 1 14 0 7 7 0 0 1-14 0m10.5-1.5a1 1 0 1 0-2 0 1 1 0 0 0 2 0m-5 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m-1.61 4.01a.5.5 0 1 0-.78.63 5 5 0 0 0 7.78 0 .5.5 0 1 0-.78-.63 4 4 0 0 1-6.22 0'/%3E%3C/svg%3E");
+  --fi-flag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M5 13h11.5a.5.5 0 0 0 .42-.78L14.1 8l2.82-4.22A.5.5 0 0 0 16.5 3h-12a.5.5 0 0 0-.5.5v14a.5.5 0 0 0 1 0zm0-1V4h10.57l-2.49 3.72a.5.5 0 0 0 0 .56L15.57 12z'/%3E%3C/svg%3E");
+  --fi-arrow-reply: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.35 3.65c.2.2.2.5 0 .7L3.71 8h6.79a7.5 7.5 0 0 1 7.5 7.5.5.5 0 0 1-1 0A6.5 6.5 0 0 0 10.5 9H3.7l3.65 3.65a.5.5 0 0 1-.7.7l-4.5-4.5a.5.5 0 0 1 0-.7l4.5-4.5c.2-.2.5-.2.7 0'/%3E%3C/svg%3E");
+  --fi-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10.12 3.14a2 2 0 0 1 3.2-.52l4.06 4.05a2 2 0 0 1-.52 3.2l-3.46 1.74a1.5 1.5 0 0 0-.72.78L11.25 16a1 1 0 0 1-1.64.33L7 13.7 3.7 17H3v-.7L6.3 13l-2.62-2.61a1 1 0 0 1 .34-1.64L7.6 7.32q.52-.23.78-.72zm2.5.18a1 1 0 0 0-1.6.26L9.29 7.04a2.5 2.5 0 0 1-1.31 1.2L4.39 9.69l5.93 5.93 1.43-3.59a2.5 2.5 0 0 1 1.2-1.3l3.47-1.74a1 1 0 0 0 .25-1.6z'/%3E%3C/svg%3E");
+  --fi-pin-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2.85 2.15a.5.5 0 1 0-.7.7L6.9 7.6 4.02 8.75a1 1 0 0 0-.34 1.64L6.3 13 3 16.3v.7h.7L7 13.7l2.61 2.62a1 1 0 0 0 1.64-.34l1.15-2.88 4.75 4.75a.5.5 0 0 0 .7-.7zm8.78 10.18-1.31 3.28-5.93-5.93 3.28-1.3zm1.33-1.62-.08.04.74.75 3.24-1.62a2 2 0 0 0 .52-3.2l-4.05-4.06a2 2 0 0 0-3.2.52L8.5 6.38l.75.74.04-.08 1.73-3.45a1 1 0 0 1 1.6-.26l4.05 4.05a1 1 0 0 1-.26 1.6z'/%3E%3C/svg%3E");
+  --fi-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M8 6a.5.5 0 0 1 .09 1H6a3 3 0 0 0-.2 6H8a.5.5 0 0 1 .09 1H6a4 4 0 0 1-.22-8H8m6 0a4 4 0 0 1 .22 8H12a.5.5 0 0 1-.09-1H14a3 3 0 0 0 .2-6H12a.5.5 0 0 1-.09-1H14M6 9.5h8a.5.5 0 0 1 .09 1H6a.5.5 0 0 1-.09-1zh8z'/%3E%3C/svg%3E");
+  --fi-link-dismiss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M8 4a.5.5 0 0 1 .09 1H6a3 3 0 0 0-.2 6H8a.5.5 0 0 1 .09 1H6a4 4 0 0 1-.22-8H8m6 0a4 4 0 0 1 3.52 5.9 6 6 0 0 0-.88-.47Q16.99 8.8 17 8a3 3 0 0 0-2.8-3H12a.5.5 0 0 1-.09-1H14M6 7.5h8a.5.5 0 0 1 .09 1H6a.5.5 0 0 1-.09-1zm13 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0m-2.73-1.06a.5.5 0 0 0-.7-.7l-1.07 1.05-1.06-1.06a.5.5 0 0 0-.7.7l1.05 1.07-1.06 1.06a.5.5 0 0 0 .7.7l1.07-1.05 1.06 1.06a.5.5 0 0 0 .7-.7l-1.05-1.07z'/%3E%3C/svg%3E");
+  --fi-more-horizontal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M6.25 10a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0m5 0a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0M15 11.25a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5'/%3E%3C/svg%3E");
+  --fi-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10.5 8.91a.5.5 0 0 0-1 .09v4.6a.5.5 0 0 0 1-.1V8.91m.3-2.16a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0M18 10a8 8 0 1 0-16 0 8 8 0 0 0 16 0M3 10a7 7 0 1 1 14 0 7 7 0 0 1-14 0'/%3E%3C/svg%3E");
+  --fi-document: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M6 2a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V7.41c0-.4-.16-.78-.44-1.06l-3.91-3.91A1.5 1.5 0 0 0 10.59 2zM5 4a1 1 0 0 1 1-1h4v3.5c0 .83.67 1.5 1.5 1.5H15v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1zm9.8 3h-3.3a.5.5 0 0 1-.5-.5V3.2z'/%3E%3C/svg%3E");
+  --fi-folder-zip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M6.98 3c.47 0 .91.18 1.24.51L9.71 5h5.79A2.5 2.5 0 0 1 18 7.5v7a2.5 2.5 0 0 1-2.5 2.5H15v.54c0 .25-.2.46-.46.46h-3.08l-.1-.01a.46.46 0 0 1-.36-.45V17H4.5A2.5 2.5 0 0 1 2 14.5v-9A2.5 2.5 0 0 1 4.5 3zM13 13a1 1 0 0 0-1 1v3h2v-3a1 1 0 0 0-1-1M8.15 7.56A1.5 1.5 0 0 1 7.09 8H3v6.5c0 .83.67 1.5 1.5 1.5H11v-2a2 2 0 1 1 4 0v2h.5c.83 0 1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5H9.7zM13 12h-1.5a.5.5 0 0 1 0-1H13zm1.5-2a.5.5 0 0 1 0 1H13v-1zM13 10h-1.5a.5.5 0 0 1 0-1H13zm1.5-2a.5.5 0 0 1 0 1H13V8zM13 8h-1.5a.5.5 0 0 1 0-1H13zM4.5 4C3.67 4 3 4.67 3 5.5V7h4.09a.5.5 0 0 0 .35-.15L8.79 5.5 7.51 4.22A.8.8 0 0 0 6.98 4z'/%3E%3C/svg%3E");
+  --fi-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7 7H5.5C4.67 7 4 7.67 4 8.5v6c0 .83.67 1.5 1.5 1.5h4c.65 0 1.2-.42 1.41-1h1.04a2.5 2.5 0 0 1-2.45 2h-4A2.5 2.5 0 0 1 3 14.5v-6A2.5 2.5 0 0 1 5.5 6H7zm7.5-4A2.5 2.5 0 0 1 17 5.5v6a2.5 2.5 0 0 1-2.5 2.5h-4A2.5 2.5 0 0 1 8 11.5v-6A2.5 2.5 0 0 1 10.5 3zm-4 1C9.67 4 9 4.67 9 5.5v6c0 .83.67 1.5 1.5 1.5h4c.83 0 1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5z'/%3E%3C/svg%3E");
+  --fi-cloud: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 4c2.82 0 4.41 1.92 4.65 4.25h.07A3.33 3.33 0 0 1 18 11.62 3.33 3.33 0 0 1 14.72 15H5.28A3.33 3.33 0 0 1 2 11.62c0-1.8 1.37-3.27 3.1-3.37h.25C5.6 5.9 7.18 4 10 4m0 1C7.89 5 6.55 6.32 6.35 8.35a1 1 0 0 1-1 .9h-.07A2.33 2.33 0 0 0 3 11.62 2.33 2.33 0 0 0 5.28 14h9.44A2.33 2.33 0 0 0 17 11.62a2.33 2.33 0 0 0-2.28-2.37h-.07a1 1 0 0 1-1-.9C13.45 6.32 12.11 5 10 5'/%3E%3C/svg%3E");
+  --fi-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2a5.9 5.9 0 0 1 5.98 5.36l.02.22v3.82l.92 2.22.06.17.01.08.01.13a1 1 0 0 1-.75.97l-.11.02L16 15h-3.5v.17a2.5 2.5 0 0 1-5 0V15H4l-.26-.03-.13-.04a1 1 0 0 1-.6-1.05l.02-.13.05-.13L4 11.4V7.57A5.9 5.9 0 0 1 10 2m1.5 13h-3v.15a1.5 1.5 0 0 0 1.36 1.34l.14.01c.78 0 1.42-.6 1.5-1.36zM10 3a4.9 4.9 0 0 0-4.98 4.38L5 7.6v3.9l-.04.2L4 14h12l-.96-2.3-.04-.2V7.61A4.9 4.9 0 0 0 10 3'/%3E%3C/svg%3E");
+  --fi-arrow-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M16.87 10.84a.5.5 0 1 0-.74-.68l-5.63 6.17V2.5a.5.5 0 0 0-1 0v13.83l-5.63-6.17a.5.5 0 0 0-.74.68l6.31 6.91a.75.75 0 0 0 1.11 0z'/%3E%3C/svg%3E");
+  --fi-arrow-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3.13 9.16a.5.5 0 1 0 .74.68L9.5 3.67V17.5a.5.5 0 1 0 1 0V3.67l5.63 6.17a.5.5 0 0 0 .74-.68l-6.32-6.92a.75.75 0 0 0-1.1 0z'/%3E%3C/svg%3E");
+  --fi-arrow-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9.16 16.87a.5.5 0 1 0 .67-.74L3.67 10.5H17.5a.5.5 0 0 0 0-1H3.67l6.16-5.63a.5.5 0 0 0-.67-.74L2.24 9.44a.75.75 0 0 0 0 1.11z'/%3E%3C/svg%3E");
+  --fi-speaker-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12 3a1 1 0 0 0-1.68-.73l-3.88 3.6A.5.5 0 0 1 6.1 6H3.5C2.67 6 2 6.67 2 7.5v5c0 .83.67 1.5 1.5 1.5h2.6a.5.5 0 0 1 .34.13l3.88 3.6a1 1 0 0 0 1.68-.74zM7.12 6.6 11 3v14l-3.88-3.6A1.5 1.5 0 0 0 6.1 13H3.5a.5.5 0 0 1-.5-.5v-5c0-.28.22-.5.5-.5h2.6c.38 0 .75-.14 1.02-.4m8.14-1.97a.5.5 0 0 1 .7.04 8 8 0 0 1 0 10.66.5.5 0 0 1-.74-.66 7 7 0 0 0 0-9.34.5.5 0 0 1 .04-.7m-1.18 8.3a.5.5 0 0 1-.18-.68 4.5 4.5 0 0 0 0-4.5.5.5 0 1 1 .86-.5 5.5 5.5 0 0 1 0 5.5.5.5 0 0 1-.68.18'/%3E%3C/svg%3E");
+  --fi-speaker-mute: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12 3a1 1 0 0 0-1.68-.73l-3.88 3.6A.5.5 0 0 1 6.1 6H3.5C2.67 6 2 6.67 2 7.5v5c0 .83.67 1.5 1.5 1.5h2.6a.5.5 0 0 1 .34.13l3.88 3.6a1 1 0 0 0 1.68-.74zM7.12 6.6 11 3v14l-3.88-3.6A1.5 1.5 0 0 0 6.1 13H3.5a.5.5 0 0 1-.5-.5v-5c0-.28.22-.5.5-.5h2.6c.38 0 .75-.14 1.02-.4m6.02 1.05c.2-.2.51-.2.71 0l1.65 1.64 1.64-1.64a.5.5 0 1 1 .71.7L16.2 10l1.65 1.65a.5.5 0 1 1-.7.7l-1.65-1.64-1.65 1.64a.5.5 0 1 1-.7-.7L14.78 10l-1.65-1.65a.5.5 0 0 1 0-.7'/%3E%3C/svg%3E");
+  --fi-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9.1 2.9a1 1 0 0 1 1.8 0l1.93 3.91 4.31.63a1 1 0 0 1 .56 1.7l-3.12 3.05.73 4.3a1 1 0 0 1-1.45 1.05L10 15.51l-3.86 2.03a1 1 0 0 1-1.45-1.05l.74-4.3L2.3 9.14a1 1 0 0 1 .56-1.7l4.31-.63zm.9.44L8.07 7.25a1 1 0 0 1-.75.55L3 8.43l3.12 3.04a1 1 0 0 1 .3.89l-.75 4.3 3.87-2.03a1 1 0 0 1 .93 0l3.86 2.03-.74-4.3a1 1 0 0 1 .29-.89L17 8.43l-4.32-.63a1 1 0 0 1-.75-.55z'/%3E%3C/svg%3E");
+  --fi-star-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9.1 2.9a1 1 0 0 1 1.8 0l1.93 3.91 4.31.63a1 1 0 0 1 .56 1.7l-3.12 3.05.73 4.3a1 1 0 0 1-1.45 1.05L10 15.51l-3.86 2.03a1 1 0 0 1-1.45-1.05l.74-4.3L2.3 9.14a1 1 0 0 1 .56-1.7l4.31-.63z'/%3E%3C/svg%3E");
+  --fi-sign-out: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 11.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M11 3.5a.5.5 0 0 0-.58-.5l-7 1.08a.5.5 0 0 0-.42.49v10.86c0 .25.18.46.42.5l7 1.07a.5.5 0 0 0 .58-.5V10h5.17l-1 .87a.5.5 0 0 0 .66.76l2-1.75a.5.5 0 0 0 0-.76l-2-1.75a.5.5 0 1 0-.65.76l1 .87H11zm-1 .58v11.84L4 15V5zM12.5 16H12v-5h1v4.5a.5.5 0 0 1-.5.5M12 8V4h.5c.28 0 .5.22.5.5V8z'/%3E%3C/svg%3E");
+  --fi-gift: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12 2a2.5 2.5 0 0 1 2 4h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 15.5V11a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h2q-.48-.65-.5-1.5A2.5 2.5 0 0 1 10 3c.46-.6 1.18-1 2-1m-2.5 9H5v4.5c0 .83.67 1.5 1.5 1.5h3zm5.5 0h-4.5v6h3c.83 0 1.5-.67 1.5-1.5zM9.5 7H4v3h5.5zM16 7h-5.5v3H16zm-4-4c-.83 0-1.5.67-1.5 1.5V6H12a1.5 1.5 0 0 0 0-3M8 3a1.5 1.5 0 0 0-.14 3H9.5V4.36A1.5 1.5 0 0 0 8 3'/%3E%3C/svg%3E");
+  --fi-circle-small: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6'/%3E%3C/svg%3E");
+  --fi-circle-small-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M13 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0'/%3E%3C/svg%3E");
+  --fi-comment-multiple: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M14.39 4.11A3.5 3.5 0 0 1 17 7.5v6c.6-.46 1-1.18 1-2v-4A4.5 4.5 0 0 0 13.5 3h-7c-.82 0-1.54.4-2 1h9a4 4 0 0 1 .89.11M4.5 5A2.5 2.5 0 0 0 2 7.5v6A2.5 2.5 0 0 0 4.5 16H5v1a1 1 0 0 0 1.59.8L9.06 16h4.44a2.5 2.5 0 0 0 2.5-2.5v-6A2.5 2.5 0 0 0 13.5 5zM3 7.5C3 6.67 3.67 6 4.5 6h9c.83 0 1.5.67 1.5 1.5v6c0 .83-.67 1.5-1.5 1.5H8.73L6 17v-2H4.5A1.5 1.5 0 0 1 3 13.5z'/%3E%3C/svg%3E");
+  --fi-comment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10.48 13.84h4.92c.9 0 1.6-.71 1.6-1.56V5.57C17 4.7 16.3 4 15.4 4H4.6C3.7 4 3 4.71 3 5.57v6.7c0 .86.7 1.57 1.6 1.57h1.6V17zM6.8 17.8a1 1 0 0 1-1.4-.2 1 1 0 0 1-.2-.59v-2.17h-.6A2.6 2.6 0 0 1 2 12.28V5.57A2.6 2.6 0 0 1 4.6 3h10.8C16.84 3 18 4.15 18 5.57v6.7a2.6 2.6 0 0 1-2.6 2.57h-4.59z'/%3E%3C/svg%3E");
+  --fi-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.5 13h5a.5.5 0 0 1 .09 1H7.5a.5.5 0 0 1-.09-1zh5zm-2-4h9a.5.5 0 0 1 .09 1H5.5a.5.5 0 0 1-.09-1zh9zm-2-4h13a.5.5 0 0 1 .09 1H3.5a.5.5 0 0 1-.09-1zh13z'/%3E%3C/svg%3E");
+  --fi-options: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M14.95 5a2.5 2.5 0 0 0-4.9 0H2.5a.5.5 0 0 0 0 1h7.55a2.5 2.5 0 0 0 4.9 0h2.55a.5.5 0 0 0 0-1zM12.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m-2.55 7a2.5 2.5 0 0 0-4.9 0H2.5a.5.5 0 0 0 0 1h2.55a2.5 2.5 0 0 0 4.9 0h7.55a.5.5 0 0 0 0-1zM7.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3'/%3E%3C/svg%3E");
+  --fi-shield-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9.72 2.08a.5.5 0 0 1 .56 0q2.9 1.94 6.3 2.43A.5.5 0 0 1 17 5v4.6q-.48-.25-1-.4V5.44a16 16 0 0 1-5.6-2.08L10 3.1l-.4.25A16 16 0 0 1 4 5.43V9.5c0 3.24 1.8 5.64 5.48 7.25q.3.65.74 1.2l-.04.02a.5.5 0 0 1-.36 0C5.31 16.23 3 13.39 3 9.5V5a.5.5 0 0 1 .43-.5 15 15 0 0 0 6.3-2.42M19 14.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0m-2.15-1.85a.5.5 0 0 0-.7 0l-2.65 2.64-.65-.64a.5.5 0 0 0-.7.7l1 1c.2.2.5.2.7 0l3-3a.5.5 0 0 0 0-.7'/%3E%3C/svg%3E");
+  --fi-full-screen-maximize: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 5c0-1.1.9-2 2-2h2a.5.5 0 0 1 0 1H5a1 1 0 0 0-1 1v2a.5.5 0 0 1-1 0zm9.5-1.5c0-.28.22-.5.5-.5h2a2 2 0 0 1 2 2v2a.5.5 0 0 1-1 0V5a1 1 0 0 0-1-1h-2a.5.5 0 0 1-.5-.5m-9 9c.28 0 .5.22.5.5v2a1 1 0 0 0 1 1h2a.5.5 0 0 1 0 1H5a2 2 0 0 1-2-2v-2c0-.28.22-.5.5-.5m13 0c.28 0 .5.22.5.5v2a2 2 0 0 1-2 2h-2a.5.5 0 0 1 0-1h2a1 1 0 0 0 1-1v-2c0-.28.22-.5.5-.5'/%3E%3C/svg%3E");
+  --fi-full-screen-minimize: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M14 5a1 1 0 0 0 1 1h2a.5.5 0 0 1 0 1h-2a2 2 0 0 1-2-2V3a.5.5 0 0 1 1 0zM6 15a1 1 0 0 0-1-1H3a.5.5 0 0 1 0-1h2a2 2 0 0 1 2 2v2a.5.5 0 0 1-1 0zm8 0a1 1 0 0 1 1-1h2a.5.5 0 0 0 0-1h-2a2 2 0 0 0-2 2v2a.5.5 0 0 0 1 0zM5 6a1 1 0 0 0 1-1V3a.5.5 0 0 1 1 0v2a2 2 0 0 1-2 2H3a.5.5 0 0 1 0-1z'/%3E%3C/svg%3E");
+  --fi-text-bullet-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3-1c0-.28.22-.5.5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0 5c0-.28.22-.5.5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m.5 4.5a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1zm-2.5.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2'/%3E%3C/svg%3E");
+  --fi-send: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2.18 2.11a.5.5 0 0 1 .54-.06l15 7.5a.5.5 0 0 1 0 .9l-15 7.5a.5.5 0 0 1-.7-.58L3.98 10 2.02 2.63a.5.5 0 0 1 .16-.52m2.7 8.39-1.61 6.06L16.38 10 3.27 3.44 4.88 9.5h6.62a.5.5 0 1 1 0 1z'/%3E%3C/svg%3E");
+  --fi-wrench: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9 6.5a4.5 4.5 0 0 1 6.35-4.1.5.5 0 0 1 .15.8l-2.3 2.3 1.3 1.3 2.3-2.3a.5.5 0 0 1 .8.15A4.5 4.5 0 0 1 13.5 11a5 5 0 0 1-1.1-.14l-6.37 6.45a2.36 2.36 0 0 1-3.37-3.3l6.42-6.65A5 5 0 0 1 9 6.5M13.5 3a3.5 3.5 0 0 0-3.39 4.39.5.5 0 0 1-.12.47L3.38 14.7a1.36 1.36 0 0 0 1.94 1.9l6.57-6.66a.5.5 0 0 1 .51-.12 3.5 3.5 0 0 0 4.53-4.05l-2.08 2.07a.5.5 0 0 1-.7 0l-2-2a.5.5 0 0 1 0-.7l2.07-2.08A4 4 0 0 0 13.5 3'/%3E%3C/svg%3E");
+  --fi-thumb-like: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10.05 2.3c.34-.98 1.63-1.43 2.43-.6q.27.27.44.52c.32.48.45 1.12.5 1.73.05.63.02 1.3-.05 1.91-.06.62-.16 1.18-.24 1.59v.05H14a3 3 0 0 1 2.95 3.54l-.69 3.76a4.5 4.5 0 0 1-5.6 3.53l-5.6-1.52a2.5 2.5 0 0 1-1.8-1.92l-.35-1.77c-.28-1.39.78-2.56 1.9-3q.5-.2.85-.5c1.7-1.5 2.32-2.72 3.38-4.84.36-.71.72-1.68 1-2.49m1.97 5.58v-.04l.13-.58c.08-.4.17-.93.23-1.5q.1-.89.04-1.73a3 3 0 0 0-.33-1.25 3 3 0 0 0-.33-.39c-.2-.2-.63-.16-.76.23-.29.82-.67 1.83-1.05 2.6-1.07 2.14-1.76 3.5-3.62 5.15q-.53.45-1.13.68c-.88.34-1.45 1.14-1.3 1.87l.35 1.77c.11.56.53 1 1.08 1.15l5.6 1.53c1.98.54 4-.73 4.36-2.75l.68-3.76a2 2 0 0 0-1.96-2.36h-1.5a.5.5 0 0 1-.5-.62'/%3E%3C/svg%3E");
+  --fi-square: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm3-2a2 2 0 0 0-2 2v8c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
+  --fi-arrow-sort-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='m10 15.29 2.65-2.64a.5.5 0 0 1 .7.7L9.9 16.82a.5.5 0 0 1-.74.03h-.01l-3.5-3.5a.5.5 0 1 1 .71-.7L9 15.29V3.5a.5.5 0 0 1 1 0z'/%3E%3C/svg%3E");
+  --fi-animal-rabbit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10.51 15.01h2.12c.91 0 1.68-.57 1.99-1.37.88.07 1.79-.23 2.46-.9a3.15 3.15 0 0 0 0-4.45l-4.22-4.22c-.59-.59-1.55-.59-2.14 0-.6.6-.6 1.56 0 2.15l1.34 1.33q-.18.24-.3.5a4 4 0 0 0-.54-.05H7.54q-.5 0-.95.13A2.5 2.5 0 1 0 4 11.95v.93c0 1.18.95 2.13 2.12 2.13zm1.64-10.23L16.38 9a2.15 2.15 0 0 1-2 3.6l-.56-.13-.06.56c-.07.56-.54.99-1.12.99h-1.62v-.1C11 12.78 9.99 12 8.89 12H7.5a.5.5 0 0 0 0 1h1.39c.69 0 1.12.46 1.12.91v.1H6.12c-.62 0-1.12-.5-1.12-1.13v-1.33A2.55 2.55 0 0 1 7.54 9h3.68q.35 0 .68.1l.42.11.18-.4c.1-.26.26-.57.47-.79l.5-.48-2.04-2.02a.5.5 0 0 1 0-.74c.2-.2.52-.2.72 0m-6.5 3.77a3.6 3.6 0 0 0-1.6 2.38 1.5 1.5 0 1 1 1.6-2.38'/%3E%3C/svg%3E");
+  --fi-lightbulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 2c3.31 0 6 2.6 6 5.8q-.01 2.53-2.2 4.6a1 1 0 0 0-.15.2l-.02.09-.94 3.92a1.8 1.8 0 0 1-1.67 1.38l-.15.01H9.13c-.82 0-1.54-.52-1.78-1.26l-.04-.14-.93-3.91a.6.6 0 0 0-.17-.3A6.3 6.3 0 0 1 4 8.04L4 7.8v-.2A5.9 5.9 0 0 1 10 2m2.05 13h-4.1l.32 1.33.03.1c.1.3.38.52.71.56l.12.01h1.81a.9.9 0 0 0 .75-.53l.03-.1zM10 3a4.9 4.9 0 0 0-4.98 4.41L5 7.63V8q.08 1.95 1.9 3.67.27.27.4.64l.05.15.37 1.54h4.57l.38-1.61.05-.16q.13-.32.39-.56Q15 9.87 15 7.8A4.9 4.9 0 0 0 10 3'/%3E%3C/svg%3E");
+  --fi-key: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-2.5-4a5.45 5.45 0 0 0-5.38 6.67q.08.42-.14.64l-4.54 4.54A1.5 1.5 0 0 0 2 14.91v1.59c0 .83.67 1.5 1.5 1.5h2c.83 0 1.5-.67 1.5-1.5V16h1a1 1 0 0 0 1-1v-1h1a1 1 0 0 0 1-1v-.18q.75.19 1.5.18c3.08 0 5.5-2.42 5.5-5.5S15.58 2 12.5 2M8 7.5C8 4.98 9.98 3 12.5 3S17 4.98 17 7.5 15.02 12 12.5 12q-1 .01-1.78-.35a.5.5 0 0 0-.72.45v.9H9a1 1 0 0 0-1 1v1H7a1 1 0 0 0-1 1v.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.59a.5.5 0 0 1 .15-.35l4.54-4.54c.43-.43.52-1.04.4-1.56Q8 8 8 7.5'/%3E%3C/svg%3E");
+  --fi-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15.5 4A2.5 2.5 0 0 1 18 6.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 2 14.5v-8A2.5 2.5 0 0 1 4.5 4zM17 7.96l-6.75 3.97a.5.5 0 0 1-.42.04l-.08-.04L3 7.96v6.54c0 .83.67 1.5 1.5 1.5h11c.83 0 1.5-.67 1.5-1.5zM15.5 5h-11C3.67 5 3 5.67 3 6.5v.3l7 4.12 7-4.12v-.3c0-.83-.67-1.5-1.5-1.5'/%3E%3C/svg%3E");
+  --fi-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M11.3 2.48a3.5 3.5 0 0 0-2.6 0l-5.76 2.3A1.5 1.5 0 0 0 2 6.18v7.64c0 .62.37 1.17.94 1.4l5.76 2.3a3.5 3.5 0 0 0 2.6 0l5.76-2.3c.57-.23.94-.78.94-1.4V6.18a1.5 1.5 0 0 0-.94-1.4zm-2.23.93a2.5 2.5 0 0 1 1.86 0l5.22 2.09-2.27.91-6.16-2.46zm-2.7 1.08 6.16 2.46L10 7.96 3.85 5.5zm4.13 4.35 6.5-2.6v7.58a.5.5 0 0 1-.31.47l-5.76 2.3q-.2.09-.43.13zm-1 0v7.88a3 3 0 0 1-.43-.13l-5.76-2.3a.5.5 0 0 1-.31-.47V6.24z'/%3E%3C/svg%3E");
+  --fi-code: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12.64 1.02a.5.5 0 0 1 .34.62l-5 17a.5.5 0 0 1-.96-.28l5-17a.5.5 0 0 1 .62-.34M5.13 5.17a.5.5 0 0 1 .74.66L2.17 10l3.7 4.17a.5.5 0 0 1-.74.66l-4-4.5a.5.5 0 0 1 0-.66zm9.04-.04a.5.5 0 0 1 .7.04l4 4.5a.5.5 0 0 1 0 .66l-4 4.5a.5.5 0 0 1-.74-.66l3.7-4.17-3.7-4.17a.5.5 0 0 1 .04-.7'/%3E%3C/svg%3E");
+  --fi-developer-board: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6m-2 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0m-.5-8c.28 0 .5.22.5.5V4h1.5V2.5a.5.5 0 0 1 1 0V4H12V2.5a.5.5 0 0 1 1 0V4h.5A2.5 2.5 0 0 1 16 6.5V7h1.5a.5.5 0 0 1 0 1H16v1.5h1.5a.5.5 0 0 1 0 1H16V12h1.5a.5.5 0 0 1 0 1H16v.5a2.5 2.5 0 0 1-2.5 2.5H13v1.5a.5.5 0 0 1-1 0V16h-1.5v1.5a.5.5 0 0 1-1 0V16H8v1.5a.5.5 0 0 1-1 0V16h-.5A2.5 2.5 0 0 1 4 13.5V13H2.5a.5.5 0 0 1 0-1H4v-1.5H2.5a.5.5 0 0 1 0-1H4V8H2.5a.5.5 0 0 1 0-1H4v-.5A2.5 2.5 0 0 1 6.5 4H7V2.5c0-.28.22-.5.5-.5M15 6.5c0-.83-.67-1.5-1.5-1.5h-7C5.67 5 5 5.67 5 6.5v7c0 .83.67 1.5 1.5 1.5h7c.83 0 1.5-.67 1.5-1.5z'/%3E%3C/svg%3E");
+  --fi-data-trending: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2.5 2c.28 0 .5.22.5.5v13c0 .83.67 1.5 1.5 1.5h13a.5.5 0 0 1 0 1h-13A2.5 2.5 0 0 1 2 15.5v-13c0-.28.22-.5.5-.5M12 5.5c0-.28.22-.5.5-.5h4c.28 0 .5.22.5.5v4a.5.5 0 0 1-1 0V6.7l-4.65 4.65a.5.5 0 0 1-.7 0L9 9.71l-3.15 3.14a.5.5 0 0 1-.7-.7l3.5-3.5a.5.5 0 0 1 .7 0L11 10.29 15.3 6h-2.8a.5.5 0 0 1-.5-.5'/%3E%3C/svg%3E");
+  --fi-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M14 3a3 3 0 0 1 3 2.82v4.56a2 2 0 0 1-.47 1.28l-.12.13-4.62 4.62a2 2 0 0 1-1.24.58l-.17.01H6a3 3 0 0 1-3-2.82V6a3 3 0 0 1 2.82-3H14m0 1H6a2 2 0 0 0-2 1.85V14a2 2 0 0 0 1.85 2H10v-3a3 3 0 0 1 2.82-3H16V6a2 2 0 0 0-1.85-2zm1.78 7H13a2 2 0 0 0-2 1.85v2.93l.09-.07 4.62-4.62z'/%3E%3C/svg%3E");
+  --fi-hourglass: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M5.92 18q-.38 0-.72-.16-.35-.15-.62-.42A2 2 0 0 1 4 16.08a6 6 0 0 1 .5-2.3 5 5 0 0 1 1.44-1.88l1.82-1.52q.18-.15.18-.38a.5.5 0 0 0-.18-.38L5.94 8.09A5.3 5.3 0 0 1 4 3.92q0-.38.16-.72.15-.35.42-.62A2 2 0 0 1 5.92 2h8.16q.38 0 .72.16.35.15.62.42A2 2 0 0 1 16 3.92q0 1.24-.5 2.3a5 5 0 0 1-1.44 1.87l-1.82 1.53a.5.5 0 0 0 0 .77l1.82 1.5A5.4 5.4 0 0 1 16 16.09q0 .38-.16.72-.15.35-.42.62a2 2 0 0 1-1.34.58zm8.12-1a1 1 0 0 0 .68-.28q.15-.15.2-.3.06-.18.08-.38a4.3 4.3 0 0 0-1.58-3.37l-1.82-1.52a1.5 1.5 0 0 1-.54-1.15 1.5 1.5 0 0 1 .54-1.16l1.82-1.51A4.3 4.3 0 0 0 15 3.96a1 1 0 0 0-.28-.68 1 1 0 0 0-.3-.2q-.17-.06-.38-.08H5.96a1 1 0 0 0-.37.07 1 1 0 0 0-.3.21q-.15.15-.21.3-.07.18-.08.38a4.5 4.5 0 0 0 .9 2.67q.3.37.68.7L8.4 8.84q.25.21.4.52a1.5 1.5 0 0 1-.4 1.79l-1.82 1.52A4.3 4.3 0 0 0 5 16.04q0 .2.07.37.08.18.21.3.15.14.3.21.18.07.38.08z'/%3E%3C/svg%3E");
+  --fi-prohibited: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0m-1 0c0-1.75-.64-3.36-1.7-4.58l-9.88 9.87A7 7 0 0 0 17 10M4.7 14.58l9.88-9.87a7 7 0 0 0-9.87 9.87'/%3E%3C/svg%3E");
+  --fi-camera: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8m-3 4a3 3 0 1 1 6 0 3 3 0 0 1-6 0m1.12-8a1.5 1.5 0 0 0-1.34.83L6.2 4H4.5A2.5 2.5 0 0 0 2 6.5v8A2.5 2.5 0 0 0 4.5 17h11a2.5 2.5 0 0 0 2.5-2.5v-8A2.5 2.5 0 0 0 15.5 4h-1.69l-.58-1.17A1.5 1.5 0 0 0 11.89 2zm-.44 1.28A.5.5 0 0 1 8.12 3h3.77q.3 0 .45.28l.72 1.44a.5.5 0 0 0 .45.28h2c.82 0 1.5.67 1.5 1.5v8c0 .83-.68 1.5-1.5 1.5h-11A1.5 1.5 0 0 1 3 14.5v-8C3 5.67 3.67 5 4.5 5h2a.5.5 0 0 0 .44-.28z'/%3E%3C/svg%3E");
+  --fi-column-triple: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 17a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2zm-1-2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1zm7 2a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2zm-1-2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1zm7 2a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2zm-1-2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1z'/%3E%3C/svg%3E");
+  --fi-arrow-clockwise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 0 1 10.47-4H12.5a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-1 0v1.6a7 7 0 1 0 1.98 4.36.5.5 0 1 0-1 .08L16 10a6 6 0 0 1-12 0'/%3E%3C/svg%3E");
+  --fi-more-vertical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 6a1.25 1.25 0 1 1 0-2.5A1.25 1.25 0 0 1 10 6m0 5.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5m-1.25 4a1.25 1.25 0 1 0 2.5 0 1.25 1.25 0 0 0-2.5 0'/%3E%3C/svg%3E");
+  --fi-folder-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3 5.5v6.6l1.5-2.6A3 3 0 0 1 7.1 8H15v-.5c0-.83-.67-1.5-1.5-1.5h-4a.5.5 0 0 1-.35-.15l-1.71-1.7A.5.5 0 0 0 7.09 4H4.5C3.67 4 3 4.67 3 5.5m1.28 10.48.22.02h9.4a2 2 0 0 0 1.73-1l2.17-3.75A1.5 1.5 0 0 0 16.5 9H7.1a2 2 0 0 0-1.73 1L3.2 13.75a1.5 1.5 0 0 0 1.08 2.23M2 14.46V5.5A2.5 2.5 0 0 1 4.5 3h2.59c.4 0 .78.16 1.06.44L9.7 5h3.79A2.5 2.5 0 0 1 16 7.5V8h.5a2.5 2.5 0 0 1 2.16 3.75L16.5 15.5a3 3 0 0 1-2.6 1.5H4.5a2.5 2.5 0 0 1-1.62-.6A2.5 2.5 0 0 1 2 14.46'/%3E%3C/svg%3E");
+  --fi-hard-drive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 12q0-.61.24-1.16l2.41-5.63A2 2 0 0 1 6.5 4h7.1c.75 0 1.43.41 1.77 1.09a55 55 0 0 1 2.45 5.77q.2.56.19 1.14v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm11.6-7H6.48a1 1 0 0 0-.92.6l-1.9 4.43L4 10h12q.23 0 .45.05a57 57 0 0 0-2-4.52A1 1 0 0 0 13.6 5M16 15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1zm-1.25-1.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5'/%3E%3C/svg%3E");
+  --fi-thumb-dislike: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10.05 17.7c.34.98 1.63 1.43 2.43.6q.27-.27.44-.52c.32-.48.45-1.12.5-1.73.05-.63.02-1.3-.05-1.92-.06-.6-.16-1.17-.24-1.58v-.05H14a3 3 0 0 0 2.95-3.54l-.69-3.76a4.5 4.5 0 0 0-5.6-3.54L5.06 3.2c-.92.25-1.62 1-1.8 1.92l-.35 1.77c-.28 1.39.78 2.56 1.9 3q.5.2.85.5c1.7 1.5 2.32 2.72 3.38 4.84.36.71.72 1.68 1 2.49m1.97-5.58v.04a14 14 0 0 1 .36 2.08q.1.89.04 1.73t-.33 1.25q-.1.14-.33.39c-.2.2-.63.16-.76-.23-.29-.82-.67-1.83-1.05-2.6-1.07-2.14-1.76-3.5-3.62-5.15q-.53-.45-1.13-.68c-.88-.34-1.45-1.14-1.3-1.87l.35-1.77c.11-.56.53-1 1.08-1.15l5.6-1.53a3.5 3.5 0 0 1 4.36 2.75l.68 3.76a2 2 0 0 1-1.96 2.36h-1.5a.5.5 0 0 0-.5.62'/%3E%3C/svg%3E");
+  --fi-translate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.08 4.22c.7-.21 1.7-.34 2.84 0 1.01.3 1.56.9 1.83 1.56.26.63.26 1.27.26 1.67v5.05a.5.5 0 0 1-1 0v-.53q-.47.29-1.05.55c-.78.34-1.74.6-2.64.42a3 3 0 0 1-2.25-2.09c-.29-.97-.08-2.1.8-2.84a4.6 4.6 0 0 1 3.21-1c.71.03 1.38.17 1.93.32 0-.37-.03-.79-.18-1.17-.16-.4-.48-.77-1.19-.98a4 4 0 0 0-3.15.37h-.01a.5.5 0 0 1-.57-.82h.01l.02-.02.3-.17q.3-.16.84-.32M6.04 8a3.6 3.6 0 0 0-2.52.77 1.7 1.7 0 0 0-.5 1.79c.2.66.73 1.23 1.5 1.39.6.12 1.33-.04 2.04-.35.58-.26 1.1-.6 1.45-.85V8.37a8 8 0 0 0-1.97-.36m8.43-1.34a.5.5 0 0 0-.94-.34c-.18.5-.37 1.22-.47 1.65q-.74.04-1.53 0a.5.5 0 1 0-.06 1q.7.04 1.36 0-.17.87-.25 1.56a4.7 4.7 0 0 0-2.3 2.3c-.44 1.02-.4 2.17.25 2.85.43.46 1.06.53 1.64.4q.64-.16 1.28-.61l.08.2a.5.5 0 0 0 .93-.36l-.23-.53a6.7 6.7 0 0 0 1.68-3.6c.77.26 1.28.8 1.5 1.38.38 1.04-.04 2.55-2.11 3.47a.5.5 0 1 0 .4.92c2.43-1.08 3.26-3.07 2.64-4.73A3.4 3.4 0 0 0 16 10.17V10a.5.5 0 1 0-1 0v.02q-.64-.02-1.36.13l.23-1.25a21 21 0 0 0 2.24-.41.5.5 0 0 0-.22-.98q-.92.23-1.77.35c.1-.38.23-.85.35-1.2m-3.27 6.57c.23-.52.64-1.06 1.3-1.5q-.01.94.13 1.61.16.71.38 1.2-.58.45-1.06.56c-.39.09-.6 0-.69-.1-.27-.3-.4-.97-.06-1.77m3.73-2.22a6 6 0 0 1-1.15 2.76l-.17-.62a7 7 0 0 1-.09-1.94l.13-.04q.7-.18 1.28-.16'/%3E%3C/svg%3E");
+  --fi-ribbon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M16 8c0 1.78-.77 3.37-2 4.47v5.03a.5.5 0 0 1-.75.43L10 16.08l-3.25 1.85A.5.5 0 0 1 6 17.5v-5.03A5.98 5.98 0 0 1 10 2a6 6 0 0 1 6 6m-6 6c-1.1 0-2.12-.3-3-.8v3.44l2.75-1.57a.5.5 0 0 1 .5 0L13 16.64V13.2c-.88.5-1.9.8-3 .8m0-1a5 5 0 1 0 0-10 5 5 0 0 0 0 10'/%3E%3C/svg%3E");
+  --fi-games: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M6 7.5a.5.5 0 0 1 1 0V9h1.5a.5.5 0 0 1 0 1H7v1.5a.5.5 0 0 1-1 0V10H4.5a.5.5 0 0 1 0-1H6zm9 .5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2M2 9.5A5.5 5.5 0 0 1 7.5 4h5a5.5 5.5 0 1 1 0 11h-5A5.5 5.5 0 0 1 2 9.5M7.5 5a4.5 4.5 0 0 0 0 9h5a4.5 4.5 0 1 0 0-9z'/%3E%3C/svg%3E");
+  --fi-equal-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M13.5 9a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zm0 3a.5.5 0 0 0 0-1h-7a.5.5 0 0 0 0 1zm4.5-2a8 8 0 1 0-16 0 8 8 0 0 0 16 0m-8-7a7 7 0 1 1 0 14 7 7 0 0 1 0-14'/%3E%3C/svg%3E");
+  --fi-fire: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 11.75q0-.81.19-1.59a6 6 0 0 1 .86-1.93 1 1 0 0 1 .18-.17.5.5 0 0 1 .48 0q.12.06.18.17l1.04 1.7q.07.12.19.18t.26.07q.27 0 .42-.2a.8.8 0 0 0 .06-.82q-.32-.69-.52-1.36a5 5 0 0 1 .12-3.17q.33-.75.92-1.27.58-.53 1.36-.86A8 8 0 0 1 11.5 2q.18 0 .32.12.18.15.18.38 0 1.17.4 2.23.4 1.07 1.1 2l.87 1.13q.44.57.8 1.19.37.61.6 1.28.22.66.23 1.42a6.5 6.5 0 0 1-.8 3.1 6.6 6.6 0 0 1-2.12 2.27 5.7 5.7 0 0 1-4.71.65 6 6 0 0 1-1.44-.64 6.5 6.5 0 0 1-2.13-2.27 6.2 6.2 0 0 1-.8-3.1m11-.05q0-.6-.23-1.2-.23-.58-.57-1.14a11 11 0 0 0-.75-1.06q-.4-.5-.75-.98a9 9 0 0 1-1.14-1.98 8 8 0 0 1-.54-2.23q-.63.16-1.15.43-.53.27-.92.67t-.6.94q-.2.54-.22 1.22 0 .63.17 1.2.15.57.44 1.13.1.2.15.4l.06.45q0 .33-.11.62a1.54 1.54 0 0 1-2.76.28l-.6-.96a5.45 5.45 0 0 0 1.95 6.77 4.84 4.84 0 0 0 7.2-2.55q.35-.96.37-2.01'/%3E%3C/svg%3E");
+  --fi-sparkle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.4 12.8a1.04 1.04 0 0 0 1.59-.51l.45-1.37a2.3 2.3 0 0 1 1.47-1.48l1.4-.45A1.04 1.04 0 0 0 12.25 7l-1.37-.45A2.3 2.3 0 0 1 9.4 5.08L8.95 3.7a1 1 0 0 0-.82-.68 1.04 1.04 0 0 0-1.15.7l-.46 1.4a2.3 2.3 0 0 1-1.44 1.45L3.7 7a1.04 1.04 0 0 0 .02 1.97l1.37.45a2.3 2.3 0 0 1 1.48 1.48l.46 1.4q.1.3.38.5m.08-7.4.53-1.38.44 1.37a3.3 3.3 0 0 0 2.12 2.12l1.4.53-1.38.45a3.3 3.3 0 0 0-2.11 2.11l-.53 1.38-.45-1.38a3.3 3.3 0 0 0-2.1-2.12L4 7.96 5.4 7.5a3.4 3.4 0 0 0 2.08-2.12m6.06 11.45a.8.8 0 0 0 1.22-.4l.25-.76a1.1 1.1 0 0 1 .68-.68l.77-.25a.8.8 0 0 0-.02-1.52l-.77-.25a1.1 1.1 0 0 1-.68-.68l-.25-.77a.8.8 0 0 0-1.52.01l-.24.76a1.1 1.1 0 0 1-.67.68l-.77.25a.8.8 0 0 0 0 1.52l.77.25a1.1 1.1 0 0 1 .68.68l.25.77q.09.25.3.4m-.92-2.8-.18-.05.19-.06a2.1 2.1 0 0 0 1.3-1.32l.06-.18.05.18a2 2 0 0 0 1.32 1.32l.2.06-.18.06a2 2 0 0 0-1.32 1.32l-.06.18-.06-.18a2 2 0 0 0-1.32-1.32'/%3E%3C/svg%3E");
+  --fi-calendar-ltr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2m1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0m2-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2m1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0m2-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2m4-5.5A2.5 2.5 0 0 0 14.5 3h-9A2.5 2.5 0 0 0 3 5.5v9A2.5 2.5 0 0 0 5.5 17h9a2.5 2.5 0 0 0 2.5-2.5zM4 7h12v7.5c0 .83-.67 1.5-1.5 1.5h-9A1.5 1.5 0 0 1 4 14.5zm1.5-3h9c.83 0 1.5.67 1.5 1.5V6H4v-.5C4 4.67 4.67 4 5.5 4'/%3E%3C/svg%3E");
+  --fi-home-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M11 2.39a1.5 1.5 0 0 0-2 0L3.5 7.33c-.32.28-.5.69-.5 1.12v7.05c0 .83.67 1.5 1.5 1.5h2c.83 0 1.5-.67 1.5-1.5v-4c0-.28.22-.5.5-.5h3c.28 0 .5.22.5.5v4c0 .83.67 1.5 1.5 1.5h2c.83 0 1.5-.67 1.5-1.5V8.45c0-.43-.18-.84-.5-1.12z'/%3E%3C/svg%3E");
+  --fi-apps-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 17A1.5 1.5 0 0 1 3 15.65V4.5c0-.78.6-1.42 1.36-1.5H9c.78 0 1.42.6 1.5 1.36v.4l2.19-2.27a1.5 1.5 0 0 1 2-.14l.12.1 2.76 2.72c.55.55.6 1.42.11 2.02l-.1.11-2.31 2.2h.23c.78 0 1.42.6 1.5 1.36v4.64c0 .78-.6 1.42-1.36 1.5H4.5m5-6.5H4v5c0 .22.14.4.33.47l.08.02.09.01h5zm6 0h-5V16h5a.5.5 0 0 0 .5-.4V11a.5.5 0 0 0-.41-.5zm-5-2.79V9.5h1.79zM9 4.01H4.5a.5.5 0 0 0-.5.4v5.1h5.5v-5a.5.5 0 0 0-.33-.48l-.08-.02z'/%3E%3C/svg%3E");
+  --fi-library-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 2C2.67 2 2 2.67 2 3.5v12.98c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5V3.5C6 2.67 5.33 2 4.5 2zm5 0C7.67 2 7 2.67 7 3.5v12.98c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5V3.5c0-.83-.67-1.5-1.5-1.5zm7.22 4.16a1.5 1.5 0 0 0-1.87-1.1l-.75.2A1.5 1.5 0 0 0 12.04 7l2 9.8c.18.84 1.02 1.36 1.84 1.15l.99-.25c.79-.2 1.27-1 1.1-1.78z'/%3E%3C/svg%3E");
+  --fi-arrow-download-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M15.24 16.5a.75.75 0 0 1 .1 1.5H4.76a.75.75 0 0 1-.1-1.5h10.6M10 2c.38 0 .7.28.75.65v10.3l2.97-2.98c.27-.26.68-.29.98-.07l.08.07c.27.27.3.68.07.98l-.07.08-4.24 4.25-.07.07-.1.05-.03.03-.1.03-.11.03-.07.01H10l-.15-.01-.08-.03a1 1 0 0 1-.26-.14l-4.29-4.29A.75.75 0 0 1 6.2 9.9l.08.07 2.97 2.97V2.75c0-.41.34-.75.75-.75'/%3E%3C/svg%3E");
+  --fi-settings-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M1.91 7.38A8.5 8.5 0 0 1 3.7 4.3a.5.5 0 0 1 .54-.13l1.92.68a1 1 0 0 0 1.32-.76l.36-2a.5.5 0 0 1 .4-.4 9 9 0 0 1 3.55 0q.32.08.38.4l.37 2a1 1 0 0 0 1.32.76l1.92-.68a.5.5 0 0 1 .54.13 8.5 8.5 0 0 1 1.78 3.08q.08.31-.15.54l-1.56 1.32a1 1 0 0 0 0 1.52l1.56 1.32a.5.5 0 0 1 .15.54 8.5 8.5 0 0 1-1.78 3.08.5.5 0 0 1-.54.13l-1.92-.68a1 1 0 0 0-1.32.76l-.37 2a.5.5 0 0 1-.38.4 8.5 8.5 0 0 1-3.56 0 .5.5 0 0 1-.39-.4l-.36-2a1 1 0 0 0-1.32-.76l-1.92.68a.5.5 0 0 1-.54-.13 8.5 8.5 0 0 1-1.78-3.08.5.5 0 0 1 .15-.54l1.56-1.32a1 1 0 0 0 0-1.52L2.06 7.92a.5.5 0 0 1-.15-.54M8 10a2 2 0 1 0 4 0 2 2 0 0 0-4 0'/%3E%3C/svg%3E");
+  --fi-link-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M14 6a4 4 0 0 1 .2 8H12a.75.75 0 0 1-.1-1.5H14a2.5 2.5 0 0 0 .16-5H12a.75.75 0 0 1-.1-1.5H14M8 6a.75.75 0 0 1 .1 1.5H6a2.5 2.5 0 0 0-.16 5H8a.75.75 0 0 1 .1 1.5H6a4 4 0 0 1-.2-8H8M6.25 9.25h7.5a.75.75 0 0 1 .1 1.5h-7.6a.75.75 0 0 1-.1-1.5zh7.5z'/%3E%3C/svg%3E");
+  --fi-alert-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M12.45 16a2.5 2.5 0 0 1-4.9 0zM10 2a5.9 5.9 0 0 1 5.98 5.36l.02.22v3.82l.95 2.6.03.08.01.09v.08c0 .32-.19.6-.51.71l-.12.03-.11.01H3.75a.75.75 0 0 1-.74-.76v-.12l.04-.12L4 11.4V7.57A5.9 5.9 0 0 1 10 2'/%3E%3C/svg%3E");
+  --fi-play-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M17.22 8.68a1.5 1.5 0 0 1 0 2.63l-10 5.5A1.5 1.5 0 0 1 5 15.5v-11A1.5 1.5 0 0 1 7.22 3.2z'/%3E%3C/svg%3E");
+  --fi-cloud-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 4c2.82 0 4.41 1.92 4.65 4.25h.07A3.33 3.33 0 0 1 18 11.62 3.33 3.33 0 0 1 14.72 15H5.28A3.33 3.33 0 0 1 2 11.62a3.33 3.33 0 0 1 3.28-3.37h.07C5.6 5.9 7.18 4 10 4'/%3E%3C/svg%3E");
+  --fi-video-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 7a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3zm14.04 7.78L14 13.37V6.63l2.04-1.4c.83-.58 1.96.01 1.96 1.02v7.5c0 1-1.13 1.6-1.96 1.03'/%3E%3C/svg%3E");
+  --fi-shield-checkmark-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9.72 2.08a.5.5 0 0 1 .56 0q2.9 1.94 6.3 2.43A.5.5 0 0 1 17 5v4.6Q15.86 9 14.5 9a5.5 5.5 0 0 0-4.28 8.95l-.04.02a.5.5 0 0 1-.36 0C5.31 16.23 3 13.39 3 9.5V5a.5.5 0 0 1 .43-.5 15 15 0 0 0 6.3-2.42M19 14.5a4.5 4.5 0 1 0-9 0 4.5 4.5 0 0 0 9 0m-2.15-1.85c.2.2.2.5 0 .7l-3 3a.5.5 0 0 1-.7 0l-1-1a.5.5 0 0 1 .7-.7l.65.64 2.65-2.64c.2-.2.5-.2.7 0'/%3E%3C/svg%3E");
+  --fi-games-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M7.5 4a5.5 5.5 0 1 0 0 11h5a5.5 5.5 0 1 0 0-11zM6 7.5a.5.5 0 0 1 1 0V9h1.5a.5.5 0 0 1 0 1H7v1.5a.5.5 0 0 1-1 0V10H4.5a.5.5 0 0 1 0-1H6zm9 .5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2'/%3E%3C/svg%3E");
+  --fi-wrench-f: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M13.5 2a4.5 4.5 0 0 0-4.42 5.36l-6.42 6.66a2.36 2.36 0 0 0 3.37 3.3l6.37-6.46a4.5 4.5 0 0 0 5.49-5.37.5.5 0 0 0-.84-.24L14.5 7.79 12.2 5.5l2.55-2.55a.5.5 0 0 0-.24-.84 5 5 0 0 0-1-.11'/%3E%3C/svg%3E");
+}
+svg.octicon-home,
+svg.octicon-apps,
+svg.octicon-book,
+svg.octicon-download,
+svg.octicon-desktop-download,
+svg.octicon-gear,
+svg.octicon-sync,
+svg.octicon-link-external,
+svg.octicon-link-external-16,
+svg.octicon-trash,
+svg.lucide-trash,
+svg.lucide-trash-icon,
+svg.octicon-file-directory,
+svg.lucide-folder,
+svg.octicon-file-directory-fill,
+svg.octicon-clock,
+svg.octicon-chevron-down,
+svg.lucide-chevron-down,
+svg.octicon-chevron-up,
+svg.octicon-chevron-left,
+svg.lucide-chevron-left,
+svg.octicon-chevron-right,
+svg.lucide-chevron-right,
+svg.octicon-check-circle-fill,
+svg.octicon-check-circle,
+svg.octicon-check,
+svg.octicon-plus,
+svg.lucide-plus,
+svg.octicon-plus-circle,
+svg.octicon-alert,
+svg.octicon-alert-fill,
+svg.octicon-trophy,
+svg.octicon-lock,
+svg.octicon-unlock,
+svg.octicon-pencil,
+svg.octicon-image,
+svg.octicon-eye-closed,
+svg.octicon-eye,
+svg.octicon-search,
+svg.octicon-telescope,
+svg.octicon-device-desktop,
+svg.octicon-heart,
+svg.octicon-heart-fill,
+svg.octicon-person,
+svg.octicon-person-add,
+svg.octicon-people,
+svg.octicon-history,
+svg.octicon-upload,
+svg.octicon-globe,
+svg.octicon-question,
+svg.octicon-play,
+svg.octicon-stack,
+svg.octicon-database,
+svg.octicon-dash,
+svg.octicon-x-circle-fill,
+svg.octicon-x-circle,
+svg.lucide-x-circle,
+svg.lucide-circle-x,
+svg.octicon-x,
+svg.lucide-x,
+svg.octicon-video,
+svg.octicon-smiley,
+svg.octicon-report,
+svg.octicon-reply,
+svg.octicon-pin,
+svg.octicon-pin-slash,
+svg.octicon-link,
+svg.octicon-unlink,
+svg.octicon-kebab-horizontal,
+svg.octicon-info,
+svg.octicon-file,
+svg.octicon-file-zip,
+svg.octicon-copy,
+svg.octicon-cloud,
+svg.octicon-bell,
+svg.octicon-arrow-down,
+svg.octicon-arrow-up,
+svg.octicon-arrow-left,
+svg.octicon-unmute,
+svg.octicon-mute,
+svg.octicon-star,
+svg.lucide-star,
+svg.octicon-star-fill,
+svg.octicon-sign-out,
+svg.octicon-gift,
+svg.octicon-dot,
+svg.octicon-dot-fill,
+svg.octicon-comment-discussion,
+svg.octicon-comment,
+svg.octicon-filter,
+svg.octicon-sliders,
+svg.octicon-shield-check,
+svg.octicon-screen-full,
+svg.octicon-screen-normal,
+svg.octicon-rows,
+svg.octicon-paper-airplane,
+svg.octicon-tools,
+svg.lucide-wrench,
+svg.octicon-thumbsup,
+svg.lucide-thumbs-up,
+svg.octicon-square,
+svg.octicon-sort-desc,
+svg.octicon-squirrel,
+svg.octicon-light-bulb,
+svg.octicon-key,
+svg.octicon-mail,
+svg.octicon-package,
+svg.octicon-code,
+svg.octicon-cpu,
+svg.octicon-graph,
+svg.octicon-note,
+svg.octicon-hourglass,
+svg.octicon-no-entry,
+svg.octicon-circle-slash,
+svg.octicon-device-camera,
+svg.octicon-columns,
+svg.octicon-arrow-clockwise,
+svg.lucide-more-vertical,
+svg.lucide-ellipsis-vertical,
+svg.lucide-folder-open,
+svg.lucide-hard-drive,
+svg.lucide-thumbs-down,
+svg.lucide-languages,
+svg.lucide-award,
+svg.lucide-gamepad-2,
+svg.lucide-gamepad2,
+svg.lucide-equal {
+  background-color: currentColor;
+  -webkit-mask: var(--fi) center / contain no-repeat;
+  mask: var(--fi) center / contain no-repeat;
+}
+:is(svg.octicon-home, svg.octicon-apps, svg.octicon-book, svg.octicon-download, svg.octicon-desktop-download, svg.octicon-gear, svg.octicon-sync, svg.octicon-link-external, svg.octicon-link-external-16, svg.octicon-trash, svg.lucide-trash, svg.lucide-trash-icon, svg.octicon-file-directory, svg.lucide-folder, svg.octicon-file-directory-fill, svg.octicon-clock, svg.octicon-chevron-down, svg.lucide-chevron-down, svg.octicon-chevron-up, svg.octicon-chevron-left, svg.lucide-chevron-left, svg.octicon-chevron-right, svg.lucide-chevron-right, svg.octicon-check-circle-fill, svg.octicon-check-circle, svg.octicon-check, svg.octicon-plus, svg.lucide-plus, svg.octicon-plus-circle, svg.octicon-alert, svg.octicon-alert-fill, svg.octicon-trophy, svg.octicon-lock, svg.octicon-unlock, svg.octicon-pencil, svg.octicon-image, svg.octicon-eye-closed, svg.octicon-eye, svg.octicon-search, svg.octicon-telescope, svg.octicon-device-desktop, svg.octicon-heart, svg.octicon-heart-fill, svg.octicon-person, svg.octicon-person-add, svg.octicon-people, svg.octicon-history, svg.octicon-upload, svg.octicon-globe, svg.octicon-question, svg.octicon-play, svg.octicon-stack, svg.octicon-database, svg.octicon-dash, svg.octicon-x-circle-fill, svg.octicon-x-circle, svg.lucide-x-circle, svg.lucide-circle-x, svg.octicon-x, svg.lucide-x, svg.octicon-video, svg.octicon-smiley, svg.octicon-report, svg.octicon-reply, svg.octicon-pin, svg.octicon-pin-slash, svg.octicon-link, svg.octicon-unlink, svg.octicon-kebab-horizontal, svg.octicon-info, svg.octicon-file, svg.octicon-file-zip, svg.octicon-copy, svg.octicon-cloud, svg.octicon-bell, svg.octicon-arrow-down, svg.octicon-arrow-up, svg.octicon-arrow-left, svg.octicon-unmute, svg.octicon-mute, svg.octicon-star, svg.lucide-star, svg.octicon-star-fill, svg.octicon-sign-out, svg.octicon-gift, svg.octicon-dot, svg.octicon-dot-fill, svg.octicon-comment-discussion, svg.octicon-comment, svg.octicon-filter, svg.octicon-sliders, svg.octicon-shield-check, svg.octicon-screen-full, svg.octicon-screen-normal, svg.octicon-rows, svg.octicon-paper-airplane, svg.octicon-tools, svg.lucide-wrench, svg.octicon-thumbsup, svg.lucide-thumbs-up, svg.octicon-square, svg.octicon-sort-desc, svg.octicon-squirrel, svg.octicon-light-bulb, svg.octicon-key, svg.octicon-mail, svg.octicon-package, svg.octicon-code, svg.octicon-cpu, svg.octicon-graph, svg.octicon-note, svg.octicon-hourglass, svg.octicon-no-entry, svg.octicon-circle-slash, svg.octicon-device-camera, svg.octicon-columns, svg.octicon-arrow-clockwise, svg.lucide-more-vertical, svg.lucide-ellipsis-vertical, svg.lucide-folder-open, svg.lucide-hard-drive, svg.lucide-thumbs-down, svg.lucide-languages, svg.lucide-award, svg.lucide-gamepad-2, svg.lucide-gamepad2, svg.lucide-equal) > * { visibility: hidden; }
+svg.octicon-home { --fi: var(--fi-home); }
+svg.octicon-apps { --fi: var(--fi-apps); }
+svg.octicon-book { --fi: var(--fi-library); }
+svg.octicon-download, svg.octicon-desktop-download { --fi: var(--fi-arrow-download); }
+svg.octicon-gear { --fi: var(--fi-settings); }
+svg.octicon-sync { --fi: var(--fi-arrow-sync); }
+svg.octicon-link-external, svg.octicon-link-external-16 { --fi: var(--fi-open); }
+svg.octicon-trash, svg.lucide-trash, svg.lucide-trash-icon { --fi: var(--fi-delete); }
+svg.octicon-file-directory, svg.lucide-folder { --fi: var(--fi-folder); }
+svg.octicon-file-directory-fill { --fi: var(--fi-folder-f); }
+svg.octicon-clock { --fi: var(--fi-clock); }
+svg.octicon-chevron-down, svg.lucide-chevron-down { --fi: var(--fi-chevron-down); }
+svg.octicon-chevron-up { --fi: var(--fi-chevron-up); }
+svg.octicon-chevron-left, svg.lucide-chevron-left { --fi: var(--fi-chevron-left); }
+svg.octicon-chevron-right, svg.lucide-chevron-right { --fi: var(--fi-chevron-right); }
+svg.octicon-check-circle-fill { --fi: var(--fi-checkmark-circle-f); }
+svg.octicon-check-circle { --fi: var(--fi-checkmark-circle); }
+svg.octicon-check { --fi: var(--fi-checkmark); }
+svg.octicon-plus, svg.lucide-plus { --fi: var(--fi-add); }
+svg.octicon-plus-circle { --fi: var(--fi-add-circle); }
+svg.octicon-alert { --fi: var(--fi-warning); }
+svg.octicon-alert-fill { --fi: var(--fi-warning-f); }
+svg.octicon-trophy { --fi: var(--fi-trophy); }
+svg.octicon-lock { --fi: var(--fi-lock-closed); }
+svg.octicon-unlock { --fi: var(--fi-lock-open); }
+svg.octicon-pencil { --fi: var(--fi-edit); }
+svg.octicon-image { --fi: var(--fi-image); }
+svg.octicon-eye-closed { --fi: var(--fi-eye-off); }
+svg.octicon-eye { --fi: var(--fi-eye); }
+svg.octicon-search, svg.octicon-telescope { --fi: var(--fi-search); }
+svg.octicon-device-desktop { --fi: var(--fi-desktop); }
+svg.octicon-heart { --fi: var(--fi-heart); }
+svg.octicon-heart-fill { --fi: var(--fi-heart-f); }
+svg.octicon-person { --fi: var(--fi-person); }
+svg.octicon-person-add { --fi: var(--fi-person-add); }
+svg.octicon-people { --fi: var(--fi-people); }
+svg.octicon-history { --fi: var(--fi-history); }
+svg.octicon-upload { --fi: var(--fi-arrow-upload); }
+svg.octicon-globe { --fi: var(--fi-globe); }
+svg.octicon-question { --fi: var(--fi-question-circle); }
+svg.octicon-play { --fi: var(--fi-play); }
+svg.octicon-stack { --fi: var(--fi-stack); }
+svg.octicon-database { --fi: var(--fi-database); }
+svg.octicon-dash { --fi: var(--fi-subtract); }
+svg.octicon-x-circle-fill { --fi: var(--fi-dismiss-circle-f); }
+svg.octicon-x-circle, svg.lucide-x-circle, svg.lucide-circle-x { --fi: var(--fi-dismiss-circle); }
+svg.octicon-x, svg.lucide-x { --fi: var(--fi-dismiss); }
+svg.octicon-video { --fi: var(--fi-video); }
+svg.octicon-smiley { --fi: var(--fi-emoji); }
+svg.octicon-report { --fi: var(--fi-flag); }
+svg.octicon-reply { --fi: var(--fi-arrow-reply); }
+svg.octicon-pin { --fi: var(--fi-pin); }
+svg.octicon-pin-slash { --fi: var(--fi-pin-off); }
+svg.octicon-link { --fi: var(--fi-link); }
+svg.octicon-unlink { --fi: var(--fi-link-dismiss); }
+svg.octicon-kebab-horizontal { --fi: var(--fi-more-horizontal); }
+svg.octicon-info { --fi: var(--fi-info); }
+svg.octicon-file { --fi: var(--fi-document); }
+svg.octicon-file-zip { --fi: var(--fi-folder-zip); }
+svg.octicon-copy { --fi: var(--fi-copy); }
+svg.octicon-cloud { --fi: var(--fi-cloud); }
+svg.octicon-bell { --fi: var(--fi-alert); }
+svg.octicon-arrow-down { --fi: var(--fi-arrow-down); }
+svg.octicon-arrow-up { --fi: var(--fi-arrow-up); }
+svg.octicon-arrow-left { --fi: var(--fi-arrow-left); }
+svg.octicon-unmute { --fi: var(--fi-speaker-2); }
+svg.octicon-mute { --fi: var(--fi-speaker-mute); }
+svg.octicon-star, svg.lucide-star { --fi: var(--fi-star); }
+svg.octicon-star-fill { --fi: var(--fi-star-f); }
+svg.octicon-sign-out { --fi: var(--fi-sign-out); }
+svg.octicon-gift { --fi: var(--fi-gift); }
+svg.octicon-dot { --fi: var(--fi-circle-small); }
+svg.octicon-dot-fill { --fi: var(--fi-circle-small-f); }
+svg.octicon-comment-discussion { --fi: var(--fi-comment-multiple); }
+svg.octicon-comment { --fi: var(--fi-comment); }
+svg.octicon-filter { --fi: var(--fi-filter); }
+svg.octicon-sliders { --fi: var(--fi-options); }
+svg.octicon-shield-check { --fi: var(--fi-shield-checkmark); }
+svg.octicon-screen-full { --fi: var(--fi-full-screen-maximize); }
+svg.octicon-screen-normal { --fi: var(--fi-full-screen-minimize); }
+svg.octicon-rows { --fi: var(--fi-text-bullet-list); }
+svg.octicon-paper-airplane { --fi: var(--fi-send); }
+svg.octicon-tools, svg.lucide-wrench { --fi: var(--fi-wrench); }
+svg.octicon-thumbsup, svg.lucide-thumbs-up { --fi: var(--fi-thumb-like); }
+svg.octicon-square { --fi: var(--fi-square); }
+svg.octicon-sort-desc { --fi: var(--fi-arrow-sort-down); }
+svg.octicon-squirrel { --fi: var(--fi-animal-rabbit); }
+svg.octicon-light-bulb { --fi: var(--fi-lightbulb); }
+svg.octicon-key { --fi: var(--fi-key); }
+svg.octicon-mail { --fi: var(--fi-mail); }
+svg.octicon-package { --fi: var(--fi-box); }
+svg.octicon-code { --fi: var(--fi-code); }
+svg.octicon-cpu { --fi: var(--fi-developer-board); }
+svg.octicon-graph { --fi: var(--fi-data-trending); }
+svg.octicon-note { --fi: var(--fi-note); }
+svg.octicon-hourglass { --fi: var(--fi-hourglass); }
+svg.octicon-no-entry, svg.octicon-circle-slash { --fi: var(--fi-prohibited); }
+svg.octicon-device-camera { --fi: var(--fi-camera); }
+svg.octicon-columns { --fi: var(--fi-column-triple); }
+svg.octicon-arrow-clockwise { --fi: var(--fi-arrow-clockwise); }
+svg.lucide-more-vertical, svg.lucide-ellipsis-vertical { --fi: var(--fi-more-vertical); }
+svg.lucide-folder-open { --fi: var(--fi-folder-open); }
+svg.lucide-hard-drive { --fi: var(--fi-hard-drive); }
+svg.lucide-thumbs-down { --fi: var(--fi-thumb-dislike); }
+svg.lucide-languages { --fi: var(--fi-translate); }
+svg.lucide-award { --fi: var(--fi-ribbon); }
+svg.lucide-gamepad-2, svg.lucide-gamepad2 { --fi: var(--fi-games); }
+svg.lucide-equal { --fi: var(--fi-equal-circle); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-home { --fi: var(--fi-home-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-apps { --fi: var(--fi-apps-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-book { --fi: var(--fi-library-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-download { --fi: var(--fi-arrow-download-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-gear { --fi: var(--fi-settings-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-link { --fi: var(--fi-link-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-bell { --fi: var(--fi-alert-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-play { --fi: var(--fi-play-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-cloud { --fi: var(--fi-cloud-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-video { --fi: var(--fi-video-f); }
+:is(.sidebar__menu-item--active, .settings__sidebar-button--active) svg.octicon-shield-check { --fi: var(--fi-shield-checkmark-f); }
+.settings__sidebar-button--active svg.lucide-gamepad-2 { --fi: var(--fi-games-f); }
+.settings__sidebar-button--active svg.lucide-wrench { --fi: var(--fi-wrench-f); }
+/* Fim dos ícones Fluent */
+
+/* Prefixadas para não colidir com as animações do próprio Hydra. */
+@keyframes mica-indicator { from { transform: scaleY(0); } }
+@keyframes mica-shimmer { to { transform: translateX(100%); } }
+@keyframes mica-indeterminate { from { background-position: -40% bottom; } to { background-position: 140% bottom; } }
+@keyframes mica-flyout { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes mica-dialog { from { opacity: 0; transform: scale(1.05); } }
+@keyframes mica-dialog-out { to { opacity: 0; transform: scale(1.05); } }

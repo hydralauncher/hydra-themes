@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap");
+
+:root {
+  --theme-rgb-background-color: 24, 25, 22;
+  --theme-rgb-text-color: 170, 255, 128;
+  --theme-rgb-glow: 182, 255, 153;
+  --theme-rgb-active-bg: 170, 255, 128;
+  --theme-rgb-active-text: 24, 25, 22;
+  --theme-rgb-scanline: 139, 142, 133;
+  --theme-opacity: 0.9;
+  --theme-opacity-glow: 0.7;
+}
+
+#root::before, .modal::before, body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    repeating-linear-gradient(180deg, rgba(var(--theme-rgb-scanline),0.3) 0px, rgba(var(--theme-rgb-scanline),0.2) 4px, transparent 4px, transparent 8px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(var(--theme-rgb-scanline),0.08) 3px, rgba(var(--theme-rgb-scanline),0.08) 5px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(var(--theme-rgb-scanline),0.06) 1px, rgba(var(--theme-rgb-scanline),0.06) 2px),
+    radial-gradient(ellipse at 50% 0%, rgba(0,0,0,.1), transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,0,0,.1), transparent 50%);
+  background-size: 100% 800%, 100% 8px, 4px 100%, 100% 100%, 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: .7;
+  animation: scanlines 24s linear infinite;
+}
+
+@keyframes scanlines { 0% { background-position-y: 800%, 0, 0, 0, 0; } 100% { background-position-y: 0, 0, 0, 0, 0; } }
+
+#root::after, .modal::after, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(90deg, transparent, rgba(0,255,0,.03), transparent), rgba(139,142,133,.06);
+  animation: flicker .12s infinite alternate;
+  mix-blend-mode: screen;
+}
+
+@keyframes flicker { 0%,100%{opacity:.9} 10%{opacity:.8} 20%{opacity:.9} 30%{opacity:.8} 50%{opacity:1} 90%{opacity:.9} }
+@keyframes crt-glow { 0%,100%{text-shadow:0 0 5px rgba(var(--theme-rgb-glow),.4)} 50%{text-shadow:0 0 12px rgba(var(--theme-rgb-glow),.7), 0 0 20px rgba(var(--theme-rgb-glow),.3)} }
+
+* { border-radius:0 !important;}
+
+body, .modal, .sidebar, .header, .container__content { background:rgb(var(--theme-rgb-background-color))!important; }
+
+.modal, .sidebar, .header, .container__content, .game-details__description-container,
+.achievement-panel, .achievements__list, .library-view-options__option, .title-bar {
+  font-family:"Share Tech Mono",monospace;
+  box-shadow:inset 0 0 20px rgba(0,0,0,.6),0 0 30px rgba(0,0,0,.8);
+}
+
+.header h1, .header__title, .title-bar { font-family:"Orbitron",monospace!important; font-weight:900; letter-spacing:1px; }
+
+.modal *, .sidebar *, .header *, .container__content *, .button, .text-field-container__text-field-input,
+.header__search-input, .select-field__option, .library-view-options__option, .achievements__item,
+.filter-item, .badge, .sidebar__menu-item, .game-item__title, .library-game-card__achievement-percentage {
+  color:rgba(var(--theme-rgb-text-color),var(--theme-opacity))!important;
+  text-shadow:0 0 4px rgba(var(--theme-rgb-glow),var(--theme-opacity-glow));
+}
+
+.sidebar .sidebar__menu-item--active, .sidebar .sidebar__menu-item--active *,
+.sidebar .sidebar__menu-item[aria-current="page"], .sidebar .sidebar__menu-item[aria-current="page"] *,
+.library-view-options__option.active, .library-view-options__option.active *,
+.library-view-options__option[aria-selected="true"], .library-view-options__option[aria-selected="true"] *,
+.button--primary, .button--primary *, .button[aria-pressed="true"], .button[aria-pressed="true"] * {
+  background:rgba(var(--theme-rgb-active-bg),0.95)!important;
+  color:rgb(var(--theme-rgb-active-text))!important;
+  text-shadow:0 0 10px rgba(var(--theme-rgb-glow),.9)!important;
+  animation:crt-glow 1.5s infinite ease-in-out;
+}
+
+.button:hover, .button:hover *, .sidebar .sidebar__menu-item:hover, .sidebar .sidebar__menu-item:hover *,
+.library-view-options__option:hover, .library-view-options__option:hover *,
+.game-item:hover, .game-item:hover *, .filter-item:hover, .filter-item:hover *,
+.achievements__item:hover, .achievements__item:hover * {
+  background:rgba(var(--theme-rgb-text-color),1)!important;
+  color:rgb(var(--theme-rgb-active-text))!important;
+  text-shadow:0 0 12px rgba(var(--theme-rgb-glow),.9)!important;
+}
+
+.button, .text-field-container__text-field, .header__search, .library-view-options__option,
+.game-item, .filter-item, .badge, .user-stats__box, .recent-games__box, .friends-box__box {
+  border:1px solid rgba(var(--theme-rgb-text-color),var(--theme-opacity))!important;
+}
+
+::-webkit-scrollbar { width:6px !important; height:6px !important; }
+::-webkit-scrollbar-track { background:transparent !important; }
+::-webkit-scrollbar-thumb {
+  background:rgba(var(--theme-rgb-text-color),0.9) !important;
+  border:none !important;
+  box-shadow:0 0 8px rgba(var(--theme-rgb-glow),0.8) !important;
+}
+::-webkit-scrollbar-thumb:hover { background:rgba(var(--theme-rgb-glow),1) !important; }
+::-webkit-scrollbar-corner { background:transparent !important; }
+
+progress,
+input[type="range"],
+.settings-general__volume-slider,
+.download-group__progress-fill,
+.download-group__simple-progress progress,
+.library-game-card__achievement-bar,
+.library-game-card__achievement-progress {
+  -webkit-appearance:none !important;
+  appearance:none !important;
+  background:rgba(0,0,0,0.6) !important;
+  border:1px solid rgba(var(--theme-rgb-text-color),0.7) !important;
+  box-shadow:inset 0 0 10px rgba(0,0,0,0.7) !important;
+  overflow:hidden !important;
+}
+
+progress::-webkit-progress-bar,
+input[type="range"]::-webkit-slider-runnable-track,
+.download-group__progress-fill,
+.library-game-card__achievement-bar {
+  background:rgba(0,0,0,0.6) !important;
+  border:1px solid rgba(var(--theme-rgb-text-color),0.6) !important;
+  box-shadow:inset 0 0 8px rgba(0,0,0,0.7) !important;
+}
+
+progress::-webkit-progress-value,
+.download-group__progress-fill,
+.library-game-card__achievement-progress,
+.library-game-card__achievement-bar > div[style*="width"] {
+  box-shadow:
+    0 0 12px rgba(var(--theme-rgb-glow),0.3),
+    0 0 20px rgba(var(--theme-rgb-glow),0.6) !important;
+  animation:crt-glow 2s infinite ease-in-out !important;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+.settings-general__volume-slider::-webkit-slider-thumb {
+  -webkit-appearance:none !important;
+  width:16px !important;
+  height:16px !important;
+  background:rgba(var(--theme-rgb-glow),0.98) !important;
+  border:none !important;
+  box-shadow:0 0 12px rgba(var(--theme-rgb-glow),0.9) !important;
+  cursor:pointer !important;
+}
+
+::placeholder, .user-stats__box .label, .subtext {
+  color:rgba(var(--theme-rgb-scanline),.7)!important;
+  text-shadow:none!important;
+}
+/* Achievement Popup – Hardcoded */
+.achievement-notification__outer-container {
+  background:rgba(24,25,22,0.95)!important;
+  backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+  border:1px solid rgba(170,255,128,0.9)!important;
+  box-shadow:0 0 12px rgba(182,255,153,0.6),0 4px 20px rgba(0,0,0,0.7),inset 0 1px 0 rgba(182,255,153,0.15)!important;
+  width:400px!important;max-width:90vw!important;font-family:"Share Tech Mono",monospace!important;
+  display:flex!important;
+}
+.achievement-notification__outer-container:hover { transform:translateY(-4px)!important; box-shadow:0 0 24px rgba(182,255,153,0.9),0 8px 32px rgba(0,0,0,0.85)!important; }
+.achievement-notification__icon { flex:0 0 56px;background:rgba(0,0,0,0.35)!important;border-right:1px solid rgba(170,255,128,0.5)!important; }
+.achievement-notification__icon img, .achievement-notification__icon svg { filter:drop-shadow(0 0 12px #b6ff99)!important; }
+.achievement-notification__container::before { content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:#b6ff99;box-shadow:0 0 20px #b6ff99!important; }
+.achievement-notification__title { color:#b6ff99!important;text-shadow:0 0 10px #b6ff99,0 0 20px rgba(182,255,153,0.6)!important;animation:crt-glow 2s infinite ease-in-out!important; }
+.achievement-notification__description { color:#aaff80!important;text-shadow:0 0 5px rgba(182,255,153,0.4)!important; }
+.achievement-notification__points { background:rgba(170,255,128,0.3)!important;color:#181916!important;border:1px solid rgba(182,255,153,0.8)!important;box-shadow:0 0 14px rgba(182,255,153,0.7),inset 0 0 8px rgba(0,0,0,0.5)!important;text-shadow:0 0 8px #b6ff99!important; }

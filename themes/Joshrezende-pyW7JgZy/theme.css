@@ -1,0 +1,96 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/themes.html
+
+  Happy hacking!
+*/
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: transparent;
+}
+
+body {
+    color: #9e9e9e;
+}
+
+#root {
+    background: #000;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(8px);
+}
+
+.container__content .button--outline {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.sidebar__library-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.library-group {
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.library-group__header {
+    font-size: 12px;
+    letter-spacing: .3px;
+    opacity: .85;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, .04);
+    position: sticky;
+    top: 0;
+    /* ajuda quando a sidebar rola */
+    z-index: 1;
+}
+
+.library-group__list {
+    min-height: 42px;
+    /* dropzone sempre “pegável” */
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.library-group__list.is-dragover {
+    outline: 2px dashed rgba(255, 255, 255, .25);
+    outline-offset: -6px;
+    background: rgba(255, 255, 255, .03);
+}
+
+.sidebar__menu-item-button.is-dragging {
+    opacity: .6;
+}

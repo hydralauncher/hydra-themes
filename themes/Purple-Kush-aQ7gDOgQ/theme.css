@@ -1,0 +1,160 @@
+/*
+  =====================================================
+                    ____
+                   / __ \____  ___  ____
+                  / / / / __ \/ _ \/ __ \
+                 / /_/ / /_/ /  __/ /_/ /
+                 \____/ .___/\___/\__,_/
+                      /_/
+  
+             Awesome Theme by: Doppe
+                       V0.2
+  =====================================================
+*/
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+.catalogue {
+  background: transparent;
+}
+
+/* Header */
+body {
+  background-image: url(https://github.com/Dop66/assets_background/blob/main/purple_sat.png?raw=true);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.catalogue__content {
+  background-color: rgba(53, 20, 50, 0.863);
+}
+
+.home__content {
+  /* backdrop-filter: blur(8px); */
+  background-color: rgba(15, 9, 14, 0.747);
+}
+
+.container__content .button--outline {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  background: rgba(10, 10, 10, 0.884);
+}
+
+.header,
+.sidebar,
+auto-update-sub-header,
+.auto-update-sub-header {
+  border-right: solid 0px rgba(255, 255, 255, 0.15);
+  border-bottom-width: 0px;
+}
+
+.game-details__description {
+  color: rgb(133, 133, 133);
+}
+
+.description-header {
+  height: 70px;
+}
+
+.description-header__info {
+  /* min-height: 30px; */
+  /* display: contents; */
+  text-align: center;
+}
+
+.header__search {
+  border-color: rgba(116, 45, 221, 0.637);
+}
+
+.header__search:hover {
+  border-color: rgba(176, 123, 255, 0.637);
+}
+
+.sidebar {
+  background: rgba(10, 10, 10, 0.884);
+}
+
+.sidebar__menu-item-button {
+  /* border-radius: 50px; */
+  display: inline-block;
+}
+
+.sidebar__menu-item-button:hover {
+  background-color: rgba(121, 47, 170, 0.247);
+}
+
+.octicon-home,
+.octicon-apps,
+.octicon-download,
+.octicon-gear {
+  /* display: inline-block; */
+  margin-right: 10px;
+}
+
+.profile-avatar {
+  border-radius: 20px;
+}
+
+.sidebar__menu-item {
+  display: flex;
+  text-align: left;
+}
+
+.sidebar__section-title {
+  text-align: center;
+  padding: 4px;
+  border-radius: 10px;
+  border: solid 1px rgba(115, 45, 221, 0.493);
+}
+
+.sidebar__game-icon {
+  margin-right: 10px;
+}
+
+.container__content {
+  color: rgb(157, 127, 199);
+}
+
+.bottom-panel {
+  background: rgba(116, 45, 221, 0.637);
+  border-top: solid 0px rgba(255, 255, 255, 0.15);
+}
+
+.button {
+  border-radius: 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  color: rgb(128, 77, 194);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.button--outline {
+  border-color: rgba(150, 98, 228, 0.418);
+}
+
+.settings__content {
+  border-radius: 20px;
+  border-color: #7c4f7a;
+}
+
+.repacks-modal__repack-button {
+  border-radius: 10px;
+}
+
+.modal {
+  background-color: #111111;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.text-field-container__text-field {
+  border-color: rgba(116, 45, 221, 0.637);
+}

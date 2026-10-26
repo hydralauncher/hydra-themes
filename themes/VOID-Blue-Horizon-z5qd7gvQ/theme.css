@@ -1,0 +1,407 @@
+/*
+ * ╔══════════════════════════════════════════════╗
+ * ║             VOID: BLUE HORIZON                ║
+ * ║       Dark Gaming Theme • Hudson Edition      ║
+ * ╚══════════════════════════════════════════════╝
+ */
+
+/* ========== PALETA ========== */
+
+:root {
+    color-scheme: dark;
+
+    --bg: #080b11;
+    --panel: #0b111b;
+    --surface: #111b29;
+    --surface-hover: #17283a;
+
+    --blue: #168bff;
+    --cyan: #42d9ff;
+    --blue-light: #8be7ff;
+
+    --text: #edf6ff;
+    --muted: #a4b5c9;
+
+    --border: rgba(92, 177, 255, 0.18);
+    --glow: rgba(22, 139, 255, 0.22);
+}
+
+/* ========== BASE ========== */
+
+html,
+body,
+#root {
+background-color: var(--bg);
+color: var(--text);
+}
+
+/* ========== CABEÇALHO ========== */
+
+.header {
+    background-color: rgba(7, 11, 18, 0.96);
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+/* ========== SIDEBAR ========== */
+
+.sidebar {
+    background-color: rgba(8, 13, 22, 0.97);
+    border-right: 1px solid var(--border);
+    color: var(--text);
+}
+
+/* ========== FUNDO COM PLANETA ========== */
+
+html,
+body,
+#root {
+min-height: 100%;
+background-color: #080b11;
+color: var(--text);
+}
+
+.container__content {
+    background-color: #080b11 !important;
+    background-image:
+    linear-gradient(
+        180deg,
+        rgba(5, 8, 14, 0.18) 0%,
+                    rgba(5, 8, 14, 0.38) 45%,
+                    rgba(5, 8, 14, 0.78) 100%
+    ),
+    url("https://raw.githubusercontent.com/hudson-tcc/void-blue-horizon/main/assets/hydra-bg-suave.jpg")!important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    color: var(--text);
+}
+
+.header,
+.sidebar,
+.bottom-panel {
+    background-color: rgba(8, 13, 22, 0.72) !important;
+    backdrop-filter: blur(10px);
+}
+}
+
+/* ========== PAINEL INFERIOR ========== */
+
+.bottom-panel {
+    background-color: rgba(8, 13, 22, 0.97);
+    border-top: 1px solid var(--border);
+    color: var(--text);
+}
+
+/* ========== BOTÕES ========== */
+
+.button {
+    background-color: #111d2c;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.button:hover {
+    background-color: #172b40;
+    border-color: var(--blue);
+    box-shadow: 0 0 15px var(--glow);
+}
+
+.button:active {
+    background-color: #10243a;
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+/* ========== TOASTS / NOTIFICAÇÕES ========== */
+
+.toast {
+    background-color: #101b2a;
+    color: var(--text);
+    border: 1px solid rgba(66, 217, 255, 0.28);
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== CAMPOS DE ENTRADA ========== */
+
+input,
+textarea,
+select {
+    background-color: #0d1521;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--blue);
+    outline: 2px solid rgba(22, 139, 255, 0.16);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #8296ad;
+}
+
+/* ========== LINKS ========== */
+
+a {
+    color: var(--cyan);
+    transition: color 160ms ease;
+}
+
+a:hover {
+    color: var(--blue-light);
+}
+
+/* ========== TEXTO SELECIONADO ========== */
+
+::selection {
+    background-color: rgba(22, 139, 255, 0.4);
+    color: #ffffff;
+}
+
+/* ========== SCROLLBAR ========== */
+
+* {
+    scrollbar-color: #284866 #0b111b;
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b111b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #284866;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue);
+}
+
+/* ========== ACESSIBILIDADE ========== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}/* MENUS TRANSPARENTES */
+.header,
+.sidebar,
+.bottom-panel {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Evita fundos sólidos nos contêineres dos menus */
+.sidebar *,
+.header *,
+.bottom-panel * {
+    background-color: transparent;
+}
+
+/* Mantém os botões visíveis */
+.button {
+    background-color: rgba(17, 29, 44, 0.75) !important;
+}
+
+.button:hover {
+    background-color: rgba(23, 43, 64, 0.9) !important;
+}
+
+
+/* Deixa a estrutura transparente */
+main,
+main .container,
+.header,
+.sidebar,
+.container__content,
+.bottom-panel {
+    background-color: transparent !important;
+}
+
+/* Fundo escuro translúcido nos menus */
+.sidebar {
+    background: rgba(8, 13, 22, 0.25) !important;
+}
+/* REMOVE O DESFOQUE DOS MENUS */
+.header,
+.sidebar,
+.bottom-panel {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Transparência sem desfoque */
+.sidebar {
+    background: rgba(8, 13, 22, 0.25) !important;
+}
+/* REMOVE OS FUNDOS CINZA DOS CONTÊINERES */
+.container,
+.container__content,
+main {
+    background-color: transparent !important;
+}
+
+/* Painéis e cartões comuns da interface */
+[class*="section"],
+[class*="panel"],
+[class*="content-wrapper"] {
+    background-color: transparent !important;
+}
+
+/* Preserva o fundo dos botões */
+.button,
+.button:hover,
+.button:active {
+    background-color: rgba(17, 29, 44, 0.85) !important;
+}
+/* ABA AJUSTES — REMOVE FUNDOS CINZA */
+main [class*="settings"],
+main [class*="setting"],
+main [class*="preferences"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* VOID: BLUE HORIZON — TIPOGRAFIA */
+* {
+    font-family: "Inter", "Noto Sans", sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* Textos comuns */
+p,
+span,
+label,
+a,
+button,
+input,
+select,
+textarea {
+    font-weight: 450 !important;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 550 !important;
+}
+
+/* Sombra discreta */
+p,
+span,
+label,
+a,
+button,
+input,
+select,
+textarea,
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+
+/* VOID: BLUE HORIZON — REMOVE FUNDOS CINZA DOS JOGOS */
+main [class*="game"],
+main [class*="Game"],
+main [class*="detail"],
+main [class*="Detail"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+
+/* VOID: BLUE HORIZON — TEXTO DOS JOGOS MAIS NÍTIDO */
+main [class*="game"],
+main [class*="Game"],
+main [class*="detail"],
+main [class*="Detail"] {
+    color: rgba(245, 248, 255, 0.96) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Ícones e textos internos */
+main [class*="game"] p,
+main [class*="game"] span,
+main [class*="Game"] p,
+main [class*="Game"] span,
+main [class*="detail"] p,
+main [class*="detail"] span,
+main [class*="Detail"] p,
+main [class*="Detail"] span {
+    color: rgba(245, 248, 255, 0.96) !important;
+}
+
+
+/* VOID: BLUE HORIZON — HOVER NOS MENUS */
+button,
+[role="button"],
+nav a,
+aside a,
+nav [tabindex],
+aside [tabindex] {
+    transition: transform 0.18s ease !important;
+}
+
+button:hover,
+[role="button"]:hover,
+nav a:hover,
+aside a:hover,
+nav [tabindex]:hover,
+aside [tabindex]:hover {
+    transform: scale(1.025) !important;
+}
+
+/* VOID — FUNDO COMPARTILHADO BLUE HORIZON */
+main {
+    background-color: #080b11 !important;
+    background-image:
+    linear-gradient(
+        180deg,
+        rgba(5, 8, 14, 0.18) 0%,
+                    rgba(5, 8, 14, 0.38) 45%,
+                    rgba(5, 8, 14, 0.78) 100%
+    ),
+    url("https://raw.githubusercontent.com/hudson-tcc/void-blue-horizon/main/assets/hydra-bg-suave.jpg") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+.sidebar {
+    background: rgba(8, 13, 22, 0.25) !important;
+    background-image: none !important;
+}
+/* VOID — FUNDO DA TELA DE CONQUISTAS */
+main [class*="achievement"],
+main [class*="Achievement"],
+main [class*="trophy"],
+main [class*="Trophy"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+
+

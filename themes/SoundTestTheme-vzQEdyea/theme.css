@@ -1,0 +1,29 @@
+/* Header */
+.header {
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Sidebar */
+.sidebar {
+    border-right: 1px solid #ffffff;
+}
+
+/* Main content */
+.container__content {
+    border: 1px solid #ffffff;
+}
+
+/* Bottom panel */
+.bottom-panel {
+    border-top: 1px solid #ffffff;
+}
+
+/* Toast */
+.toast {
+    border: 1px solid #ffffff;
+}
+
+/* Button */
+.button {
+    border: 1px solid #ffffff;
+}

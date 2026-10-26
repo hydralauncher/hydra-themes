@@ -256,12 +256,12 @@ body {
     width: 200px;
     align-items: center;
     border-radius: 8px;
-    border: solid 1px rgba(181,202,139, 0.61) !important
+    border: solid 1px rgba(181,202,139, 0.61) !important;
     height: 40px;
     -webkit-app-region: no-drag;
 }
 .header__search:hover {
-    border-color: rgba(181,202,139, 0.61) !important
+    border-color: rgba(181,202,139, 0.61) !important;
 }
 .header__search-input {
     background-color: transparent;

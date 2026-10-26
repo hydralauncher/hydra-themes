@@ -1,0 +1,752 @@
+/*
+  Abyss Halloween — volumetric glass theme for Hydra Launcher
+  Palette: void black → blood deep → pumpkin → ember → bright flame
+           + witch purple accents for platinum
+
+  Achievement rarities:
+    default  → pumpkin / ember glass
+    rare     → gold / amber (kept classic)
+    platinum → toxic green / witch cyan
+    hidden   → muted black-purple
+
+  Paste into Hydra: Settings → Appearance → Theme editor → Save.
+*/
+
+:root {
+  --ag-void: #0a0508;
+  --ag-abyss: #14080c;
+  --ag-deep: #1a0a0f;
+  --ag-well: #220e14;
+  --ag-mid: #9a3a12;
+  --ag-teal: #c44a18;          /* burnt orange */
+  --ag-cyan: #e85c1a;          /* pumpkin */
+  --ag-glow: #ff7a2f;          /* ember */
+  --ag-bright: #ff9a4a;        /* flame */
+  --ag-frost: #fff0e0;
+  --ag-muted: #c9a08e;
+  --ag-dim: #8a6a5a;
+  --ag-danger: #e05050;
+
+  /* rarity accents */
+  --ag-gold: #e8ad15;
+  --ag-gold-deep: #b3790d;
+  --ag-gold-glow: rgba(232, 173, 21, 0.45);
+  --ag-plat: #3dff9a;          /* toxic green */
+  --ag-plat-deep: #0a6640;
+  --ag-witch: #9b4dca;         /* purple accent */
+
+  --ag-glass: rgba(90, 30, 15, 0.46);
+  --ag-glass-strong: rgba(30, 10, 12, 0.72);
+  --ag-bevel:
+    inset 0 1px 0 rgba(255, 154, 74, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  --ag-raise:
+    0 10px 28px rgba(8, 2, 4, 0.55),
+    0 2px 6px rgba(8, 2, 4, 0.4);
+  --ag-radius: 12px;
+  --ag-radius-sm: 8px;
+}
+
+/* ========== BASE ========== */
+body,
+#root,
+.hydra-preview {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif !important;
+  color: var(--ag-frost) !important;
+  background-color: var(--ag-abyss) !important;
+  background-image:
+    radial-gradient(140% 58% at 50% 118%,
+      #ff9a4a 0%,
+      #ff7a2f 7%,
+      #e85c1a 15%,
+      #c44a18 22%,
+      #9a3a12 30%,
+      #220e14 40%,
+      transparent 52%),
+    linear-gradient(180deg, #1c0c12 0%, #14080c 58%, #0e0609 100%) !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+
+body::before,
+.hydra-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(80% 40% at 50% 100%, rgba(255, 122, 47, 0.18), transparent 60%),
+    radial-gradient(1.2px 1.2px at 20% 30%, rgba(255, 240, 224, 0.16), transparent),
+    radial-gradient(1px 1px at 70% 18%, rgba(255, 240, 224, 0.1), transparent),
+    radial-gradient(1.4px 1.4px at 82% 44%, rgba(255, 122, 47, 0.18), transparent);
+  opacity: 0.7;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+}
+
+/* ========== SCROLLBAR ========== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ag-teal) var(--ag-deep);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ag-deep);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ag-cyan), var(--ag-mid));
+  border-radius: 99px;
+  border: 2px solid var(--ag-deep);
+  box-shadow: inset 0 1px 0 rgba(255, 154, 74, 0.35);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--ag-bright), var(--ag-cyan));
+}
+
+/* ========== TITLE BAR ========== */
+.title-bar,
+.window-title-bar {
+  background: linear-gradient(180deg, rgba(120, 40, 18, 0.72), rgba(40, 12, 16, 0.85)) !important;
+  box-shadow: var(--ag-bevel), 0 8px 20px rgba(8, 2, 4, 0.35) !important;
+  border-bottom: 1px solid rgba(255, 122, 47, 0.18) !important;
+  color: var(--ag-frost) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.window-title-bar__control {
+  background: linear-gradient(180deg, rgba(232, 92, 26, 0.22), rgba(50, 15, 18, 0.55)) !important;
+  box-shadow: var(--ag-bevel) !important;
+  border: 1px solid rgba(255, 122, 47, 0.2) !important;
+  border-radius: 6px !important;
+}
+.window-title-bar__control--close:hover {
+  background: linear-gradient(180deg, #f0a0a0, #c45a5a) !important;
+  border-color: rgba(224, 80, 80, 0.55) !important;
+}
+
+/* ========== SHARED TRANSPARENT PANELS ========== */
+.header,
+.sidebar,
+.bottom-panel,
+.container__content,
+.settings__content,
+.catalogue__filters-container,
+.content-sidebar,
+.hero-panel,
+.game-details__description-container,
+.game-details__description-content,
+.description-header {
+  background: transparent !important;
+  border-color: rgba(255, 122, 47, 0.16) !important;
+}
+
+/* ========== HEADER ========== */
+.header {
+  background: linear-gradient(180deg, rgba(110, 35, 16, 0.58), rgba(40, 12, 16, 0.45)) !important;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.18),
+    0 10px 24px rgba(8, 2, 4, 0.28) !important;
+  border-bottom: 1px solid rgba(255, 122, 47, 0.14) !important;
+  color: var(--ag-frost) !important;
+}
+
+.header__title {
+  color: var(--ag-frost) !important;
+  letter-spacing: -0.02em;
+  font-weight: 600 !important;
+}
+
+.header__search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search-input {
+  background: linear-gradient(180deg, rgba(25, 8, 10, 0.88), rgba(50, 18, 20, 0.58)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.18) !important;
+  border-radius: var(--ag-radius-sm) !important;
+  color: var(--ag-frost) !important;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 154, 74, 0.08) !important;
+}
+.header__search:focus-within,
+.header__search--focused,
+.text-field-container__text-field--dark:focus,
+.text-field-container__text-field--primary:focus,
+.header__search-input:focus {
+  border-color: rgba(255, 122, 47, 0.55) !important;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.45),
+    0 0 0 3px rgba(255, 122, 47, 0.2),
+    0 0 18px rgba(255, 122, 47, 0.18) !important;
+}
+
+.header__action-button,
+.header__back-button {
+  background: linear-gradient(180deg, rgba(180, 60, 20, 0.32), rgba(50, 15, 18, 0.55)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.2) !important;
+  box-shadow: var(--ag-bevel) !important;
+  color: var(--ag-frost) !important;
+  border-radius: var(--ag-radius-sm) !important;
+}
+.header__action-button:hover,
+.header__back-button--enabled:hover {
+  border-color: rgba(255, 122, 47, 0.5) !important;
+  background: linear-gradient(180deg, rgba(232, 92, 26, 0.38), rgba(70, 22, 18, 0.6)) !important;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  background: linear-gradient(180deg, rgba(50, 18, 20, 0.65), rgba(20, 8, 10, 0.8)) !important;
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  box-shadow:
+    inset -1px 0 0 rgba(255, 122, 47, 0.14),
+    inset 0 1px 0 rgba(255, 154, 74, 0.12),
+    12px 0 32px rgba(8, 2, 4, 0.32) !important;
+  color: var(--ag-frost) !important;
+}
+
+.sidebar__handle {
+  background: linear-gradient(180deg, var(--ag-cyan), var(--ag-mid)) !important;
+  width: 4px !important;
+  border-radius: 99px !important;
+  box-shadow: 0 0 10px rgba(255, 122, 47, 0.5) !important;
+}
+
+.sidebar__section-title,
+.sidebar-section__button,
+.home__content > h2 {
+  color: var(--ag-muted) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+.sidebar__menu-item,
+.sidebar__menu-item-button {
+  color: var(--ag-frost) !important;
+  border-radius: var(--ag-radius-sm) !important;
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s, background 0.18s;
+}
+.sidebar__menu-item:hover,
+.sidebar__menu-item-button:hover {
+  background: linear-gradient(180deg, rgba(180, 60, 20, 0.32), rgba(50, 15, 18, 0.45)) !important;
+  box-shadow: var(--ag-bevel) !important;
+}
+.sidebar__menu-item--active,
+.sidebar__menu-item--active .sidebar__menu-item-button {
+  background: linear-gradient(90deg, rgba(255, 122, 47, 0.25), rgba(255, 122, 47, 0.05)) !important;
+  box-shadow:
+    inset 3px 0 0 var(--ag-glow),
+    inset 0 1px 0 rgba(255, 154, 74, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35) !important;
+  color: var(--ag-bright) !important;
+}
+
+.sidebar-profile,
+.sidebar-profile__button {
+  background: linear-gradient(180deg, rgba(140, 45, 18, 0.4), rgba(35, 12, 14, 0.6)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.18) !important;
+  border-radius: var(--ag-radius) !important;
+  box-shadow: var(--ag-bevel), var(--ag-raise) !important;
+}
+
+/* ========== BOTTOM PANEL ========== */
+.bottom-panel {
+  background: linear-gradient(180deg, rgba(110, 35, 16, 0.55), rgba(20, 8, 10, 0.8)) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-top: 1px solid rgba(255, 122, 47, 0.18) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.2),
+    0 -10px 24px rgba(8, 2, 4, 0.32) !important;
+  color: var(--ag-muted) !important;
+}
+.bottom-panel__version-button,
+.bottom-panel__downloads-button,
+.bottom-panel__help-button {
+  color: var(--ag-frost) !important;
+}
+
+/* ========== BUTTONS ========== */
+.button,
+.container__content .button--outline {
+  background: linear-gradient(180deg, rgba(180, 60, 20, 0.35), rgba(45, 14, 16, 0.72)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.25) !important;
+  color: var(--ag-frost) !important;
+  border-radius: var(--ag-radius-sm) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+    0 6px 14px rgba(8, 2, 4, 0.32) !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.16s, filter 0.16s;
+}
+.button:hover,
+.container__content .button--outline:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 122, 47, 0.5) !important;
+  filter: brightness(1.08);
+}
+.button:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 154, 74, 0.12) !important;
+}
+
+.button--primary {
+  background: linear-gradient(180deg, #ff9a4a 0%, #e85c1a 52%, #c44a18 100%) !important;
+  color: var(--ag-void) !important;
+  border: 1px solid rgba(255, 240, 224, 0.28) !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(40, 12, 10, 0.35),
+    0 8px 22px rgba(255, 122, 47, 0.35) !important;
+  font-weight: 600 !important;
+}
+.button--primary:hover {
+  filter: brightness(1.06);
+}
+.button--danger {
+  background: linear-gradient(180deg, #f0a0a0, #c45a5a) !important;
+  color: #2a0c0c !important;
+  border-color: rgba(224, 80, 80, 0.45) !important;
+}
+
+/* ========== MAIN CONTENT ========== */
+.home__content,
+.catalogue,
+.game-details__container {
+  color: var(--ag-frost) !important;
+}
+
+.hero,
+.hero-panel {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 122, 47, 0.2) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.22),
+    inset 0 -40px 80px rgba(20, 6, 8, 0.6),
+    0 18px 40px rgba(8, 2, 4, 0.5) !important;
+  background: linear-gradient(180deg, rgba(100, 35, 18, 0.32), rgba(25, 8, 10, 0.6)) !important;
+}
+
+.hero-panel-actions__separator,
+.download-group__header-divider,
+.dropdown-menu__separator {
+  background: linear-gradient(90deg, transparent, rgba(255, 122, 47, 0.4), transparent) !important;
+  height: 1px !important;
+  border: none !important;
+}
+
+/* ========== CARDS ========== */
+.game-card,
+.vertical-cover-card {
+  background: linear-gradient(180deg, rgba(130, 45, 20, 0.4), rgba(30, 10, 12, 0.8)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.18) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    0 12px 28px rgba(8, 2, 4, 0.45) !important;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s, border-color 0.24s;
+}
+.game-card:hover,
+.vertical-cover-card:hover {
+  transform: translateY(-7px) rotateX(3deg) scale(1.02);
+  border-color: rgba(255, 122, 47, 0.5) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.32),
+    0 22px 44px rgba(8, 2, 4, 0.6),
+    0 0 0 1px rgba(255, 122, 47, 0.2),
+    0 0 28px rgba(255, 122, 47, 0.15) !important;
+}
+.game-card__title,
+.game-card__title-container {
+  color: var(--ag-frost) !important;
+}
+.game-card__cover,
+.game-card__backdrop {
+  box-shadow: inset 0 -40px 40px rgba(20, 6, 8, 0.5);
+}
+
+.game-item,
+.download-group__item,
+.settings-download-sources__item,
+.user-stats__box,
+.recent-games__box,
+.friends-box__box,
+.theme-card,
+.achievement-panel,
+.modal__content,
+.dropdown-menu__content,
+.repacks-modal__repack-title {
+  background: linear-gradient(180deg, rgba(120, 42, 18, 0.42), rgba(30, 10, 12, 0.75)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.18) !important;
+  border-radius: var(--ag-radius) !important;
+  color: var(--ag-frost) !important;
+  box-shadow: var(--ag-bevel), var(--ag-raise) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+.game-item {
+  margin-bottom: 10px;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s;
+}
+.game-item:hover {
+  transform: translateX(4px);
+  border-color: rgba(255, 122, 47, 0.45) !important;
+}
+
+.theme-card--active {
+  border-color: rgba(255, 122, 47, 0.55) !important;
+  box-shadow:
+    var(--ag-bevel),
+    0 0 0 1px rgba(255, 122, 47, 0.28),
+    0 12px 32px rgba(255, 122, 47, 0.15) !important;
+}
+
+/* ========== MODALS ========== */
+.modal,
+.modal__header,
+.modal__content {
+  background: linear-gradient(180deg, rgba(90, 30, 18, 0.9), rgba(20, 8, 10, 0.95)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.22) !important;
+  box-shadow:
+    var(--ag-bevel),
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 122, 47, 0.1) !important;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  color: var(--ag-frost) !important;
+}
+
+.toast {
+  background: linear-gradient(180deg, rgba(130, 45, 20, 0.88), rgba(30, 10, 12, 0.94)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.3) !important;
+  color: var(--ag-frost) !important;
+  border-radius: var(--ag-radius) !important;
+  box-shadow:
+    var(--ag-bevel),
+    0 16px 40px rgba(8, 2, 4, 0.55),
+    0 0 24px rgba(255, 122, 47, 0.15) !important;
+  backdrop-filter: blur(18px);
+}
+
+.profile-hero__content-box,
+.profile-hero__hero-panel--transparent,
+.achievements__list {
+  background: linear-gradient(180deg, rgba(100, 35, 18, 0.45), rgba(25, 8, 10, 0.72)) !important;
+  border: 1px solid rgba(255, 122, 47, 0.18) !important;
+  box-shadow: var(--ag-bevel) !important;
+}
+
+/* ========== BADGES / PROGRESS ========== */
+.badge,
+.sidebar__game-badge,
+.game-item__repackers > *,
+.how-long-to-beat__category-label {
+  background: linear-gradient(180deg, rgba(255, 122, 47, 0.25), rgba(154, 58, 18, 0.4)) !important;
+  color: var(--ag-bright) !important;
+  border: 1px solid rgba(255, 122, 47, 0.3) !important;
+  border-radius: 999px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 154, 74, 0.3) !important;
+}
+
+.progress-bar,
+.achievement-progress {
+  background: rgba(20, 8, 10, 0.75) !important;
+  border-radius: 99px !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.55) !important;
+  overflow: hidden !important;
+}
+.progress-bar > *,
+.progress-bar__fill,
+.achievement-progress__fill {
+  background: linear-gradient(90deg, var(--ag-mid), var(--ag-cyan), var(--ag-bright)) !important;
+  box-shadow: 0 0 12px rgba(255, 122, 47, 0.55) !important;
+}
+
+.link,
+a {
+  color: var(--ag-glow) !important;
+}
+.link:hover,
+a:hover {
+  color: var(--ag-bright) !important;
+}
+
+.sidebar__game-icon,
+.sidebar__collection-icon {
+  border-radius: 6px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.45) !important;
+}
+
+select,
+input,
+textarea {
+  color: var(--ag-frost) !important;
+}
+
+::selection {
+  background: rgba(255, 122, 47, 0.4);
+  color: var(--ag-frost);
+}
+
+/* ========== ACHIEVEMENT NOTIFICATIONS ========== */
+.achievement-notification__outer-container {
+  background: rgba(30, 10, 12, 0.58) !important;
+  backdrop-filter: blur(18px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+  border: 1px solid rgba(255, 122, 47, 0.3) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 154, 74, 0.22),
+    0 18px 40px rgba(8, 2, 4, 0.55),
+    0 0 28px rgba(255, 122, 47, 0.16) !important;
+  overflow: hidden !important;
+}
+
+.achievement-notification__container {
+  background: linear-gradient(
+    180deg,
+    rgba(140, 50, 20, 0.8),
+    rgba(45, 15, 16, 0.9)
+  ) !important;
+  border-radius: 14px !important;
+  color: var(--ag-frost) !important;
+}
+
+.achievement-notification__title {
+  color: var(--ag-bright) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.achievement-notification__description {
+  color: var(--ag-frost) !important;
+  opacity: 0.92;
+}
+
+.achievement-notification__icon {
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 122, 47, 0.3) !important;
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 154, 74, 0.15) !important;
+}
+
+/* Points chip — default pumpkin (light text matching notification body) */
+.achievement-notification__chip,
+.achievement-notification .achievement-notification__chip {
+  background: linear-gradient(160deg, #c44a18 0%, #9a3a12 50%, #6b2810 100%) !important;
+  border: 1px solid rgba(255, 154, 74, 0.45) !important;
+  border-radius: 999px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 180, 100, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 0 14px rgba(255, 122, 47, 0.3) !important;
+  color: var(--ag-frost) !important;
+}
+
+.achievement-notification__chip__label,
+.achievement-notification .achievement-notification__chip__label {
+  color: var(--ag-frost) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.achievement-notification__chip__icon path,
+.achievement-notification .achievement-notification__chip__icon path {
+  fill: var(--ag-frost) !important;
+}
+
+/* ----- RARE (gold / amber) ----- */
+.achievement-notification--rare .achievement-notification__outer-container {
+  border-color: rgba(232, 173, 21, 0.5) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 120, 0.28),
+    0 18px 40px rgba(8, 2, 4, 0.55),
+    0 0 32px var(--ag-gold-glow) !important;
+}
+
+.achievement-notification--rare .achievement-notification__container {
+  background: linear-gradient(
+    180deg,
+    rgba(100, 65, 12, 0.78),
+    rgba(45, 28, 6, 0.92)
+  ) !important;
+}
+
+.achievement-notification--rare .achievement-notification__title {
+  color: #ffe08a !important;
+  text-shadow: 0 0 12px rgba(232, 173, 21, 0.5);
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+  outline: 1px solid var(--ag-gold) !important;
+  border-color: rgba(232, 173, 21, 0.6) !important;
+  box-shadow:
+    0 0 16px var(--ag-gold-glow),
+    0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip,
+.achievement-notification--rare .achievement-notification .achievement-notification__chip {
+  background: linear-gradient(
+    160deg,
+    #e8ad15 0%,
+    #d5900f 28%,
+    #ecbe1a 50%,
+    #b3790d 78%,
+    #66470a 100%
+  ) !important;
+  border: 1px solid rgba(255, 220, 120, 0.6) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 0 16px var(--ag-gold-glow) !important;
+  color: #fff !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip__label,
+.achievement-notification--rare .achievement-notification .achievement-notification__chip__label {
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+.achievement-notification--rare .achievement-notification__chip__icon path,
+.achievement-notification--rare .achievement-notification .achievement-notification__chip__icon path {
+  fill: #fff !important;
+}
+
+/* ----- PLATINUM (toxic green) ----- */
+.achievement-notification--platinum .achievement-notification__outer-container {
+  border-color: rgba(61, 255, 154, 0.5) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(61, 255, 154, 0.28),
+    0 18px 40px rgba(8, 2, 4, 0.55),
+    0 0 36px rgba(61, 255, 154, 0.3) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__container {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 90, 55, 0.82),
+    rgba(8, 40, 28, 0.92)
+  ) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__title {
+  color: #7dffc0 !important;
+  text-shadow: 0 0 14px rgba(61, 255, 154, 0.45);
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  outline: 1px solid var(--ag-plat) !important;
+  border-color: rgba(61, 255, 154, 0.55) !important;
+  box-shadow:
+    0 0 18px rgba(61, 255, 154, 0.4),
+    0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+  background: linear-gradient(
+    160deg,
+    #3dff9a 0%,
+    #1fd87a 28%,
+    #4dffb0 50%,
+    #12a060 78%,
+    #0a6640 100%
+  ) !important;
+  border-color: rgba(61, 255, 154, 0.55) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 16px rgba(61, 255, 154, 0.35) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip__label {
+  color: #0a1a12 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.achievement-notification--platinum .achievement-notification__chip__icon path {
+  fill: #0a1a12 !important;
+}
+
+/* ----- HIDDEN (muted black-purple) ----- */
+.achievement-notification--hidden .achievement-notification__outer-container {
+  border-color: rgba(120, 70, 140, 0.35) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(155, 77, 202, 0.12),
+    0 18px 40px rgba(8, 2, 4, 0.55),
+    0 0 20px rgba(60, 20, 80, 0.25) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__container {
+  background: linear-gradient(
+    180deg,
+    rgba(50, 25, 60, 0.72),
+    rgba(25, 10, 30, 0.9)
+  ) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__title {
+  color: #c4a0d8 !important;
+}
+
+.achievement-notification--hidden .achievement-notification__icon {
+  border-color: rgba(120, 70, 140, 0.4) !important;
+  filter: brightness(0.85);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__chip {
+  background: linear-gradient(180deg, rgba(100, 50, 130, 0.7), rgba(45, 20, 55, 0.85)) !important;
+  border-color: rgba(155, 77, 202, 0.35) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(200, 160, 230, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__chip__label {
+  color: var(--ag-frost) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__chip__icon path {
+  fill: var(--ag-frost) !important;
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .game-card,
+  .vertical-cover-card,
+  .game-item,
+  .button,
+  .sidebar__menu-item {
+    transition: none !important;
+    transform: none !important;
+  }
+}

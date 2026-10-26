@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap');
+
+:root {
+    --primary-orange: #ff7a00;
+    --dark-bg: #0b0b0b;
+    --text-color: #ffffff;
+    --border-color: rgba(255, 122, 0, 0.3);
+    --glow-orange: #ff7a00;
+}
+
+body {
+    font-family: 'Antonio', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    letter-spacing: 1px;
+}
+
+#root {
+    background: url(https://i.imgur.com/UpHCquR.png) no-repeat center / cover;
+    background-attachment: fixed;
+}
+
+.sidebar {
+  border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+    background: transparent;
+     background-color: rgba(0, 0, 0, 0.7);
+ }
+.header {
+   border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+    background: transparent;
+     background-color: rgba(0, 0, 0, 0.7);
+}
+.container__content {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+}
+.bottom-panel {
+    backdrop-filter: blur(8px);
+    background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+   border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+}
+
+.container__content .button--outline {
+    background: linear-gradient(135deg, #ff7a00 0%, #b34600 100%);
+    color: #ffffff;
+    padding: 8px 20px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--glow-orange);
+}
+
+.container__content .button--outline:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--glow-orange);
+}
+
+.container__content .button--outline:focus,
+.container__content .button--outline:active {
+    background: linear-gradient(135deg, #ff7a00 0%, #b34600 100%);
+    box-shadow: 0 0 20px var(--glow-orange);
+    transform: translateY(0);
+    outline: none;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 122, 0, 0.2);
+    border-radius: 10px;
+}
+
+.sidebar a,
+.header a {
+    color: var(--text-color);
+    transition: 0.3s;
+}
+.sidebar a:hover,
+.header a:hover {
+    color: var(--primary-orange);
+    text-shadow: 0 0 5px var(--glow-orange);
+}
+
+input, textarea {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 122, 0, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-orange);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.title-bar h4 {
+    visibility: hidden;
+}
+
+.title-bar::after {
+    content: "HYDRA LAUNCHER X LUNA BALA THEME";
+    margin-left: -40px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-orange);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0% {
+        opacity: 0.8;
+        text-shadow: 0 0 5px var(--glow-orange), 0 0 10px var(--glow-orange);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--glow-orange), 0 0 20px var(--glow-orange);
+    }
+    100% {
+        opacity: 0.8;
+        text-shadow: 0 0 5px var(--glow-orange), 0 0 10px var(--glow-orange);
+    }
+}

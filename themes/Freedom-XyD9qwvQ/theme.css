@@ -1,0 +1,91 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/themes.html
+
+  Happy hacking!
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+#root{
+    background-image:url('https://images.steamusercontent.com/ugc/2502394419258491679/4D455E8FE7737FAFF87A7C10B011305869C2FC67/');
+    background-attachment:fixed;
+    background-position:center top;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-color: #1b2838; 
+
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+
+    --theme-color:255, 0, 0;
+    --theme2-color:RED;
+    --theme3-color:cyan;
+    --theme4-color:white;
+}
+
+div.title-bar{
+  color: white;
+  background-color:rgba(var(--theme-color), 0.1);
+  font-weight: bold;
+
+}
+
+/* Header */
+.header {background-color:rgba(0, 0, 0,0.1);}
+
+/* Sidebar */
+.sidebar {background-color:rgba(0, 0, 0,0.1);}
+div.sidebar-profile {background-color:rgba(0, 0, 0,0.25);}
+
+/* Main content */
+.container__content {}
+
+/* Bottom panel */
+.bottom-panel {background-color:rgba(0, 0, 0,0.1);}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
+.button:hover{border:1px double var(--theme3-color);}
+
+ul.sidebar__menu{ 
+  border-left:3px dotted var(--theme2-color);
+  transform:translateX(-3px);
+}
+
+li.sidebar__menu-item{
+  background-color:rgba(var(--theme-color), 0.1);
+  transform:translateX(1px);
+  border-radius:0px;
+}
+li.sidebar__menu-item:hover{
+  transform:translateX(4px);
+  border-radius:0px;
+}
+
+li.sidebar__menu-item.sidebar__menu-item{}
+li.sidebar__menu-item.sidebar__menu-item--active{
+  background-color:var(--theme2-color); 
+  border-radius:0px;
+  transform:translateX(0px);
+}
+li.sidebar__menu-item.sidebar__menu-item--active button.sidebar__menu-item-button{
+  transform:translateX(4px);
+  transition:0.5s;
+  font-weight: bold;
+  border-top:1px solid white;
+
+}
+
+li.sidebar__menu-item.sidebar__menu-item--active button.sidebar__menu-item-button span.sidebar__game-badge{
+  transform:translateX(-4px);
+}
+
+button.library-game-card__wrapper:hover{border:1px solid var(--theme3-color);}

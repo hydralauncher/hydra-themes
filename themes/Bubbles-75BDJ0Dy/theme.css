@@ -1,0 +1,151 @@
+/* Header */
+.header {}
+
+/* Sidebar */
+.sidebar {}
+
+/* Main content */
+.container__content {}
+
+/* Bottom panel */
+.bottom-panel {}
+
+/* Toast */
+.toast {}
+
+/* Button */
+.button {}
+
+body {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+#root {
+    background:
+        radial-gradient(circle at 20% 30%, #ffff99 0%, transparent 15%),
+        radial-gradient(circle at 40% 20%, #fedc4c 0%, transparent 15%),
+        radial-gradient(circle at 70% 25%, #e6a400 0%, transparent 20%),
+        radial-gradient(circle at 60% 60%, #fedc4c 0%, transparent 15%),
+        radial-gradient(circle at 80% 70%, #ffff99 0%, transparent 10%),
+        linear-gradient(to bottom, #1b2f5b, #272435);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+    background: transparent !important;
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+    background-color: rgba(31, 39, 63, 0.3) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Botões */
+.button,
+.container__content .button--outline {
+    background-color: rgba(43, 58, 103, 0.35);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.container__content .button--outline:hover {
+    background-color: #8378d5;
+}
+
+/* Rodapé */
+.bottom-panel::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to top, #0f111a, transparent);
+    clip-path: polygon(0% 100%, 10% 80%, 25% 90%, 40% 70%, 60% 85%, 75% 65%, 90% 90%, 100% 75%, 100% 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: swirl 14s linear infinite;
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 80%);
+    border-radius: 50%;
+    animation: pulse 6s ease-in-out infinite;
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes swirl {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.15);
+    }
+}
+
+/* Achievement Modal (Title within notification) */
+.achievement-notification__title {
+    color: var(--text-on-light);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1px;
+    font-size: 1em;
+    text-shadow: 0 2px 6px var(--achiev-title-shadow-color), 0 1px 2px rgba(0, 0, 0, 0.15);
+}

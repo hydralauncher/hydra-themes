@@ -1,0 +1,129 @@
+/* my hydra theme - dark liquid glass */
+
+/* wallpaper behind everything */
+#root {
+  background: url('https://i.imgur.com/yjhLwph.jpeg') #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* get rid of the default solid panels so the wallpaper shows through */
+.sidebar, .header, .container__content, .bottom-panel, .title-bar {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* glass panels everywhere - sidebar, settings, catalogue, friends, downloads etc */
+.sidebar,
+.header,
+.bottom-panel,
+.settings__content,
+.settings-context-panel,
+.theme-card,
+.header__search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.select-field,
+.game-item,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.settings-download-sources__item,
+.download-group__item {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12),
+              inset 0 0 20px rgba(255, 255, 255, 0.02),
+              0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* little light streak across the glass, makes it feel less flat */
+.sidebar::before,
+.header::before,
+.settings__content::before,
+.theme-card::before,
+.game-item::before,
+.friends-box__box::before,
+.user-stats__box::before,
+.recent-games__box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+    rgba(255,255,255,0.06) 0%,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,0) 70%,
+    rgba(255,255,255,0.03) 100%);
+  pointer-events: none;
+  border-radius: 18px;
+}
+
+/* sidebar game list */
+.sidebar__menu-item-button {
+  border-radius: 12px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sidebar__menu-item-button:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+.sidebar__menu-item--active .sidebar__menu-item-button {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* buttons */
+.button {
+  border-radius: 12px !important;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+.button--primary {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #fff !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.button--outline, .container__content .button--outline {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #e8e8ee !important;
+  backdrop-filter: blur(8px);
+}
+.button--outline:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.button--danger {
+  background-color: rgba(255, 69, 58, 0.18) !important;
+  border: 1px solid rgba(255, 69, 58, 0.3) !important;
+  color: #ff9a94 !important;
+}
+
+/* text colors */
+body { color: #e6e6ec; }
+.sidebar-profile__button-title, .settings-context-panel h3 { color: #fff; }
+.bottom-panel__version-button small { color: rgba(230, 230, 236, 0.55); }
+
+/* highlight the theme that's currently active */
+.theme-card--active {
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+              0 0 0 1px rgba(255, 255, 255, 0.1),
+              0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* scrollbar to match the theme, default one looks bad */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}

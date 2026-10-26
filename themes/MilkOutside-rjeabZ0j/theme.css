@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --milk-bg:        #0a0608;
+    --milk-surface:   #100a0e;
+    --milk-panel:     #080407;
+    --milk-border:    #2a1018;
+    --milk-text:      #8a4a4a;
+    --milk-muted:     #3d1a22;
+    --milk-accent:    #c0392b;
+    --milk-highlight: #d4504a;
+    --milk-teal:      #2d8a7a;
+    --milk-glow:      rgba(192, 57, 43, 0.08);
+}
+
+* {
+    font-family: 'Share Tech Mono', 'Courier New', monospace !important;
+    letter-spacing: 0.02em;
+}
+
+body {
+    background-color: var(--milk-bg) !important;
+    color: var(--milk-text) !important;
+}
+
+#root {
+    background: url('https://files.catbox.moe/kbgm9z.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+.sidebar {
+    background-color: rgba(8, 4, 7, 0.55) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-right: 1px solid var(--milk-border) !important;
+}
+
+.header {
+    background-color: rgba(8, 4, 7, 0.55) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--milk-border) !important;
+}
+
+.bottom-panel {
+    background-color: rgba(8, 4, 7, 0.55) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid var(--milk-border) !important;
+}
+
+.container__content {
+    background-color: transparent !important;
+}
+
+.sidebar__section-title {
+    color: var(--milk-muted) !important;
+    font-size: 10px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+}
+
+.sidebar__item {
+    color: var(--milk-text) !important;
+    border-radius: 2px !important;
+    transition: background 0.15s ease;
+}
+
+.sidebar__item:hover {
+    background-color: rgba(192, 57, 43, 0.06) !important;
+    color: var(--milk-highlight) !important;
+}
+
+.sidebar__item--active {
+    background-color: rgba(192, 57, 43, 0.1) !important;
+    color: var(--milk-highlight) !important;
+    border-left: 2px solid var(--milk-accent) !important;
+}
+
+.header__search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary {
+    background-color: rgba(16, 10, 14, 0.7) !important;
+    border: 1px solid var(--milk-border) !important;
+    color: var(--milk-text) !important;
+    border-radius: 2px !important;
+}
+
+.header__search:focus,
+.text-field-container__text-field--dark:focus,
+.text-field-container__text-field--primary:focus {
+    border-color: var(--milk-accent) !important;
+    box-shadow: 0 0 0 2px var(--milk-glow) !important;
+    outline: none !important;
+}
+
+.header__search::placeholder {
+    color: var(--milk-muted) !important;
+}
+
+.game-item {
+    background-color: rgba(16, 10, 14, 0.6) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border: 1px solid var(--milk-border) !important;
+    border-radius: 2px !important;
+    transition: border-color 0.15s ease, transform 0.1s ease;
+}
+
+.game-item:hover {
+    border-color: var(--milk-accent) !important;
+    transform: translateY(-1px) !important;
+}
+
+.game-item__title {
+    color: var(--milk-highlight) !important;
+    font-size: 12px !important;
+}
+
+.game-item__description,
+.game-item__info {
+    color: var(--milk-muted) !important;
+}
+
+.game-details {
+    background-color: transparent !important;
+}
+
+.game-details__title {
+    color: var(--milk-highlight) !important;
+    font-size: 18px !important;
+    font-weight: normal !important;
+}
+
+.game-details__description {
+    color: var(--milk-text) !important;
+    line-height: 1.7 !important;
+}
+
+.bottom-panel__version-button {
+    color: var(--milk-muted) !important;
+}
+
+.bottom-panel__version-button::after {
+    content: ' | ведь получилось же купить молоко';
+    color: var(--milk-muted);
+    opacity: 0.4;
+}
+
+button,
+.button {
+    border-radius: 2px !important;
+    transition: all 0.15s ease !important;
+}
+
+.button--primary {
+    background-color: var(--milk-accent) !important;
+    color: #0a0608 !important;
+    border: 1px solid var(--milk-accent) !important;
+}
+
+.button--primary:hover {
+    background-color: var(--milk-highlight) !important;
+    border-color: var(--milk-highlight) !important;
+}
+
+.button--outline,
+.button--secondary {
+    background-color: transparent !important;
+    border: 1px solid var(--milk-border) !important;
+    color: var(--milk-text) !important;
+}
+
+.button--outline:hover,
+.button--secondary:hover {
+    border-color: var(--milk-accent) !important;
+    color: var(--milk-highlight) !important;
+    background-color: var(--milk-glow) !important;
+}
+
+.button--danger {
+    background-color: transparent !important;
+    border: 1px solid var(--milk-accent) !important;
+    color: var(--milk-accent) !important;
+}
+
+.settings__content,
+.catalogue__filters-container {
+    background-color: rgba(16, 10, 14, 0.7) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--milk-border) !important;
+    border-radius: 2px !important;
+}
+
+.settings__title,
+.catalogue__title {
+    color: var(--milk-highlight) !important;
+    border-bottom: 1px solid var(--milk-border) !important;
+    padding-bottom: 8px !important;
+    font-weight: normal !important;
+}
+
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+    background-color: rgba(16, 10, 14, 0.6) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--milk-border) !important;
+    border-radius: 2px !important;
+}
+
+select,
+.select {
+    background-color: rgba(16, 10, 14, 0.7) !important;
+    border: 1px solid var(--milk-border) !important;
+    color: var(--milk-text) !important;
+    border-radius: 2px !important;
+}
+
+select:focus,
+.select:focus {
+    border-color: var(--milk-accent) !important;
+    outline: none !important;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--milk-accent) !important;
+}
+
+input[type="range"] {
+    accent-color: var(--milk-accent) !important;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--milk-border);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--milk-accent);
+}
+
+a {
+    color: var(--milk-teal) !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #3db8a5 !important;
+}
+
+.toast,
+.notification {
+    background-color: rgba(16, 10, 14, 0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--milk-border) !important;
+    color: var(--milk-text) !important;
+    border-radius: 2px !important;
+}
+
+.modal,
+.dialog {
+    background-color: rgba(16, 10, 14, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--milk-border) !important;
+    border-radius: 2px !important;
+}
+
+.modal__overlay,
+.dialog__overlay {
+    background-color: rgba(5, 2, 5, 0.7) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+progress,
+.progress-bar {
+    background-color: var(--milk-border) !important;
+    border-radius: 0 !important;
+    height: 2px !important;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--milk-border) !important;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--milk-accent) !important;
+}
+
+.tag,
+.badge,
+.chip {
+    background-color: rgba(192, 57, 43, 0.08) !important;
+    border: 1px solid var(--milk-border) !important;
+    color: var(--milk-accent) !important;
+    border-radius: 2px !important;
+    font-size: 10px !important;
+}
+
+::selection {
+    background-color: rgba(192, 57, 43, 0.2) !important;
+    color: var(--milk-highlight) !important;
+}

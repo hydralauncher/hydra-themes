@@ -61,3 +61,16 @@ input::placeholder {
 .sidebar__content {
   scrollbar-width: thin;
 }
+
+.achievement-notification__outer-container {
+  background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/52f9b33a-ed74-4534-bef2-37ed42a37782/dgdb64u-4b474eaa-591c-4acd-9e6a-6e3f178ca81d.png/v1/fill/w_1105,h_723/lucy_render___cyberpunk_edgerunner_by_apriononurhakim_dgdb64u-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwMCIsInBhdGgiOiJcL2ZcLzUyZjliMzNhLWVkNzQtNDUzNC1iZWYyLTM3ZWQ0MmEzNzc4MlwvZGdkYjY0dS00YjQ3NGVhYS01OTFjLTRhY2QtOWU2YS02ZTNmMTc4Y2E4MWQucG5nIiwid2lkdGgiOiI8PTYxMDgifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.jJrvYXvlE5DNLELkcpEfoKN66BGivAE-ZPuTatZWrIQ);
+  background-position: bottom right ;
+  background-size: auto 40px;
+  background-repeat: no-repeat;
+  background-color: #341f3b;
+}
+
+
+.achievement-notification__container {
+  background-color: transparent;
+}
