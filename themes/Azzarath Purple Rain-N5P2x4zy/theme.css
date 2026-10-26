@@ -1,0 +1,749 @@
+
+/*
+==============================================
+       AZZARATH // PURPLE RAIN
+       Rainy Nights • Violet Dreams
+
+       BLACK • PURPLE • WHITE • LOFI
+       Created by Azzarath
+==============================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-background-base: #08050D;
+  --color-background-dark: #11091D;
+  --color-background-button: #7928FF;
+  --color-background-scrollbar-thumb: #A56BFF;
+  --color-text: #FFFFFF;
+  --color-all: #A56BFF;
+
+  --purple: #7928FF;
+  --lavender: #E7D7FF;
+  --display: 'Archivo Black', sans-serif;
+  --mono: 'DM Mono', monospace;
+  --body: 'Space Grotesk', sans-serif;
+}
+
+/* ==========================================
+   01 — PURPLE RAIN BACKGROUND
+========================================== */
+
+html,
+body {
+  margin: 0;
+  background: #08050D !important;
+  color: #FFFFFF !important;
+  font-family: var(--body);
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+
+  background-color: #100719 !important;
+
+  background-image:
+    linear-gradient(
+      115deg,
+      rgba(23,5,42,.49) 0%,
+      rgba(68,16,108,.25) 42%,
+      rgba(13,4,28,.47) 100%
+    ),
+    url("https://www.image2url.com/r2/default/gifs/1793057207689-cce379a3-e5f4-4a8c-8955-cf25e50f4894.gif") !important;
+
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+#root::before,
+#root::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* ==========================================
+   02 — ANIMATIONS
+========================================== */
+
+@keyframes neonCurrent {
+  from {
+    background-position: 200% 50%;
+  }
+
+  to {
+    background-position: -200% 50%;
+  }
+}
+
+@keyframes moonlightSweep {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255,255,255,.25),
+      0 0 13px rgba(121,40,255,.30);
+  }
+
+  50% {
+    text-shadow:
+      0 0 12px rgba(255,255,255,.80),
+      0 0 28px rgba(200,164,255,.80),
+      0 0 52px rgba(121,40,255,.50);
+  }
+}
+
+@keyframes cardReflection {
+  from {
+    transform: translateX(-110%) skewX(-18deg);
+  }
+
+  to {
+    transform: translateX(160%) skewX(-18deg);
+  }
+}
+
+@keyframes signalDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .35;
+    transform: scale(.65);
+  }
+}
+
+@keyframes buttonScan {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 90px 0;
+  }
+}
+
+@keyframes avatarSignal {
+  0%, 100% {
+    border-color: #FFFFFF;
+    filter: drop-shadow(0 0 5px #7928FF);
+  }
+
+  50% {
+    border-color: #A56BFF;
+    filter: drop-shadow(0 0 12px #7928FF);
+  }
+}
+
+@keyframes rainyNeon {
+  0%, 100% {
+    box-shadow:
+      0 0 7px rgba(121,40,255,.25),
+      inset 0 0 5px rgba(121,40,255,.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 19px rgba(121,40,255,.55),
+      0 0 34px rgba(121,40,255,.16),
+      inset 0 0 11px rgba(121,40,255,.12);
+  }
+}
+
+@keyframes electricBloom {
+  0%, 100% {
+    box-shadow:
+      0 0 9px #7928FF,
+      0 0 19px rgba(121,40,255,.45),
+      5px 5px 0 #FFFFFF;
+  }
+
+  50% {
+    box-shadow:
+      0 0 16px #C8A4FF,
+      0 0 38px rgba(121,40,255,.75),
+      0 0 65px rgba(121,40,255,.28),
+      5px 5px 0 #FFFFFF;
+  }
+}
+
+/* ==========================================
+   03 — HEADER
+========================================== */
+
+.title-bar {
+  background: #08050D !important;
+  border-bottom: 1px solid #FFFFFF25 !important;
+}
+
+.header {
+  position: relative;
+
+  background: rgba(12,6,24,.94) !important;
+  border-bottom: 2px solid #7928FF !important;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 4px 18px rgba(121,40,255,.28) !important;
+}
+
+.header::after {
+  content: "";
+  display: block !important;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #230B3E 0%,
+    #7928FF 25%,
+    #E7D7FF 50%,
+    #7928FF 75%,
+    #230B3E 100%
+  ) !important;
+
+  background-size: 220% 100% !important;
+
+  box-shadow:
+    0 0 8px #7928FF,
+    0 0 19px rgba(121,40,255,.65),
+    0 0 32px rgba(121,40,255,.30);
+
+  animation: neonCurrent 5s linear infinite !important;
+}
+
+/* ==========================================
+   04 — SIDEBAR AND CONTENT
+========================================== */
+
+.sidebar {
+  background: rgba(12,6,24,.94) !important;
+
+  border-right: 3px solid #7928FF !important;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    inset -3px 0 12px rgba(121,40,255,.24),
+    6px 0 30px rgba(121,40,255,.16) !important;
+}
+
+.bottom-panel {
+  background: rgba(17,9,29,.96) !important;
+  border-top: 2px solid #7928FF !important;
+}
+
+main,
+.container,
+.container__content,
+.home__content,
+.catalogue__content,
+.game-details__description-container {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* ==========================================
+   05 — TITLES WITHOUT GLITCH
+========================================== */
+
+h1,
+h2,
+h3,
+.header__title {
+  font-family: var(--display);
+  color: #FFFFFF !important;
+
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+
+  animation: moonlightSweep 6s ease-in-out infinite !important;
+}
+
+h1 {
+  font-size: clamp(30px,3.4vw,48px);
+}
+
+::selection {
+  background: #FFFFFF;
+  color: #7928FF;
+}
+
+/* ==========================================
+   06 — SIDEBAR MENU
+========================================== */
+
+.sidebar__section-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+
+  color: #C9A7FF !important;
+
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.sidebar__menu-item,
+.sidebar__menu-item-button {
+  position: relative;
+
+  background: transparent !important;
+  color: #E7D7FF !important;
+
+  border-radius: 0 !important;
+  border-left: 4px solid transparent !important;
+
+  transition:
+    background .16s ease,
+    color .16s ease,
+    border-color .16s ease !important;
+}
+
+.sidebar__menu-item:hover,
+.sidebar__menu-item-button:hover {
+  background: #7928FF !important;
+  color: #FFFFFF !important;
+  border-left-color: #FFFFFF !important;
+}
+
+.sidebar__menu-item--active {
+  background: #FFFFFF !important;
+  color: #08050D !important;
+  border-left-color: #7928FF !important;
+}
+
+.sidebar__menu-item--active,
+.sidebar__menu-item--active * {
+  color: #08050D !important;
+}
+
+.sidebar__menu-item--active::after {
+  content: "";
+
+  position: absolute;
+  right: 12px;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+
+  background: #7928FF;
+  border-radius: 50%;
+
+  animation: signalDot 1.6s ease-in-out infinite;
+}
+
+/* ==========================================
+   07 — GAME CARDS
+========================================== */
+
+.game-card,
+.game-item,
+.user-library-game__wrapper {
+  position: relative;
+
+  background: #20112F !important;
+
+  border: 2px solid #6C369C !important;
+  border-radius: 4px !important;
+
+  box-shadow:
+    5px 5px 0 #08050D,
+    7px 7px 0 #7928FF !important;
+
+  transition:
+    transform .24s ease,
+    border-color .24s ease,
+    box-shadow .24s ease !important;
+}
+
+.game-card:hover,
+.game-item:hover,
+.user-library-game__wrapper:hover {
+  transform:
+    translate(-4px,-4px)
+    rotate(-.5deg) !important;
+
+  border-color: #FFFFFF !important;
+
+  box-shadow:
+    0 0 15px rgba(255,255,255,.55),
+    0 0 35px rgba(121,40,255,.65),
+    9px 9px 0 #7928FF,
+    12px 12px 0 #FFFFFF !important;
+}
+
+.game-card::after,
+.game-item::after,
+.user-library-game__wrapper::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 36%,
+    #FFFFFF00 39%,
+    #FFFFFF77 50%,
+    #FFFFFF00 61%,
+    transparent 64%
+  );
+
+  opacity: 0;
+
+  transform:
+    translateX(-110%)
+    skewX(-18deg);
+}
+
+.game-card:hover::after,
+.game-item:hover::after,
+.user-library-game__wrapper:hover::after {
+  opacity: 1;
+  animation: cardReflection .85s ease-out forwards;
+}
+
+/* ==========================================
+   08 — NEON PANELS
+========================================== */
+
+.recent-games__box,
+.friends-box__box,
+.user-stats__box,
+.theme-card,
+.achievement-panel,
+.achievements__list li,
+.download-group__item,
+.settings-download-sources__item,
+.sidebar-section__content,
+.profile-content__main,
+.content-sidebar,
+.game-details__description-content,
+.how-long-to-beat__category,
+.list__item {
+  background: rgba(27,16,41,.94) !important;
+
+  color: #FFFFFF !important;
+
+  border: 1px solid #7945B4 !important;
+  border-radius: 4px !important;
+
+  box-shadow:
+    inset 0 3px 0 #7928FF !important;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease !important;
+}
+
+.recent-games__box,
+.friends-box__box,
+.user-stats__box,
+.achievement-panel,
+.profile-content__main,
+.content-sidebar {
+  animation: rainyNeon 5s ease-in-out infinite;
+}
+
+.theme-card:hover,
+.achievements__list li:hover,
+.list__item:hover {
+  background: #32154D !important;
+  border-color: #FFFFFF !important;
+}
+
+/* ==========================================
+   09 — BUTTONS
+========================================== */
+
+.button,
+.select-field__option,
+.sidebar-section__button,
+.header__back-button {
+  background: #28163E !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #AD78FF !important;
+  border-radius: 3px !important;
+
+  font-family: var(--body);
+  font-weight: 700;
+
+  box-shadow:
+    inset 0 -3px 0 #08050D !important;
+
+  transition:
+    background .16s ease,
+    color .16s ease,
+    transform .16s ease !important;
+}
+
+.button:hover,
+.select-field__option:hover,
+.sidebar-section__button:hover,
+.header__back-button:hover {
+  background: #FFFFFF !important;
+  color: #08050D !important;
+}
+
+.button:active {
+  transform: translateY(3px) !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================
+   10 — ELECTRIC PRIMARY BUTTON
+========================================== */
+
+.button--primary {
+  background: repeating-linear-gradient(
+    110deg,
+    #7928FF 0px,
+    #7928FF 32px,
+    #9049FF 32px,
+    #9049FF 45px,
+    #7928FF 45px,
+    #7928FF 90px
+  ) !important;
+
+  background-size: 90px 100% !important;
+
+  color: #FFFFFF !important;
+
+  border: 2px solid #FFFFFF !important;
+  border-radius: 3px !important;
+
+  font-family: var(--display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+
+  animation:
+    buttonScan 4s linear infinite,
+    electricBloom 3s ease-in-out infinite;
+}
+
+.button--primary:hover {
+  background: #FFFFFF !important;
+  color: #7928FF !important;
+  border-color: #7928FF !important;
+
+  box-shadow:
+    0 0 25px #7928FF,
+    5px 5px 0 #7928FF !important;
+
+  animation: none;
+}
+
+.button--primary:active {
+  transform: translate(5px,5px) !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================
+   11 — TEXT FIELDS
+========================================== */
+
+input,
+textarea,
+.text-field-container__text-field,
+.header__search {
+  background: #08050D !important;
+  color: #FFFFFF !important;
+
+  border: 2px solid #6930A0 !important;
+  border-radius: 3px !important;
+
+  font-family: var(--mono);
+  caret-color: #FFFFFF;
+
+  box-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #BFB2D2 !important;
+}
+
+input:focus,
+textarea:focus,
+.text-field-container__text-field:focus,
+.header__search:focus-within {
+  outline: none !important;
+  border-color: #FFFFFF !important;
+
+  box-shadow:
+    4px 4px 0 #7928FF !important;
+}
+
+/* ==========================================
+   12 — WINDOWS AND MODALS
+========================================== */
+
+.modal,
+.toast,
+.settings__content,
+.profile-hero__content-box {
+  background: rgba(26,13,42,.97) !important;
+  color: #FFFFFF !important;
+
+  border: 2px solid #FFFFFF !important;
+  border-radius: 4px !important;
+
+  box-shadow:
+    9px 9px 0 #7928FF,
+    12px 12px 0 #08050D !important;
+}
+
+.modal__header,
+.description-header {
+  background: #7928FF !important;
+  color: #FFFFFF !important;
+
+  border-bottom: 2px solid #FFFFFF !important;
+}
+
+/* ==========================================
+   13 — DASHED AVATAR
+========================================== */
+
+.profile-hero__avatar-button {
+  position: relative;
+}
+
+.profile-hero__avatar-button::before {
+  content: "";
+
+  position: absolute;
+  inset: -6px;
+
+  border: 3px dashed #FFFFFF;
+  border-radius: 50%;
+
+  animation: avatarSignal 2s ease-in-out infinite;
+}
+
+.profile-hero__avatar-button .profile-avatar {
+  position: relative;
+  z-index: 1;
+
+  border: 3px solid #7928FF !important;
+}
+
+/* ==========================================
+   14 — PROGRESS AND BADGES
+========================================== */
+
+progress {
+  accent-color: #7928FF;
+}
+
+progress::-webkit-progress-bar {
+  background: #08050D;
+  border: 1px solid #FFFFFF;
+  border-radius: 0;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(
+    90deg,
+    #7928FF,
+    #C8A4FF
+  );
+
+  border-radius: 0;
+}
+
+.badge {
+  background: #FFFFFF !important;
+  color: #08050D !important;
+
+  border: 1px solid #7928FF !important;
+  border-radius: 2px !important;
+
+  font-family: var(--mono);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   15 — SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08050D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7928FF;
+  border: 2px solid #08050D;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFFFFF;
+}
+
+/* ==========================================
+   16 — ACCESSIBILITY
+========================================== */
+
+:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 29px;
+  }
+
+  .game-card:hover,
+  .game-item:hover,
+  .user-library-game__wrapper:hover {
+    transform: translate(-2px,-2px) !important;
+  }
+}
+
+/*
+==============================================
+       AZZARATH // PURPLE RAIN
+       END OF THEME
+==============================================
+*/
