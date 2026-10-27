@@ -4,7 +4,13 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# No `paths` filter: `validate-themes` is a required status check, so it has to
+# report on every PR. Author lookups against the API are limited to the theme
+# folders changed by the PR, so PRs that don't touch themes make no API calls.
 on: pull_request
+
+permissions:
+  contents: read
 
 jobs:
   validate-themes:
@@ -13,6 +19,8 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -23,5 +31,13 @@ jobs:
         run: yarn
 
       - name: Validate themes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
+          # Theme folders touched by the PR (renames show up as delete + add).
+          CHANGED_THEMES="$(git diff --name-only --no-renames -z "$BASE_SHA...$HEAD_SHA" -- themes/ \
+            | cut -z -d/ -f2 | sort -zu | tr '\0' '\n')"
+          export CHANGED_THEMES
+          printf 'Changed theme folders:\n%s\n' "$CHANGED_THEMES"
           yarn validate-themes
