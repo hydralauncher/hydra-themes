@@ -21,6 +21,7 @@
 
   --purple: #7928FF;
   --lavender: #E7D7FF;
+
   --display: 'Archivo Black', sans-serif;
   --mono: 'DM Mono', monospace;
   --body: 'Space Grotesk', sans-serif;
@@ -31,19 +32,19 @@
 ========================================== */
 
 html,
-body {
+html body {
   margin: 0;
-  background: #08050D !important;
-  color: #FFFFFF !important;
+  background: #08050D;
+  color: #FFFFFF;
   font-family: var(--body);
 }
 
-#root {
+html body #root {
   position: relative;
   isolation: isolate;
   min-height: 100vh;
 
-  background-color: #100719 !important;
+  background-color: #100719;
 
   background-image:
     linear-gradient(
@@ -52,18 +53,18 @@ body {
       rgba(68,16,108,.25) 42%,
       rgba(13,4,28,.47) 100%
     ),
-    url("https://www.image2url.com/r2/default/gifs/1793057207689-cce379a3-e5f4-4a8c-8955-cf25e50f4894.gif") !important;
+    url("https://www.image2url.com/r2/default/gifs/1793057207689-cce379a3-e5f4-4a8c-8955-cf25e50f4894.gif");
 
-  background-position: center center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-#root::before,
-#root::after {
-  content: none !important;
-  display: none !important;
+html body #root::before,
+html body #root::after {
+  content: none;
+  display: none;
 }
 
 /* ==========================================
@@ -175,26 +176,26 @@ body {
    03 — HEADER
 ========================================== */
 
-.title-bar {
-  background: #08050D !important;
-  border-bottom: 1px solid #FFFFFF25 !important;
+#root .title-bar {
+  background: #08050D;
+  border-bottom: 1px solid #FFFFFF25;
 }
 
-.header {
+#root .header {
   position: relative;
 
-  background: rgba(12,6,24,.94) !important;
-  border-bottom: 2px solid #7928FF !important;
+  background: rgba(12,6,24,.94);
+  border-bottom: 2px solid #7928FF;
 
   backdrop-filter: blur(12px);
 
   box-shadow:
-    0 4px 18px rgba(121,40,255,.28) !important;
+    0 4px 18px rgba(121,40,255,.28);
 }
 
-.header::after {
+#root .header::after {
   content: "";
-  display: block !important;
+  display: block;
 
   position: absolute;
   left: 0;
@@ -211,70 +212,70 @@ body {
     #E7D7FF 50%,
     #7928FF 75%,
     #230B3E 100%
-  ) !important;
+  );
 
-  background-size: 220% 100% !important;
+  background-size: 220% 100%;
 
   box-shadow:
     0 0 8px #7928FF,
     0 0 19px rgba(121,40,255,.65),
     0 0 32px rgba(121,40,255,.30);
 
-  animation: neonCurrent 5s linear infinite !important;
+  animation: neonCurrent 5s linear infinite;
 }
 
 /* ==========================================
    04 — SIDEBAR AND CONTENT
 ========================================== */
 
-.sidebar {
-  background: rgba(12,6,24,.94) !important;
+#root .sidebar {
+  background: rgba(12,6,24,.94);
 
-  border-right: 3px solid #7928FF !important;
+  border-right: 3px solid #7928FF;
 
   backdrop-filter: blur(12px);
 
   box-shadow:
     inset -3px 0 12px rgba(121,40,255,.24),
-    6px 0 30px rgba(121,40,255,.16) !important;
+    6px 0 30px rgba(121,40,255,.16);
 }
 
-.bottom-panel {
-  background: rgba(17,9,29,.96) !important;
-  border-top: 2px solid #7928FF !important;
+#root .bottom-panel {
+  background: rgba(17,9,29,.96);
+  border-top: 2px solid #7928FF;
 }
 
-main,
-.container,
-.container__content,
-.home__content,
-.catalogue__content,
-.game-details__description-container {
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
+#root main,
+#root .container,
+#root .container__content,
+#root .home__content,
+#root .catalogue__content,
+#root .game-details__description-container {
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
 }
 
 /* ==========================================
    05 — TITLES WITHOUT GLITCH
 ========================================== */
 
-h1,
-h2,
-h3,
-.header__title {
+#root h1,
+#root h2,
+#root h3,
+#root .header__title {
   font-family: var(--display);
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -.045em;
   line-height: 1.12;
 
-  animation: moonlightSweep 6s ease-in-out infinite !important;
+  animation: moonlightSweep 6s ease-in-out infinite;
 }
 
-h1 {
+#root h1 {
   font-size: clamp(30px,3.4vw,48px);
 }
 
@@ -287,52 +288,52 @@ h1 {
    06 — SIDEBAR MENU
 ========================================== */
 
-.sidebar__section-title {
+#root .sidebar__section-title {
   font-family: var(--mono);
   font-size: 10px;
   font-weight: 500;
 
-  color: #C9A7FF !important;
+  color: #C9A7FF;
 
   letter-spacing: .15em;
   text-transform: uppercase;
 }
 
-.sidebar__menu-item,
-.sidebar__menu-item-button {
+#root .sidebar__menu-item,
+#root .sidebar__menu-item-button {
   position: relative;
 
-  background: transparent !important;
-  color: #E7D7FF !important;
+  background: transparent;
+  color: #E7D7FF;
 
-  border-radius: 0 !important;
-  border-left: 4px solid transparent !important;
+  border-radius: 0;
+  border-left: 4px solid transparent;
 
   transition:
     background .16s ease,
     color .16s ease,
-    border-color .16s ease !important;
+    border-color .16s ease;
 }
 
-.sidebar__menu-item:hover,
-.sidebar__menu-item-button:hover {
-  background: #7928FF !important;
-  color: #FFFFFF !important;
-  border-left-color: #FFFFFF !important;
+#root .sidebar__menu-item:hover,
+#root .sidebar__menu-item-button:hover {
+  background: #7928FF;
+  color: #FFFFFF;
+  border-left-color: #FFFFFF;
 }
 
-.sidebar__menu-item--active {
-  background: #FFFFFF !important;
-  color: #08050D !important;
-  border-left-color: #7928FF !important;
+#root .sidebar__menu-item--active {
+  background: #FFFFFF;
+  color: #08050D;
+  border-left-color: #7928FF;
 }
 
-.sidebar__menu-item--active,
-.sidebar__menu-item--active * {
-  color: #08050D !important;
+#root .sidebar__menu-item--active,
+#root .sidebar__menu-item--active * {
+  color: #08050D;
 }
 
-.sidebar__menu-item--active::after {
+#root .sidebar__menu-item--active::after {
   content: "";
 
   position: absolute;
@@ -353,45 +354,45 @@ h1 {
    07 — GAME CARDS
 ========================================== */
 
-.game-card,
-.game-item,
-.user-library-game__wrapper {
+#root .game-card,
+#root .game-item,
+#root .user-library-game__wrapper {
   position: relative;
 
-  background: #20112F !important;
+  background: #20112F;
 
-  border: 2px solid #6C369C !important;
-  border-radius: 4px !important;
+  border: 2px solid #6C369C;
+  border-radius: 4px;
 
   box-shadow:
     5px 5px 0 #08050D,
-    7px 7px 0 #7928FF !important;
+    7px 7px 0 #7928FF;
 
   transition:
     transform .24s ease,
     border-color .24s ease,
-    box-shadow .24s ease !important;
+    box-shadow .24s ease;
 }
 
-.game-card:hover,
-.game-item:hover,
-.user-library-game__wrapper:hover {
+#root .game-card:hover,
+#root .game-item:hover,
+#root .user-library-game__wrapper:hover {
   transform:
     translate(-4px,-4px)
-    rotate(-.5deg) !important;
+    rotate(-.5deg);
 
-  border-color: #FFFFFF !important;
+  border-color: #FFFFFF;
 
   box-shadow:
     0 0 15px rgba(255,255,255,.55),
     0 0 35px rgba(121,40,255,.65),
     9px 9px 0 #7928FF,
-    12px 12px 0 #FFFFFF !important;
+    12px 12px 0 #FFFFFF;
 }
 
-.game-card::after,
-.game-item::after,
-.user-library-game__wrapper::after {
+#root .game-card::after,
+#root .game-item::after,
+#root .user-library-game__wrapper::after {
   content: "";
 
   position: absolute;
@@ -417,9 +418,9 @@ h1 {
     skewX(-18deg);
 }
 
-.game-card:hover::after,
-.game-item:hover::after,
-.user-library-game__wrapper:hover::after {
+#root .game-card:hover::after,
+#root .game-item:hover::after,
+#root .user-library-game__wrapper:hover::after {
   opacity: 1;
   animation: cardReflection .85s ease-out forwards;
 }
@@ -428,95 +429,95 @@ h1 {
    08 — NEON PANELS
 ========================================== */
 
-.recent-games__box,
-.friends-box__box,
-.user-stats__box,
-.theme-card,
-.achievement-panel,
-.achievements__list li,
-.download-group__item,
-.settings-download-sources__item,
-.sidebar-section__content,
-.profile-content__main,
-.content-sidebar,
-.game-details__description-content,
-.how-long-to-beat__category,
-.list__item {
-  background: rgba(27,16,41,.94) !important;
+#root .recent-games__box,
+#root .friends-box__box,
+#root .user-stats__box,
+#root .theme-card,
+#root .achievement-panel,
+#root .achievements__list li,
+#root .download-group__item,
+#root .settings-download-sources__item,
+#root .sidebar-section__content,
+#root .profile-content__main,
+#root .content-sidebar,
+#root .game-details__description-content,
+#root .how-long-to-beat__category,
+#root .list__item {
+  background: rgba(27,16,41,.94);
 
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 
-  border: 1px solid #7945B4 !important;
-  border-radius: 4px !important;
+  border: 1px solid #7945B4;
+  border-radius: 4px;
 
   box-shadow:
-    inset 0 3px 0 #7928FF !important;
+    inset 0 3px 0 #7928FF;
 
   transition:
     background .18s ease,
-    border-color .18s ease !important;
+    border-color .18s ease;
 }
 
-.recent-games__box,
-.friends-box__box,
-.user-stats__box,
-.achievement-panel,
-.profile-content__main,
-.content-sidebar {
+#root .recent-games__box,
+#root .friends-box__box,
+#root .user-stats__box,
+#root .achievement-panel,
+#root .profile-content__main,
+#root .content-sidebar {
   animation: rainyNeon 5s ease-in-out infinite;
 }
 
-.theme-card:hover,
-.achievements__list li:hover,
-.list__item:hover {
-  background: #32154D !important;
-  border-color: #FFFFFF !important;
+#root .theme-card:hover,
+#root .achievements__list li:hover,
+#root .list__item:hover {
+  background: #32154D;
+  border-color: #FFFFFF;
 }
 
 /* ==========================================
    09 — BUTTONS
 ========================================== */
 
-.button,
-.select-field__option,
-.sidebar-section__button,
-.header__back-button {
-  background: #28163E !important;
-  color: #FFFFFF !important;
+#root .button,
+#root .select-field__option,
+#root .sidebar-section__button,
+#root .header__back-button {
+  background: #28163E;
+  color: #FFFFFF;
 
-  border: 1px solid #AD78FF !important;
-  border-radius: 3px !important;
+  border: 1px solid #AD78FF;
+  border-radius: 3px;
 
   font-family: var(--body);
   font-weight: 700;
 
   box-shadow:
-    inset 0 -3px 0 #08050D !important;
+    inset 0 -3px 0 #08050D;
 
   transition:
     background .16s ease,
     color .16s ease,
-    transform .16s ease !important;
+    transform .16s ease;
 }
 
-.button:hover,
-.select-field__option:hover,
-.sidebar-section__button:hover,
-.header__back-button:hover {
-  background: #FFFFFF !important;
-  color: #08050D !important;
+#root .button:hover,
+#root .select-field__option:hover,
+#root .sidebar-section__button:hover,
+#root .header__back-button:hover {
+  background: #FFFFFF;
+  color: #08050D;
 }
 
-.button:active {
-  transform: translateY(3px) !important;
-  box-shadow: none !important;
+#root .button:active {
+  transform: translateY(3px);
+  box-shadow: none;
 }
 
 /* ==========================================
    10 — ELECTRIC PRIMARY BUTTON
 ========================================== */
 
-.button--primary {
+#root .button.button--primary {
   background: repeating-linear-gradient(
     110deg,
     #7928FF 0px,
@@ -525,14 +526,14 @@ h1 {
     #9049FF 45px,
     #7928FF 45px,
     #7928FF 90px
-  ) !important;
+  );
 
-  background-size: 90px 100% !important;
+  background-size: 90px 100%;
 
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 
-  border: 2px solid #FFFFFF !important;
-  border-radius: 3px !important;
+  border: 2px solid #FFFFFF;
+  border-radius: 3px;
 
   font-family: var(--display);
   font-weight: 900;
@@ -544,95 +545,95 @@ h1 {
     electricBloom 3s ease-in-out infinite;
 }
 
-.button--primary:hover {
-  background: #FFFFFF !important;
-  color: #7928FF !important;
-  border-color: #7928FF !important;
+#root .button.button--primary:hover {
+  background: #FFFFFF;
+  color: #7928FF;
+  border-color: #7928FF;
 
   box-shadow:
     0 0 25px #7928FF,
-    5px 5px 0 #7928FF !important;
+    5px 5px 0 #7928FF;
 
   animation: none;
 }
 
-.button--primary:active {
-  transform: translate(5px,5px) !important;
-  box-shadow: none !important;
+#root .button.button--primary:active {
+  transform: translate(5px,5px);
+  box-shadow: none;
 }
 
 /* ==========================================
    11 — TEXT FIELDS
 ========================================== */
 
-input,
-textarea,
-.text-field-container__text-field,
-.header__search {
-  background: #08050D !important;
-  color: #FFFFFF !important;
+#root input,
+#root textarea,
+#root .text-field-container__text-field,
+#root .header__search {
+  background: #08050D;
+  color: #FFFFFF;
 
-  border: 2px solid #6930A0 !important;
-  border-radius: 3px !important;
+  border: 2px solid #6930A0;
+  border-radius: 3px;
 
   font-family: var(--mono);
   caret-color: #FFFFFF;
 
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #BFB2D2 !important;
+#root input::placeholder,
+#root textarea::placeholder {
+  color: #BFB2D2;
 }
 
-input:focus,
-textarea:focus,
-.text-field-container__text-field:focus,
-.header__search:focus-within {
-  outline: none !important;
-  border-color: #FFFFFF !important;
+#root input:focus,
+#root textarea:focus,
+#root .text-field-container__text-field:focus,
+#root .header__search:focus-within {
+  outline: none;
+  border-color: #FFFFFF;
 
   box-shadow:
-    4px 4px 0 #7928FF !important;
+    4px 4px 0 #7928FF;
 }
 
 /* ==========================================
    12 — WINDOWS AND MODALS
 ========================================== */
 
-.modal,
-.toast,
-.settings__content,
-.profile-hero__content-box {
-  background: rgba(26,13,42,.97) !important;
-  color: #FFFFFF !important;
+#root .modal,
+#root .toast,
+#root .settings__content,
+#root .profile-hero__content-box {
+  background: rgba(26,13,42,.97);
+  color: #FFFFFF;
 
-  border: 2px solid #FFFFFF !important;
-  border-radius: 4px !important;
+  border: 2px solid #FFFFFF;
+  border-radius: 4px;
 
   box-shadow:
     9px 9px 0 #7928FF,
-    12px 12px 0 #08050D !important;
+    12px 12px 0 #08050D;
 }
 
-.modal__header,
-.description-header {
-  background: #7928FF !important;
-  color: #FFFFFF !important;
+#root .modal__header,
+#root .description-header {
+  background: #7928FF;
+  color: #FFFFFF;
 
-  border-bottom: 2px solid #FFFFFF !important;
+  border-bottom: 2px solid #FFFFFF;
 }
 
 /* ==========================================
    13 — DASHED AVATAR
 ========================================== */
 
-.profile-hero__avatar-button {
+#root .profile-hero__avatar-button {
   position: relative;
 }
 
-.profile-hero__avatar-button::before {
+#root .profile-hero__avatar-button::before {
   content: "";
 
   position: absolute;
@@ -644,28 +645,28 @@ textarea:focus,
   animation: avatarSignal 2s ease-in-out infinite;
 }
 
-.profile-hero__avatar-button .profile-avatar {
+#root .profile-hero__avatar-button .profile-avatar {
   position: relative;
   z-index: 1;
 
-  border: 3px solid #7928FF !important;
+  border: 3px solid #7928FF;
 }
 
 /* ==========================================
    14 — PROGRESS AND BADGES
 ========================================== */
 
-progress {
+#root progress {
   accent-color: #7928FF;
 }
 
-progress::-webkit-progress-bar {
+#root progress::-webkit-progress-bar {
   background: #08050D;
   border: 1px solid #FFFFFF;
   border-radius: 0;
 }
 
-progress::-webkit-progress-value {
+#root progress::-webkit-progress-value {
   background: linear-gradient(
     90deg,
     #7928FF,
@@ -675,12 +676,12 @@ progress::-webkit-progress-value {
   border-radius: 0;
 }
 
-.badge {
-  background: #FFFFFF !important;
-  color: #08050D !important;
+#root .badge {
+  background: #FFFFFF;
+  color: #08050D;
 
-  border: 1px solid #7928FF !important;
-  border-radius: 2px !important;
+  border: 1px solid #7928FF;
+  border-radius: 2px;
 
   font-family: var(--mono);
   font-weight: 500;
@@ -714,30 +715,80 @@ progress::-webkit-progress-value {
    16 — ACCESSIBILITY
 ========================================== */
 
-:focus-visible {
+#root :focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 3px;
 }
 
+/*
+  Reduced motion:
+  Match the theme's selector specificity so that
+  every decorative animation and transition stops
+  without relying on !important.
+*/
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+  html {
+    scroll-behavior: auto;
+  }
+
+  #root,
+  #root *,
+  #root *::before,
+  #root *::after {
+    animation-name: none;
+    animation-duration: 0s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+
+    transition-property: none;
+    transition-duration: 0s;
+    transition-delay: 0s;
+
+    scroll-behavior: auto;
+  }
+
+  #root .header::after,
+  #root h1,
+  #root h2,
+  #root h3,
+  #root .header__title,
+  #root .sidebar__menu-item--active::after,
+  #root .recent-games__box,
+  #root .friends-box__box,
+  #root .user-stats__box,
+  #root .achievement-panel,
+  #root .profile-content__main,
+  #root .content-sidebar,
+  #root .button.button--primary,
+  #root .profile-hero__avatar-button::before,
+  #root .game-card:hover::after,
+  #root .game-item:hover::after,
+  #root .user-library-game__wrapper:hover::after {
+    animation: none;
+    transition: none;
+  }
+
+  #root .game-card:hover,
+  #root .game-item:hover,
+  #root .user-library-game__wrapper:hover {
+    transform: none;
   }
 }
 
+/* ==========================================
+   17 — RESPONSIVE
+========================================== */
+
 @media (max-width: 900px) {
-  h1 {
+  #root h1 {
     font-size: 29px;
   }
 
-  .game-card:hover,
-  .game-item:hover,
-  .user-library-game__wrapper:hover {
-    transform: translate(-2px,-2px) !important;
+  #root .game-card:hover,
+  #root .game-item:hover,
+  #root .user-library-game__wrapper:hover {
+    transform: translate(-2px,-2px);
   }
 }
 
