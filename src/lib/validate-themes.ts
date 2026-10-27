@@ -20,6 +20,13 @@ const folders = fs.readdirSync(themesPath);
 const getAuthorCode = (folder: string) => folder.split("-").pop()?.trim();
 
 const validateFolder = (folder: string) => {
+  // CHANGED_THEMES is newline-separated, so such a folder could never be
+  // matched for an author lookup.
+  if (folder.includes("\n"))
+    throw new Error(
+      `❌ Invalid theme folder name ${JSON.stringify(folder)} - contains a line break`,
+    );
+
   const folderPath = path.join(themesPath, folder);
   const files = fs.readdirSync(folderPath);
 
@@ -63,9 +70,8 @@ const getFoldersToLookUp = () => {
   }
 
   const changed = new Set(
-    process.env.CHANGED_THEMES.split("\n")
-      .map((folder) => folder.trim())
-      .filter(Boolean),
+    // no trimming: names must match the folders on disk exactly
+    process.env.CHANGED_THEMES.split("\n").filter(Boolean),
   );
 
   return folders.filter((folder) => changed.has(folder));

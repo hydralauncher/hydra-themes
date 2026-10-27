@@ -35,6 +35,8 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
+          # Fail the check if `git diff` fails instead of validating nothing.
+          set -o pipefail
           # Theme folders touched by the PR (renames show up as delete + add).
           CHANGED_THEMES="$(git diff --name-only --no-renames -z "$BASE_SHA...$HEAD_SHA" -- themes/ \
             | cut -z -d/ -f2 | sort -zu | tr '\0' '\n')"
