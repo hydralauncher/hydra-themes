@@ -1421,3 +1421,144 @@ body:not(:has(.sidebar))::after {
     animation: none !important;
   }
 }
+
+/* === catalogue grid view (added) === */
+.catalogue__games-container:not(.catalogue__games-container--classics) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+.catalogue__games-container:not(.catalogue__games-container--classics) > .catalogue__pagination-container,
+.catalogue__games-container:not(.catalogue__games-container--classics) > .catalogue__result-count {
+  grid-column: 1 / -1;
+}
+.game-item__content-link {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+.game-item__cover-wrapper {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 460 / 215;
+  border-right: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.game-item__cover,
+.game-item__cover-placeholder {
+  width: 100%;
+  height: 100%;
+}
+.game-item__details {
+  padding: 12px;
+}
+/* === end catalogue grid view === */
+/* === catalogue sources: max 3 chips + "+N" === */
+.game-item__repackers {
+  position: relative;
+  counter-reset: extra;
+}
+.game-item__repackers > :nth-child(n+4) {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  counter-increment: extra;
+}
+.game-item__repackers:has(> :nth-child(4))::after {
+  content: "+" counter(extra);
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff1595;
+  border: 1px solid rgba(255, 21, 149, 0.6);
+  border-radius: 999px;
+  background: rgba(255, 21, 149, 0.12);
+}
+/* === end catalogue sources === */
+
+/* === sidebar main menu bigger (added) === */
+.sidebar__menu-item:not(.sidebar__section--games *) .sidebar__menu-item-button {
+  font-size: 15px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.sidebar__menu-item:not(.sidebar__section--games *) .sidebar__menu-item-button-label {
+  font-size: 15px;
+}
+.sidebar__menu-item:not(.sidebar__section--games *) .sidebar__menu-item-button svg {
+  width: 18px;
+  height: 18px;
+}
+/* === end sidebar main menu === */
+
+/* === toast: icon + message on one line (added) === */
+.toast__message-container {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 0 !important;
+}
+.toast__message-container > div {
+  display: contents !important;
+}
+.toast__message-container > div > svg:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.toast__message-container > div > span:empty {
+  display: none;
+}
+.toast__message-container > div > span,
+.toast__message-container > p {
+  grid-column: 2;
+  margin: 0;
+}
+.toast__message-container > div > .toast__close-button {
+  grid-column: 3;
+  grid-row: 1;
+}
+/* === end toast === */
+
+/* === achievement banner: more readable (added) === */
+/* scoped to the default variant so the rare / platinum / hidden rules above keep winning */
+.achievement-notification:not(.achievement-notification--platinum, .achievement-notification--hidden) .achievement-notification__container {
+  background: linear-gradient(90deg, rgba(8, 7, 34, 0.97) 0%, rgba(8, 7, 34, 0.97) 14%, rgba(12, 10, 40, 0.97) 86%, rgba(8, 7, 34, 0.97) 100%) !important;
+}
+.achievement-notification:not(.achievement-notification--rare, .achievement-notification--platinum, .achievement-notification--hidden) .achievement-notification__chip {
+  background: linear-gradient(90deg, #e51a9d, #ff1595, #ff704f) !important;
+  border-radius: 999px !important;
+}
+.achievement-notification:not(.achievement-notification--rare, .achievement-notification--platinum, .achievement-notification--hidden) .achievement-notification__chip__label {
+  color: #fff !important;
+}
+/* === end achievement banner === */
+
+/* === catalogue filters: sticky, closed by default, open on hover or keyboard focus (added) === */
+.catalogue__filters-container {
+  position: sticky;
+  top: 8px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  overflow-anchor: none;
+}
+.catalogue__filters-container .filter-section__content {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.2s ease;
+}
+.catalogue__filters-container .filter-section:hover .filter-section__content,
+.catalogue__filters-container .filter-section:has(:focus-visible) .filter-section__content {
+  max-height: 380px !important;
+}
+.catalogue__filters-container .filter-section__chevron--open {
+  transform: rotate(-90deg);
+}
+.catalogue__filters-container .filter-section:hover .filter-section__chevron--open,
+.catalogue__filters-container .filter-section:has(:focus-visible) .filter-section__chevron--open {
+  transform: none;
+}
+/* === end catalogue filters === */
