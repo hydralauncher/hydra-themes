@@ -1425,7 +1425,7 @@ body:not(:has(.sidebar))::after {
 /* === catalogue grid view (added) === */
 .catalogue__games-container:not(.catalogue__games-container--classics) {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 12px;
   align-content: start;
 }
@@ -1523,27 +1523,25 @@ body:not(:has(.sidebar))::after {
 /* === end toast === */
 
 /* === achievement banner: more readable (added) === */
-.achievement-notification .achievement-notification__container {
+/* scoped to the default variant so the rare / platinum / hidden rules above keep winning */
+.achievement-notification:not(.achievement-notification--platinum, .achievement-notification--hidden) .achievement-notification__container {
   background: linear-gradient(90deg, rgba(8, 7, 34, 0.97) 0%, rgba(8, 7, 34, 0.97) 14%, rgba(12, 10, 40, 0.97) 86%, rgba(8, 7, 34, 0.97) 100%) !important;
 }
-.achievement-notification .achievement-notification__chip {
+.achievement-notification:not(.achievement-notification--rare, .achievement-notification--platinum, .achievement-notification--hidden) .achievement-notification__chip {
   background: linear-gradient(90deg, #e51a9d, #ff1595, #ff704f) !important;
   border-radius: 999px !important;
 }
-.achievement-notification--platinum .achievement-notification__chip {
-  background: linear-gradient(90deg, #20c9d7, #2de5ea) !important;
-}
-.achievement-notification .achievement-notification__chip__label {
+.achievement-notification:not(.achievement-notification--rare, .achievement-notification--platinum, .achievement-notification--hidden) .achievement-notification__chip__label {
   color: #fff !important;
 }
 /* === end achievement banner === */
 
-/* === catalogue filters: sticky, closed by default, open on hover (added) === */
+/* === catalogue filters: sticky, closed by default, open on hover or keyboard focus (added) === */
 .catalogue__filters-container {
   position: sticky;
   top: 8px;
   align-self: start;
-  max-height: calc(100vh - 150px);
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
   overflow-anchor: none;
 }
@@ -1552,13 +1550,15 @@ body:not(:has(.sidebar))::after {
   overflow: hidden !important;
   transition: max-height 0.2s ease;
 }
-.catalogue__filters-container .filter-section:hover .filter-section__content {
-  max-height: 340px !important;
+.catalogue__filters-container .filter-section:hover .filter-section__content,
+.catalogue__filters-container .filter-section:has(:focus-visible) .filter-section__content {
+  max-height: 380px !important;
 }
 .catalogue__filters-container .filter-section__chevron--open {
   transform: rotate(-90deg);
 }
-.catalogue__filters-container .filter-section:hover .filter-section__chevron--open {
+.catalogue__filters-container .filter-section:hover .filter-section__chevron--open,
+.catalogue__filters-container .filter-section:has(:focus-visible) .filter-section__chevron--open {
   transform: none;
 }
 /* === end catalogue filters === */
