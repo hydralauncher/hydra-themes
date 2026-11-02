@@ -4488,7 +4488,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
    e no hover a linha acende e mostra o botão verde de baixar. */
 .repacks-modal__repacks { gap: 0 !important; }
 .repacks-modal__repack-button {
-  grid-template-columns: 8px minmax(0, 1fr) 32px !important; grid-template-rows: auto auto !important; column-gap: 14px !important; row-gap: 3px !important;
+  grid-template-columns: 8px minmax(0, 1fr) minmax(32px, auto) !important; grid-template-rows: auto auto !important; column-gap: 14px !important; row-gap: 3px !important;
   align-items: center !important; padding: 12px 12px 12px 14px !important; border-radius: 8px !important; background: transparent !important;
 }
 .repacks-modal__repack-button:nth-child(even) { background: transparent !important; }
@@ -6497,3 +6497,6 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .achievements__item-reveal .achievements__item-description { font: 400 13px/18px var(--font); color: var(--text-2); }
 .achievements__item-reveal:hover .achievements__item-description { color: var(--accent-text); }
 .achievements-content__achievements-list__section__container__banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), transparent 55%), linear-gradient(0deg, rgba(0,0,0,.45), transparent 50%); pointer-events: none; }
+/* Opções de download: selo "Última opção baixada" como pílula na ponta da linha (o Hydra o punha na coluna da bolinha, uma palavra por linha) */
+.repacks-modal__repack-button:has(> .badge) { grid-template-rows: 20px 16px; }
+.repacks-modal__repack-button > .badge { grid-column: 3; grid-row: 1 / span 2; align-self: center; display: inline-flex; align-items: center; width: auto; height: 22px; padding: 0 9px; border: 0; border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 16%, transparent); color: var(--accent-text); font: 600 11px/22px var(--font); white-space: nowrap; }
