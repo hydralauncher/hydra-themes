@@ -6489,7 +6489,7 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 /* Conquistas: destaque no topo — arte do jogo na largura toda com logo e progresso; filtros fixos e lista larga embaixo */
 .achievements-content__achievements-list__section { display: flex !important; flex-direction: column; gap: 16px; }
 .achievements-content__achievements-list__section__container { position: relative !important; flex: none !important; align-self: stretch !important; width: auto !important; max-width: none !important; }
-.achievements__list-container { grid-column: 1 !important; grid-row: 2 !important; }
+.achievements__list-container { align-self: stretch !important; width: auto !important; }
 .achievements-content__achievements-list__section__container__banner { height: 240px !important; flex: none !important; position: relative; }
 .achievements-content__achievements-list__section__container__banner-background { inset: 0 !important; height: 100% !important; -webkit-mask-image: none !important; mask-image: none !important; }
 .achievements-content__achievements-list__section__container__banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), transparent 55%), linear-gradient(0deg, rgba(0,0,0,.45), transparent 50%); pointer-events: none; }
