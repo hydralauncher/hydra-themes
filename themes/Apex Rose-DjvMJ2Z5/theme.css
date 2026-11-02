@@ -730,7 +730,8 @@ svg.lucide-languages,
 svg.lucide-award,
 svg.lucide-gamepad-2,
 svg.lucide-gamepad2,
-svg.lucide-equal {
+svg.lucide-equal,
+svg.lucide-camera {
   background-color: currentColor;
   -webkit-mask: var(--fi) center / contain no-repeat;
   mask: var(--fi) center / contain no-repeat;
@@ -833,7 +834,7 @@ svg.octicon-graph { --fi: var(--fi-data-trending); }
 svg.octicon-note { --fi: var(--fi-note); }
 svg.octicon-hourglass { --fi: var(--fi-hourglass); }
 svg.octicon-no-entry, svg.octicon-circle-slash { --fi: var(--fi-prohibited); }
-svg.octicon-device-camera { --fi: var(--fi-camera); }
+svg.octicon-device-camera, svg.lucide-camera { --fi: var(--fi-camera); }
 svg.octicon-columns { --fi: var(--fi-column-triple); }
 svg.octicon-arrow-clockwise { --fi: var(--fi-arrow-clockwise); }
 svg.lucide-more-vertical, svg.lucide-ellipsis-vertical { --fi: var(--fi-more-vertical); }
@@ -8456,7 +8457,8 @@ svg.lucide-languages,
 svg.lucide-award,
 svg.lucide-gamepad-2,
 svg.lucide-gamepad2,
-svg.lucide-equal {
+svg.lucide-equal,
+svg.lucide-camera {
   background-color: currentColor;
   -webkit-mask: var(--fi) center / contain no-repeat;
   mask: var(--fi) center / contain no-repeat;
@@ -8559,7 +8561,7 @@ svg.octicon-graph { --fi: var(--fi-data-trending); }
 svg.octicon-note { --fi: var(--fi-note); }
 svg.octicon-hourglass { --fi: var(--fi-hourglass); }
 svg.octicon-no-entry, svg.octicon-circle-slash { --fi: var(--fi-prohibited); }
-svg.octicon-device-camera { --fi: var(--fi-camera); }
+svg.octicon-device-camera, svg.lucide-camera { --fi: var(--fi-camera); }
 svg.octicon-columns { --fi: var(--fi-column-triple); }
 svg.octicon-arrow-clockwise { --fi: var(--fi-arrow-clockwise); }
 svg.lucide-more-vertical, svg.lucide-ellipsis-vertical { --fi: var(--fi-more-vertical); }
