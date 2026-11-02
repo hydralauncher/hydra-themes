@@ -4637,13 +4637,20 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   grid-column: 2;
   grid-row: 1 / span 2;
 }
-.achievements-content__achievements-list__section__container__banner { height: auto; border-radius: 0; display: flex; flex-direction: column; }
-.achievements-content__achievements-list__section__container__banner-background { position: absolute; inset: 0 0 auto 0; height: 180px; width: 100%; object-fit: cover;
-  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent); mask-image: linear-gradient(180deg, #000 30%, transparent); }
-.achievements-content__achievements-list__section__container__hero { position: relative; height: 150px; padding: 20px; display: flex; align-items: flex-end; }
-.achievements-content__achievements-list__section__container__hero__content__game-logo { max-height: 80px; max-width: 220px; width: auto; }
-.achievements-content__achievements-list__section__container__achievements-summary-wrapper { position: relative; padding: 0; background: none; }
-.achievements-content__user-summary { padding: 8px 20px 20px; gap: 12px; background: none; border: 0; }
+.achievements-content__achievements-list__section__container__banner { height: 240px; border-radius: 0; display: flex; flex-direction: column; flex: none; position: relative; width: 100%; }
+.achievements-content__achievements-list__section__container__banner-background {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.achievements-content__achievements-list__section__container__hero { position: absolute; height: auto; padding: 32px; display: flex; align-items: center; inset: 0 auto 0 0; z-index: 1; }
+.achievements-content__achievements-list__section__container__hero__content__game-logo { max-height: 120px; max-width: 340px; width: auto; }
+.achievements-content__achievements-list__section__container__achievements-summary-wrapper { position: absolute; padding: 0; background: rgba(32,32,32,.45); right: 20px; bottom: 20px; width: 340px; z-index: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(24px) saturate(1.7); }
+.achievements-content__user-summary { padding: 14px 16px; gap: 12px; background: none; border: 0; }
 .achievements-content__profile-avatar, img.achievements-content__profile-avatar { width: 48px; height: 48px; border-radius: 50%; }
 .achievements-content__user-summary__container h1 { font: 600 18px/24px var(--font-display) !important; margin: 0; }
 .achievements-content__user-summary__container__stats__progress-track { height: 6px; border-radius: 999px; background: rgba(255,255,255,.12); overflow: hidden; margin-top: 8px; }
@@ -5332,8 +5339,12 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 
 
 .achievements-content__achievements-list__section__container {
-  
-  top: 0 !important;
+  top: 0;
+  position: relative;
+  flex: none;
+  align-self: stretch;
+  width: auto;
+  max-width: none;
 }
 .achievement-panel {
   
@@ -5346,8 +5357,10 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
   padding-top: 80px !important;
   scroll-padding-top: 80px;
   margin-right: 0 !important;
-  
   padding-right: 4px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 /* Biblioteca: rolagem no padrão — a barra na borda da janela, os cartões
    alinhados às bordas do cabeçalho (o app recuava 4px de cada lado). */
@@ -6452,9 +6465,9 @@ html body .profile-hero__hero-panel { left: 16px !important; }
   from { background-color: transparent; -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
   to { background-color: rgba(0, 0, 0, .35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 }
-/* Ajustes › Capturas de tela (Hydra 4.3): mesmas linhas das outras seções — rótulo à esquerda, controle à direita */
-.settings-screenshots__select { max-width: none !important; }
-.settings-screenshots__field { display: grid !important; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 2px; align-items: center; }
+/* Hydra 4.3: seletores novos (conquistas, ajustes de capturas) */
+.settings-screenshots__select { max-width: none; }
+.settings-screenshots__field { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 2px; align-items: center; }
 .settings-screenshots__field > :is(.settings-screenshots__hotkey-row, .settings-screenshots__combo) { grid-column: 2; grid-row: 1; }
 .settings-screenshots__field:has(.settings-screenshots__hint) > .settings-screenshots__combo { grid-row: 1 / span 2; }
 .settings-screenshots__field-label { font: 400 14px/20px var(--font); color: var(--text); }
@@ -6465,9 +6478,7 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .settings-screenshots__keycap:hover:not(:disabled) { background: var(--ctl-bg-hover); border-color: var(--ctl-stroke); }
 .settings-screenshots__folder .text-field-container > label { text-align: left; align-self: flex-start !important; font: 400 14px/20px var(--font) !important; color: var(--text) !important; margin: 0 0 8px !important; }
 .settings-screenshots__open-folder { align-self: flex-start; }
-/* Conquistas (Hydra 4.3): painel à esquerda e lista à direita; a seção é quem rola e o recuo de 80px dela já deixa o que é fixo logo abaixo do cabeçalho */
-.achievements-content__achievements-list__section__container { top: 0; }
-.achievements__list-container { gap: 12px; min-width: 0; }
+.achievements__list-container { gap: 12px; min-width: 0; align-self: stretch; width: auto; }
 .achievements__toolbar { position: sticky; top: 0; z-index: 2; flex-wrap: nowrap; align-items: center; gap: 8px; padding: 8px; border-radius: 14px; background: rgba(32, 32, 32, .45); border: 1px solid rgba(255, 255, 255, .1); backdrop-filter: blur(24px) saturate(1.7); -webkit-backdrop-filter: blur(24px) saturate(1.7); }
 .achievements__toolbar-search { flex: 1 1 auto; width: auto; min-width: 180px; }
 .achievements__toolbar-search .text-field-container__text-field { height: 32px; min-height: 32px; }
@@ -6479,25 +6490,13 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .achievements__item-icon { width: 48px; height: 48px; }
 .achievements__item-check { right: -4px; bottom: -4px; left: auto; top: auto; background: var(--accent); color: var(--on-accent); border: 2px solid var(--mica); border-radius: 50%; }
 .achievements__item-unlock-time { font: 400 12px/16px var(--font); color: var(--text-3, var(--text-2)); }
-/* Conquista oculta: o botão de revelar ocupa ícone + texto juntos (a grade de 3 colunas espremia o texto em uma letra por linha) */
 .achievements__item--concealed { grid-template-columns: minmax(0, 1fr) auto; }
 .achievements__item-reveal { display: flex; align-items: center; gap: 16px; min-width: 0; padding: 0; background: none; border: 0; color: inherit; text-align: left; cursor: pointer; }
 .achievements__item-reveal .achievements__item-content { display: flex; flex-direction: column; min-width: 0; }
 .achievements__item-icon--concealed { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 8px; background: var(--ctl-bg); color: var(--text-2); }
 .achievements__item-reveal .achievements__item-description { font: 400 13px/18px var(--font); color: var(--text-2); }
 .achievements__item-reveal:hover .achievements__item-description { color: var(--accent-text); }
-/* Conquistas: destaque no topo — arte do jogo na largura toda com logo e progresso; filtros fixos e lista larga embaixo */
-.achievements-content__achievements-list__section { display: flex !important; flex-direction: column; gap: 16px; }
-.achievements-content__achievements-list__section__container { position: relative !important; flex: none !important; align-self: stretch !important; width: auto !important; max-width: none !important; }
-.achievements__list-container { align-self: stretch !important; width: auto !important; }
-.achievements-content__achievements-list__section__container__banner { height: 240px !important; flex: none !important; position: relative; }
-.achievements-content__achievements-list__section__container__banner-background { inset: 0 !important; height: 100% !important; -webkit-mask-image: none !important; mask-image: none !important; }
 .achievements-content__achievements-list__section__container__banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), transparent 55%), linear-gradient(0deg, rgba(0,0,0,.45), transparent 50%); pointer-events: none; }
-.achievements-content__achievements-list__section__container__hero { position: absolute !important; inset: 0 auto 0 0; height: auto !important; padding: 32px !important; align-items: center !important; z-index: 1; }
-.achievements-content__achievements-list__section__container__hero__content__game-logo { max-height: 120px !important; max-width: 340px !important; }
-.achievements-content__achievements-list__section__container__achievements-summary-wrapper { position: absolute !important; right: 20px; bottom: 20px; width: 340px; z-index: 1; border-radius: 12px; background: rgba(32,32,32,.45) !important; border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(24px) saturate(1.7); }
-.achievements-content__user-summary { padding: 14px 16px !important; }
-.achievements-content__achievements-list__section__container__banner { width: 100% !important; }
 
 /* ---- Modo claro do Windows ---- */
 @media (prefers-color-scheme: light) {
@@ -12364,13 +12363,20 @@ select option:active { background: rgba(0, 0, 0, 0.034) !important; }
   grid-column: 2;
   grid-row: 1 / span 2;
 }
-.achievements-content__achievements-list__section__container__banner { height: auto; border-radius: 0; display: flex; flex-direction: column; }
-.achievements-content__achievements-list__section__container__banner-background { position: absolute; inset: 0 0 auto 0; height: 180px; width: 100%; object-fit: cover;
-  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent); mask-image: linear-gradient(180deg, #000 30%, transparent); }
-.achievements-content__achievements-list__section__container__hero { position: relative; height: 150px; padding: 20px; display: flex; align-items: flex-end; }
-.achievements-content__achievements-list__section__container__hero__content__game-logo { max-height: 80px; max-width: 220px; width: auto; }
-.achievements-content__achievements-list__section__container__achievements-summary-wrapper { position: relative; padding: 0; background: none; }
-.achievements-content__user-summary { padding: 8px 20px 20px; gap: 12px; background: none; border: 0; }
+.achievements-content__achievements-list__section__container__banner { height: 240px; border-radius: 0; display: flex; flex-direction: column; flex: none; position: relative; width: 100%; }
+.achievements-content__achievements-list__section__container__banner-background {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.achievements-content__achievements-list__section__container__hero { position: absolute; height: auto; padding: 32px; display: flex; align-items: center; inset: 0 auto 0 0; z-index: 1; }
+.achievements-content__achievements-list__section__container__hero__content__game-logo { max-height: 120px; max-width: 340px; width: auto; }
+.achievements-content__achievements-list__section__container__achievements-summary-wrapper { position: absolute; padding: 0; background: rgba(247, 247, 247, .45); right: 20px; bottom: 20px; width: 340px; z-index: 1; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.085); backdrop-filter: blur(24px) saturate(1.7); }
+.achievements-content__user-summary { padding: 14px 16px; gap: 12px; background: none; border: 0; }
 .achievements-content__profile-avatar, img.achievements-content__profile-avatar { width: 48px; height: 48px; border-radius: 50%; }
 .achievements-content__user-summary__container h1 { font: 600 18px/24px var(--font-display) !important; margin: 0; }
 .achievements-content__user-summary__container__stats__progress-track { height: 6px; border-radius: 999px; background: rgba(0, 0, 0, 0.102); overflow: hidden; margin-top: 8px; }
@@ -13059,8 +13065,12 @@ select option:active { background: rgba(0, 0, 0, 0.034) !important; }
 
 
 .achievements-content__achievements-list__section__container {
-  
-  top: 0 !important;
+  top: 0;
+  position: relative;
+  flex: none;
+  align-self: stretch;
+  width: auto;
+  max-width: none;
 }
 .achievement-panel {
   
@@ -13073,8 +13083,10 @@ select option:active { background: rgba(0, 0, 0, 0.034) !important; }
   padding-top: 80px !important;
   scroll-padding-top: 80px;
   margin-right: 0 !important;
-  
   padding-right: 4px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 /* Biblioteca: rolagem no padrão — a barra na borda da janela, os cartões
    alinhados às bordas do cabeçalho (o app recuava 4px de cada lado). */
@@ -14179,9 +14191,9 @@ html body .profile-hero__hero-panel { left: 16px !important; }
   from { background-color: transparent; -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
   to { background-color: rgba(0, 0, 0, .35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 }
-/* Ajustes › Capturas de tela (Hydra 4.3): mesmas linhas das outras seções — rótulo à esquerda, controle à direita */
-.settings-screenshots__select { max-width: none !important; }
-.settings-screenshots__field { display: grid !important; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 2px; align-items: center; }
+/* Hydra 4.3: seletores novos (conquistas, ajustes de capturas) */
+.settings-screenshots__select { max-width: none; }
+.settings-screenshots__field { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 2px; align-items: center; }
 .settings-screenshots__field > :is(.settings-screenshots__hotkey-row, .settings-screenshots__combo) { grid-column: 2; grid-row: 1; }
 .settings-screenshots__field:has(.settings-screenshots__hint) > .settings-screenshots__combo { grid-row: 1 / span 2; }
 .settings-screenshots__field-label { font: 400 14px/20px var(--font); color: var(--text); }
@@ -14192,9 +14204,7 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .settings-screenshots__keycap:hover:not(:disabled) { background: var(--ctl-bg-hover); border-color: var(--ctl-stroke); }
 .settings-screenshots__folder .text-field-container > label { text-align: left; align-self: flex-start !important; font: 400 14px/20px var(--font) !important; color: var(--text) !important; margin: 0 0 8px !important; }
 .settings-screenshots__open-folder { align-self: flex-start; }
-/* Conquistas (Hydra 4.3): painel à esquerda e lista à direita; a seção é quem rola e o recuo de 80px dela já deixa o que é fixo logo abaixo do cabeçalho */
-.achievements-content__achievements-list__section__container { top: 0; }
-.achievements__list-container { gap: 12px; min-width: 0; }
+.achievements__list-container { gap: 12px; min-width: 0; align-self: stretch; width: auto; }
 .achievements__toolbar { position: sticky; top: 0; z-index: 2; flex-wrap: nowrap; align-items: center; gap: 8px; padding: 8px; border-radius: 14px; background: rgba(247, 247, 247, .45); border: 1px solid rgba(0, 0, 0, 0.085); backdrop-filter: blur(24px) saturate(1.7); -webkit-backdrop-filter: blur(24px) saturate(1.7); }
 .achievements__toolbar-search { flex: 1 1 auto; width: auto; min-width: 180px; }
 .achievements__toolbar-search .text-field-container__text-field { height: 32px; min-height: 32px; }
@@ -14206,25 +14216,13 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 .achievements__item-icon { width: 48px; height: 48px; }
 .achievements__item-check { right: -4px; bottom: -4px; left: auto; top: auto; background: var(--accent); color: var(--on-accent); border: 2px solid var(--mica); border-radius: 50%; }
 .achievements__item-unlock-time { font: 400 12px/16px var(--font); color: var(--text-3, var(--text-2)); }
-/* Conquista oculta: o botão de revelar ocupa ícone + texto juntos (a grade de 3 colunas espremia o texto em uma letra por linha) */
 .achievements__item--concealed { grid-template-columns: minmax(0, 1fr) auto; }
 .achievements__item-reveal { display: flex; align-items: center; gap: 16px; min-width: 0; padding: 0; background: none; border: 0; color: inherit; text-align: left; cursor: pointer; }
 .achievements__item-reveal .achievements__item-content { display: flex; flex-direction: column; min-width: 0; }
 .achievements__item-icon--concealed { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 8px; background: var(--ctl-bg); color: var(--text-2); }
 .achievements__item-reveal .achievements__item-description { font: 400 13px/18px var(--font); color: var(--text-2); }
 .achievements__item-reveal:hover .achievements__item-description { color: var(--accent-text); }
-/* Conquistas: destaque no topo — arte do jogo na largura toda com logo e progresso; filtros fixos e lista larga embaixo */
-.achievements-content__achievements-list__section { display: flex !important; flex-direction: column; gap: 16px; }
-.achievements-content__achievements-list__section__container { position: relative !important; flex: none !important; align-self: stretch !important; width: auto !important; max-width: none !important; }
-.achievements__list-container { align-self: stretch !important; width: auto !important; }
-.achievements-content__achievements-list__section__container__banner { height: 240px !important; flex: none !important; position: relative; }
-.achievements-content__achievements-list__section__container__banner-background { inset: 0 !important; height: 100% !important; -webkit-mask-image: none !important; mask-image: none !important; }
 .achievements-content__achievements-list__section__container__banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 0, 0, 0.248), transparent 55%), linear-gradient(0deg, rgba(0, 0, 0, 0.203), transparent 50%); pointer-events: none; }
-.achievements-content__achievements-list__section__container__hero { position: absolute !important; inset: 0 auto 0 0; height: auto !important; padding: 32px !important; align-items: center !important; z-index: 1; }
-.achievements-content__achievements-list__section__container__hero__content__game-logo { max-height: 120px !important; max-width: 340px !important; }
-.achievements-content__achievements-list__section__container__achievements-summary-wrapper { position: absolute !important; right: 20px; bottom: 20px; width: 340px; z-index: 1; border-radius: 12px; background: rgba(247, 247, 247, .45) !important; border: 1px solid rgba(0, 0, 0, 0.085); backdrop-filter: blur(24px) saturate(1.7); }
-.achievements-content__user-summary { padding: 14px 16px !important; }
-.achievements-content__achievements-list__section__container__banner { width: 100% !important; }
 
 /* Sobre arte: mesmas cores do modo escuro */
 :is(.game-card, .library-game-card__wrapper, .library-game-card-large, .user-library-game__wrapper, .vertical-cover-card, .similar-games__card, .game-item-classics__cover, .download-group__hero, .gallery-slider__container, .achievement-notification, .friends-window__header, .friends-window__friend--has-bg, .game-item__cover-wrapper, .console-card__art) { color-scheme: light; --glass: rgba(255, 255, 255, .05);--glass-hover: rgba(255, 255, 255, .09);--glass-stroke: rgba(255, 255, 255, .09);--glass-dark: rgba(0, 0, 0, .38);--acrylic: rgba(32, 32, 32, .72);--layer: rgba(30, 30, 30, .55);--layer-stroke: rgba(255, 255, 255, .04);--card: rgba(255, 255, 255, .0512);--card-hover: rgba(255, 255, 255, .0837);--card-stroke: rgba(255, 255, 255, .0698);--flyout: #1e1e1e;--flyout-stroke: rgba(117, 117, 117, .4);--control: rgba(255, 255, 255, .0605);--control-hover: rgba(255, 255, 255, .0837);--control-pressed: rgba(255, 255, 255, .0326);--control-disabled: rgba(255, 255, 255, .0419);--control-stroke: rgba(255, 255, 255, .0698);--control-stroke-top: rgba(255, 255, 255, .093);--control-strong: rgba(255, 255, 255, .5442);--subtle-hover: rgba(255, 255, 255, .0605);--subtle-pressed: rgba(255, 255, 255, .0419);--divider: rgba(255, 255, 255, .0837);--text: #fff;--text-2: rgba(255, 255, 255, .786);--text-3: rgba(255, 255, 255, .544);--text-disabled: rgba(255, 255, 255, .3628); }
