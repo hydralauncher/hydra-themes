@@ -1,0 +1,326 @@
+
+/* ===== CYBERPUNK FONT ===== */
+@font-face {
+    font-family: "Cyberpunk_Font";
+    src: url("./cyberpunk_font.otf") format("opentype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --background-primary: #170005;
+    --background-secondary: #000000;
+    --color-primary: #e3b900;
+    --color-secondary: #5cb5c3;
+    --color-danger: #e11d48;
+    --color-success: #1c9749;
+    --color-border: #880424;
+    --color-hover: #3b0b1c;
+    --color-hover-alt: #3b8d7f;
+
+    --font-family: "Cyberpunk_Font", sans-serif;
+    --font-size-body: 14px;
+    --font-size-small: 12px;
+    --z-index-toast: 10;
+    --z-index-title-bar: 9;
+    --z-index-bottom-panel: 8;
+}
+
+/* ===== MAIN APPLICATION ===== */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    color: var(--color-secondary);
+    background-color: var(--background-secondary);
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+}
+
+main {
+    background-color: var(--background-secondary);
+    color: var(--color-primary);
+    height: 100%;
+}
+
+.title-bar {
+    background-image: linear-gradient(var(--background-secondary), var(--background-primary));
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: var(--z-index-title-bar);
+}
+
+.sidebar {
+    background-image: linear-gradient(var(--background-primary), var(--background-secondary));
+    color: var(--color-secondary);
+    font-weight: 500;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bottom-panel {
+    width: 100%;
+    border-top: 1px solid var(--color-border);
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: var(--color-primary);
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: var(--z-index-bottom-panel);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button--primary {
+    background-color: var(--color-border);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button--primary:hover {
+    background-color: var(--color-hover);
+}
+
+.header {
+    background-color: var(--background-primary);
+    color: var(--color-primary);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    font-weight: 500;
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.header__search {
+    background-color: var(--background-secondary);
+    border-color: var(--color-border);
+    color: var(--color-secondary);
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.sidebar__menu-item {
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-secondary);
+    padding: 10px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar__menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__menu-item--active {
+    background-image: linear-gradient(var(--background-primary), var(--background-secondary));
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    background-color: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--background-primary);
+    border-radius: 24px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-border);
+}
+
+.container__content,
+.bottom-panel,
+.toast,
+.button {
+    font-family: var(--font-family);
+    font-size: 14px;
+}
+
+/* ===== HYDRA ACHIEVEMENT NOTIFICATIONS ===== */
+
+.achievement-notification__container {
+    background: linear-gradient(90deg, #4a0a10, #170005) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove unwanted lines */
+.achievement-notification,
+.achievement-notification *,
+.achievement-notification::before,
+.achievement-notification::after,
+.achievement-notification *::before,
+.achievement-notification *::after {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    clip-path: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Gold text by default */
+.achievement-notification__title,
+.achievement-notification__description,
+.achievement-notification__chip__label {
+    color: #e3b900 !important;
+}
+
+/* Rare: gold icon */
+.achievement-notification--rare img.achievement-notification__icon {
+    filter:
+        sepia(1) saturate(4) brightness(1.05)
+        drop-shadow(0 0 4px #e3b900)
+        drop-shadow(0 0 10px #e3b900) !important;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+    outline: 1px solid #f4a510 !important;
+    box-shadow: 0 0 12px rgba(244, 165, 16, 0.25) !important;
+}
+
+/* Platinum: cyan Hydra */
+.achievement-notification--platinum span.achievement-notification__icon {
+    outline: 1px solid #0cf1ca !important;
+    box-shadow: 0 0 12px rgba(12, 241, 202, 0.5) !important;
+}
+
+.achievement-notification--platinum img.achievement-notification__icon {
+    filter:
+        grayscale(1)
+        sepia(1)
+        saturate(5)
+        hue-rotate(130deg)
+        brightness(1.5)
+        drop-shadow(0 0 4px #0cf1ca)
+        drop-shadow(0 0 10px #0cf1ca) !important;
+}
+
+/* Platinum text */
+.achievement-notification--platinum .achievement-notification__title,
+.achievement-notification--platinum .achievement-notification__description {
+    color: #0cf1ca !important;
+    text-shadow:
+        0 0 4px rgba(12, 241, 202, 0.9),
+        0 0 9px rgba(12, 241, 202, 0.65) !important;
+}
+
+/* Achievement font */
+.achievement-notification__title,
+.achievement-notification__description,
+.achievement-notification__chip__label {
+    font-family: "Cyberpunk_Font", sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.achievement-notification__title {
+    font-size: 14px !important;
+}
+
+.achievement-notification__description {
+    font-size: 11px !important;
+}
+
+/* Default Hydra icon */
+.achievement-notification:not(.achievement-notification--rare):not(.achievement-notification--platinum) img.achievement-notification__icon {
+    filter: none !important;
+}
+
+/* ===== GAME TITLES: CYBERPUNK GOLD ===== */
+.game-card__title,
+.game-item__title,
+.game-title,
+.game-item-title,
+.game-details__title {
+    color: #e3b900 !important;
+}
+
+/* ===== BLURRED FULL-WINDOW WALLPAPER ===== */
+/* ===== CYBERPUNK WALLPAPER ===== */
+
+html,
+body,
+#root {
+    background: transparent !important;
+}
+
+body:has(.sidebar) {
+    background:
+        linear-gradient(
+            rgba(10, 0, 5, 0.45),
+            rgba(10, 0, 5, 0.65)
+        ),
+        url("./wallpaper.jpg") center center / cover no-repeat fixed !important;
+}
+
+/* Keep launcher panels transparent */
+body:has(.sidebar) main,
+body:has(.sidebar) .title-bar,
+body:has(.sidebar) .header,
+body:has(.sidebar) .sidebar,
+body:has(.sidebar) .container__content {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* Keep bottom panel readable */
+body:has(.sidebar) .bottom-panel {
+    background: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Never show wallpaper in achievement popup */
+body:not(:has(.sidebar)) {
+    background: transparent !important;
+}
+
+/* Transparent launcher surfaces */
+html,
+body,
+main,
+.title-bar,
+.header,
+.sidebar,
+.container__content {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Readable controls */
+.button--primary {
+    background: #880424 !important;
+}
+
+.header__search {
+    background: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* ===== PROTECT ACHIEVEMENT POPUP WINDOW ===== */
+body:not(:has(.sidebar)) {
+    background: transparent !important;
+}
+
+body:not(:has(.sidebar)) #root::before {
+    display: none !important;
+}
