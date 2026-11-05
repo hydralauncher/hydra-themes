@@ -295,17 +295,7 @@ body:not(:has(.sidebar)) {
     background: transparent !important;
 }
 
-/* Transparent launcher surfaces */
-html,
-body,
-main,
-.title-bar,
-.header,
-.sidebar,
-.container__content {
-    background-color: transparent !important;
-    background-image: none !important;
-}
+
 
 /* Readable controls */
 .button--primary {
