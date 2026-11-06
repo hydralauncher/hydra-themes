@@ -281,7 +281,7 @@ body:has(.sidebar) .title-bar,
 body:has(.sidebar) .header,
 body:has(.sidebar) .sidebar,
 body:has(.sidebar) .container__content {
-    background: transparent !important;
+    background: rgba(0, 0, 0, 0.2) !important;
     background-image: none !important;
 }
 
