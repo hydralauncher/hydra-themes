@@ -262,9 +262,7 @@ a:hover {
 
 html,
 body,
-#root {
-    background: transparent !important;
-}
+
 
 body:has(.sidebar) {
     background:
