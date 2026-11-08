@@ -275,16 +275,15 @@ body:has(.sidebar) {
         url("./wallpaper.jpg") center center / cover no-repeat fixed !important;
 }
 
-/* Keep launcher panels transparent */
+/* Light tint on launcher panels */
 body:has(.sidebar) main,
 body:has(.sidebar) .title-bar,
 body:has(.sidebar) .header,
 body:has(.sidebar) .sidebar,
 body:has(.sidebar) .container__content {
-    background: transparent !important;
+    background: rgba(0, 0, 0, 0.2) !important;
     background-image: none !important;
 }
-
 /* Keep bottom panel readable */
 body:has(.sidebar) .bottom-panel {
     background: rgba(0, 0, 0, 0.7) !important;
