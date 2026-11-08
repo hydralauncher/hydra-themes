@@ -1006,6 +1006,196 @@ progress::-webkit-progress-value {
 .library-toolbar-menu__view[data-state="on"],
 .library-toolbar-menu__view--active { background: var(--pb-accent-a20); color: var(--pb-accent-hi); }
 
+/* ═══════════════════ FRIENDS — the detached friends window ═══════════════════
+   Lacquer card for you, arcade key to add friends, rows that lift, and an
+   orange ring around anyone who is in a game right now. */
+
+@keyframes pb-ingame-ring {
+  0%, 100% { box-shadow: 0 0 0 2px var(--pb-accent), 0 0 0 0 var(--pb-accent-a55); }
+  50% { box-shadow: 0 0 0 2px var(--pb-accent-hi), 0 0 0 calc(5px * var(--pb-glow)) transparent; }
+}
+
+.friends-window {
+  background:
+    radial-gradient(120% 40% at 50% -6%, var(--pb-accent-a10), transparent 70%),
+    var(--pb-bg);
+}
+.friends-window__title-bar {
+  background: var(--pb-lacquer-deep);
+  border-bottom: 1px solid var(--pb-border);
+  box-shadow: 0 1px 0 var(--pb-accent-a20);
+}
+.friends-window__window-control:hover { background: var(--pb-surface-hi); }
+.friends-window__window-control--close:hover { background: #e5484d; color: #fff; }
+
+/* you: a lacquer card */
+.friends-window__profile {
+  margin: 12px 12px 4px;
+  padding: 10px;
+  border-radius: var(--pb-radius);
+  background: var(--pb-lacquer);
+  border: 1px solid var(--pb-border);
+  box-shadow: inset 0 1px 0 var(--pb-shine), 0 10px 24px -14px rgba(0, 0, 0, 0.9);
+}
+.friends-window__header--has-bg .friends-window__profile {
+  background: rgba(4, 4, 5, 0.55);
+  backdrop-filter: blur(8px);
+}
+.friends-window__profile-avatar img,
+.friends-window__profile-avatar > :first-child {
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px var(--pb-accent-a55);
+}
+.friends-window__profile-avatar:hover { opacity: 1; transform: scale(1.04); transition: transform var(--pb-t) var(--pb-spring); }
+.friends-window__profile-name { color: var(--pb-text); }
+.friends-window__profile-game,
+.friends-window__profile-status { color: var(--pb-text-muted); }
+.friends-window__friend-code { border-radius: 6px; transition: color var(--pb-t-fast), background var(--pb-t-fast); }
+.friends-window__friend-code:hover { color: var(--pb-accent-hi); background: var(--pb-accent-a10); }
+.friends-window__friend-code--copied { color: var(--pb-accent-hi); }
+
+/* search + the add-friend arcade key */
+.friends-window__search {
+  background: var(--pb-bg-deep);
+  border: 1px solid var(--pb-border);
+  border-radius: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: border-color var(--pb-t), box-shadow var(--pb-t);
+}
+.friends-window__search:hover { border-color: var(--pb-surface-hi); }
+.friends-window__search:focus-within {
+  border-color: var(--pb-accent);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 0 0 3px var(--pb-accent-a20);
+}
+.friends-window__search-icon { color: var(--pb-text-muted); }
+.friends-window__search:focus-within .friends-window__search-icon { color: var(--pb-accent-hi); }
+.friends-window__search-input { caret-color: var(--pb-accent); }
+
+.friends-window__add-friend.button,
+.friends-window__add-friend.button:hover:not(:disabled),
+.friends-window__add-friend.button:active:not(:disabled) {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: none;
+}
+.friends-window__add-friend.button::after { display: none; }
+.friends-window__add-friend-face { border-radius: 10px; }
+.friends-window__add-friend-face--add {
+  background: linear-gradient(180deg, var(--pb-accent-hi), var(--pb-accent));
+  color: var(--pb-on-accent);
+  box-shadow: 0 3px 0 var(--pb-accent-deep), 0 6px calc(16px * var(--pb-glow)) -4px var(--pb-accent-a55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform var(--pb-t-fast) var(--pb-ease), box-shadow var(--pb-t-fast), opacity var(--pb-t);
+}
+.friends-window__add-friend:hover .friends-window__add-friend-face--add { transform: translateY(-1px); }
+.friends-window__add-friend:active .friends-window__add-friend-face--add {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--pb-accent-deep), inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.friends-window__add-friend-face--close {
+  background: var(--pb-lacquer);
+  border-color: var(--pb-border);
+  box-shadow: 0 3px 0 #000, inset 0 1px 0 var(--pb-shine);
+}
+
+/* section headers stay pinned over a lacquer strip */
+.friends-window__section-header {
+  background: linear-gradient(180deg, var(--pb-bg) 70%, transparent);
+  color: var(--pb-text-muted);
+  letter-spacing: 0.06em;
+}
+.friends-window__section-header:hover { color: var(--pb-text); }
+.friends-window__section-title { font-weight: 700; }
+.friends-window__count {
+  background: var(--pb-accent);
+  color: var(--pb-on-accent);
+  box-shadow: 0 0 calc(8px * var(--pb-glow)) -1px var(--pb-accent-a55);
+}
+.friends-window__count--online { background: #157a3b; color: #fff; box-shadow: 0 0 8px -1px rgba(34, 197, 94, 0.55); }
+.friends-window__count--offline { background: var(--pb-surface-hi); color: var(--pb-text-muted); box-shadow: none; }
+
+/* friend rows */
+.friends-window__friend {
+  border-radius: 10px;
+  transition: background var(--pb-t-fast), transform var(--pb-t-fast) var(--pb-ease), box-shadow var(--pb-t-fast);
+}
+.friends-window__friend:hover {
+  background: var(--pb-surface-hi);
+  transform: translateX(3px);
+  box-shadow: inset 3px 0 0 var(--pb-accent);
+}
+.friends-window__friend--has-bg:hover {
+  background: transparent;
+  box-shadow: 0 0 0 1.5px var(--pb-accent), 0 8px 24px -10px var(--pb-accent-a55);
+}
+.friends-window__friend--has-bg::after {
+  background: linear-gradient(90deg, rgba(4, 4, 5, 0.94) 0%, rgba(4, 4, 5, 0.7) 38%, rgba(4, 4, 5, 0.08) 82%);
+}
+.friends-window__friend:active { transform: translateX(3px) scale(0.985); }
+.friends-window__friend-name { color: var(--pb-text); }
+.friends-window__friend-status { color: var(--pb-text-muted); }
+
+.friends-window__avatar-wrapper img,
+.friends-window__avatar-wrapper > :first-child { border-radius: 10px; }
+/* in a game right now: the avatar gets a pulsing accent ring */
+.friends-window__friend:has(.friends-window__game-info) .friends-window__avatar-wrapper > :first-child {
+  animation: pb-ingame-ring 2.2s ease-in-out infinite;
+}
+.friends-window__game-info { color: var(--pb-accent-hi); font-weight: 600; }
+.friends-window__game-icon { border-radius: 4px; box-shadow: 0 0 0 1px var(--pb-accent-a35); }
+.friends-window__status-orb { border-color: var(--pb-bg); }
+.friends-window__status-orb--online { box-shadow: 0 0 6px rgba(34, 197, 94, 0.8); }
+
+.friends-window__message-button { border-radius: 8px; transition: background var(--pb-t-fast), color var(--pb-t-fast), transform var(--pb-t-fast) var(--pb-spring), opacity var(--pb-t-fast); }
+.friends-window__message-button:hover,
+.friends-window__message-button:focus-visible {
+  background: var(--pb-accent-a20);
+  color: var(--pb-accent-hi);
+  transform: scale(1.1);
+}
+.friends-window__message-button--unread { color: var(--pb-accent-hi); opacity: 1; }
+.friends-window__unread-badge {
+  background: var(--pb-accent);
+  color: var(--pb-on-accent);
+  box-shadow: 0 0 0 2px var(--pb-bg), 0 0 10px var(--pb-accent-a55);
+  animation: pb-pulse 1.8s infinite;
+}
+
+/* friend requests: accept is the arcade key, refuse a lacquer one */
+.friends-window__request-action {
+  border-color: var(--pb-border);
+  background: var(--pb-lacquer);
+  box-shadow: 0 2px 0 #000;
+  transition: transform var(--pb-t-fast) var(--pb-spring), background var(--pb-t-fast), color var(--pb-t-fast), box-shadow var(--pb-t-fast);
+}
+.friends-window__request-action--accept {
+  background: linear-gradient(180deg, var(--pb-accent-hi), var(--pb-accent));
+  border-color: var(--pb-accent-hi);
+  color: var(--pb-on-accent);
+  box-shadow: 0 2px 0 var(--pb-accent-deep), 0 0 calc(10px * var(--pb-glow)) -2px var(--pb-accent-a55);
+}
+.friends-window__request-action--accept:hover {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--pb-accent-hi), #fff 15%), var(--pb-accent-hi));
+  border-color: var(--pb-accent-hi);
+  color: var(--pb-on-accent);
+  transform: scale(1.12);
+}
+.friends-window__request-action--refuse:hover { transform: scale(1.12); }
+.friends-window__request-action:active { transform: scale(0.9); box-shadow: none; }
+
+/* loading + empty */
+.friends-window__skeleton { background: linear-gradient(90deg, var(--pb-surface), var(--pb-surface-hi), var(--pb-surface)); background-size: 200% 100%; }
+.friends-window__empty { color: var(--pb-text-muted); text-align: center; }
+.friends-window__empty::before {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 112px;
+  margin: 8px auto 6px;
+  background: var(--pb-scene-peek) no-repeat center bottom / contain;
+  filter: hue-rotate(var(--pb-bit-hue));
+}
+
 /* ═══════════════════ RESPECT REDUCED MOTION ═══════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1017,7 +1207,8 @@ progress::-webkit-progress-value {
   .sidebar::after,
   .library__no-games::before { background-image: var(--pb-still-piano) !important; }
   .downloads__no-downloads::before { background-image: var(--pb-still-nap) !important; }
-  .home__no-results::before { background-image: var(--pb-still-peek) !important; }
+  .home__no-results::before,
+  .friends-window__empty::before { background-image: var(--pb-still-peek) !important; }
   .achievement-notification__container::after { background-image: var(--pb-still-happy) !important; }
 }
 
