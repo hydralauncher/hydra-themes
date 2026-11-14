@@ -1,0 +1,2695 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+  --vi-pink: #ff00ea;
+  --vi-blue: #00f3ff;
+  --vi-purple: #bd00ff;
+  --vi-bg-overlay: rgba(20, 10, 35, 0.85);
+  --vi-glass: rgba(255, 255, 255, 0.05);
+  --vi-border: rgba(255, 255, 255, 0.15);
+  
+  --vi-gradient: linear-gradient(135deg, var(--vi-pink), var(--vi-purple), var(--vi-blue));
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background-color: #1a0b2e;
+  letter-spacing: 0.5px;
+}
+
+#root {
+  background: 
+    linear-gradient(to top, #1a0b2e 0%, rgba(26, 11, 46, 0.6) 50%, rgba(0,0,0,0.1) 100%) !important;
+}
+
+.sidebar,
+.header,
+.header__search,
+.container__content,
+.bottom-panel,
+.title-bar {
+    background: transparent;
+}
+
+.sidebar__item {
+  border-radius: 12px;
+  margin: 5px 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+.sidebar__item:hover,
+.sidebar__item--active {
+  background: transparent !important;
+  color: #fff !important;
+  text-shadow: 0 0 10px var(--vi-pink), 0 0 20px var(--vi-purple);
+  transform: translateX(5px);
+  position: relative;
+}
+
+.sidebar__item--active::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  height: 60%;
+  width: 4px;
+  background: var(--vi-gradient);
+  border-radius: 4px;
+  box-shadow: 0 0 15px var(--vi-pink);
+  top: 20%;
+}
+
+.sidebar input,
+.sidebar .text-field-container__text-field {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.sidebar .text-field-container__text-field:focus-within {
+  border-color: var(--vi-blue);
+  background-color: transparent !important;
+}
+
+.container__content {
+  background: transparent;
+}
+
+.game-item {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 8px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+.game-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  background-color: rgba(40, 20, 60, 0.6) !important;
+  border-color: var(--vi-pink);
+  box-shadow: 0 10px 30px rgba(255, 0, 234, 0.2), 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+.game-item__poster {
+  border-radius: 12px;
+}
+
+.game-item__title {
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 12px;
+  background: -webkit-linear-gradient(0deg, #fff, #ddd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.9rem;
+}
+.button--primary,
+.game-details-actions__button--primary {
+  background: var(--vi-gradient) !important;
+  background-size: 200% 200% !important;
+  color: #fff !important;
+  font-weight: 800;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 5px 20px rgba(189, 0, 255, 0.4);
+  text-transform: uppercase;
+  animation: gradientMove 3s ease infinite;
+  transition: transform 0.2s;
+}
+.button--primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+}
+
+.button--dark,
+.button--outline {
+  background: transparent !important;
+  border: 2px solid var(--vi-blue) !important;
+  color: #fff !important;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.button--danger {
+  background: #801d1e !important;
+  background-size: 200% 200% !important;
+  color: #fff !important;
+  font-weight: 800;
+  border-radius: 30px;
+  padding: 10px 20px !important;
+  border: none;
+  box-shadow: 0 5px 20px rgba(255, 43, 109, 0.40);
+  text-transform: uppercase;
+}
+
+.button--danger:hover {
+  background: #b3203f !important;
+  background-size: 200% 200% !important;
+  color: #fff !important;
+  font-weight: 800;
+  border-radius: 30px;
+  border: none;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+}	
+
+.button--dark:hover,
+.button--outline:hover {
+  background: rgba(0, 243, 255, 0.2) !important;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+/* Unchecked checkbox — transparent with purple border */
+.checkbox-field__checkbox {
+  background-color: transparent !important;
+  border: 1px solid var(--vi-purple) !important;
+  box-shadow: none !important;
+}
+
+/* Hover — blue border */
+.checkbox-field__checkbox:hover {
+  background-color: transparent !important;
+  border-color: var(--vi-blue) !important;
+}
+
+/* Checked checkbox — transparent with purple border */
+.checkbox-field__checkbox:has(.checkbox-field__icon.checked) {
+  background-color: transparent !important;
+  border-color: var(--vi-purple) !important;
+}
+
+/* Checked + hover — transparent with blue border */
+.checkbox-field__checkbox:has(.checkbox-field__icon.checked):hover {
+  background-color: transparent !important;
+  border-color: var(--vi-blue) !important;
+}
+
+/* Blue checkmark */
+.checkbox-field__icon.checked {
+  color: var(--vi-blue) !important;
+}
+
+.checkbox-field__icon.checked svg {
+  fill: var(--vi-blue) !important;
+}
+
+.settings__sidebar,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background-color: transparent !important;
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary {
+  background-color: transparent !important;
+  border: 2px solid var(--vi-purple);
+  border-radius: 12px;
+  color: white;
+}
+
+.text-field-container__text-field--dark:hover,
+.text-field-container__text-field--primary:hover {
+  background-color: transparent !important;
+  border: 2px solid var(--vi-blue);
+  border-radius: 12px;
+  color: white;
+}
+
+.select-field--primary {
+  background-color: transparent !important;
+  border: 2px solid var(--vi-purple);
+  border-radius: 10px;
+  color: white;
+}
+
+.select-field--primary:hover {
+  background-color: transparent !important;
+  border: 2px solid var(--vi-blue);
+  border-radius: 10px;
+  color: white;
+}	
+
+.select-field__option {
+  background-color: #1a0b2d !important;
+}
+
+.download-group__item,
+.settings-download-sources__item {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   SCUMHYDRA — SCROLLBARS
+   ======================================== */
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--vi-pink), var(--vi-blue));
+  border-radius: 10px;
+}
+
+.linear-progress__bar {
+  background: var(--vi-gradient) !important;
+  box-shadow: 0 0 15px var(--vi-pink);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Catalogue filter panels — match the purple theme */
+.catalogue__filters-container,
+.catalogue__filters-container > *,
+.catalogue__filters-container [class*="filter"],
+.catalogue__filters-container [class*="Filter"] {
+  background-color: rgba(26, 11, 46, 0.92) !important;
+  border-color: rgba(189, 0, 255, 0.2);
+  border-radius: 14px;
+}
+
+/* Filter section borders */
+.catalogue__filters-container [class*="filter"],
+.catalogue__filters-container [class*="Filter"] {
+  border-color: rgba(189, 0, 255, 0.2);
+}
+
+/* Filter headings */
+.catalogue__filters-container h2,
+.catalogue__filters-container h3 {
+  color: #fff;
+}
+
+/* Filter inputs */
+.catalogue__filters-container input {
+  background-color: transparent !important;
+  color: #fff !important;
+  border-color: var(--vi-purple) !important;
+}
+
+/* Filter input focus */
+.catalogue__filters-container input:focus {
+  border-color: var(--vi-blue) !important;
+}
+
+/* Keep catalogue sidebar contents within their container */
+.catalogue__filters-container {
+  box-sizing: border-box;
+  padding: 2px !important;
+}
+
+/* Give individual filter sections a little breathing room */
+.catalogue__filters-container > * {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Keep the game-type selector within the sidebar */
+.catalogue__filters-container button {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Catalogue mode toggle container */
+.catalogue-mode-toggle {
+  background: rgba(26, 11, 46, 0.7) !important;
+  border: 1px solid rgba(189, 0, 255, 0.2) !important;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  box-sizing: border-box;
+}
+
+/* Modern Games / Classics buttons */
+.catalogue-mode-toggle__option {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 7px !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+/* Button hover */
+.catalogue-mode-toggle__option:hover {
+  background: rgba(0, 243, 255, 0.08) !important;
+  border-color: rgba(0, 243, 255, 0.3) !important;
+  color: #fff !important;
+}
+
+/* Active button */
+.catalogue-mode-toggle__option--active {
+  background: rgba(189, 0, 255, 0.12) !important;
+  border-color: rgba(189, 0, 255, 0.35) !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(189, 0, 255, 0.08) !important;
+}
+
+/* Active button hover */
+.catalogue-mode-toggle__option--active:hover {
+  background: rgba(189, 0, 255, 0.2) !important;
+  border-color: var(--vi-blue) !important;
+}
+
+/* Keep the button labels consistent */
+.catalogue-mode-toggle__option span {
+  color: inherit !important;
+}
+
+/* Release year slider container */
+.release-year-section__slider-container {
+  position: relative;
+}
+
+/* Release year slider track */
+.release-year-section__track {
+  height: 4px;
+  border-radius: 10px;
+  background: rgba(189, 0, 255, 0.25) !important;
+}
+
+/* Slider inputs — preserve Hydra's positioning */
+.release-year-section__range {
+  accent-color: var(--vi-pink);
+}
+
+/* Chromium slider handles */
+.release-year-section__range::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--vi-blue) !important;
+  border: none !important;
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.35);
+  cursor: pointer;
+}
+
+/* Firefox slider handles */
+.release-year-section__range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--vi-blue) !important;
+  border: none !important;
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.35);
+  cursor: pointer;
+}
+
+/* ========================================
+   SCUMHYDRA — LIBRARY CATEGORY FILTER
+   Hydra 4.4.1
+   ======================================== */
+
+/* All / PC / Classics category buttons */
+.library-category-filter__container {
+  background: transparent !important;
+  border: 1px solid rgba(189, 0, 255, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 4px !important;
+  gap: 4px !important;
+}
+
+.library-category-filter__option {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.library-category-filter__option:hover {
+  background: rgba(189, 0, 255, 0.1) !important;
+  border-color: rgba(189, 0, 255, 0.35) !important;
+  color: #fff !important;
+}
+
+.library-category-filter__option--active {
+  background: rgba(189, 0, 255, 0.18) !important;
+  border-color: rgba(189, 0, 255, 0.55) !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(189, 0, 255, 0.12) !important;
+}
+
+.library-category-filter__option--active:hover {
+  background: rgba(189, 0, 255, 0.25) !important;
+  border-color: var(--vi-pink) !important;
+}
+
+/* ========================================
+   SCUMHYDRA — GLOBAL TITLE-BAR SEARCH
+   ======================================== */
+
+.title-bar-search {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(189, 0, 255, 0.3) !important;
+  border-radius: 10px !important;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease !important;
+}
+
+.title-bar-search:hover {
+  border-color: rgba(189, 0, 255, 0.55) !important;
+}
+
+.title-bar-search:focus-within {
+  border-color: var(--vi-blue) !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.18) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.title-bar-search__icon {
+  color: var(--vi-blue) !important;
+}
+
+.title-bar-search__input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+.title-bar-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  opacity: 1;
+}
+
+/* ========================================
+   SCUMHYDRA — LIBRARY TOOLBAR
+   Hydra 4.4.1
+   ======================================== */
+
+/* Sort / Filters trigger buttons */
+.library-toolbar-menu__trigger {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(189, 0, 255, 0.3) !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease !important;
+}
+
+.library-toolbar-menu__trigger:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(189, 0, 255, 0.6) !important;
+  box-shadow: 0 0 10px rgba(189, 0, 255, 0.12) !important;
+}
+
+.library-toolbar-menu__trigger[aria-expanded="true"] {
+  border-color: var(--vi-blue) !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.18) !important;
+}
+
+.library-toolbar-menu__trigger:focus-visible {
+  outline: 2px solid var(--vi-blue) !important;
+  outline-offset: 2px;
+}
+
+/* Trigger icons — sort, filter and chevron */
+.library-toolbar-menu__trigger > svg {
+  color: var(--vi-blue) !important;
+}
+
+/* ========================================
+   LIBRARY TOOLBAR — SHARED DROPDOWN MENU
+   ======================================== */
+
+.library-toolbar-menu__content {
+  background: rgba(20, 10, 35, 0.95) !important;
+  border: 1px solid rgba(189, 0, 255, 0.35) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    0 0 20px rgba(189, 0, 255, 0.15),
+    0 8px 30px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff !important;
+  padding: 6px !important;
+}
+
+/* Section labels */
+.library-toolbar-menu__label {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+/* Menu items */
+.library-toolbar-menu__item {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-radius: 8px !important;
+  transition: background 0.15s ease,
+              color 0.15s ease !important;
+}
+
+.library-toolbar-menu__item:hover,
+.library-toolbar-menu__item[data-highlighted] {
+  background: rgba(189, 0, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+/* Selected sort / collection item */
+.library-toolbar-menu__item[data-state="checked"] {
+  color: var(--vi-blue) !important;
+}
+
+/* Menu item icons */
+.library-toolbar-menu__item > svg {
+  color: var(--vi-blue) !important;
+}
+
+/* Selected checkmarks */
+.library-toolbar-menu__item-indicator,
+.library-toolbar-menu__item-indicator .octicon-check {
+  color: var(--vi-blue) !important;
+}
+
+/* Collection item counts */
+.library-toolbar-menu__item-count {
+  color: rgba(0, 243, 255, 0.65) !important;
+  font-size: 0.8em;
+}
+
+/* Divider */
+.library-toolbar-menu__separator {
+  background: rgba(189, 0, 255, 0.25) !important;
+  height: 1px;
+  margin: 5px 2px;
+}
+
+/* ========================================
+   LIBRARY TOOLBAR — VIEW OPTIONS
+   ======================================== */
+
+.library-toolbar-menu__views {
+    display: flex !important;
+    width: 100% !important;
+    gap: 6px !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+}
+
+.library-toolbar-menu__view {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 6px 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+
+    font-size: 0.85rem !important;
+    line-height: 1.1 !important;
+
+    color: rgba(255, 255, 255, 0.65) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(189, 0, 255, 0.30) !important;
+    border-radius: 8px !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease !important;
+}
+
+.library-toolbar-menu__view svg {
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 0 4px 0 !important;
+    color: currentColor !important;
+    flex: 0 0 16px !important;
+}
+
+.library-toolbar-menu__view:hover,
+.library-toolbar-menu__view[data-highlighted] {
+    color: #fff !important;
+    background: rgba(189, 0, 255, 0.12) !important;
+    border-color: rgba(189, 0, 255, 0.60) !important;
+}
+
+.library-toolbar-menu__view[data-state="checked"] {
+    color: var(--vi-blue) !important;
+    background: rgba(189, 0, 255, 0.12) !important;
+    border-color: var(--vi-pink) !important;
+    box-shadow: 0 0 8px rgba(189, 0, 255, 0.18) !important;
+}
+
+/* ========================================
+   LIBRARY TOOLBAR — COLLECTIONS
+   ======================================== */
+
+/* Create collection */
+.library-toolbar-menu__item--muted {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.library-toolbar-menu__item--muted:hover,
+.library-toolbar-menu__item--muted[data-highlighted] {
+  color: #fff !important;
+  background: rgba(189, 0, 255, 0.12) !important;
+}
+
+/* ========================================
+   LIBRARY TOOLBAR — INSTALLED-ONLY SWITCH
+   ======================================== */
+
+.library-toolbar-menu__switch-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-radius: 8px !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+}
+
+.library-toolbar-menu__switch-item:hover,
+.library-toolbar-menu__switch-item[data-highlighted] {
+  background: rgba(189, 0, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+/* Toggle track */
+.library-toolbar-menu__switch {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 34px !important;
+  height: 18px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  flex: 0 0 34px !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+}
+
+/* Toggle thumb — centered vertically, left when off */
+.library-toolbar-menu__switch::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 2px !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35) !important;
+  transition: left 0.15s ease, background 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+/* Toggle on */
+.library-toolbar-menu__switch-item[data-state="checked"] .library-toolbar-menu__switch {
+  background: var(--vi-blue) !important;
+  border-color: var(--vi-blue) !important;
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.35) !important;
+}
+
+.library-toolbar-menu__switch-item[data-state="checked"] .library-toolbar-menu__switch::after {
+  left: 18px !important;
+  background: #fff !important;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.45) !important;
+}
+
+/* ========================================
+   SCUMHYDRA — GAME CARD PLAYTIME
+   ======================================== */
+
+.library-game-card__playtime {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  background: rgba(26, 11, 46, 0.65) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(189, 0, 255, 0.45) !important;
+  border-radius: 6px !important;
+
+  padding: 3px 6px !important;
+
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 11px !important;
+
+  box-shadow: 0 0 8px rgba(189, 0, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Clock icon */
+.library-game-card__playtime svg {
+  color: var(--vi-blue) !important;
+  flex-shrink: 0;
+}
+
+/* Playtime text */
+.library-game-card__playtime span {
+  color: inherit !important;
+}
+
+/* ========================================
+   SCUMHYDRA — GAME INSTALLED BADGE
+   ======================================== */
+
+.library-game-card__installed-badge {
+  background: rgba(26, 11, 46, 0.65) !important;
+  border: 1px solid rgba(189, 0, 255, 0.4) !important;
+  border-radius: 6px !important;
+
+  color: rgba(255, 255, 255, 0.85) !important;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow: 0 0 6px rgba(189, 0, 255, 0.1);
+}
+
+/* Ready checkmark */
+.library-game-card__installed-icon {
+  color: var(--vi-blue) !important;
+}
+
+/* Ready text */
+.library-game-card__installed-text {
+  color: inherit !important;
+}
+
+/* ========================================
+   SCUMHYDRA — ACHIEVEMENT TRACKER
+   ======================================== */
+
+/* Achievement tracker header */
+.library-game-card__achievement-header {
+  background: rgba(20, 10, 35, 0.35) !important;
+  border-radius: 5px;
+  padding: 2px 5px;
+  backdrop-filter: blur(4px);
+}
+
+/* Trophy */
+.library-game-card__achievement-trophy {
+  color: var(--vi-purple) !important;
+}
+
+/* Achievement count and percentage */
+.library-game-card__achievement-count,
+.library-game-card__achievement-percentage {
+  color: var(--vi-blue) !important;
+  text-shadow: none !important;
+}
+
+/* Progress track */
+.library-game-card__achievement-progress {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 999px !important;
+  overflow: hidden;
+}
+
+/* Progress fill */
+.library-game-card__achievement-bar {
+  background: linear-gradient(
+    90deg,
+    var(--vi-purple),
+    var(--vi-pink),
+    var(--vi-blue)
+  ) !important;
+  border-radius: 999px !important;
+  transition: width 0.3s ease;
+}
+
+/* Library search field */
+.sidebar__content .text-field-container__text-field {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(189, 0, 255, 0.3) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Hover */
+.sidebar__content .text-field-container__text-field:hover {
+  border-color: var(--vi-blue) !important;
+}
+
+/* Focus */
+.sidebar__content .text-field-container__text-field:focus-within {
+  border-color: var(--vi-blue) !important;
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.15) !important;
+}
+
+/* Search input */
+.sidebar .text-field-container__text-field-input {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder */
+.sidebar__content .text-field-container__text-field-input::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  opacity: 1;
+}
+
+/* Sidebar buttons — bright cyan by default */
+.sidebar__play-button,
+.sidebar-filter-menu__trigger {
+  color: var(--vi-blue) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: color 0.2s ease, box-shadow 0.2s ease,
+              background 0.2s ease !important;
+}
+
+/* Hover — cyan neon glow */
+.sidebar__play-button:hover,
+.sidebar-filter-menu__trigger:hover {
+  color: var(--vi-blue) !important;
+  background: rgba(0, 243, 255, 0.08) !important;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.45) !important;
+}
+
+/* Keep the filter button glowing while its menu is open */
+.sidebar-filter-menu__trigger[data-state="open"] {
+  color: var(--vi-blue) !important;
+  background: rgba(0, 243, 255, 0.08) !important;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.45) !important;
+}
+
+/* Keyboard accessibility */
+.sidebar__play-button:focus-visible,
+.sidebar-filter-menu__trigger:focus-visible {
+  outline: 2px solid var(--vi-blue) !important;
+  outline-offset: 2px;
+}
+
+/* Sidebar Sort & Filter dropdown */
+.sidebar-filter-menu__content {
+  background: rgba(20, 10, 35, 0.92) !important;
+  border: 1px solid rgba(189, 0, 255, 0.35) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+              0 0 12px rgba(189, 0, 255, 0.1) !important;
+  backdrop-filter: blur(12px);
+  color: #fff !important;
+}
+
+/* Sort & Filter menu — cyan icons */
+.sidebar-filter-menu__item > svg {
+  color: var(--vi-blue) !important;
+}
+
+/* Cyan checkmarks */
+.sidebar-filter-menu__item-indicator {
+  color: var(--vi-blue) !important;
+}
+
+/* Preserve the original Classics controller icon */
+.sidebar-filter-menu__item:has(span:first-of-type) > svg.octicon-device-gamepad {
+  color: inherit !important;
+}
+
+/* ========================================
+   LIBRARY — CONTEXT MENUS
+   Hydra 4.4.1
+   ======================================== */
+
+/* Main context menu + submenus */
+.context-menu {
+  background: rgba(20, 10, 35, 0.96) !important;
+  border: 1px solid rgba(189, 0, 255, 0.35) !important;
+  border-radius: 10px !important;
+
+  box-shadow:
+    0 0 20px rgba(189, 0, 255, 0.15),
+    0 8px 30px rgba(0, 0, 0, 0.5) !important;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  padding: 4px !important;
+}
+
+/* Menu list */
+.context-menu__list {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* Menu item container */
+.context-menu__item-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Menu buttons */
+.context-menu__item {
+  width: 100% !important;
+  min-height: 36px !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  padding: 7px 10px !important;
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 7px !important;
+
+  color: rgba(255, 255, 255, 0.88) !important;
+
+  font-family: inherit !important;
+  font-size: 0.9rem !important;
+
+  text-align: left !important;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease !important;
+}
+
+/* Hover / keyboard highlight */
+.context-menu__item:hover,
+.context-menu__item[data-highlighted] {
+  background: rgba(189, 0, 255, 0.12) !important;
+  border-color: rgba(189, 0, 255, 0.25) !important;
+  color: #fff !important;
+}
+
+/* Icons */
+.context-menu__item-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 20px !important;
+  min-width: 20px !important;
+  height: 20px !important;
+
+  margin-right: 8px !important;
+
+  color: var(--vi-blue) !important;
+}
+
+/* SVG icons */
+.context-menu__item-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+
+  color: currentColor !important;
+}
+
+/* Labels */
+.context-menu__item-label {
+  color: inherit !important;
+  white-space: nowrap !important;
+}
+
+/* Submenu arrows */
+.context-menu__item-arrow {
+  margin-left: auto !important;
+  padding-left: 12px !important;
+
+  color: var(--vi-blue) !important;
+
+  font-size: 0.8rem !important;
+}
+
+/* Hovered submenu arrow */
+.context-menu__item:hover .context-menu__item-arrow,
+.context-menu__item[data-highlighted] .context-menu__item-arrow {
+  color: var(--vi-pink) !important;
+}
+
+/* Separators */
+.context-menu__separator {
+  height: 1px !important;
+
+  margin: 4px 6px !important;
+
+  background: rgba(189, 0, 255, 0.25) !important;
+}
+
+/* ========================================
+   CONTEXT MENU — DANGEROUS ACTIONS
+   ======================================== */
+
+/* Remove from library — identified by its X icon */
+.context-menu__item:has(.octicon-x) {
+  color: #ff2b6d !important;
+}
+
+.context-menu__item:has(.octicon-x) .context-menu__item-icon {
+  color: #ff2b6d !important;
+}
+
+.context-menu__item:has(.octicon-x):hover,
+.context-menu__item:has(.octicon-x)[data-highlighted] {
+  color: #ff4d82 !important;
+  background: rgba(255, 0, 80, 0.10) !important;
+  border-color: rgba(255, 0, 80, 0.25) !important;
+}
+
+/* ========================================
+   CONTEXT MENU — SUBMENU
+   ======================================== */
+
+.context-menu__submenu {
+    background: rgba(20, 10, 35, 0.96) !important;
+    border: 1px solid rgba(189, 0, 255, 0.35) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ========================================
+   SCUMHYDRA — REACT TOOLTIP
+   ======================================== */
+
+.react-tooltip {
+    --rt-color-dark: #1a0b2e !important;
+    --rt-color-white: #ffffff !important;
+    --rt-opacity: 1 !important;
+
+    background: rgba(26, 11, 46, 0.98) !important;
+    color: #ffffff !important;
+
+    border: 1px solid rgba(189, 0, 255, 0.65) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+
+    box-shadow:
+        0 0 10px rgba(189, 0, 255, 0.2),
+        0 4px 14px rgba(0, 0, 0, 0.35) !important;
+
+    z-index: 9999 !important;
+}
+
+/* React Tooltip arrow */
+.react-tooltip .react-tooltip-arrow {
+    background: #1a0b2e !important;
+    border: 1px solid rgba(189, 0, 255, 0.65) !important;
+}
+
+/* ========================================
+   LIBRARY — COMPACT ACTION BUTTONS
+   Hydra 4.4.1
+   ======================================== */
+
+.library__action {
+    transform: none !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        color 0.15s ease !important;
+}
+
+/* Add Custom Game */
+.library__action--icon.button--outline {
+    box-shadow: none !important;
+}
+
+.library__action--icon.button--outline:hover {
+    box-shadow:
+        inset 0 0 10px rgba(0, 243, 255, 0.45) !important;
+}
+
+/* Scan Games */
+.library__action.button--primary {
+    box-shadow: none !important;
+}
+
+.library__action.button--primary:hover {
+    box-shadow:
+        inset 0 0 8px rgba(0, 243, 255, 0.45) !important;
+}
+
+/* ========================================
+   GAME PAGE — HERO
+   Hydra 4.4.1
+   ======================================== */
+
+.game-details__hero {
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+
+    box-shadow:
+        0 0 18px rgba(189, 0, 255, 0.10),
+        0 8px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Hero panel — glass HUD */
+.game-details__hero-panel .hero-panel {
+    background: rgba(20, 10, 35, 0.78) !important;
+    border: 1px solid rgba(189, 0, 255, 0.28) !important;
+    border-radius: 10px !important;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        inset 0 0 18px rgba(0, 243, 255, 0.04),
+        0 0 18px rgba(189, 0, 255, 0.08) !important;
+}
+
+/* Hero panel text */
+.hero-panel__content {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.hero-panel__content p + p {
+    color: rgba(255, 255, 255, 0.58) !important;
+}
+
+/* ========================================
+   GAME PAGE — HERO ACTIONS
+   ======================================== */
+
+.hero-panel-actions__action {
+    background: rgba(10, 10, 18, 0.45) !important;
+    border: 1px solid var(--vi-blue) !important;
+    border-radius: 999px !important;
+
+    color: rgba(255, 255, 255, 0.92) !important;
+
+    box-shadow:
+        inset 0 0 8px rgba(0, 243, 255, 0.04) !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease !important;
+}
+
+.hero-panel-actions__action:hover {
+    background: rgba(0, 243, 255, 0.10) !important;
+    border-color: var(--vi-blue) !important;
+    color: #fff !important;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 243, 255, 0.10),
+        0 0 8px rgba(0, 243, 255, 0.18) !important;
+}
+
+.hero-panel-actions__action svg {
+    color: currentColor !important;
+}
+
+.hero-panel-actions__separator {
+    background: rgba(189, 0, 255, 0.35) !important;
+}
+
+/* ========================================
+   GAME PAGE — HERO TOP-RIGHT CONTROLS
+   ======================================== */
+
+.game-details__edit-custom-game-button,
+.game-details__cloud-sync-button {
+    background: rgba(20, 10, 35, 0.72) !important;
+    border: 1px solid rgba(189, 0, 255, 0.30) !important;
+    border-radius: 8px !important;
+
+    color: rgba(255, 255, 255, 0.88) !important;
+
+    box-shadow:
+        inset 0 0 8px rgba(189, 0, 255, 0.04) !important;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease !important;
+}
+
+.game-details__edit-custom-game-button:hover,
+.game-details__cloud-sync-button:hover {
+    background: rgba(189, 0, 255, 0.12) !important;
+    border-color: var(--vi-pink) !important;
+    color: #fff !important;
+
+    box-shadow:
+        inset 0 0 10px rgba(189, 0, 255, 0.08),
+        0 0 8px rgba(189, 0, 255, 0.16) !important;
+}
+
+.game-details__edit-custom-game-button svg,
+.game-details__cloud-sync-button svg {
+    color: currentColor !important;
+}
+
+/* ========================================
+   GAME PAGE — DESCRIPTION CONTAINER
+   ======================================== */
+
+.game-details__description-container {
+    background: transparent !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* ========================================
+   GAME PAGE — DESCRIPTION HEADER
+   ======================================== */
+
+.description-header {
+    background: rgba(20, 10, 35, 0.72) !important;
+    border: 1px solid rgba(189, 0, 255, 0.20) !important;
+    border-radius: 10px !important;
+
+    box-shadow:
+        inset 0 0 12px rgba(189, 0, 255, 0.03) !important;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.description-header__info {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.description-header__info p {
+    color: inherit !important;
+}
+
+.description-header__info p:first-child {
+    color: #fff !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY
+   Hydra 4.4.1
+   ======================================== */
+
+/* Gallery navigation buttons */
+.gallery-slider__button {
+    width: 42px !important;
+    height: 42px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+
+    background: rgba(20, 10, 35, 0.78) !important;
+    border: 1px solid rgba(0, 243, 255, 0.55) !important;
+    border-radius: 50% !important;
+
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        0 0 8px rgba(0, 243, 255, 0.10),
+        inset 0 0 8px rgba(0, 243, 255, 0.04) !important;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease !important;
+}
+
+.gallery-slider__button:hover,
+.gallery-slider__button[data-highlighted] {
+    background: rgba(0, 243, 255, 0.12) !important;
+    border-color: var(--vi-blue) !important;
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        0 0 10px rgba(0, 243, 255, 0.22),
+        inset 0 0 10px rgba(0, 243, 255, 0.08) !important;
+}
+
+.gallery-slider__button:hover svg,
+.gallery-slider__button[data-highlighted] svg {
+    color: var(--vi-blue) !important;
+    fill: currentColor !important;
+}
+
+/* ========================================
+   GALLERY — PREVIEW STRIP
+   ======================================== */
+
+.gallery-slider__preview-button {
+    background: rgba(20, 10, 35, 0.55) !important;
+    border: 1px solid rgba(189, 0, 255, 0.28) !important;
+    border-radius: 5px !important;
+
+    box-sizing: border-box !important;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease !important;
+}
+
+.gallery-slider__preview-button:hover {
+    border-color: rgba(189, 0, 255, 0.75) !important;
+
+    box-shadow:
+        0 0 8px rgba(189, 0, 255, 0.16) !important;
+}
+
+.gallery-slider__preview-button--active {
+    border-color: var(--vi-pink) !important;
+
+    box-shadow:
+        0 0 8px rgba(255, 0, 234, 0.22) !important;
+}
+
+/* Play indicator over video previews */
+.gallery-slider__play-overlay {
+    color: var(--vi-blue) !important;
+}
+
+.gallery-slider__preview-button:hover .gallery-slider__play-overlay {
+    color: var(--vi-blue) !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY NAVIGATION
+   ======================================== */
+
+.gallery-slider__nav-button {
+    background: rgba(20, 10, 35, 0.72) !important;
+    border: 1px solid var(--vi-blue) !important;
+    border-radius: 50% !important;
+
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        inset 0 0 8px rgba(0, 243, 255, 0.04),
+        0 0 6px rgba(0, 243, 255, 0.10) !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease !important;
+}
+
+.gallery-slider__nav-button:hover {
+    background: rgba(0, 243, 255, 0.14) !important;
+    border-color: var(--vi-blue) !important;
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 243, 255, 0.10),
+        0 0 10px rgba(0, 243, 255, 0.28) !important;
+}
+
+.gallery-slider__nav-button svg {
+    color: currentColor !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY VIDEO
+   Big Play Button
+   ======================================== */
+
+.gallery-video__big-play {
+    background: rgba(20, 10, 35, 0.72) !important;
+    border: 1px solid var(--vi-blue) !important;
+    border-radius: 50% !important;
+
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 243, 255, 0.05),
+        0 0 12px rgba(0, 243, 255, 0.18) !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease !important;
+}
+
+.gallery-video__big-play:hover {
+    background: rgba(0, 243, 255, 0.12) !important;
+    border-color: var(--vi-blue) !important;
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 243, 255, 0.10),
+        0 0 16px rgba(0, 243, 255, 0.30) !important;
+
+    transform: scale(1.04);
+}
+
+.gallery-video__big-play svg {
+    color: var(--vi-blue) !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY VIDEO
+   Control Bar
+   ======================================== */
+
+.gallery-video__controls {
+    background: transparent !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY VIDEO
+   Progress / Seek Bar
+   ======================================== */
+
+.gallery-video__progress-track {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-radius: 999px !important;
+}
+
+.gallery-video__progress-buffered {
+    background: rgba(189, 0, 255, 0.22) !important;
+    border-radius: 999px !important;
+}
+
+.gallery-video__progress-played {
+    background: linear-gradient(
+        90deg,
+        var(--vi-pink),
+        var(--vi-purple),
+        var(--vi-blue)
+    ) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 0 6px rgba(0, 243, 255, 0.25) !important;
+}
+
+.gallery-video__progress-thumb {
+    background: var(--vi-blue) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 0 8px rgba(0, 243, 255, 0.45) !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY VIDEO
+   Control Buttons
+   ======================================== */
+
+.gallery-video__button {
+    width: 32px !important;
+    height: 32px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    outline: none !important;
+
+    border-radius: 7px !important;
+
+    color: var(--vi-blue) !important;
+
+    box-shadow: none !important;
+
+    transition:
+        color 0.15s ease,
+        filter 0.15s ease !important;
+}
+
+.gallery-video__button:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    outline: none !important;
+
+    color: var(--vi-blue) !important;
+
+    box-shadow: none !important;
+
+    filter:
+        drop-shadow(0 0 5px rgba(0, 243, 255, 0.65))
+        drop-shadow(0 0 9px rgba(0, 243, 255, 0.25)) !important;
+}
+
+.gallery-video__button svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: currentColor !important;
+}
+
+/* Fullscreen — same size and treatment */
+.gallery-video__button--fullscreen {
+    width: 32px !important;
+    height: 32px !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    outline: none !important;
+
+    color: var(--vi-pink) !important;
+
+    box-shadow: none !important;
+}
+
+.gallery-video__button--fullscreen:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: none !important;
+    outline: none !important;
+
+    color: var(--vi-pink) !important;
+
+    box-shadow: none !important;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 0, 234, 0.65))
+        drop-shadow(0 0 9px rgba(255, 0, 234, 0.25)) !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY VIDEO
+   Quality Menu
+   ======================================== */
+
+.gallery-video__quality-menu {
+    background: rgba(20, 10, 35, 0.94) !important;
+    border: 1px solid rgba(189, 0, 255, 0.35) !important;
+    border-radius: 8px !important;
+
+    box-shadow:
+        0 0 18px rgba(189, 0, 255, 0.12),
+        0 8px 24px rgba(0, 0, 0, 0.45) !important;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 6px !important;
+}
+
+.gallery-video__quality-title {
+    display: block !important;
+
+    padding: 6px 10px 5px 10px !important;
+
+    color: rgba(255, 255, 255, 0.58) !important;
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+}
+
+.gallery-video__quality-option {
+    width: 100% !important;
+    min-height: 34px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    padding: 7px 10px !important;
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+
+    color: rgba(255, 255, 255, 0.82) !important;
+
+    font-family: inherit !important;
+    font-size: 0.85rem !important;
+    text-align: left !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease !important;
+}
+
+.gallery-video__quality-option:hover {
+    background: rgba(189, 0, 255, 0.12) !important;
+    border-color: rgba(189, 0, 255, 0.25) !important;
+    color: #fff !important;
+}
+
+.gallery-video__quality-option--selected {
+    color: var(--vi-blue) !important;
+    font-weight: 600 !important;
+}
+
+.gallery-video__quality-option--selected:hover {
+    background: rgba(0, 243, 255, 0.08) !important;
+    border-color: rgba(0, 243, 255, 0.22) !important;
+    color: var(--vi-blue) !important;
+}
+
+.gallery-video__quality-option svg {
+    margin-left: auto !important;
+    width: 16px !important;
+    height: 16px !important;
+
+    color: var(--vi-blue) !important;
+}
+
+/* ========================================
+   GAME PAGE — GALLERY VIDEO
+   Volume Slider
+   ======================================== */
+
+.gallery-video__volume-track {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-radius: 999px !important;
+}
+
+.gallery-video__volume-fill {
+    background: var(--vi-blue) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 0 6px rgba(0, 243, 255, 0.25) !important;
+}
+
+.gallery-video__volume-thumb {
+    background: var(--vi-blue) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 50% !important;
+
+    box-shadow:
+        0 0 7px rgba(0, 243, 255, 0.45) !important;
+}
+
+.gallery-video__volume-slider:hover .gallery-video__volume-fill {
+    box-shadow:
+        0 0 8px rgba(0, 243, 255, 0.35) !important;
+}
+
+.gallery-video__volume-slider:hover .gallery-video__volume-thumb {
+    box-shadow:
+        0 0 9px rgba(0, 243, 255, 0.60) !important;
+}
+
+/* ========================================
+   GAME PAGE — SIDEBAR
+   Sidebar Foundation
+   ======================================== */
+
+.content-sidebar {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Individual sections */
+/* Sidebar section containers */
+.content-sidebar .sidebar-section {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Section headers */
+.content-sidebar .sidebar-section__header {
+    background: rgba(20, 10, 35, 0.58) !important;
+
+    border: 1px solid rgba(189, 0, 255, 0.16) !important;
+    border-bottom-color: rgba(189, 0, 255, 0.32) !important;
+
+    border-radius: 8px 8px 0 0 !important;
+
+    box-shadow: none !important;
+}
+
+.content-sidebar .sidebar-section__button {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.content-sidebar .sidebar-section__chevron {
+    color: var(--vi-blue) !important;
+}
+
+.content-sidebar .sidebar-section__header:hover {
+    background: rgba(189, 0, 255, 0.06) !important;
+
+    border-color: rgba(189, 0, 255, 0.24) !important;
+    border-bottom-color: rgba(189, 0, 255, 0.42) !important;
+}
+
+.content-sidebar .sidebar-section__header:hover .sidebar-section__button {
+    color: #fff !important;
+}
+
+.content-sidebar .sidebar-section__header:hover .sidebar-section__chevron {
+    color: var(--vi-pink) !important;
+}
+
+/* ========================================
+   GAME PAGE — SIDEBAR
+   Achievement Entries
+   ======================================== */
+
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li {
+    background: rgba(255, 255, 255, 0.035) !important;
+    border: 1px solid rgba(189, 0, 255, 0.14) !important;
+    border-radius: 7px !important;
+    box-sizing: border-box !important;
+}
+
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li > a.list__item,
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li > a.list__item:where(:not(#big-picture *)) {
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li:hover {
+    background: rgba(189, 0, 255, 0.075) !important;
+    border-color: rgba(189, 0, 255, 0.30) !important;
+}
+
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li > a.list__item:hover,
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li > a.list__item:hover:where(:not(#big-picture *)) {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li > a.list__item p {
+    color: inherit !important;
+}
+
+.content-sidebar .sidebar-section__content .sidebar-section__body .list > li > a.list__item small {
+    color: rgba(255, 255, 255, 0.40) !important;
+}
+
+/* Achievements section — match the header background */
+.sidebar-section__body:has(.subscription-required-button) {
+    background: #160a27;
+}
+
+/* Don't let the list introduce its own background */
+.sidebar-section__body:has(.subscription-required-button) > .list {
+    background: transparent;
+}
+
+/* ========================================
+   GAME PAGE — SIDEBAR
+   Ranking Controls
+   ======================================== */
+
+.leaderboard-controls__selector {
+    background: rgba(20, 10, 35, 0.58) !important;
+    border: 1px solid rgba(189, 0, 255, 0.18) !important;
+    border-radius: 7px !important;
+    box-shadow: none !important;
+}
+
+/* Sliding selected-state indicator */
+.leaderboard-controls__selector-indicator {
+    background: rgba(189, 0, 255, 0.16) !important;
+    border: 1px solid rgba(189, 0, 255, 0.38) !important;
+    border-radius: 6px !important;
+
+    box-shadow:
+        inset 0 0 8px rgba(189, 0, 255, 0.04),
+        0 0 7px rgba(189, 0, 255, 0.08) !important;
+}
+
+/* Individual options */
+.leaderboard-controls__selector-option {
+    background: transparent !important;
+    border: none !important;
+
+    color: rgba(255, 255, 255, 0.58) !important;
+
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease !important;
+}
+
+/* Unselected hover */
+.leaderboard-controls__selector-option:hover:not([aria-selected="true"]) {
+    color: #fff !important;
+    background: rgba(189, 0, 255, 0.06) !important;
+}
+
+/* Selected state */
+.leaderboard-controls__selector-option[aria-selected="true"] {
+    color: var(--vi-blue) !important;
+}
+
+/* Selected + hover — keep it cyan */
+.leaderboard-controls__selector-option[aria-selected="true"]:hover {
+    color: var(--vi-blue) !important;
+    background: transparent !important;
+}
+
+.leaderboard-controls__selector-option svg,
+.leaderboard-controls__selector-option-icon {
+    color: currentColor !important;
+}
+
+/* ========================================
+   GAME PAGE — DESCRIPTION TOGGLE
+   ======================================== */
+
+.game-details__description-toggle {
+    background: rgba(20, 10, 35, 0.55) !important;
+    border: 1px solid rgba(189, 0, 255, 0.30) !important;
+    border-radius: 6px !important;
+
+    color: rgba(255, 255, 255, 0.82) !important;
+
+    box-shadow: none !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease !important;
+}
+
+.game-details__description-toggle:hover {
+    background: rgba(189, 0, 255, 0.12) !important;
+    border-color: rgba(189, 0, 255, 0.55) !important;
+    color: #fff !important;
+
+    box-shadow:
+        0 0 8px rgba(189, 0, 255, 0.12) !important;
+}
+
+/* ========================================
+   GAME PAGE — SIMILAR GAMES
+   Carousel Controls
+   ======================================== */
+
+.similar-games__control {
+    background: rgba(20, 10, 35, 0.72) !important;
+    border: 1px solid rgba(0, 243, 255, 0.45) !important;
+    border-radius: 50% !important;
+
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        inset 0 0 8px rgba(0, 243, 255, 0.04),
+        0 0 8px rgba(0, 243, 255, 0.10) !important;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease !important;
+}
+
+.similar-games__control:hover {
+    background: rgba(0, 243, 255, 0.10) !important;
+    border-color: var(--vi-blue) !important;
+    color: var(--vi-blue) !important;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 243, 255, 0.08),
+        0 0 12px rgba(0, 243, 255, 0.22) !important;
+
+    transform: scale(1.04);
+}
+
+.similar-games__control:hover svg {
+    color: var(--vi-pink) !important;
+    fill: var(--vi-pink) !important;
+}
+
+/* ========================================
+   GAME PAGE — ABOUT THIS GAME
+   No Description Fade
+   ======================================== */
+
+.game-details__description--collapsed::after {
+    display: none !important;
+}
+
+/* ========================================
+   GAME PAGE — REVIEW BOX
+   ======================================== */
+
+.rich-text-editor {
+    background: #1d122f !important;
+    border: 1px solid #55238a !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* Toolbar / counter */
+.rich-text-editor__header {
+    background: #281640 !important;
+    border-bottom: 1px solid #55238a !important;
+}
+
+/* Formatting buttons */
+.rich-text-editor__button {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    padding: 0 !important;
+
+    color: #ffffff !important;
+    background: transparent !important;
+    border: 1px solid #4a2868 !important;
+    border-radius: 5px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.rich-text-editor__button:hover {
+    color: #ffffff !important;
+    background: #3a2058 !important;
+    border-color: #8b3fd1 !important;
+}
+
+/* Counter */
+.rich-text-editor__counter {
+    color: #ffffff !important;
+}
+
+/* Editor area */
+.rich-text-editor__input {
+    background: #1d122f !important;
+}
+
+/* Actual text editor */
+.game-details__review-editor {
+    color: #eee6f7 !important;
+    background: transparent !important;
+}
+
+/* Placeholder */
+.game-details__review-editor p.is-editor-empty:first-child::before {
+    color: #80669b !important;
+}
+
+/* ========================================
+   GAME PAGE — REVIEW RATING STARS
+   ======================================== */
+
+/* Empty stars */
+.game-details__star--empty {
+    color: #aaa1b5 !important;
+}
+
+/* 1–2 stars — Red */
+.game-details__review-score-select--red {
+    color: #e85b5b !important;
+}
+
+/* 3 stars — Amber */
+.game-details__review-score-select--yellow {
+    color: #e5a93d !important;
+}
+
+/* 4–5 stars — Gold */
+.game-details__review-score-select--green {
+    color: #f2c94c !important;
+}
+
+/* ========================================
+   GAME PAGE — REVIEWS
+   Remove section separators
+   ======================================== */
+
+.game-details__reviews-separator {
+    display: none !important;
+}
+
+.game-details__reviews-section {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* ========================================
+   GAME PAGE — LEADERBOARD PLAYER ROW
+   ======================================== */
+
+/* Player row */
+.leaderboard-row {
+    background: #24163a !important;
+    border: 1px solid #55238a !important;
+    border-radius: 6px !important;
+}
+
+/* Avatar */
+.leaderboard-row .profile-avatar {
+    border: 1px solid #6b2ca8 !important;
+    border-radius: 6px !important;
+    overflow: hidden;
+}
+
+.leaderboard-row .profile-avatar__image {
+    border-radius: 5px !important;
+}
+
+/* Username */
+.leaderboard-row__name {
+    color: #ffffff !important;
+}
+
+/* "You" badge */
+.leaderboard-row__you {
+    color: #ffffff !important;
+    background: #55238a !important;
+    border: 1px solid #8b3fd1 !important;
+}
+
+/* Playtime */
+.leaderboard-row__value {
+    color: #ffffff !important;
+}
+
+/* ========================================
+   GAME PAGE — LEADERBOARD EMPTY STATE
+   ======================================== */
+
+/* Leaderboard — dark purple background for the whole section */
+.leaderboard-section {
+    background: #160a27;
+}
+
+/* Empty state — transparent, no separate box */
+.leaderboard-section__empty {
+    background: transparent;
+    border: none;
+}
+
+/* Icon */
+.leaderboard-section__empty .octicon {
+    color: #d9c7f2 !important;
+}
+
+/* Title */
+.leaderboard-section__empty-title {
+    color: #ffffff !important;
+}
+
+/* Description */
+.leaderboard-section__empty-description {
+    color: #c9b4df !important;
+}
+
+/* Find friends */
+.leaderboard-section__empty .button--outline {
+    color: #ffffff !important;
+    border-color: #00e5e5 !important;
+}
+
+.leaderboard-section__empty .button--outline:hover {
+    color: #ffffff !important;
+    background: #00bcbc !important;
+    border-color: #00ffff !important;
+}
+
+/* Stats — match the section header background */
+.stats__section {
+    background: #160a27;
+}
+
+/* Stats — cyan icons */
+.stats__category-title svg {
+    color: #00ffff;
+}
+
+.stats__category .star-rating__star {
+    color: #f2c94c;
+}
+
+/* Reviews: keep Remove Review button compact — no glow or scaling */
+.game-details__reviews-section .button--danger {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hover: brighter red, but still no scaling/glow */
+.game-details__reviews-section .button--danger:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: #e02a3f !important;
+}
+
+/* Don't let the global active/pressed effect scale it either */
+.game-details__reviews-section .button--danger:active {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Reviews: purple vote buttons */
+.game-details__vote-button {
+    background: #21102f !important;
+    border: 1px solid #7020a8 !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Hover */
+.game-details__vote-button:hover {
+    background: #321548 !important;
+    border-color: #a020f0 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(160, 32, 240, 0.45) !important;
+    transform: none !important;
+}
+
+/* Active upvote/downvote */
+.game-details__vote-button--active {
+    background: #3a1754 !important;
+    border-color: #a020f0 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(160, 32, 240, 0.35) !important;
+}
+
+/* Keep the active button from changing weirdly on hover */
+.game-details__vote-button--active:hover {
+    background: #481b68 !important;
+    border-color: #c040ff !important;
+    box-shadow: 0 0 12px rgba(192, 64, 255, 0.5) !important;
+}
+
+/* Review count badge — remove the extra pill border */
+.game-details__reviews-badge {
+    border: none !important;
+    background: #2a163b !important;
+    color: #d8cbe3 !important;
+}
+
+/* Review metadata — subtle dark purple */
+.game-details__review-score-stars,
+.game-details__review-playtime {
+    background: #21102f !important;
+    border: 1px solid #3d2452 !important;
+    color: #c9b8d6 !important;
+}
+
+/* Keep the star itself slightly brighter */
+.game-details__review-score-stars .game-details__review-star {
+    color: #bda8ca !important;
+}
+
+/* Icons/text inside the metadata */
+.game-details__review-score-stars svg,
+.game-details__review-playtime svg {
+    color: #bda8ca !important;
+}
+
+/* Community Screenshots section */
+.game-screenshots-box {
+    background: #160a27 !important;
+}
+
+/* Cyan screenshot icon */
+.game-screenshots-box__empty-title svg {
+    color: #00f0ff !important;
+}
+
+/* F10 — raised keycap */
+.game-screenshots-box__kbd {
+    background: #21102f !important;
+    border: 1px solid #6a4380 !important;
+    border-bottom: 3px solid #3d2452 !important;
+    border-radius: 3px !important;
+    color: #e8e0ed !important;
+    box-shadow: none !important;
+}
+
+/* HowLongToBeat section */
+.how-long-to-beat__categories-list {
+    background: #160a27 !important;
+}
+
+/* Individual playtime cards */
+.how-long-to-beat__category {
+    background: #21102f !important;
+    border: 1px solid #3d2452 !important;
+    border-radius: 4px !important;
+}
+
+/* Keep the main labels prominent */
+.how-long-to-beat__category-label {
+    color: #e8e0ed !important;
+}
+
+/* Accuracy text — slightly muted */
+.how-long-to-beat__category small {
+    color: #bda8ca !important;
+}
+
+/* ========================================
+   GAME PAGE — SYSTEM REQUIREMENTS
+   ======================================== */
+
+/* Section background */
+.requirement__details {
+    background: #160a27 !important;
+    color: #ffffff !important;
+}
+
+/* System requirements — compact centred controls */
+.requirement__button-container {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    background: #160a27 !important;
+}
+
+/* Smaller buttons */
+.requirement__button {
+    flex: 0 1 145px !important;
+    width: 145px !important;
+    min-width: 0 !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 2px 8px !important;
+    font-size: 12px !important;
+
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hover — restrained cyan glow */
+.requirement__button:hover {
+    transform: none !important;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3) !important;
+}
+
+/* Active — no scaling */
+.requirement__button:active {
+    transform: none !important;
+}
+
+/* Minimum / Recommended details */
+.requirement__details {
+    color: #ffffff !important;
+}
+
+/* System requirements — breathing room below header */
+.requirement__button-container {
+    padding-top: 18px !important;
+}
+
+/* ========================================
+   GAME PAGE — LANGUAGE TABLE
+   ======================================== */
+
+/* Section background */
+.game-language-section {
+    background: #160a27 !important;
+}
+
+/* Table header */
+.game-language-section__header {
+    background: #21102f !important;
+    border-bottom: 1px solid #3d2452 !important;
+}
+
+/* Header labels */
+.game-language-section__header-item {
+    color: #e8e0ed !important;
+}
+
+/* Language rows */
+.game-language-section__row {
+    background: #160a27 !important;
+    border-bottom: 1px solid #30203e !important;
+}
+
+/* Language names and cells */
+.game-language-section__cell {
+    color: #e8e0ed !important;
+}
+
+/* Supported languages */
+.game-language-section__check {
+    color: #00f0ff !important;
+}
+
+/* Unsupported languages */
+.game-language-section__cross {
+    color: #8f819e !important;
+}
+
+/* Controller Support */
+.sidebar-section__body:has(.controller-support) {
+    background: #160a27 !important;
+}
+
+/* Leaderboards – default podium background */
+.leaderboard-podium__body:not(.leaderboard-podium__body--banner) {
+    background-image: none !important;
+    background-color: #160a27 !important;
+}
+
+/* Leaderboards – category selector */
+.leaderboards__selector-options {
+    background: #0d0715 !important;
+    border: 1px solid #3b1b58 !important;
+}
+
+.leaderboards__selector-option {
+    background: transparent !important;
+    color: #c9bdd8 !important;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.leaderboards__selector-option--selected {
+    background: #32184a !important;
+    color: #ffffff !important;
+}
+
+.leaderboards__selector-option:not(.leaderboards__selector-option--selected):hover {
+    background: #241333 !important;
+    color: #ffffff !important;
+}
+
+/* Sidebar – navigation icon colours */
+.sidebar__menu .sidebar__menu-item-button > svg {
+    color: #27d9f2 !important;
+    transition: color 0.2s ease;
+}
+
+/* Hover */
+.sidebar__menu .sidebar__menu-item-button:hover > svg {
+    color: #70eaff !important;
+}
+
+/* Modals – Scumbag theme */
+.modal {
+    background: #160a27 !important;
+    border: 1px solid #3b1b58 !important;
+    color: #ffffff !important;
+}
+
+/* Header separator */
+.modal__header {
+    border-bottom-color: #3b1b58 !important;
+}
+
+/* Modal title and description */
+.modal__header-title h3 {
+    color: #ffffff !important;
+}
+
+.modal__header-title p {
+    color: #b9a9cc !important;
+}
+
+/* Close button */
+.modal__close-button {
+    color: #b9a9cc !important;
+}
+
+.modal__close-button:hover {
+    color: #27d9f2 !important;
+}
+
+/* Profile dropdown – purple glass */
+.sidebar-profile__dropdown {
+    background: rgba(22, 10, 39, 0.92) !important;
+    border: 1px solid rgba(183, 0, 255, 0.25) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Regular dropdown icons – cyan */
+.sidebar-profile__dropdown-item:not(.sidebar-profile__dropdown-item--danger) svg {
+    color: #00d9e8 !important;
+}
+
+/* Profile library filter triggers */
+.profile-content__library-filters .filter-dropdown__trigger {
+    border: 1px solid rgba(170, 0, 255, 0.45) !important;
+    background: rgba(22, 10, 39, 0.65) !important;
+}
+
+.profile-content__library-filters .filter-dropdown__trigger:hover,
+.profile-content__library-filters .filter-dropdown__trigger--open {
+    border-color: rgba(170, 0, 255, 0.75) !important;
+}
+
+/* Dropdown menus */
+.profile-content__library-filters .filter-dropdown__menu {
+    background: rgba(18, 8, 31, 0.96) !important;
+    border: 1px solid rgba(170, 0, 255, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Selected and hovered options */
+.profile-content__library-filters .filter-dropdown__option:hover,
+.profile-content__library-filters .filter-dropdown__option--active {
+    background: rgba(170, 0, 255, 0.16) !important;
+}
+
+/* Cyan filter option icons */
+.profile-content__library-filters .filter-dropdown__option-icon:not([stroke="url(#classics-switch-gradient)"]) {
+    color: #00d9ff !important;
+    fill: currentColor !important;
+    stroke: none !important;
+}
+
+/* Cyan selected checkmark */
+.profile-content__library-filters .filter-dropdown__check {
+    color: #00d9ff !important;
+    fill: currentColor !important;
+}
+
+/* Library game playtime badge */
+.user-library-game__playtime {
+    background: rgba(22, 10, 39, 0.65) !important;
+    border: 1px solid rgba(170, 0, 255, 0.45) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+	border-radius: 6px !important;
+}
+
+/* Cyan clock */
+.user-library-game__playtime svg {
+    color: #00d9ff !important;
+}
+
+/* Profile hero background */
+.profile-hero__content-box {
+    background: linear-gradient(
+        135deg,
+        #241039,
+        #160a27 65%,
+        #301044
+    ) !important;
+}
+
+/* Profile hero action panel */
+.profile-hero__hero-panel {
+    background: linear-gradient(
+        135deg,
+        #1e0d32,
+        #160a27
+    ) !important;
+}
+
+/* ========================================
+   Profile Sidebar – Collapsible Sections
+   ======================================== */
+
+/* Section wrapper – no outer styling */
+.profile-content__right-content .profile-section {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+/* Header wrapper */
+.profile-content__right-content .profile-section__header {
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Header button */
+.profile-content__right-content .profile-section__button {
+    width: 100%;
+    background: rgba(20, 10, 35, .72) !important;
+    border: 1px solid rgba(189, 0, 255, .35) !important;
+    border-radius: 10px 10px 0 0 !important;
+    color: inherit !important;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+/* Header hover – subtle purple glass, border stays purple */
+.profile-content__right-content .profile-section__button:hover {
+    background: rgba(189, 0, 255, .13) !important;
+    border-color: rgba(189, 0, 255, .35) !important;
+}
+
+/* Chevron – cyan by default */
+.profile-content__right-content .profile-section__chevron {
+    color: #00d9ff !important;
+    fill: #00d9ff !important;
+    transition: color .2s ease, fill .2s ease;
+}
+
+/* Chevron – magenta on hover */
+.profile-content__right-content
+.profile-section__button:hover .profile-section__chevron {
+    color: #ff00e5 !important;
+    fill: #ff00e5 !important;
+}
+
+/* Expanded content – darker purple */
+.profile-content__right-content .profile-section__content,
+.profile-content__right-content .profile-section__body {
+    background: #160a27 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove inner boxes and their borders */
+.profile-content__right-content .user-stats__box,
+.profile-content__right-content .recent-games__box,
+.profile-content__right-content .friends-box__box {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Friends header – accommodate the Add Friends action */
+.profile-content__right-content .profile-section:has(.friends-box__add-friend-button) .profile-section__header {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(189, 0, 255, .35) !important;
+    border-radius: 10px 10px 0 0 !important;
+    background: rgba(20, 10, 35, .72) !important;
+}
+
+/* Let the section button share the available space */
+.profile-content__right-content .profile-section:has(.friends-box__add-friend-button) .profile-section__button {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Keep Add Friends inside the header */
+.profile-content__right-content .profile-section:has(.friends-box__add-friend-button) .profile-section__action {
+    flex: 0 0 auto;
+    padding-right: 14px;
+}
+
+/* Friends header hover */
+.profile-content__right-content
+.profile-section:has(.friends-box__add-friend-button)
+.profile-section__header:hover {
+    background: rgba(189, 0, 255, .13) !important;
+    border-color: rgba(189, 0, 255, .35) !important;
+}
+
+/* Friends chevron – magenta when hovering anywhere over the header */
+.profile-content__right-content
+.profile-section:has(.friends-box__add-friend-button)
+.profile-section__header:hover .profile-section__chevron {
+    color: #ff00e5 !important;
+    fill: #ff00e5 !important;
+}
+
+/* Add Friends plus icon */
+.profile-content__right-content .friends-box__add-friend-button svg {
+    color: #00d9ff !important;
+}
+
+/* Profile sidebar – cyan stat and activity icons */
+.profile-content__right-content .user-stats__list-description svg,
+.profile-content__right-content .recent-games__game-description svg {
+    color: #00d9ff !important;
+}
