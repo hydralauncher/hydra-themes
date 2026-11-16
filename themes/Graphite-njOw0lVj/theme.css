@@ -47,6 +47,13 @@ main,
   outline-offset: 2px;
 }
 
+/* Text fields: the wrapper already shows focus; no inner box */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible,
+textarea:focus-visible,
+[contenteditable]:focus-visible {
+  outline: none;
+}
+
 ::-webkit-scrollbar,
 ::-webkit-scrollbar-track {
   background: transparent;
