@@ -19,7 +19,7 @@ const checkedAuthors = new Map<string, Promise<unknown>>();
 
 const checkAuthor = (authorCode: string) => {
   const existing = checkedAuthors.get(authorCode);
-  if (existing) return existing;
+  if (existing !== undefined) return existing;
 
   const request = api
     .get(`users/${authorCode}`, {
