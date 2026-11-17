@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -23,5 +25,7 @@ jobs:
         run: yarn
 
       - name: Validate themes
+        env:
+          HYDRA_HEADER_SECRET: ${{ secrets.HYDRA_HEADER_SECRET }}
         run: |
           yarn validate-themes

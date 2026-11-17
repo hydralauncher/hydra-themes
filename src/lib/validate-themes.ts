@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { ALLOWED_SCREENSHOT_FORMATS } from "./constants";
@@ -6,6 +7,41 @@ import { api } from "./api";
 const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
+
+const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
+const baseRef = process.env.GITHUB_BASE_REF;
+
+// On pull requests only the touched themes need an author lookup; the API rate-limits anonymous profile reads.
+const changedFolders = baseRef
+  ? new Set(
+      execFileSync(
+        "git",
+        ["diff", "--name-only", `origin/${baseRef}...HEAD`, "--", "themes"],
+        { encoding: "utf8" },
+      )
+        .split("\n")
+        .map((file) => file.split("/")[1])
+        .filter(Boolean),
+    )
+  : null;
+
+const checkedAuthors = new Map<string, Promise<unknown>>();
+
+const checkAuthor = (authorCode: string) => {
+  const existing = checkedAuthors.get(authorCode);
+  if (existing) return existing;
+
+  const request = api
+    .get(`users/${authorCode}`, {
+      headers: hydraHeaderSecret ? { "hydra-token": hydraHeaderSecret } : {},
+    })
+    .catch((err) => {
+      console.error(err);
+      throw new Error(`❌ Failed to fetch author ${authorCode}`);
+    });
+  checkedAuthors.set(authorCode, request);
+  return request;
+};
 
 Promise.all(
   folders.map(async (folder) => {
@@ -41,10 +77,8 @@ Promise.all(
       );
     const themeName = parts.join("-").trim();
 
-    await api.get(`users/${authorCode}`).catch((err) => {
-      console.error(err);
-      throw new Error(`❌ Failed to fetch author ${authorCode}`);
-    });
+    if (!changedFolders || changedFolders.has(folder))
+      await checkAuthor(authorCode);
 
     return themeName;
   }),
