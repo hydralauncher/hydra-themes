@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { ALLOWED_SCREENSHOT_FORMATS } from "./constants";
@@ -9,21 +8,12 @@ const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 const folders = fs.readdirSync(themesPath);
 
 const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
-const baseRef = process.env.GITHUB_BASE_REF;
-
-// On pull requests only the touched themes need an author lookup; the API rate-limits anonymous profile reads.
-const changedFolders = baseRef
-  ? new Set(
-      execFileSync(
-        "git",
-        ["diff", "--name-only", `origin/${baseRef}...HEAD`, "--", "themes"],
-        { encoding: "utf8" },
-      )
-        .split("\n")
-        .map((file) => file.split("/")[1])
-        .filter(Boolean),
-    )
-  : null;
+// CI lists the themes a pull request touches; only those need an author lookup, since the API rate-limits anonymous profile reads.
+const changedThemes = process.env.CHANGED_THEMES;
+const changedFolders =
+  changedThemes === undefined
+    ? null
+    : new Set(changedThemes.split(",").filter(Boolean));
 
 const checkedAuthors = new Map<string, Promise<unknown>>();
 

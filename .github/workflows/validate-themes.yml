@@ -16,6 +16,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      # setup-yarn re-checks out the repository shallowly, so diff before it runs.
+      - name: List changed themes
+        run: echo "CHANGED_THEMES=$(git diff --name-only "origin/${GITHUB_BASE_REF}...HEAD" -- themes | cut -d/ -f2 | sort -u | paste -sd, -)" >> "$GITHUB_ENV"
+
       - name: Install Node.js
         uses: actions/setup-node@v4
 
