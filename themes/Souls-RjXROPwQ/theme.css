@@ -1,0 +1,167 @@
+/* =========================================================
+   SOULS — TEMA HYDRA
+   ========================================================= */
+
+
+:root {
+    --souls-gold: #b49a62;
+    --souls-gold-light: #d8c184;
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button:hover {
+    border-color: var(--souls-gold) !important;
+    color: var(--souls-gold-light) !important;
+    background: rgba(35, 30, 20, 0.90) !important;
+    box-shadow:
+        0 0 12px rgba(180, 154, 98, 0.25),
+        inset 0 0 8px rgba(180, 154, 98, 0.08) !important;
+}
+
+/* =========================================================
+   MENU LATERAL
+   ========================================================= */
+
+.sidebar button:hover,
+.sidebar a:hover,
+.sidebar [role="button"]:hover {
+    background: rgba(180, 154, 98, 0.12) !important;
+    border-color: var(--souls-gold) !important;
+    color: var(--souls-gold-light) !important;
+    box-shadow:
+        inset 3px 0 0 var(--souls-gold),
+        0 0 10px rgba(180, 154, 98, 0.10);
+}
+
+/* =========================================================
+   CARDS DOS JOGOS
+   ========================================================= */
+
+.game-item:hover {
+    border-color: var(--souls-gold) !important;
+    background: rgba(30, 26, 18, 0.92) !important;
+    box-shadow:
+        0 0 18px rgba(180, 154, 98, 0.25),
+        inset 0 0 15px rgba(180, 154, 98, 0.06) !important;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   TÍTULOS / LINKS
+   ========================================================= */
+
+a:hover,
+.game-item a:hover {
+    color: var(--souls-gold-light) !important;
+    text-shadow: 0 0 8px rgba(180, 154, 98, 0.45);
+}
+
+/* =========================================================
+   ÍCONES
+   ========================================================= */
+
+button:hover svg,
+a:hover svg,
+[role="button"]:hover svg {
+    color: var(--souls-gold-light) !important;
+    fill: var(--souls-gold-light) !important;
+    filter: drop-shadow(0 0 5px rgba(180, 154, 98, 0.45));
+}
+
+
+
+input:hover,
+textarea:hover {
+    border-color: var(--souls-gold) !important;
+    box-shadow: 0 0 10px rgba(180, 154, 98, 0.15) !important;
+}
+
+
+
+input:focus,
+textarea:focus {
+    border-color: var(--souls-gold) !important;
+    box-shadow: 0 0 15px rgba(180, 154, 98, 0.25) !important;
+}
+
+
+
+[role="button"]:hover,
+[class*="button"]:hover,
+[class*="Button"]:hover {
+    border-color: var(--souls-gold) !important;
+    color: var(--souls-gold-light) !important;
+}
+
+
+
+.game-item,
+button,
+input,
+textarea {
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease !important;
+}
+
+#root {
+    background-image: url("https://files.catbox.moe/qb9u9q.jpeg")!important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel,
+.home__content {
+    background: transparent !important;
+}
+
+
+.game-item {
+    background: rgba(7, 7, 7, 0.82) !important;
+}
+
+/* =========================================================
+   CAVEIRA NO HOVER 
+   ========================================================= */
+
+.game-item:hover::after,
+button:hover::after,
+a:hover::after {
+    content: "\1F480"; 
+    margin-left: 8px;
+    color: var(--souls-gold-light);
+    display: inline-block;
+    font-size: 1.1em;
+    opacity: 0;
+    animation: fadeInSkull 0.2s ease forwards;
+}
+
+
+.sidebar a:hover *::after,
+.sidebar button:hover *::after {
+    content: none !important;
+    display: none !important;
+    animation: none !important;
+}
+
+@keyframes fadeInSkull {
+    from { 
+        opacity: 0; 
+        transform: translateX(-5px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+

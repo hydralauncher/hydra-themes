@@ -262,7 +262,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
                 <>
                   <XCircleIcon className="size-4 text-red-500" />
                   <span className="text-xs text-muted-foreground">
-                    Does not support Achievements
+                    Custom Achievement
                   </span>
                 </>
               )}
@@ -281,7 +281,7 @@ export function ThemeCard({ theme }: Readonly<ThemeCardProps>) {
                   <>
                     <XCircleIcon className="size-4 text-red-500" />
                     <span className="text-xs text-muted-foreground">
-                      Does not support Achievement Sound
+                      Custom Achievement Sound
                     </span>
                   </>
                 )}

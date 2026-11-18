@@ -1,0 +1,82 @@
+/* Cambiar de color únicamente la barra superior (Titlebar) */
+.titlebar,
+[class*="titlebar"],
+[class*="title-bar"],
+header[class*="Title"] {
+  background-color: #8a2be2 !important; /* Tu violeta brillante sólido */
+}
+
+h1, h2, [class*="title"] {
+  color: #290052 !important; /* Violeta claro pastel muy legible */
+}
+/* Header */
+.header {
+  background-color: rgba(130, 2, 251, 0.5) !important; /* El 0.5 es 50% de transparencia */
+  backdrop-filter: blur(10px);
+  }/* Opcional: añade un efecto borroso de fondo tipo vidrio */
+
+/* Sidebar */
+.sidebar {
+  background-color: rgba(130, 2, 251, 0.5) !important; /* El 0.4 es 40% de transparencia */
+  backdrop-filter: blur(10px);
+  }/* Opcional: añade un efecto borroso de fondo tipo vidrio */
+
+/* Main content */
+.container__content {
+  background-image: url('./fondo.jpg')  !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  }
+/* Bottom panel */
+.bottom-panel {
+  background-color: rgba(139, 14, 228, 0.877) !important; /* Violeta con 40% de opacidad */
+  backdrop-filter: blur(10px) !important;             /* Efecto vidrio borroso */
+  border-top: 1px solid rgba(122, 4, 233, 0.935) !important; /* Línea delgada arriba para dividirlo elegantemente */
+}
+
+/* Toast */
+.toast-title, .toast-message, .toast, .toast-container > div {
+  background-color: rgba(111, 8, 237, 0.7) !important; /* Violeta oscuro transparente */
+  backdrop-filter: blur(12px) !important;              /* Desenfoque de fondo */
+  border: 1px solid rgba(137, 43, 226, 0.705) !important; /* Borde violeta brillante de neón */
+  border-radius: 8px !important;                       /* Bordes suavemente redondeados */
+  box-shadow: 0 8px 32px 0 rgba(124, 4, 236, 0.2) !important; /* Brillo violeta sutil alrededor */
+  color: #f1eaff !important; /* Un blanco con un ligerísimo tinte violeta */
+}
+
+/* Button */
+.button, .btn, .library-filters-container button,
+[class*="library-filters"] button,
+button[class*="Filter"] {
+  background-color: rgba(255, 255, 255, 0.04) !important; /* Casi invisibles */
+  color: #1d0369 !important;                             /* Texto violeta claro opaco */
+  border: 1px solid rgba(138, 43, 226, 0.2) !important;  /* Borde morado suave */
+  box-shadow: none !important;   
+
+
+  border-radius: 6px !important;              /* Bordes redondeados */
+  transition: all 0.3s ease !important;       /* Animación suave al pasar el cursor */
+}
+
+/* Cuando pasas el mouse por encima (Hover) */
+.button:hover, .btn:hover, button:hover {
+  background-color: #9932cc !important;       /* Violeta un poco más claro */
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.6) !important; /* Brillo de neón violeta */
+  cursor: pointer !important;
+}
+/* Cambiar la barra de scroll general */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important; /* Fondo invisible */
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(138, 43, 226, 0.5) !important; /* Barra violeta transparente */
+  border-radius: 10px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a2be2 !important; /* Se ilumina al pasar el mouse */
+}

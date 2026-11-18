@@ -1,0 +1,5393 @@
+:root,
+:host {
+  --steam-bg: #4c5844;
+  --steam-bg-dark: #3e4637;
+  --steam-bg-darker: #2d3328;
+  --steam-bg-light: #5a6a50;
+  --steam-bevel-light: #8c9883;
+  --steam-bevel-dark: #282e22;
+  --steam-text: #dee5d7;
+  --steam-text-muted: #a0aa95;
+  --steam-accent: #c4b550;
+  --steam-selection: #958831;
+  --steam-danger: #8a3324;
+  --steam-trophy: #b5c23c;
+  --color-primary: #c4b550;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(45, 51, 40, 0.2) !important;
+}
+
+.container__content {
+  background: linear-gradient(
+    0deg,
+    var(--steam-bg-dark) 50%,
+    var(--steam-bg) 100%
+  ) !important;
+}
+
+.title-bar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.title-bar__cloud-text {
+  background: linear-gradient(
+    270deg,
+    var(--steam-trophy) 50%,
+    #3e62c0 100%
+  ) !important;
+}
+
+.achievement-notification__container {
+  background: var(--steam-bg) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__container {
+  background: linear-gradient(
+    94deg,
+    var(--steam-bg-light) -25%,
+    #044838 100%
+  ) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  outline: 1px solid var(--steam-trophy) !important;
+  box-shadow: 0px 0px 12px 0px rgba(181, 194, 60, 0.25) !important;
+}
+
+.achievement-notification__dark-overlay {
+  background: var(--steam-bg-dark) !important;
+}
+
+.achievement-notification__trophy-overlay {
+  background: var(--steam-accent) !important;
+}
+
+.achievement-notification--rare .achievement-notification__trophy-overlay {
+  background:
+    linear-gradient(
+      118deg,
+      #e8ad15 18.96%,
+      #d5900f 26.41%,
+      #e8ad15 29.99%,
+      #e4aa15 38.89%,
+      #ca890e 42.43%,
+      #ca880e 46.59%,
+      #ecbe1a 50.08%,
+      #ecbd1a 53.48%,
+      #b3790d 57.39%,
+      #66470a 75.64%,
+      #a37a13 78.2%,
+      #987112 79.28%,
+      #503808 83.6%,
+      #3e2d08 85.77%
+    ),
+    var(--steam-accent) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__trophy-overlay {
+  background: linear-gradient(
+    118deg,
+    var(--steam-trophy) 18.96%,
+    var(--steam-trophy) 26.41%,
+    var(--steam-trophy) 29.99%,
+    var(--steam-trophy) 38.89%,
+    var(--steam-trophy) 42.43%,
+    var(--steam-trophy) 46.59%,
+    var(--steam-trophy) 50.08%,
+    var(--steam-trophy) 53.48%,
+    var(--steam-trophy) 57.39%,
+    #0a6648 75.64%,
+    var(--steam-trophy) 78.2%,
+    var(--steam-trophy) 79.28%,
+    #085042 83.6%,
+    #083e31 85.77%
+  ) !important;
+}
+
+.achievement-notification__chip {
+  background: var(--steam-accent) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+  background: linear-gradient(
+    118deg,
+    var(--steam-trophy) 18.96%,
+    var(--steam-trophy) 26.41%,
+    var(--steam-trophy) 29.99%,
+    var(--steam-trophy) 38.89%,
+    var(--steam-trophy) 42.43%,
+    var(--steam-trophy) 46.59%,
+    var(--steam-trophy) 50.08%,
+    var(--steam-trophy) 53.48%,
+    var(--steam-trophy) 57.39%,
+    #0a6648 75.64%,
+    var(--steam-trophy) 78.2%,
+    var(--steam-trophy) 79.28%,
+    #085042 83.6%,
+    #083e31 85.77%
+  ) !important;
+}
+
+.profile-avatar {
+  background-color: var(--steam-bg) !important;
+}
+
+.bottom-panel {
+  background-color: var(--steam-bg) !important;
+}
+
+.button {
+  background-color: var(--steam-accent) !important;
+}
+
+.button--primary:disabled {
+  background-color: var(--steam-accent) !important;
+}
+
+.button--dark {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.button--cloud {
+  background: linear-gradient(
+    133deg,
+    var(--steam-trophy) 0%,
+    #0a86d9 100%
+  ) !important;
+  box-shadow: inset 0 0 14px rgba(181, 194, 60, 0.168627451) !important;
+  border: 1px solid var(--steam-trophy) !important;
+}
+
+.button--cloud:hover:not(:disabled) {
+  box-shadow:
+    inset 0 0 18px rgba(181, 194, 60, 0.3019607843),
+    0 0 10px rgba(181, 194, 60, 0.2) !important;
+}
+
+.checkbox-field__checkbox {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.checkbox-field__checkbox.checked {
+  background-color: var(--steam-accent) !important;
+}
+
+.classics-onboarding__body {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.classics-scan-indicator--section {
+  background: var(--steam-bg-dark) !important;
+}
+
+.cloud-ring {
+  box-shadow: 0 0 10px rgba(181, 194, 60, 0.45) !important;
+}
+
+.cloud-ring::before {
+  background: conic-gradient(
+    from 90deg,
+    #0a86d9,
+    var(--steam-trophy),
+    var(--steam-trophy),
+    #e9fdff,
+    var(--steam-trophy),
+    var(--steam-trophy),
+    #0a86d9
+  ) !important;
+}
+
+.collapsed-menu__button {
+  background-color: var(--steam-bg) !important;
+}
+
+.context-menu {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.context-menu__submenu {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.dropdown-menu__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.dropdown-menu:not(.dropdown-menu__item--disabled) .dropdown-menu__item:hover {
+  background-color: var(--steam-bg) !important;
+}
+
+.dropdown-menu__item:focus {
+  background-color: var(--steam-bg) !important;
+}
+
+.error-fallback {
+  background: linear-gradient(
+    0deg,
+    var(--steam-bg-dark) 50%,
+    var(--steam-bg) 100%
+  ) !important;
+}
+
+.error-fallback__stack {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.fullscreen-media-modal__overlay {
+  background-color: rgba(45, 51, 40, 0.8) !important;
+}
+
+.fullscreen-media-modal__close-button {
+  background-color: rgba(45, 51, 40, 0.5) !important;
+}
+
+.fullscreen-media-modal__close-button:hover {
+  background-color: rgba(45, 51, 40, 0.8) !important;
+}
+
+.game-card__backdrop {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.7) 50%,
+    transparent 100%
+  ) !important;
+}
+
+.game-visibility-badge {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.auto-update-sub-header {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.header {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.header__search {
+  background-color: var(--steam-bg) !important;
+}
+
+.scan-games-modal__mode-toggle {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.scan-games-modal__mode-option--active {
+  background-color: var(--steam-bg) !important;
+}
+
+.scan-games-modal__folders-list {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.scan-games-modal__ambiguous-list {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.scan-games-modal__choice--active {
+  background-color: var(--steam-bg) !important;
+}
+
+.scan-games-modal__games-list {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.scan-games-modal__game-icon {
+  background-color: var(--steam-bg) !important;
+}
+
+.hero__backdrop {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.8) 25%,
+    transparent 100%
+  ) !important;
+}
+
+.image-crop-modal__frame {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.image-crop-modal__frame:focus-visible {
+  border-color: var(--steam-trophy) !important;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 3px rgba(181, 194, 60, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02) !important;
+}
+
+.image-crop-modal__toolbar {
+  background-color: rgba(45, 51, 40, 0.66) !important;
+}
+
+.image-crop-modal__icon-button--active {
+  background-color: rgba(181, 194, 60, 0.18) !important;
+  color: var(--steam-trophy) !important;
+}
+
+.image-crop-modal__icon-button--active:hover:not(:disabled) {
+  background-color: rgba(181, 194, 60, 0.26) !important;
+}
+
+.image-crop-modal__slider {
+  background-image: linear-gradient(
+    90deg,
+    var(--steam-accent),
+    var(--steam-accent)
+  ) !important;
+}
+
+.image-crop-modal__slider::-webkit-slider-thumb {
+  background-color: var(--steam-bg) !important;
+}
+
+.image-crop-modal__slider:focus-visible::-webkit-slider-thumb {
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    0 0 0 4px rgba(181, 194, 60, 0.4) !important;
+}
+
+.modal {
+  background-color: var(--steam-bg) !important;
+}
+
+.radio-field--selected .radio-field__dot {
+  background: var(--steam-accent) !important;
+}
+
+.radio-field__control {
+  background: var(--steam-bg-dark) !important;
+}
+
+.search-dropdown {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.search-dropdown__shop-switch {
+  background-color: var(--steam-bg) !important;
+}
+
+.search-dropdown__item:hover,
+.search-dropdown__item--active {
+  background-color: var(--steam-bg) !important;
+}
+
+.select-field--primary {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.select-field--dark {
+  background-color: var(--steam-bg) !important;
+}
+
+.select-field__option {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.sidebar-filter-menu__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.sidebar-filter-menu__item:hover,
+.sidebar-filter-menu__item[data-highlighted] {
+  background-color: var(--steam-bg) !important;
+}
+
+.sidebar-profile__classic-disc {
+  background: conic-gradient(
+    from 20deg,
+    #676a73,
+    #c6cad2,
+    #6c7079,
+    var(--steam-accent),
+    #676a73
+  ) !important;
+}
+
+.sidebar-profile__dropdown {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.sidebar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.sidebar__menu-item--decky {
+  background: linear-gradient(
+    135deg,
+    rgba(181, 194, 60, 0.2) 0%,
+    rgba(62, 98, 192, 0.1) 100%
+  ) !important;
+}
+
+.sidebar__menu-item--decky:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(181, 194, 60, 0.3) 0%,
+    rgba(62, 98, 192, 0.15) 100%
+  ) !important;
+}
+
+.sidebar__collection-count {
+  background-color: var(--steam-accent) !important;
+}
+
+.steam-library-badge {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.steam-library-badge--sidebar {
+  background: rgba(45, 51, 40, 0.6) !important;
+}
+
+.text-field-container__text-field--primary {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.text-field-container__text-field--dark {
+  background-color: var(--steam-bg) !important;
+}
+
+.toast {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.toast__progress::-webkit-progress-bar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.toast__progress::-webkit-progress-value {
+  background-color: var(--steam-accent) !important;
+}
+
+.vertical-cover-card {
+  background: var(--steam-bg) !important;
+}
+
+.vertical-cover-card__classics-cover {
+  background: var(--steam-bg-dark) !important;
+}
+
+.window-title-bar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievement-panel {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievement-panel__progress-bar::-webkit-progress-value {
+  background-color: var(--steam-accent) !important;
+}
+
+.achievements-content__comparison__container {
+  background: rgba(45, 51, 40, 0.7) !important;
+}
+
+.achievements-content__user-summary__container__stats__percentage--completed {
+  color: var(--steam-trophy) !important;
+}
+
+.achievements-content__user-summary__container__stats__progress-bar {
+  background-color: var(--steam-accent) !important;
+}
+
+.achievements-content__user-summary__container__stats__progress-bar--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      var(--steam-trophy) 30%,
+      var(--steam-trophy) 100%
+    ) !important;
+}
+
+.achievements-content__achievements-list__section__container {
+  background: linear-gradient(
+    0deg,
+    var(--steam-bg) 0%,
+    var(--steam-bg) 100%
+  ) !important;
+}
+
+.achievements-content__achievements-list__section__container__banner {
+  background: linear-gradient(
+    180deg,
+    var(--steam-bg-dark) 0%,
+    var(--steam-bg-dark) 100%
+  ) !important;
+}
+
+.achievements-content__achievements-list__section__container__banner::after {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(45, 51, 40, 0.5) 45%,
+      var(--steam-bg) 100%
+    ),
+    linear-gradient(90deg, rgba(45, 51, 40, 0.55) 0%, rgba(0, 0, 0, 0) 55%) !important;
+}
+
+.achievements-content__achievements-list__section__table-header {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements-content__profile-avatar {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__table-header {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievements__list {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__progress-bar::-webkit-progress-value {
+  background-color: var(--steam-accent) !important;
+}
+
+.achievements__profile-avatar {
+  background-color: var(--steam-bg) !important;
+}
+
+.auth-window {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.catalogue-mode-toggle {
+  background: var(--steam-bg-dark) !important;
+}
+
+.filter-item {
+  background-color: color-mix(
+    in srgb,
+    var(--steam-bg-dark) 84%,
+    var(--filter-item-color) 16%
+  ) !important;
+}
+
+.filter-section {
+  background-color: var(--steam-bg) !important;
+}
+
+.filter-section__button {
+  background-color: var(--steam-bg) !important;
+}
+
+.filter-section__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-item-classics {
+  background: var(--steam-bg-dark) !important;
+}
+
+.game-item-classics__plus-wrapper {
+  background: rgba(45, 51, 40, 0.6) !important;
+}
+
+.game-item-classics__cover {
+  background: var(--steam-bg-dark) !important;
+}
+
+.game-item-classics__platform-chip {
+  background: rgba(45, 51, 40, 0.6) !important;
+}
+
+.game-item {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.release-year-section__range::-webkit-slider-thumb {
+  background: var(--steam-accent) !important;
+}
+
+.chat-leaving-modal__destination {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.chat-report-modal__reason--selected,
+.chat-report-modal__reason--selected:hover {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-report-modal__textarea {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.chat-window {
+  background-color: var(--steam-bg) !important;
+}
+
+.chat-window__strip {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.chat-window__header-banner::after {
+  background: linear-gradient(
+    90deg,
+    var(--steam-bg-dark) 0%,
+    rgba(45, 51, 40, 0.64) 36%,
+    rgba(0, 0, 0, 0) 80%
+  ) !important;
+}
+
+.chat-window__tab-unread-dot {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__friend-card {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__overflow-menu {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__picker {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__unread-badge {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__empty-icon {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__jump {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__jump-count {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__sticky-day {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__message {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__message-action-tooltip {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__message-group--mine .chat-window__message {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__toast {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__empty-retry {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__composer-box {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.chat-window__send {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__reaction {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__reaction-tooltip {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__reaction-bar {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__emoji-picker {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__emoji-search {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.chat-window__composer-image-tools {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__composer-image-tool[aria-pressed="true"] {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__drop {
+  background-color: var(--steam-bg) !important;
+}
+
+.chat-window__message-images {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.chat-window__message-image-spoiler {
+  background-color: rgba(45, 51, 40, 0.8) !important;
+}
+
+.chat-window__message-images-progress {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.chat-window__message-images-progress-bar {
+  background-color: var(--steam-accent) !important;
+}
+
+.chat-window__message-images-overlay {
+  background-color: rgba(45, 51, 40, 0.55) !important;
+}
+
+.chat-window__message-images-overlay--retry {
+  background-color: rgba(45, 51, 40, 0.45) !important;
+}
+
+.chat-window__message-images-retry {
+  background-color: var(--steam-bg) !important;
+}
+
+.chat-window__lightbox {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.download-group__hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 51, 40, 0.3) 0%,
+    var(--steam-bg-dark) 70%,
+    var(--steam-bg-light) 100%
+  ) !important;
+}
+
+.download-group__simple-thumbnail {
+  background-color: rgba(45, 51, 40, 0.3) !important;
+}
+
+.download-group__progress-fill {
+  background-color: var(--steam-accent) !important;
+}
+
+.download-group__progress-fill--extraction {
+  background-color: var(--steam-accent) !important;
+}
+
+.friends-window {
+  background-color: var(--steam-bg) !important;
+}
+
+.friends-window__header--has-bg::after {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 51, 40, 0.25),
+    rgba(0, 0, 0, 0.18)
+  ) !important;
+}
+
+.friends-window__title-bar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.friends-window__search {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.friends-window__section-header {
+  background-color: var(--steam-bg) !important;
+}
+
+.friends-window__skeleton {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.friends-window__friend:hover {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.friends-window__friend--has-bg::after {
+  background: linear-gradient(
+    90deg,
+    var(--steam-bg-dark) 0%,
+    rgba(45, 51, 40, 0.64) 36%,
+    rgba(0, 0, 0, 0) 80%
+  ) !important;
+}
+
+.cloud-save-v2__switch--enabled .cloud-save-v2__switch-thumb {
+  background: var(--steam-accent) !important;
+}
+
+.cloud-save-v2__sync-progress-bar {
+  background: var(--steam-accent) !important;
+}
+
+.cloud-save-v2__status-pill--synced {
+  background: rgba(181, 194, 60, 0.22) !important;
+}
+
+.cloud-save-v2__browser-diff-header {
+  background: var(--steam-bg) !important;
+}
+
+.cloud-sync-panel__automatic-sync-badge {
+  background: linear-gradient(
+    270deg,
+    var(--steam-trophy) 50%,
+    #3e62c0 100%
+  ) !important;
+}
+
+.cloud-sync-panel__artifact {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-emulation-saves__card {
+  background: var(--steam-bg-dark) !important;
+}
+
+.description-header {
+  background-color: var(--steam-bg) !important;
+}
+
+.gallery-lightbox {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-lightbox--fullscreen {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-lightbox--fullscreen .gallery-lightbox__top-bar {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 51, 40, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.gallery-lightbox__icon-button {
+  background-color: rgba(45, 51, 40, 0.5) !important;
+}
+
+.gallery-lightbox__nav-button {
+  background-color: rgba(45, 51, 40, 0.5) !important;
+}
+
+.gallery-lightbox--fullscreen .gallery-lightbox__nav-button {
+  background-color: rgba(45, 51, 40, 0.35) !important;
+}
+
+.gallery-lightbox--fullscreen .gallery-lightbox__filmstrip {
+  background: linear-gradient(
+    to top,
+    rgba(45, 51, 40, 0.75) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.gallery-lightbox__thumbnail {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-lightbox__thumbnail-play {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.gallery-slider__play-overlay {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.gallery-slider__preview-button:hover .gallery-slider__play-overlay {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.gallery-slider__button {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.gallery-slider__button:hover {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.gallery-video {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-video__element {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-video__big-play {
+  background-color: rgba(45, 51, 40, 0.55) !important;
+}
+
+.gallery-video__big-play:hover {
+  background-color: rgba(45, 51, 40, 0.7) !important;
+}
+
+.gallery-video__flash {
+  background-color: rgba(45, 51, 40, 0.5) !important;
+}
+
+.gallery-video__seek-indicator {
+  background-color: rgba(45, 51, 40, 0.45) !important;
+}
+
+.gallery-video__volume-indicator {
+  background-color: rgba(45, 51, 40, 0.55) !important;
+}
+
+.gallery-video__volume-indicator-fill {
+  background-color: var(--steam-accent) !important;
+}
+
+.gallery-video__controls {
+  background: linear-gradient(
+    to top,
+    rgba(45, 51, 40, 0.8) 0%,
+    rgba(45, 51, 40, 0.4) 60%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.gallery-video__progress-played {
+  background-color: var(--steam-accent) !important;
+}
+
+.gallery-video__progress-thumb {
+  background-color: var(--steam-accent) !important;
+}
+
+.gallery-video__preview-frame {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-video__preview-time {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.gallery-video__volume-fill {
+  background-color: var(--steam-accent) !important;
+}
+
+.gallery-video__volume-thumb {
+  background-color: var(--steam-accent) !important;
+}
+
+.gallery-video__quality-menu {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-details__description-container {
+  background: linear-gradient(
+    0deg,
+    var(--steam-bg) 50%,
+    var(--steam-bg-dark) 100%
+  ) !important;
+}
+
+.game-details__description--collapsed::after {
+  background: linear-gradient(transparent, var(--steam-bg)) !important;
+}
+
+.game-details__skeleton .react-loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--steam-bg-light) 25%,
+    var(--steam-bg-light) 50%,
+    var(--steam-bg-light) 75%
+  ) !important;
+}
+
+.hero-panel-actions__separator {
+  background-color: var(--steam-accent) !important;
+}
+
+.hero-panel {
+  background: rgba(45, 51, 40, 0.6) !important;
+}
+
+.hero-panel--stuck {
+  background: rgba(45, 51, 40, 0.7) !important;
+}
+
+.hero-panel__progress-bar::-webkit-progress-value {
+  background-color: var(--steam-accent) !important;
+}
+
+.hero-panel__progress-bar--extraction::-webkit-progress-value {
+  background-color: var(--steam-accent) !important;
+}
+
+.game-details__hero-classics-backdrop-overlay {
+  background-color: rgba(45, 51, 40, 0.48) !important;
+}
+
+.game-details__hero-classics-chip {
+  background-color: rgba(45, 51, 40, 0.24) !important;
+}
+
+.game-details__hero-classics-stripe-band--shadow {
+  background-color: rgba(45, 51, 40, 0.55) !important;
+}
+
+.game-details__edit-custom-game-button {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.game-details__edit-custom-game-button:hover {
+  background-color: rgba(45, 51, 40, 0.5) !important;
+}
+
+.game-details__hero-image-wrapper::after {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.3) 60%,
+    transparent 100%
+  ) !important;
+}
+
+.game-details__hero-image--placeholder {
+  background: linear-gradient(
+    180deg,
+    var(--steam-bg-dark) 0%,
+    var(--steam-bg-dark) 100%
+  ) !important;
+}
+
+.game-details__cloud-sync-button {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.game-details__cloud-sync-button:hover {
+  background-color: rgba(45, 51, 40, 0.5) !important;
+}
+
+.disc-selection-modal__option {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.download-settings-modal__downloaders-list-wrapper {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.download-settings-modal__torrent-files-feedback {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.download-settings-modal__torrent-files-list {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.download-settings-modal__folder-checkbox--indeterminate::after {
+  background: var(--steam-bg-dark) !important;
+}
+
+.epic-install-modal__cover {
+  background: var(--steam-bg-dark) !important;
+}
+
+.game-artwork__scroll-shadow::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 51, 40, 0.5),
+    transparent
+  ) !important;
+}
+
+.game-artwork__item-spinner {
+  background: rgba(45, 51, 40, 0.45) !important;
+}
+
+.game-assets-settings__asset-tab-underline {
+  background: var(--steam-accent) !important;
+}
+
+.game-assets-settings__image-preview {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-assets-settings__drop-zone--active {
+  border-color: var(--steam-trophy) !important;
+  background-color: rgba(181, 194, 60, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(181, 194, 60, 0.3) !important;
+}
+
+.game-assets-settings__drop-overlay {
+  background-color: rgba(181, 194, 60, 0.92) !important;
+}
+
+.game-assets-settings__preview-action-overlay {
+  background: rgba(45, 51, 40, 0.22) !important;
+}
+
+.game-assets-settings__preview-action-icon {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.legacy-saves-section__card {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-options-modal__sidebar {
+  background: var(--steam-bg-dark) !important;
+}
+
+.disc-field__trigger {
+  background: var(--steam-bg-dark) !important;
+}
+
+.disc-field__menu {
+  background: var(--steam-bg-dark) !important;
+}
+
+.drive-card {
+  background: var(--steam-bg-dark) !important;
+}
+
+.transfer-progress__fill {
+  background: var(--steam-accent) !important;
+}
+
+.cancel-confirm-overlay {
+  background: var(--steam-bg-dark) !important;
+}
+
+.cancel-confirm-modal {
+  background: var(--steam-bg-light) !important;
+}
+
+.playtime-breakdown-table__value {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-details__review-score-select {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.game-details__review-score-select option {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.game-details__review-input-container {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-details__review-input-header {
+  background-color: var(--steam-bg) !important;
+}
+
+.game-details__review-header--has-bg::after {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 51, 40, 0.25),
+    rgba(0, 0, 0, 0.18)
+  ) !important;
+}
+
+.game-details__review-header--has-bg .game-details__review-score-stars,
+.game-details__review-header--has-bg .game-details__review-playtime {
+  background: rgba(45, 51, 40, 0.35) !important;
+}
+
+.game-details__reply-header--has-bg::after {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 51, 40, 0.25),
+    rgba(0, 0, 0, 0.18)
+  ) !important;
+}
+
+.achievements-placeholder {
+  background: rgba(45, 51, 40, 0.7) !important;
+}
+
+.sidebar-section {
+  background-color: var(--steam-bg) !important;
+}
+
+.sidebar-section__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.similar-games__control {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.similar-games__control:hover:not(:disabled) {
+  background-color: rgba(45, 51, 40, 0.6) !important;
+}
+
+.game-launcher {
+  background: linear-gradient(
+    135deg,
+    var(--steam-bg-dark) 0%,
+    #1a1a2e 50%,
+    #16213e 100%
+  ) !important;
+}
+
+.game-launcher__overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 51, 40, 0.75) 0%,
+    var(--steam-bg-dark) 50%,
+    var(--steam-bg-dark) 100%
+  ) !important;
+}
+
+.game-launcher__glow {
+  background: radial-gradient(
+    ellipse at top right,
+    rgba(181, 194, 60, 0.15) 0%,
+    transparent 50%
+  ) !important;
+}
+
+.game-launcher__cover {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.game-launcher__cover-placeholder {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.library-category-filter__container {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.collections-filter__trigger {
+  background-color: var(--steam-bg) !important;
+}
+
+.collections-filter__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.collections-filter__item:hover,
+.collections-filter__item[data-highlighted] {
+  background-color: var(--steam-bg) !important;
+}
+
+.collections-filter__item--active {
+  background-color: var(--steam-bg) !important;
+}
+
+.collections-filter__item-count {
+  background-color: var(--steam-accent) !important;
+}
+
+.library-installed-filter__button {
+  background: var(--steam-bg) !important;
+}
+
+.library-game-card-large__gradient {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.42) 0%,
+    rgba(45, 51, 40, 0.26) 7%,
+    rgba(0, 0, 0, 0.09) 14%,
+    transparent 20%
+  ) !important;
+}
+
+.library-game-card-large__size-badges {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.library-game-card-large__installed-badge {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.library-game-card-large__installed-badge--classics {
+  background:
+    linear-gradient(var(--steam-bg-light), var(--steam-bg-light)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+}
+
+.library-game-card-large__playtime {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.library-game-card-large__platform-badge {
+  background:
+    linear-gradient(var(--steam-bg-light), var(--steam-bg-light)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+}
+
+.library-game-card-large__achievement-bar {
+  background-color: var(--steam-accent) !important;
+}
+
+.library-game-card-large__achievement-bar--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      var(--steam-trophy) 30%,
+      var(--steam-trophy) 100%
+    ) !important;
+}
+
+.library-game-card-large__achievement-percentage--completed {
+  color: var(--steam-trophy) !important;
+}
+
+.library-game-card__overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.42) 0%,
+    rgba(45, 51, 40, 0.26) 7%,
+    rgba(0, 0, 0, 0.09) 14%,
+    transparent 20%
+  ) !important;
+}
+
+.library-game-card__playtime {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.library-game-card__platform-badge {
+  background:
+    linear-gradient(var(--steam-bg-light), var(--steam-bg-light)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+}
+
+.library-game-card__installed-badge {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.library-game-card__installed-badge--classics {
+  background:
+    linear-gradient(var(--steam-bg-light), var(--steam-bg-light)) padding-box,
+    conic-gradient(
+        from 0deg,
+        #fb0026 5deg,
+        #c80078 70deg,
+        #7300a4 145deg,
+        #f8c802 220deg,
+        #fc5812 290deg,
+        #fb0026 365deg
+      )
+      border-box !important;
+}
+
+.library-game-card__achievement-bar {
+  background-color: var(--steam-accent) !important;
+}
+
+.library-game-card__achievement-bar--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      var(--steam-trophy) 30%,
+      var(--steam-trophy) 100%
+    ) !important;
+}
+
+.library-game-card__achievement-percentage--completed {
+  color: var(--steam-trophy) !important;
+}
+
+.library-game-card__action-button {
+  background: rgba(45, 51, 40, 0.6) !important;
+}
+
+.library-game-card__action-button:hover {
+  background: rgba(45, 51, 40, 0.8) !important;
+}
+
+.library-game-card__game-image--contain {
+  background: var(--steam-bg-dark) !important;
+}
+
+.library-game-card__classics-cover {
+  background: var(--steam-bg-dark) !important;
+}
+
+.library-multi-select__trigger {
+  background-color: var(--steam-bg) !important;
+}
+
+.library-multi-select__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.library-select__trigger {
+  background-color: var(--steam-bg) !important;
+}
+
+.library-select__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.library__scroll-shadow::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 51, 40, 0.4) 0%,
+    rgba(45, 51, 40, 0.22) 35%,
+    rgba(0, 0, 0, 0.08) 65%,
+    transparent 100%
+  ) !important;
+}
+
+.library-view-options__option.active {
+  background: var(--steam-accent) !important;
+}
+
+.notification-item {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.notification-item--unread {
+  border-left: 3px solid var(--steam-trophy) !important;
+}
+
+.notification-item__picture {
+  background-color: var(--steam-bg) !important;
+}
+
+.notification-item__badge-picture {
+  background-color: var(--steam-bg) !important;
+}
+
+.notifications__tab-underline {
+  background: var(--steam-accent) !important;
+}
+
+.edit-profile-modal__avatar-container {
+  background-color: var(--steam-bg) !important;
+}
+
+.edit-profile-modal__avatar-overlay {
+  background-color: rgba(45, 51, 40, 0.7) !important;
+}
+
+.all-badges-modal__item-icon {
+  background-color: var(--steam-bg) !important;
+}
+
+.badges-box__item-icon {
+  background-color: var(--steam-bg) !important;
+}
+
+.filter-dropdown__menu {
+  background: var(--steam-bg-light) !important;
+}
+
+.profile-content__tab-underline {
+  background: var(--steam-accent) !important;
+}
+
+.profile-content__souvenir {
+  background-color: var(--steam-bg) !important;
+}
+
+.profile-content__souvenir--platinum {
+  border-color: rgba(181, 194, 60, 0.85) !important;
+  box-shadow: 0 0 12px rgba(181, 194, 60, 0.2) !important;
+}
+
+.profile-content__souvenir-private-indicator,
+.profile-content__souvenir-action-button {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.profile-content__souvenir-action-button:hover:not(:disabled) {
+  background: rgba(45, 51, 40, 0.6) !important;
+}
+
+.profile-content__games-grid--drag-over::before {
+  background: rgba(45, 51, 40, 0.8) !important;
+}
+
+.profile-souvenir-lightbox__overlay {
+  background: rgba(45, 51, 40, 0.82) !important;
+}
+
+.profile-souvenir-lightbox__close-button {
+  background: rgba(45, 51, 40, 0.65) !important;
+}
+
+.profile-souvenir-lightbox__close-button:hover {
+  background: rgba(45, 51, 40, 0.8) !important;
+}
+
+.profile-souvenir-lightbox__nav-button {
+  background: rgba(45, 51, 40, 0.5) !important;
+}
+
+.profile-souvenir-lightbox__nav-button:hover {
+  background: rgba(45, 51, 40, 0.8) !important;
+}
+
+.profile-souvenir-lightbox__content {
+  background: var(--steam-bg-dark) !important;
+}
+
+.profile-souvenir-lightbox__image-frame {
+  background: var(--steam-bg-dark) !important;
+}
+
+.profile-souvenir-lightbox__info {
+  background: var(--steam-bg) !important;
+}
+
+.profile-souvenir-lightbox__achievement-tooltip {
+  background: var(--steam-bg) !important;
+}
+
+.profile-souvenir-lightbox__rarity--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      var(--steam-trophy) 30%,
+      var(--steam-trophy) 100%
+    ) !important;
+  border-color: rgba(181, 194, 60, 0.7) !important;
+}
+
+.user-library-game__overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.42) 0%,
+    rgba(45, 51, 40, 0.26) 7%,
+    rgba(0, 0, 0, 0.09) 14%,
+    transparent 20%
+  ) !important;
+}
+
+.user-library-game__playtime {
+  background: rgba(45, 51, 40, 0.4) !important;
+}
+
+.user-library-game__stats-percentage--completed {
+  color: var(--steam-trophy) !important;
+}
+
+.user-library-game__achievements-progress {
+  background-color: var(--steam-accent) !important;
+}
+
+.user-library-game__achievements-progress--platinum {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.2) 85%,
+      rgba(255, 255, 255, 0.1) 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      var(--steam-trophy) 30%,
+      var(--steam-trophy) 100%
+    ) !important;
+}
+
+.wrapped-fullscreen-modal__backdrop {
+  background: var(--steam-bg-dark) !important;
+}
+
+.wrapped-fullscreen-modal__content {
+  background: rgba(45, 51, 40, 0.5) !important;
+}
+
+.wrapped-fullscreen-modal__loader {
+  background: rgba(45, 51, 40, 0.5) !important;
+}
+
+.profile-hero__copy-button {
+  background-color: rgba(45, 51, 40, 0.3) !important;
+}
+
+.profile-hero__copy-button:hover {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.profile-hero__avatar-button {
+  background-color: var(--steam-bg) !important;
+}
+
+.profile-hero__hero-panel {
+  background-color: rgba(45, 51, 40, 0.3) !important;
+}
+
+.profile-section {
+  background-color: var(--steam-bg) !important;
+}
+
+.profile-section__header {
+  background-color: var(--steam-bg) !important;
+}
+
+.profile-section__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.upload-background-image-button {
+  background-color: rgba(45, 51, 40, 0.3) !important;
+}
+
+.upload-background-image-button.button:hover {
+  background-color: rgba(45, 51, 40, 0.26) !important;
+}
+
+.upload-background-image-button.button:disabled {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.upload-background-image-button__menu {
+  background-color: rgba(45, 51, 40, 0.4) !important;
+}
+
+.retroachievements-connection-window {
+  background: var(--steam-bg-dark) !important;
+}
+
+.console-card {
+  background: var(--steam-bg-dark) !important;
+}
+
+.console-card__hint-box {
+  background: var(--steam-bg) !important;
+}
+
+.emu-save-modal__target {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__row {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__res-status {
+  background: var(--steam-bg-light) !important;
+}
+
+.emulator-detail__exec-path-button:focus-visible {
+  outline: 2px solid rgba(181, 194, 60, 0.4) !important;
+}
+
+.emulator-detail__stat {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__memcard-backup-progress-track {
+  background: var(--steam-bg-light) !important;
+}
+
+.emulator-detail__memcard-backup-progress-fill {
+  background: var(--steam-accent) !important;
+}
+
+.emulator-detail__memcard-card {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__memcard-cover {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__cloud-card {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__restore-target {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__tab:focus-visible {
+  outline: 2px solid rgba(181, 194, 60, 0.4) !important;
+}
+
+.emulator-detail__exec-path-box {
+  background: var(--steam-bg-dark) !important;
+}
+
+.emulator-detail__exec-path-box:focus-visible {
+  outline: 2px solid rgba(181, 194, 60, 0.4) !important;
+}
+
+.setup-modal__row-card {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__download-card {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__download-card:hover {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__download-card--loading:hover {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__numbered-list {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__bios-path {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__alert--neutral {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__progress-fill {
+  background: var(--steam-accent) !important;
+}
+
+.setup-modal__stat {
+  background: var(--steam-bg-dark) !important;
+}
+
+.setup-modal__done-check::before {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__rom-card {
+  background: var(--steam-bg) !important;
+}
+
+.setup-modal__unmatched {
+  background: var(--steam-bg) !important;
+}
+
+.settings-download-sources__item {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.settings-general__volume-slider {
+  background: var(--steam-bg-dark) !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb {
+  background: var(--steam-accent) !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    var(--steam-accent) 0%,
+    var(--steam-accent) var(--volume-percent),
+    var(--steam-bg-dark) var(--volume-percent),
+    var(--steam-bg-dark) 100%
+  ) !important;
+}
+
+.settings-global-trackers__textarea {
+  background: var(--steam-bg-dark) !important;
+}
+
+.settings-global-trackers__url-input {
+  background: var(--steam-bg-dark) !important;
+}
+
+.settings-integration-card__progress-fill {
+  background: var(--steam-accent) !important;
+}
+
+.settings__content {
+  background-color: var(--steam-bg) !important;
+}
+
+.settings__sidebar {
+  background: var(--steam-bg-dark) !important;
+}
+
+.cloud-gift-notification-modal__overlay {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.cloud-gift-notification-modal__panel {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.cloud-gift-notification-modal__panel::before {
+  background: linear-gradient(
+    90deg,
+    rgba(181, 194, 60, 0.15),
+    var(--steam-trophy) 22%,
+    var(--steam-trophy) 78%,
+    rgba(181, 194, 60, 0.15)
+  ) !important;
+  box-shadow: 0 0 6px rgba(181, 194, 60, 0.65) !important;
+}
+
+.cloud-gift-notification-modal__logo-shine::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(181, 194, 60, 0.06) 15%,
+    rgba(181, 194, 60, 0.22) 30%,
+    rgba(210, 255, 250, 0.58) 43%,
+    rgba(255, 255, 255, 0.72) 50%,
+    rgba(210, 255, 250, 0.58) 57%,
+    rgba(181, 194, 60, 0.22) 70%,
+    rgba(181, 194, 60, 0.06) 85%,
+    transparent 100%
+  ) !important;
+}
+
+.cloud-subscription-modal__overlay {
+  background-color: rgba(45, 51, 40, 0.7) !important;
+}
+
+.cloud-subscription-modal__iframe {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.cloud-subscription-modal__fallback {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.theme-editor__header {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.theme-editor__header__status {
+  background-color: var(--steam-accent) !important;
+}
+
+.theme-editor__footer {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievement-select__trigger {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievement-select__content {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievement-select__item[data-state="checked"] {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievement-select__item:hover,
+.achievement-select__item[data-highlighted] {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievement-select__item-count {
+  background-color: var(--steam-accent) !important;
+}
+
+.achievements__toolbar {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__compare-sticky {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__compare-global-badge {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievements__compare-avatar--empty {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__item {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.achievements__item-icon--concealed {
+  background-color: var(--steam-bg) !important;
+}
+
+.achievements__item-check {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+::-webkit-scrollbar-thumb,
+body.window-rounded #root,
+.title-bar__big-picture,
+.achievement-notification__icon,
+.achievement-notification__chip,
+.profile-avatar,
+.profile-avatar__image,
+.badge,
+.button,
+.button--small,
+.checkbox-field__checkbox,
+.classics-onboarding__progress-pill,
+.classics-scan-indicator--section,
+.context-menu,
+.context-menu__item,
+.context-menu__submenu,
+.context-menu__separator,
+.dropdown-menu__content,
+.dropdown-menu__item,
+.error-fallback__stack,
+.fullscreen-media-modal__image,
+.game-card,
+.game-visibility-badge,
+.guide-link:focus-visible,
+.header__search,
+.header__action-button--outlined,
+.scan-games-modal__mode-toggle,
+.scan-games-modal__mode-option,
+.scan-games-modal__folders-list,
+.scan-games-modal__folder-remove,
+.scan-games-modal__ambiguous-list,
+.scan-games-modal__choice,
+.scan-games-modal__choice-icon,
+.scan-games-modal__games-list,
+.scan-games-modal__game-icon,
+.image-crop-modal__frame,
+.image-crop-modal__toolbar,
+.image-crop-modal__slider,
+.modal,
+.radio-field:has(.radio-field__input:focus-visible),
+.search-dropdown,
+.search-dropdown__shop-switch,
+.search-dropdown__shop-button,
+.search-dropdown__item-icon--image,
+.search-dropdown__highlight,
+.select-field,
+.select-field__option,
+.sidebar-adding-custom-game-modal__image-preview,
+.sidebar-adding-custom-game-modal__preview-image,
+.sidebar-filter-menu__content,
+.sidebar-filter-menu__item,
+.sidebar-profile__button,
+.sidebar-profile__game-running-icon,
+.sidebar-profile__dropdown,
+.sidebar-profile__dropdown-item,
+.sidebar-profile__dropdown-badge,
+.sidebar__big-picture-darwin,
+.sidebar__menu-item,
+.sidebar__online-count,
+.sidebar__game-icon,
+.sidebar__game-badge,
+.sidebar__collection-count,
+.steam-library-badge,
+.steam-library-badge--sidebar.steam-library-badge--multiple,
+.text-field-container__text-field,
+.toast,
+.vertical-cover-card,
+.vertical-cover-card__classics-image,
+.achievements-content__comparison__container,
+.achievements-content__comparison__small-avatar,
+.achievements-content__user-summary__container__stats__progress-track,
+.achievements-content__user-summary__container__stats__progress-bar,
+.achievements-content__profile-avatar,
+.achievements__item,
+.achievements__item-image,
+.achievements__item-souvenir-image,
+.achievements__item-souvenir-overlay,
+.achievements__item-hardcore-badge,
+.achievements__progress-bar::-webkit-progress-bar,
+.achievements__progress-bar::-webkit-progress-value,
+.achievements__profile-avatar,
+.catalogue-mode-toggle,
+.catalogue-mode-toggle__option,
+.catalogue__skeleton,
+.catalogue__skeleton--classics,
+.filter-item,
+.filter-section,
+.filter-section__header-count,
+.filter-section__group-tabs,
+.filter-section__group-tab,
+.filter-section__group-tab-count,
+.game-item-classics,
+.game-item-classics__plus-wrapper,
+.game-item-classics__cover-image,
+.game-item-classics__platform-chip,
+.game-item,
+.game-item__plus-wrapper,
+.game-item__compatibility-badge,
+.pagination__page-input,
+.release-year-section__track,
+.chat-leaving-modal__close,
+.chat-leaving-modal__destination,
+.chat-leaving-modal__not-secure,
+.chat-report-modal__close,
+.chat-report-modal__reason,
+.chat-report-modal__textarea,
+.chat-report-modal__error,
+.chat-window__tab,
+.chat-window__tab-close,
+.chat-window__friend-card,
+.chat-window__overflow-button,
+.chat-window__overflow-menu,
+.chat-window__overflow-select,
+.chat-window__new-conversation-button,
+.chat-window__picker,
+.chat-window__picker-highlight,
+.chat-window__picker-option,
+.chat-window__unread-badge,
+.chat-window__icon-button,
+.chat-window__game-icon,
+.chat-window__profile-link--avatar,
+.chat-window__empty-icon,
+.chat-window__scrollbar-thumb,
+.chat-window__jump-count,
+.chat-window__sticky-day,
+.chat-window__message,
+.chat-window__message-action,
+.chat-window__message-action-tooltip,
+.chat-window__message-quote,
+.chat-window__message-row:first-child .chat-window__message,
+.chat-window__message-row:nth-last-child(2) .chat-window__message,
+.chat-window__message-group--mine .chat-window__message,
+.chat-window__message-link,
+.chat-window__message-group--mine
+  .chat-window__message-row:first-child
+  .chat-window__message,
+.chat-window__message-group--mine
+  .chat-window__message-row:nth-last-child(2)
+  .chat-window__message,
+.chat-window__toast,
+.chat-window__toast-dismiss,
+.chat-window__empty-retry,
+.chat-window__composer-box,
+.chat-window__composer-overflow,
+.chat-window__send,
+.chat-window__message-group .chat-window__message--emoji,
+.chat-window__message-group--mine .chat-window__message--emoji,
+.chat-window__reaction,
+.chat-window__reaction-tooltip,
+.chat-window__reaction-bar,
+.chat-window__reaction-option,
+.chat-window__reaction-more,
+.chat-window__emoji-picker,
+.chat-window__emoji-search,
+.chat-window__emoji-search-clear,
+.chat-window__emoji-tab,
+.chat-window__emoji-option,
+.chat-window__composer-emoji,
+.chat-window__composer-image-preview,
+.chat-window__composer-image-tools,
+.chat-window__drop-target,
+.chat-window__message-images,
+.chat-window__message-group--mine .chat-window__message-images,
+.chat-window__message-row:first-child .chat-window__message-images,
+.chat-window__message-row:nth-last-child(2)
+  .chat-window__message-images:not(.chat-window__message-images--captioned),
+.chat-window__message-group--mine
+  .chat-window__message-row:first-child
+  .chat-window__message-images,
+.chat-window__message-group--mine
+  .chat-window__message-row:nth-last-child(2)
+  .chat-window__message-images:not(.chat-window__message-images--captioned),
+.chat-window__message-images--captioned + .chat-window__message,
+.chat-window__message-row:first-child
+  .chat-window__message-images--captioned
+  + .chat-window__message,
+.chat-window__message-group--mine
+  .chat-window__message-images--captioned
+  + .chat-window__message,
+.chat-window__message-group--mine
+  .chat-window__message-row:first-child
+  .chat-window__message-images--captioned
+  + .chat-window__message,
+.chat-window__message-image-spoiler,
+.chat-window__message-images-retry,
+.chat-window__lightbox-close,
+.chat-window__lightbox-image,
+.download-group__header-count,
+.download-group__hero-logo img:focus,
+.download-group__hero-logo h1:focus,
+.download-group__hero-stats,
+.download-group__simple-card,
+.download-group__simple-thumbnail,
+.download-group__simple-menu-btn,
+.download-group__simple-action-btn,
+.download-group__progress-bar,
+.download-group__progress-fill,
+.friends-window__search,
+.friends-window__count,
+.friends-window__skeleton,
+.friends-window__friend,
+.friends-window__message-button,
+.friends-window__unread-badge,
+.friends-window__game-icon,
+.cloud-save-v2__path-approval-summary,
+.cloud-save-v2__path-approval-warning,
+.cloud-save-v2__toggle-row,
+.cloud-save-v2__switch,
+.cloud-save-v2__snapshot,
+.cloud-save-v2__snapshot-stats--interactive:focus-visible,
+.cloud-save-v2__status-pill,
+.cloud-save-v2__browser-inline-error,
+.cloud-save-v2__browser-state,
+.cloud-save-v2__browser-diff-summary span,
+.cloud-save-v2__browser-table-scroll::-webkit-scrollbar-thumb,
+.cloud-save-v2__browser-local-tree::-webkit-scrollbar-thumb,
+.cloud-save-v2__browser-table-scroll,
+.cloud-save-v2__browser-local-tree,
+.cloud-save-v2__empty,
+.cloud-sync-panel__automatic-sync-badge,
+.cloud-sync-panel__backups-count,
+.cloud-sync-panel__artifact,
+.game-emulation-saves__card,
+.game-emulation-saves__card-flag,
+.game-emulation-saves__delete,
+.description-header,
+.gallery-lightbox__frame,
+.gallery-lightbox__frame-button,
+.gallery-lightbox__corner-button,
+.gallery-lightbox__thumbnail,
+.gallery-lightbox__filmstrip-exit,
+.gallery-slider__viewport,
+.gallery-slider__media,
+.gallery-slider__fullscreen-button,
+.gallery-slider__preview-button,
+.gallery-video--inline,
+.gallery-video__volume-indicator,
+.gallery-video__volume-indicator-track,
+.gallery-video__progress-track,
+.gallery-video__preview-frame,
+.gallery-video__preview-time,
+.gallery-video__button,
+.gallery-video__button--fullscreen,
+.gallery-video__volume-track,
+.gallery-video__quality-menu,
+.gallery-video__quality-option,
+.game-details__description img,
+.game-details__description video,
+.game-details__description-toggle,
+.game-details__skeleton .review-item-skeleton,
+.game-details__reviews-badge,
+.hero-panel,
+.game-details__hero--classics,
+.game-details__hero-classics-cover img,
+.game-details__hero-classics-chip,
+.game-details__hero-bookmark,
+.game-details__edit-custom-game-button,
+.game-details__hero-image-wrapper,
+.game-details__hero-image,
+.game-details__cloud-sync-button,
+.game-details__randomizer-button,
+.change-game-playtime-modal__warning,
+.delete-review-modal__karma-warning,
+.disc-selection-modal__option,
+.disc-selection-modal__option-flag,
+.download-settings-modal__hydra-cloud-badge,
+.download-settings-modal__torrent-files-scroll::-webkit-scrollbar-thumb,
+.download-settings-modal__torrent-file-name-cell .checkbox-field__checkbox,
+.download-settings-modal__folder-checkbox--indeterminate::after,
+.epic-install-modal__summary,
+.epic-install-modal__cover,
+.game-artwork__scrollbar-thumb,
+.game-artwork__item,
+.game-assets-settings__warning,
+.game-assets-settings__image-preview,
+.game-assets-settings__preview-frame,
+.game-assets-settings__drop-overlay,
+.game-assets-settings__preview-image,
+.game-assets-settings__preview-action-overlay,
+.epic-cloud-settings__conflict-copy,
+.legacy-saves-section__card,
+.game-options-modal__sidebar-button,
+.disc-field__trigger,
+.disc-field__menu,
+.disc-field__option:first-child,
+.disc-field__option:last-child,
+.disc-field__option:only-child,
+.disc-field__flag,
+.drive-selector__list::-webkit-scrollbar-thumb,
+.drive-card,
+.drive-card__bar,
+.drive-card__bar-used,
+.drive-card__bar-game,
+.drive-card__tag,
+.transfer-progress__track,
+.transfer-progress__fill,
+.cancel-confirm-modal,
+.playtime-breakdown-table__value,
+.repacks-modal__filter-toggle,
+.repacks-modal__new-badge,
+.repacks-modal__download-sources,
+.repacks-modal__source-item,
+.game-details__review-score-select,
+.game-details__star,
+.game-details__review-input-container,
+.game-details__editor-button,
+.review-gate-notice,
+.game-details__review-header--has-bg,
+.game-details__vote-button,
+.game-details__delete-review-button,
+.game-details__review-score-stars,
+.game-details__review-playtime,
+.review-prompt-banner,
+.game-details__reply-header--has-bg,
+.game-details__reply-action-link,
+.launchbox-details__flag,
+.how-long-to-beat__category,
+.how-long-to-beat__category-skeleton,
+.protondb__title-skeleton,
+.protondb__value-skeleton,
+.protondb__link-skeleton,
+.protondb__tier-badge,
+.list__item,
+.list__item-image,
+.controller-support__badge,
+.sidebar-section,
+.similar-games__viewport,
+.similar-games__skeleton,
+.similar-games__empty,
+.game-launcher__cover,
+.game-launcher__cover-placeholder,
+.home__card-skeleton,
+.library-category-filter__container,
+.library-category-filter__option,
+.collections-filter__trigger,
+.collections-filter__content,
+.collections-filter__item,
+.collections-filter__item-count,
+.library-installed-filter__button,
+.library-game-card-large,
+.library-game-card-large__classics-foreground,
+.library-game-card-large__size-badges,
+.library-game-card-large__size-bar-line,
+.library-game-card-large__installed-badge,
+.library-game-card-large__installed-badge--classics,
+.library-game-card-large__installed-emulator-icon,
+.library-game-card-large__playtime,
+.library-game-card-large__platform-badge,
+.library-game-card-large__achievement-progress,
+.library-game-card-large__achievement-bar,
+.library-game-card__wrapper,
+.library-game-card__playtime,
+.library-game-card__platform-badge,
+.library-game-card__installed-badge,
+.library-game-card__installed-badge--classics,
+.library-game-card__installed-emulator-icon,
+.library-game-card__achievement-progress,
+.library-game-card__achievement-bar,
+.library-game-card__action-button,
+.library-game-card__game-image,
+.library-game-card__classics-cover,
+.library-game-card__classics-image,
+.library-game-card__cover-placeholder,
+.library-games-skeleton__card,
+.library-games-skeleton__card--large,
+.library-multi-select__trigger,
+.library-multi-select__content,
+.library-multi-select__item,
+.library-select__trigger,
+.library-select__content,
+.library-select__item,
+.library__quick-action,
+.library__count,
+.library-view-options__option,
+.notification-item,
+.notification-item__picture,
+.notification-item__badge-picture,
+.notifications__tab-badge,
+.edit-profile-modal__avatar-overlay,
+.add-friend-modal__my-code,
+.add-friend-modal__copy-icon-button,
+.add-friend-modal__pending-status,
+.add-friend-modal__friend-item,
+.all-badges-modal__count,
+.all-badges-modal__item,
+.all-badges-modal__item-icon,
+.all-friends-modal__count,
+.all-friends-modal__item,
+.all-friends-modal__game img,
+.badges-box__item,
+.badges-box__item-icon,
+.filter-dropdown__trigger,
+.filter-dropdown__menu,
+.filter-dropdown__option,
+.friends-box__list-item,
+.friends-box__game-image,
+.profile-content__section-badge,
+.profile-content__collapse-button,
+.profile-content__tab-badge,
+.profile-content__game-skeleton,
+.profile-content__souvenirs-notice,
+.profile-content__souvenirs-privacy-notice-dismiss,
+.profile-content__souvenirs-cleanup-list > li,
+.profile-content__souvenirs-sync-status,
+.profile-content__souvenirs-group-icon,
+.profile-content__souvenirs-group-count,
+.profile-content__souvenir,
+.profile-content__souvenir-achievement-icon,
+.profile-content__souvenir-game-icon,
+.profile-content__souvenir-private-indicator,
+.profile-content__souvenir-action-button,
+.profile-content__games-grid--drag-over::before,
+.user-reviews__review-item,
+.user-reviews__review-score-stars,
+.user-reviews__review-playtime,
+.user-reviews__vote-button,
+.recent-games__list-item,
+.recent-games__game-image,
+.profile-souvenir-lightbox__content,
+.profile-souvenir-lightbox__achievement-icon,
+.profile-souvenir-lightbox__game-icon,
+.profile-souvenir-lightbox__other-count:focus-visible,
+.profile-souvenir-lightbox__achievement-list-icon,
+.profile-souvenir-lightbox__rarity,
+.profile-souvenir-lightbox__action,
+.user-library-game__wrapper,
+.user-library-game__playtime,
+.user-library-game__achievements-progress-track,
+.user-library-game__achievements-progress,
+.user-stats__list-item,
+.wrapped-fullscreen-modal__content,
+.profile-hero__copy-button,
+.profile-hero__avatar-button,
+.profile-section,
+.profile-section__count,
+.upload-background-image-button__menu,
+.upload-background-image-button__menu-item,
+.theme-card,
+.theme-card__header__colors__color,
+.theme-placeholder,
+.settings-appearance__themes__theme,
+.settings-appearance__themes__theme__header__colors__color,
+.settings-appearance__no-themes,
+.console-card,
+.console-card__hint-box,
+.console-card__chip,
+.emu-save-modal__target,
+.emulator-detail__hero,
+.emulator-detail__hero-icon,
+.emulator-detail__exec-icon,
+.emulator-detail__row,
+.emulator-detail__synced,
+.emulator-detail__path-missing,
+.emulator-detail__res-status,
+.emulator-detail__exec-path-button:focus-visible,
+.emulator-detail__stat,
+.emulator-detail__memcard-backup-progress-track,
+.emulator-detail__memcard-backup-progress-fill,
+.emulator-detail__memcard-card,
+.emulator-detail__memcard-cover,
+.emulator-detail__memcard-flag,
+.emulator-detail__memcard-menu,
+.emulator-detail__page-btn,
+.emulator-detail__cloud-card,
+.emulator-detail__cloud-card-flag,
+.emulator-detail__restore-target,
+.emulator-detail__tab:focus-visible,
+.emulator-detail__exec-path-box,
+.emulator-detail__rom-cover,
+.emulator-detail__rom-flag,
+.setup-modal__ghost-button,
+.setup-modal__dot,
+.setup-modal__row-card,
+.setup-modal__download-heading-icon,
+.setup-modal__recommended-pill,
+.setup-modal__download-card,
+.setup-modal__download-card-badge,
+.setup-modal__numbered-list,
+.setup-modal__bios-path,
+.setup-modal__alert,
+.setup-modal__progress-bar,
+.setup-modal__progress-fill,
+.setup-modal__stat,
+.setup-modal__rom-card,
+.setup-modal__unmatched,
+.settings-behavior__hydra-cloud-badge,
+.settings-debrid__collapse-button,
+.settings-debrid__beta-badge,
+.settings-download-sources__item,
+.settings-general__volume-slider,
+.settings-general__volume-slider::-webkit-slider-runnable-track,
+.settings-global-trackers__textarea,
+.settings-global-trackers__url-input,
+.settings-integration-card,
+.settings-integration-card__avatar,
+.settings-integration-card__progress-track,
+.settings__content,
+.settings__sidebar-button,
+.cloud-gift-notification-modal__panel,
+.cloud-gift-notification-modal__message-card,
+.cloud-gift-notification-modal__message-card code,
+.cloud-subscription-modal__frame,
+.theme-editor__notification-preview-wrapper,
+.achievement-select__trigger,
+.achievement-select__content,
+.achievement-select__item,
+.achievement-select__item-count,
+.achievements__compare-global-badge,
+.achievements__compare-avatar,
+.achievements__item-icon--concealed {
+  border-radius: 0 !important;
+}
+
+.title-bar__big-picture {
+  transition:
+    opacity ease 0.1s,
+    background-color ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.title-bar__window-control {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.backdrop {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.badge {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.bottom-panel {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.checkbox-field__checkbox {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.classics-onboarding__progress-pill {
+  transition:
+    background-color ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.collapsed-menu__button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.context-menu__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.dropdown-menu__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.fullscreen-media-modal__close-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-card {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-card__cover {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-card__content {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.header__search {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.header__action-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.header__title {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.scan-games-modal__mode-option {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.scan-games-modal__choice {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.hero__media {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.image-crop-modal__icon-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.image-crop-modal__slider {
+  transition:
+    background-color ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.modal__close-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.radio-field__control {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.search-dropdown__shop-button {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.search-dropdown__item {
+  transition:
+    background-color 0.1s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.select-field {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar-filter-menu__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar-profile__button {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar-profile__dropdown-item {
+  transition:
+    background-color ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar__big-picture-darwin {
+  transition:
+    opacity ease 0.1s,
+    background-color ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar__menu-item {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.steam-library-badge {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.text-field-container__text-field {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.vertical-cover-card {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.window-title-bar__control {
+  transition:
+    background-color var(--window-title-bar-transition-duration) ease,
+    color var(--window-title-bar-transition-duration) ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievement-panel__progress-bar {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements-content__achievements-list {
+  transition:
+    all ease 0.3s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements-content__achievements-list__section__container__hero {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements-content__achievements-list__section__container__hero__content__game-logo {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements-content__achievements-list__section__container__hero__content__game-title {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements-content__achievements-list__section__table-header {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements {
+  transition:
+    all ease 0.3s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements__hero {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements__game-logo {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements__table-header {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements__item {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievements__progress-bar {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.catalogue-mode-toggle__option {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.filter-item__remove-button {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.filter-section__button {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.filter-section__group-tab {
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-item__content-link {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-leaving-modal__close {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-report-modal__close {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-report-modal__reason {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__tab {
+  transition:
+    width 0.15s ease,
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__tab-close {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__tabs--dragging .chat-window__tab {
+  transition:
+    transform 0.15s ease-out,
+    width 0.15s ease,
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__overflow-button {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__overflow-select {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__new-conversation-button {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__window-control {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__icon-button {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__scrollbar-thumb {
+  transition:
+    width 0.15s ease,
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__message-action {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__message-quote {
+  transition:
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__send {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__reaction-option,
+.chat-window__reaction-more {
+  transition:
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__emoji-tab {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__emoji-option {
+  transition:
+    background-color 0.1s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__composer-emoji {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.chat-window__composer-image-tool {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.friends-window__window-control {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.friends-window__friend {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.friends-window__message-button {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.friends-window__request-action {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.cloud-save-v2__switch {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.cloud-save-v2__switch-thumb {
+  transition:
+    transform 180ms cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 180ms ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-emulation-saves__delete {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-lightbox__frame-button {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-lightbox__corner-button {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-lightbox__icon-button {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-lightbox__nav-button {
+  transition:
+    background-color 0.15s ease,
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-lightbox__filmstrip-exit {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-slider__fullscreen-button {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-slider__play-overlay {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-slider__button {
+  transition:
+    all 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-video__big-play {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-video__button {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-video__button--fullscreen {
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.gallery-video__quality-option {
+  transition:
+    background-color 0.12s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__wrapper {
+  transition:
+    all ease 0.3s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__description-toggle {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.hero-panel {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.hero-panel__progress-bar {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__hero {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__edit-custom-game-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__hero-image {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__cloud-sync-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__randomizer-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.disc-selection-modal__option {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.download-settings-modal__downloader-item {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-assets-settings__image-preview {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-options-modal__sidebar-button {
+  transition:
+    color 0.2s ease,
+    background-color 0.1s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.disc-field__trigger {
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.disc-field__option {
+  transition:
+    background-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.drive-card {
+  transition:
+    all 0.15s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.repacks-modal__filter-container {
+  transition:
+    all 0.3s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.repacks-modal__filter-toggle {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__review-score-select {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__star {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__editor-button {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__vote-button {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__delete-review-button {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__review-translation-toggle {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__reply-thread-line {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-details__reply-action-link {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.review-sort-options__option {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.game-language-section__row {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.list__item {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar-section__header {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.sidebar-section__button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.similar-games__control {
+  transition:
+    all 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.home__card-skeleton {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.home__cards {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-category-filter__option {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.collections-filter__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-installed-filter__button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card-large {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card-large:before {
+  transition:
+    all ease 0.3s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card-large__achievement-progress {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__wrapper {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__wrapper:before {
+  transition:
+    all ease 0.3s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__playtime {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__installed-badge {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__achievements {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__achievement-progress {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-game-card__action-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-multi-select__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-select__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library__quick-action {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.library-view-options__option {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.notification-item {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.notification-item__dismiss {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.edit-profile-modal__avatar-overlay {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.add-friend-modal__copy-icon-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.add-friend-modal__friend-item {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.all-badges-modal__item {
+  transition:
+    background-color ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.all-friends-modal__item {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.badges-box__item {
+  transition:
+    background-color ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.filter-dropdown__trigger {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.filter-dropdown__option {
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.friends-box__list-item {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-content__right-content {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-content__collapse-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-content__souvenirs-privacy-notice-dismiss {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-content__souvenir-action-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-content__games-grid--drag-over {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.user-reviews__review-translation-toggle {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.user-reviews__vote-button {
+  transition:
+    all 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.recent-games__list-item {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-souvenir-lightbox__close-button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-souvenir-lightbox__nav-button {
+  transition:
+    background-color ease 0.2s,
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.user-library-game__wrapper {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.user-library-game__container {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.user-library-game__playtime {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.user-stats__list-item {
+  transition:
+    all ease 0.1s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.wrapped-fullscreen-modal__close-button {
+  transition:
+    background 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-hero__copy-button {
+  transition:
+    background-color ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-hero__avatar-button {
+  transition:
+    all ease 0.3s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.profile-section__button {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.upload-background-image-button__menu-item {
+  transition:
+    background-color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.theme-card {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.theme-placeholder {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.settings-appearance__themes__theme {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.settings-appearance__no-themes {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.setup-modal__download-card {
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.settings-download-sources__item {
+  transition:
+    all ease 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.settings-general__volume-slider {
+  transition:
+    background 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb {
+  transition:
+    all 0.2s,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.settings__sidebar-button {
+  transition:
+    color 0.2s ease,
+    background-color 0.1s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.cloud-subscription-modal__close {
+  transition:
+    background-color 0.2s ease,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievement-select__item {
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    background 0s,
+    background-color 0s,
+    background-image 0s !important;
+}
+
+.achievement-notification__outer-container {
+  box-shadow: none !important;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+  box-shadow: none !important;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  box-shadow: none !important;
+}
+
+.badge {
+  box-shadow: none !important;
+}
+
+.button--cloud {
+  box-shadow: none !important;
+}
+
+.button--cloud:hover:not(:disabled) {
+  box-shadow: none !important;
+}
+
+.cloud-ring {
+  box-shadow: none !important;
+}
+
+.context-menu {
+  box-shadow: none !important;
+}
+
+.context-menu__submenu {
+  box-shadow: none !important;
+}
+
+.fullscreen-media-modal__image {
+  box-shadow: none !important;
+}
+
+.game-card {
+  box-shadow: none !important;
+}
+
+.game-visibility-badge {
+  box-shadow: none !important;
+}
+
+.hero {
+  box-shadow: none !important;
+}
+
+.image-crop-modal__frame {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02) !important;
+}
+
+.image-crop-modal__frame:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(181, 194, 60, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02) !important;
+}
+
+.image-crop-modal__grid-line {
+  box-shadow: none !important;
+}
+
+.image-crop-modal__toolbar {
+  box-shadow: none !important;
+}
+
+.image-crop-modal__slider::-webkit-slider-thumb {
+  box-shadow: none !important;
+}
+
+.image-crop-modal__slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(181, 194, 60, 0.4) !important;
+}
+
+.search-dropdown {
+  box-shadow: none !important;
+}
+
+.sidebar-profile__classic-disc {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+}
+
+.sidebar-profile__dropdown {
+  box-shadow: none !important;
+}
+
+.sidebar__game-list {
+  box-shadow: none !important;
+}
+
+.sidebar__game-list--scrolled {
+  box-shadow: none !important;
+}
+
+.sidebar__game-badge {
+  box-shadow: none !important;
+}
+
+.steam-library-badge {
+  box-shadow: none !important;
+}
+
+.steam-library-badge--sidebar {
+  box-shadow: none !important;
+}
+
+.vertical-cover-card {
+  box-shadow: none !important;
+}
+
+.vertical-cover-card__classics-image {
+  box-shadow: none !important;
+}
+
+.achievements-content__achievements-list__section__table-header--stuck {
+  box-shadow: none !important;
+}
+
+.achievements__table-header--stuck {
+  box-shadow: none !important;
+}
+
+.filter-section {
+  box-shadow: none !important;
+}
+
+.filter-section__group-tab--active {
+  box-shadow: none !important;
+}
+
+.game-item-classics__cover-image {
+  box-shadow: none !important;
+}
+
+.game-item__compatibility-badge {
+  box-shadow: none !important;
+}
+
+.release-year-section__range::-webkit-slider-thumb {
+  box-shadow: none !important;
+}
+
+.chat-window__friend-card {
+  box-shadow: none !important;
+}
+
+.chat-window__overflow-menu {
+  box-shadow: none !important;
+}
+
+.chat-window__picker {
+  box-shadow: none !important;
+}
+
+.chat-window__jump {
+  box-shadow: none !important;
+}
+
+.chat-window__sticky-day {
+  box-shadow: none !important;
+}
+
+.chat-window__message-action-tooltip {
+  box-shadow: none !important;
+}
+
+.chat-window__toast {
+  box-shadow: none !important;
+}
+
+.chat-window__composer-box {
+  box-shadow: none !important;
+}
+
+.chat-window__reaction-tooltip {
+  box-shadow: none !important;
+}
+
+.chat-window__reaction-bar {
+  box-shadow: none !important;
+}
+
+.chat-window__emoji-picker {
+  box-shadow: none !important;
+}
+
+.download-group__glass-btn.button {
+  box-shadow: none !important;
+}
+
+.cloud-save-v2__switch-thumb {
+  box-shadow: none !important;
+}
+
+.cloud-save-v2__browser-scroll-shadow::after {
+  box-shadow: none !important;
+}
+
+.cloud-save-v2__browser-scroll-shadow--visible::after {
+  box-shadow: none !important;
+}
+
+.description-header {
+  box-shadow: none !important;
+}
+
+.gallery-lightbox__frame {
+  box-shadow: none !important;
+}
+
+.gallery-lightbox--fullscreen .gallery-lightbox__thumbnail {
+  box-shadow: none !important;
+}
+
+.gallery-video__progress-thumb {
+  box-shadow: none !important;
+}
+
+.gallery-video__preview-frame {
+  box-shadow: none !important;
+}
+
+.gallery-video__volume-thumb {
+  box-shadow: none !important;
+}
+
+.gallery-video__quality-menu {
+  box-shadow: none !important;
+}
+
+.hero-panel {
+  box-shadow: none !important;
+}
+
+.hero-panel--stuck {
+  box-shadow: none !important;
+}
+
+.game-details__hero-classics-cover img {
+  box-shadow: none !important;
+}
+
+.game-details__hero-classics-stripe-band {
+  box-shadow: none !important;
+}
+
+.game-details__hero-classics-stripe--blue
+  .game-details__hero-classics-stripe-band {
+  box-shadow: none !important;
+}
+
+.game-details__edit-custom-game-button {
+  box-shadow: none !important;
+}
+
+.game-details__cloud-sync-button {
+  box-shadow: none !important;
+}
+
+.game-details__randomizer-button {
+  box-shadow: none !important;
+}
+
+.download-settings-modal__availability-indicator--available {
+  box-shadow: none !important;
+}
+
+.download-settings-modal__availability-indicator--unavailable {
+  box-shadow: none !important;
+}
+
+.download-settings-modal__availability-indicator--warning {
+  box-shadow: none !important;
+}
+
+.game-assets-settings__drop-zone--active {
+  box-shadow: none !important;
+}
+
+.disc-field__menu {
+  box-shadow: none !important;
+}
+
+.drive-card__bar-game {
+  box-shadow: none !important;
+}
+
+.cancel-confirm-modal {
+  box-shadow: none !important;
+}
+
+.repacks-modal__availability-orb--online {
+  box-shadow: none !important;
+}
+
+.repacks-modal__availability-orb--partial {
+  box-shadow: none !important;
+}
+
+.repacks-modal__availability-orb--offline {
+  box-shadow: none !important;
+}
+
+.protondb__tier-badge {
+  box-shadow: none !important;
+}
+
+.sidebar-section {
+  box-shadow: none !important;
+}
+
+.home__card-skeleton {
+  box-shadow: none !important;
+}
+
+.library-game-card-large:hover {
+  box-shadow: none !important;
+}
+
+.library-game-card-large__classics-foreground {
+  box-shadow: none !important;
+}
+
+.library-game-card-large__size-badges {
+  box-shadow: none !important;
+}
+
+.library-game-card-large__installed-badge {
+  box-shadow: none !important;
+}
+
+.library-game-card-large__installed-badge--classics {
+  box-shadow: none !important;
+}
+
+.library-game-card-large__playtime {
+  box-shadow: none !important;
+}
+
+.library-game-card-large__platform-badge {
+  box-shadow: none !important;
+}
+
+.library-game-card__wrapper {
+  box-shadow: none !important;
+}
+
+.library-game-card__playtime {
+  box-shadow: none !important;
+}
+
+.library-game-card__platform-badge {
+  box-shadow: none !important;
+}
+
+.library-game-card__installed-badge {
+  box-shadow: none !important;
+}
+
+.library-game-card__installed-badge--classics {
+  box-shadow: none !important;
+}
+
+.library-game-card__action-button {
+  box-shadow: none !important;
+}
+
+.library-game-card__action-button:hover {
+  box-shadow: none !important;
+}
+
+.library-game-card__classics-image {
+  box-shadow: none !important;
+}
+
+.filter-dropdown__menu {
+  box-shadow: none !important;
+}
+
+.profile-content__souvenir--rare {
+  box-shadow: none !important;
+}
+
+.profile-content__souvenir--platinum {
+  box-shadow: none !important;
+}
+
+.profile-content__souvenir-private-indicator,
+.profile-content__souvenir-action-button {
+  box-shadow: none !important;
+}
+
+.user-library-game__playtime {
+  box-shadow: none !important;
+}
+
+.wrapped-fullscreen-modal__content {
+  box-shadow: none !important;
+}
+
+.profile-hero__avatar-button {
+  box-shadow: none !important;
+}
+
+.profile-hero__avatar-button:hover {
+  box-shadow: none !important;
+}
+
+.profile-hero__hero-panel {
+  box-shadow: none !important;
+}
+
+.profile-section {
+  box-shadow: none !important;
+}
+
+.upload-background-image-button {
+  box-shadow: none !important;
+}
+
+.upload-background-image-button__menu {
+  box-shadow: none !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb {
+  box-shadow: none !important;
+}
+
+.settings-general__volume-slider::-webkit-slider-thumb:hover {
+  box-shadow: none !important;
+}
+
+.settings__content {
+  box-shadow: none !important;
+}
+
+.cloud-gift-notification-modal__panel {
+  box-shadow: none !important;
+}
+
+.cloud-gift-notification-modal__panel::before {
+  box-shadow: none !important;
+}
+
+.cloud-subscription-modal__frame {
+  box-shadow: none !important;
+}
+
+body,
+#root,
+main {
+  background-color: var(--steam-bg) !important;
+  color: var(--steam-text) !important;
+  font-family: Tahoma, Verdana, "Segoe UI", sans-serif !important;
+}
+
+::selection {
+  background-color: var(--steam-selection);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+  background-color: var(--steam-bg-dark) !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--steam-bg-dark) !important;
+  border-left: 1px solid var(--steam-bevel-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--steam-bg-light) !important;
+  border-radius: 0 !important;
+  border-top: 1px solid var(--steam-bevel-light);
+  border-left: 1px solid var(--steam-bevel-light);
+  border-bottom: 1px solid var(--steam-bevel-dark);
+  border-right: 1px solid var(--steam-bevel-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #66785b !important;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--steam-bg-dark);
+}
+
+.container__content,
+.game-details__description-container,
+.settings__content,
+.settings__panel {
+  background: var(--steam-bg) !important;
+}
+
+.game-details__description--collapsed::after,
+.game-details__description--collapsed::before {
+  background: linear-gradient(transparent, var(--steam-bg)) !important;
+}
+
+.title-bar,
+.window-title-bar {
+  background-color: var(--steam-bg-light) !important;
+  border-bottom: 1px solid var(--steam-bevel-dark) !important;
+  color: var(--steam-text) !important;
+}
+
+.title-bar__cloud-text {
+  background: none !important;
+  color: var(--steam-accent) !important;
+}
+
+.title-bar__window-control,
+.window-title-bar__control {
+  color: var(--steam-text) !important;
+}
+
+.title-bar__window-control:hover,
+.window-title-bar__control:hover {
+  background-color: var(--steam-bg) !important;
+  color: #ffffff !important;
+}
+
+.title-bar__window-control--close:hover,
+.window-title-bar__control--close:hover {
+  background-color: var(--steam-danger) !important;
+}
+
+.sidebar {
+  background-color: var(--steam-bg-dark) !important;
+  color: var(--steam-text) !important;
+  border-right: 1px solid var(--steam-bevel-dark) !important;
+  box-shadow: inset -1px 0 0 var(--steam-bevel-light);
+}
+
+.sidebar__handle {
+  background-color: transparent !important;
+}
+
+.sidebar__menu-item {
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+}
+
+.sidebar__menu-item:hover {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.sidebar__menu-item--active {
+  background-color: var(--steam-selection) !important;
+  color: #ffffff !important;
+}
+
+.sidebar__menu-item--muted {
+  color: var(--steam-text-muted) !important;
+}
+
+.sidebar__game-icon {
+  border-radius: 0 !important;
+}
+
+.sidebar-profile__button:hover,
+.sidebar-profile__dropdown-item:hover {
+  background-color: var(--steam-bg-light) !important;
+}
+
+.sidebar-profile__dropdown {
+  background-color: var(--steam-bg-dark) !important;
+  border: 1px solid var(--steam-bevel-dark);
+}
+
+.header {
+  background-color: var(--steam-bg) !important;
+  color: var(--steam-text) !important;
+  border-bottom: 1px solid var(--steam-bevel-dark) !important;
+  box-shadow: 0 1px 0 var(--steam-bevel-light);
+}
+
+.header__title {
+  color: var(--steam-accent) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header__back-button,
+.header__action-button {
+  color: var(--steam-text) !important;
+}
+
+.header__back-button:hover,
+.header__action-button:hover {
+  color: var(--steam-accent) !important;
+}
+
+.header__action-button--outlined {
+  border-radius: 0 !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+}
+
+.header__search,
+.text-field-container__text-field,
+.select-field {
+  background-color: var(--steam-bg-dark) !important;
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-dark) var(--steam-bevel-light)
+    var(--steam-bevel-light) var(--steam-bevel-dark) !important;
+}
+
+.header__search--focused,
+.text-field-container__text-field--focused,
+.select-field--focused {
+  border-color: var(--steam-accent) !important;
+}
+
+.text-field-container__text-field--has-error {
+  border-color: #c04a32 !important;
+}
+
+.header__search-input,
+.text-field-container__text-field-input {
+  color: var(--steam-text) !important;
+  font-family: inherit !important;
+}
+
+.header__search-input::placeholder,
+.text-field-container__text-field-input::placeholder {
+  color: var(--steam-text-muted) !important;
+}
+
+.select-field__option {
+  background-color: var(--steam-bg-dark) !important;
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+}
+
+.select-field__label,
+.text-field-container label {
+  color: var(--steam-text) !important;
+}
+
+.bottom-panel {
+  background-color: var(--steam-bg-light) !important;
+  border-top: 1px solid var(--steam-bevel-light) !important;
+  color: var(--steam-text) !important;
+}
+
+.bottom-panel__help-button,
+.bottom-panel__downloads-button,
+.bottom-panel__version-button {
+  color: var(--steam-text) !important;
+}
+
+.bottom-panel__help-button:hover,
+.bottom-panel__downloads-button:hover,
+.bottom-panel__version-button:hover {
+  color: var(--steam-accent) !important;
+  border-bottom-color: var(--steam-accent) !important;
+}
+
+.button {
+  background-color: var(--steam-bg-light) !important;
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #66785b !important;
+  color: #ffffff !important;
+}
+
+.button:active:not(:disabled) {
+  opacity: 1 !important;
+  background-color: var(--steam-bg-dark) !important;
+  border-color: var(--steam-bevel-dark) var(--steam-bevel-light)
+    var(--steam-bevel-light) var(--steam-bevel-dark) !important;
+}
+
+.button--primary {
+  background-color: var(--steam-bg-light) !important;
+  color: var(--steam-accent) !important;
+  font-weight: bold;
+}
+
+.button--primary:hover:not(:disabled) {
+  color: #e8d96a !important;
+}
+
+.button--outline,
+.button--dark {
+  background-color: var(--steam-bg) !important;
+}
+
+.button--cloud {
+  background: #4f6b3a !important;
+  color: #e8f0d0 !important;
+}
+
+.button--danger {
+  background-color: var(--steam-danger) !important;
+  border-color: #b5594a #4a1a12 #4a1a12 #b5594a !important;
+  color: #ffffff !important;
+}
+
+.button--danger:hover:not(:disabled) {
+  background-color: #a23f2d !important;
+}
+
+.checkbox-field__checkbox,
+.radio-field__control {
+  background-color: var(--steam-bg-dark) !important;
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-dark) var(--steam-bevel-light)
+    var(--steam-bevel-light) var(--steam-bevel-dark) !important;
+  color: var(--steam-accent) !important;
+}
+
+.checkbox-field__checkbox.checked {
+  background-color: var(--steam-bg-dark) !important;
+  color: var(--steam-accent) !important;
+}
+
+.radio-field__control {
+  border-radius: 50% !important;
+}
+
+.radio-field--selected .radio-field__control {
+  background: var(--steam-bg-dark) !important;
+}
+
+.radio-field--selected .radio-field__dot {
+  background: var(--steam-accent) !important;
+}
+
+.modal,
+.toast,
+.context-menu,
+.context-menu__submenu,
+.dropdown-menu__content {
+  background-color: var(--steam-bg) !important;
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+.modal__header {
+  background-color: var(--steam-bg-light) !important;
+  border-bottom: 1px solid var(--steam-bevel-dark) !important;
+}
+
+.modal__header-title,
+.modal__header h3 {
+  color: var(--steam-accent) !important;
+}
+
+.modal__close-button-icon,
+.toast__close-button {
+  color: var(--steam-text) !important;
+}
+
+.context-menu__item,
+.dropdown-menu__item {
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+}
+
+.context-menu__item:hover,
+.context-menu__item--active,
+.dropdown-menu__item:hover,
+.dropdown-menu__item:focus {
+  background-color: var(--steam-selection) !important;
+  color: #ffffff !important;
+}
+
+.context-menu__item--danger {
+  color: #e07a5f !important;
+}
+
+.context-menu__separator,
+.dropdown-menu__separator {
+  background-color: var(--steam-bevel-dark) !important;
+  box-shadow: 0 1px 0 var(--steam-bevel-light);
+}
+
+.toast__progress::-webkit-progress-bar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.toast__progress::-webkit-progress-value {
+  background-color: var(--steam-accent) !important;
+}
+
+.toast__icon--success {
+  color: #8bc34a !important;
+}
+
+.game-card,
+.hero,
+.vertical-cover-card,
+.how-long-to-beat__category {
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+}
+
+.how-long-to-beat__category {
+  background: var(--steam-bg-light) !important;
+}
+
+.game-card__backdrop {
+  background: linear-gradient(
+    0deg,
+    rgba(45, 51, 40, 0.92) 50%,
+    transparent 100%
+  ) !important;
+}
+
+.game-card__title,
+.hero__content {
+  color: #ffffff !important;
+}
+
+.game-card__specifics-item,
+.game-card__title-container,
+.hero__description {
+  color: var(--steam-text) !important;
+}
+
+.badge {
+  background: var(--steam-bg-dark) !important;
+  border: 1px solid var(--steam-bevel-light) !important;
+  border-radius: 0 !important;
+  color: var(--steam-text) !important;
+}
+
+.hero-panel {
+  background: rgba(62, 70, 55, 0.92) !important;
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+}
+
+.hero-panel__progress-bar,
+.download-group__progress-row--bar {
+  background-color: var(--steam-bg-darker) !important;
+  border-radius: 0 !important;
+}
+
+.hero-panel__progress-bar::-webkit-progress-value,
+[role="progressbar"] {
+  background: var(--steam-accent) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+[class*="achievement-progress"],
+[class*="progress-track"] {
+  background: var(--steam-bg-darker) !important;
+  border-radius: 0 !important;
+}
+
+.requirement__button {
+  border-radius: 0 !important;
+}
+
+.game-details__description-title,
+.content-sidebar h3,
+.content-sidebar h4 {
+  color: var(--steam-accent) !important;
+}
+
+.game-details__description,
+.game-details__description p {
+  color: var(--steam-text) !important;
+}
+
+.game-details__description-toggle {
+  border-radius: 0 !important;
+  border-color: var(--steam-bevel-light) !important;
+  color: var(--steam-text) !important;
+}
+
+.game-details__skeleton .react-loading-skeleton,
+.react-loading-skeleton {
+  --base-color: #3e4637 !important;
+  --highlight-color: #5a6a50 !important;
+}
+
+.settings__sidebar {
+  background: var(--steam-bg-dark) !important;
+  border-right: 1px solid var(--steam-bevel-dark) !important;
+}
+
+.settings__content {
+  border-radius: 0 !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+}
+
+.settings__sidebar-button {
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+}
+
+.settings__sidebar-button:hover {
+  background: var(--steam-bg-light) !important;
+}
+
+.settings__sidebar-button--active {
+  background: var(--steam-selection) !important;
+  color: #ffffff !important;
+}
+
+.settings__sidebar-group-label {
+  color: var(--steam-accent) !important;
+  text-transform: uppercase;
+}
+
+.settings__sidebar-divider,
+.settings-context-panel__divider {
+  background: var(--steam-bevel-dark) !important;
+  border-top-color: var(--steam-bevel-dark) !important;
+}
+
+.download-group__header-title-group h2,
+.home__title,
+.catalogue__header-summary {
+  color: var(--steam-accent) !important;
+}
+
+.download-group__header-count {
+  background: var(--steam-bg-dark) !important;
+  color: var(--steam-text) !important;
+  border-radius: 0 !important;
+}
+
+.download-group__hero-stats {
+  background: rgba(62, 70, 55, 0.85) !important;
+  border-color: var(--steam-bevel-light) !important;
+  border-radius: 0 !important;
+}
+
+.download-group__glass-btn.button {
+  background: var(--steam-bg-light) !important;
+}
+
+.catalogue__filters-hint,
+.catalogue__sort-label,
+.catalogue__active-filters-label {
+  color: var(--steam-text-muted) !important;
+}
+
+a {
+  color: var(--steam-accent);
+}
+
+a:hover {
+  color: #e8d96a;
+}
+
+.library-game-card__playtime,
+.library-game-card-large__playtime,
+.user-library-game__playtime,
+.library-game-card__installed-badge,
+.library-game-card-large__installed-badge,
+.library-game-card__platform-badge,
+.library-game-card-large__platform-badge,
+.library-game-card__installed-badge--classics,
+.library-game-card-large__installed-badge--classics,
+.steam-library-badge,
+.game-item-classics__platform-chip,
+.game-item__compatibility-badge,
+.game-details__hero-classics-chip,
+.game-details__review-playtime,
+.review-prompt-banner__playtime {
+  background: rgba(45, 51, 40, 0.88) !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--steam-text) !important;
+}
+
+.library-game-card__installed-badge--classics,
+.library-game-card-large__installed-badge--classics,
+.library-game-card__platform-badge,
+.library-game-card-large__platform-badge,
+.game-item-classics__platform-chip,
+.game-details__hero-classics-chip {
+  color: var(--steam-accent) !important;
+}
+
+.library-game-card__installed-icon,
+.library-game-card-large__installed-icon {
+  color: var(--steam-accent) !important;
+}
+
+.react-loading-skeleton {
+  border-radius: 0 !important;
+}
+
+.rc-virtual-list-scrollbar {
+  background-color: var(--steam-bg-dark) !important;
+}
+
+.rc-virtual-list-scrollbar-thumb {
+  background-color: var(--steam-bg-light) !important;
+  border-radius: 0 !important;
+}
+
+[data-radix-popper-content-wrapper] > *,
+[role="menu"],
+[role="listbox"] {
+  border-radius: 0 !important;
+}
+
+.vertical-cover-card,
+.vertical-cover-card *,
+.similar-games__card,
+.similar-games__card * {
+  box-shadow: none !important;
+}
+
+.backdrop:not(.backdrop--closing) {
+  background-color: rgba(20, 24, 17, 0.7) !important;
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    backdrop-filter: blur(0px);
+    background-color: rgba(20, 24, 17, 0.5);
+  }
+  100% {
+    backdrop-filter: blur(2px);
+    background-color: rgba(20, 24, 17, 0.7);
+  }
+}
+
+@keyframes backdrop-fade-out {
+  0% {
+    backdrop-filter: blur(2px);
+    background-color: rgba(20, 24, 17, 0.7);
+  }
+  100% {
+    backdrop-filter: blur(0px);
+    background-color: rgba(20, 24, 17, 0);
+  }
+}
+
+.button.button:disabled,
+.button.button--primary:disabled,
+.button.button--outline:disabled,
+.button.button--danger:disabled {
+  background-color: var(--steam-bg) !important;
+  color: var(--steam-text-muted) !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+  opacity: 0.75 !important;
+  font-weight: normal;
+}
+
+[role="progressbar"][class*="--platinum"],
+.achievements-content__user-summary__container__stats__progress-bar--platinum {
+  background: var(--steam-trophy) !important;
+}
+
+.achievements-content__user-summary__container__stats__percentage--completed {
+  color: var(--steam-trophy) !important;
+}
+
+.download-group__hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 51, 40, 0.15) 0%,
+    rgba(62, 70, 55, 0.85) 60%,
+    var(--steam-bg) 100%
+  ) !important;
+}
+
+.download-group__hero-action-row {
+  background: var(--steam-bg-dark) !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+  padding: 8px 12px !important;
+}
+
+.download-group__hero-progress,
+.download-group__progress-info-row,
+.download-group__progress-row {
+  background: transparent !important;
+}
+
+.download-group__progress-percentage,
+.download-group__progress-size,
+.download-group__progress-status {
+  color: var(--steam-text) !important;
+}
+
+.download-group__progress-percentage {
+  color: var(--steam-accent) !important;
+}
+
+.download-group__progress-time {
+  color: var(--steam-text-muted) !important;
+}
+
+.download-group__hero-stats {
+  background: var(--steam-bg-dark) !important;
+  backdrop-filter: none !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-dark) var(--steam-bevel-light)
+    var(--steam-bevel-light) var(--steam-bevel-dark) !important;
+}
+
+.download-group__stats-column {
+  border-right: 1px solid var(--steam-bevel-dark) !important;
+  box-shadow: 1px 0 0 var(--steam-bevel-light);
+}
+
+.download-group__speed-chart-canvas {
+  filter: brightness(0) saturate(100%) invert(91%) sepia(49%) saturate(3142%)
+    hue-rotate(331deg) brightness(104%) contrast(54%);
+}
+
+.download-group__glass-btn.button {
+  backdrop-filter: none !important;
+}
+
+.achievement-notification {
+  font-family: Tahoma, Verdana, "Segoe UI", sans-serif !important;
+}
+
+.achievement-notification__outer-container {
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45) !important;
+}
+
+.achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    var(--steam-bg-light) 0%,
+    var(--steam-bg) 100%
+  ) !important;
+  border-top: 2px solid var(--steam-accent);
+}
+
+.achievement-notification--rare .achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    #6a6a3e 0%,
+    var(--steam-bg) 100%
+  ) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__container {
+  background: linear-gradient(
+    to bottom,
+    #5e7038 0%,
+    var(--steam-bg) 100%
+  ) !important;
+  border-top-color: var(--steam-trophy);
+}
+
+.achievement-notification__icon {
+  border-radius: 0 !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-dark) var(--steam-bevel-light)
+    var(--steam-bevel-light) var(--steam-bevel-dark) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+  border-color: var(--steam-accent) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  border-color: var(--steam-trophy) !important;
+}
+
+.achievement-notification__dark-overlay {
+  background: var(--steam-bg-darker) !important;
+}
+
+.achievement-notification__trophy-overlay {
+  background: var(--steam-text) !important;
+}
+
+.achievement-notification--rare .achievement-notification__trophy-overlay {
+  background: var(--steam-accent) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__trophy-overlay {
+  background: var(--steam-trophy) !important;
+}
+
+.achievement-notification__title {
+  color: var(--steam-accent) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__title {
+  color: var(--steam-trophy) !important;
+}
+
+.achievement-notification__description {
+  color: var(--steam-text) !important;
+}
+
+.achievement-notification__chip {
+  border-radius: 0 !important;
+  background: var(--steam-bg-dark) !important;
+  border: 1px solid !important;
+  border-color: var(--steam-bevel-light) var(--steam-bevel-dark)
+    var(--steam-bevel-dark) var(--steam-bevel-light) !important;
+}
+
+.achievement-notification__chip__label {
+  color: var(--steam-accent) !important;
+}
+
+.achievement-notification__chip__icon path {
+  fill: var(--steam-accent) !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip {
+  background: var(--steam-selection) !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip__label {
+  color: #ffffff !important;
+}
+
+.achievement-notification--rare .achievement-notification__chip__icon path {
+  fill: #ffffff !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip {
+  background: var(--steam-trophy) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip__label {
+  color: var(--steam-bg-darker) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__chip__icon path {
+  fill: var(--steam-bg-darker) !important;
+}
+
+.achievement-notification--rare .achievement-notification__container::before {
+  background: #f0e6a0 !important;
+}
+
+.user-library-game__playtime {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  height: 24px !important;
+  padding: 0 6px !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sidebar__game-list {
+  margin-right: -15px !important;
+  border-top: 1px solid var(--steam-bevel-dark) !important;
+}
+
+.sidebar__game-list-scroll::-webkit-scrollbar {
+  width: 12px !important;
+  background-color: transparent !important;
+}
+
+.sidebar__game-list-scroll::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.18) !important;
+  border-left: 1px solid var(--steam-bevel-dark) !important;
+}

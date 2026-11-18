@@ -1,0 +1,243 @@
+
+
+:root {
+  --bg-image: url(https://i.ibb.co/WNPW3fYj/HI6v-In8-X0-AAEt-Y9.jpg);
+
+  /* Основные цвета */
+  --black-color: #0a0a0a;
+  --red-color: #ff1f3d;
+
+  /* Свечение */
+  --red-glow: rgba(255, 31, 61, 0.6);
+}
+
+
+
+
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent;
+}
+
+body {
+  color: #f2f2f2;
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+#root {
+  background: var(--bg-image) #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.settings__content,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.sidebar {
+  background-color: rgba(5, 5, 5, 0.78) !important;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 31, 61, 0.25);
+
+  transition: 0.25s;
+}
+
+
+
+
+.settings-download-sources__item,
+.download-group__item,
+.game-item {
+  background-color: rgba(10, 10, 10, 0.6) !important;
+
+  border-radius: 10px;
+}
+
+/* Hover */
+.game-item:hover,
+.friends-box__box:hover,
+.user-stats__box:hover,
+.recent-games__box:hover {
+  transform: scale(1.02);
+
+  background-color: rgba(255, 31, 61, 0.06) !important;
+
+  box-shadow:
+    0 0 10px var(--red-color),
+    0 0 20px var(--red-glow);
+}
+
+
+
+
+.button,
+.container__content .button--outline,
+.button--primary {
+  background-color: rgba(15, 15, 15, 0.55);
+
+  border: 1px solid var(--red-color);
+
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  transition: 0.25s;
+
+  text-shadow:
+    0 0 5px rgba(255, 31, 61, 0.5);
+}
+
+/* Hover */
+.button:hover,
+.button--primary:hover,
+.container__content .button--outline:hover {
+  background-color: var(--red-color);
+
+  color: white;
+
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 8px var(--red-color),
+    0 0 16px var(--red-glow);
+}
+
+
+
+
+.game-card__backdrop,
+.game-card,
+.hero,
+.user-library-game__cover,
+.settings__content,
+.theme-card,
+.user-stats__box,
+.modal,
+.button,
+.repacks-modal__repack-button,
+.badge,
+.filter-item {
+  border-radius: 10px;
+}
+
+
+
+.sidebar__menu-item {
+  margin: 4px 10px;
+
+  border-radius: 10px;
+
+  padding: 6px;
+
+  border: 1px solid rgba(255, 31, 61, 0.3);
+
+  transition: 0.25s;
+}
+
+.sidebar__menu-item:hover {
+  background-color: rgba(255, 31, 61, 0.08);
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 0 10px var(--red-glow);
+}
+
+
+.header__search {
+  border-radius: 10px;
+  padding: 8px;
+}
+
+
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #2a0000,
+    var(--red-color)
+  );
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.15);
+}
+
+
+
+.toast {
+  background: rgba(8, 8, 8, 0.92);
+
+  border: 1px solid var(--red-color);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 8px var(--red-color),
+    0 0 16px var(--red-glow);
+}
+
+
+
+
+.pagination__button {
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.pagination__button:hover {
+  transform: scale(1.05);
+}
+
+
+
+.hero-panel__progress-bar {
+  background: linear-gradient(
+    to right,
+    #3a0000 0%,
+    var(--red-color) 100%
+  );
+
+  box-shadow:
+    0 0 8px var(--red-color),
+    0 0 16px var(--red-glow);
+}

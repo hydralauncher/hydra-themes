@@ -1,0 +1,1957 @@
+
+/*
+  ================================================
+  HYDRA — TEMA "SCUDERIA" (v4 — ajustes finos)
+  Paleta: vermelho Ferrari, preto profundo, dourado
+  Fonte: Inter (mesma família usada no claude.ai)
+  ================================================
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap");
+
+:root {
+  --bg-image:  url("https://i.imgur.com/xhGex4u.jpeg");
+
+  /* paleta */
+  --red-900: #4a0d16;
+  --red-700: #7a1626;
+  --red-500: #b0202f;
+  --red-400: #d62839;
+  --gold: #c9a24b;
+  --gold-soft: #e3c884;
+  --ink: #0a0708;
+  --ink-soft: #14100f;
+  --panel: rgba(18, 10, 11, 0.82);
+  --panel-light: rgba(30, 16, 17, 0.7);
+  --text: #f3e9e4;
+  --text-dim: #c9b8b3;
+  --border: rgba(201, 162, 75, 0.22);
+  --white: rgba(255, 255, 255, .015);
+  
+
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 0px;
+}
+
+/* Limpa os painéis padrões para a transparência do vidro funcionar */
+.sidebar, .header, .container__content, .bottom-panel, .title-bar {
+  background: transparent !important;
+  border: none !important;
+}
+
+#root {
+  background: var(--bg-image) #000 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+* {
+  font-family: var(--font-ui) !important;
+}
+
+/* ============ HEADER (com efeito de vidro e blur) ============ */
+.header {
+  background: rgba(10, 7, 8, 0.45) !important; /* Fundo translúcido para deixar a imagem visível */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.header h3, .header__title {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  color: var(--gold-soft) !important;
+}
+
+.header__action-button,
+.header__back-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text) !important;
+  transition: background-color 0.15s ease !important;
+}
+.header__action-button:hover,
+.header__back-button:hover {
+  background: var(--panel-light) !important;
+}
+
+.header__search-input {
+  background: var(--panel-light) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text) !important;
+}
+.header__search-input::placeholder { color: var(--text-dim) !important; }
+
+/* =======================
+SIDEBAR
+========================== */
+
+.sidebar {
+  background: rgba(10, 7, 8, 0.45) !important; /* Fundo translúcido para o blur aparecer */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-right: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* perfil no topo */
+.sidebar-profile__button {
+  background: linear-gradient(135deg, var(--red-900) 0%, var(--ink-soft) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  margin: 10px !important;
+  padding: 8px 10px !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease !important;
+}
+.sidebar-profile__button:hover {
+  background: linear-gradient(135deg, var(--red-700) 0%, var(--ink-soft) 100%) !important;
+}
+.sidebar-profile__button-title {
+  font-weight: 600 !important;
+  color: var(--gold-soft) !important;
+}
+
+/* avatar sem borda e sem sombra quadrada atrás */
+.profile-avatar {
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+.profile-avatar__image {
+  border-radius: 50% !important;
+  border: none !important;
+  box-shadow: none !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* itens do menu principal (Início, Catálogo, Biblioteca...) */
+.sidebar__menu {
+  gap: 2px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 4px 8px !important;
+}
+.sidebar__menu-item {
+background:
+        transparent
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+}
+.sidebar__menu-item:hover{
+  background:
+        transparent
+        !important;
+
+}
+.sidebar__menu-item-button {
+  border-radius: var(--radius-sm) !important;
+  margin: 0 !important;
+  padding: 9px 12px !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--text-dim) !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+.sidebar__menu-item-button:hover {
+  background: var(--panel-light) !important;
+  color: var(--text) !important;
+}
+.sidebar__menu-item--active .sidebar__menu-item-button {
+  background: linear-gradient(90deg, var(--red-700) 0%, var(--red-500) 100%) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+.sidebar__menu-item--active .sidebar__menu-item-button svg {
+  color: var(--gold-soft) !important;
+}
+
+/* divisor dourado fino entre seções */
+.sidebar__section + .sidebar__section {
+  border-top: 1px solid var(--border) !important;
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+
+/* busca da lista de jogos */
+.sidebar__search-row {
+  padding: 10px !important;
+  gap: 6px !important;
+}
+.sidebar__search-row .text-field-container__text-field {
+  background: var(--panel-light) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.sidebar__search-row .text-field-container__text-field-input {
+  color: var(--text) !important;
+}
+.sidebar__play-button,
+.sidebar__add-button {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--gold-soft) !important;
+  transition: background-color 0.15s ease !important;
+}
+.sidebar__play-button:hover,
+.sidebar__add-button:hover {
+  background: var(--panel-light) !important;
+}
+
+/* lista de jogos */
+.sidebar__game-list {
+  padding: 4px 6px !important;
+}
+.sidebar__game-list .sidebar__menu-item-button {
+  border-radius: var(--radius-sm) !important;
+  padding: 6px 10px !important;
+}
+.sidebar__game-list .sidebar__menu-item-button:hover {
+  background: rgba(176, 32, 47, 0.15) !important;
+}
+.sidebar__game-icon {
+  border-radius: 6px !important;
+  border: 1px solid var(--border) !important;
+}
+.sidebar__menu-item-button-label {
+  color: var(--text-dim) !important;
+  font-size: 13px !important;
+}
+.sidebar__game-list .sidebar__menu-item-button:hover .sidebar__menu-item-button-label {
+  color: var(--text) !important;
+}
+.sidebar__game-favorite-icon {
+  color: var(--gold) !important;
+}
+
+/* scrollbar customizada */
+.sidebar__game-list-scroll::-webkit-scrollbar { width: 6px !important; }
+.sidebar__game-list-scroll::-webkit-scrollbar-thumb {
+  background: var(--red-700) !important;
+  border-radius: 10px !important;
+}
+.sidebar__game-list-scroll::-webkit-scrollbar-track { background: transparent !important; }
+
+/* handle de redimensionar */
+.sidebar__handle {
+  background: var(--border) !important;
+}
+.sidebar__handle:hover { background: var(--gold) !important; }
+
+
+
+/* =======================
+HOME BANNER
+======================= */
+
+.hero,
+.featured-game,
+.home__featured-game{
+
+    max-width:92%;
+
+    margin:20px auto;
+
+    border-radius:24px !important;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.20);
+
+}
+
+/* =======================
+POPULAR BUTTONS
+======================= */
+
+.chip,
+.filter-chip{
+
+    background:
+        rgba(255,255,255,.04);
+
+    backdrop-filter:
+        blur(8px);
+
+    border-radius:999px;
+
+}
+
+/* =======================
+CATALOG CARDS
+======================= */
+
+.game-item,
+.catalogue__game,
+.theme-card{
+
+    background:
+        rgba(255,255,255,.025)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:18px;
+
+    transition:.25s ease;
+
+}
+
+.game-item img,
+.catalogue__game img,
+.theme-card img{
+
+    transition:
+        transform .35s ease;
+
+}
+
+.game-item:hover img,
+.catalogue__game:hover img,
+.theme-card:hover img{
+
+    transform:
+        scale(1.03);
+
+}
+
+.game-item:hover,
+.catalogue__game:hover,
+.theme-card:hover{
+
+    background:
+        rgba(255,255,255,.04)
+        !important;
+
+}
+
+/* =======================
+CATALOG FILTERS
+======================= */
+
+.catalogue__filters-container{
+
+    background:
+        transparent
+        !important;
+
+    backdrop-filter:
+        none
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    scrollbar-width:none;
+
+}
+
+.catalogue__filters-container::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.catalogue__filters-container *{
+
+    background:
+        transparent
+        !important;
+
+}
+
+/* =======================
+FILTER GROUPS
+======================= */
+
+.catalogue__filters-container section,
+.catalogue__filters-group{
+
+    background:
+        rgba(255,255,255,.01)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.02);
+
+    border-radius:18px;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+}
+
+/* =======================
+FILTER TITLES
+======================= */
+
+.catalogue__filters-container h3,
+.catalogue__filters-container h4{
+
+    color:
+        rgba(255,255,255,.92);
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+/* =======================
+FILTER OPTIONS
+======================= */
+
+.checkbox-field{
+
+    padding:8px 6px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:.2s ease;
+
+}
+
+.checkbox-field:hover{
+
+    background:
+        rgba(255,255,255,.03);
+
+    border-radius:10px;
+
+}
+
+.checkbox-field:last-child{
+
+    border-bottom:none;
+
+}
+
+/* =======================
+YEAR SLIDER
+======================= */
+
+input[type="range"]{
+
+    accent-color:
+        rgba(140,255,255,.9);
+
+}
+
+input[type="range"]::-webkit-slider-runnable-track{
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.15);
+
+}
+
+input[type="range"]::-webkit-slider-thumb{
+
+    margin-top:-4px;
+
+}
+
+/* =======================
+DROPDOWNS
+======================= */
+
+.select-field,
+.select-field__wrapper,
+.dropdown,
+.dropdown-menu{
+
+    background:
+        rgba(255,255,255,.03)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-radius:14px;
+
+}
+
+/* =======================
+PAGINATION
+======================= */
+
+.pagination,
+.catalogue__pagination{
+
+    justify-content:center !important;
+
+    transform:
+        translateX(-240px);
+
+}
+
+/* =======================
+SETTINGS
+======================= */
+
+.settings__content{
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    border-radius:20px;
+
+}
+
+.settings__sidebar-button{
+
+    border-radius:12px;
+
+}
+
+/* =======================
+TOAST
+======================= */
+
+.toast{
+
+    background:
+        rgba(0,0,0,.30);
+
+    backdrop-filter:
+        blur(8px);
+    border-radius: 16px;
+
+}
+
+/* =======================
+BOTTOM BAR
+======================= */
+
+.bottom-panel{
+
+    background:
+        rgba(255,255,255,.015);
+
+    backdrop-filter:
+        blur(4px);
+
+    border:none !important;
+
+}
+
+/* =======================
+GLOBAL SCROLLBAR
+======================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+        rgba(255,255,255,.12);
+
+    border-radius:999px;
+
+}
+
+/* =======================
+DOWNLOADS
+======================= */
+
+.download-group,
+.download-item,
+.download{
+
+    border-radius:22px !important;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    margin-bottom:10px;
+
+}
+
+/* reduz altura */
+
+.download-group{
+
+    transform:
+        scale(.96);
+
+    transform-origin:
+        top center;
+
+}
+
+.download-item{
+
+    min-height:auto !important;
+
+}
+
+/* =======================
+DOWNLOAD PROGRESS
+======================= */
+
+.progress-bar,
+.download-progress-bar{
+
+    height:6px !important;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar__fill,
+.download-progress-bar__fill{
+
+    background:
+        var(--red-500)
+        !important;
+
+}
+
+/* =======================
+DOWNLOAD STATS
+======================= */
+
+.download-speed,
+.download-status,
+.download-info{
+
+    font-size:12px;
+
+    color:
+        rgba(255,255,255,.75);
+
+}
+
+/* =======================
+QUEUED / PAUSED DOWNLOADS
+======================= */
+
+.download-group--queued{
+
+    background:
+        transparent
+        !important;
+
+    backdrop-filter:
+        none
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+.download-group--queued .download-group__simple-card{
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    backdrop-filter:
+        blur(4px)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+}
+
+/* =======================
+QUEUED SPACING FIX
+======================= */
+
+.download-group--queued .download-group__simple-actions{
+
+    margin-left:12px;
+
+}
+
+.download-group--queued .download-group__simple-progress{
+
+    padding-right:16px;
+
+}
+
+/* =======================
+DOWNLOAD ACTIONS
+======================= */
+
+.download-group__simple-actions{
+
+    padding-right:12px;
+
+}
+
+/* =======================
+SETTINGS SIDEBAR
+======================= */
+
+.settings__sidebar{
+
+    background:
+        transparent
+        !important;
+
+    backdrop-filter:
+        none
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+}
+
+/* botões */
+
+.settings__sidebar-button{
+
+    background:
+        transparent
+        !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    border-radius:14px;
+
+    transition:.2s ease;
+
+}
+
+/* hover igual ao menu principal */
+
+.settings__sidebar-button:hover{
+
+    background:
+        rgba(255,255,255,.03)
+        !important;
+
+}
+
+/* remove destaque forte do ativo */
+
+.settings__sidebar-button--active{
+
+    background:
+        rgba(255,255,255,.02)
+        !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+}
+
+/* =======================
+GAME DETAILS
+======================= */
+
+.game-details__container{
+
+    max-width:92%;
+
+    margin:auto;
+
+}
+
+/* HERO */
+
+.game-details__hero{
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.25);
+
+}
+
+/* painel da direita */
+
+.hero-panel{
+
+    background:
+        rgba(0,0,0,.20);
+
+    backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+
+    border-radius:22px;
+
+}
+
+/* descrição */
+
+.game-details__description-container{
+
+    margin-top:18px;
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:22px;
+
+    padding:20px;
+
+}
+
+/* screenshots */
+
+.gallery-slider__viewport{
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.gallery-slider__media{
+
+    border-radius:20px;
+
+}
+
+/* miniaturas */
+
+.gallery-slider__preview-button{
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    opacity:.75;
+
+    transition:.2s ease;
+
+}
+
+.gallery-slider__preview-button:hover{
+
+    opacity:1;
+
+    transform:translateY(-2px);
+
+}
+
+.gallery-slider__preview-button--active{
+
+    border:
+        2px solid
+        rgba(140,255,255,.8);
+
+}
+
+/* botões laterais */
+
+.gallery-slider__button{
+
+    background:
+        rgba(0,0,0,.30);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:none;
+
+    border-radius:50%;
+
+}
+
+/* reviews */
+
+.game-details__review-item{
+
+    background:
+        rgba(255,255,255,.02);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.03);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    margin-bottom:12px;
+
+}
+
+.game-details__review-item:hover{
+
+    background:
+        rgba(255,255,255,.03);
+
+}
+
+/* nota */
+
+.game-details__reviews-badge{
+
+    background:
+        rgba(140,255,255,.12);
+
+    border:
+        1px solid
+        rgba(140,255,255,.25);
+
+    border-radius:999px;
+
+    padding:4px 10px;
+
+}
+
+.game-details__hero-image{
+
+    filter:
+        saturate(.9)
+        brightness(.85);
+
+}
+
+/* Sidebar inteira */
+.content-sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* Cards */
+.sidebar-section{
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    transition:.25s ease;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.18);
+}
+
+/* Remove o efeito de levantar */
+.sidebar-section:hover{
+    border-color:rgba(255,255,255,.08);
+}
+
+/* Cabeçalho */
+.sidebar-section__header{
+    background:rgba(255,255,255,.015);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+
+.sidebar-section__button{
+    padding:16px 18px;
+
+    font-weight:600;
+    letter-spacing:.2px;
+}
+
+/* Conteúdo interno */
+.sidebar-section__content{
+    background:transparent;
+}
+
+/* Lista de conquistas */
+.list{
+    padding:8px;
+}
+
+.list__item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:10px;
+
+    background:rgba(255,255,255,.02);
+
+    border:1px solid rgba(255,255,255,.04);
+    border-radius:12px;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    transition:.2s ease;
+}
+
+.list__item:hover{
+    background:rgba(255,255,255,.04);
+    border-color:rgba(255,255,255,.08);
+}
+
+.list__item-image{
+    width:48px;
+    height:48px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+}
+
+.list__item-image--locked{
+    filter:grayscale(.8);
+    opacity:.7;
+}
+
+.list__item p{
+    font-size:.92rem;
+    font-weight:500;
+}
+
+/* Botão de assinatura */
+.subscription-required-button{
+    width:100%;
+
+    margin-bottom:10px;
+    padding:12px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:12px;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    transition:.2s ease;
+}
+
+.subscription-required-button:hover{
+    background:rgba(255,255,255,.05);
+}
+
+/* Link "Ver todas as conquistas" */
+.list > .link:last-child{
+    display:block;
+
+    margin-top:12px;
+    padding:10px 12px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.02);
+
+    border:1px solid rgba(255,255,255,.04);
+    border-radius:12px;
+
+    transition:.2s ease;
+}
+
+.list > .link:last-child:hover{
+    background:rgba(255,255,255,.04);
+}
+
+.description-header{
+    background: rgba(255,255,255,.015) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 14px;
+
+    padding: 12px 16px;
+}
+
+.profile-content__right-content {
+  background: transparent !important;
+}
+
+.profile-content__right-content .profile-section {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.profile-content__right-content .profile-section__header,
+.profile-content__right-content .profile-section__content {
+  background: transparent !important;
+}
+
+/* opcional: remover "cards" internos */
+.profile-content__right-content * {
+  background-color: transparent;
+}
+
+.sort-options__container{
+    background: rgba(255,255,255,.03) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+
+    padding: 10px 12px;
+}
+/* ============ MAIN CONTENT (imagem bem mais visível) ============ */
+.container__content {
+  background-image:
+    linear-gradient(180deg, rgba(8,6,7,0.55) 0%, rgba(8,6,7,0.72) 100%),
+    var(--bg-image) !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  color: var(--text) !important;
+}
+
+.container__content h1, .container__content h2, .container__content h3 {
+  font-family: var(--font-display) !important;
+  color: var(--gold-soft) !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* ============ SETTINGS PAGE ============ */
+.settings__sidebar {
+  background: var(--panel) !important;
+  border-right: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) 0 0 var(--radius-md) !important;
+}
+.settings__sidebar-button {
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--text-dim) !important;
+  margin: 2px 8px !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+.settings__sidebar-button:hover {
+  background: var(--panel-light) !important;
+  color: var(--text) !important;
+}
+.settings__sidebar-button--active {
+  background: linear-gradient(90deg, var(--red-700), var(--red-500)) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+.settings__sidebar-group-label {
+  color: var(--gold) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+.settings__sidebar-divider { background: var(--border) !important; }
+
+.settings__panel {
+  background: var(--panel) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+}
+.settings__panel h2 {
+  font-family: var(--font-display) !important;
+  color: var(--gold-soft) !important;
+}
+.settings-context-panel__group h3 {
+  color: var(--gold) !important;
+  font-family: var(--font-ui) !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding-bottom: 6px !important;
+}
+
+/* checkboxes */
+.checkbox-field__checkbox {
+  border-radius: 4px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+.checkbox-field__checkbox.checked {
+  background: var(--red-500) !important;
+  border-color: var(--gold) !important;
+}
+.checkbox-field__label { color: var(--text-dim) !important; }
+
+/* inputs / selects */
+.text-field-container__text-field,
+.select-field {
+  background: var(--panel-light) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important;
+}
+.text-field-container__text-field-input,
+.select-field__option {
+  color: var(--text) !important;
+}
+.select-field__label { color: var(--text-dim) !important; }
+
+/* theme cards */
+.theme-card {
+  background: var(--panel-light) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+.theme-card--active {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 1px var(--gold) inset !important;
+}
+.theme-card__header__title {
+  font-family: var(--font-display) !important;
+  color: var(--gold-soft) !important;
+}
+.theme-card__author__name { color: var(--red-400) !important; }
+
+/* ============ BOTTOM PANEL ============ */
+.bottom-panel {
+  background: linear-gradient(90deg, var(--ink) 0%, var(--ink-soft) 100%) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-dim) !important;
+}
+.bottom-panel__downloads-button {
+  color: var(--gold-soft) !important;
+  transition: opacity 0.15s ease !important;
+}
+.bottom-panel__downloads-button:hover { opacity: 0.8 !important; }
+.bottom-panel__version-button {
+  color: var(--text-dim) !important;
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.bottom-panel__version-button:hover {
+  background: var(--panel-light) !important;
+}
+
+/* ============ TOAST ============ */
+.toast {
+  background: var(--ink-soft) !important;
+  border: 1px solid var(--gold) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--text) !important;
+  box-shadow: 0 8px 24px rgba(176, 32, 47, 0.35) !important;
+}
+
+/* ============ BOTÕES GERAIS ============ */
+.button {
+  border-radius: var(--radius-sm) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  transition: filter 0.15s ease !important;
+}
+.button:hover {
+  filter: brightness(1.08) !important;
+}
+.button--primary {
+  background: linear-gradient(135deg, var(--red-700) 0%, var(--red-500) 100%) !important;
+  border: 1px solid var(--gold) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.button--outline {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+.button--outline:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold-soft) !important;
+}
+.button--danger {
+  background: rgba(176, 32, 47, 0.15) !important;
+  border: 1px solid var(--red-500) !important;
+  color: #ff8f9a !important;
+}
+.button--dark {
+  background: var(--ink-soft) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+
+/* title bar (windows) */
+.title-bar {
+  background: var(--ink) !important;
+  color: var(--gold-soft) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* remover visual do scrollbar da sidebar de configurações */
+.settings__sidebar {
+  scrollbar-width: none !important; /* firefox */
+  -ms-overflow-style: none !important; /* legacy edge */
+}
+.settings__sidebar::-webkit-scrollbar {
+  display: none !important; /* chrome / webkit */
+  width: 0 !important;
+}
+
+/* ============ BUSCA DO TOPO — expansão elegante ============ */
+
+.header__search {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+
+  /* começa compacta */
+  width: 42px !important;
+  min-width: 42px !important;
+  height: 42px !important;
+
+  background: rgba(30, 16, 17, 0.55) !important;
+  border: 1px solid rgba(201, 162, 75, 0.22) !important;
+  border-radius: 999px !important;
+
+  padding: 4px !important;
+  overflow: hidden !important;
+
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    min-width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.35s ease !important;
+}
+
+/* quando clicar no campo, expande */
+.header__search:focus-within {
+  width: 280px !important;
+  min-width: 280px !important;
+
+  background: rgba(30, 16, 17, 0.92) !important;
+  border-color: var(--gold) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(201, 162, 75, 0.10),
+    0 8px 25px rgba(0, 0, 0, 0.35) !important;
+}
+
+
+/* ============ LUPA — CENTRALIZADA NO CÍRCULO ============ */
+
+.header__search {
+  position: relative !important;
+}
+
+.header__search .header__action-button {
+  position: absolute !important;
+
+  right: 3px !important;
+  top: 50% !important;
+
+  transform: translateY(-50%) !important;
+
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  border-radius: 50% !important;
+
+  color: var(--gold-soft) !important;
+
+  z-index: 3 !important;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.header__search .header__action-button:hover {
+  background: rgba(201, 162, 75, 0.10) !important;
+  color: var(--gold) !important;
+
+  transform: translateY(-50%) scale(1.08) !important;
+}
+
+
+/* ============ INPUT ============ */
+
+.header__search-input {
+  flex: 1 !important;
+
+  width: 0 !important;
+  min-width: 0 !important;
+
+  opacity: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  color: var(--text) !important;
+
+  font-size: 13.5px !important;
+  padding: 4px 8px !important;
+
+  order: 1 !important;
+
+  transition:
+    opacity 0.2s ease 0.05s,
+    width 0.35s ease !important;
+}
+
+
+/* aparece depois que a busca abre */
+.header__search:focus-within .header__search-input {
+  width: auto !important;
+  opacity: 1 !important;
+}
+
+.header__search-input::placeholder {
+  color: var(--text-dim) !important;
+  font-style: normal !important;
+}
+
+
+/* ============ BRILHO SUTIL AO ABRIR ============ */
+
+.header__search:focus-within::before {
+  content: "" !important;
+
+  position: absolute !important;
+  inset: -1px !important;
+
+  border-radius: 999px !important;
+
+  pointer-events: none !important;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 162, 75, 0.08),
+    transparent
+  ) !important;
+
+  animation: searchShimmer 1.2s ease-out !important;
+}
+
+@keyframes searchShimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(30%);
+  }
+}
+
+/* =========================================================
+   HYDRA — NOTIFICAÇÕES DE CONQUISTAS (COMPLETO E CORRIGIDO)
+   Tema SCUDERIA
+   ========================================================= */
+
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes achievement-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes achievement-shine-scuderia {
+  0% {
+    transform: translateX(-180%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+   ========================================================= */
+
+.achievement-notification__outer-container {
+  position: relative !important;
+  border: 1px solid rgba(201, 162, 75, 0.28) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.45) !important;
+  animation: achievement-enter 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+
+/* =========================================================
+   CORPO DA NOTIFICAÇÃO
+   ========================================================= */
+
+.achievement-notification__container {
+  position: relative !important;
+  width: calc(360px - 40px) !important;
+  min-height: 70px !important;
+  box-sizing: border-box !important;
+  padding: 8px 8px 8px 10px !important;
+  background: linear-gradient(
+    110deg,
+    rgba(10, 7, 8, 0.98) 0%,
+    rgba(20, 16, 15, 0.97) 65%,
+    rgba(30, 16, 17, 0.96) 100%
+  ) !important;
+}
+
+/* linha vermelha lateral */
+.achievement-notification__container::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background: linear-gradient(180deg, var(--gold-soft), var(--red-500), var(--red-900)) !important;
+  z-index: 5 !important;
+}
+
+/* brilho interno */
+.achievement-notification__container::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background: radial-gradient(circle at 0% 50%, rgba(176, 32, 47, 0.18), transparent 45%) !important;
+  z-index: 0 !important;
+}
+
+
+/* =========================================================
+   CONTEÚDO E TEXTOS
+   ========================================================= */
+
+.achievement-notification__content {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  z-index: 2 !important;
+}
+
+.achievement-notification__icon {
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 64px !important;
+  min-height: 64px !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+  border: 1px solid rgba(201, 162, 75, 0.38) !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.65), 0 5px 16px rgba(0, 0, 0, 0.45) !important;
+}
+
+.achievement-notification__text-container {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  min-width: 0 !important;
+}
+
+.achievement-notification__title {
+  margin: 0 !important;
+  color: var(--gold-soft) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65) !important;
+}
+
+.achievement-notification__description {
+  margin: 0 !important;
+  color: var(--text) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
+  opacity: 0.88 !important;
+}
+
+
+/* =========================================================
+   BADGE DE PONTOS (NO TOPO, PASSANDO UM POUQUINHO)
+   ========================================================= */
+
+.achievement-notification__chip {
+  position: absolute !important;
+  right: 12px !important;
+  top: -10px !important;
+  transform: none !important;
+  height: 24px !important;
+  padding: 0 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--gold-soft, #c9a24b), var(--gold, #b38f3e)) !important;
+  border: 1px solid rgba(227, 200, 132, 0.8) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  z-index: 20 !important;
+}
+
+.achievement-notification__chip svg,
+.achievement-notification__chip img,
+.achievement-notification__chip i {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  display: inline-block !important;
+  fill: currentColor !important;
+  color: var(--ink, #0a0708) !important;
+  object-fit: contain !important;
+}
+
+.achievement-notification__chip__label {
+  color: var(--ink, #0a0708) !important;
+  font-family: var(--font-ui, sans-serif) !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   ESTADOS (PADRÃO, RARA, PLATINA, OCULTA) - ANIMAÇÃO UNIFICADA
+   ========================================================= */
+
+/* =========================================================
+   ESTADOS E ANIMAÇÃO DE ENTRADA UNIFICADA
+   ========================================================= */
+
+/* Aplica a animação suave em QUALQUER container de notificação por padrão */
+.achievement-notification__outer-container {
+  animation: achievement-enter 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* Conquista Rara (Apenas estilização de borda, herda a animação acima) */
+.achievement-notification--rare .achievement-notification__outer-container {
+  border-color: rgba(201, 162, 75, 0.65) !important;
+}
+
+/* Conquista Platina (Apenas estilização de borda, herda a animação acima) */
+.achievement-notification--platinum .achievement-notification__outer-container {
+  border-color: rgba(243, 233, 228, 0.55) !important;
+}
+
+/* Conquista Oculta (Estilização específica, herda a animação acima) */
+.achievement-notification--hidden .achievement-notification__outer-container {
+  border-color: rgba(176, 32, 47, 0.65) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(176, 32, 47, 0.12) !important;
+}
+
+
+/* =========================================================
+   ESTILOS ESPECÍFICOS DE RARA, PLATINA E OCULTA
+   ========================================================= */
+
+.achievement-notification--rare .achievement-notification__container {
+  background: linear-gradient(115deg, rgba(10, 7, 8, 0.99) 0%, rgba(35, 22, 15, 0.98) 55%, rgba(74, 13, 22, 0.96) 100%) !important;
+}
+
+.achievement-notification--rare .achievement-notification__icon {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 1px rgba(201, 162, 75, 0.18), 0 0 18px rgba(201, 162, 75, 0.22), 0 5px 18px rgba(0, 0, 0, 0.5) !important;
+}
+
+.achievement-notification--rare .achievement-notification__container::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -30% !important;
+  left: -60% !important;
+  width: 35% !important;
+  height: 170% !important;
+  background: linear-gradient(90deg, transparent, rgba(227, 200, 132, 0.28), transparent) !important;
+  transform: skewX(-20deg) !important;
+  animation: achievement-shine-scuderia 1.8s ease-out 0.9s !important;
+  z-index: 3 !important;
+}
+
+.achievement-notification--rare .achievement-notification__title {
+  color: var(--gold-soft) !important;
+  text-shadow: 0 0 12px rgba(201, 162, 75, 0.18) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__container {
+  background: linear-gradient(115deg, #0a0708 0%, #171516 42%, #302b27 100%) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__container::before {
+  background: linear-gradient(180deg, #ffffff, var(--gold-soft), #9e9388, #ffffff) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__icon {
+  border-color: rgba(243, 233, 228, 0.78) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 20px rgba(227, 200, 132, 0.22), 0 5px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.achievement-notification--platinum .achievement-notification__title {
+  color: #fff !important;
+  text-shadow: 0 0 14px rgba(227, 200, 132, 0.18) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__container {
+  background: linear-gradient(115deg, #050304 0%, #100708 55%, #260b11 100%) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__container::before {
+  background: linear-gradient(180deg, var(--red-400), var(--red-500), var(--red-900)) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__icon {
+  border-color: rgba(176, 32, 47, 0.55) !important;
+  filter: brightness(0.72) saturate(0.8) !important;
+  box-shadow: 0 0 0 1px rgba(176, 32, 47, 0.12), 0 0 16px rgba(176, 32, 47, 0.16) !important;
+}
+
+.achievement-notification--hidden .achievement-notification__title {
+  color: #ffb7bd !important;
+}
+
+.achievement-notification--hidden .achievement-notification__description {
+  color: var(--text-dim) !important;
+}
+
+
+/* =========================================================
+   OVERLAYS E SAÍDA
+   ========================================================= */
+
+.achievement-notification__dark-overlay { background: rgba(0, 0, 0, 0.55) !important; }
+.achievement-notification__trophy-overlay { background: var(--gold-soft) !important; filter: drop-shadow(0 0 8px rgba(201, 162, 75, 0.4)) !important; }
+
+.achievement-notification--closing .achievement-notification__outer-container {
+  animation: content-out 450ms cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+.achievement-notification--paused *,
+.achievement-notification--paused *::before,
+.achievement-notification--paused *::after {
+  animation-play-state: paused !important;
+}
+
+/* =========================================================
+   Title Bar
+   ========================================================= */
+
+/* Remove o ::after antigo */
+.title-bar::after{
+    display: none !important;
+}
+
+/* Estiliza o title-bar como transparente e com efeito glass */
+.title-bar {
+    display: flex !important;
+    align-items: center !important;
+    padding: 6px 12px !important;
+    gap: 10px !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* H4 (Hydra) - fica primeiro */
+.title-bar h4 {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    order: 0 !important;
+    color: var(--gold-soft) !important;
+    font-family: var(--font-display) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* Botão Big Picture - fica em segundo */
+.title-bar__big-picture {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 3px 10px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    order: 1 !important;
+    margin-left: 4px !important;
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text) !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+.title-bar__big-picture:hover {
+    background: var(--panel-light) !important;
+    border-color: var(--gold) !important;
+}
+
+.title-bar__big-picture svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Elemento com a frase personalizada */
+.title-bar::after {
+    content: 'Scuderia Ferrari X Sabrina Carpenter' !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    order: 2 !important;
+    margin-right: auto !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 500px !important;
+    font-family: var(--font-display) !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color: var(--text-dim) !important;
+    opacity: 0.8 !important;
+    letter-spacing: 0.01em !important;
+}
+
+/* =======================
+HEADER ARREDONDADO E FLUTUANTE
+========================== */
+
+.header {
+  border-radius: 18px !important; /* Arredonda todas as pontas */
+  margin: 12px 12px 0 12px !important; /* Afasta das bordas da janela (topo, direita, baixo, esquerda) */
+  width: auto !important; /* Libera a largura para respeitar as margens */
+}
+
+/* =======================
+LINHA DOURADA NA TITLE BAR
+========================== */
+
+.title-bar {
+  border-bottom: 2px solid rgba(212, 175, 55, 0.65) !important; /* Tom dourado translúcido e elegante */
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15) !important;     /* Um leve brilho dourado sutil abaixo da linha */
+}
+

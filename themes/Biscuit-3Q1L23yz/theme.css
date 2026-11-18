@@ -28,17 +28,12 @@
   
     .button--primary {
       background-color: #7F244C;
-      button:hover-color: #51102C ;
-      color:#DCC9BC
+      color:#DCC9BC;
     }
   
     .button--primary:hover {
       background-color: #51102C;
   }
-  
-
-      font-weight: 500;
-    
   
     .header__search {
       background-color: #191414;
@@ -61,7 +56,7 @@
   
     .sidebar__menu-item--active {
       border-radius: 8px;
-      border:1px 
+      border: 1px solid #DCC9BC;
       color: #191414;
       background-color: #453636;
       color: #DCC9BC;
@@ -73,16 +68,16 @@
     }
       ::-webkit-scrollbar {
       width: 9px;
-      background-color: #191414
+      background-color: #191414;
     }
   
       ::-webkit-scrollbar-track {
-      background-color: #191414
+      background-color: #191414;
     }
   
       ::-webkit-scrollbar-thumb {
-      background-color: #191414
-      border-radius; 24px;
+      background-color: #191414;
+      border-radius: 24px;
     }
   
       ::-webkit-scrollbar-thumb:hover {
@@ -96,14 +91,14 @@
       
       .catalogue__filters-container{
       background-color: #191414;
-      border-radius; 24px;
+      border-radius: 24px;
       }
 
       .text-field-container__text-field-input{
          background-color: #191414;
          border-color: #DCC9BC;
       color: #DCC9BC;
-      border-radius; 24px
+      border-radius: 24px;
 
       }
       .game-item__details{
@@ -277,4 +272,3 @@
       .content-sidebar{
         background-color: #191414;
       }
-    

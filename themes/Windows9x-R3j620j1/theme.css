@@ -1,0 +1,1232 @@
+/*
+  Windows 95 Theme for Hydra Launcher
+  Classic grey, chunky bevels, blocky fonts — like it's 1995 again.
+
+  Docs: https://docs.hydralauncher.gg/themes.html
+*/
+
+@import url('https://fonts.cdnfonts.com/css/w95fa');
+
+:root {
+  --win95-grey: #c0c0c0;
+  --win95-grey-light: #dfdfdf;
+  --win95-grey-dark: #808080;
+  --win95-black: #000000;
+  --win95-white: #ffffff;
+  --win95-blue: #000080;
+  --win95-blue-light: #1084d0;
+  --win95-teal: #008080;
+  --win95-font: 'W95FA', 'MS Sans Serif', 'Pixelated MS Sans Serif', Tahoma, Geneva, sans-serif;
+}
+
+/* Global reset */
+* {
+  border-radius: 0 !important;
+  font-family: var(--win95-font) !important;
+  box-shadow: none !important;
+}
+
+body {
+  background-color: var(--win95-teal) !important;
+}
+
+/* Header (page title bar) */
+.header {
+  background: linear-gradient(90deg, var(--win95-blue) 0%, var(--win95-blue-light) 100%) !important;
+  color: var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset 0 -1px 0 var(--win95-grey-dark) !important;
+  padding: 4px 6px !important;
+  font-weight: bold !important;
+}
+
+.header__title,
+.header__title--has-back-button {
+  color: var(--win95-white) !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+.header__section {
+  background: transparent !important;
+}
+
+/* Back arrow: absolutely-positioned 16x16 icon, grown symmetrically via
+   border-box + negative margin so the button box doesn't shift anchor */
+.header__back-button,
+.header__back-button--enabled {
+  box-sizing: border-box !important;
+  width: 22px !important;
+  height: 22px !important;
+  margin: -3px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--win95-black) !important;
+  background: var(--win95-grey) !important;
+  border-top: 1px solid var(--win95-grey-light) !important;
+  border-left: 1px solid var(--win95-grey-light) !important;
+  border-right: 1px solid var(--win95-black) !important;
+  border-bottom: 1px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+  padding: 0 !important;
+}
+
+.header__back-button:active {
+  border-top: 1px solid var(--win95-black) !important;
+  border-left: 1px solid var(--win95-black) !important;
+  border-right: 1px solid var(--win95-grey-light) !important;
+  border-bottom: 1px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.header__action-button {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+  padding: 2px 8px !important;
+}
+
+.header__action-button:active {
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.header__search {
+  background: var(--win95-white) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-light), inset 1px 1px 0 var(--win95-black) !important;
+}
+
+.header__search-input {
+  background: transparent !important;
+  color: var(--win95-black) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Search icon button nested inside .header__search — strip its own
+   bevel so it sits flush instead of showing a separate indented box */
+.header__search .header__action-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 4px !important;
+  color: var(--win95-black) !important;
+}
+
+/* Title bar (window chrome: drag region, Big Picture, min/max/close) */
+.title-bar {
+  background: linear-gradient(90deg, var(--win95-blue) 0%, var(--win95-blue-light) 100%) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.title-bar__cloud-text {
+  background: none !important;
+  -webkit-text-fill-color: var(--win95-white) !important;
+  color: var(--win95-white) !important;
+}
+
+.title-bar__big-picture {
+  color: var(--win95-white) !important;
+  opacity: 0.85 !important;
+}
+
+.title-bar__big-picture:hover {
+  opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.title-bar__window-control {
+  color: var(--win95-white) !important;
+}
+
+.title-bar__window-control:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--win95-white) !important;
+}
+
+.title-bar__window-control--close:hover {
+  background-color: #c00000 !important;
+  color: var(--win95-white) !important;
+}
+
+/* "Hydra" wordmark, plain <h4> with no dedicated class */
+.title-bar h4 {
+  color: var(--win95-white) !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5) !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Sidebar */
+.sidebar,
+.sidebar__container,
+.sidebar__content {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-dark) !important;
+  box-shadow: inset -1px 0 0 var(--win95-white) !important;
+}
+
+/* Split container/button borders to avoid a doubled bottom edge */
+.sidebar-profile {
+  background: var(--win95-grey) !important;
+  border: none !important;
+  color: var(--win95-black) !important;
+}
+
+.sidebar-profile__button {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  color: var(--win95-black) !important;
+}
+
+.sidebar-profile__button-title {
+  font-weight: bold !important;
+  color: var(--win95-black) !important;
+}
+
+/* Profile dropdown menu */
+.sidebar-profile__dropdown {
+  background-color: var(--win95-grey) !important;
+  backdrop-filter: none !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.sidebar-profile__dropdown-item {
+  color: var(--win95-black) !important;
+}
+
+.sidebar-profile__dropdown-item:hover {
+  background-color: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+}
+
+.sidebar-profile__dropdown-item--danger:hover {
+  color: var(--win95-white) !important;
+}
+
+.sidebar-profile__dropdown-badge {
+  color: var(--win95-white) !important;
+}
+
+.sidebar-profile__dropdown-separator {
+  background-color: var(--win95-grey-dark) !important;
+}
+
+.sidebar__section-title,
+.sidebar__section-header,
+.sidebar__collection-count {
+  color: var(--win95-black) !important;
+  font-weight: bold !important;
+  text-transform: none !important;
+}
+
+.sidebar__menu-item,
+.sidebar__menu-item-button {
+  background: transparent !important;
+  color: var(--win95-black) !important;
+  border: none !important;
+}
+
+/* Raised taskbar-button bevel for main nav items only (Home, Catalogue,
+   Library, Downloads, Settings) — game rows below reuse the same
+   classes and get a flat treatment instead, further down */
+.sidebar__menu .sidebar__menu-item-button {
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-grey-dark) !important;
+  border-bottom: 2px solid var(--win95-grey-dark) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-black), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.sidebar__menu .sidebar__menu-item--active .sidebar__menu-item-button,
+.sidebar__menu .sidebar__menu-item:hover .sidebar__menu-item-button {
+  background: var(--win95-blue) !important;
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+/* Flat list rows for the library game list */
+.sidebar__game-list-scroll .sidebar__menu-item-button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar__menu-item--active,
+.sidebar__menu-item:hover {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+}
+
+/* Force white through icon/label children, which don't inherit color */
+.sidebar__menu-item--active .sidebar__menu-item-button,
+.sidebar__menu-item--active .sidebar__menu-item-button-label,
+.sidebar__menu-item--active svg,
+.sidebar__menu-item:hover .sidebar__menu-item-button,
+.sidebar__menu-item:hover .sidebar__menu-item-button-label,
+.sidebar__menu-item:hover svg {
+  color: var(--win95-white) !important;
+}
+
+.sidebar__menu-item-button-label {
+  color: inherit !important;
+}
+
+.sidebar__game-list,
+.sidebar__game-list-scroll {
+  background: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+}
+
+.sidebar__game-icon {
+  border: 1px solid var(--win95-black) !important;
+}
+
+.sidebar__add-button,
+.sidebar__play-button {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.sidebar__add-button:active,
+.sidebar__play-button:active {
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+}
+
+/* Sidebar resize handle, kept invisible */
+.sidebar__handle {
+  background: transparent !important;
+}
+
+.settings__sidebar,
+.settings__sidebar-group,
+.settings__sidebar-group-label {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+}
+
+.settings__sidebar-button {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-grey-dark) !important;
+  border-bottom: 2px solid var(--win95-grey-dark) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-black), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.settings__sidebar-button--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.settings__sidebar-divider {
+  border-top: 1px solid var(--win95-grey-dark) !important;
+  border-bottom: 1px solid var(--win95-white) !important;
+}
+
+/* Main content */
+.container__content {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+}
+
+/* Bottom panel (status bar) */
+.bottom-panel {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-white) !important;
+  box-shadow: inset 0 1px 0 var(--win95-grey-light) !important;
+  font-size: 11px !important;
+}
+
+.bottom-panel__downloads-button,
+.bottom-panel__version-button {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 1px solid var(--win95-grey-dark) !important;
+  border-left: 1px solid var(--win95-grey-dark) !important;
+  border-right: 1px solid var(--win95-white) !important;
+  border-bottom: 1px solid var(--win95-white) !important;
+}
+
+/* Toast */
+.toast {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Modals (e.g. "Download options") */
+.modal {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+.modal__header {
+  background: linear-gradient(90deg, var(--win95-blue) 0%, var(--win95-blue-light) 100%) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.modal__header h3,
+.modal__header p {
+  color: var(--win95-white) !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+.modal__close-button-icon {
+  color: var(--win95-white) !important;
+}
+
+.repacks-modal__repack-button {
+  background: var(--win95-grey-light) !important;
+  color: var(--win95-black) !important;
+  border-top: 1px solid var(--win95-white) !important;
+  border-left: 1px solid var(--win95-white) !important;
+  border-right: 1px solid var(--win95-grey-dark) !important;
+  border-bottom: 1px solid var(--win95-grey-dark) !important;
+}
+
+.repacks-modal__repack-title,
+.repacks-modal__repack-info {
+  color: var(--win95-black) !important;
+}
+
+.repacks-modal__new-badge {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.repacks-modal__source-item {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+/* Dropdowns (e.g. "Filter by source", "Sort by") */
+.select-field {
+  background: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-light), inset 1px 1px 0 var(--win95-black) !important;
+}
+
+.select-field__option {
+  background: transparent !important;
+}
+
+/* Game details page */
+.hero-panel {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  backdrop-filter: none !important;
+}
+
+.hero-panel__content p,
+.hero-panel__download-details {
+  color: var(--win95-black) !important;
+}
+
+.game-details__description-container {
+  background: var(--win95-grey) !important;
+}
+
+.game-details__description {
+  color: var(--win95-black) !important;
+}
+
+.sidebar-section {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.sidebar-section__content {
+  background: var(--win95-grey-light) !important;
+}
+
+.sidebar-section__button,
+.sidebar-section__subtitle,
+.sidebar-section__content * {
+  color: var(--win95-black) !important;
+}
+
+.sidebar-section__header:hover {
+  background: var(--win95-blue) !important;
+}
+
+.sidebar-section__header:hover .sidebar-section__button {
+  color: var(--win95-white) !important;
+}
+
+/* Release date / publisher box */
+.description-header {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.description-header p {
+  color: var(--win95-black) !important;
+}
+
+/* Reviews section */
+.game-details__reviews-section,
+.game-details__reviews-section * {
+  color: var(--win95-black) !important;
+}
+
+.game-details__reviews-badge {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.game-details__vote-button {
+  background: var(--win95-grey-light) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+/* Downloads page */
+.download-group__header-title-group h2,
+.download-group__header-count,
+.download-group__simple-title,
+.download-group__simple-meta-row,
+.download-group__simple-size,
+.download-group__simple-extracting,
+.download-group__simple-progress-text {
+  color: var(--win95-black) !important;
+}
+
+.download-group__header-count {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.download-group__progress-bar {
+  background: var(--win95-grey-dark) !important;
+}
+
+.download-group__progress-fill {
+  background: var(--win95-blue) !important;
+}
+
+/* Classics / Emulation settings — blanket text color, since these pages
+   use dozens of hardcoded hex colors with no shared variables */
+.console-card,
+.emulator-detail {
+  color: var(--win95-black) !important;
+}
+
+.console-card *,
+.emulator-detail * {
+  color: var(--win95-black) !important;
+}
+
+.console-card {
+  background: var(--win95-grey-light) !important;
+  border: 2px solid var(--win95-black) !important;
+}
+
+.console-card__hint-box,
+.emulator-detail__hero,
+.emulator-detail__row,
+.emulator-detail__stat,
+.emulator-detail__exec-path-box,
+.emulator-detail__memcard-card,
+.emulator-detail__cloud-card,
+.emulator-detail__restore-target,
+.emulator-detail__page-btn {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.console-card__chip,
+.emulator-detail__synced,
+.emulator-detail__path-missing,
+.emulator-detail__res-status {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.emulator-detail__tab {
+  opacity: 1 !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.emulator-detail__tab--active {
+  border-bottom: 2px solid var(--win95-blue) !important;
+  font-weight: bold !important;
+}
+
+.emulator-detail__memcard-backup-progress-track {
+  background: var(--win95-grey-dark) !important;
+}
+
+.emulator-detail__memcard-backup-progress-fill {
+  background: var(--win95-blue) !important;
+}
+
+/* Search dropdown (recent searches / live results) */
+.search-dropdown {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.search-dropdown__section:not(:last-child) {
+  border-bottom: 1px solid var(--win95-grey-dark) !important;
+}
+
+.search-dropdown__section-title,
+.search-dropdown__clear-text-button,
+.search-dropdown__item,
+.search-dropdown__item-icon,
+.search-dropdown__loading,
+.search-dropdown__empty {
+  color: var(--win95-black) !important;
+}
+
+.search-dropdown__shop-switch {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.search-dropdown__shop-button--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+}
+
+.search-dropdown__item:hover,
+.search-dropdown__item--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+}
+
+.search-dropdown__item:hover .search-dropdown__item-icon,
+.search-dropdown__item--active .search-dropdown__item-icon {
+  color: var(--win95-white) !important;
+}
+
+/* Library game card covers, raised bevel like a tile/button */
+.library-game-card__wrapper {
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.library-game-card-large {
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+/* Profile page */
+.profile-section {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.profile-section__content {
+  background: var(--win95-grey-light) !important;
+}
+
+.profile-section__button,
+.profile-section__count,
+.profile-section__content * {
+  color: var(--win95-black) !important;
+}
+
+.profile-section__header {
+  background: var(--win95-grey) !important;
+}
+
+.profile-section__header:hover {
+  background: var(--win95-blue) !important;
+}
+
+.profile-section__header:hover .profile-section__button {
+  color: var(--win95-white) !important;
+}
+
+/* Banner + avatar */
+.profile-hero__content-box {
+  background: var(--win95-grey) !important;
+}
+
+.profile-hero__avatar-button {
+  background: var(--win95-white) !important;
+  border: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-light), inset 1px 1px 0 var(--win95-grey-dark) !important;
+}
+
+.profile-hero__display-name,
+.profile-hero__information,
+.profile-hero__friend-code {
+  color: var(--win95-white) !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+.profile-hero__hero-panel {
+  background: var(--win95-grey) !important;
+  backdrop-filter: none !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+}
+
+/* Tabs (Library / Reviews, Notifications filters) */
+.profile-content__tab,
+.notifications__tab {
+  color: var(--win95-black) !important;
+  opacity: 1 !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.profile-content__tab--active,
+.notifications__tab--active {
+  border-bottom: 2px solid var(--win95-blue) !important;
+  font-weight: bold !important;
+}
+
+.profile-content__tab-underline,
+.notifications__tab-underline {
+  display: none !important;
+}
+
+.profile-content__tab-badge,
+.notifications__tab-badge,
+.profile-content__section-badge {
+  background: var(--win95-white) !important;
+  color: var(--win95-black) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+/* User review cards */
+.user-reviews__review-item,
+.user-reviews__review-item * {
+  color: var(--win95-black) !important;
+}
+
+.user-reviews__review-item {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.user-reviews__review-score-stars,
+.user-reviews__review-playtime,
+.user-reviews__vote-button {
+  background: var(--win95-grey-light) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+/* Notifications page */
+.notifications__filter-tabs {
+  border-bottom: 1px solid var(--win95-grey-dark) !important;
+}
+
+.notification-item {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+  opacity: 1 !important;
+}
+
+.notification-item:hover {
+  background: var(--win95-grey-light) !important;
+  opacity: 1 !important;
+}
+
+.notification-item--unread {
+  border-left: 4px solid var(--win95-blue) !important;
+}
+
+.notification-item__picture,
+.notification-item__badge-picture {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+}
+
+.notification-item__title,
+.notification-item__description,
+.notification-item__time {
+  color: var(--win95-black) !important;
+}
+
+/* Collections shelf (Favorites / custom collection pills) */
+.library__collections-title {
+  color: var(--win95-black) !important;
+  font-weight: bold !important;
+}
+
+.library__add-collection-button {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.library__add-collection-button:active {
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.library__collection-item {
+  color: var(--win95-black) !important;
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.library__collection-item:hover {
+  background: var(--win95-grey-light) !important;
+}
+
+.library__collection-item--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.library__collection-item--active * {
+  color: var(--win95-white) !important;
+}
+
+.library__collection-count {
+  background: var(--win95-white) !important;
+  color: var(--win95-black) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+/* Buttons (generic) */
+.button {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+  font-weight: normal !important;
+  padding: 4px 12px !important;
+  transition: none !important;
+}
+
+.button:active {
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+  transform: translate(1px, 1px) !important;
+}
+
+/* Settings content pane */
+.settings__content {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+}
+
+.settings__content h1,
+.settings__content h2,
+.settings__content h3,
+.settings__content p,
+.settings__content span,
+.settings__content label {
+  color: var(--win95-black) !important;
+}
+
+.settings__sidebar-button-label,
+.settings__sidebar-button-icon,
+.settings__sidebar-group-label {
+  color: var(--win95-black) !important;
+}
+
+.settings__sidebar-button--active .settings__sidebar-button-label,
+.settings__sidebar-button--active .settings__sidebar-button-icon {
+  color: var(--win95-white) !important;
+}
+
+.settings-download-sources__item,
+.download-group__item,
+.settings-emulation__header {
+  background: var(--win95-grey-light) !important;
+  color: var(--win95-black) !important;
+  border-top: 1px solid var(--win95-white) !important;
+  border-left: 1px solid var(--win95-white) !important;
+  border-right: 1px solid var(--win95-grey-dark) !important;
+  border-bottom: 1px solid var(--win95-grey-dark) !important;
+}
+
+/* Text fields / search / inputs */
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  background: var(--win95-white) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-light), inset 1px 1px 0 var(--win95-black) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--win95-grey-dark) !important;
+  opacity: 1 !important;
+}
+
+/* Checkboxes — .checkbox-field__input is the real (invisible, full-size)
+   input, kept full-size so its click area isn't shrunk */
+.checkbox-field__checkbox {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  background: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+}
+
+.checkbox-field__icon {
+  color: var(--win95-black) !important;
+}
+
+.checkbox-field__label {
+  color: var(--win95-black) !important;
+}
+
+/* Catalogue / library filters + toolbar */
+.catalogue__filters-container,
+.game-item,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box {
+  background: var(--win95-grey) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}
+
+.catalogue__filters-container *,
+.friends-box__box *,
+.user-stats__box *,
+.recent-games__box * {
+  color: var(--win95-black) !important;
+}
+
+/* Filter panel (Publisher/Release Year/Genres boxes) */
+.filter-section {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: none !important;
+}
+
+.filter-section__button {
+  background: transparent !important;
+  color: var(--win95-black) !important;
+}
+
+.filter-section__content {
+  background: var(--win95-grey) !important;
+}
+
+.filter-section__title,
+.filter-section__header-count,
+.filter-section__count,
+.filter-section__clear-button {
+  color: var(--win95-black) !important;
+}
+
+.filter-section__header-count {
+  background: var(--win95-white) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+.filter-item {
+  background: var(--win95-grey-light) !important;
+  color: var(--win95-black) !important;
+  border: 1px solid var(--win95-black) !important;
+}
+
+/* Result count / filter hint text */
+.catalogue__result-count,
+.catalogue__filters-hint,
+.catalogue__sort-label,
+.catalogue__active-filters-label {
+  color: var(--win95-black) !important;
+}
+
+/* Loading skeleton — colors are set as inline CSS custom properties by
+   react-loading-skeleton, so override the variables directly */
+.catalogue__skeleton {
+  border: 1px solid var(--win95-black) !important;
+}
+
+.react-loading-skeleton {
+  --base-color: var(--win95-grey-light) !important;
+  --highlight-color: var(--win95-white) !important;
+  background-color: var(--win95-grey-light) !important;
+}
+
+/* Profile page "Platforms" / "Sort by" dropdowns */
+.filter-dropdown__trigger {
+  background: var(--win95-white) !important;
+  color: var(--win95-black) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-light), inset 1px 1px 0 var(--win95-black) !important;
+}
+
+.filter-dropdown__placeholder,
+.filter-dropdown__value,
+.filter-dropdown__chevron {
+  color: var(--win95-black) !important;
+}
+
+.filter-dropdown__menu {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.filter-dropdown__option {
+  color: var(--win95-black) !important;
+}
+
+.filter-dropdown__option:hover,
+.filter-dropdown__option--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+}
+
+.filter-dropdown__check {
+  color: var(--win95-black) !important;
+}
+
+/* Library page "All / PC / Classics" toggle */
+.library-category-filter__container {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+  gap: 4px !important;
+}
+
+.library-category-filter__option {
+  color: var(--win95-black) !important;
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.library-category-filter__option--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.library-category-filter__option--active * {
+  color: var(--win95-white) !important;
+}
+
+/* Catalogue page "Modern Games / Classics" toggle */
+.catalogue-mode-toggle {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-dark) !important;
+  border-left: 2px solid var(--win95-grey-dark) !important;
+  border-right: 2px solid var(--win95-white) !important;
+  border-bottom: 2px solid var(--win95-white) !important;
+  gap: 4px !important;
+}
+
+.catalogue-mode-toggle__option {
+  color: var(--win95-black) !important;
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-dark), inset 1px 1px 0 var(--win95-white) !important;
+}
+
+.catalogue-mode-toggle__option--active {
+  background: var(--win95-blue) !important;
+  color: var(--win95-white) !important;
+  border-top: 2px solid var(--win95-black) !important;
+  border-left: 2px solid var(--win95-black) !important;
+  border-right: 2px solid var(--win95-grey-light) !important;
+  border-bottom: 2px solid var(--win95-grey-light) !important;
+  box-shadow: none !important;
+}
+
+.catalogue-mode-toggle__option--active * {
+  color: var(--win95-white) !important;
+}
+
+/* ProtonDB tier radio filters — round, exempted from the global reset */
+.radio-field__control {
+  border-radius: 999px !important;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  background: var(--win95-white) !important;
+  border: 2px solid var(--win95-grey-dark) !important;
+  box-shadow: inset -1px -1px 0 var(--win95-grey-light), inset 1px 1px 0 var(--win95-black) !important;
+}
+
+.radio-field__dot {
+  border-radius: 999px !important;
+  background: var(--win95-black) !important;
+}
+
+.radio-field__label {
+  color: var(--win95-black) !important;
+}
+
+/* Field/dropdown text color */
+.text-field-container__text-field-input,
+.select-field__option,
+.select-field__label {
+  color: var(--win95-black) !important;
+}
+
+/* Game row genre subtitle */
+.game-item__genres {
+  color: var(--win95-black) !important;
+}
+
+.badge {
+  background: var(--win95-white) !important;
+  color: var(--win95-black) !important;
+  border: 1px solid var(--win95-black) !important;
+  backdrop-filter: none !important;
+}
+
+/* Root background */
+#root {
+  background: var(--win95-teal) !important;
+}
+
+/* Default text color fallback */
+body {
+  color: var(--win95-black) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--win95-grey) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--win95-grey) !important;
+  border-top: 2px solid var(--win95-grey-light) !important;
+  border-left: 2px solid var(--win95-grey-light) !important;
+  border-right: 2px solid var(--win95-black) !important;
+  border-bottom: 2px solid var(--win95-black) !important;
+}

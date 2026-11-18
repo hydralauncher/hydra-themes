@@ -1,0 +1,949 @@
+/*
+  Here you can edit CSS for your theme and apply it on Hydra.
+  There are a few classes already in place, you can use them to style the launcher.
+
+  If you want to learn more about how to run Hydra in dev mode (which will allow you to inspect the DOM and view the classes)
+  or how to publish your theme in the theme store, you can check the docs:
+  https://docs.hydralauncher.gg/themes.html
+
+  Happy hacking!
+*/
+:root {
+  --banka-bg: #050505;
+  --banka-panel: rgba(12,12,12,.62);
+  --banka-panel-strong: rgba(8,8,8,.82);
+  --banka-orange: #ff5a00;
+  --banka-white: #f5f5f5;
+  --banka-muted: #9a9a9a;
+
+  --color-background-base: #050505;
+  --color-background-dark: #090909;
+  --color-background-button: rgba(255,90,0,.12);
+  --color-text: #f5f5f5;
+  --color-all: #ff5a00;
+}
+
+/* fundo geral */
+body {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(255,90,0,.18), transparent 28%),
+    radial-gradient(circle at 10% 90%, rgba(255,90,0,.10), transparent 35%),
+    linear-gradient(180deg, #050505, #090909) !important;
+  color: var(--banka-white) !important;
+}
+
+/* vidro geral */
+.
+/* ===== BANKA Dock fino com nomes embaixo ===== */
+
+.sidebar {
+  width: 76px !important;
+  min-width: 76px !important;
+  max-width: 76px !important;
+
+  background: rgba(0,0,0,.78) !important;
+  border-right: 1px solid rgba(255,90,0,.28) !important;
+  overflow: hidden !important;
+}
+
+/* itens em coluna: ícone em cima, texto embaixo */
+.sidebar button,
+.sidebar a {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  gap: 4px !important;
+  min-height: 58px !important;
+  padding: 6px 4px !important;
+
+  border-radius: 12px !important;
+  transition: all .2s ease !important;
+}
+
+/* ícones maiores */
+.sidebar svg,
+.sidebar img {
+  width: 25px !important;
+  height: 25px !important;
+  flex-shrink: 0 !important;
+}
+
+/* texto discreto embaixo */
+.sidebar span,
+.sidebar p {
+  display: block !important;
+  font-size: 9px !important;
+  line-height: 1 !important;
+  max-width: 68px !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  color: rgba(255,255,255,.62) !important;
+}
+
+/* hover BANKA */
+.sidebar button:hover,
+.sidebar a:hover {
+  background: rgba(255,90,0,.14) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,90,0,.35),
+    0 0 18px rgba(255,90,0,.35);
+  transform: translateY(-1px);
+}
+
+/* item ativo */
+.sidebar button[aria-current="page"],
+.sidebar a[aria-current="page"],
+.sidebar .active {
+  background: rgba(255,90,0,.20) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,90,0,.55),
+    0 0 22px rgba(255,90,0,.35);
+}
+
+/* títulos tipo COLEÇÕES/JOGOS menores */
+.sidebar h1,
+.sidebar h2,
+.sidebar h3,
+.sidebar strong {
+  display: block !important;
+  font-size: 8px !important;
+  letter-spacing: .6px !important;
+  text-align: center !important;
+  color: rgba(255,255,255,.55) !important;
+}
+
+/* busca da sidebar discreta */
+.sidebar input {
+  width: 56px !important;
+  height: 28px !important;
+  font-size: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+
+
+.header {
+  height: 78px !important;
+  background: rgba(0,0,0,.55) !important;
+  border-bottom: 1px solid rgba(255,90,0,.45) !important;
+  backdrop-filter: blur(20px);
+}
+
+.header::before {
+  content: "BANKA";
+  color: #ff5a00;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  margin-right: 28px;
+  animation: bankaGlow 3s infinite;
+}
+
+.bottom-panel {
+  background: rgba(0,0,0,.85) !important;
+  border-top: 1px solid rgba(255,90,0,.45) !important;
+  height: 28px !important;
+}
+
+.container__content {
+  padding: 28px !important;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,90,0,.12), transparent 30%),
+    #050505 !important;
+}
+
+.game-card {
+  border-radius: 18px !important;
+  background: rgba(10,10,10,.7) !important;
+  border: 1px solid rgba(255,90,0,.22) !important;
+  overflow: hidden !important;
+  transition: all .25s ease !important;
+}
+
+.game-card:hover {
+  transform: translateY(-10px) scale(1.035) !important;
+  border-color: #ff5a00 !important;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.8),
+    0 0 35px rgba(255,90,0,.55) !important;
+}
+
+.button {
+  background: rgba(255,90,0,.12) !important;
+  border: 1px solid rgba(255,90,0,.35) !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+  transition: all .2s ease !important;
+}
+
+.button:hover {
+  background: rgba(255,90,0,.28) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(255,90,0,.5);
+}
+
+@keyframes bankaGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255,90,0,.7);
+  }
+  50% {
+    text-shadow:
+      0 0 20px #ff5a00,
+      0 0 45px rgba(255,90,0,.8);
+  }
+}
+.container__content {
+  background: var(--banka-panel) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,90,0,.18) !important;
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.55),
+    0 0 22px rgba(255,90,0,.08);
+}
+
+/* logo fake no topo */
+.header::before {
+  content: "BANKA";
+  color: var(--banka-orange);
+  font-weight: 900;
+  letter-spacing: 7px;
+  margin-right: 24px;
+  text-shadow: 0 0 18px rgba(255,90,0,.7);
+}
+
+.header--is-windows::before {
+    content: "";
+
+    display: block;
+
+    width: 300px;
+    height: 90px;
+
+    background-image: url("https://i.postimg.cc/wTsBwdcY/witch-witch-face.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+/* cards */
+.game-card {
+  border-radius: 18px !important;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: #ff5a00; !important;
+  box-shadow:
+0 0 30px rgba(255,90,0,.5);
+}
+
+/* botões */
+.button {
+  border-radius: 14px !important;
+  color: #fff !important;
+  transition: .2s ease;
+}
+
+.button:hover {
+  background: rgba(255,90,0,.24) !important;
+  box-shadow: 0 0 20px rgba(255,90,0,.45);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,90,0,.55);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.04);
+}
+
+/* ===== Ajuste fino sidebar BANKA ===== */
+
+.sidebar__profile {
+  margin-bottom: 8px !important;
+  padding: 6px 4px !important;
+  height: auto !important;
+}
+
+.sidebar__menu-item {
+  margin: 0 0 4px 0 !important;
+  padding: 6px 4px !important;
+  min-height: 50px !important;
+}
+
+.sidebar__section-header {
+  margin: 10px 0 4px 0 !important;
+  padding: 4px 6px !important;
+  height: auto !important;
+}
+
+.text-field-container {
+  margin: 4px 0 !important;
+  height: 30px !important;
+}
+
+/* diminui o espaço entre grupos */
+.sidebar > div {
+  margin-top: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+/* deixa tudo mais colado no topo */
+.sidebar {
+  padding-top: 4px !important;
+}
+
+.sidebar__content {
+    flex: 0 !important;
+      flex-grow: 1 !important;
+}
+
+
+.sidebar__menu {
+  gap: 6px !important;
+}
+
+.sidebar__section {
+  gap: 8px !important;
+}
+
+.sidebar__menu-item {
+  margin-bottom: 2px !important;
+}
+
+.sidebar__container {
+    justify-content: flex-start !important;
+}
+
+/* Menu principal: ícone central + texto discreto */
+.sidebar__menu .sidebar__menu-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 4px !important;
+  min-height: 58px !important;
+  padding: 6px 4px !important;
+  border-radius: 12px !important;
+}
+
+.sidebar__menu .sidebar__menu-item svg {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.sidebar__menu .sidebar__menu-item span,
+.sidebar__menu .sidebar__menu-item p {
+  font-size: 8px !important;
+  opacity: .65 !important;
+  text-align: center !important;
+}
+
+/* Coleções/Jogos: NÃO centralizar */
+.sidebar__section:not(:first-child) .sidebar__menu-item,
+.sidebar__section:not(:first-child) a,
+.sidebar__section:not(:first-child) button {
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 34px !important;
+  padding: 4px 6px !important;
+}
+
+.sidebar__section:not(:first-child) span,
+.sidebar__section:not(:first-child) p {
+  font-size: 10px !important;
+  text-align: left !important;
+  opacity: .75 !important;
+}
+
+/* Títulos Coleções/Jogos mais discretos */
+.sidebar__section-header {
+  justify-content: space-between !important;
+  font-size: 9px !important;
+  opacity: .85 !important;
+  padding: 4px 6px !important;
+}
+
+/* Busca e lista de jogos mais limpa */
+.text-field-container {
+  height: 30px !important;
+  margin: 4px 0 !important;
+}
+
+.sidebar__section:not(:first-child) img {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.sidebar__menu .sidebar__menu-item svg {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.text-field-container {
+    height: 28px !important;
+}
+
+.sidebar__section-header {
+    font-size: 10px !important;
+    opacity: .7 !important;
+    min-height: 24px !important;
+    padding: 2px 6px !important;
+}
+
+.sidebar__section:not(:first-child) {
+    gap: 4px !important;
+}
+
+
+/* ===== BANKA CARDS + BANNER ===== */
+
+/* Banner principal */
+.home__hero,
+.hero,
+.hero-panel,
+.game-hero {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,90,0,.25) !important;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.65),
+    0 0 35px rgba(255,90,0,.12) !important;
+}
+
+/* Área do banner/home */
+.home__content,
+.home__header {
+  background: transparent !important;
+}
+
+/* Cards dos jogos */
+.game-card,
+.game-card__backdrop {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,90,0,.22) !important;
+  background: rgba(8,8,8,.75) !important;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    filter .25s ease !important;
+}
+
+/* Hover dos cards */
+.game-card:hover,
+.game-card__backdrop:hover {
+  transform: translateY(-8px) scale(1.025) !important;
+  border-color: rgba(255,90,0,.85) !important;
+  filter: brightness(1.12) contrast(1.06) !important;
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.82),
+    0 0 30px rgba(255,90,0,.42),
+    inset 0 0 24px rgba(255,90,0,.10) !important;
+}
+
+/* Texto dentro dos cards */
+.game-card span,
+.game-card p,
+.game-card h3,
+.game-card__backdrop span,
+.game-card__backdrop p,
+.game-card__backdrop h3 {
+  text-shadow: 0 2px 8px rgba(0,0,0,.9) !important;
+}
+
+/* Tags pequenas dos cards */
+.game-card button,
+.game-card__backdrop button {
+  background: rgba(0,0,0,.55) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Botões da home */
+.home__header button,
+.button {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,90,0,.45) !important;
+  background: rgba(255,90,0,.10) !important;
+  color: #fff !important;
+}
+
+.home__header button:hover,
+.button:hover {
+  background: rgba(255,90,0,.22) !important;
+  box-shadow: 0 0 22px rgba(255,90,0,.35) !important;
+}
+
+/* ===== BANKA CATÁLOGO PREMIUM ===== */
+
+/* itens da lista do catálogo */
+.game-item__content-link {
+  background: rgba(10,10,10,.72) !important;
+  border: 1px solid rgba(255,90,0,.16) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  margin-bottom: 12px !important;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease !important;
+}
+
+/* hover catálogo */
+.game-item__content-link:hover {
+  transform: translateX(10px) scale(1.015) !important;
+  background: rgba(255,90,0,.08) !important;
+  border-color: rgba(255,90,0,.75) !important;
+
+  box-shadow:
+    0 14px 35px rgba(0,0,0,.75),
+    0 0 28px rgba(255,90,0,.35) !important;
+}
+
+/* imagem do jogo na lista */
+.game-item__content-link img {
+  border-radius: 12px !important;
+  filter: brightness(.82) saturate(.9) !important;
+  transition: .22s ease !important;
+}
+
+.game-item__content-link:hover img {
+  filter: brightness(1.15) saturate(1.25) !important;
+}
+
+/* texto do catálogo */
+.game-item__content-link h3,
+.game-item__content-link span,
+.game-item__content-link p {
+  text-shadow: 0 2px 8px rgba(0,0,0,.85) !important;
+}
+
+/* painel lateral de filtros */
+.catalogue__filters,
+.catalog__filters,
+.filter-panel,
+.sidebar-filters {
+  background: rgba(8,8,8,.76) !important;
+  border: 1px solid rgba(255,90,0,.18) !important;
+  border-radius: 18px !important;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.55),
+    0 0 22px rgba(255,90,0,.08) !important;
+}
+
+/* caixas de filtros internas */
+.catalogue__filters section,
+.catalog__filters section,
+.filter-panel section,
+.sidebar-filters section {
+  background: rgba(255,255,255,.025) !important;
+  border: 1px solid rgba(255,90,0,.10) !important;
+  border-radius: 14px !important;
+}
+
+/* inputs e selects */
+.text-field-container,
+select {
+  background: rgba(0,0,0,.55) !important;
+  border: 1px solid rgba(255,90,0,.22) !important;
+  border-radius: 12px !important;
+}
+
+/* checkboxes */
+input[type="checkbox"] {
+  accent-color: #ff5a00 !important;
+}
+
+/* título e contagem */
+.catalogue h1,
+.catalog h1,
+.catalogue h2,
+.catalog h2 {
+  color: #fff !important;
+  text-shadow: 0 0 14px rgba(255,90,0,.25) !important;
+}
+.game-item__content-link img {
+  width: 210px !important;
+  height: 96px !important;
+  object-fit: cover !important;
+}
+
+.game-item__content-link {
+  min-height: 108px !important;
+}
+
+/* ===== BANKA BIBLIOTECA PREMIUM ===== */
+
+/* grid da biblioteca mais respirado */
+.library__content,
+.library-grid,
+.game-library {
+  gap: 18px !important;
+}
+
+/* cards/posters da biblioteca */
+.library-game-card,
+.game-card,
+.game-card__backdrop {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+
+  background: rgba(8,8,8,.78) !important;
+  border: 1px solid rgba(255,90,0,.16) !important;
+
+  opacity: .62 !important;
+  filter: brightness(.68) saturate(.85) contrast(1.05) !important;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.65),
+    inset 0 0 20px rgba(255,90,0,.04) !important;
+
+  transition:
+    transform .25s ease,
+    opacity .25s ease,
+    filter .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease !important;
+}
+
+/* hover na biblioteca */
+.library-game-card:hover,
+.game-card:hover,
+.game-card__backdrop:hover {
+  opacity: 1 !important;
+  filter: brightness(1.15) saturate(1.22) contrast(1.12) !important;
+
+  transform: translateY(-10px) scale(1.045) !important;
+
+  border-color: rgba(255,90,0,.95) !important;
+
+  box-shadow:
+    0 22px 50px rgba(0,0,0,.85),
+    0 0 32px rgba(255,90,0,.55),
+    0 0 80px rgba(255,90,0,.18) !important;
+
+  z-index: 30 !important;
+}
+
+/* imagem dos jogos */
+.library-game-card img,
+.game-card img,
+.game-card__backdrop img {
+  transition: .25s ease !important;
+}
+
+.library-game-card:hover img,
+.game-card:hover img,
+.game-card__backdrop:hover img {
+  transform: scale(1.035) !important;
+}
+
+/* barra superior da biblioteca */
+.library__header,
+.library__filters {
+  background: rgba(10,10,10,.55) !important;
+  border: 1px solid rgba(255,90,0,.14) !important;
+  border-radius: 16px !important;
+  padding: 12px !important;
+}
+
+/* botões de visualização */
+.library__header button,
+.library__filters button {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,90,0,.28) !important;
+  background: rgba(255,90,0,.08) !important;
+}
+
+.library__header button:hover,
+.library__filters button:hover {
+  background: rgba(255,90,0,.22) !important;
+  box-shadow: 0 0 20px rgba(255,90,0,.35) !important;
+}
+
+/* ===== BANKA BIBLIOTECA - classes reais ===== */
+
+.library__games-grid {
+  gap: 22px !important;
+  padding-top: 18px !important;
+}
+
+.library-game-card__overlay {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,90,0,.18) !important;
+
+  opacity: .62 !important;
+  filter: brightness(.68) saturate(.82) contrast(1.05) !important;
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.75),
+    inset 0 0 18px rgba(255,90,0,.08) !important;
+
+  transition: all .25s ease !important;
+}
+
+.library-game-card__overlay:hover {
+  opacity: 1 !important;
+  filter: brightness(1.18) saturate(1.25) contrast(1.12) !important;
+
+  transform: translateY(-10px) scale(1.045) !important;
+
+  border-color: rgba(255,90,0,.95) !important;
+
+  box-shadow:
+    0 24px 55px rgba(0,0,0,.88),
+    0 0 36px rgba(255,90,0,.55),
+    0 0 90px rgba(255,90,0,.20) !important;
+
+  z-index: 20 !important;
+}
+
+.library__controls-left {
+  background: rgba(8,8,8,.55) !important;
+  border: 1px solid rgba(255,90,0,.15) !important;
+  border-radius: 16px !important;
+  padding: 12px !important;
+}
+
+.library-view-options__options {
+  background: rgba(8,8,8,.65) !important;
+  border: 1px solid rgba(255,90,0,.18) !important;
+  border-radius: 14px !important;
+  padding: 6px !important;
+}
+
+/* FORÇAR SIDEBAR VERTICAL */
+.sidebar {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  height: 100vh !important;
+
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.sidebar__container,
+.sidebar__content {
+  width: 100% !important;
+  height: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+
+  padding: 8px !important;
+  gap: 12px !important;
+}
+
+.sidebar__menu {
+  width: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+
+  gap: 6px !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.sidebar__menu-item,
+.sidebar__menu-item-button {
+  width: 100% !important;
+  height: 44px !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  gap: 10px !important;
+  padding: 8px 10px !important;
+
+  border-radius: 12px !important;
+}
+
+.sidebar__section {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.sidebar__section-header {
+  width: 100% !important;
+}
+
+.header--is-windows {
+    position: relative;
+}
+
+/* GIF */
+.header--is-windows::before {
+    content: "";
+
+    position: absolute;
+    left: 20px;
+    top: 5px;
+
+    width: 80px;
+    height: 80px;
+
+    background-image: url("https://i.postimg.cc/hGLt8bnq/witch-witch-face.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* TEXTO */
+.header--is-windows::after {
+    content: "BΛПKΛ";
+
+    position: absolute;
+    left: 95px;
+    top: 18px;
+
+    color: #f5f5f5;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 8px;
+
+    text-shadow: 0 0 15px rgba(255,90,0,.7);
+}
+
+
+.header__section--left {
+    padding-left: 250px !important;
+}
+
+/* ===== BANKA DOWNLOADS PREMIUM ===== */
+
+.downloads__groups {
+  padding: 28px !important;
+  gap: 28px !important;
+}
+
+/* bloco Na fila / Concluído */
+.download-group {
+  background: rgba(8,8,8,.55) !important;
+  border: 1px solid rgba(255,90,0,.18) !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.65),
+    inset 0 0 35px rgba(255,90,0,.04) !important;
+}
+
+/* item de download */
+.download-group__simple-info {
+  background: rgba(255,255,255,.025) !important;
+  border: 1px solid rgba(255,90,0,.14) !important;
+  border-radius: 18px !important;
+  padding: 12px !important;
+
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease !important;
+}
+
+.download-group__simple-info:hover {
+  transform: translateX(8px) scale(1.01) !important;
+  background: rgba(255,90,0,.08) !important;
+  border-color: rgba(255,90,0,.75) !important;
+
+  box-shadow:
+    0 14px 35px rgba(0,0,0,.65),
+    0 0 24px rgba(255,90,0,.35) !important;
+}
+
+/* capa do jogo */
+.download-group__simple-info img {
+  border-radius: 14px !important;
+  filter: brightness(.88) saturate(.95) !important;
+  transition: .22s ease !important;
+}
+
+.download-group__simple-info:hover img {
+  filter: brightness(1.15) saturate(1.25) !important;
+  transform: scale(1.035) !important;
+}
+
+/* botões Abrir pasta / menu */
+.download-group button,
+.download-group--completed button,
+.download-group--queued button {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,90,0,.45) !important;
+  background: rgba(255,90,0,.08) !important;
+  color: #fff !important;
+}
+
+.download-group button:hover {
+  background: rgba(255,90,0,.22) !important;
+  box-shadow: 0 0 20px rgba(255,90,0,.35) !important;
+}
+
+/* barra de progresso */
+progress,
+progress::-webkit-progress-bar {
+  height: 6px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #ff5a00, #ffb000) !important;
+  box-shadow: 0 0 14px rgba(255,90,0,.75) !important;
+}
+
+.title-bar {
+    font-size: 0 !important;
+}
+
+.title-bar::before {
+    content: "𝐁𝐍𝐊 𝐆𝐀𝐍𝐆 ᶠᶸᶜᵏᵧₒᵤ! 💋";
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff5a00;
+}
+
+.title-bar {
+    font-size: 0 !important;
+}

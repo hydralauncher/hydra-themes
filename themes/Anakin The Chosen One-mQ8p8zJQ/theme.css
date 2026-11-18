@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap');
 
 #root {
-  background: url(https://i.imgur.com/9IskB0l.png) #000 no-repeat center top;
+  background: url(background.png) #000 no-repeat center top;
   background-size: cover;
 }
 

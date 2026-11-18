@@ -448,7 +448,7 @@ body::after {
     overflow: hidden;
     border-radius: 8px;
     margin: 6px 10px 0px 10px;
-    background-image: url('https://i.imgur.com/9G5llu4.png') !important;
+    background-image: url('1.png') !important;
     background-size: cover !important;
     background-position: center 30% !important;
     background-repeat: no-repeat !important;
@@ -572,7 +572,7 @@ h2.profile-hero__display-name {
     display: block;
     width: 45px;
     height: 50px;
-    background-image: url('https://i.imgur.com/oeE5JSR.png');
+    background-image: url('2.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -587,7 +587,7 @@ h2.profile-hero__display-name {
     display: block;
     width: 45px;
     height: 50px;
-    background-image: url('https://i.imgur.com/bnTic0s.png');
+    background-image: url('3.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

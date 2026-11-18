@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+
+:root {
+  --gold: #FFD700;
+  --gold-dim: #cca300;
+  --orange: #FF8C00;
+  --dark-bg: #050505;
+  --glass-dark: rgba(0, 0, 0, 0.85);
+  --glass-light: rgba(255, 255, 255, 0.05);
+  --text-main: #ffffff;
+  --text-dim: #a0a0a0;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif !important;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-main);
+}
+
+#root {
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(5,5,5,0.95) 100%),
+    radial-gradient(circle at 50% 0%, rgba(255, 140, 0, 0.15), transparent 60%) !important;
+  background-attachment: fixed;
+  background-color: var(--dark-bg) !important;
+}
+
+.sidebar {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 215, 0, 0.1) !important;
+}
+
+.sidebar button, 
+.sidebar a {
+  color: var(--text-dim) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  border-radius: 6px !important;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent !important;
+}
+
+.sidebar button:hover, 
+.sidebar a:hover,
+.sidebar .active {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%) !important;
+  color: var(--gold) !important;
+  border-left: 3px solid var(--gold) !important;
+  padding-left: 20px !important;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.header__search,
+.header input {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  color: #fff !important;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.header__search:focus,
+.header input:focus {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2) !important;
+}
+
+.game-card,
+[class*="game-card"] {
+  background: transparent !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid transparent !important;
+}
+
+.game-card img {
+  border-radius: 12px !important;
+  filter: saturate(1.1) brightness(0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  z-index: 10;
+}
+
+.game-card:hover img {
+  filter: saturate(1.3) brightness(1.1);
+  box-shadow: 
+    0 0 0 2px var(--gold), 
+    0 15px 40px rgba(255, 140, 0, 0.3);
+}
+
+.game-card h3 {
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  font-size: 14px !important;
+  margin-top: 10px !important;
+  color: #ddd !important;
+  transition: color 0.3s;
+}
+
+.game-card:hover h3 {
+  color: var(--gold) !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.button, 
+button {
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.button--primary,
+.action-button {
+  background: var(--gold) !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.button--primary:hover,
+.action-button:hover {
+  background: #ffea00 !important;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+}
+
+.button--outline {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+
+.button--outline:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+  background: rgba(255, 215, 0, 0.05) !important;
+}
+
+.container__content,
+.settings__content, 
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.catalogue__filters-container {
+  background: rgba(15, 15, 15, 0.9) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.settings-download-sources__item,
+.download-group__item {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 8px !important;
+  border: 1px solid transparent;
+}
+
+.settings-download-sources__item:hover,
+.download-group__item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 215, 0, 0.3) !important;
+}
+
+.modal__content,
+.dialog,
+[class*="modal"] {
+  background: #111 !important;
+  border: 1px solid rgba(255, 215, 0, 0.2) !important;
+  box-shadow: 0 0 50px rgba(0,0,0,0.8) !important;
+}
+
+.toast {
+  background: #1a1a1a !important;
+  border-left: 4px solid var(--gold) !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6) !important;
+}
+
+.progress-bar {
+  background: rgba(255,255,255,0.1) !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+}
+
+.progress-bar__fill,
+[class*="progress"] > div {
+  background: linear-gradient(90deg, var(--orange), var(--gold)) !important;
+  box-shadow: 0 0 10px var(--orange);
+}
+
+input, select, textarea {
+  background: rgba(0,0,0,0.5) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: white !important;
+  border-radius: 6px !important;
+}
+
+input:focus, select:focus {
+  border-color: var(--gold) !important;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold); 
+}
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}

@@ -96,8 +96,7 @@ body {
   .bottom-panel {
     background-color: rgba(39, 12, 112, 0.25);
   }
-}
-<style>
+
 body {
     margin: 0;
     color: #ffffff;
@@ -116,11 +115,6 @@ html, body, #root, main {
 }
 * {
     box-sizing: border-box;
-}
-user agent stylesheet
-body {
-    display: block;
-    margin: 8px;
 }
 .featurebase-widget.featurebase-fullscreen.featurebase-right {
     --featurebase-widget-fadein-animation: featurebase-fadeInX;

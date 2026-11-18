@@ -10,35 +10,42 @@ body {
     text-shadow: 3px 3px 5px #1b1b1b;
   }
   .title-bar {
-    display: flex;
-    width: 100%;
-    height: 35px;
-    min-height: 35px;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    align-items: center;
-    padding: 0 16px;
-    -webkit-app-region: drag;
-    z-index: 4;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  }
+  display: flex !important;
+  width: 100%;
+  height: 35px;
+  min-height: 35px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-app-region: drag !important;
+  z-index: 4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative; /* Container anchor for absolute elements */
+  text-align: left;
+  color: transparent;
+  padding-left: 12px;
+  background: linear-gradient(90deg, rgba(10,10,15,0.95), rgba(20,25,35,0.92));
+  box-shadow: 0 0 12px rgb(10, 88, 189);
+  overflow: hidden;
+}
+
+.title-bar::after {
+  content: "BLUE HYDRA";
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, rgb(14, 32, 219), rgb(14, 201, 250));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Properly centers the title without distorting layout width */
+  pointer-events: none; /* Prevents text from blocking clicks on buttons underneath */
+}
   
   .title-bar h4 {
-    visibility: hidden;
-  }
-  
-  .title-bar::after {
-    content: "Blue Hydra";
-    margin-left: 40%;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 5px;
-    background: linear-gradient(90deg, #0c19aa, #0ec9fa);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    display: inline-block;
-    vertical-align: middle;
+    display: none !important;
   }
   
   #root {

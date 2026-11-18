@@ -448,7 +448,7 @@ body::after {
     overflow: hidden;
     border-radius: 8px;
     margin: 6px 10px 0px 10px;
-    background-image: url('https://i.imgur.com/ylQMHuu.jpeg') !important;
+    background-image: url('background.jpeg') !important;
     background-size: cover !important;
     background-position: center 30% !important;
     background-repeat: no-repeat !important;

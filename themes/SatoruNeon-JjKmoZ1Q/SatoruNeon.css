@@ -1,0 +1,654 @@
+/* =============================================================
+   GOJO INFINITY — Hydra Launcher Theme v4
+   ✦ Vibe: Infinity / Void — dark, minimal, mysterious
+   ✦ Accent: Hollow Purple (used sparingly)
+
+   ── IMAGE SETUP ─────────────────────────────────────────────
+   Place these files inside your theme folder:
+
+   1. gojo-bg.jpg      → main background wallpaper
+                         (any Gojo wallpaper, full res)
+
+   2. gojo-bar.png     → image shown in the top bar
+                         replacing the "Hydra" title.
+                         TIPS:
+                         • Use a PNG with transparent background
+                           for best results (e.g. a logo/text art)
+                         • Or use a cropped wide banner of Gojo's
+                           face/eyes — it'll be contained in a
+                           110x40px box on the left of the bar
+                         • Sites like SteamGridDB have clean
+                           logo PNGs that work great here
+   ─────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600&display=swap');
+
+/* ── VARIABLES ─────────────────────────────────────────────── */
+:root {
+  /* Images — point these to your files */
+  --bg-image:       url('https://i.imgur.com/Id3SEa6.jpeg');
+  --titlebar-image: url("https://i.imgur.com/mUEmTh3.jpeg");
+
+   /* Void palette */
+  --void-bg:        #050508;
+  --void-surface:   #0a0a10;
+  --void-elevated:  #0f0f18;
+  --void-raised:    #141420;
+ 
+  /* Borders */
+  --border-soft:    rgba(255, 255, 255, 0.05);
+  --border-mid:     rgba(255, 255, 255, 0.08);
+  --border-purple:  rgba(123, 63, 228, 0.25);
+ 
+  /* Accent */
+  --purple:         #7b3fe4;
+  --purple-alpha:   rgba(123, 63, 228, 0.08);
+  --purple-glow:    rgba(123, 63, 228, 0.22);
+ 
+  /* Blur */
+  --blur:           blur(8px);
+  --blur-strong:    blur(12px);
+  --blur-modal:     blur(16px);
+ 
+  /* Text */
+  --text:           #dddae8;
+  --text-dim:       #7a7890;
+  --text-muted:     #3e3c50;
+ 
+  /* Fonts — swap 'Bangers' for 'CCWildWords' if you host the file */
+  --font-display:   'Bangers', 'Oxanium', sans-serif;
+  --font-body:      'Oxanium', 'Segoe UI', sans-serif;
+}
+
+/* ── GLOBAL ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  font-family: var(--font-body) !important;
+  box-sizing: border-box;
+}
+ 
+/* Headings use the display/comic font */
+h1, h2, h3, h4, h5, h6,
+.title-bar::after {
+  font-family: var(--font-display) !important;
+}
+ 
+*:focus        { outline: none !important; box-shadow: none !important; }
+*:focus-visible { outline: none !important; box-shadow: 0 0 0 2px rgba(123, 63, 228, 0.3) !important; }
+ 
+body {
+  color: var(--text);
+  background: var(--void-bg);
+  line-height: 1.4;
+}
+ 
+/* ── BACKGROUND ─────────────────────────────────────────────── */
+#root {
+  background: var(--void-bg) var(--bg-image) no-repeat center top;
+  background-size: cover;
+  position: relative;
+}
+ 
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(5, 5, 8, 0.55) 0%,
+    rgba(5, 5, 8, 0.80) 50%,
+    rgba(5, 5, 8, 0.97) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+ 
+.sidebar,
+.header,
+.container__content,
+.bottom-panel {
+  background: transparent !important;
+}
+ 
+/* ── TITLE BAR ──────────────────────────────────────────────
+   • The default "Hydra" h4 title is hidden
+   • ::before injects your custom image on the left
+   • ::after can show a custom label on the right
+     (edit the content: "" string to change it,
+      or remove the ::after block entirely)
+─────────────────────────────────────────────────────────── */
+.title-bar {
+  background: rgba(5, 5, 8, 0.97) !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  box-shadow: inset 0 -1px 0 rgba(123, 63, 228, 0.1) !important;
+  position: relative;
+}
+
+/* Hide the default "Hydra" text */
+.title-bar h4 {
+  visibility: hidden;
+}
+
+/* Your custom image — replaces the title */
+.title-bar::before {
+  content: "";
+  background-image: var(--titlebar-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 110px;
+  height: 35px;
+  margin-left: 10px;
+  vertical-align: middle;
+  opacity: 0.9;
+}
+
+/* Optional: custom text label on the right side of the bar.
+   Change the content value or delete this block. */
+.title-bar::after {
+  content: "@Konoshimaru";
+  position: absolute;
+  right: 150px; /* stays clear of the window control buttons */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  pointer-events: none;
+}
+
+/* Window control buttons */
+.title-bar button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--text-muted) !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease !important;
+}
+
+.title-bar button:hover {
+  opacity: 1 !important;
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.title-bar button:last-child:hover {
+  color: #c27070 !important;
+  background: rgba(194, 112, 112, 0.1) !important;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────── */
+.header {
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: var(--blur) !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+}
+
+.header__search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary {
+  background-color: var(--void-elevated) !important;
+  border: 1px solid var(--border-mid) !important;
+  color: var(--text) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.header__search:focus,
+.text-field-container__text-field--dark:focus,
+.text-field-container__text-field--primary:focus {
+  border-color: rgba(123, 63, 228, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(123, 63, 228, 0.07) !important;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────────────────── */
+.sidebar {
+  width: 120px;
+  backdrop-filter: var(--blur-strong) !important;
+  -webkit-backdrop-filter: var(--blur-strong) !important;
+  border-right: 1px solid var(--border-soft) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar__menu-item {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text-dim) !important;
+  transition: all 0.2s ease-in-out;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.sidebar__menu-item:hover {
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  transform: translateX(2px);
+}
+
+.sidebar__menu-item--active {
+  color: var(--text) !important;
+  background: var(--purple-alpha) !important;
+  border-left: 2px solid var(--purple) !important;
+  box-shadow: none !important;
+}
+
+/* Sidebar profile section */
+.sidebar-profile {
+  background: rgba(10, 10, 16, 0.7) !important;
+  backdrop-filter: var(--blur) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 8px 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-profile:hover {
+  border-color: var(--border-purple) !important;
+  box-shadow: 0 0 10px var(--purple-glow) !important;
+}
+
+.sidebar-profile__title {
+  color: var(--purple) !important;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.content-sidebar,
+.sidebar-section__button {
+  background: rgba(8, 8, 14, 0.7) !important;
+  backdrop-filter: var(--blur) !important;
+  border: 1px solid var(--border-soft) !important;
+}
+
+/* ── MAIN PANELS ─────────────────────────────────────────────── */
+.settings__content,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary,
+.header__search,
+.game-item,
+.catalogue__filters-container,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.download-group__right-content,
+.hero-panel,
+.hero-panel--stuck,
+.game-details__description-container,
+.description-header,
+.modal__header {
+  background: rgba(10, 10, 16, 0.75) !important;
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: var(--blur) !important;
+  border: 1px solid var(--border-soft) !important;
+}
+
+/* ── GAME ITEMS ──────────────────────────────────────────────── */
+.game-item {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.game-item:hover {
+  border-color: var(--border-purple) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Game card (hero/featured area) */
+.game-card {
+  background: rgba(8, 8, 14, 0.75) !important;
+  border: 1px solid var(--border-soft) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.game-card:hover {
+  transform: scale(1.02) !important;
+  border-color: var(--border-purple) !important;
+  box-shadow: 0 0 16px var(--purple-glow) !important;
+}
+
+.game-card__title {
+  color: var(--text) !important;
+  font-weight: 500 !important;
+}
+
+/* Hero content panel */
+.hero__content {
+  background: rgba(5, 5, 8, 0.85) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Library game overlay hover effect */
+.user-library-game__overlay {
+  transition: transform 0.15s ease-in-out;
+  transform-origin: center;
+}
+
+.user-library-game__overlay:hover {
+  transform: scale(1.03);
+}
+
+.user-library-game__overlay:hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(123, 63, 228, 0.08);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* ── MODAL ───────────────────────────────────────────────────── */
+.modal__content {
+  background: rgba(7, 7, 12, 0.97) !important;
+  backdrop-filter: var(--blur-modal) !important;
+  -webkit-backdrop-filter: var(--blur-modal) !important;
+  border: 1px solid var(--border-mid) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+
+.button--primary {
+  background: var(--purple) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.button--primary:hover {
+  filter: brightness(1.12) !important;
+  box-shadow: 0 0 14px var(--purple-glow) !important;
+  transform: translateY(-1px);
+}
+
+.button--outline {
+  background: transparent !important;
+  border: 1px solid var(--border-mid) !important;
+  color: var(--text-dim) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.button--outline:hover {
+  border-color: var(--border-purple) !important;
+  color: var(--text) !important;
+  transform: translateY(-1px);
+}
+
+/* Cloud sync button */
+.game-details__cloud-sync-button {
+  background: var(--void-elevated) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-purple) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 8px var(--purple-glow) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.game-details__cloud-sync-button:hover {
+  background: rgba(123, 63, 228, 0.15) !important;
+  box-shadow: 0 0 16px var(--purple-glow) !important;
+  transform: scale(1.03) !important;
+}
+
+/* ── BOTTOM PANEL ────────────────────────────────────────────── */
+.bottom-panel {
+  border-top: 1px solid var(--border-soft) !important;
+  backdrop-filter: var(--blur) !important;
+}
+
+.bottom-panel * {
+  color: var(--text-muted) !important;
+}
+
+.bottom-panel__downloads-button {
+  background: rgba(10, 10, 16, 0.7) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 4px;
+  color: var(--text-dim) !important;
+  font-size: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Progress indicator on the downloads button */
+.bottom-panel__downloads-button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--purple);
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.bottom-panel__downloads-button[data-progress="25"]::after  { width: 25%; }
+.bottom-panel__downloads-button[data-progress="50"]::after  { width: 50%; }
+.bottom-panel__downloads-button[data-progress="75"]::after  { width: 75%; }
+.bottom-panel__downloads-button[data-progress="100"]::after { width: 100%; }
+
+.bottom-panel__version-button {
+  background: transparent !important;
+  border: 1px solid var(--border-soft) !important;
+  color: var(--text-muted) !important;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: auto;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bottom-panel__version-button:hover {
+  border-color: var(--border-purple) !important;
+  box-shadow: 0 0 8px var(--purple-glow) !important;
+}
+
+/* ── ACHIEVEMENTS ─────────────────────────────────────────────── */
+.achievements__list,
+.achievements-content__user-summary,
+.achievements-content__achievements-list__section__container__hero__content {
+  background: rgba(8, 8, 14, 0.85) !important;
+  border: 1px solid var(--border-mid) !important;
+  border-radius: 8px;
+  padding: 12px;
+  transition: box-shadow 0.2s ease;
+}
+
+.achievements__list:hover,
+.achievements-content__user-summary:hover {
+  box-shadow: 0 0 12px var(--purple-glow) !important;
+}
+
+.achievements__list__item {
+  background: rgba(10, 10, 16, 0.75) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievements__list__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--purple-glow) !important;
+  border-color: var(--border-purple) !important;
+}
+
+.achievements__list__item .achievements__list__icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  background: var(--void-elevated);
+  border: 1px solid var(--border-purple);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.achievements__list__item .achievements__list__title {
+  font-weight: 500;
+  color: var(--text) !important;
+  font-size: 14px;
+}
+
+.achievements__list__item .achievements__list__description {
+  color: var(--text-dim) !important;
+  font-size: 13px;
+}
+
+.achievements__list__item--locked {
+  filter: grayscale(60%);
+  opacity: 0.55;
+}
+
+.achievements__list__item--locked:hover {
+  box-shadow: none !important;
+  border-color: var(--border-soft) !important;
+  transform: none;
+}
+
+.achievements__list__item--unlocked {
+  border-color: var(--border-purple) !important;
+}
+
+/* ── PROGRESS BARS ────────────────────────────────────────────── */
+progress,
+progress::-webkit-progress-bar {
+  background: var(--void-raised) !important;
+  border: none !important;
+  border-radius: 99px !important;
+}
+
+progress::-webkit-progress-value {
+  background: var(--purple) !important;
+  border-radius: 99px !important;
+  box-shadow: none !important;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: var(--void-bg); }
+::-webkit-scrollbar-thumb {
+  background: rgba(123, 63, 228, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(123, 63, 228, 0.45);
+}
+
+/* ── PULSING INFINITY ANIMATION ─────────────────────────── */
+@keyframes void-pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(123, 63, 228, 0.2);
+    border-color: rgba(123, 63, 228, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(123, 63, 228, 0.6);
+    border-color: var(--purple);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(123, 63, 228, 0.2);
+    border-color: rgba(123, 63, 228, 0.4);
+  }
+}
+
+/* Apply it to the game cards or main panels */
+.game-item__image-container, .sidebar {
+  border: 1px solid var(--border-purple) !important;
+  animation: void-pulse 4s infinite ease-in-out;
+}
+/* ── STRONG CIRCULAR VOID DRIFT ─────────────────────────── */
+@keyframes void-drift {
+  0%   { background-position: 50% 50%; }
+  25%  { background-position: 65% 35%; } /* Stronger Up/Right */
+  50%  { background-position: 80% 50%; } /* Stronger Right/Center */
+  75%  { background-position: 65% 65%; } /* Stronger Down/Right */
+  100% { background-position: 50% 50%; } /* Back to Center */
+}
+
+#root {
+  /* Increased size to 120% to prevent edge-clipping during large movements */
+  background-size: 105% 105% !important;
+  animation: void-drift 18s infinite linear !important; 
+  background-attachment: fixed !important;
+}
+/* ── HIGH-CONTRAST VOID CLOUDS ──────────────────────────── */
+#root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Switched to solid colors with higher alpha (0.4 - 0.6) */
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(123, 63, 228, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(160, 100, 255, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 50% 10%, rgba(60, 20, 120, 0.5) 0%, transparent 40%);
+  
+  background-size: 200% 200%;
+  animation: energy-float 12s ease-in-out infinite alternate !important;
+  pointer-events: none;
+  z-index: 0;
+  
+  /* 'Overlay' or 'Hard-Light' will make the purple much more aggressive */
+  mix-blend-mode: overlay; 
+  opacity: 0.5; /* Near full visibility */
+}
+
+@keyframes energy-float {
+  0% { 
+    background-position: 10% 10%; 
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% { 
+    background-position: 90% 90%; 
+    filter: hue-rotate(20deg) brightness(1.5); /* Gets brighter/shifts color in the middle */
+  }
+  100% { 
+    background-position: 50% 10%; 
+    filter: hue-rotate(-10deg) brightness(1.2);
+  }
+}
+/* ── TYPOGRAPHY ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+}
+
+p, span, li, label {
+  color: var(--text-dim) !important;
+}
+
+a { color: var(--text-dim) !important; text-decoration: none !important; }
+a:hover { color: var(--text) !important; }
+
+::selection {
+  background: rgba(123, 63, 228, 0.22) !important;
+  color: var(--text) !important;
+}
