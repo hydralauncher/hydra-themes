@@ -1,461 +1,805 @@
 /* ==========================================================================
-                                GitHub @leoosilvp
+                              GitHub @leoosilvp
 ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-    --geist-background: #000000;
-    --geist-foreground: #ffffff;
-    --accents-1: rgba(17, 17, 17, 0.8);
-    --accents-2: rgba(51, 51, 51, 0.8);
-    --accents-3: rgba(68, 68, 68, 0.8);
-    --accents-4: rgba(136, 136, 136, 0.8);
-    --accents-5: rgba(153, 153, 153, 0.8);
-    --glass-bg: #000000be;
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-blur: blur(5px);
-    --color-background-base: var(--glass-bg);
-    --color-background-dark: rgba(10, 10, 10, 0.9);
-    --color-background-button: var(--geist-foreground);
-    --color-background-scrollbar-thumb: var(--accents-2);
-    --color-newbutton: var(--accents-1);
-    --color-all: var(--geist-foreground);
-    --color-text: #888888;
-    --color-text-primary: #ffffff;
-    --color-shadow: rgba(0, 0, 0, 0.8);
-    --background-main: transparent;
-    --border-radius: 6px;
-    --font-sans: 'Inter', -apple-system, sans-serif;
-    --font-mono: 'Geist Mono', monospace;
+  --accents-1: rgba(17, 17, 17, 0.8);
+  --accents-2: rgba(51, 51, 51, 0.8);
+  --font-sans: 'Inter', -apple-system, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+.modal {
+  margin-top: 90px;
 }
 
 body {
-    background-image: url(https://static.vecteezy.com/system/resources/previews/043/509/997/non_2x/vr-hud-futuristic-interface-grid-line-and-dot-head-up-display-similar-pattern-digital-ui-screen-mesh-gui-digital-hi-tech-visor-backdrop-template-fui-sci-fi-dashboard-eps-display-black-and-white-vector.jpg);
-    background-size: 700px;
-    background-position: center;
-    background-repeat: repeat;
-    background-attachment: fixed;
-    color: var(--color-text);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 1.6;
-    overflow-x: hidden;
+  background: #080808;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-::-webkit-scrollbar { 
-    display: flex;
-    width: 5px;
-    background: transparent !important;
+::-webkit-scrollbar {
+  display: flex;
+  width: 5px;
+  background: transparent !important;
 }
 
-::-webkit-scrollbar-thumb { 
-    background: transparent; 
-    border-radius: 20px;
+::-webkit-scrollbar-thumb {
+  background: #141414;
+  border-radius: 20px;
 }
 
-::-webkit-scrollbar-thumb:hover { 
-    background: var(--accents-2); 
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accents-2);
+  cursor: pointer;
 }
 
 #root {
-    height: 100vh !important;
+  height: 100vh !important;
 }
 
 .container__content {
-    padding: 100px 5px 0 10px;
-    background: #0000001a;
-}
-
-.sidebar {
-    position: fixed;
-    top: 35px;
-    left: 0;
-    height: fit-content !important;
-    min-width: 100vw !important;
-    display: flex;
-    align-items: center;
-    padding: 10px 10px 0 10px;
-    background: #0f0f0f;
-    backdrop-filter: var(--glass-blur);
-    border: none;
-    border-bottom: 1px solid var(--glass-border);
-    z-index: 100;
-}
-
-.sidebar__handle,
-.sidebar__bottom-buttons,
-.sidebar__section:not(:first-child) {
-    display: none !important;
-}
-
-.sidebar__container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-
-.sidebar__content,
-.sidebar__section {
-    padding: 0;
-}
-
-.sidebar__menu {
-    flex-direction: row;
-    gap: 0px;
-}
-
-.sidebar__menu-item {
-    padding: 0;
-}
-
-.sidebar__menu-item:hover {
-    background: transparent !important;
-}
-
-.sidebar__menu-item-button {
-    padding: 5px 12px 12px 12px;
-    border-radius: 0px;
-    color: var(--accents-5);
-    border-bottom: 2px solid transparent;
-    font-size: 0.85rem;
-    font-weight: 300;
-    background: transparent !important;
-    gap: 7px;
-    transition: all 0.2s ease;
-}
-
-.sidebar__menu-item-button:hover {
-    color: var(--geist-foreground);
-    background-color: transparent !important;
-    background-image: none !important;
-}
-
-.sidebar__menu-item--active {
-    background: transparent !important;
-}
-
-.sidebar__menu-item--active .sidebar__menu-item-button {
-    color: var(--geist-foreground);
-    border-bottom: 2px solid #fff;
-}
-
-.sidebar-profile {
-    margin-left: auto;
-    align-items: center;
-    padding: 0;
-}
-
-.sidebar-profile__button {
-    padding: 0;
-    color: var(--geist-foreground);
-}
-
-.sidebar-profile__button:hover {
-    background: none;
-}
-
-.sidebar-profile__button-content {
-    display: block;
-}
-
-.sidebar-profile__button-title {
-    display: none;
-}
-
-.profile-avatar {
-    padding: 0px !important;
-    background: var(--accents-1);
-    border-radius: 50%;
-    border: 1.5px solid transparent !important;
-}
-
-.profile-avatar:hover {
-    border-color: var(--geist-success) !important;
-}
-
-.profile-avatar__image {
-    border-radius: 50%;
-    transition: border-color 0.2s ease;
-}
-
-.sidebar-profile__notification-button {
-    min-width: 35px !important;
-    min-height: 35px !important;
-    height: fit-content;
-    background-color: transparent;
-    border: 1px solid var(--accents-3);
-    border-radius: 50%;
-    color: var(--accents-4);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 0;
-}
-
-.sidebar-profile__notification-button:hover {
-    color: var(--geist-foreground);
-    background-color: var(--accents-1);
-    border-color: var(--accents-4);
-}
-
-.sidebar-profile__notification-button-badge {
-    position: absolute;
-    top: -1px;
-    right: -0.5px;
-    background: #0f0f0f;
-    color: var(--geist-foreground);
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    font-size: 8px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--accents-3);
-}
-
-.text-field-container {
-    order: 1; 
-    width: 300px;
-}
-
-.text-field-container__text-field {
-    background-color: var(--accents-1);
-    border: 1px solid var(--accents-2);
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.text-field-container__text-field:focus-within {
-    border-color: var(--geist-success);
-    background-color: var(--geist-background);
-}
-
-.text-field-container__text-field-input {
-    font-size: 14px;
-    height: 36px;
-}
-
-.text-field-container__text-field {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--accents-2);
-    color: var(--geist-foreground);
-    border-radius: var(--border-radius);
-    padding: 10px 14px;
-    font-family: var(--font-sans);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.text-field-container__text-field:focus {
-    border-color: var(--accents-5);
-    outline: none;
-    box-shadow: 0 0 0 1px var(--accents-5);
-}
-
-.header--is-windows {
-    position: absolute;
-    top: 37.5px;
-    left: 10px;
-    z-index: 1000;
-    width: 91%;
-    height: 40px;
-    margin: 0;
-    padding: 0 0 0 10px;
-    background: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: 0;
-}
-
-.header__title--has-back-button {
-    transform: none !important;
-}
-
-.header__back-button--enabled {
-    display: none;
-}
-
-.header__section--left {
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    margin: 0;
-    padding: 0;
-}
-
-.header__title {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 1rem;
-}
-
-.header__title::before {
-    content: '/';
-    opacity: 0.3;
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-
-.header__search {
-    display: flex;
-    align-items: center;
-    width: 210px;
-    height: 35px;
-    border-radius: 7px;
-    -webkit-app-region: no-drag;
-}
-
-.game-item, 
-.recent-games__box, 
-.user-stats__box, 
-.friends-box__box, 
-.download-group__item, 
-.theme-card, 
-.achievement-panel {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 10px;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.game-item:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.button {
-    height: 38px;
-    padding: 0 16px;
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--accents-2);
-    background: var(--geist-background);
-    color: var(--color-text);
-}
-
-.button:hover {
-    border-color: var(--geist-foreground);
-    color: var(--geist-foreground);
-    background: var(--accents-1);
-}
-
-.button--primary {
-    background: var(--geist-foreground);
-    color: var(--geist-background);
-    border-color: var(--geist-foreground);
-}
-
-.button--primary:hover {
-    background: transparent;
-    color: var(--geist-foreground);
-}
-
-.profile-hero__content-box {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.profile-hero__avatar-button:hover .profile-avatar {
-    border-color: var(--geist-foreground) !important;
-    transform: scale(1.05);
-}
-
-.modal, 
-.toast {
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-}
-
-h1, h2, h3, h4 {
-    color: var(--geist-foreground);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+  padding: 67px 0 0;
+  background: #0000001a;
 }
 
 .title-bar {
-    height: 40px !important;
-    min-height: 10px;
-    background: #000;
-    padding: 0 10px;
+  height: 45px !important;
+  min-height: 10px;
+  background: #000;
+  border: none;
 }
 
 .title-bar h4 {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  color: #b0b0b0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: "Libre Baskerville", serif;
 }
 
 .title-bar h4::before {
-    content: '';
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    margin-right: 5px;
-    background: url('https://cdn2.steamgriddb.com/icon/0adbfc15ded7e9d183c206ecf5681b15.ico') center / contain no-repeat;
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 3px;
+  background: url('https://cdn2.steamgriddb.com/icon/0adbfc15ded7e9d183c206ecf5681b15.ico') center / contain no-repeat;
 }
 
-.list__item {
-    border-bottom: 1px solid var(--glass-border);
-    padding: 14px;
-    transition: background 0.2s ease;
+.title-bar h4::after {
+  content: '- Carbon by leoosilvp';
+  margin-left: 5px;
+  font-size: 0.7rem;
+  font-weight: 300;
+  font-family: var(--font-sans);
+  color: #707070;
 }
 
-.list__item:hover {
-    background: var(--accents-1);
+.title-bar__version,
+.navigation-arrows,
+.sidebar__handle,
+.sidebar__section--games,
+.sidebar-profile__button-content svg {
+  display: none;
+}
+
+.title-bar__big-picture {
+  padding: 0 10px;
+  height: 25px;
+  border-radius: 3px;
+  opacity: 1;
+  color: #888888;
+}
+
+.title-bar__big-picture:hover {
+  background: #fff;
+  color: #000;
+}
+
+.title-bar-search {
+  display: flex;
+  border-radius: 3px;
+  background: #0b0b0b;
+  border-color: #1a1a1a;
+}
+
+.neo-sidebar-card {
+  position: absolute;
+  top: 70px;
+  width: 270px;
+  right: 0px;
+  z-index: 10;
+}
+
+.sidebar {
+  margin-top: 40px;
+  display: flex;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 70px;
+  padding: 10px;
+  padding-bottom: 0;
+  background: #000;
+  border: none;
+  border-bottom: 1px solid #141414;
+  overflow: visible;
+}
+
+.sidebar__container {
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: visible;
+}
+
+.sidebar-profile {
+  margin-right: 5px;
+  display: flex;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+.sidebar-profile__button {
+  padding: 0;
+}
+
+.sidebar-profile__button:hover {
+  background: transparent;
+}
+
+.sidebar-profile__button--active {
+  background: transparent;
+}
+
+.sidebar-profile__button-content {
+  width: fit-content;
+  flex-direction: row-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.sidebar-profile__button-information p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #b3b3b3;
+}
+
+.sidebar-profile__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.sidebar-profile__avatar:hover {
+  border-color: #fff;
+}
+
+.sidebar-profile__dropdown {
+  position: absolute;
+  z-index: 100;
+  width: 200px;
+  right: 0;
+  margin-top: 10px;
+  margin-left: -113px;
+  border-radius: 3px;
+  background: #000000f0;
+  border: 1px solid #141414;
+}
+
+.sidebar-profile__dropdown-item {
+  border-radius: 2px;
+}
+
+.sidebar-profile__dropdown-item:hover {
+  background: #fff;
+  color: #000;
+}
+
+.sidebar-profile__dropdown-item--danger:hover {
+  background: #ff3a3a;
+  color: #fff;
+}
+
+.sidebar__content {
+  justify-content: end;
+  padding: 0;
+}
+
+.sidebar__section {
+  padding: 0;
+}
+
+.sidebar__menu {
+  margin-bottom: -1px;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  gap: 0;
+}
+
+.sidebar__menu-item button {
+  display: flex;
+  padding: 10px 12px 10px;
+  font-size: 0.9rem;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  color: #888888;
+}
+
+.sidebar__menu-item {
+  background: transparent;
+}
+
+.sidebar__menu-item:hover {
+  background: transparent;
+}
+
+.sidebar__menu-item button:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.sidebar__menu-item--active button {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.sidebar__menu-item-button {
+  display: flex;
+  padding: 0;
+}
+
+.home__buttons-list {
+  display: flex;
+  align-items: center;
+}
+
+.button.button--primary {
+  border-radius: 3px;
+  min-height: 30px;
+  height: 35px;
+  gap: 10px;
+}
+
+.button.button--outline {
+  border-radius: 3px;
+  min-height: 30px;
+  height: 35px;
+  gap: 10px;
+}
+
+.home__title {
+  display: flex;
+  font-weight: 400;
+  color: #fff;
+}
+
+.game-card__content {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.game-card__title {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.game-card__download-options div {
+  font-size: 0.6rem;
+  border-radius: 3px;
+}
+
+/* Catalog */
+.game-item {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.game-item:hover {
+  border-color: #2e2e2e;
+}
+
+.game-item__repackers div {
+  font-size: 0.6rem;
+  border-radius: 3px;
+  background: #171717;
+  border: 1px solid #2e2e2e;
+}
+
+.select-field.select-field--dark {
+  border-radius: 3px;
+}
+
+.catalogue-mode-toggle {
+  border-radius: 3px;
+}
+
+.catalogue-mode-toggle button {
+  border-radius: 2px;
+}
+
+.filter-section {
+  border-radius: 3px;
+}
+
+.text-field-container__text-field--dark {
+  border-radius: 3px;
+}
+
+.checkbox-field__checkbox {
+  border-radius: 3px;
+}
+
+/* Library */
+.library__content {
+  height: 100vh;
+  width: 100vw;
+}
+
+.library-category-filter__container {
+  border-radius: 3px;
+  height: 35px;
+}
+
+.library-category-filter__container button {
+  border-radius: 2px;
+}
+
+.library-category-filter__container button:hover {
+  color: #fff;
+}
+
+.library-category-filter__option--active {
+  background: #fff;
+  color: #000;
+}
+
+.library-category-filter__option--active:hover {
+  color: #000 !important;
+}
+
+.library-toolbar-menu__trigger {
+  border-radius: 3px;
+  height: 35px;
+}
+
+.library-sortable-game {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* Downloads */
+.downloads__container {
+  height: 100vh;
+}
+
+.download-group.download-group--hero {
+  height: 100vh;
+}
+
+.download-group__header-title-group h2 {
+  display: flex;
+  font-weight: 400;
+  color: #fff;
+}
+
+.download-group__header-title-group h3 {
+  border-radius: 3px;
+}
+
+.download-group__simple-info {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.download-group__hero-stats {
+  border-radius: 3px;
+}
+
+.download-group__simple-thumbnail {
+  border-radius: 3px;
+}
+
+.download-group__simple-meta-row div {
+  font-size: 0.6rem;
+  border-radius: 3px;
+  background: #171717;
+  border: 1px solid #2e2e2e;
+}
+
+/* Rankings */
+.leaderboards__selector-options {
+  border-radius: 3px;
+}
+
+.leaderboards__selector-options button {
+  border-radius: 2px;
+}
+
+.leaderboards__selector-option--selected {
+  background: #fff;
+  color: #000;
+}
+
+.leaderboards__side-item--selected {
+  background: #1e1e1e;
+}
+
+.leaderboard-row__item {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.leaderboard-row__name,
+.leaderboard-row__value {
+  font-weight: 500;
+}
+
+.leaderboards__board-title {
+  font-weight: 500;
+}
+
+.leaderboards__more .button--outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Settings */
+.settings__container {
+  padding: 0;
+}
+
+.settings__content {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.settings__sidebar {
+  padding-top: 26px;
+  background: transparent;
+  border-color: #141414;
+}
+
+.settings__sidebar-button {
+  font-size: 0.85rem;
+  border-radius: 3px;
+  color: #888888;
+}
+
+.settings__sidebar-button:hover {
+  color: #fff;
+  background: transparent;
+}
+
+.settings__sidebar-button--active {
+  background: #fff;
+  color: #000;
+}
+
+.settings__sidebar-button--active:hover {
+  background: #fff;
+  color: #000;
+}
+
+.settings__panel {
+  margin-top: 10px;
+}
+
+.settings__panel h2:first-child {
+  font-weight: 400;
+  color: #fff;
+}
+
+.text-field-container__text-field.text-field-container__text-field--primary {
+  border-radius: 3px;
+  min-height: 35px;
+  height: 35px;
+}
+
+.text-field-container__text-field-wrapper .button--outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+.select-field.select-field--primary {
+  border-radius: 3px;
+  min-height: 35px;
+  height: 35px;
+}
+
+.checkbox-field__checkbox {
+  border-radius: 2px;
+}
+
+.settings-appearance__actions-left {
+  display: flex;
+  align-items: center;
+}
+
+.button.button--danger.settings-appearance__button {
+  border-radius: 3px;
+  min-height: 35px;
+  height: 35px;
+}
+
+.button.button--danger.settings-appearance__button:hover {
+  background: #a51313;
+}
+
+.theme-card {
+  border-radius: 3px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.theme-card--active .button--dark {
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid #353535;
+  border-radius: 3px;
+  min-height: 35px;
+  height: 35px;
+}
+
+.settings-global-trackers__textarea {
+  border-radius: 3px;
+}
+
+.settings-global-trackers__url-input {
+  border-radius: 3px;
+}
+
+.button.button--danger {
+  border-radius: 3px;
+  min-height: 35px;
+  height: 35px;
+}
+
+.button.button--danger:hover {
+  background: #a51313;
+}
+
+.settings-download-sources__item {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.text-field-container__text-field.text-field-container__text-field--dark {
+  border-radius: 3px;
+  height: 35px;
+  min-height: 35px;
+}
+
+.settings-download-sources__item .badge {
+  font-size: 0.6rem;
+  border-radius: 3px;
+  background: #171717;
+  border: 1px solid #2e2e2e;
+}
+
+.settings-integration-card {
+  border-radius: 3px;
+}
+
+.console-card.console-card--unconfigured {
+  border-radius: 3px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.console-card__hint-box {
+  border-radius: 3px;
+}
+
+.console-card__chip {
+  border-radius: 3px;
+  gap: 7px;
+}
+
+.console-card__chip.console-card__chip--warn {
+  background: #1e1e1e;
+}
+
+/* Profile */
+.profile-hero__content-box {
+  background-image: url('https://i.pinimg.com/originals/62/52/9a/62529a8311a2b66fd551d0aef1842f01.gif') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 275px;
+}
+
+.upload-background-image-button__wrapper button {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 35px;
+  height: 30px;
+  padding: 9.5px;
+  white-space: nowrap;
+  gap: 10px;
+  overflow: hidden;
+  box-shadow: none;
+  background: #000;
+  opacity: 0.4;
+}
+
+.upload-background-image-button__wrapper button:hover {
+  opacity: 0.5;
+  background: #000 !important;
+}
+
+.profile-hero__hero-panel.profile-hero__hero-panel--transparent {
+  background: #00000082 !important;
+  min-height: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-items: center;
+  height: fit-content;
+  backdrop-filter: blur(5px);
+}
+
+.button.button--outline.profile-hero__button--outline {
+  opacity: 0.75;
+}
+
+.button.button--outline.profile-hero__button--outline:hover {
+  opacity: 1;
+}
+
+.filter-dropdown__trigger {
+  border-radius: 3px;
+}
+
+.profile-content__section-title-group h2 {
+  font-weight: 400;
+  font-family: "Libre Baskerville", serif;
+  color: #fff;
+}
+
+.vertical-cover-card {
+  border-radius: 3px !important;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.profile-section {
+  border-radius: 3px;
+}
+
+/* Game */
+.game-details__hero-content button {
+  border-radius: 3px;
+  border-color: #171717;
+}
+
+.hero-panel {
+  border-radius: 3px;
+}
+
+.hero-panel button {
+  border-color: #999999;
+}
+
+.hero-panel-actions__container div {
+  background: #5e5e5e;
+  width: 1px;
+  border: none;
+}
+
+.description-header {
+  border-radius: 3px;
+}
+
+.gallery-slider__viewport {
+  border-radius: 3px;
+}
+
+.gallery-slider__preview-button {
+  border-radius: 3px;
+}
+
+.game-details__description-toggle:hover {
+  background: #fff;
+  color: #000;
+}
+
+.vertical-cover-card.similar-games__card {
+  box-shadow: none;
+}
+
+.review-gate-notice {
+  border-radius: 3px;
+}
+
+.game-details__reviews-badge {
+  border-radius: 3px;
+}
+
+.game-details__review-meta-left div {
+  font-size: 0.6rem;
+  border-radius: 3px;
+  background: #171717;
+  border: 1px solid #2e2e2e;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.game-details__vote-button {
+  border-radius: 3px;
+  border: 1px solid #2e2e2e;
+}
+
+.game-details__review-header.game-details__review-header--has-bg {
+  border-radius: 3px;
+}
+
+.sidebar-section {
+  border-radius: 3px;
+}
+
+.leaderboard-controls__selector {
+  border-radius: 3px;
+}
+
+.leaderboard-controls__selector-indicator {
+  border-radius: 2px;
+}
+
+/* Notifications */
+.notification-item {
+  border-radius: 3px;
+}
+
+.cloud-subscription-modal__frame {
+  width: 100%;
+  height: 100%;
+  margin-top: 25px;
+  border-radius: 5px;
+  transform: scale(0.95);
 }
 
 @keyframes geistFadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(8px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.game-item, 
-.modal, 
+.game-item,
+.modal,
 .toast {
-    animation: geistFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: geistFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .achievement-notification__outer-container {
   background: #000000c9;
   border: 1px solid #2c2c2cff;
-  border-radius: 5px;
+  border-radius: 3px;
   color: #ffffffff;
   box-shadow: 0 0 15px #0000002d;
   backdrop-filter: blur(5px);
-  transition: all 0.25s ease ;
+  transition: all 0.25s ease;
   cursor: pointer;
   width: fit-content;
   min-width: 0vw;
@@ -464,7 +808,9 @@ h1, h2, h3, h4 {
 .achievement-notification__outer-container:hover {
   box-shadow: 0 0 15px #ffffff29;
 }
+
 .achievement-notification__icon {
+  border-radius: 2px;
   border-right: 1px solid #ffffff38;
 }
 
@@ -479,11 +825,13 @@ h1, h2, h3, h4 {
 .achievement-notification__container::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
   background: #fff;
-  box-shadow: 0 0 15px #797979ff;
 }
+
 .achievement-notification__title {
   color: #fff;
   text-shadow: 0 0 8px #ffffff3b
