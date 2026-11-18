@@ -641,7 +641,7 @@ body {
   width: 35px;
   height: 30px;
   padding: 9.5px;
-  white-space: no-wrap;
+  white-space: nowrap;
   gap: 10px;
   overflow: hidden;
   box-shadow: none;
