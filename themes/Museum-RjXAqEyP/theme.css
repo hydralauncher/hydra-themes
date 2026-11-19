@@ -629,7 +629,7 @@ body {
   width: 35px;
   height: 30px;
   padding: 9.5px;
-  white-space: no-wrap;
+  white-space: nowrap;
   gap: 10px;
   overflow: hidden;
   box-shadow: none;
@@ -785,7 +785,7 @@ body {
 .game-item,
 .modal,
 .toast {
-  animation: geistFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: geistFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .achievement-notification__outer-container {
