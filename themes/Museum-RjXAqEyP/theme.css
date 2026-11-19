@@ -2,7 +2,6 @@
                               GitHub @leoosilvp
 ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
@@ -73,7 +72,7 @@ body {
   width: 22px;
   height: 22px;
   margin-right: 3px;
-  background: url('https://cdn2.steamgriddb.com/icon/0adbfc15ded7e9d183c206ecf5681b15.ico') center / contain no-repeat;
+  background: url('./assets/icon.jpg') center / contain no-repeat;
 }
 
 .title-bar h4::after {
@@ -347,13 +346,9 @@ body {
   border-radius: 3px;
 }
 
-.checkbox-field__checkbox {
-  border-radius: 3px;
-}
-
 /* Library */
 .library__content {
-  background-image: linear-gradient(0deg, #00000075 60%, #000000f5), url('https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Pieter_Paul_Rubens_-_Ingresso_trionfale_di_Enrico_IV_a_Parigi_-_Google_Art_Project.jpg/1280px-Pieter_Paul_Rubens_-_Ingresso_trionfale_di_Enrico_IV_a_Parigi_-_Google_Art_Project.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=thumbnail');
+  background-image: linear-gradient(0deg, #00000075 60%, #000000f5), url('./assets/bg-library.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -394,15 +389,12 @@ body {
 
 /* Downloads */
 .downloads__container {
-  background-image: linear-gradient(0deg, #00000075 60%, #000000f5), url('https://wallpaperaccess.com/full/1197626.jpg');
+  background-image: linear-gradient(0deg, #00000075 60%, #000000f5), url('./assets/bg-downloads.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
   height: 100vh;
-}
-
-.download-group.download-group--hero {
-  height: 100vh;
+  width: 100vw;
 }
 
 .download-group__header-title-group h2 {
@@ -417,10 +409,6 @@ body {
 
 .download-group__simple-info {
   font-family: "IBM Plex Mono", monospace;
-}
-
-.download-group__hero-stats {
-  border-radius: 3px;
 }
 
 .download-group__simple-thumbnail {
@@ -627,7 +615,7 @@ body {
 
 /* Profile */
 .profile-hero__content-box {
-  background-image: url('https://images.unsplash.com/flagged/photo-1572392640988-ba48d1a74457?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D') !important;
+  background-image: url('./assets/bg-profile.jpg') !important;
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -641,7 +629,7 @@ body {
   width: 35px;
   height: 30px;
   padding: 9.5px;
-  white-space: nowrap;
+  white-space: no-wrap;
   gap: 10px;
   overflow: hidden;
   box-shadow: none;
