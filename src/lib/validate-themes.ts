@@ -7,6 +7,32 @@ const themesPath = path.join(import.meta.dirname, "..", "..", "themes");
 
 const folders = fs.readdirSync(themesPath);
 
+const hydraHeaderSecret = process.env.HYDRA_HEADER_SECRET;
+// CI lists the themes a pull request touches; only those need an author lookup, since the API rate-limits anonymous profile reads.
+const changedThemes = process.env.CHANGED_THEMES;
+const changedFolders =
+  changedThemes === undefined
+    ? null
+    : new Set(changedThemes.split(",").filter(Boolean));
+
+const checkedAuthors = new Map<string, Promise<unknown>>();
+
+const checkAuthor = (authorCode: string) => {
+  const existing = checkedAuthors.get(authorCode);
+  if (existing !== undefined) return existing;
+
+  const request = api
+    .get(`users/${authorCode}`, {
+      headers: hydraHeaderSecret ? { "hydra-token": hydraHeaderSecret } : {},
+    })
+    .catch((err) => {
+      console.error(err);
+      throw new Error(`❌ Failed to fetch author ${authorCode}`);
+    });
+  checkedAuthors.set(authorCode, request);
+  return request;
+};
+
 Promise.all(
   folders.map(async (folder) => {
     const folderPath = path.join(themesPath, folder);
@@ -41,10 +67,8 @@ Promise.all(
       );
     const themeName = parts.join("-").trim();
 
-    await api.get(`users/${authorCode}`).catch((err) => {
-      console.error(err);
-      throw new Error(`❌ Failed to fetch author ${authorCode}`);
-    });
+    if (!changedFolders || changedFolders.has(folder))
+      await checkAuthor(authorCode);
 
     return themeName;
   }),
