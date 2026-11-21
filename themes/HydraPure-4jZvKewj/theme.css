@@ -1,0 +1,373 @@
+:root {
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --search-width: 220px;
+  --search-width-focused: 280px;
+
+}
+
+/* =========================================================
+   1. ВЕРХНЯЯ ПАНЕЛЬ ЗАГОЛОВКА И ПОИСК СПРАВА
+   ========================================================= */
+
+/* Убираем пустой отступ шириной с сайдбар после логотипа Hydra */
+.title-bar__brand {
+  width: auto !important;
+  padding-right: 12px !important;
+}
+
+/* Смещаем верхний поиск вправо */
+.title-bar__search {
+  justify-content: left !important;
+  padding: 0px 0px 0px 20px !important;
+}
+
+/* Уменьшаем ширину поля поиска и скругляем углы */
+.title-bar-search {
+  max-width: var(--search-width) !important;
+  border-radius: var(--radius-md) !important;
+  transition: max-width 0.2s ease, border-color 0.2s ease !important;
+}
+
+.title-bar-search--focused {
+  max-width: var(--search-width-focused) !important;
+}
+
+/* =========================================================
+   2. ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ СВЕРХУ (КАК В STEAM)
+   ========================================================= */
+
+/* Перестраиваем основную сетку из «слева-справа» в «сверху-снизу» */
+#root > main {
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+/* Контент занимает всё оставшееся место по высоте */
+#root > main > .container {
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* Перебиваем инлайновые width/min-width/max-width у сайдбара */
+.sidebar:not(#big-picture *) {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  border-right: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  overflow: visible !important;
+  z-index: 3 !important;
+}
+
+.sidebar__container {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 6px 16px !important;
+  gap: 16px !important;
+  overflow: visible !important;
+}
+
+/* Блок с пунктами меню — слева */
+.sidebar__content {
+  flex-direction: row !important;
+  align-items: center !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  order: 1 !important;
+  overflow: visible !important;
+}
+
+.sidebar__section {
+  flex-direction: row !important;
+  padding-bottom: 0 !important;
+  gap: 0 !important;
+}
+
+/* Выстраиваем вкладки в горизонтальный ряд */
+.sidebar__menu {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  scrollbar-width: none !important;
+}
+
+.sidebar__menu::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar__menu-item {
+  width: auto !important;
+  flex-shrink: 0 !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.sidebar__menu-item-button {
+  width: auto !important;
+  padding: 8px 14px !important;
+}
+
+/* Полностью скрываем левую панель с играми, полосу ресайза и промо-карточку */
+.sidebar__section--games,
+.sidebar__handle,
+.neo-sidebar-card {
+  display: none !important;
+}
+
+/* Профиль компактно переносим в правый край навигационной панели */
+.sidebar-profile {
+  order: 2 !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.sidebar-profile__button {
+  width: auto !important;
+  padding: 4px 10px 4px 6px !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.sidebar-profile__button-content {
+  gap: 8px !important;
+}
+
+.sidebar-profile__avatar .profile-avatar {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Чтобы выпадающее меню профиля открывалось ровно под кнопкой и не обрезалось */
+.sidebar-profile__dropdown {
+  top: calc(100% + 6px) !important;
+  left: auto !important;
+  right: 0 !important;
+  min-width: 220px !important;
+  width: max-content !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* =========================================================
+   3. УВЕЛИЧЕННЫЙ BORDER-RADIUS ПО ВСЕМУ ИНТЕРФЕЙСУ
+   ========================================================= */
+
+/* Обложки и карточки игр (Главная, Библиотека, Каталог, Похожие) */
+.game-card,
+.home__card-skeleton,
+.vertical-cover-card,
+.library-game-card,
+.library-game-card__wrapper,
+.library-game-card__cover,
+.game-item,
+.catalogue__skeleton,
+.similar-games__skeleton,
+.similar-games__viewport,
+.screenshot-card,
+.screenshot-card--tile .screenshot-card__media,
+.screenshot-card--game .screenshot-card__media,
+.theme-card {
+  border-radius: var(--radius-lg) !important;
+}
+
+.game-item-classics,
+.catalogue__skeleton--classics {
+  border-radius: var(--radius-xl) !important;
+}
+
+.vertical-cover-card__classics-image,
+.game-item-classics__cover-image,
+.download-group__simple-thumbnail,
+.game-artwork__item,
+.game-details__hero-classics-cover img {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Поля поиска, текстовые поля, выпадающие списки (Select) */
+.text-field-container__text-field,
+.select-field,
+.select-field__option,
+.pagination__page-input {
+  border-radius: var(--radius-lg) !important;
+}
+
+/* Кнопки и переключатели категорий/фильтров */
+.button,
+.library-category-filter__container,
+.catalogue-mode-toggle,
+.screenshot-segmented-toggle,
+.leaderboard-controls__selector,
+.screenshot-review-segmented__track {
+  border-radius: var(--radius-lg) !important;
+}
+
+.button--small,
+.library-category-filter__option,
+.catalogue-mode-toggle__option,
+.screenshot-segmented-toggle__option,
+.leaderboard-controls__selector-option,
+.leaderboard-controls__selector-indicator,
+.screenshot-review-segmented__segment,
+.screenshot-review-segmented__indicator,
+.filter-section__group-tab {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Вкладки настроек, пункты контекстных и выпадающих меню */
+.settings__sidebar-button,
+.game-options-modal__sidebar-button,
+.sidebar-profile__dropdown-item,
+.context-menu__item,
+.dropdown-menu__item,
+.sidebar-filter-menu__item,
+.list__item,
+.leaderboard-row {
+  border-radius: var(--radius-md) !important;
+}
+
+/* Контейнеры выпадающих меню, модалок, уведомлений и панелей */
+.search-dropdown,
+.dropdown-menu__content,
+.context-menu,
+.context-menu__submenu,
+.sidebar-filter-menu__content,
+.modal,
+.toast,
+.hero-panel,
+.description-header,
+.download-group__simple-card,
+.cloud-sync-panel__artifact,
+.drive-card,
+.disc-field__trigger,
+.disc-field__menu {
+  border-radius: var(--radius-lg) !important;
+}
+
+.filter-section,
+.sidebar-section,
+.recompilation-filter-toggle,
+.download-group__hero-stats {
+  border-radius: var(--radius-xl) !important;
+}
+
+/* Мелкие элементы: аватарки, бейджи, стрелки навигации, чекбоксы */
+.profile-avatar,
+.profile-avatar__image,
+.navigation-arrows__button,
+.title-bar__version,
+.title-bar__big-picture,
+.badge,
+.filter-item,
+.steam-library-badge,
+.game-item__compatibility-badge,
+.game-item-classics__platform-chip,
+.game-item-classics__recompilation-chip,
+.screenshot-card__badge,
+.screenshot-card__glass,
+.screenshot-stat-chip {
+  border-radius: var(--radius-sm) !important;
+}
+
+.checkbox-field__checkbox {
+  border-radius: 6px !important;
+}
+
+/* Убираем разделительные полосы у шапки и панели навигации */
+.title-bar,
+.sidebar:not(#big-picture *),
+.auto-update-sub-header {
+  border-bottom: none !important;
+}
+
+/* Единый фон без стыка между панелью навигации и контентом */
+.container__content {
+  background: #0d0d0d !important;
+}
+
+/* =========================================================
+   4. ОЧИСТКА ИНТЕРФЕЙСА (МИНИМАЛИЗМ)
+   ========================================================= */
+
+/* Убираем вертикальную кнопку «Send Feedback» справа сбоку */
+#workwonders-feedback-widget-trigger,
+.workwonders-feedback-button {
+  display: none !important;
+}
+
+/* Убираем лишние элементы в шапке (удалите нужную строку, если элемент нужен) */
+.title-bar__version,      /* плашка v4.4.1 */
+.title-bar__big-picture { /* кнопка Big Picture */
+  display: none !important;
+}
+
+/* Поиск без жёсткой рамки: мягкая полупрозрачная подложка */
+.title-bar-search {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: transparent !important;
+}
+
+.title-bar-search:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.title-bar-search--focused,
+.title-bar-search--focused:hover {
+  background-color: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Делаем фильтры, переключатели и контурные кнопки мягче (без резких обводок) */
+.library-category-filter__container,
+.catalogue-mode-toggle,
+.screenshot-segmented-toggle {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: transparent !important;
+}
+
+.button--outline,
+.text-field-container__text-field,
+.select-field {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Убираем тяжёлые чёрные тени и рамки у карточек игр и баннера */
+.game-card,
+.hero {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: none !important;
+}
+
+.vertical-cover-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Тонкий и незаметный скроллбар */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border-radius: 999px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.28) !important;
+}
