@@ -562,12 +562,29 @@ button[class*="primary"]:hover {
   color: var(--ast-pink-soft) !important;
 }
 
-/* ===== Menus e modais (ficam fora do #root) ===== */
-[class~="modal"],
-[role="menu"] {
-  background-color: rgba(52, 29, 34, 0.94) !important;
+/* ===== Modais, menus, dropdowns, avisos (toasts) e tooltips: fundo sólido para ler bem ===== */
+/* O reset de fundos acima deixa quase tudo transparente; estes elementos flutuam sobre o
+   wallpaper e precisam de fundo próprio. Pega pelo papel (role) e pelo nome da classe raiz. */
+:is(
+  [role="dialog"],
+  [role="alertdialog"],
+  [role="menu"],
+  [role="listbox"],
+  [role="tooltip"],
+  .react-tooltip,
+  [class*="modal"],
+  [class*="toast"],
+  [class*="tooltip"],
+  [class*="dropdown"],
+  [class*="context-menu"],
+  [class*="popover"],
+  [class*="dialog"]
+):not([class*="__"]):not([class*="overlay"]):not([class*="backdrop"]):not([aria-hidden="true"]),
+.react-tooltip {
+  background-color: rgba(52, 29, 34, 0.96) !important;
   border: 1px solid var(--ast-border) !important;
   border-radius: 14px !important;
+  color: var(--ast-text) !important;
   backdrop-filter: blur(10px);
 }
 
@@ -876,7 +893,7 @@ html body #root svg * {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
   button {
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   }
   .console-card {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
