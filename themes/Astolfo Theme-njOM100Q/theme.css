@@ -46,7 +46,6 @@ body::before {
   z-index: -1;
   background:
     linear-gradient(90deg, rgba(26, 15, 18, 0.60) 0%, rgba(26, 15, 18, 0.35) 60%, rgba(26, 15, 18, 0.15) 100%),
-    var(--ast-wallpaper) right center / cover no-repeat,
     var(--ast-wallpaper-link) right center / cover no-repeat;
   pointer-events: none;
 }
