@@ -1,4 +1,4 @@
-/* Tema Hydra Astolfo — tipografia Georgia */
+/* Tema Hydra Astolfo — tipografia Segoe Print */
 
 /* =========================================
    Hydra - Astolfo
@@ -26,6 +26,9 @@
 
   /* Wallpaper embutido no próprio CSS (não depende de link nem de arquivo) */
 --ast-wallpaper-link: url("https://raw.githubusercontent.com/krzesto/Astolfo-theme/main/themes/Astolfo%20Theme-njOM100Q/wallpaper.jpg");
+
+  /* >>> FONTE: troque só esta linha <<< */
+  --ast-font-body: "Segoe Print", "Ink Free", "Comic Sans MS", cursive;
 }
 
 /* ===== Wallpaper ===== */
@@ -44,7 +47,7 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(26, 15, 18, 0.60) 0%, rgba(26, 15, 18, 0.35) 60%, rgba(26, 15, 18, 0.15) 100%),
+    linear-gradient(90deg, rgba(26, 15, 18, 0.68) 0%, rgba(26, 15, 18, 0.52) 60%, rgba(26, 15, 18, 0.28) 100%),
     var(--ast-wallpaper-link) right center / cover no-repeat;
   pointer-events: none;
 }
@@ -129,7 +132,6 @@ header:not(main header) input {
 .library-game-card {
   border-radius: 14px !important;
   border: 1px solid var(--ast-border) !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .library-game-card:hover {
@@ -188,7 +190,6 @@ header:not(main header) input {
   border: 1px solid var(--ast-border) !important;
   border-radius: 14px !important;
   backdrop-filter: blur(6px);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .download-group__simple-card:hover {
@@ -221,7 +222,6 @@ header:not(main header) input {
   border: 1px solid var(--ast-border) !important;
   border-radius: 14px !important;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .game-card:hover {
@@ -234,7 +234,10 @@ header:not(main header) input {
 .home__title { color: var(--ast-pink-soft) !important; }
 
 /* ===== Catálogo ===== */
-.catalogue__result-count { color: var(--ast-text) !important; }
+.catalogue__result-count {
+  color: var(--ast-text) !important;
+  margin-bottom: 4px;
+}
 .catalogue__filters-hint,
 .catalogue__sort-label { color: var(--ast-muted) !important; }
 
@@ -244,7 +247,6 @@ header:not(main header) input {
   border-radius: 14px !important;
   overflow: hidden;
   backdrop-filter: blur(6px);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .game-item:hover {
@@ -307,7 +309,11 @@ header:not(main header) input {
   backdrop-filter: blur(6px);
 }
 
-.leaderboards__selector-option { border-radius: 10px !important; }
+.leaderboards__selector-option {
+  border-radius: 10px !important;
+  white-space: nowrap;
+  padding: 6px 14px !important;
+}
 
 .leaderboards__selector-option--selected {
   background-color: var(--ast-active) !important;
@@ -481,6 +487,9 @@ header:not(main header) input {
   background-color: var(--ast-panel-dark) !important;
   border: 1px solid var(--ast-border) !important;
   border-radius: 12px !important;
+  box-sizing: border-box !important;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .text-field-container__text-field-input,
@@ -488,6 +497,10 @@ header:not(main header) input {
   background-color: transparent !important;
   color: var(--ast-text) !important;
   border: none !important;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
 }
 
 .select-field__option option {
@@ -515,7 +528,6 @@ input::placeholder { color: var(--ast-muted) !important; }
 input[type="range"] { accent-color: var(--ast-pink); }
 
 /* ===== Botões ===== */
-button { transition: all 0.2s ease; }
 
 button[class*="primary"] {
   background: linear-gradient(135deg, var(--ast-pink), var(--ast-coral)) !important;
@@ -620,7 +632,6 @@ main header {
   border: 1px solid var(--ast-border) !important;
   border-radius: 16px !important;
   backdrop-filter: blur(6px);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .console-card:hover {
@@ -721,6 +732,62 @@ main:has([class*="game-details"]) {
   background-color: transparent !important;
 }
 
+/* ===== Catálogo: Clássicos ===== */
+.game-item-classics__link {
+  display: block;
+  background-color: var(--ast-panel) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+.game-item-classics__link:hover {
+  border-color: var(--ast-pink) !important;
+  box-shadow: 0 0 0 1px var(--ast-pink);
+}
+
+.game-item-classics__details { background-color: rgba(26, 15, 18, 0.55) !important; }
+.game-item-classics__title { color: var(--ast-text) !important; }
+.game-item-classics__genres { color: var(--ast-muted) !important; }
+
+.game-item-classics__platform-chip {
+  background-color: var(--ast-badge) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 999px !important;
+  color: var(--ast-pink-soft) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* ===== Filtro "Recomps" ===== */
+.recompilation-filter-toggle {
+  background-color: var(--ast-panel) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  color: var(--ast-text) !important;
+  backdrop-filter: blur(6px);
+}
+
+.recompilation-filter-toggle:hover { border-color: var(--ast-pink) !important; }
+.recompilation-filter-toggle__title { color: var(--ast-pink-soft) !important; }
+
+.recompilation-filter-toggle__switch {
+  background-color: var(--ast-panel-dark) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 999px !important;
+}
+
+.recompilation-filter-toggle__knob { background-color: var(--ast-muted) !important; }
+
+.recompilation-filter-toggle[aria-checked="true"] .recompilation-filter-toggle__switch {
+  background-color: var(--ast-pink) !important;
+  border-color: var(--ast-pink) !important;
+}
+
+.recompilation-filter-toggle[aria-checked="true"] .recompilation-filter-toggle__knob {
+  background-color: var(--ast-bg) !important;
+}
+
 /* ===== Links ===== */
 a { color: var(--ast-cream) !important; }
 a:hover { color: var(--ast-pink) !important; }
@@ -746,12 +813,8 @@ progress::-webkit-progress-value {
   color: #2a0f12;
 }
 
-
-/* ===== TIPOGRAFIA ASTOLFO: GEORGIA ===== */
+/* ===== TIPOGRAFIA ASTOLFO: SEGOE PRINT ===== */
 /* Fonte serifada local do Windows: nao depende do Google Fonts nem da internet. */
-:root {
-  --ast-font-body: Georgia, "Times New Roman", serif;
-}
 
 html body,
 html body #root,
@@ -766,7 +829,7 @@ html body input,
 html body textarea,
 html body select,
 html body option {
-  font-family: Georgia, "Times New Roman", serif !important;
+  font-family: var(--ast-font-body) !important;
 }
 
 /* Mantem os icones com suas fontes/desenhos originais. */
@@ -774,7 +837,6 @@ html body #root svg,
 html body #root svg * {
   font-family: inherit;
 }
-
 
 /* ===== Fontes de download: cards mais opacos ===== */
 /* Aumenta a opacidade do cartão inteiro sem alterar o wallpaper. */
@@ -797,4 +859,133 @@ html body #root svg * {
 
 .settings-download-sources__item .text-field-container__text-field {
   background-color: rgba(26, 15, 18, 0.88) !important;
+}
+
+/* ===== Animações: só para quem não pediu movimento reduzido ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .library-game-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .download-group__simple-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .game-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .game-item {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  button {
+    transition: all 0.2s ease;
+  }
+  .console-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .game-item-classics__link {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .recompilation-filter-toggle {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+/* Quem pede movimento reduzido: sem deslocamento ao passar o mouse */
+@media (prefers-reduced-motion: reduce) {
+  .library-game-card:hover,
+  .game-card:hover,
+  .download-group__simple-card:hover {
+    transform: none !important;
+  }
+}
+
+/* ===== Textos e caixas que estouravam (a Georgia é mais larga que a fonte original) ===== */
+html body {
+  font-size-adjust: 0.44; /* encolhe a Georgia só o bastante; apague esta linha para desfazer */
+}
+
+/* Ranking: caixas "Ranking" e "Período" */
+.leaderboards__selector {
+  box-sizing: border-box !important;
+  max-width: 100%;
+  padding: 8px 12px !important;
+  gap: 6px;
+}
+
+[class*="leaderboards__selector"][class*="label"] {
+  display: block;
+  padding: 0 2px 2px !important;
+  line-height: 1.3;
+}
+
+/* Campos de texto e seletores */
+
+.select-field__option { padding-right: 28px !important; }
+
+/* Selos, chips e botões: não quebram nem saem da caixa */
+.badge,
+.game-item-classics__platform-chip,
+.console-card__chip,
+.console-card__cta,
+.settings-integration-card__status,
+.catalogue-mode-toggle__option,
+.library-category-filter__option {
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Títulos longos: quebram dentro do card em vez de vazar */
+.game-item__title,
+.game-item-classics__title,
+.game-card__title,
+.leaderboard-row__name,
+.download-group__simple-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ===== Lista aberta dos seletores (idiomas, ordenar...) ===== */
+select option,
+.select-field__option option {
+  background-color: #261519 !important;
+  color: var(--ast-text) !important;
+}
+
+select option:checked,
+select option:hover {
+  background: #5a3338 linear-gradient(#5a3338, #5a3338) !important;
+  color: var(--ast-pink-soft) !important;
+}
+
+/* ===== Textos soltos sobre o wallpaper: legíveis ===== */
+main :where(h1, h2, h3, h4, p, label, small, span) {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Catálogo: contagem, dica e "Ordenar por" ganham fundo próprio */
+.catalogue__result-count,
+.catalogue__filters-hint {
+  display: table;
+  padding: 2px 12px !important;
+  border-radius: 10px;
+  background-color: var(--ast-panel-dark) !important;
+  backdrop-filter: blur(6px);
+}
+
+.catalogue__sort-label {
+  display: inline-block;
+  padding: 2px 12px !important;
+  border-radius: 999px;
+  background-color: var(--ast-panel-dark) !important;
+  color: var(--ast-pink-soft) !important;
+  backdrop-filter: blur(6px);
+}
+
+.catalogue__filters-hint { color: var(--ast-text) !important; }
+
+/* Ajustes: véu leve atrás do conteúdo (rótulos e títulos ficavam direto no wallpaper) */
+.settings__panel {
+  background-color: rgba(26, 15, 18, 0.32) !important;
+  border-radius: 14px !important;
 }
