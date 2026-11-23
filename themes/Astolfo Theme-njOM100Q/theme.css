@@ -1051,3 +1051,295 @@ main :has(.filter-dropdown__menu) {
   position: relative;
   z-index: 1;
 }
+
+/* ===== Painéis do perfil e das avaliações (mesmo visual da coluna lateral do jogo) ===== */
+/* O prefixo #root é necessário: a regra "game-details" da página do jogo usa !important
+   com especificidade alta e zeraria estes fundos. */
+:root {
+  --ast-solid: var(--ast-panel);            /* painéis grandes (igual ao filtro do Catálogo) */
+  --ast-solid-2: var(--ast-panel-dark);     /* cards e campos dentro dos painéis */
+  --ast-divider: rgba(244, 164, 164, 0.18); /* linhas de divisão */
+}
+
+/* Perfil: Estatísticas, Insígnias, Atividades recentes */
+#root .profile-section {
+  background-color: var(--ast-solid) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  backdrop-filter: blur(8px);
+}
+
+#root .profile-section__header {
+  border-bottom: 1px solid var(--ast-divider) !important;
+}
+
+/* Estatísticas: linha entre cada item */
+#root .user-stats__list-item {
+  padding: 10px 0 !important;
+  border-bottom: 1px solid var(--ast-divider) !important;
+}
+
+#root .user-stats__list-item:last-child {
+  border-bottom: none !important;
+}
+
+#root .badges-box__item {
+  background-color: var(--ast-solid-2) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 12px !important;
+}
+
+#root .badges-box__item-title { color: var(--ast-pink-soft) !important; }
+#root .badges-box__item-description { color: var(--ast-muted) !important; }
+
+/* Perfil: aba Avaliações (cada avaliação é um card) */
+#root .user-reviews__review-item {
+  background-color: var(--ast-solid) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+  margin-bottom: 12px !important;
+  backdrop-filter: blur(8px);
+}
+
+#root .user-reviews__review-header {
+  border-bottom: 1px solid var(--ast-divider) !important;
+  padding-bottom: 8px !important;
+}
+
+#root .user-reviews__review-actions {
+  border-top: 1px solid var(--ast-divider) !important;
+}
+
+/* Página do jogo: caixa de Avaliações (o elemento que envolve a lista) */
+#root :has(> .game-details__reviews-container) {
+  background-color: var(--ast-solid) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Cada avaliação é um card separado */
+#root .game-details__review-thread {
+  background-color: var(--ast-solid-2) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+#root .game-details__review-item {
+  background-color: transparent !important;
+}
+
+/* Linhas de divisão dentro da avaliação */
+#root .game-details__review-header:not(.game-details__review-header--has-bg) {
+  border-bottom: 1px solid var(--ast-divider) !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+#root .game-details__review-actions {
+  border-top: 1px solid var(--ast-divider) !important;
+}
+
+/* Respostas: barra rosa na lateral */
+#root .game-details__reply-item {
+  background-color: transparent !important;
+  border-left: 2px solid var(--ast-pink-dim) !important;
+  padding-left: 12px !important;
+}
+
+/* =========================================================
+   PAINÉIS UNIFICADOS: todos iguais ao filtro do Catálogo
+   (fundo translúcido, borda bordô, cantos 14px, blur leve).
+   Para mudar o visual de todos de uma vez, edite só esta regra.
+   A cor da borda não é definida aqui para não apagar os
+   destaques (item selecionado, "você" no ranking, hover).
+   ========================================================= */
+.game-card,
+.game-item,
+.game-item-classics__link,
+.download-group__simple-card,
+.filter-section,
+.leaderboards__insight,
+.leaderboards__board-header,
+.leaderboards__selector,
+.leaderboards__side-item,
+.leaderboard-podium__card,
+.leaderboard-row,
+.settings__sidebar,
+.theme-card,
+.settings-integration-card,
+.settings-download-sources__item,
+.console-card,
+.recompilation-filter-toggle,
+#root .profile-section,
+#root .user-reviews__review-item,
+#root :has(> .game-details__reviews-container) {
+  background-color: var(--ast-panel) !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-radius: 14px !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+/* ===== "Avaliação bloqueada" (aviso acima das avaliações) ===== */
+/* A caixa inteira (cadeado + texto) vira um painel arredondado com borda completa. */
+#root :has(> .review-gate-notice__content) {
+  box-sizing: border-box !important;
+  padding: 14px 18px !important;
+  gap: 14px;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  background-color: var(--ast-panel-dark) !important;
+}
+
+/* O texto fica solto dentro da caixa, sem fundo próprio (a regra "description" da página
+   do jogo dava um fundo escuro colado no texto) */
+#root .review-gate-notice__content,
+#root .review-gate-notice__title,
+#root .review-gate-notice__description {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+#root .review-gate-notice__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#root .review-gate-notice__title {
+  color: var(--ast-pink-soft) !important;
+  font-weight: 700;
+}
+
+#root .review-gate-notice__description {
+  color: var(--ast-muted) !important;
+  line-height: 1.4;
+}
+
+/* ===== "Sobre este jogo": título e texto no mesmo recuo ===== */
+/* O título tem "description" no nome, então a regra da página do jogo dava a ele fundo e borda
+   próprios (uma caixa colada no texto). Aqui ele vira texto solto e a caixa é a do conteúdo. */
+/* O título fica na mesma coluna da caixa de texto (800px centralizados), em vez de
+   encostar na lateral da página */
+#root .game-details__description-title {
+  display: block;
+  box-sizing: border-box !important;
+  width: min(800px, 100%) !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 auto 12px !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Caixa do texto: fundo um pouco mais escuro */
+#root .game-details__description {
+  background-color: rgba(26, 15, 18, 0.62) !important;
+}
+
+/* Texto com recuo dentro da caixa (as imagens continuam de ponta a ponta) */
+#root .game-details__description .bb_paragraph:not(:has(.bb_img_ctn)),
+#root .game-details__description .bb_tag {
+  box-sizing: border-box;
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+}
+
+#root .game-details__description > :first-child {
+  padding-top: 18px !important;
+}
+
+#root .game-details__description .bb_tag {
+  margin: 18px 0 8px !important;
+}
+
+#root .bb_paragraph {
+  margin: 0 !important;
+  line-height: 1.6;
+}
+
+/* ===== Alinhamento dos textos ===== */
+
+/* Busca do topo: texto afastado da borda e sem caixa dupla */
+.title-bar-search__input {
+  box-sizing: border-box;
+  padding: 6px 14px !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 10px !important;
+  line-height: 1.4;
+}
+
+#root :has(> .title-bar-search__input) {
+  background-color: var(--ast-panel-dark) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 12px !important;
+}
+
+/* "Lançado em / Publicado por" */
+#root .description-header__info {
+  box-sizing: border-box !important;
+  padding: 12px 18px !important;
+  line-height: 1.6;
+}
+
+#root .description-header__info p {
+  margin: 0 !important;
+}
+
+/* Caixa de avaliações: título, aviso e lista não encostam na borda */
+#root :has(> .game-details__reviews-container) {
+  box-sizing: border-box !important;
+  padding: 20px 22px !important;
+}
+
+/* "Deixar uma Avaliação" e "Avaliações 967": mesma linha base e mesmo recuo */
+#root .game-details__reviews-header,
+#root .game-details__reviews-list-header {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 0 14px !important;
+  padding: 0 !important;
+}
+
+#root .game-details__reviews-title-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+#root .game-details__reviews-title {
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+#root .game-details__reviews-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1px 10px !important;
+  line-height: 1.3 !important;
+  border-radius: 999px !important;
+  background-color: var(--ast-panel-dark) !important;
+  border: 1px solid var(--ast-border) !important;
+  color: var(--ast-pink-soft) !important;
+}
+
+/* Datas e textos fracos ficam legíveis */
+#root .user-reviews__review-date,
+#root .game-details__review-date,
+#root .game-details__reply-date {
+  color: var(--ast-muted) !important;
+  opacity: 1 !important;
+}
