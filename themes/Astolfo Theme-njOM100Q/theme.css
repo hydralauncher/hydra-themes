@@ -24,8 +24,8 @@
   --ast-active: rgba(244, 164, 164, 0.18);   /* item selecionado */
   --ast-hover: rgba(244, 164, 164, 0.12);    /* hover */
 
-  /* Wallpaper embutido no próprio CSS (não depende de link nem de arquivo) */
---ast-wallpaper-link: url("https://raw.githubusercontent.com/krzesto/Astolfo-theme/main/themes/Astolfo%20Theme-njOM100Q/wallpaper.jpg");
+  /* Wallpaper */
+  --ast-wallpaper-link: url("https://raw.githubusercontent.com/krzesto/Astolfo-theme/main/themes/Astolfo%20Theme-njOM100Q/wallpaper.jpg");
 
   /* >>> FONTE: troque só esta linha <<< */
   --ast-font-body: "Segoe Print", "Ink Free", "Comic Sans MS", cursive;
@@ -831,7 +831,7 @@ progress::-webkit-progress-value {
 }
 
 /* ===== TIPOGRAFIA ASTOLFO: SEGOE PRINT ===== */
-/* Fonte serifada local do Windows: nao depende do Google Fonts nem da internet. */
+/* Fonte local do Windows: nao depende do Google Fonts nem da internet. */
 
 html body,
 html body #root,
@@ -915,9 +915,9 @@ html body #root svg * {
   }
 }
 
-/* ===== Textos e caixas que estouravam (a Georgia é mais larga que a fonte original) ===== */
+/* ===== Textos e caixas que estouravam (a fonte manuscrita é mais larga que a original) ===== */
 html body {
-  font-size-adjust: 0.44; /* encolhe a Georgia só o bastante; apague esta linha para desfazer */
+  font-size-adjust: 0.44; /* apague esta linha para desfazer */
 }
 
 /* Ranking: caixas "Ranking" e "Período" */
@@ -1005,4 +1005,49 @@ main :where(h1, h2, h3, h4, p, label, small, span) {
 .settings__panel {
   background-color: rgba(26, 15, 18, 0.32) !important;
   border-radius: 14px !important;
+}
+
+/* ===== Menu de filtros (Ordenar por / Plataformas) ===== */
+
+/* Tudo que contém o menu sobe acima da grade de jogos */
+main :has(.filter-dropdown__menu) {
+  position: relative;
+  z-index: 60;
+}
+
+.filter-dropdown__menu {
+  z-index: 9999 !important;
+  background-color: rgb(38, 21, 25) !important;
+  background-image: none !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: none !important;
+  padding: 4px;
+}
+
+.filter-dropdown__option {
+  background-color: transparent !important;
+  color: var(--ast-text) !important;
+  border-radius: 8px !important;
+}
+
+.filter-dropdown__option:hover {
+  background-color: var(--ast-active) !important;
+  color: var(--ast-pink-soft) !important;
+}
+
+.filter-dropdown__option--active {
+  color: var(--ast-pink-soft) !important;
+}
+
+.filter-dropdown__option-icon,
+.filter-dropdown__check {
+  color: var(--ast-pink) !important;
+}
+
+/* Cards sempre abaixo da barra */
+.library-game-card {
+  position: relative;
+  z-index: 1;
 }
