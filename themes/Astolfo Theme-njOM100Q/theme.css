@@ -29,6 +29,11 @@
 
   /* >>> FONTE: troque só esta linha <<< */
   --ast-font-body: "Segoe Print", "Ink Free", "Comic Sans MS", cursive;
+
+  /* Painéis do perfil e das avaliações */
+  --ast-solid: var(--ast-panel);            /* painéis grandes (igual ao filtro do Catálogo) */
+  --ast-solid-2: var(--ast-panel-dark);     /* cards e campos dentro dos painéis */
+  --ast-divider: rgba(244, 164, 164, 0.18); /* linhas de divisão */
 }
 
 /* ===== Wallpaper ===== */
@@ -97,7 +102,7 @@ header:not(main header) input {
 }
 
 /* Hover genérico (a regra de zerar também apaga os hovers do Hydra) */
-#root button:not([class*="primary"]):not([class*="danger"]):not([class*="game-card"]):not([class*="library-"]):hover {
+#root button:not([class*="primary"]):not([class*="danger"]):not([class*="game-card"]):not([class*="library-"]):not([class*="notification-item"]):hover {
   background-color: var(--ast-hover) !important;
 }
 
@@ -132,6 +137,9 @@ header:not(main header) input {
 .library-game-card {
   border-radius: 14px !important;
   border: 1px solid var(--ast-border) !important;
+  /* Cards sempre abaixo da barra */
+  position: relative;
+  z-index: 1;
 }
 
 .library-game-card:hover {
@@ -571,7 +579,10 @@ button[class*="primary"]:hover {
   [role="menu"],
   [role="listbox"],
   [role="tooltip"],
-  .react-tooltip,
+  [class*="menu__content"],
+  .react-tooltip
+):not([class*="overlay"]):not([class*="backdrop"]):not([aria-hidden="true"]),
+:is(
   [class*="modal"],
   [class*="toast"],
   [class*="tooltip"],
@@ -579,8 +590,7 @@ button[class*="primary"]:hover {
   [class*="context-menu"],
   [class*="popover"],
   [class*="dialog"]
-):not([class*="__"]):not([class*="overlay"]):not([class*="backdrop"]):not([aria-hidden="true"]),
-.react-tooltip {
+):not([class*="__"]):not([class*="overlay"]):not([class*="backdrop"]):not([aria-hidden="true"]) {
   background-color: rgba(52, 29, 34, 0.96) !important;
   border: 1px solid var(--ast-border) !important;
   border-radius: 14px !important;
@@ -1046,21 +1056,9 @@ main :has(.filter-dropdown__menu) {
   color: var(--ast-pink) !important;
 }
 
-/* Cards sempre abaixo da barra */
-.library-game-card {
-  position: relative;
-  z-index: 1;
-}
-
 /* ===== Painéis do perfil e das avaliações (mesmo visual da coluna lateral do jogo) ===== */
 /* O prefixo #root é necessário: a regra "game-details" da página do jogo usa !important
    com especificidade alta e zeraria estes fundos. */
-:root {
-  --ast-solid: var(--ast-panel);            /* painéis grandes (igual ao filtro do Catálogo) */
-  --ast-solid-2: var(--ast-panel-dark);     /* cards e campos dentro dos painéis */
-  --ast-divider: rgba(244, 164, 164, 0.18); /* linhas de divisão */
-}
-
 /* Perfil: Estatísticas, Insígnias, Atividades recentes */
 #root .profile-section {
   background-color: var(--ast-solid) !important;
@@ -1117,6 +1115,9 @@ main :has(.filter-dropdown__menu) {
   border: 1px solid var(--ast-border) !important;
   border-radius: 14px !important;
   backdrop-filter: blur(8px);
+  /* título, aviso e lista não encostam na borda */
+  box-sizing: border-box !important;
+  padding: 20px 22px !important;
 }
 
 /* Cada avaliação é um card separado */
@@ -1174,6 +1175,9 @@ main :has(.filter-dropdown__menu) {
 .settings-download-sources__item,
 .console-card,
 .recompilation-filter-toggle,
+.notification-item,
+.leaderboards__mine,
+.leaderboards__panel,
 #root .profile-section,
 #root .user-reviews__review-item,
 #root :has(> .game-details__reviews-container) {
@@ -1298,12 +1302,6 @@ main :has(.filter-dropdown__menu) {
   margin: 0 !important;
 }
 
-/* Caixa de avaliações: título, aviso e lista não encostam na borda */
-#root :has(> .game-details__reviews-container) {
-  box-sizing: border-box !important;
-  padding: 20px 22px !important;
-}
-
 /* "Deixar uma Avaliação" e "Avaliações 967": mesma linha base e mesmo recuo */
 #root .game-details__reviews-header,
 #root .game-details__reviews-list-header {
@@ -1343,3 +1341,179 @@ main :has(.filter-dropdown__menu) {
   color: var(--ast-muted) !important;
   opacity: 1 !important;
 }
+
+/* ===== "Astolfo" em dourado, no canto superior esquerdo (ao lado do nome Hydra) ===== */
+body::after {
+  content: "Astolfo";
+  position: fixed;
+  top: 0;
+  left: 124px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 100000;
+  pointer-events: none;
+  font-family: var(--ast-font-body);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(180deg, #fff6c2 0%, #f8c802 45%, #c8890a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+/* ===== Notificações ===== */
+.notification-item {
+  border-left-width: 3px !important;
+  text-align: left;
+}
+
+.notification-item--unread { border-left-color: var(--ast-pink) !important; }
+.notification-item:hover { border-color: var(--ast-pink) !important; }
+
+.notification-item__picture img { border-radius: 10px !important; }
+.notification-item__title { color: var(--ast-pink-soft) !important; }
+.notification-item__description { color: var(--ast-text) !important; }
+
+.notification-item__time {
+  color: var(--ast-muted) !important;
+  opacity: 1 !important;
+}
+
+.notification-item__dismiss {
+  color: var(--ast-muted) !important;
+  background: transparent !important;
+}
+
+.notification-item__dismiss:hover { color: var(--ast-coral) !important; }
+
+/* ===== Menus de filtro e da biblioteca (Plataformas, Ordenar por, Coleções, Consoles) ===== */
+.sidebar-filter-menu__label,
+.library-toolbar-menu__label {
+  color: var(--ast-muted) !important;
+}
+
+.sidebar-filter-menu__item,
+.library-toolbar-menu__item,
+.library-toolbar-menu__switch-item {
+  border-radius: 8px !important;
+  color: var(--ast-text) !important;
+  background-color: transparent !important;
+}
+
+.sidebar-filter-menu__item:hover,
+.sidebar-filter-menu__item[data-highlighted],
+.library-toolbar-menu__item:hover,
+.library-toolbar-menu__item[data-highlighted],
+.library-toolbar-menu__switch-item:hover,
+.library-toolbar-menu__switch-item[data-highlighted] {
+  background-color: var(--ast-active) !important;
+  color: var(--ast-pink-soft) !important;
+}
+
+.sidebar-filter-menu__item[data-state="checked"],
+.library-toolbar-menu__item[data-state="checked"] {
+  color: var(--ast-pink-soft) !important;
+}
+
+.library-toolbar-menu__item--muted { color: var(--ast-muted) !important; }
+
+.sidebar-filter-menu__item-indicator,
+.library-toolbar-menu__item-indicator {
+  color: var(--ast-pink) !important;
+}
+
+.library-toolbar-menu__item-count {
+  background-color: var(--ast-panel-dark) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 999px !important;
+  padding: 0 8px !important;
+  color: var(--ast-pink) !important;
+}
+
+.library-toolbar-menu__separator {
+  background-color: var(--ast-border) !important;
+  height: 1px;
+}
+
+.library-toolbar-menu__switch {
+  background-color: var(--ast-panel-dark) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 999px !important;
+}
+
+.library-toolbar-menu__switch-item[aria-checked="true"] .library-toolbar-menu__switch {
+  background-color: var(--ast-pink) !important;
+  border-color: var(--ast-pink) !important;
+}
+
+/* ===== Opções do jogo (janela Gerenciar) ===== */
+.game-options-modal__sidebar {
+  background-color: rgba(26, 15, 18, 0.45) !important;
+  border-right: 1px solid var(--ast-border) !important;
+}
+
+.game-options-modal__sidebar-button {
+  border-radius: 10px !important;
+  color: var(--ast-text) !important;
+}
+
+.game-options-modal__sidebar-button--active {
+  background-color: var(--ast-active) !important;
+  color: var(--ast-pink-soft) !important;
+}
+
+.game-options-modal__sidebar-button-icon { color: var(--ast-pink) !important; }
+
+/* ===== Rankings: Sua semana, Sequência entre amigos, Atividade ===== */
+.leaderboards__mine-title,
+.leaderboards__heading-3 {
+  color: var(--ast-pink-soft) !important;
+}
+
+.leaderboards__mine-name,
+.leaderboards__friend-presence {
+  color: var(--ast-muted) !important;
+}
+
+.leaderboards__mine-table th {
+  color: var(--ast-muted) !important;
+  border-bottom: 1px solid var(--ast-divider) !important;
+}
+
+.leaderboards__mine-table td {
+  color: var(--ast-text) !important;
+  border-bottom: 1px solid var(--ast-divider) !important;
+}
+
+.leaderboards__mine-metric { color: var(--ast-text) !important; }
+.leaderboards__friend-name { color: var(--ast-text) !important; }
+.leaderboards__friend-days { color: var(--ast-pink-soft) !important; }
+
+.leaderboards__activity-month,
+.leaderboards__heatmap-day,
+.leaderboards__activity-footer,
+.leaderboards__activity-streak {
+  color: var(--ast-muted) !important;
+}
+
+.leaderboards__activity-streak strong { color: var(--ast-pink-soft) !important; }
+
+/* Mapa de calor: o reset de fundos apagava as cores, então elas são definidas aqui */
+.leaderboards__heat {
+  border-radius: 4px !important;
+  background-color: rgba(255, 248, 225, 0.08) !important;
+}
+
+.leaderboards__heat--1 { background-color: rgba(244, 164, 164, 0.35) !important; }
+.leaderboards__heat--2 { background-color: rgba(244, 164, 164, 0.65) !important; }
+.leaderboards__heat--3 { background-color: var(--ast-pink) !important; }
+
+.leaderboards__heat--future {
+  background-color: transparent !important;
+  border: 1px dashed var(--ast-divider) !important;
+}
+
+.leaderboards__heat--today { outline: 2px solid var(--ast-cream); outline-offset: 1px; }
