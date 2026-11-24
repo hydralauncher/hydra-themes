@@ -149,6 +149,7 @@ header:not(main header) input {
 }
 
 .library-game-card__playtime,
+.user-library-game__playtime,
 .library-game-card__installed-badge {
   background-color: var(--ast-badge) !important;
   border: 1px solid var(--ast-border) !important;
