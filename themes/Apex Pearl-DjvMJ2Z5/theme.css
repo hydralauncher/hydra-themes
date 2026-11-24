@@ -231,6 +231,18 @@ a:hover, .link:hover { color: var(--accent); }
 .title-bar__window-control, .window-title-bar__control { color: var(--text); }
 .title-bar__window-control:hover, .window-title-bar__control:hover { background: var(--subtle-hover); color: var(--text); }
 .title-bar__window-control--close:hover, .window-title-bar__control--close:hover { background: #c42b1c; color: #fff; }
+/* Hydra 4.4.1: busca, setas e versão moram na barra de título (o tema leva setas e
+   busca para o cabeçalho flutuante); busca na caixa de texto do tema. */
+.title-bar__version { padding: 1px 8px; border: 1px solid var(--ctl-stroke); border-radius: 6px; background: var(--ctl-bg); color: var(--text-2); font: 400 11px/14px var(--font); }
+.title-bar__version:hover { background: var(--ctl-bg-hover); color: var(--text); }
+.title-bar .navigation-arrows__button:hover:not(:disabled) { background: var(--ctl-bg); color: var(--text); }
+.title-bar-search { height: 32px; max-width: none; padding: 0 10px; border: 1px solid var(--ctl-stroke); border-radius: var(--ctl-r); background: var(--ctl-bg); transition: background .083s linear; }
+.title-bar-search:hover { border-color: var(--ctl-stroke); background: var(--ctl-bg-hover); }
+.title-bar-search--focused, .title-bar-search--focused:hover { border-color: var(--ctl-stroke); background: var(--input-active); box-shadow: inset 0 -2px 0 var(--accent-bright); }
+.title-bar-search__icon, .title-bar-search__clear { color: var(--text-3); }
+.title-bar-search__clear:hover { color: var(--text); }
+.title-bar-search__input { color: var(--text); font: 400 13px/20px var(--font); }
+.title-bar-search__input::placeholder { color: var(--text-3); }
 
 /* Título da página no estilo "Title" do Fluent. */
 .header { border-bottom: 0; color: var(--text); }
@@ -760,6 +772,9 @@ svg.octicon-plus-circle { --fi: var(--fi-add-circle); }
 svg.octicon-alert { --fi: var(--fi-warning); }
 svg.octicon-alert-fill { --fi: var(--fi-warning-f); }
 svg.octicon-trophy { --fi: var(--fi-trophy); }
+/* Rankings (Hydra 4.4) vem com um SVG próprio, sem classe: o único assim no menu */
+.sidebar__menu-item-button > svg:not([class]) { --fi: var(--fi-trophy); background-color: currentColor; -webkit-mask: var(--fi) center / contain no-repeat; mask: var(--fi) center / contain no-repeat; }
+.sidebar__menu-item-button > svg:not([class]) > * { visibility: hidden; }
 svg.octicon-lock { --fi: var(--fi-lock-closed); }
 svg.octicon-unlock { --fi: var(--fi-lock-open); }
 svg.octicon-pencil { --fi: var(--fi-edit); }
@@ -1071,7 +1086,7 @@ svg.lucide-equal { --fi: var(--fi-equal-circle); }
 /* Painel de filtros: Expander do WinUI */
 .catalogue__filters-container { border-left: 0; }
 .catalogue__filters-sections { gap: 8px; }
-.catalogue-mode-toggle { display: flex; gap: 2px; padding: 2px; background: rgba(0, 0, 0, .25); border: 1px solid rgba(255, 255, 255, .06); border-radius: calc(var(--r-control) + 2px); }
+.catalogue-mode-toggle { display: flex; gap: 2px; height: auto; padding: 2px; background: rgba(0, 0, 0, .25); border: 1px solid rgba(255, 255, 255, .06); border-radius: calc(var(--r-control) + 2px); }
 .catalogue-mode-toggle__option { height: 30px; border-radius: var(--r-control); background: transparent; border: 1px solid transparent; color: var(--text-2); font: 400 14px/20px var(--font); justify-content: center; }
 .catalogue-mode-toggle__option--active { background: var(--ctl-bg-hover); border-color: rgba(255, 255, 255, .07); color: var(--text); font-weight: 600; box-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
 .filter-section { overflow: hidden; box-shadow: none; }
@@ -1302,16 +1317,16 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 
 /* Categorias da Biblioteca (Todos, PC, Clássicos) no mesmo controle segmentado do
    Catálogo: trilha escura e a categoria ativa em relevo. */
-.library-category-filter__container {
+.library-category-filter__container, .leaderboards__selector-options {
   display: flex; gap: 2px; padding: 2px; height: 36px;
   background: rgba(0, 0, 0, .25); border: 1px solid rgba(255, 255, 255, .06); border-radius: calc(var(--r-control) + 2px);
 }
-.library-category-filter__option {
+.library-category-filter__option, .leaderboards__selector-option {
   height: 30px; padding: 0 14px; gap: 8px; background: transparent;
   border: 1px solid transparent; border-radius: var(--r-control); color: var(--text-2); font: 400 14px/20px var(--font);
 }
-.library-category-filter__option:hover { background: rgba(255, 255, 255, .042); color: var(--text); }
-.library-category-filter__option--active {
+.library-category-filter__option:hover, .leaderboards__selector-option:hover { background: rgba(255, 255, 255, .042); color: var(--text); }
+.library-category-filter__option--active, .leaderboards__selector-option--selected {
   background: var(--ctl-bg-hover); border-color: rgba(255, 255, 255, .07); color: var(--text); font-weight: 600;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
@@ -1552,7 +1567,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 
 /* ---------- Galeria ---------- */
 .gallery-slider__container { display: flex; flex-direction: column; gap: var(--s3); }
-.gallery-slider__viewport { aspect-ratio: 16 / 9; height: auto; width: 100%; border-radius: var(--r-surface); overflow: hidden;
+.gallery-slider__viewport { aspect-ratio: 16 / 9; height: auto; width: 100%; max-width: none; max-height: none; border-radius: var(--r-surface); overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .06); background: #111; }
 .gallery-slider__container-inner, .gallery-slider__slide, .gallery-slider__image-slide, .gallery-video-host, .gallery-video { width: 100%; height: 100%; }
 .gallery-slider__media, .gallery-video__element { width: 100%; height: 100%; object-fit: cover; }
@@ -1598,15 +1613,16 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 .game-details__reviews-separator { display: none; }
 .game-details__review-form { display: flex; flex-direction: column; gap: var(--s3); padding: var(--s4);
   background: var(--card); border: 1px solid var(--card-stroke); border-radius: var(--r-surface); }
-.game-details__review-input-container { background: var(--control); }
-.game-details__review-input-container:focus-within { background: var(--input-active); border-bottom: 2px solid var(--accent-bright); }
-.game-details__review-input-header { display: flex; align-items: center; justify-content: space-between;
+.rich-text-editor { background: var(--control); }
+.rich-text-editor:focus-within { background: var(--input-active); border-bottom: 2px solid var(--accent-bright); }
+.rich-text-editor__header { display: flex; align-items: center; justify-content: space-between;
   padding: var(--s1) var(--s2); background: rgba(0, 0, 0, .15); border-bottom: 1px solid rgba(255, 255, 255, .05); }
-.game-details__review-editor-toolbar { display: flex; gap: var(--s1); }
-.game-details__editor-button { width: 28px; height: 28px; border-radius: var(--r-thumb); background: transparent; border: 0; color: var(--text-2); }
-.game-details__editor-button:hover { background: var(--ctl-bg); color: var(--text); }
-.game-details__review-char-counter { font: 400 12px/16px var(--font); color: var(--text-3); }
-.game-details__review-input { padding: var(--s3); min-height: 96px; }
+.rich-text-editor__toolbar { display: flex; gap: var(--s1); }
+.rich-text-editor__button { width: 28px; height: 28px; border-radius: var(--r-thumb); background: transparent; border: 0; color: var(--text-2); }
+.rich-text-editor__button:hover { background: var(--ctl-bg); color: var(--text); }
+.rich-text-editor__button.is-active { background: color-mix(in srgb, var(--accent-bright) 18%, transparent); color: var(--text); }
+.rich-text-editor__counter { font: 400 12px/16px var(--font); color: var(--text-3); }
+.rich-text-editor__input { padding: var(--s3); min-height: 96px; }
 .game-details__review-editor { font: 400 14px/22px var(--font); color: var(--text); outline: none; }
 .game-details__review-form-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
 
@@ -1661,10 +1677,12 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
   gap: var(--s2); font: 600 14px/20px var(--font); color: var(--text); }
 .sidebar-section__button svg { width: 14px; height: 14px; }
 .sidebar-section__content { background: transparent; border: 0; border-radius: 0; }
-.sidebar-section__content > * { padding: 0 var(--s4) var(--s4); }
+/* Hydra 4.4: o conteúdo do cartão fica em __body; a margem de 16px (lados e
+   embaixo) mora só nele, e os componentes de dentro não somam padding próprio. */
+.sidebar-section__body { padding: 0 16px 16px; }
 
 /* Estatísticas: linhas rótulo / valor */
-.stats__section { display: flex; flex-direction: column; gap: 0; }
+.stats__section { display: flex; flex-direction: column; gap: 0; padding: 0; }
 .stats__category { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s2) 0; border-top: 1px solid rgba(255, 255, 255, .05); }
 .stats__category:first-child { border-top: 0; }
 .stats__category p { margin: 0; font: 600 14px/20px var(--font); color: var(--text); font-variant-numeric: tabular-nums; }
@@ -1676,6 +1694,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 /* Tempo para zerar */
 
 .how-long-to-beat__category { gap: 2px var(--s3); }
+.game-screenshots-box { padding: 0; }
 .how-long-to-beat__category-label { margin: 0; font: 400 13px/20px var(--font); color: var(--text-2); }
 .how-long-to-beat__category-label--bold { font-weight: 600; }
 .how-long-to-beat__category > .how-long-to-beat__category-label:not(.how-long-to-beat__category-label--bold) { font: 600 16px/20px var(--font-display); color: var(--text); text-align: right; }
@@ -1884,7 +1903,7 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 .game-details__reply-action-link svg { transition: transform .25s var(--ease); }
 .game-details__reply-action-link:hover svg { transform: translateX(-2px); }
 
-.game-details__review-input-container, .game-details__reply-composer .game-details__review-input-container {
+.rich-text-editor, .game-details__reply-composer .rich-text-editor {
   transition: background .15s, border-color .15s, box-shadow .2s;
 }
 
@@ -1899,16 +1918,16 @@ input[type="range"]:active::-webkit-slider-thumb { box-shadow: inset 0 0 0 6px #
 /* Campo de avaliação/resposta: cantos de 10px iguais nos quatro lados. A linha
    de foco é desenhada por dentro (sombra interna), sem engrossar a borda de
    baixo, então a curva dos cantos não deforma. */
-.game-details__review-input-container,
-.game-details__review-input-container:focus-within {
+.rich-text-editor,
+.rich-text-editor:focus-within {
   border-radius: 10px; border: 1px solid var(--control-stroke); border-bottom-color: var(--control-strong);
   overflow: hidden; background-clip: padding-box;
 }
-.game-details__review-input-container:focus-within {
+.rich-text-editor:focus-within {
   border-bottom-color: var(--control-stroke);
   box-shadow: inset 0 -2px 0 var(--accent-bright);
 }
-.game-details__review-input-header { border-radius: 9px 9px 0 0; }
+.rich-text-editor__header { border-radius: 9px 9px 0 0; }
 
 /* Nota das avaliações em estrelas amarelas: cinco estrelas, preenchidas até a
    nota. O Hydra põe o nome da nota no title ("Muito Positivo" = 5 etc.), e é
@@ -3548,12 +3567,12 @@ button, .button { text-box: trim-both cap alphabetic; }
    Segmentado alinhado ao conteúdo do cartão (mesmos 16px), itens de 28px.
    Cada requisito vira uma linha "rótulo / valor": rótulo pequeno em cinza em
    cima, valor embaixo, separados por linhas finas, sem marcadores de lista. */
-.sidebar-section__content > .requirement__button-container {
-  margin: 0 16px 12px; padding: 2px; height: auto;
+.sidebar-section__body > .requirement__button-container {
+  margin: 0 0 12px; padding: 2px; height: auto;
 }
 .requirement__button { height: 28px; min-height: 28px; font: 400 13px/18px var(--font) !important; }
 .requirement__button.button--primary { font-weight: 600; }
-.sidebar-section__content > .requirement__details { padding: 0 16px 16px; }
+.sidebar-section__body > .requirement__details { padding: 0; }
 .requirement__details ul { list-style: none; padding: 0; margin: 0; gap: 0; display: flex; flex-direction: column; }
 .requirement__details > ul > li, .requirement__details > .bb_ul > li {
   display: flex; flex-direction: column; gap: 2px; padding: 8px 0; margin: 0;
@@ -3569,7 +3588,7 @@ button, .button { text-box: trim-both cap alphabetic; }
 /* ===== Idioma =====
    Tabela alinhada às bordas do cartão (16px), sem caixa interna; cabeçalho em
    cinza pequeno; linhas de 36px; ✓ verde quando tem, traço apagado quando não. */
-.sidebar-section__content > .game-language-section { margin: 0 16px 16px; padding: 0; border: 0; border-radius: 0; background: none; }
+.sidebar-section__body > .game-language-section { margin: 0; padding: 0; border: 0; border-radius: 0; background: none; }
 .game-language-section__header, .game-language-section__row { display: grid; grid-template-columns: minmax(0, 1fr) 64px 48px; align-items: center; background: none; }
 .game-language-section__header { border-bottom: 1px solid rgba(255, 255, 255, .08); }
 .game-language-section__header-item { padding: 0 0 8px; font: 600 12px/16px var(--font) !important; color: var(--text-3); background: none; }
@@ -3585,7 +3604,7 @@ button, .button { text-box: trim-both cap alphabetic; }
 .game-details__description-content { overflow: visible; }
 
 /* Requisitos: segmentado na largura do conteúdo do cartão */
-.sidebar-section__content > .requirement__button-container { width: auto; box-sizing: border-box; }
+.sidebar-section__body > .requirement__button-container { width: auto; box-sizing: border-box; }
 /* Idioma: ✓ verde e ✗ apagado (a cor vai no próprio ícone) */
 .game-language-section__cell--center svg.octicon-check, .game-language-section__check { color: var(--accent-bright); fill: var(--accent-bright); }
 .game-language-section__cell--center svg.octicon-x, .game-language-section__cell--center svg:not(.octicon-check) { color: rgba(255, 255, 255, .22); fill: rgba(255, 255, 255, .22); }
@@ -3931,25 +3950,25 @@ button, .button { text-box: trim-both cap alphabetic; }
 /* ---------- Biblioteca: barra de comandos ----------
    Mesmo cartão do catálogo. Dentro dele os controles são sutis (sem caixa,
    fundo só no hover), grupos separados por linhas finas, ligado = verde suave. */
-.library__controls-row {
+.library__toolbar {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 48px; padding: 0 8px; box-sizing: border-box;
   background: var(--surface-card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--r-surface);
 }
 .library__controls-left, .library__controls-right { display: flex; align-items: center; gap: 4px; }
 
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger, .library-installed-filter__button, .library-view-options__option) {
+.library__toolbar :is(.library-toolbar-menu__trigger, .library__action:not(.button--primary)) {
   height: 32px; min-height: 32px; background: transparent; border: 1px solid transparent; border-radius: var(--ctl-r); margin: 0;
   color: var(--text); transition: background .083s linear, color .083s linear;
 }
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger, .library-installed-filter__button, .library-view-options__option):hover { background: var(--ctl-bg) !important; }
-.library__controls-row :is(.library-installed-filter__button[aria-pressed="true"], .library-view-options__option.active),
-.library__controls-row :is(.library-installed-filter__button[aria-pressed="true"], .library-view-options__option.active):hover {
+.library__toolbar :is(.library-toolbar-menu__trigger, .library__action:not(.button--primary)):hover { background: var(--ctl-bg) !important; }
+.library__toolbar :is(.library-installed-filter__button[aria-pressed="true"], .library-view-options__option.active),
+.library__toolbar :is(.library-installed-filter__button[aria-pressed="true"], .library-view-options__option.active):hover {
   background: color-mix(in srgb, var(--accent-bright) 14%, transparent) !important; color: var(--accent-bright) !important;
 }
-.library__controls-row .library-installed-filter__button[aria-pressed="true"] svg { color: var(--accent-bright) !important; }
+.library__toolbar .library-installed-filter__button[aria-pressed="true"] svg { color: var(--accent-bright) !important; }
 /* Separadores entre grupos */
-.library__controls-row .collections-filter__trigger, .library__controls-row .library-installed-filter__button, .library__controls-row .library-view-options__container { position: relative; }
-.library__controls-row .collections-filter__trigger::before, .library__controls-row .library-installed-filter__button::before, .library__controls-row .library-view-options__container::before {
+.library__toolbar .collections-filter__trigger, .library__toolbar .library-installed-filter__button, .library__toolbar .library-view-options__container { position: relative; }
+.library__toolbar .collections-filter__trigger::before, .library__toolbar .library-installed-filter__button::before, .library__toolbar .library-view-options__container::before {
   content: ""; position: absolute; left: -7px; top: 50%; width: 1px; height: 20px; margin-top: -10px; background: rgba(255,255,255,.08);
 }
 
@@ -3965,24 +3984,24 @@ button, .button { text-box: trim-both cap alphabetic; }
 /* Abas da biblioteca dentro da barra: mesmos 32px e mesmo estilo dos outros botões;
    a selecionada só ganha fundo de controle, peso 600 e ícone verde. */
 
-.library__controls-row .library-category-filter__option { gap: 8px; background: transparent; border: 1px solid transparent; box-shadow: none; color: var(--text-2); transition: background .083s linear, color .083s linear; }
-.library__controls-row .library-category-filter__option:hover { background: var(--ctl-bg) !important; color: var(--text) !important; }
+.library__toolbar .library-category-filter__option { gap: 8px; background: transparent; border: 1px solid transparent; box-shadow: none; color: var(--text-2); transition: background .083s linear, color .083s linear; }
+.library__toolbar .library-category-filter__option:hover { background: var(--ctl-bg) !important; color: var(--text) !important; }
 
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger) { padding: 0 10px 0 12px; gap: 8px; color: var(--text-2); }
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger):hover { color: var(--text) !important; }
-.library__controls-row .library-select__trigger { padding-left: 32px !important; }
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger) > svg:last-child { width: 12px; height: 12px; color: var(--text-3); }
-.library__controls-row .library-installed-filter__button, .library__controls-row .library-view-options__option { width: 32px; color: var(--text-2); }
+.library__toolbar :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger) { padding: 0 10px 0 12px; gap: 8px; color: var(--text-2); }
+.library__toolbar :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger):hover { color: var(--text) !important; }
+.library__toolbar .library-select__trigger { padding-left: 32px !important; }
+.library__toolbar :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger) > svg:last-child { width: 12px; height: 12px; color: var(--text-3); }
+.library__toolbar .library-installed-filter__button, .library__toolbar .library-view-options__option { width: 32px; color: var(--text-2); }
 /* A barra some ao rolar (o app recolhe a linha da grade para 0fr):
    sem altura mínima nem borda nesse estado, senão sobra uma faixa vazia. */
 
-.library__page-header:not(.library__page-header--hidden) > .library__controls-row { min-height: 48px; }
+.library__page-header:not(.library__page-header--hidden) > .library__toolbar { min-height: 48px; }
 
 /* Biblioteca. A grade rola por trás do cabeçalho e da barra de comandos, ambos de vidro
    e sempre visíveis (o app escondia a barra ao rolar, aqui ela fica como o cabeçalho). */
 .container:not(:has(.game-details__hero)) > .container__content > .library__content { position: relative; padding-top: 0; }
 
-.library__page-header > .library__controls-row, .library__page-header--hidden > .library__controls-row { border-width: 1px; overflow: visible; border-color: rgba(255, 255, 255, .08); }
+.library__page-header > .library__toolbar, .library__page-header--hidden > .library__toolbar { border-width: 1px; overflow: visible; border-color: rgba(255, 255, 255, .08); }
 .library__games-scroll { margin-top: 0; }
 
 /* Biblioteca: barra de comandos embaixo, gêmea do cabeçalho de cima
@@ -4001,19 +4020,19 @@ button, .button { text-box: trim-both cap alphabetic; }
   top: auto;
   bottom: 16px;
 }
-.library__page-header > .library__controls-row, .library__page-header--hidden > .library__controls-row { min-height: 0 !important; padding: 8px !important; gap: 8px; border: 1px solid rgba(255, 255, 255, .1) !important; border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 8px 24px rgba(0, 0, 0, .3); }
+.library__page-header > .library__toolbar, .library__page-header--hidden > .library__toolbar { min-height: 0 !important; padding: 8px !important; gap: 8px; border: 1px solid rgba(255, 255, 255, .1) !important; border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 8px 24px rgba(0, 0, 0, .3); }
 .library__games-scroll { padding-top: 79px; padding-bottom: calc(16px + 50px + 16px); scroll-padding-top: 79px; }
 /* Botões como os do cabeçalho: preenchimento de controle e borda fina */
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger, .library-installed-filter__button),
-.library__controls-row .library-view-options__options {
+.library__toolbar :is(.library-toolbar-menu__trigger, .library__action:not(.button--primary)),
+.library__toolbar .library-view-options__options {
   background: var(--ctl-bg) !important; border: 1px solid var(--ctl-stroke) !important; color: var(--text);
 }
-.library__controls-row :is(.collections-filter__trigger, .library-multi-select__trigger, .library-select__trigger, .library-installed-filter__button):hover { background: var(--ctl-bg-hover) !important; }
-.library__controls-row .library-view-options__options { border-radius: var(--ctl-r) !important; padding: 0; gap: 0; overflow: hidden; }
-.library__controls-row .library-view-options__option { border: 0 !important; border-radius: 0; height: 30px !important; min-height: 30px !important; }
-.library__controls-row .library-view-options__option:hover { background: var(--ctl-bg-hover) !important; }
+.library__toolbar :is(.library-toolbar-menu__trigger, .library__action:not(.button--primary)):hover { background: var(--ctl-bg-hover) !important; }
+.library__toolbar .library-view-options__options { border-radius: var(--ctl-r) !important; padding: 0; gap: 0; overflow: hidden; }
+.library__toolbar .library-view-options__option { border: 0 !important; border-radius: 0; height: 30px !important; min-height: 30px !important; }
+.library__toolbar .library-view-options__option:hover { background: var(--ctl-bg-hover) !important; }
 /* Abas: trilho segmentado preenchido, igual ao controle segmentado do resto do tema */
-.library__controls-row .library-category-filter__container {
+.library__toolbar .library-category-filter__container {
   display: flex;
   align-items: center;
   gap: 2px;
@@ -4024,14 +4043,14 @@ button, .button { text-box: trim-both cap alphabetic; }
   padding: 0 2px;
   box-sizing: border-box;
 }
-.library__controls-row .library-category-filter__option { height: 26px; min-height: 26px; border-radius: 6px; padding: 0 10px; }
-.library__controls-row .library-category-filter__option--active, .library__controls-row .library-category-filter__option--active:hover {
+.library__toolbar .library-category-filter__option { height: 26px; min-height: 26px; border-radius: 6px; padding: 0 10px; }
+.library__toolbar .library-category-filter__option--active, .library__toolbar .library-category-filter__option--active:hover {
   color: var(--text) !important;
   background: rgba(255, 255, 255, .1) !important;
 }
 /* Separadores sobram com botões em caixa */
-.library__controls-row .collections-filter__trigger::before, .library__controls-row .library-installed-filter__button::before, .library__controls-row .library-view-options__container::before { display: none; }
-.library__controls-row .collections-filter__trigger, .library__controls-row .library-installed-filter__button, .library__controls-row .library-view-options__container { margin-left: 0; }
+.library__toolbar .collections-filter__trigger::before, .library__toolbar .library-installed-filter__button::before, .library__toolbar .library-view-options__container::before { display: none; }
+.library__toolbar .collections-filter__trigger, .library__toolbar .library-installed-filter__button, .library__toolbar .library-view-options__container { margin-left: 0; }
 
 /* A sombra de rolagem do app ficava sob o cabeçalho de vidro; o vidro já separa o conteúdo. */
 .library__scroll-shadow, .library__scroll-shadow::after { display: none; }
@@ -4078,19 +4097,19 @@ button, .button { text-box: trim-both cap alphabetic; }
 
 
 /* Barra de baixo da biblioteca: mais desfoque e um pouco mais de corpo para ler sobre as capas. */
-.library__page-header > .library__controls-row, .library__page-header--hidden > .library__controls-row {
+.library__page-header > .library__toolbar, .library__page-header--hidden > .library__toolbar {
   background: rgba(32, 32, 32, .55); backdrop-filter: blur(48px) saturate(1.6); -webkit-backdrop-filter: blur(48px) saturate(1.6) !important;
 }
 
 /* ==================== Ajustes: cartão por seção ====================
    Menu lateral num cartão; cada seção é um cartão com título dentro e
    opções em linhas separadas por divisórias finas. */
-.settings__sidebar-button { height: 36px; min-height: 36px; border-radius: var(--ctl-r) !important; padding: 0 12px; gap: 14px; position: relative;
+.settings__sidebar-button, .leaderboards__side-item { height: 36px; min-height: 36px; border-radius: var(--ctl-r) !important; padding: 0 12px; gap: 14px; position: relative;
   background: transparent; border: 0; color: var(--text); font: 400 14px/20px var(--font) !important; }
-.settings__sidebar-button:hover { background: var(--ctl-bg) !important; }
-.settings__sidebar-button--active, .settings__sidebar-button--active:hover { background: var(--ctl-bg-hover) !important; }
-.settings__sidebar-button--active::before { content: ""; position: absolute; left: 0; top: 50%; width: 3px; height: 16px; margin-top: -8px; border-radius: 2px; background: var(--accent-bright); }
-.settings__sidebar-button--active .settings__sidebar-button-icon { color: var(--accent-bright); }
+.settings__sidebar-button:hover, .leaderboards__side-item:hover { background: var(--ctl-bg) !important; }
+.settings__sidebar-button--active, .settings__sidebar-button--active:hover, .leaderboards__side-item--selected, .leaderboards__side-item--selected:hover { background: var(--ctl-bg-hover) !important; }
+.settings__sidebar-button--active::before, .leaderboards__side-item--selected::before { content: ""; position: absolute; left: 0; top: 50%; width: 3px; height: 16px; margin-top: -8px; border-radius: 2px; background: var(--accent-bright); }
+.settings__sidebar-button--active .settings__sidebar-button-icon, .leaderboards__side-item--selected .leaderboards__side-icon { color: var(--accent-bright); }
 .settings__sidebar-group-label { font: 600 12px/16px var(--font) !important; color: var(--text-3); padding: 0 12px; }
 .settings__sidebar-divider { background: rgba(255,255,255,.06); }
 
@@ -4230,12 +4249,12 @@ select option:checked::before { display: none; }
 }
 .settings-account__section .button--outline:hover { background: var(--ctl-bg-hover) !important; }
 /* Conteúdo: pasta de capturas = linha com campo na largura toda e o atalho abaixo */
-.settings-behavior__screenshots-directory { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
-.settings-behavior__screenshots-directory > .text-field-container { display: flex; flex-direction: column; gap: 8px; padding: 0; min-height: 0; border: 0; }
+.settings-context-content-gameplay__screenshots-directory { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+.settings-context-content-gameplay__screenshots-directory > .text-field-container { display: flex; flex-direction: column; gap: 8px; padding: 0; min-height: 0; border: 0; }
 
-.settings-behavior__screenshots-directory .text-field-container__text-field-wrapper { display: flex; gap: 8px; }
-.settings-behavior__screenshots-directory .text-field-container__text-field { flex: 1; min-width: 0; }
-.settings-behavior__screenshots-directory > .button { align-self: flex-start; }
+.settings-context-content-gameplay__screenshots-directory .text-field-container__text-field-wrapper { display: flex; gap: 8px; }
+.settings-context-content-gameplay__screenshots-directory .text-field-container__text-field { flex: 1; min-width: 0; }
+.settings-context-content-gameplay__screenshots-directory > .button { align-self: flex-start; }
 
 /* Fontes de download: introdução e ações alinhadas, cada fonte como cartão de seção */
 .settings-download-sources__header { display: flex; align-items: center; }
@@ -4254,7 +4273,7 @@ select option:checked::before { display: none; }
 .settings-download-sources__item .text-field-container__text-field { flex: 1; min-width: 0; }
 .settings-download-sources__item-header { flex-direction: row; justify-content: flex-start; text-align: left; }
 .settings-download-sources__item-header .badge { border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 12%, transparent); color: var(--accent-bright); border: 0; }
-.settings-behavior__screenshots-directory > .text-field-container > label {
+.settings-context-content-gameplay__screenshots-directory > .text-field-container > label {
   font: 400 14px/20px var(--font) !important;
   color: var(--text);
   margin: 0;
@@ -4566,14 +4585,14 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .filter-section__group-tab:hover { background: rgba(255,255,255,.042) !important; color: var(--text) !important; }
 .filter-section__group-tab--active, .filter-section__group-tab--active:hover { background: var(--ctl-bg-hover) !important; border-color: rgba(255,255,255,.07) !important; color: var(--text) !important; font-weight: 600 !important; }
 /* Suporte a controle alinhado ao título da seção (16px) e com a mesma folga embaixo */
-.controller-support { padding: 4px 16px 18px; column-gap: 16px; }
+.controller-support { padding: 4px 0 0; column-gap: 16px; }
 
 /* HowLongToBeat: lista como Estatísticas, com ícone por categoria,
    nome e precisão à esquerda e as horas em destaque à direita. */
-.how-long-to-beat__categories-list { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0 16px 8px; list-style: none; }
+.how-long-to-beat__categories-list { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; list-style: none; }
 .how-long-to-beat__category {
   display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 12px; row-gap: 0; align-items: center;
-  min-height: 56px; padding: 10px 0; margin: 0; background: none; border: 0; border-radius: 0; box-shadow: none;
+  min-height: 52px; padding: 8px 0; margin: 0; background: none; border: 0; border-radius: 0; box-shadow: none;
 }
 .how-long-to-beat__category + .how-long-to-beat__category { border-top: 1px solid rgba(255, 255, 255, .06) !important; }
 .how-long-to-beat__category::before {
@@ -4590,14 +4609,15 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 
 /* Conquistas na lateral do jogo: lista como HowLongToBeat/Estatísticas —
    ícone 40px arredondado, nome em branco, divisória fina e hover leve. */
-.content-sidebar .list { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0 8px; list-style: none; }
-.content-sidebar .list__item { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px; margin: 0; border-radius: 8px; background: transparent; border: 0; text-decoration: none; transition: background .083s linear; }
+.content-sidebar .list { display: flex; flex-direction: column; gap: 0; margin: 0 -8px; padding: 0; list-style: none; }
+.content-sidebar .list__item { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 8px; margin: 0; border-radius: 8px; background: transparent; border: 0; text-decoration: none; transition: background .083s linear; }
 
 .content-sidebar .list__item:hover { background: var(--ctl-bg) !important; box-shadow: none; }
 .content-sidebar .list__item, .content-sidebar .list__item * { color: var(--text); font: 400 14px/20px var(--font) !important; }
-.content-sidebar .list__item-image { width: 40px; height: 40px; flex: none; border-radius: 8px; border: 0; object-fit: cover;
+.content-sidebar .list__item-image { width: 36px; height: 36px; flex: none; border-radius: 8px; border: 0; object-fit: cover;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .08); }
 .content-sidebar .list__item-image--locked { filter: grayscale(1) brightness(.75); }
+.content-sidebar .list__item small { display: block; font: 400 12px/16px var(--font) !important; color: var(--text-3); }
 
 /* ==================== Conquistas: resumo lateral ====================
    Cartão fixo à esquerda (arte, logo, você, progresso, pontos) e a lista
@@ -4678,7 +4698,7 @@ select option:active { background: rgba(255, 255, 255, .04) !important; }
 .content-sidebar .sidebar-section__content:has(.list) > :is(a, button):last-child:hover { background: var(--ctl-bg); }
 /* "Ver todas as conquistas" é o último filho da própria lista */
 .content-sidebar .list > a.link:not(.list__item) {
-  align-self: flex-start; display: inline-flex; align-items: center; height: 32px; margin: 4px 0 12px; padding: 0 8px; border-radius: var(--ctl-r);
+  align-self: flex-start; display: inline-flex; align-items: center; height: 32px; margin: 4px 0 0; padding: 0 8px; border-radius: var(--ctl-r);
   color: var(--accent-bright); font: 600 13px/20px var(--font) !important; text-decoration: none; transition: background .083s linear; }
 .content-sidebar .list > a.link:not(.list__item):hover { background: var(--ctl-bg); }
 /* A altura medida pelo app não conta a folga nova do link; aberta, a seção cresce livre */
@@ -6500,3 +6520,285 @@ html body .profile-hero__hero-panel { left: 16px !important; }
 /* Opções de download: selo "Última opção baixada" como pílula na ponta da linha (o Hydra o punha na coluna da bolinha, uma palavra por linha) */
 .repacks-modal__repack-button:has(> .badge) { grid-template-rows: 20px 16px; }
 .repacks-modal__repack-button > .badge { grid-column: 3; grid-row: 1 / span 2; align-self: center; display: inline-flex; align-items: center; width: auto; height: 22px; padding: 0 9px; border: 0; border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 16%, transparent); color: var(--accent-text); font: 600 11px/22px var(--font); white-space: nowrap; }
+/* ==================== Cabeçalho flutuante (Hydra 4.4.1) ====================
+   O 4.4.1 tirou o cabeçalho de dentro das páginas (voltar, título e busca) e
+   levou setas e busca para a barra de título. O tema refaz a barra de vidro do
+   Apex: o vidro é o ::before da área de conteúdo (acompanha a largura sozinho) e
+   as setas e a busca da barra de título são postas por cima dele. O Hydra não
+   expõe mais o nome da página; ele vem do tema, pela página aberta.
+   z-index 3: acima do conteúdo, abaixo dos modais do Hydra (4 e 10). */
+:root {
+  --apex-hdr-top: calc(var(--title-bar-height, 40px) + 16px); /* 16px abaixo da barra de título */
+  --apex-hdr-left: calc(72px + 16px);                          /* menu lateral do tema (72px) + 16px */
+  /* à direita a barra desconta a barra de rolagem (28px), batendo com a borda do conteúdo */
+}
+.container::before {
+  content: ""; position: absolute; z-index: 20; top: 16px; left: 16px; right: 28px; height: 50px; box-sizing: border-box; pointer-events: none;
+  border: 1px solid var(--glass-stroke); border-radius: var(--r-surface);
+  background: color-mix(in srgb, var(--mica) 35%, transparent);
+  backdrop-filter: blur(24px) saturate(170%); -webkit-backdrop-filter: blur(24px) saturate(170%);
+  box-shadow: inset 0 1px 0 var(--control-stroke-top);
+}
+/* Voltar/avançar + nome da página, à esquerda da barra */
+.title-bar__navigation { position: fixed; z-index: 3; top: calc(var(--apex-hdr-top) + 9px); left: calc(var(--apex-hdr-left) + 8px); height: 32px; margin: 0; display: flex; align-items: center; gap: 2px; -webkit-app-region: no-drag; }
+.title-bar .navigation-arrows__button { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-control); color: var(--text); }
+.title-bar .navigation-arrows__button svg { width: 16px; height: 16px; }
+.title-bar .navigation-arrows__button:disabled { display: none; } /* como antes: o voltar só aparece quando há para onde voltar */
+.title-bar__navigation::after { content: var(--apex-page, ""); margin-left: 8px; font: 600 16px/24px var(--font-display); color: var(--text); white-space: nowrap; }
+/* Busca à direita da barra, 280px como a busca do cabeçalho antigo */
+.title-bar__search { position: fixed; z-index: 3; top: calc(var(--apex-hdr-top) + 9px); right: 36px; width: 280px; flex: none; padding: 0; }
+.title-bar-search { height: 32px; max-width: none; }
+.title-bar__big-picture { margin-left: auto; }
+
+:root:has(.container__content > .home__content) { --apex-page: "Início"; }
+:root:has(.container__content > .catalogue) { --apex-page: "Catálogo"; }
+:root:has(.container__content > .library__content) { --apex-page: "Biblioteca"; }
+:root:has(.container__content > .downloads__container) { --apex-page: "Downloads"; }
+:root:has(.container__content > .leaderboards) { --apex-page: "Rankings"; }
+:root:has(.container__content > .settings__container) { --apex-page: "Ajustes"; }
+:root:has(.container__content > .achievements-content__achievements-list) { --apex-page: "Conquistas"; }
+:root:has(.container__content > .profile__wrapper) { --apex-page: "Perfil"; }
+
+/* ==================== Rankings (Hydra 4.4) ====================
+   Na linguagem de Ajustes e Conquistas:
+   · à esquerda, o menu num cartão (o mesmo de Ajustes, 240px) com o período no topo;
+   · à direita, a barra de filtros num cartão (a mesma de Conquistas): título da
+     categoria e nº de jogadores à esquerda, os seletores à direita;
+   · embaixo, a lista num cartão com as linhas de Conquistas: posição, imagem de
+     48px, nome com o lugar embaixo e o valor numa pílula; o top 3 ganha o selo da
+     medalha na imagem; a sua linha fica presa no rodapé.
+   Os seletores usam o controle segmentado da Biblioteca e os itens do menu usam
+   as regras de Ajustes (as duas regras listam as classes do Rankings).
+   O Hydra separa topo, menu e quadro em caixas; aqui topo e corpo viram
+   "display: contents" e caem numa grade de duas colunas. */
+.leaderboards {
+  display: grid; grid-template-columns: 240px minmax(0, 1fr); grid-template-rows: 64px auto;
+  gap: 16px; align-items: start; padding-bottom: 16px; box-sizing: border-box;
+}
+.leaderboards__header, .leaderboards__body { display: contents; }
+.leaderboards__selector { gap: 0; }
+.leaderboards__selector-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.leaderboards__selector-option { flex: 1 0 auto; white-space: nowrap; }
+
+/* ---- Menu: um cartão só (período no topo + itens), como em Ajustes; fica parado ao rolar ---- */
+.leaderboards__heading {
+  grid-column: 1; grid-row: 1; align-self: stretch; position: sticky; top: 80px; z-index: 2; margin-bottom: -16px; flex-direction: column; justify-content: center; gap: 0;
+  padding: 12px 20px 4px; border: 1px solid var(--surface-card-stroke); border-bottom: 0; border-radius: var(--r-surface) var(--r-surface) 0 0; background: var(--surface-card);
+}
+.leaderboards__period-title { font: 600 18px/24px var(--font-display); color: var(--text); }
+.leaderboards__subtitle { font: 400 12px/16px var(--font); color: var(--text-3); font-variant-numeric: tabular-nums; }
+.leaderboards__sidebar {
+  grid-column: 1; grid-row: 2; position: sticky; top: 160px; z-index: 2; max-height: calc(100vh - 216px); overflow-y: auto; scrollbar-width: thin;
+  width: auto; display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 8px 8px; box-sizing: border-box; border: 1px solid var(--surface-card-stroke); border-top: 0; border-radius: 0 0 var(--r-surface) var(--r-surface); background: var(--surface-card);
+}
+.leaderboards__sidebar > .leaderboards__selector { order: 0; padding: 0 0 8px; }
+.leaderboards__sidebar .leaderboards__selector-options { width: 100%; box-sizing: border-box; }
+.leaderboards__side-group { order: 1; gap: 2px; }
+.leaderboards__side-group--stats { order: 2; margin-top: 6px; padding: 8px 0 0; border-top: 1px solid var(--divider); border-bottom: 0; }
+.leaderboards__side-item { height: auto; min-height: 40px; padding: 8px 12px; gap: 14px; text-align: left; color: var(--text); }
+.leaderboards__side-item--banner { background-color: transparent; }
+.leaderboards__side-banner, .leaderboards__side-leader, .leaderboards__side-item::after { display: none; }
+.leaderboards__side-item:not(.leaderboards__side-item--selected)::before { display: none; }
+.leaderboards__side-item--selected::before { inset: auto; left: 0; top: 50%; margin-top: -8px; z-index: 1; border: 0; mask: none; -webkit-mask: none; opacity: 1; }
+.leaderboards__side-icon { width: 16px; height: 16px; flex: none; color: var(--text-2); transition: color .083s linear; }
+.leaderboards__side-text { flex: 1; min-width: 0; gap: 0; }
+.leaderboards__side-top { align-items: baseline; gap: 8px; }
+.leaderboards__side-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 14px/20px var(--font); color: var(--text); }
+.leaderboards__side-item--selected .leaderboards__side-title { font-weight: 600; }
+.leaderboards__side-rank { font: 400 12px/16px var(--font); color: var(--text-3); font-variant-numeric: tabular-nums; }
+.leaderboards__side-note, .leaderboards__side-empty { font: 400 12px/16px var(--font); color: var(--text-3); }
+.leaderboards__side-cover { width: 32px; height: 32px; flex: none; border-radius: 6px; object-fit: cover; }
+.leaderboards__side-more { height: 36px; border-radius: var(--ctl-r); color: var(--text-2); font: 400 14px/20px var(--font); }
+.leaderboards__side-more:hover { background-color: var(--ctl-bg); color: var(--text); }
+.leaderboards__sidebar .text-field-container { margin: 0 0 8px; }
+
+/* ---- Barra de filtros (a de Conquistas): os seletores à direita ---- */
+.leaderboards__toggles {
+  grid-column: 2; grid-row: 1; align-self: stretch; display: flex; flex-direction: row; justify-content: flex-end; align-items: center; gap: 8px;
+  padding: 0 14px; border: 1px solid var(--surface-card-stroke); border-radius: var(--r-surface); background: var(--surface-card);
+}
+/* Sem quadro aberto (Suas estatísticas) não há título: a barra some e ficam só os seletores */
+.leaderboards:not(:has(.leaderboards__board-header)) .leaderboards__toggles { border-color: transparent; background: none; padding-right: 0; }
+.leaderboards__stats-grid { align-items: start; }
+.leaderboards__stats-grid > * { height: auto; min-height: 0; }
+/* O título da categoria entra na mesma barra, à esquerda */
+.leaderboards__content { grid-column: 2; grid-row: 2; min-width: 0; padding: 0; gap: 16px; }
+.leaderboards__board { position: relative; max-width: none; gap: 0; color: var(--text); overflow: visible; border: 1px solid var(--surface-card-stroke); border-radius: var(--r-surface); background: var(--surface-card); }
+.leaderboards__board-header {
+  position: absolute; z-index: 2; top: -81px; left: 0; container-type: normal; width: max-content; max-width: calc(100% - 400px); height: 64px; display: flex; flex-wrap: nowrap; align-items: center; gap: 12px; padding: 0 20px; box-sizing: border-box;
+  border: 0; pointer-events: auto;
+}
+.leaderboards__board-icon { display: none; }
+.leaderboards__board-cover, .leaderboards__board-media-link { width: 40px; height: 40px; flex: none; border-radius: var(--ctl-r); object-fit: cover; }
+.leaderboards__board-heading { flex: 0 1 auto; gap: 0; min-width: 0; }
+.leaderboards__board-heading > * { overflow: hidden; text-overflow: ellipsis; }
+.leaderboards__board-title { font: 600 18px/24px var(--font-display); color: var(--text); white-space: nowrap; }
+.leaderboards__board-description { font: 400 12px/16px var(--font); color: var(--text-3); white-space: nowrap; }
+.leaderboards__board-count {
+  flex: none; display: inline-flex; align-items: center; height: 28px; padding: 0 12px; box-sizing: border-box;
+  border: 0; border-radius: 999px; background: var(--ctl-bg); font: 600 12px/16px var(--font); color: var(--text-2); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+
+/* ---- Cartão da lista ---- */
+.leaderboards__insight { align-items: center; gap: 10px; padding: 14px 24px; border: 0; border-bottom: 1px solid var(--divider); border-radius: 0; background: none; }
+.leaderboards__insight-icon { width: 16px; height: 16px; flex: none; color: var(--accent-bright); }
+.leaderboards__insight-icon svg { width: 16px; height: 16px; }
+.leaderboards__insight-text p { margin: 0; font: 400 14px/20px var(--font); color: var(--text-2); }
+.leaderboards__insight-text b { font-weight: 600; color: var(--text); }
+.leaderboards__insight-text small { color: var(--text-3); }
+.leaderboards__panel { padding: 16px; border: 1px solid var(--surface-card-stroke); border-radius: var(--r-surface); background: var(--surface-card); color: var(--text); }
+.leaderboards__heading-2, .leaderboards__heading-3 { font: 600 16px/24px var(--font); color: var(--text); }
+.leaderboards__message { color: var(--text-2); }
+.leaderboards__message-title { font: 600 14px/20px var(--font); color: var(--text); }
+.leaderboards__link { color: var(--accent-text); }
+.leaderboards__link:hover { color: var(--accent-bright); }
+.leaderboards__skeleton-podium, .leaderboards__skeleton-row, .leaderboards__block-skeleton, .leaderboards__side-skeleton { border-radius: var(--r-surface); }
+.leaderboards__table { gap: 0; }
+.leaderboards__table-header { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.leaderboards__more { display: flex; justify-content: center; padding: 12px 0 16px; border-top: 1px solid var(--divider); }
+
+/* Top 3: as linhas de Conquistas, com o lugar embaixo do nome e o selo na imagem */
+.leaderboard-podium-wrapper { padding: 4px 12px 0; }
+.leaderboard-podium, .leaderboard-podium--sparse { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.leaderboard-podium__slot { border-bottom: 1px solid var(--divider); }
+.leaderboard-podium__card, .leaderboard-podium__card--gold, .leaderboard-podium__card--silver, .leaderboard-podium__card--bronze {
+  display: grid; grid-template-columns: 40px 48px minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 16px; row-gap: 0; align-items: center;
+  height: auto; min-height: 76px; padding: 12px 44px 12px 12px; box-sizing: border-box; overflow: visible; isolation: isolate; text-align: left;
+  border: 0; border-radius: var(--ctl-r); background: transparent; color: var(--text); box-shadow: none; transform: none; transition: background-color .083s linear;
+}
+.leaderboard-podium__card:hover { filter: none; transform: none; box-shadow: none; background-color: var(--subtle-hover); }
+.leaderboard-podium__card:active { background-color: var(--subtle-pressed); }
+.leaderboard-podium__card--viewer { background-color: color-mix(in srgb, var(--accent-bright) 10%, transparent); }
+.leaderboard-podium__card--selected { box-shadow: inset 0 0 0 2px var(--accent-bright); }
+.leaderboard-podium__card--gold { --rk-medal: #e3b341; }
+.leaderboard-podium__card--silver { --rk-medal: #a3aebb; }
+.leaderboard-podium__card--bronze { --rk-medal: #cf8a52; }
+.leaderboard-podium__band, .leaderboard-podium__body, .leaderboard-podium__card--gold .leaderboard-podium__body { display: contents; }
+.leaderboard-podium__band::before, .leaderboard-podium__band::after { content: none; }
+.leaderboard-podium__rank { grid-column: 1; grid-row: 1 / span 2; text-align: center; font: 600 15px/20px var(--font); color: color-mix(in srgb, var(--rk-medal) 80%, var(--text)); font-variant-numeric: tabular-nums; }
+.leaderboard-podium__metal {
+  grid-column: 3; grid-row: 2; align-self: start; position: static; width: auto; height: auto; overflow: visible; clip-path: none; transform: none; writing-mode: horizontal-tb;
+  font: 400 13px/18px var(--font); letter-spacing: 0; text-transform: none; color: var(--text-3);
+}
+.leaderboard-podium__card--gold .leaderboard-podium__metal::before { content: "1º lugar · "; }
+.leaderboard-podium__card--silver .leaderboard-podium__metal::before { content: "2º lugar · "; }
+.leaderboard-podium__card--bronze .leaderboard-podium__metal::before { content: "3º lugar · "; }
+.leaderboard-podium__avatar-wrapper { grid-column: 2; grid-row: 1 / span 2; position: relative; width: 48px; height: 48px; margin: 0; }
+.leaderboard-podium__avatar-wrapper > .profile-avatar, .leaderboard-podium__avatar { width: 48px !important; height: 48px !important; }
+.leaderboard-podium__avatar-wrapper > .profile-avatar { border-radius: 10px; background: none; box-shadow: none; }
+.leaderboard-podium__card .leaderboard-podium__avatar { border: 0; border-radius: 10px; box-shadow: 0 0 0 1px var(--card-stroke); }
+/* Selo da medalha, como o visto das conquistas */
+.leaderboard-podium__avatar-wrapper::after {
+  content: ""; position: absolute; right: -5px; bottom: -5px; width: 20px; height: 20px; border-radius: 50%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M8 4h8v6a4 4 0 0 1-8 0zM12 14v4M8 20h8'/%3E%3C/svg%3E") center / 11px no-repeat, var(--rk-medal);
+  box-shadow: 0 0 0 2px var(--mica);
+}
+.leaderboard-podium__name { grid-column: 3; grid-row: 1; align-self: end; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 15px/22px var(--font); color: var(--text); }
+.leaderboard-podium__value {
+  grid-column: 4; grid-row: 1 / span 2; display: inline-flex; align-items: center; height: 32px; padding: 0 14px; box-sizing: border-box;
+  border-radius: 999px; background: var(--ctl-bg); font: 600 14px/20px var(--font); color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.leaderboard-podium__body--banner { background: none; }
+.leaderboard-podium__you { grid-column: 3; grid-row: 1; justify-self: end; height: 18px; padding: 0 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 22%, transparent); color: var(--accent-text); font: 600 11px/18px var(--font); }
+.leaderboard-podium__action { top: 50%; right: 8px; margin-top: -14px; }
+
+/* Demais linhas: mesma régua (posição 40px, imagem 48px, valor em pílula) */
+.leaderboards__list { gap: 0; padding: 0 12px 4px; border: 0; border-radius: 0; background: none; }
+.leaderboards__list > li + li { border-top: 1px solid var(--divider); }
+.leaderboards .leaderboard-row, .leaderboards .leaderboard-row--strip, .leaderboards .leaderboard-row--table:not(.leaderboard-row--banner),
+.leaderboards .leaderboard-row--banner, .leaderboards .leaderboard-row--strip.leaderboard-row--banner {
+  height: auto; min-height: 72px; gap: 16px; padding: 12px 44px 12px 12px; box-sizing: border-box; isolation: isolate; overflow: hidden;
+  border-radius: var(--ctl-r); background-color: transparent; background-image: none; color: var(--text); transition: background-color .083s linear;
+}
+.leaderboards .leaderboard-row--strip::after { content: none; }
+.leaderboards .leaderboard-row:hover, .leaderboards .leaderboard-row--strip:hover, .leaderboards .leaderboard-row--table:not(.leaderboard-row--banner):hover,
+.leaderboards .leaderboard-row--strip.leaderboard-row--banner:hover { background-color: var(--subtle-hover); background-image: none; }
+.leaderboards .leaderboard-row:active { background-color: var(--subtle-pressed); }
+.leaderboards .leaderboard-row--banner::before {
+  content: ""; position: absolute; z-index: -1; inset: 0 160px 0 40%; pointer-events: none; opacity: .4;
+  background: var(--leaderboard-row-banner) center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 55%, transparent); mask-image: linear-gradient(90deg, transparent, #000 55%, transparent);
+}
+.leaderboards .leaderboard-row--banner .leaderboard-row__name, .leaderboards .leaderboard-row--banner .leaderboard-row__value, .leaderboards .leaderboard-row.leaderboard-row--banner { color: var(--text); }
+.leaderboards .leaderboard-row__strip, .leaderboards .leaderboard-row--table .leaderboard-row__strip { width: 40px; flex: none; justify-content: center; background: transparent; color: var(--text-3); font: 600 15px/20px var(--font); font-variant-numeric: tabular-nums; box-shadow: none; }
+.leaderboards .leaderboard-row__strip::before, .leaderboards .leaderboard-row__strip::after { content: none; }
+.leaderboards .leaderboard-row .profile-avatar { flex: none; width: 48px !important; height: 48px !important; }
+.leaderboards .leaderboard-row .profile-avatar__image { border-radius: 10px; box-shadow: 0 0 0 1px var(--card-stroke); }
+.leaderboards .leaderboard-row__body { min-width: 0; }
+.leaderboards .leaderboard-row__name-line { gap: 8px; align-items: center; }
+.leaderboards .leaderboard-row__name { font: 600 15px/22px var(--font); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.leaderboards .leaderboard-row__subtitle { font: 400 13px/18px var(--font); color: var(--text-3); }
+.leaderboards .leaderboard-row__value, .leaderboards .leaderboard-row--table .leaderboard-row__value {
+  flex: none; width: auto; min-width: 0; height: 32px; padding: 0 14px; display: inline-flex; align-items: center; box-sizing: border-box;
+  border: 0; border-radius: 999px; background: var(--ctl-bg); font: 600 14px/20px var(--font); color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.leaderboards .leaderboard-row__value--muted { color: var(--text-3); }
+.leaderboards .leaderboard-row--strip .leaderboard-row__you, .leaderboards .leaderboard-row__you { height: 18px; padding: 0 8px; border: 0; border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 22%, transparent); color: var(--accent-text); font: 600 11px/18px var(--font); }
+.leaderboards .leaderboard-row__progress-fill { background: var(--accent-bright); opacity: .6; }
+.leaderboards .leaderboard-row--viewer .leaderboard-row__progress-fill { opacity: 1; }
+.leaderboards .leaderboard-row__action { right: 8px; }
+.leaderboards__report { width: 28px; height: 28px; border: 0; border-radius: 6px; background: transparent; color: var(--text-3); }
+.leaderboards__report:hover, .leaderboards__report:focus-visible { background: var(--ctl-bg); color: var(--text); }
+
+/* A sua linha: rodapé fixo do cartão, tom e traço de seleção */
+.leaderboards__list > li:has(.leaderboard-row--viewer) {
+  position: sticky; bottom: 0; z-index: 1; margin: 0 -12px -4px; padding: 8px 12px;
+  border-top: 1px solid var(--divider); border-radius: 0 0 var(--r-surface) var(--r-surface); background: linear-gradient(var(--surface-card), var(--surface-card)), var(--mica);
+}
+.leaderboards__list > li:has(.leaderboard-row--viewer) .leaderboard-row__gap { display: none; }
+.leaderboards .leaderboard-row--viewer, .leaderboards .leaderboard-row--strip.leaderboard-row--viewer, .leaderboards .leaderboard-row--table.leaderboard-row--viewer:not(.leaderboard-row--banner),
+.leaderboards .leaderboard-row--strip.leaderboard-row--viewer.leaderboard-row--banner { background-color: color-mix(in srgb, var(--accent-bright) 10%, transparent); }
+.leaderboards .leaderboard-row--viewer:hover, .leaderboards .leaderboard-row--strip.leaderboard-row--viewer:hover,
+.leaderboards .leaderboard-row--table.leaderboard-row--viewer:not(.leaderboard-row--banner):hover { background-color: color-mix(in srgb, var(--accent-bright) 14%, transparent); }
+.leaderboards .leaderboard-row--viewer .leaderboard-row__strip { color: var(--text); }
+.leaderboards .leaderboard-row--viewer .leaderboard-row__value { background: color-mix(in srgb, var(--accent-bright) 18%, transparent); }
+.leaderboards .leaderboard-row--viewer::after, .leaderboards .leaderboard-row--strip.leaderboard-row--viewer::after {
+  content: ""; position: absolute; inset: auto; left: 0; top: 50%; z-index: 1; width: 3px; height: 16px; margin-top: -8px; border: 0; border-radius: 2px; background: var(--accent-bright);
+}
+/* fim Rankings */
+
+/* ---- Ranking na lateral da página do jogo: mesma régua da lista de Conquistas
+   ao lado (texto na linha dos 16px, hover 8px para fora, linhas de 52px, imagem
+   de 36px, divisória fina alinhada ao texto, link discreto embaixo) ---- */
+.leaderboard-section { padding: 0; }
+.leaderboard-controls { gap: 8px; padding: 0 0 8px; }
+.leaderboard-controls__selector { padding: 2px; background: var(--ctl-bg); border: 1px solid var(--ctl-stroke); border-radius: var(--ctl-r); }
+.leaderboard-controls__selector-indicator { border-radius: 6px; background: color-mix(in srgb, var(--text) 10%, transparent); }
+.leaderboard-controls__selector-option { height: 28px; border-radius: 6px; color: var(--text-2); font: 400 12px/16px var(--font); }
+.leaderboard-controls__selector-option:hover, .leaderboard-controls__selector-option--selected { color: var(--text); }
+.leaderboard-section__list { gap: 0; margin: 0 -8px; padding: 0; }
+.leaderboard-section .leaderboard-row, .leaderboard-section .leaderboard-row--strip { position: relative; height: 52px; gap: 12px; padding: 0 8px; border-radius: 8px; background-color: transparent; color: var(--text); transition: background-color .083s linear; }
+.leaderboard-section .leaderboard-row--strip.leaderboard-row--with-action { padding-right: 36px; }
+.leaderboard-section .leaderboard-row--strip::after { content: none; }
+.leaderboard-section .leaderboard-row__item + .leaderboard-row__item .leaderboard-row::before { content: ""; position: absolute; top: 0; left: 8px; right: 8px; height: 1px; background: var(--card-stroke); pointer-events: none; }
+.leaderboard-section .leaderboard-row:hover, .leaderboard-section .leaderboard-row--strip:hover { background-color: var(--ctl-bg); }
+.leaderboard-section .leaderboard-row:hover::before, .leaderboard-section .leaderboard-row__item:hover + .leaderboard-row__item .leaderboard-row::before { opacity: 0; }
+.leaderboard-section .leaderboard-row--viewer { background-color: var(--ctl-bg-hover); }
+.leaderboard-section .leaderboard-row__strip { width: 20px; background: transparent; color: var(--text-3); font: 400 13px/16px var(--font); font-variant-numeric: tabular-nums; box-shadow: none; }
+.leaderboard-section .leaderboard-row__strip::before, .leaderboard-section .leaderboard-row__strip::after { content: none; }
+.leaderboard-section .leaderboard-row .profile-avatar { width: 36px !important; height: 36px !important; }
+.leaderboard-section .leaderboard-row .profile-avatar__image { border-radius: 8px; box-shadow: 0 0 0 1px var(--card-stroke); }
+.leaderboard-section .leaderboard-row__name { font: 400 14px/20px var(--font); }
+.leaderboard-section .leaderboard-row__value { min-width: 0; font: 400 13px/20px var(--font); color: var(--text-2); font-variant-numeric: tabular-nums; }
+.leaderboard-section .leaderboard-row__you { height: 18px; padding: 0 6px; border: 0; border-radius: 999px; background: color-mix(in srgb, var(--accent-bright) 16%, transparent); color: var(--accent-text); font: 600 11px/18px var(--font); }
+.leaderboard-section__footer { align-items: flex-start; gap: 8px; margin: 4px 0 0; padding: 0; border: 0; }
+.leaderboard-section__see-all { height: 32px; margin-left: -8px; padding: 0 8px; border-radius: var(--ctl-r); color: var(--accent-bright); font: 600 13px/20px var(--font); text-decoration: none; transition: background .083s linear; }
+.leaderboard-section__see-all:hover { background: var(--ctl-bg); color: var(--accent-bright); text-decoration: none; }
+.leaderboard-section__see-all svg { display: none; }
+.leaderboard-section__empty { padding: 8px 0; color: var(--text-2); }
+.leaderboard-section__empty-title { color: var(--text); font-weight: 600; }
+.leaderboard-section__sign-in { margin: 8px 0 0; border: 1px dashed var(--ctl-stroke); border-radius: var(--r-control); color: var(--text-2); }
+.leaderboard-section__sign-in-button { border-radius: var(--r-control); background: var(--accent); color: var(--on-accent); font: 600 12px/16px var(--font); }
+.leaderboard-section__skeleton { padding: 0; }
+.leaderboard-section__skeleton-row { height: 52px; border-radius: var(--r-control); }
+
+@container (max-width: 520px) {
+  .leaderboard-podium { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
+  .leaderboard-podium__slot:has(.leaderboard-podium__card--gold) { grid-row: auto; }
+}
+@media (max-width: 1000px) {
+  .leaderboards__body { flex-direction: column; align-items: stretch; }
+  .leaderboards__sidebar { position: static; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .leaderboard-podium__card:hover { transform: none; } }
