@@ -1552,3 +1552,24 @@ body::after {
   color: var(--ast-pink-soft) !important;
   font-weight: 700;
 }
+
+/* ===== Menu do perfil (barra lateral): Ver perfil, Notificações, Amigos, Sair ===== */
+.sidebar-profile__dropdown {
+  background-color: rgb(88, 63, 64) !important;
+  background-image: none !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-profile__dropdown-item:hover {
+  background-color: var(--ast-active) !important;
+  color: var(--ast-pink-soft) !important;
+}
+
+/* Contadores do menu (trocam o verde padrão) */
+.sidebar-profile__dropdown-badge {
+  background-color: var(--ast-pink) !important;
+  color: #2a0f12 !important;
+}
