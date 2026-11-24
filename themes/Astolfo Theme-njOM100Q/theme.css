@@ -30,6 +30,11 @@
   /* >>> FONTE: troque só esta linha <<< */
   --ast-font-body: "Segoe Print", "Ink Free", "Comic Sans MS", cursive;
 
+  /* Camadas (z-index) */
+  --ast-z-menu-host: 60;     /* contêiner que abriga um menu, acima da grade de jogos */
+  --ast-z-menu: 9999;        /* menus suspensos (Ordenar por, Plataformas) */
+  --ast-z-label: 100000;     /* selo "Astolfo" no canto superior */
+
   /* Painéis do perfil e das avaliações */
   --ast-solid: var(--ast-panel);            /* painéis grandes (igual ao filtro do Catálogo) */
   --ast-solid-2: var(--ast-panel-dark);     /* cards e campos dentro dos painéis */
@@ -1023,11 +1028,11 @@ main :where(h1, h2, h3, h4, p, label, small, span) {
 /* Tudo que contém o menu sobe acima da grade de jogos */
 main :has(.filter-dropdown__menu) {
   position: relative;
-  z-index: 60;
+  z-index: var(--ast-z-menu-host);
 }
 
 .filter-dropdown__menu {
-  z-index: 9999 !important;
+  z-index: var(--ast-z-menu) !important;
   background-color: rgb(38, 21, 25) !important;
   background-image: none !important;
   border: 1px solid var(--ast-border) !important;
@@ -1230,48 +1235,46 @@ main :has(.filter-dropdown__menu) {
   line-height: 1.4;
 }
 
-/* ===== "Sobre este jogo": título e texto no mesmo recuo ===== */
-/* O título tem "description" no nome, então a regra da página do jogo dava a ele fundo e borda
-   próprios (uma caixa colada no texto). Aqui ele vira texto solto e a caixa é a do conteúdo. */
-/* O título fica na mesma coluna da caixa de texto (800px centralizados), em vez de
-   encostar na lateral da página */
+/* ===== "Sobre este jogo": título e texto ===== */
+/* O título tem "description" no nome. Aqui ele vira uma barra com fundo, na mesma coluna
+   da caixa de texto (800px centralizados). */
 #root .game-details__description-title {
   display: block;
   box-sizing: border-box !important;
   width: min(800px, 100%) !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
+  background-color: rgba(26, 15, 18, 0.62) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  padding: 10px 20px !important;
   margin: 0 auto 12px !important;
-  backdrop-filter: none !important;
+  backdrop-filter: blur(6px) !important;
   box-shadow: none !important;
 }
 
-/* Caixa do texto: fundo um pouco mais escuro */
+/* Caixa do texto: fundo mais escuro e margem interna para o texto respirar */
 #root .game-details__description {
+  box-sizing: border-box !important;
   background-color: rgba(26, 15, 18, 0.62) !important;
+  padding: 22px 28px !important;
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  text-align: left;
 }
 
-/* Texto com recuo dentro da caixa (as imagens continuam de ponta a ponta) */
-#root .game-details__description .bb_paragraph:not(:has(.bb_img_ctn)),
+/* Texto mais fácil de ler: sem sombra, parágrafos separados */
+#root .game-details__description,
+#root .game-details__description * {
+  text-shadow: none !important;
+}
+
 #root .game-details__description .bb_tag {
-  box-sizing: border-box;
-  padding-left: 22px !important;
-  padding-right: 22px !important;
-}
-
-#root .game-details__description > :first-child {
-  padding-top: 18px !important;
-}
-
-#root .game-details__description .bb_tag {
-  margin: 18px 0 8px !important;
+  margin: 22px 0 10px !important;
 }
 
 #root .bb_paragraph {
-  margin: 0 !important;
-  line-height: 1.6;
+  margin: 0 0 14px !important;
+  line-height: 1.8;
 }
 
 /* ===== Alinhamento dos textos ===== */
@@ -1294,6 +1297,12 @@ main :has(.filter-dropdown__menu) {
 
 /* "Lançado em / Publicado por" */
 #root .description-header__info {
+  /* sem caixa própria: a caixa é a da barra que o envolve (evita caixa dentro de caixa) */
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
   box-sizing: border-box !important;
   padding: 12px 18px !important;
   line-height: 1.6;
@@ -1352,7 +1361,7 @@ body::after {
   height: 40px;
   display: flex;
   align-items: center;
-  z-index: 100000;
+  z-index: var(--ast-z-label);
   pointer-events: none;
   font-family: var(--ast-font-body);
   font-size: 15px;
@@ -1572,4 +1581,24 @@ body::after {
 .sidebar-profile__dropdown-badge {
   background-color: var(--ast-pink) !important;
   color: #2a0f12 !important;
+}
+
+/* ===== Página do jogo: coluna da direita (Conquistas, Ranking...) ===== */
+/* Uma caixa só por seção, igual aos filtros do Catálogo; o que está dentro fica solto. */
+#root .sidebar-section {
+  box-sizing: border-box;
+  background-color: var(--ast-panel) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  backdrop-filter: blur(6px);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+#root .sidebar-section :is([class*="sidebar-section__"], [class*="achievement"]):not(img):not([class*="progress"]):not([class*="thumb"]) {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
 }
