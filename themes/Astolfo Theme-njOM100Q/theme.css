@@ -865,12 +865,6 @@ html body option {
   font-family: var(--ast-font-body) !important;
 }
 
-/* Mantem os icones com suas fontes/desenhos originais. */
-html body #root svg,
-html body #root svg * {
-  font-family: inherit;
-}
-
 /* ===== Fontes de download: cards mais opacos ===== */
 /* Aumenta a opacidade do cartão inteiro sem alterar o wallpaper. */
 .settings-download-sources__item {
@@ -1601,4 +1595,46 @@ body::after {
   border-radius: 0 !important;
   backdrop-filter: none !important;
   box-shadow: none !important;
+}
+
+/* ===== Configuração inicial: cartão de aviso (mesmo visual dos painéis do tema) ===== */
+.setup-modal__row-card {
+  background-color: var(--ast-hover) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+}
+
+.setup-modal__row-icon--warn {
+  background-color: transparent !important;
+  color: var(--ast-pink) !important;
+}
+
+.setup-modal__row-title { color: var(--ast-pink-soft) !important; }
+.setup-modal__row-path { color: var(--ast-text) !important; opacity: 0.8; }
+
+/* Janela de configuração: cartões de download iguais aos painéis do tema */
+.setup-modal { border: none !important; }
+
+.setup-modal__download-card {
+  background-color: var(--ast-hover) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+}
+
+.setup-modal__download-card:hover { border-color: var(--ast-pink) !important; }
+
+.setup-modal__download-card-badge {
+  background-color: var(--ast-active) !important;
+  color: var(--ast-pink) !important;
+  border-radius: 12px !important;
+}
+
+.setup-modal__download-card-title { color: var(--ast-pink-soft) !important; }
+.setup-modal__download-card-desc,
+.setup-modal__download-card-url { color: var(--ast-muted) !important; }
+
+.setup-modal__download-divider {
+  border-color: var(--ast-divider) !important;
+  background-color: var(--ast-divider) !important;
 }
