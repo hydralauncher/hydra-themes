@@ -1638,3 +1638,27 @@ body::after {
   border-color: var(--ast-divider) !important;
   background-color: var(--ast-divider) !important;
 }
+
+/* ===== Escolha de disco (drive-card) ===== */
+.drive-card {
+  background-color: var(--ast-panel-dark) !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 14px !important;
+  color: var(--ast-text) !important;
+}
+
+.drive-card:hover,
+.drive-card[class*="--"] { border-color: var(--ast-pink) !important; }
+
+.drive-card__icon { color: var(--ast-pink) !important; }
+.drive-card__label { color: var(--ast-pink-soft) !important; }
+.drive-card__space { color: var(--ast-muted) !important; }
+
+.drive-card__bar {
+  background-color: rgba(255, 248, 225, 0.12) !important;
+  border-radius: 999px !important;
+  overflow: hidden;
+}
+
+.drive-card__bar-used { background-color: var(--ast-pink-dim) !important; }
+.drive-card__bar-game { background-color: var(--ast-cream) !important; }
