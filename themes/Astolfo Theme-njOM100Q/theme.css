@@ -1662,3 +1662,52 @@ body::after {
 
 .drive-card__bar-used { background-color: var(--ast-pink-dim) !important; }
 .drive-card__bar-game { background-color: var(--ast-cream) !important; }
+
+/* ===== Janela de download: lista de Downloader ===== */
+/* Cada opção é um cartão separado, igual ao cartão de repack da janela "Opções de download".
+   A caixa que envolve a lista fica sem fundo (antes aparecia um retângulo escuro atrás dos cantos). */
+:has(> .download-settings-modal__downloader-item) {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.download-settings-modal__downloader-item {
+  box-sizing: border-box;
+  background-color: var(--ast-panel-dark) !important;
+  background-image: none !important;
+  border: 1px solid var(--ast-border) !important;
+  border-radius: 12px !important;
+  color: var(--ast-text) !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+.download-settings-modal__downloader-item:hover {
+  background-color: var(--ast-hover) !important;
+  border-color: var(--ast-pink-dim) !important;
+}
+
+.download-settings-modal__downloader-item--selected,
+.download-settings-modal__downloader-item--selected:hover {
+  background-color: var(--ast-active) !important;
+  border-color: var(--ast-pink) !important;
+  box-shadow: none !important;
+}
+
+.download-settings-modal__downloader-name {
+  color: var(--ast-text) !important;
+}
+
+.download-settings-modal__downloader-item--selected .download-settings-modal__downloader-name {
+  color: var(--ast-pink-soft) !important;
+}
+
+.download-settings-modal__check-icon {
+  color: var(--ast-pink) !important;
+}
